@@ -1,0 +1,115 @@
+{
+ "id": "L7",
+ "at": "20261102T050510Z",
+ "seconds": 7.3,
+ "endpoint": "/v1/scrape/marianos/search",
+ "request": {
+  "query": "cereal",
+  "price_range": "2.00-5.00",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "the documented price_range form acts with a non-zero lower bound",
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "ledger": "OXP-L-f6ddff",
+ "request_id": "7522886504130059265",
+ "problem": {
+  "state": "done"
+ },
+ "result_metadata": {
+  "page": 1,
+  "run_js": false,
+  "url": "https://www.marianos.com/search?price=2.00-5.00&query=cereal",
+  "statuses": {
+   "http_request": {
+    "code": 200,
+    "tag": "HTTP_OK"
+   }
+  }
+ },
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "brand": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "price_range": "2.00-5.00",
+  "query": "cereal",
+  "store_id": "53100502"
+ },
+ "body_sha256": "79a2c612097df504c896d78522f2aa2590093fcb2da0674bb4c487665dc321b1",
+ "analysis": {
+  "chars": 1871047,
+  "requestVars": {
+   "query": "cereal",
+   "page": 1,
+   "fulfillment": "all",
+   "locationId": "53100502",
+   "activeModalityType": "PICKUP",
+   "price": "2.00-5.00"
+  },
+  "summary": {
+   "query": "cereal",
+   "page": 1,
+   "location_id": "53100502",
+   "modality": "PICKUP",
+   "total": 511,
+   "available": 250,
+   "upcs": [
+    "0001600012399",
+    "0088491248176",
+    "0001600015163",
+    "0001600012254",
+    "0001600012479",
+    "0003000006322",
+    "0088491212971",
+    "0088491212951",
+    "0088491235915",
+    "0088491235916",
+    "0004240026521",
+    "0001600027532",
+    "0001111086705",
+    "0003000057322",
+    "0001600012685",
+    "0001111013876",
+    "0088491211762",
+    "0088491200672",
+    "0088491235948",
+    "0004240040758",
+    "0088491227310",
+    "0003000057331",
+    "0001600012025",
+    "0004240093978"
+   ],
+   "sponsored": [
+    "0001600012399",
+    "0088491248176",
+    "0001600015163",
+    "0003000006322",
+    "0004240026521",
+    "0001600012685"
+   ],
+   "ways_to_shop": [
+    "pickup"
+   ]
+  },
+  "state_products": 24,
+  "price_locations": [
+   "53100502"
+  ]
+ }
+}

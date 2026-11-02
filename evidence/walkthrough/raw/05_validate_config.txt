@@ -1,0 +1,66 @@
+# command: bash -c bash /c/m6/tools/q180.sh validate-config --check-db | bash /c/m6/walk/show.sh result -
+# started: 2026-11-02T13:05:29Z
+{
+ "config": "C:\\m6\\q180\\config\\collector.yaml",
+ "categories_csv": {
+  "path": "C:\\m6\\q180\\config\\Marianos_Category_URLs.csv",
+  "rows": 28,
+  "sha256": "606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4"
+ },
+ "stores": [
+  {
+   "key": "marianos-53100502-pickup",
+   "enabled": true,
+   "store_id": "53100502",
+   "zipcode": "60061",
+   "name": "Marianos Vernon Hills",
+   "address": "1720 N Milwaukee Ave",
+   "fulfillment": "PICKUP",
+   "categories": [
+    "Pet Supplies",
+    "Candles Home Fragrances",
+    "Batteries",
+    "Light Bulbs",
+    "School Office",
+    "Hardware Home Improvement"
+   ],
+   "limits": {
+    "max_run_minutes": 2880,
+    "max_segment_minutes": 300,
+    "max_credits_per_run": 95,
+    "min_credit_reserve": 0
+   },
+   "pilot_by_limits": false,
+   "schedule": {
+    "enabled": false,
+    "weekdays": [
+     0,
+     3
+    ],
+    "start_time": "07:00",
+    "window_start": null,
+    "window_end": "19:00",
+    "start_date": null,
+    "end_date": null,
+    "continue_unfinished": true,
+    "backlog_first": true,
+    "cron_utc": "0 12,13 * * 1,4",
+    "offsets": {
+     "january": "local 07:00 = 13:00 UTC (UTC-0600)",
+     "july": "local 07:00 = 12:00 UTC (UTC-0500)"
+    },
+    "timezone": "America/Chicago",
+    "cron_utc_with_continuation": "*/30 * * * *",
+    "next_local_start": null
+   }
+  },
+  {
+   "key": "marianos-53100503-instore",
+   "enabled": true,
+   "store_id": "53100503",
+   "zipcode": "60601",
+   "name": "Marianos Lakeshore East",
+... (87 more lines in the saved output)
+exit_code 0
+# exit: 0
+# ended: 2026-11-02T13:05:32Z

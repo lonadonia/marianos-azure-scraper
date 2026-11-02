@@ -1,0 +1,309 @@
+{
+ "campaign_id": "offline-replay",
+ "dispatches": [
+  {
+   "attempt": 1,
+   "billing": "documented_billable",
+   "confirmed_basis": null,
+   "confirmed_unit": null,
+   "confirmed_value": null,
+   "estimated_usd": "0.0015",
+   "finished_at": "2026-11-02T15:22:09.452757+00:00",
+   "job_id": "job-synthetic",
+   "note": "ok",
+   "parser_status": null,
+   "payload_sha256": "8b33105ce960e661be9ff86ac660cd643ff76d6d9da50c3539d045ac1b1ce036",
+   "provider_status": 200,
+   "purpose": "result page 1 of the store's Pickup search: store, fulfillment, products and their store prices",
+   "request_class": "marianos_search",
+   "reserved_at": "2026-11-02T15:22:09.136115+00:00",
+   "reserved_usd": "0.0020",
+   "retailer": "marianos",
+   "retailer_status": 200,
+   "seq": 1,
+   "state": "answered",
+   "step": "marianos-search-p1"
+  },
+  {
+   "attempt": 1,
+   "billing": "documented_billable",
+   "confirmed_basis": null,
+   "confirmed_unit": null,
+   "confirmed_value": null,
+   "estimated_usd": "0.0020",
+   "finished_at": "2026-11-02T15:22:09.470522+00:00",
+   "job_id": "job-synthetic",
+   "note": "ok",
+   "parser_status": null,
+   "payload_sha256": "fba35b6606961c4d52a0011c3776a9fd6c7b9235b805d496167476779de6b208",
+   "provider_status": 200,
+   "purpose": "the product's own page for the store's Pickup: identity, store of its prices, fulfillment",
+   "request_class": "marianos_product",
+   "reserved_at": "2026-11-02T15:22:09.461262+00:00",
+   "reserved_usd": "0.0020",
+   "retailer": "marianos",
+   "retailer_status": 200,
+   "seq": 2,
+   "state": "answered",
+   "step": "marianos-product"
+  },
+  {
+   "attempt": 1,
+   "billing": "documented_billable",
+   "confirmed_basis": null,
+   "confirmed_unit": null,
+   "confirmed_value": null,
+   "estimated_usd": "0.0015",
+   "finished_at": "2026-11-02T15:22:09.904264+00:00",
+   "job_id": "job-synthetic",
+   "note": "ok",
+   "parser_status": null,
+   "payload_sha256": "6e004785a0fe4f34bc43c51858a8882d1f85d2067474a71a9622ff59dd0629b9",
+   "provider_status": 200,
+   "purpose": "a required category page by its URL alone: is it served for the store and Pickup at all (undocumented)",
+   "request_class": "url_only",
+   "reserved_at": "2026-11-02T15:22:09.475522+00:00",
+   "reserved_usd": "0.0015",
+   "retailer": "marianos",
+   "retailer_status": 200,
+   "seq": 3,
+   "state": "answered",
+   "step": "marianos-category-url"
+  }
+ ],
+ "events": [
+  {
+   "at": "2026-11-02T15:22:09.456803+00:00",
+   "detail": "marianos-search-p2: marianos_search documents no start_page or pages parameter; a page-2 URL could only be sent by URL alone, without store_id or fulfillment_type. Not sent: listing pagination through Classic is an open gap.",
+   "kind": "SKIPPED",
+   "seq": 1
+  }
+ ],
+ "ledger_genesis_id": "13a0567bd51d464faed172fa541e2c70",
+ "limits": {
+  "billing_headroom_usd": "0.50",
+  "campaign_minutes": 30,
+  "export_reserve_seconds": 180,
+  "per_retailer_requests": 10,
+  "retailers": [
+   "walmart",
+   "marianos"
+  ],
+  "total_requests": 20,
+  "total_usd": "5.00"
+ },
+ "offline": true,
+ "responses": [
+  {
+   "file": "response_001.json.gz",
+   "headers": {},
+   "kept_sha256": "f88483f347d7e97db34550d088c05eae81204bff3a9790370539df5881acaf6c",
+   "original_sha256": "bad7eb51ba47dffe1b7ef62551f225766b675aead601666710b3218348cff0c0",
+   "raw_pages": [
+    {
+     "data_uris_replaced": 39,
+     "input_sha256": "268a882dbe9adc46b9c71097ddde73cae745332b44536857a26e3c23354a7222",
+     "output_sha256": "268a882dbe9adc46b9c71097ddde73cae745332b44536857a26e3c23354a7222",
+     "result": 0,
+     "scripts_removed": 0,
+     "state_script_kept": true,
+     "styles_emptied": 0
+    }
+   ],
+   "sanitized": true,
+   "seq": 1
+  },
+  {
+   "file": "response_002.json.gz",
+   "headers": {},
+   "kept_sha256": "62780f978f5b8136234cec9b51db53fa9d5d4e790f88a57a304a446bd9bf3d07",
+   "original_sha256": "1de832b1c82dcc87d77bdd70b4db8c83e28900da4914a277715ec6d8d508fed7",
+   "raw_pages": [
+    {
+     "data_uris_replaced": 0,
+     "input_sha256": "df7bf3ac456f53fe00f922408a8bf1ab300e64555b8ff2e40e00d1641b2344d1",
+     "output_sha256": "df7bf3ac456f53fe00f922408a8bf1ab300e64555b8ff2e40e00d1641b2344d1",
+     "result": 0,
+     "scripts_removed": 0,
+     "state_script_kept": true,
+     "styles_emptied": 0
+    }
+   ],
+   "sanitized": true,
+   "seq": 2
+  },
+  {
+   "file": "response_003.json.gz",
+   "headers": {},
+   "kept_sha256": "572c4b435a19d5e26a6445867ef6e0a6440a40926d490cd02db2b566bed223f4",
+   "original_sha256": "8b8ebc6e310b38003ed877a097753f219e7a91cca2bda90eacac99d6ba2f222f",
+   "raw_pages": [
+    {
+     "data_uris_replaced": 15,
+     "input_sha256": "b5f88112e1174f0f4a535f310c149f1fcb8a58a91f51397f0bbd20bf3e6b8a0e",
+     "output_sha256": "b5f88112e1174f0f4a535f310c149f1fcb8a58a91f51397f0bbd20bf3e6b8a0e",
+     "result": 0,
+     "scripts_removed": 0,
+     "state_script_kept": true,
+     "styles_emptied": 0
+    }
+   ],
+   "sanitized": true,
+   "seq": 3
+  }
+ ],
+ "result": {
+  "campaign_id": "offline-replay",
+  "cleanup_errors": [],
+  "detail": "",
+  "export_errors": [],
+  "out_dir": "C:\\m6\\ev\\probe_x19\\replay_marianos",
+  "retailer": "marianos",
+  "steps": [
+   {
+    "attempts": [
+     {
+      "attempt": 1,
+      "billing": "documented_billable",
+      "detail": "",
+      "estimated_usd": "0.0015",
+      "facts": {
+       "available": 250,
+       "page": 1,
+       "product_stores": [
+        "53100502"
+       ],
+       "ranked_upcs": [
+        "0001600012254",
+        "0001600012479",
+        "0088491212971",
+        "0001600012399",
+        "0088491212951",
+        "0088491235915",
+        "0088491248176",
+        "0088491235916",
+        "0001600015163",
+        "0001600027532",
+        "0001111086705",
+        "0003000057322",
+        "0003000006322",
+        "0001111013876",
+        "0004240026521",
+        "0088491211762",
+        "0088491200672",
+        "0088491235948",
+        "0004240040758",
+        "0088491227310",
+        "0001600012685",
+        "0003000057331",
+        "0001600012025",
+        "0004240093978"
+       ],
+       "request_location_id": "53100502",
+       "request_modality": "PICKUP",
+       "selected_location_id": "53100502",
+       "selected_modality": "PICKUP",
+       "sponsored_upcs": [],
+       "total": 511
+      },
+      "outcome": "ok",
+      "parser_status": null,
+      "provider_status": 200,
+      "reserved_usd": "0.0020",
+      "retailer_statuses": [
+       200
+      ],
+      "seq": 1
+     }
+    ],
+    "payload": {
+     "fulfillment_type": "pickup",
+     "query": "cereal",
+     "source": "marianos_search",
+     "store_id": "53100502"
+    },
+    "purpose": "result page 1 of the store's Pickup search: store, fulfillment, products and their store prices",
+    "query_string": "",
+    "step": "marianos-search-p1"
+   },
+   {
+    "attempts": [
+     {
+      "attempt": 1,
+      "billing": "documented_billable",
+      "detail": "",
+      "estimated_usd": "0.0020",
+      "facts": {
+       "product_price_location_id": "53100502",
+       "products_in_state": [
+        "0001600012254"
+       ],
+       "selected_location_id": "53100502",
+       "selected_modality": "PICKUP"
+      },
+      "outcome": "ok",
+      "parser_status": null,
+      "provider_status": 200,
+      "reserved_usd": "0.0020",
+      "retailer_statuses": [
+       200
+      ],
+      "seq": 2
+     }
+    ],
+    "payload": {
+     "fulfillment_type": "pickup",
+     "product_id": "0001600012254",
+     "source": "marianos_product",
+     "store_id": "53100502"
+    },
+    "purpose": "the product's own page for the store's Pickup: identity, store of its prices, fulfillment",
+    "query_string": "",
+    "step": "marianos-product"
+   },
+   {
+    "attempts": [
+     {
+      "attempt": 1,
+      "billing": "documented_billable",
+      "detail": "",
+      "estimated_usd": "0.0015",
+      "facts": {
+       "products": 31,
+       "selected_location_id": "53100502",
+       "selected_modality": "PICKUP",
+       "total": null
+      },
+      "outcome": "ok",
+      "parser_status": null,
+      "provider_status": 200,
+      "reserved_usd": "0.0015",
+      "retailer_statuses": [
+       200
+      ],
+      "seq": 3
+     }
+    ],
+    "payload": {
+     "url": "https://www.marianos.com/pl/cereal-granola/03001"
+    },
+    "purpose": "a required category page by its URL alone: is it served for the store and Pickup at all (undocumented)",
+    "query_string": "",
+    "step": "marianos-category-url"
+   }
+  ],
+  "stop": null
+ },
+ "totals": {
+  "committed_usd": "0.0055",
+  "confirmed_usd": "0",
+  "dispatched_by_retailer": {
+   "marianos": 3
+  },
+  "dispatched_total": 3,
+  "estimated_usd": "0.0050",
+  "other_units": {},
+  "reserved_unconfirmed_usd": "0.0055",
+  "unknown_billing": 0
+ }
+}

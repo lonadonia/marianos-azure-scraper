@@ -1,0 +1,124 @@
+{
+ "id": "D14",
+ "at": "20261102T152321Z",
+ "department": "14",
+ "slug": "bakery",
+ "slug_known": false,
+ "url": "https://www.marianos.com/pl/bakery/14",
+ "ledger": "OXP-D-59b9d6",
+ "seconds": 9.4,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523042075122601985",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "47814656dbd5aa33ae1c3a1603c9cf6ed7da9bb31cde70267a5650107a006524",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 331,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 33,
+ "departments": [
+  {
+   "id": "14",
+   "name": "Bakery",
+   "slug": "bakery",
+   "count": 331,
+   "categories": [
+    {
+     "id": "14160",
+     "name": "Cakes & Cupcakes",
+     "count": 66,
+     "subcategories": 0
+    },
+    {
+     "id": "14166",
+     "name": "Donuts, Danishes, & Muffins",
+     "count": 47,
+     "subcategories": 0
+    },
+    {
+     "id": "14187",
+     "name": "Cookies",
+     "count": 44,
+     "subcategories": 0
+    },
+    {
+     "id": "14169",
+     "name": "Pies",
+     "count": 31,
+     "subcategories": 0
+    },
+    {
+     "id": "14181",
+     "name": "Sandwich Bread, Buns and Rolls",
+     "count": 28,
+     "subcategories": 0
+    },
+    {
+     "id": "14162",
+     "name": "Artisan Breads",
+     "count": 26,
+     "subcategories": 0
+    },
+    {
+     "id": "14165",
+     "name": "Brownies",
+     "count": 18,
+     "subcategories": 0
+    },
+    {
+     "id": "14185",
+     "name": "Specialty Breads and Rolls",
+     "count": 17,
+     "subcategories": 0
+    },
+    {
+     "id": "14182",
+     "name": "Dinner Bread and Rolls",
+     "count": 15,
+     "subcategories": 0
+    },
+    {
+     "id": "14180",
+     "name": "Sweet Goods & Snacks",
+     "count": 14,
+     "subcategories": 0
+    },
+    {
+     "id": "14184",
+     "name": "Bread by Lifestyle",
+     "count": 10,
+     "subcategories": 0
+    },
+    {
+     "id": "14161",
+     "name": "Angel Food, Pound, & Pudding Cakes",
+     "count": 9,
+     "subcategories": 0
+    },
+    {
+     "id": "14183",
+     "name": "Breakfast Breads",
+     "count": 7,
+     "subcategories": 0
+    },
+    {
+     "id": "14186",
+     "name": "Specialty Butters and Spreads",
+     "count": 6,
+     "subcategories": 0
+    },
+    {
+     "id": "14164",
+     "name": "Cheesecakes",
+     "count": 5,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

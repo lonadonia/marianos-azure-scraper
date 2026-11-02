@@ -1,0 +1,69 @@
+{
+ "id": "L5",
+ "at": "20261102T050443Z",
+ "seconds": 18.5,
+ "endpoint": "/v1/scrape/marianos",
+ "request": {
+  "url": "https://www.marianos.com/pb/general-mills/cereal-granola/03001",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "/pb/:brandSlug/:taxonomySlug/:taxonomyId (retailer route table) is served",
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "ledger": "OXP-L-4ad1ae",
+ "request_id": "7522886394792930305",
+ "problem": {
+  "state": "done"
+ },
+ "result_metadata": {
+  "page": 1,
+  "run_js": false,
+  "url": "https://www.marianos.com/pb/general-mills/cereal-granola/03001",
+  "statuses": {
+   "http_request": {
+    "code": 200,
+    "tag": "HTTP_OK"
+   }
+  }
+ },
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "store_id": "53100502",
+  "url": "https://www.marianos.com/pb/general-mills/cereal-granola/03001"
+ },
+ "body_sha256": "11bb928538ffb04e2789d27b4b4cc393cade3f90014e52755fd4441f22795dc4",
+ "analysis": {
+  "chars": 119218,
+  "requestVars": {},
+  "summary": {
+   "query": null,
+   "page": null,
+   "location_id": null,
+   "modality": null,
+   "total": null,
+   "available": null,
+   "upcs": [],
+   "sponsored": [],
+   "ways_to_shop": []
+  },
+  "state_products": 0,
+  "price_locations": []
+ }
+}

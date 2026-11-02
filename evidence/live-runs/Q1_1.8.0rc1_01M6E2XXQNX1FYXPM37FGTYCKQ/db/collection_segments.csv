@@ -1,0 +1,2 @@
+id,run_id,store_id,trigger,day,started_at,heartbeat_at,ended_at,active_s,credits_estimated,browser_sessions,browsers_closed,steps,products_verified,account_remaining_start,account_remaining_end,stop_code,stop_detail,end_state,recovered_at
+01M6E2XXXB6AAR9E8PQEP2N6WP,01M6E2XXQNX1FYXPM37FGTYCKQ,01M6E2X1F1NS7Z1613JYZEKP0C,manual,2026-11-02,2026-11-02T12:14:46.185187+00:00,2026-11-02T12:17:07.138513+00:00,2026-11-02T12:17:07.138513+00:00,140.79699999999139,3.0,1,1,2,24,200,197,CANARY_CHECK_FAILED,1 valid records differ from the site's product data,ended,

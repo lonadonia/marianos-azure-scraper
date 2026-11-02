@@ -1,0 +1,2 @@
+id,run_id,scope,ref,gate,severity,code,message,metrics,created_at
+01M6E53AVRGFDG2Q5HHM700GNN,01M6E49AHDXSQA04JQZ0HZ40GH,run,,G14,FAIL,CONTEST_NOT_READY,351 valid records,{},2026-11-02T12:52:40.157015+00:00

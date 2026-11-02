@@ -1,0 +1,234 @@
+upc,product_title,size_slot_observed,product_data_quantity,product_data_unit,package_weight,weight_exported_170,rule_180,class_180,weight_exported_180,change
+0000000004023,Fresh Seedless Red Grapes,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0000000004022,Fresh Seedless Green Grapes,1 lb,20,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0000000004035,Fresh Yellow Nectarine,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0000000004067,Zucchini,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0000000004080,Green Asparagus,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0000000004066,Fresh Bagged Green Beans,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0001111061240,Simple Truth Organic® Broccoli Florets,12 oz,6,OUNCES,0.75 [lb_av],12 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0007127930919,Fresh Express® Chopped Caesar Salad Kit,10.4 oz,9.4,OUNCES,0.65 [lb_av],10.4 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0073679800140,Avocado Green Goddess Dip & Spread 8 oz.,2 tbsp,8,OUNCES,0.5 [lb_av],2 tbsp,R3,serving_replaced,8 oz,replaced
+0073231300197,Crunch Pak PLD Foodles ACC Disney 3.85oz,3.85 oz,4.75,OUNCES,0.24 [lb_av],3.85 oz,R4,displayed_kept,3.85 oz,unchanged
+0007432912338,Oh Snap!® Dilly Bites® Fresh Dill Pickle Snack Pack,3.25 fl oz,3.5,OUNCES,0.21 [lb_av],3.25 fl oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0007432912325,Oh Snap!® Sassy Bites™ Sweet N' Spicy Pickle Snack Pack,3.25 fl oz,3.5,OUNCES,0.21 [lb_av],3.25 fl oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0007432912339,OH SNAP! Hottie Bites Hot N' Spicy Pickle Snack Pack 3.25oz,3.25 oz,3.5,OUNCES,0.21 [lb_av],3.25 oz,R4,displayed_kept,3.25 oz,unchanged
+0003760052381,Hormel Gatherings® Salami and Olives with Cheese and Crackers Supreme Deli Party Tray,39.7 oz,2.48,OUNCES,2.48 [lb_av],39.7 oz,R4,displayed_kept,39.7 oz,unchanged
+0001111065054,Simple Truth® Large Shrimp Tray with Cocktail Sauce,7 ounces,11,OUNCES,0.69 [lb_av],7 ounces,R4,replaced,11 oz,replaced
+0001111069742,Kroger® Cooked Medium Tail On Peeled and Deveined Shrimp with Cocktail Sauce,13 oz,17,OUNCES,1.06 [lb_av],13 oz,R4,replaced,17 oz,replaced
+0020235300000,Beef Choice Angus Round Sirloin Tip Steak Thin (About 3 Steaks per Pack),1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0020235000000,Choice Round Sirloin Tip Beef Steaks (1-2 per Pack),1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0021198350000,Choice Angus Beef New York Strip Steak,1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0020158100000,Beef Choice Flank Steak (1 Steak),1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0023202450000,Ribeye Steaks (limit 5 At Sale Price),1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0022191200000,Beef Choice Angus Chuck Eye Steak (2 per Pack),1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0024202450000,Choice Boneless Angus Ribeye Beef Steak,1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0021189300000,Choice Angus Beef Chuck Steak (1 Steak),1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0023236800000,Beef Choice Angus Top Round Steak,1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0028334900000,Heritage Farm® Boneless Skinless Chicken Breasts,1 lb,1,POUNDS,4.63 [lb_av],,R5,unit_denominator,,unchanged
+0025313400000,Heritage Farm® Boneless Skinless Chicken Tenderloins,1 lb,1,POUNDS,2.0 [lb_av],,R5,unit_denominator,,unchanged
+0025093600000,PERDUE® Fresh Boneless Skinless Chicken Breast Tenderloins,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0025074900000,PERDUE® Fresh Boneless Skinless Chicken Breasts,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0025080800000,PERDUE® Fresh Chicken Drumsticks,1 lb,1.66,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0025064500000,PERDUE® Fresh Chicken Thighs,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0025313650000,Heritage Farm® Boneless Skinless Chicken Thighs,1 lb,0,POUNDS,2.99 [lb_av],,R5,unit_denominator,,unchanged
+0028334750000,Heritage Farm® Bone In Skin On Chicken Thighs,1 lb,5.22,POUNDS,5.22 [lb_av],,R5,unit_denominator,,unchanged
+0027061550000,PERDUE® Fresh Boneless Skinless Chicken Breasts Value Pack,1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0020322450000,Kroger® Fresh Natural Pork Loin Boneless,1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0022316600000,Pork Shoulder Steak,1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0020335800000,Kroger® Fresh Natural Pork Tenderloin,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0025338300000,Kroger® Natural Bone-In Pork Shoulder Steaks (3 per pack),1 lb,1,POUNDS,3.25 [lb_av],,R5,unit_denominator,,unchanged
+0022331000000,Kroger® Fresh Natural Pork Country Ribs Bone In Small Pack,1 lb,1,POUNDS,2.88 [lb_av],,R5,unit_denominator,,unchanged
+0021862850000,Kroger® Natural Fresh Coppa Pork Shoulder Steak (Two Pack),1 lb,1,POUNDS,1.3 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0007080074210,Smithfield Marinated Portobello Mushroom Fresh Pork Loin Filet,23 oz,27.2,OUNCES,1.43 [lb_av],23 oz,R4,displayed_kept,23 oz,unchanged
+0021358400000,Private Selection® Natural Duroc Pork Shoulder Roast Boneless,1 lb,1,POUNDS,2.5 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0029315750000,Bone-In Pork Loin Center-Cut Thick Chops,1 lb,1,POUNDS,1.66 [lb_av],,R5,unit_denominator,,unchanged
+0004420086008,Cook’s Hickory Ham Steak,1 lb,1.18,POUNDS,1.18 [lb_av],1 lb,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0022582900000,Private Selection® Oven Roasted Deli Turkey Breast Sliced,1 lb,1,POUNDS,1.0 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0029001100000,Dutch Brand Smoked Cut Turkey Wings,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0029001800000,Smoked Turkey Tails,1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0021295540000,Butcher Counter Lamb Loin Chops,1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0021295500000,Lamb Chops,1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0002781530042,"Eckrich Natural Casing Smoked Sausage Rope, 13 oz",13 oz,14,OUNCES,0.81 [lb_av],13 oz,R4,displayed_kept,13 oz,unchanged
+0004470036002,Lunchables Light Bologna & American Cheese Cracker Stackers Kids Snack Kit,3.1 OZ,4.15,OUNCES,0.19 [lb_av],3.1 OZ,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0004470010470,"Lunchables Uploaded Turkey and Cheddar Sub Sandwich Snack Kit, Box",16.1 OZ,15,OUNCES,0.97 [lb_av],16.1 OZ,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001111065011,Kroger® Medium Shrimp Small Tray with Cocktail Sauce,7 ounces,11,OUNCES,0.69 [lb_av],7 ounces,R4,replaced,11 oz,replaced
+0081011172215,Spicy Shrimp and Cucumber Roll Sushi,14 oz,6,OUNCES,0.88 [lb_av],14 oz,R4,displayed_kept,14 oz,unchanged
+0081011172211,Spicy Krab and Eggplant Roll Sushi,14 oz,6,OUNCES,0.88 [lb_av],14 oz,R4,displayed_kept,14 oz,unchanged
+0022583100000,Private Selection® Mesquite Smoked Deli Turkey Breast Sliced,1 lb,1,POUNDS,1.0 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0026583360000,Sliced Cajun Style Turkey Breast Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0022573700000,Private Selection® Uncured Black Forest Deli Ham Sliced,1 lb,1,POUNDS,1.0 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0022593800000,Private Selection® Wildflower Honey Deli Turkey Breast Sliced,1 lb,1,POUNDS,1.0 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0026582720000,Dietz & Watson Sliced Oven Roasted Homestyle Turkey Breast Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0023582810000,Dietz & Watson Sliced Gourmet Lite Turkey Breast Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0027582690000,Dietz & Watson Sliced Homestyle Black Pepper Turkey Breast Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0025585670000,Sara Lee® Honey Roasted Turkey Breast Fresh Sliced Deli Meat,1 lb,1,POUNDS,1.0 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0023585770000,Sara Lee® Oven Roasted Turkey Breast Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0025573770000,Dietz & Watson Sliced Black Forest Smoked Ham Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0025571680000,Sara Lee® Honey Ham Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0026573560000,Dietz & Watson Sliced Tavern Ham Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0026574150000,Dietz & Watson Sliced Brown Sugar & Molasses Ham Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0026572820000,Dietz & Watson Sliced London Broil Roast Beef Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0026580990000,Dietz & Watson Sliced Gourmet Chicken Breast Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0023586530000,Dietz & Watson Sliced Bottom Round Lean Pastrami Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0022586630000,Dietz & Watson Sliced Turkey Breast Pastrami Fresh Sliced Deli Meat,1 lb,1,RANDOM WEIGHT,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0023587730000,Dietz & Watson Sliced Extra Lean Corned Beef Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0028572860000,Dietz & Watson Originals Antibiotic-Free Sliced Angus Roast Beef Fresh Sliced Deli Meat,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0022615340000,Master Cheesemaker Muenster Cheese Fresh Sliced Deli Cheese,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0023630670000,Dietz & Watson Sliced Lacey Swiss Cheese Fresh Sliced Deli Cheese,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0025623240000,Dietz & Watson Sliced Sharp Cheddar Cheese Fresh Sliced Deli Cheese,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0024616480000,Dietz & Watson Sliced Hot Pepper Chedder Cheese with Buffalo Wing Hot Sauce Fresh Sliced Deli Cheese,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0028622540000,Dietz & Watson Sliced New York State Aged Cheddar Cheese with Horseradish Fresh Sliced Deli Cheese,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0021634190000,Land O Lakes Yellow Deli American Cheese Product Deli Sliced to Order,1 lb,1,POUNDS,1.0 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0021653090000,Land O Lakes White Deli American Cheese Product Deli Sliced to Order,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0004222283011,Jennie-O™ Hot Bone-In Rotisserie Turkey Breast (Available 11am-8pm),20 oz,44,OUNCES,,20 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0004157312314,Chicken Nuggets,16 oz,11,OUNCES,,16 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001111068476,Deli Kitchen Chicken Alfredo with Cavatappi and Peas Bake Family Meal,36.25 oz,38.25,OUNCES,2.26 [lb_av],36.25 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001111068474,Deli Kitchen Four Cheese Chicken Pasta with Broccoli Bake Family Meal,40 oz,42,OUNCES,2.5 [lb_av],40 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001111068471,Deli Kitchen Chicken Enchilada Bake Family Meal,34.5 oz,30.5,OUNCES,2.15 [lb_av],34.5 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0027706630000,Old Fashioned Rotisserie Chicken Salad,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0023707360000,Creamy Cole Slaw,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0023712040000,Elbow Macaroni Salad,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0026713060000,Steakhouse Potato Salad,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0024713460000,Classic Yellow Potato Salad,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0001111068572,Private Selection® Makoto® Asian Style Crispy Rice Salad Bowl with Chicken,8.15 oz,7.3,OUNCES,0.5 [lb_av],8.15 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0022355310000,Southwest Chicken Salad Fresh Made In Store Daily,14 oz,12.5,OUNCES,,14 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0022720230000,Sun Garden Salad,1 lb,1,POUNDS,,1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0001111070040,Bakery Fresh Candy Corn Mini Cupcakes with Buttercreme Icing,12 ct / 10 oz,12,OUNCES,0.62 [lb_av],12 ct / 10 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0077098135450,Two-Bite® Teenage Mutant Ninja Turtles Mini Cupcakes,12 ct / 10 oz,9.2,OUNCES,0.58 [lb_av],12 ct / 10 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001111064527,Private Selection® 4 Layer Fudge Iced Chocolate Cake Slice,9.92 oz (1 serving),6.5,OUNCES,,9.92 oz (1 serving),R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001111064529,Private Selection® 4 Layer Vanilla Bean White Cake Slice,11.04 oz (1 serving),6.4,OUNCES,,11.04 oz (1 serving),R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0004400006025,OREO Double Stuf Chocolate Sandwich Cookies Family Size,1.11 oz,18.71,OUNCES,1.17 [lb_av],,R4,replaced,18.71 oz,not in 1.7.0rc2's retained export
+0004400007320,OREO Halloween Chocolate Sandwich Cookies,18.71 oz,12.2,OUNCES,1.16 [lb_av],,R4,unresolved,,not in 1.7.0rc2's retained export
+0085598500815,Killer Brownie Company Kitchen Sink Brownie + Blondie Bites,9.5 oz,10,OUNCES,0.59 [lb_av],9.5 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001111019924,Private Selection® Brownie Lemon and 7 Layer Dessert Bars,16 oz,26,OUNCES,1.63 [lb_av],16 oz,R4,replaced,26 oz,replaced
+0004157355500,Brownie Tray,53 oz,18,OUNCES,,53 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0003967737710,The Cheesecake Factory At Home™ Brown Bread Wheat Sandwich Loaf,18.7 oz,17.7,OUNCES,1.11 [lb_av],18.7 oz,R4,replaced,17.7 oz,replaced
+0004157300269,English Muffin Bread,15 oz,1,OUNCES,,15 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001308710140,Kroger® Round Italian Half Loaf Bread,11.71 oz,9,OUNCES,1.46 [lb_av],11.71 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001111017121,Kroger - Bavarian Soft Pretzel Sticks 10ct,2.4oz,24.75,OUNCES,1.54 [lb_av],2.4oz,R4,replaced,24.75 oz,replaced
+0078142152480,La Brea Bakery Three Cheese Semolina Loaf,16 oz,17.5,OUNCES,1.0 [lb_av],16 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0004157300284,Cracked Wheat Bread,5 oz,1,OUNCES,,5 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0007131405120,Aunt Millie's Bakehouse Artisan Style Brioche Hamburger Buns,8 ct / 20 oz,14,OUNCES,1.25 [lb_av],8 ct / 20 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0007131405130,Aunt Millie's Bakehouse Artisan Style Whole Grain Hamburger Buns,8 ct / 17 oz,14,OUNCES,1.06 [lb_av],8 ct / 17 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0067331603658,Pretzilla Soft Pretzel Sausage Buns,4 ct/2.6 oz,10,OUNCES,0.16 [lb_av],4 ct/2.6 oz,R4,displayed_kept,4 ct/2.6 oz,unchanged
+0007371104548,S. Rosen's Sliced French Rolls,6ct / 13.5 oz,21,OUNCES,0.14 [lb_av],6ct / 13.5 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0004157300268,Mini Twin French Bread,15 oz,1,OUNCES,,15 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0078142117010,French Baguette Twin Pack,12 oz,6,OUNCES,0.75 [lb_av],12 oz,R4,displayed_kept,12 oz,unchanged
+0089245300101,Against The Grain® Gourmet Gluten-Free Frozen Rolls,4 ct / 12 oz,12.5,OUNCES,0.78 [lb_av],4 ct / 12 oz,R4,replaced,12.5 oz,replaced
+0004812122903,Thomas' Cinnamon Raisin Swirl Bread,16 oz,15,OUNCES,1.0 [lb_av],16 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0004812110208,Thomas' Original English Muffins,6 ct / 13 oz,12,OUNCES,0.81 [lb_av],6 ct / 13 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0004157300453,Cinnamon Raisin Bread,20 oz,1,OUNCES,,20 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0067331603651,Pretzilla® Soft Pretzel Bread Bites,12.3 oz,0.35,OUNCES,0.06 [lb_av],12.3 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0067331603653,Pretzilla Soft Pretzel Mini Buns,6 ct/1.4 oz,8,OUNCES,0.06 [lb_av],6 ct/1.4 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0064154812172,Better Butter Lemon Herb Butter 3 oz,3.0 oz,3.7,OUNCES,0.18 [lb_av],3.0 oz,R4,displayed_kept,3.0 oz,unchanged
+0001111005725,Simple Truth Organic® Garlic Powder,2.66 oz,2.57,OUNCES,0.16 [lb_av],2.66 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0081632802911,The Spice House House Blend Fish Seasoning,2.2 oz,2.1,OUNCES,0.13 [lb_av],2.2 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0081632802912,The Spice House House Blend Vegetable Seasoning,1.9 oz,4,OUNCES,0.25 [lb_av],1.9 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0087251300179,Nestle® Aero Peppermint,1.4 oz,1.26,OUNCES,0.08 [lb_av],1.4 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0085672800836,Donostia Foods Stuffed Habanero Pepper Manzanilla Olives,6.7 oz,7.58,OUNCES,0.41 [lb_av],6.7 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0007349012350,Kedem Tea Biscuit Plain,4.2 ounces,4.5,OUNCES,0.26 [lb_av],4.2 ounces,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0002740080073,Texas Roadhouse Honey Cinnamon Butter,7.35 oz,10.5,OUNCES,0.45 [lb_av],7.35 oz,R4,displayed_kept,7.35 oz,unchanged
+0001111015989,Kroger® Zero Sugar Parfait Gelatin Cups,8 ct / 3.25 oz,28,OUNCES,1.75 [lb_av],8 ct / 3.25 oz,R4,replaced,28 oz,replaced
+0001111015988,Kroger® Gelatin Cups,8 ct / 3.25 oz,28,OUNCES,1.75 [lb_av],8 ct / 3.25 oz,R4,replaced,28 oz,replaced
+0007465379187,Jack's Thin Crust Pepperoni Frozen Pizza Easy Dinner,14.3 oz,15.38,OUNCES,0.89 [lb_av],14.3 oz,R4,displayed_kept,14.3 oz,unchanged
+0007790050212,Jimmy Dean® Bacon Egg & Cheese Biscuit Frozen Breakfast Sandwiches,14.4 OZ,18.4,OUNCES,0.9 [lb_av],14.4 OZ,R4,displayed_kept,14.4 OZ,unchanged
+0070948100004,Kasia's Kraut & Mushroom Pierogi,14 oz,1.16,OUNCES,0.88 [lb_av],14 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0003100067103,"Bertolli Chicken Parmigiana & Penne, Frozen Meal",22 OZ,20,OUNCES,1.37 [lb_av],22 OZ,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001380010321,Stouffer's Classic Lasagna with Meat and Sauce Frozen Meal,10.5 OZ,9.875,OUNCES,0.65 [lb_av],10.5 OZ,R4,displayed_kept,10.5 OZ,unchanged
+0001380012009,Stouffer's Swedish Meatballs Frozen Meal,11.5 OZ,9.875,OUNCES,0.71 [lb_av],11.5 OZ,R4,displayed_kept,11.5 OZ,unchanged
+0001380012006,Stouffer's Fettuccine Alfredo Frozen Meal,11.5 OZ,9.875,OUNCES,0.71 [lb_av],11.5 OZ,R4,displayed_kept,11.5 OZ,unchanged
+0071785410501,Michelina's Fettuccine Alfredo,10.2 oz,8.5,OUNCES,0.63 [lb_av],10.2 oz,R4,displayed_kept,10.2 oz,unchanged
+0020171500000,Choice Angus Beef Chuck Taco Meat,1 lb,1,POUNDS,1.0 [lb_av],,R5,unit_denominator,,unchanged
+0022254200000,Angus Beef Stew Meat,1 lb,1,POUNDS,,,R5,unit_denominator,,unchanged
+0002412601835,Lewis Bake Shop Cinnamon Keto Bread,16 OZ,9,OUNCES,1.0 [lb_av],16 OZ,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0022575400000,Private Selection® Wildflower Honey Deli Ham Sliced,1 lb,1,POUNDS,1.0 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0024581150000,Private Selection® Golden Roasted Lower Sodium† Deli Chicken Breast Sliced,1 lb,1,POUNDS,1.0 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0085003799246,Fire & Smoke Society Back Porch Burger,6.9 oz,6.5,OUNCES,0.4 [lb_av],6.9 oz,R4,replaced,6.5 oz,replaced
+0075579537555,Kinder's Garlic & Herb with Sea Salt & Lemon 8 oz,8oz,5.5,OUNCES,0.34 [lb_av],8oz,R4,displayed_kept,8oz,unchanged
+0003600031890,Huggies® Natural Care® Unscented Sensitive Baby Wipes,3 ct,168,EACH,2.7 [lb_av],3 ct,R4,displayed_kept,3 ct,unchanged
+0061300871930,AriZona® Arnold Palmer® Lite Half & Half Lemonade Iced Tea Can,23 fl oz,22,FLUID OUNCES,1.58 [lb_av],23 fl oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0061300872857,AriZona Arnold Palmer's® Zero Half & Half Lemonade & Iced Tea Can,23 fl oz,22,FLUID OUNCES,1.6 [lb_av],23 fl oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0008304600402,Ice Mountain 100% Natural Spring Bottled Water,16.9 Fl Oz,405.6,FLUID OUNCES,24.0 [lb_av],16.9 Fl Oz,R4,displayed_kept,16.9 Fl Oz,unchanged
+0006827473529,Pure Life Purified Bottled Water,16.9 Fl Oz,473.2,FLUID OUNCES,28.0 [lb_av],16.9 Fl Oz,R4,displayed_kept,16.9 Fl Oz,unchanged
+0006827419514,Pure Life Purified Bottled Water,8 Fl Oz,96,FLUID OUNCES,5.69 [lb_av],8 Fl Oz,R4,displayed_kept,8 Fl Oz,unchanged
+0008304691164,Ice Mountain 100% Natural Spring Bottled Water,23.7 Fl Oz,142.2,FLUID OUNCES,8.52 [lb_av],23.7 Fl Oz,R4,displayed_kept,23.7 Fl Oz,unchanged
+0008304600817,Ice Mountain 100% Natural Spring Bottled Water,8 Fl Oz,96,FLUID OUNCES,5.69 [lb_av],8 Fl Oz,R4,displayed_kept,8 Fl Oz,unchanged
+0008304613480,Ice Mountain 100% Natural Spring Bottled Water,12 Fl Oz,144,FLUID OUNCES,9.34 [lb_av],12 Fl Oz,R4,displayed_kept,12 Fl Oz,unchanged
+0008304600301,Ice Mountain 100% Natural Spring Bottled Water,16.9 Fl Oz,202.8,FLUID OUNCES,12.0 [lb_av],16.9 Fl Oz,R4,displayed_kept,16.9 Fl Oz,unchanged
+0078616241099,Smartwater® Nutrient Enhanced Bottled Water,33.8 fl oz,405.6,FLUID OUNCES,26.58 [lb_av],33.8 fl oz,R4,displayed_kept,33.8 fl oz,unchanged
+0081921502139,Waterloo® Cherry Limeade Sparkling Water,12 fl oz,96,FLUID OUNCES,6.0 [lb_av],12 fl oz,R4,replaced,96 fl oz,replaced
+0081921502015,Waterloo® Black Cherry Sparkling Water,12 fl oz,96,FLUID OUNCES,6.0 [lb_av],12 fl oz,R4,displayed_kept,12 fl oz,unchanged
+0081921502089,Waterloo® Peach Sparkling Water,12 fl oz,96,FLUID OUNCES,6.0 [lb_av],12 fl oz,R4,replaced,96 fl oz,replaced
+0081921502141,Waterloo® Blackberry Lemonade Sparkling Water,12 fl oz,96,FLUID OUNCES,6.0 [lb_av],12 fl oz,R4,replaced,96 fl oz,replaced
+0060265267407,KIND Blueberry Almond Breakfast Protein Bars,12 Bars,6,COUNT,0.66 [lb_av],12 Bars,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0060265267403,KIND Honey Oat Breakfast Protein Bars,12 Bars,6,COUNT,0.66 [lb_av],12 Bars,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0060265267660,KIND Peanut Butter Banana Dark Chocolate Protein Bars,24 Bars,12,COUNT,1.32 [lb_av],24 Bars,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0060265267659,KIND Dark Chocolate Cocoa Protein Bars,24 Bars,12,COUNT,1.32 [lb_av],24 Bars,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0007131404981,Aunt Millie's Live Carb Smart Everything & More Bagel,5 ct / 15 oz,14,OUNCES,0.94 [lb_av],5 ct / 15 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0004812196122,Thomas' Sourdough Bagels,6 ct / 18 oz,20,OUNCES,1.12 [lb_av],6 ct / 18 oz,R4,displayed_kept,6 ct / 18 oz,unchanged
+0088810915004,"Hostess Donettes, Powdered Mini Donuts",10 Ounces,10.5,OUNCES,0.62 [lb_av],10 Ounces,R4,displayed_kept,10 Ounces,unchanged
+0844529166106,Starbucks® by Nespresso Coffee Pods for Vertuo Machines Sunsera Blend Light Roast,8 ct,10,EACH,0.22 [lb_av],8 ct,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0844529222882,Starbucks® by Nespresso Coffee Pods for Vertuo Machines Decaf Blonde Espresso Roast,10 ct,8,EACH,0.14 [lb_av],10 ct,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0078535702248,"Peet's Coffee, Decaffeinated Major Dickason's Blend Dark Roast Ground Coffee - 10.5oz Bag",10.5 oz,12,OUNCES,0.66 [lb_av],10.5 oz,R4,displayed_kept,10.5 oz,unchanged
+0001066807561,Cameron's Decaf Light Roast Ground Vanilla Hazelnut Coffee,10 oz,12,OUNCES,0.63 [lb_av],10 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0004111600527,Jumbo Push Pop Great tasting lollipop with a cap and a clip,1.1 oz,1.06,OUNCES,0.06 [lb_av],1.1 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0007339005024,Trident 3 Pack Sugar Free Chewing Gum Sticks with Xylitol Original Flavor,3 pk,42,EACH,0.17 [lb_av],3 pk,R4,displayed_kept,3 pk,unchanged
+0003400047203,REESE'S Milk Chocolate Peanut Butter Pumpkins Halloween Candy Packs,1.2 oz,7.2,OUNCES,0.45 [lb_av],1.2 oz,R4,displayed_kept,1.2 oz,unchanged
+0008378366278,Sierra Nevada West Ghost Modern West Coast IPA Craft Beer,16 fl oz,64,FLUID OUNCES,1.0 [lb_av],16 fl oz,R4,displayed_kept,16 fl oz,unchanged
+0008378337521,Sierra Nevada Pale Ale Craft Beer,12 fl oz,72,FLUID OUNCES,0.75 [lb_av],12 fl oz,R4,displayed_kept,12 fl oz,unchanged
+0008378367612,Sierra Nevada PILS Premium Lager Craft Beer,8.4 fl oz,67.2,FLUID OUNCES,0.52 [lb_av],8.4 fl oz,R4,displayed_kept,8.4 fl oz,unchanged
+0085043800205,Half Acre WayBird Hazy IPA Craft Beer,4 pk / 16 fl oz,72,FLUID OUNCES,,4 pk / 16 fl oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0085043800283,Half Acre Bodem IPA Craft Beer,12 cans / 12 fl oz,84,FLUID OUNCES,,12 cans / 12 fl oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0008378353111,Sierra Nevada Hazy Little Thing IPA Craft Beer,12 fl oz,144,FLUID OUNCES,0.75 [lb_av],12 fl oz,R4,displayed_kept,12 fl oz,unchanged
+0008378311010,Sierra Nevada Hazy Little Thing IPA Craft Beer,12 fl oz,72,FLUID OUNCES,0.75 [lb_av],12 fl oz,R4,displayed_kept,12 fl oz,unchanged
+0084837500499,House Wine Rose Bubbles Sparkling Wine,355 ml,12.68,FLUID OUNCES,,355 ml,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0084837501046,Provisions Rose Bubbles Blend Sparkling Wine Can,355 ml,12.68,FLUID OUNCES,,355 ml,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0084837500514,House Wine Brut Bubbles Sparkling Wine Can,355 ml,12.68,FLUID OUNCES,,355 ml,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0084837501045,Provisions Brut Bubbles Blend Sparkling Wine Can,355 ml,12.68,FLUID OUNCES,,355 ml,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0072881719960,Gekkeikan Black and Gold Sake 750ml,720ml,25.36,FLUID OUNCES,,720ml,R4,replaced,750ml,replaced
+0008218420687,Jack Daniel's Tennessee Whiskey & Coca-Cola Ready to Drink Whiskey Cocktail,355 mL,48,FLUID OUNCES,0.8 [lb_av],355 mL,R4,displayed_kept,355 mL,unchanged
+0004126001290,Kroger® Nighttime Sleep-Aid Diphenhydramine HCl Softgels 50 mg 2 Pack BIG DEAL!,2 pk / 192 ct,192,EACH,0.38 [lb_av],2 pk / 192 ct,R4,displayed_kept,2 pk / 192 ct,unchanged
+0085646100894,OWYN Pro Elite 32g - Dairy Free Protein Shake - Chocolate,4ct / 11.5 fl oz,44.6,FLUID OUNCES,2.78 [lb_av],4ct / 11.5 fl oz,R4,replaced,44.6 fl oz,replaced
+0004110059414,Lotrimin Ultra® Athlete's Foot Cream,1.1 oz,1,OUNCES,0.11 [lb_av],1.1 oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0003077203341,Always Ultra Thin Feminine Pads with Wings for Women Size 2 Long Super Absorbency Unscented,20 count,16,EACH,0.27 [lb_av],20 count,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0007940071601,Dove ® Shampoo Conditioner Intensive Repair,12 fo,24,FLUID OUNCES,1.57 [lb_av],12 fo,R4,displayed_kept,12 fo,unchanged
+0030299492030,"Differin 0.1% Adapalene Acne Treatment Gel, 15g Tube",15 g,0.5,OUNCES,0.04 [lb_av],15 g,R4,displayed_kept,15 g,unchanged
+0001111161328,Dove 2 Gentle Exfoliating Bar Soap with 1/4 moisturizing cream,3.75 oz / 2 ct,7.5,OUNCES,0.47 [lb_av],3.75 oz / 2 ct,R4,replaced,7.5 oz,replaced
+0007560900719,Olay Active Hydrating Moisturizing Face Cream,1.9 fl oz,2,OUNCES,0.27 [lb_av],1.9 fl oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0004126002397,Kroger Broad Spectrum SPF 50 Sunscreen Lotion & Spray 1 ea,5.5 oz spray / 8 oz tube,13.5,OUNCES,0.82 [lb_av],5.5 oz spray / 8 oz tube,R4,replaced,13.5 oz,replaced
+0008680047272,"Neutrogena Beach Defense Body Sunscreen Lotion with SPF 70, 1 oz",2 OZ,1,FLUID OUNCES,0.3 [lb_av],2 OZ,R4,replaced,1 oz,replaced
+0004126002388,Kroger SPF 50 Broad Spectrum Total Sport Sunscreen Spray Twin Pack,9.1 oz / 2 count,18.2,OUNCES,1.15 [lb_av],9.1 oz / 2 count,R4,replaced,18.2 oz,replaced
+0004126002387,Kroger Broad Spectrum SPF 30 Total Sport Sunscreen Spray Twin Pack,9.1 fl oz / 2 count,18.2,OUNCES,1.13 [lb_av],9.1 fl oz / 2 count,R4,displayed_kept,9.1 fl oz / 2 count,unchanged
+0030087512208,"Enfamil NeuroPro EnfaCare Premature Baby Formula Milk Based with Iron, Powder Can, 13.6 Oz",13.6 oz,12.8,OUNCES,0.8 [lb_av],13.6 oz,R4,displayed_kept,13.6 oz,unchanged
+0007007458059,PEDIASURE (CHOCOLATE) 8-OZ BOTTLE.,8 fl oz,48,FLUID OUNCES,3.82 [lb_av],8 fl oz,R4,displayed_kept,8 fl oz,unchanged
+0007007458050,PEDIASURE (VANILLA) 8-OZ,8 fl oz,48,FLUID OUNCES,3.81 [lb_av],8 fl oz,R4,displayed_kept,8 fl oz,unchanged
+0007007458056,"PediaSure Grow & Gain with Immune Support, 7g Protein, Strawberry, 8-fl-oz Bottle, Pack of 6",8 fl oz,48,FLUID OUNCES,0.63 [lb_av],8 fl oz,R4,displayed_kept,8 fl oz,unchanged
+0003700087087,Pampers Sensitive Fragrance Free Baby Wipes,3 pk / 168 count,168,EACH,3.03 [lb_av],3 pk / 168 count,R4,displayed_kept,3 pk / 168 count,unchanged
+0004126002164,Simple Truth® Fragrance Free Baby Wipes,4 pk / 64 ct,256,EACH,5.0 [lb_av],4 pk / 64 ct,R4,displayed_kept,4 pk / 64 ct,unchanged
+0003600050467,Huggies Natural Care Cucumber Aloe and Vitamin E Baby Wipes,3 ct,168,EACH,2.7 [lb_av],3 ct,R4,displayed_kept,3 ct,unchanged
+0004126000983,Comforts™ Fragrance Free Flushable Toddler Wipes,4 pk / 50 count,200,EACH,0.16 [lb_av],4 pk / 50 count,R4,displayed_kept,4 pk / 50 count,unchanged
+0038137119649,Johnson’s Skin Nourishing Moisture Baby Wash Vanilla and Oat Scents,20.3 fl. oz,18,FLUID OUNCES,1.41 [lb_av],20.3 fl. oz,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0003600043478,Cottonelle® Fresh Care Flushable Wet Wipes,4 ct,168,EACH,2.39 [lb_av],4 ct,R4,displayed_kept,4 ct,unchanged
+0001111015221,Kroger® Flushable Wipes,2 pk / 42 ct,84,EACH,0.7 [lb_av],2 pk / 42 ct,R4,displayed_kept,2 pk / 42 ct,unchanged
+0003600050767,Cottonelle® GentlePlus Flushable Wet Wipes with Aloe & Vitamin E,4 pk / 42 ct,168,EACH,2.6 [lb_av],4 pk / 42 ct,R4,displayed_kept,4 pk / 42 ct,unchanged
+0003600056657,"Cottonelle® Fragrance Free Flushable Wet Wipes, 4 Flip-Top Packs",4 pk / 42 ct,168,EACH,2.1 [lb_av],4 pk / 42 ct,R4,displayed_kept,4 pk / 42 ct,unchanged
+0003600054308,"Kleenex® Ultra Soft™ Facial Tissues, 4 Cube Boxes, 60 Tissues per Box, 3-Ply (240 Total Tissues)",4 ct,240,EACH,1.25 [lb_av],4 ct,R4,displayed_kept,4 ct,unchanged
+0003600054305,"Kleenex® Trusted Care® Facial Tissues, 4 Flat Boxes, 160 Tissues per Box, 2-Ply",4 pk / 160 ct,640,EACH,2.36 [lb_av],4 pk / 160 ct,R4,displayed_kept,4 pk / 160 ct,unchanged
+0001111012828,Kroger® Facial Tissues with Lotion,4 pk / 70 ct,240,EACH,1.03 [lb_av],4 pk / 70 ct,R4,displayed_kept,4 pk / 70 ct,unchanged
+0001111012822,Kroger® Easy Care Everyday Tissues,4 ct,280,EACH,0.05 [lb_av],4 ct,R4,displayed_kept,4 ct,unchanged
+0001111012824,Kroger® Easy Care Everyday Tissues,4 ct,640,EACH,2.04 [lb_av],4 ct,R4,displayed_kept,4 ct,unchanged
+0003600039879,"Kleenex® On-the-Go™ Facial Tissues, 6 On-the-Go™ Packs, 10 Tissues per Box, 3-Ply (60 Total Tissues)",6 count,60,EACH,0.31 [lb_av],6 count,R4,displayed_kept,6 count,unchanged
+0003600054317,"Kleenex® Ultra Soft™ Facial Tissues, 6 Flat Boxes, 120 Tissues per Box, 3-Ply",6 pk / 120 ct,720,EACH,3.53 [lb_av],6 pk / 120 ct,R4,displayed_kept,6 pk / 120 ct,unchanged
+0003700041665,Puffs Plus Lotion Mega Cube Facial Tissue,4 pk / 72 ct,288,EACH,1.59 [lb_av],4 pk / 72 ct,R4,displayed_kept,4 pk / 72 ct,unchanged
+0003600011974,Kleenex On-the-Go Facial Tissues 3 Ply,8 pack,80,EACH,0.43 [lb_av],8 pack,R4,displayed_kept,8 pack,unchanged
+0003600054316,"Kleenex® Ultra Soft™ Facial Tissues, 4 Flat Boxes, 120 Tissues per Box, 3-Ply",4 pk / 120 count,480,EACH,2.35 [lb_av],4 pk / 120 count,R4,displayed_kept,4 pk / 120 count,unchanged
+0003600054306,"Kleenex® Trusted Care® Facial Tissues, 6 Flat Boxes, 160 Tissues per Box, 2-Ply",6 pk / 160 count,960,EACH,3.55 [lb_av],6 pk / 160 count,R4,displayed_kept,6 pk / 160 count,unchanged
+0003700039383,Puffs Plus Lotion Family Facial Tissues,6 pk / 124 ct,744,EACH,3.68 [lb_av],6 pk / 124 ct,R4,displayed_kept,6 pk / 124 ct,unchanged
+0003600058278,Kleenex® Snap & Go™ Ultra Soft™ Facial Tissues,4 pk / 25 count,100,EACH,0.57 [lb_av],4 pk / 25 count,R4,displayed_kept,4 pk / 25 count,unchanged
+0001111013915,Kroger® Lemon Scent & Fresh Scent Disinfecting Wipes Multipack,3 pk / 225 ct,225,EACH,4.12 [lb_av],3 pk / 225 ct,R4,displayed_kept,3 pk / 225 ct,unchanged
+0000000094081,Organic - Eggplant,1 lb,0,,1.0 [lb_av],1 lb,R5,unit_denominator,,emptied (unresolved conflict; observations kept outside the schema)
+0007169151252,"Rubbermaid® TakeAlongs® Food Storage Containers, 10 Piece Set",10 Count,5,EACH,0.82 [lb_av],10 Count,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)
+0001111015402,Kroger® Lemon and Fresh Scent Disinfecting Wipes 3 Pack,3 ct,105,EACH,2.0 [lb_av],3 ct,R4,displayed_kept,3 ct,unchanged
+0001920099916,Lysol Disinfecting Wipes Variety Pack,3 pk / 80 ct,240,EACH,3.89 [lb_av],3 pk / 80 ct,R4,displayed_kept,3 pk / 80 ct,unchanged
+0003077200743,Swiffer Sweep + Mop Wet Pads Refill Floor Cleaner Cleaning Cloths Lavender,2 pk / 19 ct,38,EACH,6.09 [lb_av],2 pk / 19 ct,R4,displayed_kept,2 pk / 19 ct,unchanged
+0073528231205,Munchkin® Ocean Bath Toys - Assorted,4 pc,5,EACH,0.08 [lb_av],4 pc,R4,unresolved,,emptied (unresolved conflict; observations kept outside the schema)

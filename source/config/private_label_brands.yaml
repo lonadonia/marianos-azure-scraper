@@ -1,0 +1,22 @@
+# Retailer private-label brands (seed observed in the 2026-10-17 snapshot: "Our Brands" menu + product
+# titles). Extend from /b/ourbrands once live access is approved.
+brands:
+  - Kroger
+  - Kroger Mercado
+  - Simple Truth
+  - Simple Truth Organic
+  - Private Selection
+  - Smart Way
+  - Murray's Cheese
+  - Heritage Farm
+  - Bakery Fresh
+  - Bakery Fresh Goodness
+  - Bloom Haus
+  - Abound
+  - Pet Pride
+  - Luvsome
+  - Comforts
+  - "Roundy's"
+  - "Roundy's Select"
+  - "Roundy's Organics"
+upc_prefix_signals: ["0001111", "0001115"]   # secondary signal only

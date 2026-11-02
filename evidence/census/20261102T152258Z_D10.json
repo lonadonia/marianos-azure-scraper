@@ -1,0 +1,76 @@
+{
+ "id": "D10",
+ "at": "20261102T152258Z",
+ "department": "10",
+ "slug": "baby",
+ "slug_known": false,
+ "url": "https://www.marianos.com/pl/baby/10",
+ "ledger": "OXP-D-b37568",
+ "seconds": 22.3,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041979668654081",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "eaa3ea5ddcc3dcd502393cdb0528c0c62d1750bb3e26740f3015dfa6f7c422dd",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 614,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 32,
+ "departments": [
+  {
+   "id": "10",
+   "name": "Baby",
+   "slug": "baby",
+   "count": 614,
+   "categories": [
+    {
+     "id": "10001",
+     "name": "Baby Food & Snacks",
+     "count": 249,
+     "subcategories": 0
+    },
+    {
+     "id": "10003",
+     "name": "Diapers & Training Pants",
+     "count": 111,
+     "subcategories": 0
+    },
+    {
+     "id": "10093",
+     "name": "Baby Formula",
+     "count": 72,
+     "subcategories": 0
+    },
+    {
+     "id": "10006",
+     "name": "Baby Essentials",
+     "count": 64,
+     "subcategories": 0
+    },
+    {
+     "id": "10005",
+     "name": "Baby Bath & Skincare",
+     "count": 57,
+     "subcategories": 0
+    },
+    {
+     "id": "10099",
+     "name": "Baby Wipes",
+     "count": 38,
+     "subcategories": 0
+    },
+    {
+     "id": "10098",
+     "name": "Baby & Toddler Beverage",
+     "count": 25,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

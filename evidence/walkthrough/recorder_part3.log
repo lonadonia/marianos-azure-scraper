@@ -1,0 +1,8 @@
+step 2 p3_release: exit 0
+step 3 p3_diff: exit 0
+step 5 p3_regressions_rc5: exit 0
+step 6 p3_regressions_rc4_saved: exit 0
+step 8 p3_integrity_rc4: exit 0
+step 9 p3_integrity_rc5: exit 0
+step 10 p3_suite: exit 0
+run 

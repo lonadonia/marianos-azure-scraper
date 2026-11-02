@@ -1,0 +1,496 @@
+{
+  "mode": "LIVE",
+  "run_id": "01M6E5V6CASQ8F00VC8PE9TFYW",
+  "store_key": "marianos-53100502-pickup",
+  "created_at": "2026-11-02T14:10:40.363934Z",
+  "record_count": 1160,
+  "fresh_record_count": 1137,
+  "dataset": "partial",
+  "files": {
+    "products.json": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/products.json",
+      "sha256": "5c9d41874be9184533f09b82bf603a74efe712450db6d24d04da6a8a67ec0add",
+      "size": 1086249
+    },
+    "products.csv": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/products.csv",
+      "sha256": "88c3cac342e88d765657eecd0eddc9f7d86b37bcf10aefa49e4407c5f38e9e41",
+      "size": 519748
+    },
+    "memberships.json": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/memberships.json",
+      "sha256": "56e8b06e24b1ef3cd1ed622e71c13df8f1e78b798865da2da6dbe389dab4a37e",
+      "size": 689941
+    },
+    "offers.json": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/offers.json",
+      "sha256": "6b72a1641bf3d39dce91db9e0f9bc2c67994182ef76dd0c2be720efe532b11df",
+      "size": 11180
+    },
+    "provenance.json": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/provenance.json",
+      "sha256": "b9e1d66c96ca2d60e72f70ed7e9e832eaa127c8f0e8761b3b0f85de2aac9ec74",
+      "size": 10021756
+    },
+    "validation_report.json": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/validation_report.json",
+      "sha256": "4adf03a98162c93d4295d36dba8f3bd13aa3bd6c1b5c56753a04ad192c9288cf",
+      "size": 9833
+    },
+    "products_fresh.json": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/products_fresh.json",
+      "sha256": "c785a77811d1fa261714dad51eaeb4bb4ae47ac4a5daee2b2108c47eaab2efdd",
+      "size": 1065370
+    },
+    "products_fresh.csv": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/products_fresh.csv",
+      "sha256": "ef4f283db758a31889944a729211454f7f62fee4e30f4751f6db0bac5c33c162",
+      "size": 510110
+    },
+    "coverage_reconciliation.json": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/coverage_reconciliation.json",
+      "sha256": "6de871b79e8c90c8ebd150762b76a8161e70af4ba8b7f31892f0b7ff39393eb6",
+      "size": 30034
+    },
+    "coverage_reconciliation.csv": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/coverage_reconciliation.csv",
+      "sha256": "ff34d3d6e1ff741c16155951dfbb9260ea9ed09e5f7b4a9a3f412c1ddcf50841",
+      "size": 4061
+    },
+    "coverage_by_csv_row.csv": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/coverage_by_csv_row.csv",
+      "sha256": "007809dc4ec4555ef67b07b5ea24922325e5fc7cb283cf6b660fb7ff83fc5358",
+      "size": 3434
+    },
+    "listing_pages.csv": {
+      "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/listing_pages.csv",
+      "sha256": "aa452b474984a51e4d258d009cb77273e696ee2294f32b024658bf1e857699d5",
+      "size": 12319
+    }
+  },
+  "config_snapshot": {
+    "code": {
+      "commit": "9d16475470a480b148823e30a07ec11c3e5184d6",
+      "source": "git",
+      "version": "1.8.0rc4",
+      "parser_version": "1.8.0",
+      "uncommitted_changes": false
+    },
+    "plan": {
+      "nodes": [
+        {
+          "url": "https://www.marianos.com/pl/dog-food/27017",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27017",
+          "sub_category": "Dog Food",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/dog-treats/27018",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27018",
+          "sub_category": "Dog Treats",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/dog-toys/27019",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27019",
+          "sub_category": "Dog Toys",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/dog-supplies/27020",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27020",
+          "sub_category": "Dog Supplies",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/cat-food/27021",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27021",
+          "sub_category": "Cat Food",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/cat-treats/27022",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27022",
+          "sub_category": "Cat Treats",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/cat-litter-accessories/27023",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27023",
+          "sub_category": "Cat Litter & Accessories",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/cat-toys/27024",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27024",
+          "sub_category": "Cat Toys",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/cat-supplies/27025",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27025",
+          "sub_category": "Cat Supplies",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/bird-supplies/27026",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27026",
+          "sub_category": "Bird Supplies",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/fish-supplies/27027",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27027",
+          "sub_category": "Fish Supplies",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/small-animal-supplies/27029",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Pet Supplies",
+          "excluded": [],
+          "row_index": 22,
+          "taxonomy_id": "27029",
+          "sub_category": "Small Animal Supplies",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDC"
+        },
+        {
+          "url": "https://www.marianos.com/pl/candles-home-fragrances/32001?pzn=relevance",
+          "kind": "row_listing",
+          "only": [],
+          "parent": "",
+          "category": "Candles Home Fragrances",
+          "excluded": [],
+          "row_index": 23,
+          "taxonomy_id": "32001",
+          "sub_category": "",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDD"
+        },
+        {
+          "url": "https://www.marianos.com/pl/batteries/26003?pzn=relevance",
+          "kind": "row_listing",
+          "only": [],
+          "parent": "",
+          "category": "Batteries",
+          "excluded": [],
+          "row_index": 24,
+          "taxonomy_id": "26003",
+          "sub_category": "",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDE"
+        },
+        {
+          "url": "https://www.marianos.com/pl/Light-Bulbs/26002?pzn=relevance",
+          "kind": "row_listing",
+          "only": [],
+          "parent": "",
+          "category": "Light Bulbs",
+          "excluded": [],
+          "row_index": 25,
+          "taxonomy_id": "26002",
+          "sub_category": "",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDF"
+        },
+        {
+          "url": "https://www.marianos.com/pl/school-office/35?pzn=relevance",
+          "kind": "row_listing",
+          "only": [],
+          "parent": "",
+          "category": "School Office",
+          "excluded": [],
+          "row_index": 26,
+          "taxonomy_id": "35",
+          "sub_category": "",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDG"
+        },
+        {
+          "url": "https://www.marianos.com/pl/hardware-home-improvement/33?pzn=relevance",
+          "kind": "row_listing",
+          "only": [],
+          "parent": "",
+          "category": "Hardware Home Improvement",
+          "excluded": [],
+          "row_index": 27,
+          "taxonomy_id": "33",
+          "sub_category": "",
+          "partition_name": "",
+          "partition_count": null,
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDH"
+        }
+      ],
+      "order": {
+        "policy": "csv"
+      },
+      "skipped": []
+    },
+    "gates": {
+      "coverage_fail_below": 0.9,
+      "coverage_warn_below": 0.98,
+      "canary_missing_is_fail": false,
+      "reconciliation_fail_above": 0.02,
+      "reconciliation_warn_above": 0.005,
+      "price_completeness_warn_below": 0.98
+    },
+    "pilot": false,
+    "store": {
+      "key": "marianos-53100502-pickup",
+      "name": "Marianos Vernon Hills",
+      "modality": "PICKUP",
+      "retailer": "marianos",
+      "location_id": "53100502"
+    },
+    "yield": {
+      "fail_drop_vs_last_good": 0.5,
+      "warn_drop_vs_last_good": 0.3
+    },
+    "contest": {
+      "enabled": true,
+      "min_categories": 3,
+      "min_valid_records": 500
+    },
+    "records": {
+      "crawl_date": "STORE_LOCAL_DATE",
+      "exclude_ship_only": true,
+      "ppm_source_policy": "DOM_ONLY",
+      "other_promo_target": "NONE",
+      "sub_category_format": "LEAF",
+      "approx_weight_pattern": "(?i)\\b(approx\\.?|approximately|avg\\.?|average|estimated)(?=[\\s\\d.]|$)|~\\s*\\d|\\babout\\s+\\d|\\b\\d+(\\.\\d+)?\\s*(-|to)\\s*\\d+(\\.\\d+)?\\s*(lb|lbs|pound|pounds|oz|ounce|ounces|kg|g)\\b",
+      "approx_weight_sources": [
+        "weight",
+        "product_data_size",
+        "title"
+      ],
+      "fail_on_price_mismatch": true,
+      "deal_description_format": "TAG_TEXT_EXPIRY",
+      "primary_category_policy": "CSV_ORDER_COUPONS_LAST",
+      "deal_description_separator": " | ",
+      "store_brand_negative_value": "no",
+      "store_brand_positive_value": "yes",
+      "include_cashback_in_digital": false,
+      "sub_category_path_separator": " > ",
+      "include_points_offers_in_deals": false
+    },
+    "retries": {
+      "backoff_max_s": 300.0,
+      "backoff_base_s": 10.0,
+      "pause_on_429_s": 600.0,
+      "max_retry_after_s": 1800.0,
+      "max_attempts_per_task": 3
+    },
+    "storage": {
+      "backend": "local",
+      "local_root": "C:\\m6\\q180\\data",
+      "azure_container": null,
+      "azure_account_url": null
+    },
+    "coverage": {
+      "row_fail_below_ratio": 0.9,
+      "node_min_coverage_ratio": 0.98,
+      "partition_large_listings": true,
+      "allow_paid_only_membership": false
+    },
+    "provider": "oxylabs",
+    "retailer": "marianos",
+    "overrides": {},
+    "collection": {
+      "limits": {
+        "max_run_minutes": 2880,
+        "min_credit_reserve": 0,
+        "max_credits_per_day": null,
+        "max_credits_per_run": 95,
+        "max_segment_minutes": 300,
+        "max_products_per_day": null,
+        "max_products_per_run": null,
+        "max_pages_per_listing": null
+      },
+      "schedule": {
+        "enabled": false,
+        "end_date": null,
+        "weekdays": [
+          0,
+          3
+        ],
+        "start_date": null,
+        "start_time": "07:00",
+        "window_end": "19:00",
+        "window_start": null,
+        "backlog_first": true,
+        "continue_unfinished": true
+      },
+      "timezone": "America/Chicago",
+      "categories": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "subcategories": {},
+      "max_auto_resumes": 3,
+      "start_tolerance_minutes": 45
+    },
+    "started_by": "hamza-qualification",
+    "acquisition": {
+      "mode": "UI_CAPTURE",
+      "oxylabs": {
+        "api_base": "https://webapi.oxylabs.io",
+        "location": "US",
+        "max_attempts": 3,
+        "listing_route": "listing",
+        "page_endpoint": "/v1/scrape/marianos",
+        "coupons_run_js": true,
+        "listing_run_js": true,
+        "usd_per_result": 0.0015,
+        "search_endpoint": "/v1/scrape/marianos/search",
+        "request_timeout_s": 180.0
+      },
+      "headless": true,
+      "scrapfly": {
+        "cache": true,
+        "country": "us",
+        "endpoint": "wss://browser.scrapfly.io",
+        "blacklist": true,
+        "browser_os": null,
+        "proxy_pool": "residential",
+        "target_url": "https://www.marianos.com/",
+        "account_url": "https://api.scrapfly.io/account",
+        "block_fonts": true,
+        "block_media": true,
+        "concurrency": 1,
+        "block_images": true,
+        "block_styles": false,
+        "browser_brand": null,
+        "connect_timeout_s": 60.0,
+        "session_timeout_s": 1800,
+        "max_credits_per_run": 300,
+        "bandwidth_overhead_factor": 2.0,
+        "credits_per_mb_datacenter": 7.0,
+        "credits_per_mb_residential": 52.0
+      },
+      "entry_url": null,
+      "browser_provider": "oxylabs",
+      "page_load_timeout_s": 45.0,
+      "response_wait_timeout_s": 30.0,
+      "navigation_min_interval_s": 4.0,
+      "navigation_interval_jitter_s": 1.0
+    },
+    "attestation": {
+      "trusted_modality_sources": [],
+      "require_is_trusted_source": true,
+      "periodic_every_navigations": 25
+    },
+    "circuit_breaker": {
+      "challenge_pages_to_abort_run": 1,
+      "consecutive_failures_to_fail_category": 5
+    }
+  },
+  "versions": {
+    "collector": "1.8.0",
+    "source": {
+      "commit": "9d16475470a480b148823e30a07ec11c3e5184d6",
+      "source": "git",
+      "uncommitted_changes": false
+    }
+  },
+  "site_version": "90.88.10-rc.0"
+}

@@ -1,0 +1,25 @@
+{
+ "id": "D22",
+ "at": "20261102T152114Z",
+ "department": "22",
+ "slug": "health-wellness",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/health-wellness/22",
+ "ledger": "OXP-D-3615b1",
+ "seconds": 58.4,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041544631246849",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "b5bd5f05a8efb31866e0ded69e90608217c05e134d1d94e8caff321d51f2216f",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 2291,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 28,
+ "departments": []
+}

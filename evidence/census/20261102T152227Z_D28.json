@@ -1,0 +1,94 @@
+{
+ "id": "D28",
+ "at": "20261102T152227Z",
+ "department": "28",
+ "slug": "kitchen",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/kitchen/28",
+ "ledger": "OXP-D-e02701",
+ "seconds": 6.8,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041850123364353",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "786c13a3d4a9fd2002e917723e014a906593a0f243e807a07374e80facaefaac",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 483,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 32,
+ "departments": [
+  {
+   "id": "28",
+   "name": "Kitchen",
+   "slug": "kitchen",
+   "count": 483,
+   "categories": [
+    {
+     "id": "28001",
+     "name": "Kitchen Tools & Gadgets",
+     "count": 218,
+     "subcategories": 0
+    },
+    {
+     "id": "28009",
+     "name": "Bakeware",
+     "count": 79,
+     "subcategories": 0
+    },
+    {
+     "id": "28002",
+     "name": "Kitchen Storage & Organization",
+     "count": 50,
+     "subcategories": 0
+    },
+    {
+     "id": "28005",
+     "name": "Kitchen Appliances",
+     "count": 42,
+     "subcategories": 0
+    },
+    {
+     "id": "28006",
+     "name": "Kitchen & Table Linens",
+     "count": 30,
+     "subcategories": 0
+    },
+    {
+     "id": "28004",
+     "name": "Coffee & Tea Accessories",
+     "count": 28,
+     "subcategories": 0
+    },
+    {
+     "id": "28003",
+     "name": "Pots & Pans",
+     "count": 26,
+     "subcategories": 0
+    },
+    {
+     "id": "28016",
+     "name": "Kitchen Maintenance",
+     "count": 6,
+     "subcategories": 0
+    },
+    {
+     "id": "28015",
+     "name": "Reusable Bags & Totes",
+     "count": 4,
+     "subcategories": 0
+    },
+    {
+     "id": "28019",
+     "name": "Water And Filters",
+     "count": 4,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

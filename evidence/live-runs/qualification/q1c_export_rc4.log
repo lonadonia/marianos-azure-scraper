@@ -1,0 +1,2 @@
+{"ts": "2026-11-02T13:02:08.743Z", "level": "INFO", "event": "RESULT", "collector": "marianos-azure-headless", "command": "export", "exit_code": 0, "result": {"run_id": "01M6E49AHDXSQA04JQZ0HZ40GH", "out": "C:\\m6\\q180\\exports\\01M6E49AHDXSQA04JQZ0HZ40GH", "files": ["products.json", "products.csv", "memberships.json", "offers.json", "provenance.json", "validation_report.json", "products_fresh.json", "products_fresh.csv", "coverage_reconciliation.json", "coverage_reconciliation.csv", "coverage_by_csv_row.csv", "listing_pages.csv", "manifest.json"], "verified": true}}
+exit=0

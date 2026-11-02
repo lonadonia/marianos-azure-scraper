@@ -1,0 +1,171 @@
+{
+ "title": "Mariano's collector 1.8.0rc4 walkthrough, part 2 (recorded 2026-11-02)",
+ "steps": [
+  {
+   "say": [
+    "Mariano's collector 1.8.0rc4: walkthrough, PART 2 (recorded 2026-11-02 on Hamza's workstation, Windows 11, NOT",
+    "on the client's VM). Every command runs for real while it is recorded; nothing is typed in afterwards.",
+    "",
+    "Why there is a part 2: part 1 ended without warning at 13:45:43Z. The workstation ran short of memory (a web",
+    "browser opened for a sign-in) and the tool that ran the recording stopped its background tasks: the recorder,",
+    "and the collector with it, in the middle of Q2's resume (row 26 School Office, after its fourth page step). It",
+    "is a second, UNPLANNED forced stop of Q2 (the first, at 13:13:01Z, was the planned kill). Nothing else changed:",
+    "same release 1.8.0rc4, same database, same configuration, same limits (95 submissions per run; ceiling 200 /",
+    "USD 0.30). Q2 is resumed once more below; then its export and checks, which part 1 did not reach.",
+    "",
+    "Live scope: store 53100502 Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills IL 60061, PICKUP, through",
+    "the Oxylabs Web API on Hamza's own account (not the client's Classic account). CSV rows 22-27 only: a",
+    "qualification scope, NOT the client's full category list."
+   ]
+  },
+  {
+   "cmd": "git -C C:/m6/qwt log -1 --format='%H %s'",
+   "argv": [
+    "bash",
+    "-c",
+    "git -C C:/m6/qwt log -1 --format='%H %s'"
+   ],
+   "save": "p2_release"
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -"
+   ],
+   "save": "p2_status_before"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh run 01M6E5V6CASQ8F00VC8PE9TFYW",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh run 01M6E5V6CASQ8F00VC8PE9TFYW"
+   ],
+   "save": "p2_segments_before"
+  },
+  {
+   "say": [
+    "Q2 as the stop left it: its second segment is still open and one submission is still 'reserved'. The",
+    "resume below must close that segment as abandoned and settle the submission as unknown (possibly charged)."
+   ]
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh resume --store marianos-53100502-pickup",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh resume --store marianos-53100502-pickup"
+   ],
+   "save": "p2_resume",
+   "view": "events"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh run 01M6E5V6CASQ8F00VC8PE9TFYW",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh run 01M6E5V6CASQ8F00VC8PE9TFYW"
+   ],
+   "save": "p2_segments"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh pages 01M6E5V6CASQ8F00VC8PE9TFYW",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh pages 01M6E5V6CASQ8F00VC8PE9TFYW"
+   ],
+   "save": "p2_pages"
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh export --run 01M6E5V6CASQ8F00VC8PE9TFYW --out C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW | bash /c/m6/walk/show.sh result -",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh export --run 01M6E5V6CASQ8F00VC8PE9TFYW --out C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW | bash /c/m6/walk/show.sh result -"
+   ],
+   "save": "p2_export"
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh validate-export --run 01M6E5V6CASQ8F00VC8PE9TFYW | bash /c/m6/walk/show.sh result -",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh validate-export --run 01M6E5V6CASQ8F00VC8PE9TFYW | bash /c/m6/walk/show.sh result -"
+   ],
+   "save": "p2_validate"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh coverage C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh coverage C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW"
+   ],
+   "save": "p2_coverage"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh records C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW 2",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh records C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW 2"
+   ],
+   "save": "p2_records"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh flagged C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh flagged C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW"
+   ],
+   "save": "p2_flagged"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh compare C:/m6/q180/exports/01M6E49AHDXSQA04JQZ0HZ40GH C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh compare C:/m6/q180/exports/01M6E49AHDXSQA04JQZ0HZ40GH C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW"
+   ],
+   "save": "p2_q1c_vs_q2"
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -"
+   ],
+   "save": "p2_status_end"
+  },
+  {
+   "say": [
+    "The regressions of the client's findings and of today's fixes (pagination, promotions, pack size, price",
+    "attribution, the two rc4 export defects), on their own test database:"
+   ]
+  },
+  {
+   "cmd": "bash /c/m6/tools/t2.sh C:/m6/qwt/headless/marianos-azure-headless marianos_test_walk tests/unit/test_client_findings_180.py tests/unit/test_export_manifest_180.py tests/integration/test_page_regressions.py -p no:randomly",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/t2.sh C:/m6/qwt/headless/marianos-azure-headless marianos_test_walk tests/unit/test_client_findings_180.py tests/unit/test_export_manifest_180.py tests/integration/test_page_regressions.py -p no:randomly"
+   ],
+   "save": "p2_regressions"
+  },
+  {
+   "say": [
+    "Not shown here, and not done:",
+    "  - the client's full category list (28 rows) has not been collected at this store; rows 22-27 only;",
+    "  - the Oxylabs Classic probe has never sent a request: its live mode is disabled pending approval;",
+    "  - publication went only to this stage's own local folder; schedules stay disabled;",
+    "  - the checks on the client's VM are reported separately (offline only, no provider request).",
+    "End of the walkthrough (part 2 of 2)."
+   ]
+  }
+ ]
+}

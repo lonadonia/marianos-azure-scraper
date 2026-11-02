@@ -1,0 +1,80 @@
+{
+ "title": "Mariano's collector 1.8.0rc5 walkthrough, part 3: the delivered release, offline (recorded 2026-11-02)",
+ "steps": [
+  {
+   "say": [
+    "Mariano's collector: walkthrough, PART 3 (recorded 2026-11-02 on Hamza's workstation, Windows 11, NOT on the",
+    "client's VM). Every command runs for real while it is recorded; nothing is typed in afterwards.",
+    "",
+    "Parts 1 and 2 recorded the live run Q2 (01M6E5V6CASQ8F00VC8PE9TFYW) on release 1.8.0rc4 at Vernon Hills Pickup.",
+    "Q2 was rejected by two gates: G3 (Cat Food: 231 of the 232 products the site reports) and G13 (integrity).",
+    "The G13 rejection was a defect of ours: two fetches of a page that Oxylabs never delivered (HTTP 500 on every",
+    "attempt, not charged) were counted as unverified pages, although no record depends on them.",
+    "",
+    "This part shows the DELIVERED release, 1.8.0rc5, which fixes that, OFFLINE: no request is sent to Mariano's or",
+    "to any provider. 1.8.0rc5 HAS NOT RUN LIVE: its first live run is still pending, and so is the client's full",
+    "category list (only CSV rows 22-27 were collected, as a qualification scope)."
+   ]
+  },
+  {
+   "cmd": "sha256sum MARIANOS_SOURCE_1.8.0rc5.zip; marianos-collector --version (from its clean extraction)",
+   "argv": ["bash", "-c", "cd /c/m6/pkg185 && sha256sum MARIANOS_SOURCE_1.8.0rc5.zip && /c/x19/MARIANOS_SOURCE_1.8.0rc5/source/.venv/Scripts/marianos-collector.exe --version && git -C C:/m5/wt log -1 --format='commit %H%n%s'"],
+   "save": "p3_release"
+  },
+  {
+   "cmd": "git diff --stat 1.8.0rc4 (9d16475) .. 1.8.0rc5 (ee5ec99)",
+   "argv": ["bash", "-c", "git -C C:/m5/wt diff --stat 9d16475 ee5ec99 -- headless/marianos-azure-headless/src headless/marianos-azure-headless/tests headless/marianos-azure-headless/pyproject.toml"],
+   "save": "p3_diff"
+  },
+  {
+   "say": [
+    "The rule now: every page the run stored must still match its recorded SHA-256, as before. A fetch that brought",
+    "no page fails G13 only if a product, offer, placement or listing-page row of the run, or a record's provenance,",
+    "names it as a source. The two regressions below run on 1.8.0rc5 from the clean extraction of its archive, on",
+    "a disposable test database."
+   ]
+  },
+  {
+   "cmd": "pytest tests/integration/test_listing_pages.py -k \"never_brought or depends_on\" (1.8.0rc5, clean extraction)",
+   "argv": ["bash", "-c", "bash /c/m6/tools/t2.sh /c/x19/MARIANOS_SOURCE_1.8.0rc5/source marianos_test_walk3 -p no:randomly tests/integration/test_listing_pages.py -k 'never_brought or depends_on' -v 2>&1 | grep -E 'PASSED|FAILED|ERROR|passed|failed'"],
+   "save": "p3_regressions_rc5"
+  },
+  {
+   "cmd": "the same two tests on 1.8.0rc4 (saved before the commit, 14:19Z)",
+   "argv": ["bash", "-c", "grep -E \"(PASSED|FAILED|passed|failed|assert .*G13)\" C:/m6/ev/rc5/t_rc5_tests_on_rc4.log | tail -n 6"],
+   "save": "p3_regressions_rc4_saved"
+  },
+  {
+   "say": [
+    "And on the real qualification database (read only): G13's integrity reading of the four live runs, computed",
+    "by each release's own code. 1.8.0rc4 reports Q2's page hashes as not verified; 1.8.0rc5 verifies them. Q1, Q1b",
+    "and Q1c read the same under both."
+   ]
+  },
+  {
+   "cmd": "integrity_q180.py with 1.8.0rc4 (C:/m6/qwt)",
+   "argv": ["bash", "-c", "export PSYCOPG_IMPL=python; export PATH=\"/c/m6/qwt/headless/marianos-azure-headless/.venv/Lib/site-packages/pgserver/pginstall/bin:$PATH\"; /c/m6/qwt/headless/marianos-azure-headless/.venv/Scripts/python.exe -I C:/m6/tools/integrity_q180.py 01M6E2XXQNX1FYXPM37FGTYCKQ 01M6E3RDEBPZ39SVR37JR6PE8F 01M6E49AHDXSQA04JQZ0HZ40GH 01M6E5V6CASQ8F00VC8PE9TFYW"],
+   "save": "p3_integrity_rc4"
+  },
+  {
+   "cmd": "integrity_q180.py with 1.8.0rc5 (clean extraction C:/x19)",
+   "argv": ["bash", "-c", "export PSYCOPG_IMPL=python; export PATH=\"/c/x19/MARIANOS_SOURCE_1.8.0rc5/source/.venv/Lib/site-packages/pgserver/pginstall/bin:$PATH\"; /c/x19/MARIANOS_SOURCE_1.8.0rc5/source/.venv/Scripts/python.exe -I C:/m6/tools/integrity_q180.py 01M6E2XXQNX1FYXPM37FGTYCKQ 01M6E3RDEBPZ39SVR37JR6PE8F 01M6E49AHDXSQA04JQZ0HZ40GH 01M6E5V6CASQ8F00VC8PE9TFYW"],
+   "save": "p3_integrity_rc5"
+  },
+  {
+   "cmd": "the full suite of 1.8.0rc5 from the clean extraction (its summary line)",
+   "argv": ["bash", "-c", "tail -n 3 C:/m6/ev/rc5/t_full_rc5_x19b.log"],
+   "save": "p3_suite"
+  },
+  {
+   "say": [
+    "Not shown here, and not done:",
+    "  - 1.8.0rc5 has not run live; Q2's live evidence is from 1.8.0rc4 (parts 1 and 2);",
+    "  - the client's full category list (28 rows) has not been collected at Vernon Hills; rows 22-27 only;",
+    "  - the Oxylabs Classic probe has never sent a request: its live mode is disabled pending approval;",
+    "  - the checks on the client's VM have not been executed (no access before its scheduled shutdown).",
+    "End of the walkthrough (part 3 of 3)."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+{
+  "note": "A PLACEHOLDER. The account owner states, from the account itself, which Classic targets the account may use and with which integration method. The probe makes no request to find out.",
+  "verified": false,
+  "verified_by": "",
+  "verified_at": "",
+  "targets": [],
+  "response_mode": ""
+}

@@ -1,0 +1,28 @@
+{
+ "id": "L19",
+ "at": "20261102T052746Z",
+ "seconds": 161.4,
+ "endpoint": "/v1/scrape/marianos",
+ "request": {
+  "url": "https://www.marianos.com/pl/cold-cereal/0300100001?priceBuckets=5-0-7-49",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "the price bucket written with the slug the page state itself gives narrows a listing above the window (L14 used the name)",
+ "status": 500,
+ "kind": "provider_failure",
+ "charged": null,
+ "ledger": "OXP-L-d1c10e",
+ "request_id": "",
+ "problem": {
+  "title": "REQUEST_FAILED_SCRAPE_TIMEOUT",
+  "detail": "Scraping took too long, try again."
+ },
+ "result_metadata": null,
+ "params_echo": null,
+ "error_body": "{\"status\":500,\"title\":\"REQUEST_FAILED_SCRAPE_TIMEOUT\",\"detail\":\"Scraping took too long, try again.\",\"instance\":\"6ae81f52-93ccd958141c784bf9bfede1\"}\n"
+}

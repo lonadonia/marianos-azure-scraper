@@ -1,0 +1,4 @@
+csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
+23,32001,https://www.marianos.com/pl/candles-home-fragrances/32001,listing,1,1,1,refused,malformed,the page state lists 24 products and the grid shows 0 cards,52,52,24,0,0,0,0,0,b5ce7e6f489ae39977952b73f27b010060a3d799c9240e3919d15b9c2264363b,7522998575203111937
+23,32001,https://www.marianos.com/pl/candles-home-fragrances/32001,listing,1,1,2,refused,malformed,the page state lists 24 products and the grid shows 0 cards,52,52,24,0,0,0,0,0,865ab915749daee0c117eec01ee5d9f99e87da53abbb8afb9ab185386c24b794,7522999005760984065
+24,26003,https://www.marianos.com/pl/batteries/26003,listing,1,1,1,refused,malformed,the page state lists 24 products and the grid shows 0 cards,97,97,24,0,0,0,0,0,6a3a00c303b237621cee53109dcbc2531a70500c6500adb0f8740fa661177170,7522998687404955649

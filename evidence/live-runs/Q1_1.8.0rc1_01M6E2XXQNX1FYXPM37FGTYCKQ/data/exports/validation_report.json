@@ -1,0 +1,43 @@
+{
+  "mode": "LIVE",
+  "run_id": "01M6E2XXQNX1FYXPM37FGTYCKQ",
+  "status": "rejected",
+  "dataset": "partial",
+  "counts": {
+    "canary": {
+      "at": "2026-11-02T12:17:07.087391Z",
+      "url": "https://www.marianos.com/pl/candles-home-fragrances/32001",
+      "page": "01M6E2Y2P3C8QJP3S4AC5HSRC5",
+      "valid": 24,
+      "status": "failed",
+      "records": 24,
+      "problems": [
+        "1 valid records differ from the site's product data"
+      ],
+      "valid_ratio": 1.0,
+      "source_check": {
+        "records": 24,
+        "mismatch": 1,
+        "verified": 23,
+        "unverified": 0
+      }
+    },
+    "contract": {
+      "pages": 1,
+      "problems": []
+    },
+    "coupons_route": {
+      "url": "https://www.marianos.com/savings/cl/coupons/",
+      "run_js": true,
+      "status": "READ",
+      "coupons": [],
+      "fetch_id": "01M6E31RH3BA54PS8P8EN36G7X",
+      "provider": "oxylabs",
+      "store_check": "PASS",
+      "coupon_cards": 0,
+      "products_listed": false
+    }
+  },
+  "excluded_by_reason": {},
+  "duplicates": 0
+}

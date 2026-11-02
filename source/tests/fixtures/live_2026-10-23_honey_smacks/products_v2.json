@@ -1,0 +1,668 @@
+{
+ "data": {
+  "products": [
+   {
+    "inventory": {
+     "locations": [
+      {
+       "locationId": "53100503",
+       "available": 6,
+       "stockLevel": "HIGH"
+      }
+     ],
+     "effective": {
+      "total": 0,
+      "available": 0
+     }
+    },
+    "item": {
+     "alcoholFlag": false,
+     "assortments": [
+      {
+       "assortmentKey": "31a64170-d577-496c-8a87-dd13cff7566f",
+       "modalityEnabled": true,
+       "modalityType": "IN_STORE"
+      }
+     ],
+     "bounceFlag": false,
+     "brand": {
+      "name": "Honey Smacks",
+      "code": "1578351440835094"
+     },
+     "categories": [
+      {
+       "code": "10",
+       "name": "Breakfast"
+      }
+     ],
+     "clickListItem": false,
+     "countriesOfOrigin": "UNITED STATES",
+     "customerFacingSize": "16.3 oz",
+     "dietaryInformation": [
+      "Vegetarian",
+      "Kosher",
+      "Pescatarian"
+     ],
+     "description": "Kellogg's® Honey Smacks® Cereal",
+     "dimensions": {
+      "height": "12.32 [in_i]",
+      "width": "7.77 [in_i]",
+      "length": "2.48 [in_i]"
+     },
+     "familyTree": {
+      "commodity": {
+       "code": "085",
+       "name": "COLD CEREAL"
+      },
+      "department": {
+       "code": "01",
+       "name": "GROC-ALL OTHER"
+      },
+      "subCommodity": {
+       "code": "29459",
+       "name": "KIDS CEREAL"
+      }
+     },
+     "glutenFreeClaimName": "NO",
+     "gtin14": "00041192110603",
+     "hazmatFlag": false,
+     "homeDeliveryItem": false,
+     "images": [
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/xlarge/front/0004119211060",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/medium/front/0004119211060",
+       "size": "medium"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/large/front/0004119211060",
+       "size": "large"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/small/front/0004119211060",
+       "size": "small"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/thumbnail/front/0004119211060",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/xlarge/right/0004119211060",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/large/right/0004119211060",
+       "size": "large"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/medium/right/0004119211060",
+       "size": "medium"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/small/right/0004119211060",
+       "size": "small"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/thumbnail/right/0004119211060",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/xlarge/back/0004119211060",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/large/back/0004119211060",
+       "size": "large"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/medium/back/0004119211060",
+       "size": "medium"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/small/back/0004119211060",
+       "size": "small"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/thumbnail/back/0004119211060",
+       "size": "thumbnail"
+      }
+     ],
+     "itemTypeCode": "0",
+     "krogerDeliveryItem": false,
+     "liveNaturallyEligible": false,
+     "mainImagePerspective": "front",
+     "nonGmo": false,
+     "nutritionalClaims": [
+      "No Artificial Ingredients",
+      "Live Naturally"
+     ],
+     "omniChannelBrandName": "Kellogg's",
+     "organicClaimName": "NO",
+     "privacyRestricted": false,
+     "privacyRestrictedStates": [],
+     "prop65": {
+      "required": false
+     },
+     "prop65Info": {
+      "required": false
+     },
+     "ratingsAndReviewsAggregate": {
+      "averageRating": 3.09,
+      "numOfFiveStarRating": 89,
+      "numOfFourStarRating": 17,
+      "numOfOneStarRating": 83,
+      "numOfThreeStarRating": 9,
+      "numOfTwoStarRating": 11,
+      "numberOfReviews": 209
+     },
+     "receiptDescription": "KELL SMACKS",
+     "romanceDescription": "<p>Wake up to a bowl of Kellogg’s® Honey Smacks® cereal and bring tasty honey flavor and the wholesomeness of wheat to your breakfast table. Each sweetened wheat puff is made with a touch of real honey, giving you a glazed and crispy crunch in every spoonful. You’ll love this classic cereal - dig 'em at breakfast time with your favorite milk or at snack time. Made with whole grain and crafted with colors from natural sources, Kellogg’s® Honey Smacks® delivers our best in every bite. Enjoy them before school, as a crispy homework snack, during slow weekend mornings, or packed up for on the go road trip snacks. Whether you enjoy it with milk or straight from the box, it’s an easy part of breakfast or snacks that the whole family will love. Start your day with this delicious cereal - it's Honey Smackin' Good!</p><ul><li>CRISPY PUFFS: A cereal you can dig, these wheat puffs are made with touch of real honey that the whole family will love</li><li>BEST IN EVERY BITE: Made with whole grain, you can feel good about this cereal; each serving contains the wholesomeness of wheat</li><li>HONEY SMACKIN' GOOD: The glazed crunch of this puffed wheat cereal is unmistakably delicious; Colors from natural sources</li><li>DIG 'EM ANYTIME: Enjoy with milk before school, munch during homework, in weekends, or pack up a bag for the lunch box backpack</li><li>WHAT YOU GET: Includes one 16.3 oz large size box of Kellogg’s® Honey Smacks® breakfast cereal; Shelf stable; Instant and ready to eat</li></ul>",
+     "salesChannelCode": "STORE",
+     "salesChannelName": "Store",
+     "seoDescription": "kellogg-s-honey-smacks-cereal",
+     "shareLink": "https://www.marianos.com/p/kellogg-s-honey-smacks-cereal/0004119211060",
+     "snapEligible": true,
+     "soldInStore": true,
+     "tareValue": 0,
+     "taxGroupCode": "PF050001",
+     "taxonomies": [
+      {
+       "commodity": {
+        "code": "001",
+        "name": "Cereal & Granola"
+       },
+       "department": {
+        "code": "03",
+        "name": "Breakfast"
+       },
+       "subCommodity": {
+        "code": "00001",
+        "name": "Cold Cereal"
+       }
+      }
+     ],
+     "temperatureIndicator": "55688103654",
+     "temperatureIndicatorName": "Ambient",
+     "upc": "0004119211060",
+     "verified": true,
+     "weight": "1.01 [lb_av]"
+    },
+    "location": {
+     "locations": [
+      {
+       "aisle": {
+        "description": "AISLE 8",
+        "number": "8",
+        "side": "R"
+       },
+       "bayInAisle": "11",
+       "numOfFacings": "1",
+       "physicalShelfNumber": "5",
+       "shelfPositionInBay": "6"
+      }
+     ]
+    },
+    "price": {
+     "displayTemplate": "YellowTag",
+     "offerCode": "121097",
+     "orderBy": "Unit",
+     "sellBy": "Unit",
+     "storePrices": {
+      "promo": {
+       "defaultDescription": "$5.49",
+       "expirationDate": {
+        "value": "2026-10-28T03:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 5.49",
+       "unitPrice": "USD 5.49",
+       "price": "USD 5.49",
+       "equivalizedUnitPrice": {
+        "amount": "35.88",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.36/oz"
+      },
+      "regular": {
+       "defaultDescription": "$8.79",
+       "expirationDate": {
+        "value": "2026-10-28T03:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 8.79",
+       "unitPrice": "USD 8.79",
+       "price": "USD 8.79",
+       "equivalizedUnitPrice": {
+        "amount": "57.45",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.57/oz"
+      },
+      "sourceLocationId": "53100503",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    },
+    "id": "0004119211060",
+    "sourceLocations": [
+     {
+      "id": "53100503",
+      "itemLocations": [
+       {
+        "aisleDescription": "AISLE 8",
+        "aisleNumber": "8",
+        "aisleSide": "R",
+        "areaId": "008",
+        "areaTypeCode": "AL",
+        "areaTypeDescription": "Aisle",
+        "bayNumber": "007",
+        "bayNumberInAisle": "11",
+        "dataSource": "JDA_TRUE_FLOOR_PLAN",
+        "departmentCode": "GR",
+        "departmentDescription": "Grocery",
+        "fixtureNumber": "5",
+        "itemDepth": "2.48000",
+        "itemHeight": "12.33",
+        "itemWidth": "7.77",
+        "numberOfDepthFacings": "8",
+        "numberOfFacings": "1",
+        "numberOfVerticalFacings": "1",
+        "orientationCode": "L",
+        "orientationDescription": "Left",
+        "pogName": "D531_L00000_D01_C085_V900_F032_MX",
+        "position": "6",
+        "shelfNumber": "5",
+        "shelfPositionInBay": "6",
+        "subAreaId": "XXX",
+        "subAreaTypeCode": "XX",
+        "subAreaTypeDescription": "XX"
+       }
+      ],
+      "modalityAvailabilities": [
+       {
+        "availability": true,
+        "modalityType": "DELIVERY"
+       },
+       {
+        "availability": true,
+        "modalityType": "IN_STORE"
+       },
+       {
+        "availability": true,
+        "modalityType": "PICKUP"
+       },
+       {
+        "availability": false,
+        "modalityType": "SHIP"
+       }
+      ],
+      "prices": [
+       {
+        "displayTemplate": "YellowTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2026-10-07T08:51:04.983Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "2026-10-28T03:59:59.999Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$8.79",
+         "equivalizedUnitPrice": {
+          "amount": "57.45",
+          "denomination": "CENT",
+          "unit": "PER OUNCE"
+         },
+         "nFor": {
+          "count": 1,
+          "price": "USD 8.79"
+         },
+         "price": "USD 8.79"
+        },
+        "sale": {
+         "defaultDescription": "$5.49",
+         "equivalizedUnitPrice": {
+          "amount": "35.88",
+          "denomination": "CENT",
+          "unit": "PER OUNCE"
+         },
+         "linkedOfferCode": "121097",
+         "nFor": {
+          "count": 1,
+          "price": "USD 5.49"
+         },
+         "price": "USD 5.49"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "womenInfantChildFlg": "N"
+       }
+      ],
+      "restrictions": {
+       "shippable": false
+      },
+      "inventory": [
+       {
+        "availableToSell": 6,
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "stockLevel": "HIGH",
+        "included": {
+         "projections": []
+        }
+       }
+      ],
+      "laf": [
+       {
+        "modality": {
+         "type": "IN_STORE",
+         "handoffLocation": {
+          "storeId": "53100503",
+          "facilityId": "15096"
+         },
+         "handoffAddress": {
+          "address": {
+           "addressLines": [
+            "333 E Benton Pl"
+           ],
+           "cityTown": "CHICAGO",
+           "name": "Marianos Lakeshore East",
+           "postalCode": "60601",
+           "stateProvince": "IL",
+           "residential": false,
+           "countryCode": "US"
+          },
+          "location": {
+           "lat": 41.8853187,
+           "lng": -87.6182262
+          }
+         }
+        },
+        "sources": [
+         {
+          "storeId": "53100503",
+          "facilityId": "15096"
+         }
+        ],
+        "assortmentKeys": [
+         "31a64170-d577-496c-8a87-dd13cff7566f"
+        ],
+        "listingKeys": [
+         "53100503"
+        ]
+       }
+      ],
+      "sourceId": "53100503",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    ],
+    "itemsV1": {
+     "product": {
+      "familyTree": {
+       "commodity": {
+        "code": "085",
+        "name": "COLD CEREAL"
+       },
+       "primaryDepartment": {
+        "code": "01",
+        "name": "GROCERY",
+        "recapDepartment": {
+         "code": "01",
+         "department": {
+          "code": "01",
+          "name": "GROC-ALL OTHER"
+         },
+         "name": "GROCERY"
+        }
+       },
+       "subCommodity": {
+        "code": "29459",
+        "name": "KIDS CEREAL"
+       }
+      },
+      "id": "1000088060",
+      "nutritionalRating": "44"
+     }
+    },
+    "postalCodes": [
+     {
+      "postalCode": "60601",
+      "prices": [
+       {
+        "displayTemplate": "WhiteTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2026-10-07T00:00:00Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "2026-10-29T00:00:00Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$8.79",
+         "nFor": {
+          "count": 1,
+          "price": "USD 8.79"
+         },
+         "price": "USD 8.79"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "KROGER"
+       }
+      ]
+     }
+    ],
+    "laf": [
+     {
+      "assortmentKeys": [
+       "31a64170-d577-496c-8a87-dd13cff7566f"
+      ],
+      "listingKeys": [
+       "53100503"
+      ],
+      "modality": {
+       "handoffAddress": {
+        "address": {
+         "addressLines": [
+          "333 E Benton Pl"
+         ],
+         "cityTown": "CHICAGO",
+         "countryCode": "US",
+         "postalCode": "60601",
+         "stateProvince": "IL"
+        }
+       },
+       "handoffLocation": {
+        "facilityId": "15096",
+        "storeId": "53100503"
+       },
+       "type": "IN_STORE"
+      },
+      "priceAvailabilities": [
+       {
+        "id": "53100503",
+        "lookup": "LISTING_KEY",
+        "storeId": "53100503"
+       }
+      ],
+      "sources": [
+       {
+        "facilityId": "15096",
+        "storeId": "53100503"
+       }
+      ]
+     }
+    ],
+    "inventorySummaries": [
+     {
+      "modalityType": "IN_STORE",
+      "details": [
+       {
+        "sourceId": "53100503",
+        "availableToSell": 6,
+        "stockLevel": "HIGH"
+       }
+      ],
+      "availableToSell": 6,
+      "stockLevel": "HIGH"
+     }
+    ],
+    "offers": [
+     {
+      "gtin13": "0004119211060",
+      "displayTemplate": "MEGA_EVENT",
+      "offerCode": "fb9f1015-a729-407b-aee9-32845a151543",
+      "requirementId": "732457",
+      "defaultDescription": "Save $1 each when you buy 5 or more",
+      "start": "2026-10-07T00:00:00",
+      "end": "2026-10-27T23:59:59",
+      "startDate": {
+       "value": "2026-10-07T00:00:00.000Z",
+       "timezone": "UTC"
+      },
+      "endDate": {
+       "value": "2026-10-27T23:59:59.000Z",
+       "timezone": "UTC"
+      },
+      "modalities": [
+       "IN_STORE"
+      ]
+     }
+    ],
+    "fulfillmentOptions": [
+     "IN_STORE"
+    ],
+    "fulfillmentSummaries": [
+     {
+      "type": "PICKUP",
+      "regular": {
+       "price": "USD 8.79",
+       "displayTemplate": "YellowTag",
+       "pricePerUnitString": "16.3 oz",
+       "equivalizedUnitPrice": {
+        "amount": "57.45",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.57/oz"
+      },
+      "availability": {
+       "sellable": true,
+       "inventoryLevel": "HIGH",
+       "unavailabilityMessage": "In-Store Only"
+      },
+      "sale": {
+       "price": "USD 5.49",
+       "pricePerUnitString": "16.3 oz",
+       "expirationDate": {
+        "value": "2026-10-28T03:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "35.88",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.36/oz"
+      }
+     },
+     {
+      "type": "DELIVERY",
+      "regular": {
+       "price": "USD 8.79",
+       "displayTemplate": "YellowTag",
+       "pricePerUnitString": "16.3 oz",
+       "equivalizedUnitPrice": {
+        "amount": "57.45",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.57/oz"
+      },
+      "availability": {
+       "sellable": true,
+       "inventoryLevel": "HIGH",
+       "unavailabilityMessage": "In-Store Only"
+      },
+      "sale": {
+       "price": "USD 5.49",
+       "pricePerUnitString": "16.3 oz",
+       "expirationDate": {
+        "value": "2026-10-28T03:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "35.88",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.36/oz"
+      }
+     },
+     {
+      "type": "IN_STORE",
+      "regular": {
+       "price": "USD 8.79",
+       "displayTemplate": "YellowTag",
+       "priceString": "Save $1 each when you buy 5 or more",
+       "pricePerUnitString": "16.3 oz",
+       "equivalizedUnitPrice": {
+        "amount": "57.45",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.57/oz"
+      },
+      "availability": {
+       "sellable": true,
+       "inventoryLevel": "HIGH"
+      },
+      "sale": {
+       "price": "USD 5.49",
+       "priceString": "Save $1 each when you buy 5 or more",
+       "pricePerUnitString": "16.3 oz",
+       "expirationDate": {
+        "value": "2026-10-28T03:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "35.88",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.36/oz"
+      },
+      "maxOrderQuantity": 6
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,1527 @@
+{
+ "about": "Exact text of each documentation correction made for this publication (values withheld from a public repository are shown as <...>), in the order applied; the first corrections are shown as written before the path pass, which then rewrote their E:/S: references as listed in path_changes.",
+ "corrections": [
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§1 Release",
+   "before": "(branch `marianos-1.8`, local, not pushed). Source archive `MARIANOS_SOURCE_1.8.0rc5.zip` (SHA-256 in `SHA256SUMS.txt`).",
+   "after": "(development branch `marianos-1.8`; its history is not published). Its frozen tree is `source/` of this repository, file for file the `source/` of `MARIANOS_SOURCE_1.8.0rc5.zip` (SHA-256 `1832ef6e5051f20e55842057b60d37a61924e1af92d360fea6ae810104481485`, `manifests/PUBLICATION.json`).",
+   "reason": "publication layout: the development repository, the archives and the local paths are not published"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§3 The result window",
+   "before": "- **The result window.** The site reports `totalCount` and `availableCount` (250 here; 24 products a page, page 11\n  is the last one inside the window). A listing whose total is above its window is read through its child listings,\n  and is complete only if the children account for its total. Otherwise it stays incomplete.\n",
+   "after": "- **The result window.** The site reports `totalCount` and `availableCount` (250 here; 24 products a page, page 11\n  is the last one inside the window). A listing whose total is above its window is read through its child listings,\n  and is complete only if the children account for its total. A listing above the window that names no child\n  listing is read through the site's own brand filter: `brand_partitions()` in `collection/pagination.py`, called\n  by `read_listing` in `collection/oxylabs_live.py` (setting `coverage.partition_large_listings`, on by default),\n  one filtered reading per brand the page names. It is complete only if the brand readings account for its total.\n  Otherwise it stays incomplete.\n  - **Implemented** since 1.8.0rc1 and **tested offline** on a synthetic site\n    (`test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter` in\n    `S:source/tests/integration/test_listing_pages.py`).\n  - **Not proven live.** No listing of Q1c or Q2 was above the window (the largest, Cat Food, reported 232), so\n    neither path ran live, and complete coverage through brand readings is not shown for any category.\n",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§5 Categories above the window",
+   "before": "- **Categories above the window** can be divided only through a retailer filter that was proven to work. That is the\n  brand filter (L20); the price bucket is not established (L14, L19). Whether a category's brand partitions add up\n  to its total has to be shown per category, live. It was **not** shown in this task.\n",
+   "after": "- **Categories above the window** can be divided only through a retailer filter that was proven to work. That is the\n  brand filter (L20); the price bucket is not established (L14, L19). The collector implements the brand path\n  (section 3), tested offline. Whether a category's brand readings add up to its total has to be shown per\n  category, live. It was **not** shown in this task.\n",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§6 Digital offers between runs",
+   "before": "- **Digital offers between runs.** 42 products lost the digital coupon \"Save $1.00 on Energizer\" between Q1c and Q2.\n  The coupon text is in each product's Q1c page and absent from its Q2 page, so the site stopped showing it. This is\n  not a collector defect (`E:retention/DIGITAL_OFFER_CHANGES_Q1C_Q2.csv`).\n",
+   "after": "- **Digital offers between runs.** 42 products lost the digital coupon \"Save $1.00 on Energizer\" between Q1c and Q2.\n  The coupon text is in each product's Q1c page and absent from its Q2 page, and each export matches its own stored\n  page (`E:retention/DIGITAL_OFFER_CHANGES_Q1C_Q2.csv`). Both pages are captures returned by the provider: they do\n  not show whether the retailer, the provider or something between them changed the response.\n",
+   "reason": "a difference between two provider-returned captures does not by itself show whether the retailer or the provider changed the response"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§10 After each stop",
+   "before": "  reservation stayed `reserved`. This is the corrected C06; before the fix, the recovery ran after the account check,\n  so a dead worker's reservation at the ceiling could refuse its own recovery.\n",
+   "after": "  reservation stayed `reserved`. This is the corrected C06; before the fix, the recovery ran after the account check,\n  so a dead worker's reservation at the ceiling could refuse its own recovery.\n- It continued at the first page not completed. No completed page was fetched again, and no product was recorded\n  twice. The page in flight at each stop was requested again after the resume (Q1c: Candles page 3; Q2: Dog Food\n  page 5 and School Office page 5), and failed requests were retried within the run's limits (for example Hardware\n  page 2: seven free HTTP 500 answers, then a completed page). Every submission is in `REQUEST_LEDGER.csv`.\n",
+   "reason": "the ledger shows the submission in flight at each forced stop sent again after the resume, and failed submissions retried; what the evidence supports is that no completed page was fetched again"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§10 Publication",
+   "before": "- Q1c was published to the stage's own local folder (`<workstation folder>`, nowhere else).\n",
+   "after": "- Q1c was published to the stage's own local folder on Hamza's workstation, nowhere else.\n",
+   "reason": "publication layout: the development repository, the archives and the local paths are not published"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§12 Client VM",
+   "before": "**Not executed.** The brief permits login and offline Python and Docker checks on the client's VM (<client VM address>,\nuser `<client VM user>`), with the host key verified at first connection.\n",
+   "after": "**Not executed.** The brief permits login and offline Python and Docker checks on the client's VM (its address and\nuser are not published here), with the host key verified at first connection.\n",
+   "reason": "public repository: the client VM's address, user and host-key fingerprint are not published"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§12 The host key",
+   "before": "  authentication). The ED25519 key it offered matches the brief's fingerprint\n  (`<client host-key fingerprint>`).\n",
+   "after": "  authentication). The ED25519 key it offered matches the fingerprint the client supplied (not published here).\n",
+   "reason": "public repository: the client VM's address, user and host-key fingerprint are not published"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§12 Hamza's VM",
+   "before": "Hamza's own Azure VM `<developer VM name>` (used in 1.7.0) was not used in this task, and its state was not checked here.",
+   "after": "Hamza's own Azure VM (used in 1.7.0) was not used in this task, and its state was not checked here.",
+   "reason": "publication layout: the development repository, the archives and the local paths are not published"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§14 Power requests",
+   "before": "- **Power requests.** Each long job now holds a Windows power request for its own duration\n  (`<workstation utility>`), and no power setting is changed.\n",
+   "after": "- **Power requests.** Each long job now holds a Windows power request for its own duration (a workstation\n  utility, not published), and no power setting is changed.\n",
+   "reason": "publication layout: the development repository, the archives and the local paths are not published"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§15 Evidence classes, synthetic",
+   "before": "| 4. Synthetic and fault injection | the unit and integration suites; the synthetic `/pl/` site with worker kills; the probe's synthetic rate card |",
+   "after": "| 4. Synthetic and fault injection | the unit and integration suites; the synthetic `/pl/` site with worker kills, child listings and the brand-filter reading; the probe's synthetic rate card |",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§15 Evidence classes, untested",
+   "before": "| 6. Untested or blocked | product pages (provider 500); price partitions; Classic (no credentials); client VM; full coverage |",
+   "after": "| 6. Untested or blocked | product pages (provider 500); price partitions; child-listing and brand-filter readings live (implemented, tested offline only); Classic (no credentials); client VM; full coverage |",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§15 Sanitization",
+   "before": "**Sanitization.** Pages are stored after the collector's sanitizer (`sites/marianos/sanitize.py`).\n`E:SANITIZATION_MAP.csv` lists each changed file with both hashes. No key, Authorization header or connection\nstring is in the delivery; the secret scans are in `PACKAGE_VERIFICATION.txt`.",
+   "after": "**Sanitization.** Pages are stored after the collector's sanitizer (`sites/marianos/sanitize.py`). The original\nevidence archive changed no file. For this public repository a few files were redacted (a workstation host name\nand user folder, a key fingerprint, a request cookie echoed in one probe page, a key-handling note); each is listed\nwith both SHA-256 values in `manifests/REDACTIONS.csv`. No key, Authorization header or connection string is in\nthe delivery; the secret scans are in `PACKAGE_VERIFICATION.txt` and `manifests/PUBLICATION.json`.",
+   "reason": "public repository: redactions recorded"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§16 Open items",
+   "before": "1. **Full coverage at Vernon Hills Pickup:** rows 0-21, and the Cat Food gap.\n   - Smallest test: one run of 1.8.0rc5 over one large department, under its own ceiling. It would be rc5's first\n     live run, and it would report the department's categories above the window as incomplete.\n   - Completing those categories needs brand partitions, which the collector does not have yet. Before they are\n     built, a probe of one category's brand pages would show whether they add up to the category's total.\n2. **Live re-observation of the C02-C04 products:** a run including Beer Wine Liquor and Deli at Vernon Hills.\n3. **The client VM:** the offline checks of `ACCEPTANCE_RUNBOOK.md`, once Hamza loads the key and the VM is up.\n4. **Open minor defects:** T05 (probe traceback), T06 (the run's own export shows its last segment without an end\n   time), T07 (a provider-error pause is logged as `RUN_LIMIT_REACHED`).\n5. **Mutation check:** the 3 mutants not run.\n6. **Classic:** credentials and the client's approval.\n7. **The IP transfer and support terms:** still subject to agreement.\n",
+   "after": "**Work remaining for the developer** (each live item needs an approved route and allowance, below):\n\n1. **Full coverage at Vernon Hills Pickup:** rows 0-21, and the Cat Food gap (231 of 232).\n   - Smallest test: one run of 1.8.0rc5 over one large department, under its own ceiling. It would be rc5's first\n     live run and the first live use of the child-listing and brand-filter readings for categories above the window.\n   - Before it, a probe of one category's brand pages would show whether its brand readings add up to the\n     category's total. A category whose readings do not account for its total stays incomplete.\n2. **Live re-observation of the C02-C04 products:** a run including Beer Wine Liquor and Deli at Vernon Hills.\n3. **The client VM's offline checks** (`ACCEPTANCE_RUNBOOK.md` §2): Hamza loads the key once the VM is available.\n4. **Open minor defects:** T05 (probe traceback), T06 (the run's own export shows its last segment without an end\n   time), T07 (a provider-error pause is logged as `RUN_LIMIT_REACHED`).\n5. **Mutation check:** the 3 mutants not run.\n6. **Runtime of a full run:** with brand partitions the estimate exceeds one worker's time between twice-weekly\n   runs (`COST_AND_RUNTIME_REPORT.md` §5). Concurrency is not verified.\n\n**Access or decisions needed from the client:**\n\n1. **The VM:** available (running) at an agreed time for the offline checks; its shutdown policy is the client's.\n2. **Live work:** approval of a route, account and allowance for the runs above, and for any run on Azure.\n3. **Classic:** approval, the account owner's credentials, entitlement and confirmed rates. Its live mode stays\n   disabled until then.\n4. **Schedules and publication:** schedules stay disabled, and no production publication target is set, until the\n   client authorizes them.\n5. **Acceptance:** the client's own checks of this delivery (`ACCEPTANCE_RUNBOOK.md`).\n6. **The IP transfer and support terms:** still subject to agreement.\n",
+   "reason": "remaining work separated: developer work apart from the client's access and decisions; brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§17 Repository",
+   "before": "- **Repository:** branch `marianos-1.8` at `ee5ec99`, local only; nothing pushed.",
+   "after": "- **Repository:** the development branch `marianos-1.8` at `ee5ec99` stays local. This public repository holds\n  its frozen tree and the evidence, added afterwards in a packaging commit (`manifests/PUBLICATION.json`).",
+   "reason": "publication layout: the development repository, the archives and the local paths are not published"
+  },
+  {
+   "file": "review/COST_AND_RUNTIME_REPORT.md",
+   "section": "§1 table",
+   "before": "Hamza's account (key fingerprint `<key fingerprint>`)",
+   "after": "Hamza's account (key fingerprint not published)",
+   "reason": "public repository: a credential fingerprint is not published"
+  },
+  {
+   "file": "review/COST_AND_RUNTIME_REPORT.md",
+   "section": "§4 Memory and recovery",
+   "before": "  the three forced stops was recovered by `resume` without a page fetched twice or a product recorded twice.\n",
+   "after": "  the three forced stops was recovered by `resume`: no completed page was fetched again, and no product was recorded\n  twice. The submission in flight at each stop was sent again after the resume, and failed submissions were\n  retried; all of them are counted in the ledger.\n",
+   "reason": "the ledger shows the submission in flight at each forced stop sent again after the resume, and failed submissions retried; what the evidence supports is that no completed page was fetched again"
+  },
+  {
+   "file": "review/COST_AND_RUNTIME_REPORT.md",
+   "section": "§5 Scenarios",
+   "before": "- **A, as implemented in 1.8.0rc5.** Every category is read page by page to its end, and a category above the\n  window is read through its child listings. The work is about one page per 24 products.\n  - Child listings that are themselves above the window stay **incomplete** and are reported as such, for example\n    cold cereal, with 277 products.\n  - The department pages do not say how many such leaves there are.\n- **B, complete coverage of the leaves above the window.** Those leaves are divided by brand, the only retailer\n  filter shown to work on `/pl/` (L20).\n  - **The collector does not implement this.**\n",
+   "after": "- **A, without brand partitions.** Every category is read page by page to its end, and a category above the\n  window is read through its child listings. The work is about one page per 24 products.\n  - Child listings that are themselves above the window would stay **incomplete**, for example cold cereal, with\n    277 products.\n  - The department pages do not say how many such leaves there are.\n- **B, with brand partitions: the path 1.8.0rc5 takes.** Leaves above the window are divided by brand, the only\n  retailer filter shown to work on `/pl/` (L20).\n  - **The collector implements this** (`brand_partitions()`, since 1.8.0rc1, on by default) and it is tested\n    offline. It has **not run live**, and whether the brand readings add up to each leaf's total is not shown.\n",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/COST_AND_RUNTIME_REPORT.md",
+   "section": "§5 Reading the table",
+   "before": "- **Scenario A fits a twice-weekly cadence with one worker.** About 17 to 23 hours a run, 3.5 days apart. But the\n  coverage stays incomplete wherever a leaf listing is above the window.\n- **Scenario B does not fit safely with one worker.** 48 to 77 hours a run would leave little or no time between\n  runs. Concurrency would be needed, and it is **not verified in 1.8.0**. In 1.7.0 it was measured only on first pages\n  (R3). It would need bounded tests under one shared request and spending ledger.\n",
+   "after": "- **Scenario B is the estimate for 1.8.0rc5 as configured, and it does not fit safely with one worker.** 48 to 77\n  hours a run would leave little or no time between runs. Concurrency would be needed, and it is **not verified in\n  1.8.0**. In 1.7.0 it was measured only on first pages (R3). It would need bounded tests under one shared request\n  and spending ledger.\n- **Scenario A would fit a twice-weekly cadence with one worker:** about 17 to 23 hours a run, 3.5 days apart. But\n  coverage would stay incomplete wherever a leaf listing is above the window, and it is not how 1.8.0rc5 is\n  configured.\n",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/COST_AND_RUNTIME_REPORT.md",
+   "section": "§7 Unknown",
+   "before": "  under its own ceiling (brand partitions are not implemented in the collector yet).\n",
+   "after": "  under its own ceiling. The collector's brand path is implemented and tested offline; it has not run live.\n",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/PROVIDER_COMPARISON.md",
+   "section": "§3 Its limits",
+   "before": "  - Listings above the 250-product window can be read only through child listings. A leaf listing above the window\n    stays incomplete and is reported as such.\n  - Brand partitions would complete such leaves, but they cost 4.5 to 5.7 times the pages, and the collector does\n    not implement them (`COST_AND_RUNTIME_REPORT.md`).\n",
+   "after": "  - Listings above the 250-product window are read through their child listings or, when a listing names none,\n    through the site's brand filter (implemented and tested offline, not yet run live). A listing whose readings\n    do not account for its total stays incomplete and is reported as such.\n  - Brand partitions cost 4.5 to 5.7 times the pages of the categories above the window\n    (`COST_AND_RUNTIME_REPORT.md`).\n",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "section": "What it is",
+   "before": "Web Scraper API (Realtime method). It is frozen in `S:classic_probe/` of `MARIANOS_SOURCE_1.8.0rc5.zip`, with its\nlock file, tests and documents.",
+   "after": "Web Scraper API (Realtime method). It is frozen in this folder, `classic-probe/`, file for file the `classic_probe/`\nof `MARIANOS_SOURCE_1.8.0rc5.zip`, with its lock file, tests and documents (this note is the only added file).",
+   "reason": "publication layout: the development repository, the archives and the local paths are not published"
+  },
+  {
+   "file": "evidence/census/FULL_SCOPE_ESTIMATE.json",
+   "section": "scenario A key",
+   "before": "\"scenario_A_as_implemented\": {",
+   "after": "\"scenario_A_without_brand_partitions\": {",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "evidence/census/FULL_SCOPE_ESTIMATE.json",
+   "section": "note",
+   "before": "B: categories above the window divided by brand (not implemented), their pages multiplied by the measured factor.",
+   "after": "B: categories above the window divided by brand, as 1.8.0rc5 does (brand_partitions(), on by default; tested offline, not run live), their pages multiplied by the measured factor.",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "section": "C01 remaining_limitation",
+   "before": "listings above the site's 11-page window are read through child listings, verified by replay and synthetic tests, not live in this task",
+   "after": "listings above the site's 11-page window are read through child listings, or through the site's brand filter when the page names no child listing (brand_partitions(), implemented since 1.8.0rc1); both paths are verified by replay and synthetic tests only, not live in this task, so complete coverage of such listings is not proven",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "section": "M09 remaining_action",
+   "before": "the listings above the site's window read through their child listings live",
+   "after": "the listings above the site's window read live through their child listings or the brand filter (implemented, tested offline only); the readings must account for each total",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "section": "B07 evidence_class",
+   "before": "listings above the window: child listings named by the page itself (replay/synthetic)",
+   "after": "listings above the window: child listings named by the page itself (replay/synthetic); a listing that names none: the site's brand filter (synthetic test only)",
+   "reason": "brand partitioning is implemented: brand_partitions() in collection/pagination.py, its call in read_listing (collection/oxylabs_live.py, on by default through coverage.partition_large_listings) and the regression test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter; what is missing is live proof of complete coverage"
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "section": "new column next_owner",
+   "before": "(none)",
+   "after": "developer / client / client decision / client access, then developer / developer, after client approval / provider / Kroger account owner / none",
+   "reason": "remaining work separated: developer work apart from the client's access and decisions"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§2 Requirement map",
+   "before": "  1.8.0 status) and the 45 requirements of this brief (B01-B45). Each row has its status, evidence class, artifact,\n  remaining action and acceptance condition.",
+   "after": "  1.8.0 status) and the 45 requirements of this brief (B01-B45). Each row has its status, evidence class, artifact,\n  remaining action, the next owner of that action (a column added in this publication) and acceptance condition.",
+   "reason": "remaining work separated: developer work apart from the client's access and decisions"
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "section": "§14 The delivered package",
+   "before": "- the earlier deliveries unchanged;\n- checksums written last and read back.\n",
+   "after": "- the earlier deliveries unchanged;\n- checksums written last and read back.\n\nThis repository republishes the delivery file by file, without the archives and the PDF summary. What was moved,\ncorrected, redacted or left out is listed in `manifests/` (`FILE_MAP.csv`, `DOC_CORRECTIONS.md`, `REDACTIONS.csv`,\n`EXCLUDED.csv`), and the checks of this publication are in `manifests/PUBLICATION.json`.\n",
+   "reason": "publication layout: the archives, the PDF summary and the delivery index are not published"
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "section": "M08 M20 M21 M22 M25 M29 M63 M65 evidence_class",
+   "before": "Azure <developer VM name>",
+   "after": "Hamza's Azure VM",
+   "reason": "public repository: the developer's own VM is not named (8 occurrences)"
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "section": "B37 artifact",
+   "before": "E:SANITIZATION_MAP.csv; PACKAGE_VERIFICATION.txt",
+   "after": "manifests/REDACTIONS.csv (the original evidence archive's SANITIZATION_MAP.csv listed no changed file); PACKAGE_VERIFICATION.txt",
+   "reason": "public repository: redactions recorded"
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "section": "B38 evidence_class and artifact",
+   "before": "VERIFIED (package),this folder,DELIVERY_INDEX.md,",
+   "after": "VERIFIED (package),this repository,README.md; manifests/FILE_MAP.csv,",
+   "reason": "publication layout: the archives, the PDF summary and the delivery index are not published"
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "section": "B43 artifact",
+   "before": "TECHNICAL_REPORT.md §17; <client-message draft> (unsent draft),",
+   "after": "TECHNICAL_REPORT.md §17,",
+   "reason": "a client-message draft is not published"
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "section": "B44 artifact",
+   "before": "this delivery,DELIVERY_INDEX.md; TECHNICAL_REPORT.md,",
+   "after": "this delivery,README.md; TECHNICAL_REPORT.md,",
+   "reason": "publication layout: the archives, the PDF summary and the delivery index are not published"
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "section": "M54 artifact",
+   "before": "MARIANOS_SOURCE_1.8.0rc5.zip; PACKAGE_VERIFICATION.txt",
+   "after": "source/ and classic-probe/ (file for file MARIANOS_SOURCE_1.8.0rc5.zip: manifests/check_frozen_trees.py); PACKAGE_VERIFICATION.txt",
+   "reason": "publication layout: the archives, the PDF summary and the delivery index are not published"
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "section": "Commands and offline results",
+   "before": "| `uv run pytest -q` | 93 passed, 2 skipped |",
+   "after": "| `uv run pytest -q` | 93 passed, 2 skipped, exit 0 (the log keeps pytest's progress marks, 93 `.` and 2 `s`, without its summary line) |",
+   "reason": "the test count is read from the log's progress marks: the log has no pytest summary line"
+  }
+ ],
+ "runbook": "review/ACCEPTANCE_RUNBOOK.md was rewritten for the repository layout: archive steps replaced by the clone, manifests/SHA256SUMS.txt and manifests/check_frozen_trees.py; the client VM's address, user and host-key fingerprint replaced by placeholders; recovery wording of step 6 corrected; section 9 points to TECHNICAL_REPORT.md section 16. Expected results and test counts are unchanged.",
+ "path_changes": [
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "reference": "E:classic/docs_20261102/",
+   "repository_path": "evidence/classic-probe/oxylabs-docs-20261102/",
+   "count": 1
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "reference": "E:probe_x18/",
+   "repository_path": "evidence/classic-probe/from-1.8.0rc4-archive/",
+   "count": 1
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "reference": "E:probe_x19/probe_x19.log",
+   "repository_path": "evidence/classic-probe/from-1.8.0rc5-archive/probe_x19.log",
+   "count": 1
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "reference": "E:tools/probe_fixtures180.py",
+   "repository_path": "evidence/tools/probe_fixtures180.py",
+   "count": 1
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "reference": "PROVIDER_COMPARISON.md",
+   "repository_path": "review/PROVIDER_COMPARISON.md",
+   "count": 1
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "reference": "S:classic_probe/CLASSIC_TEST_PLAN.md",
+   "repository_path": "classic-probe/CLASSIC_TEST_PLAN.md",
+   "count": 1
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "reference": "S:classic_probe/README.md",
+   "repository_path": "classic-probe/README.md",
+   "count": 1
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "reference": "S:classic_probe/docs/DOCUMENTED_CONTRACT.md",
+   "repository_path": "classic-probe/docs/DOCUMENTED_CONTRACT.md",
+   "count": 1
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "reference": "S:classic_probe/docs/PAYLOAD_MATRIX.md",
+   "repository_path": "classic-probe/docs/PAYLOAD_MATRIX.md",
+   "count": 1
+  },
+  {
+   "file": "classic-probe/CLASSIC_PROBE.md",
+   "reference": "S:classic_probe/tests/",
+   "repository_path": "classic-probe/tests/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "ACCEPTANCE_RUNBOOK.md",
+   "repository_path": "review/ACCEPTANCE_RUNBOOK.md",
+   "count": 5
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "CLASSIC_PROBE.md",
+   "repository_path": "classic-probe/CLASSIC_PROBE.md",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "CORRECTION_MAP.csv",
+   "repository_path": "review/CORRECTION_MAP.csv",
+   "count": 5
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "COST_AND_RUNTIME_REPORT.md",
+   "repository_path": "review/COST_AND_RUNTIME_REPORT.md",
+   "count": 5
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "COVERAGE_BY_CSV_ROW.csv",
+   "repository_path": "data/Q2-1.8.0rc4/COVERAGE_BY_CSV_ROW.csv",
+   "count": 9
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "COVERAGE_BY_LISTING.csv",
+   "repository_path": "data/Q2-1.8.0rc4/COVERAGE_BY_LISTING.csv",
+   "count": 7
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "COVERAGE_RECONCILIATION.json",
+   "repository_path": "data/Q2-1.8.0rc4/COVERAGE_RECONCILIATION.json",
+   "count": 4
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:census/",
+   "repository_path": "evidence/census/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:classic/docs_20261102/",
+   "repository_path": "evidence/classic-probe/oxylabs-docs-20261102/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:conflicts/",
+   "repository_path": "evidence/offline-reprocessing/conflicts/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:conflicts/HONEY_SMACKS_TRACE.json",
+   "repository_path": "evidence/offline-reprocessing/conflicts/HONEY_SMACKS_TRACE.json",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:conflicts/PRICE_CONFLICT_RECONCILIATION.csv",
+   "repository_path": "evidence/offline-reprocessing/conflicts/PRICE_CONFLICT_RECONCILIATION.csv",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:db_global/publication_pointer.csv",
+   "repository_path": "evidence/live-runs/db_global/publication_pointer.csv",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:db_global/publications.csv",
+   "repository_path": "evidence/live-runs/db_global/publications.csv",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:ledger/budget180.jsonl",
+   "repository_path": "evidence/accounting/budget180.jsonl",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:probe_x18/",
+   "repository_path": "evidence/classic-probe/from-1.8.0rc4-archive/",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:probe_x18/probe_x18.log",
+   "repository_path": "evidence/classic-probe/from-1.8.0rc4-archive/probe_x18.log",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:probe_x19/",
+   "repository_path": "evidence/classic-probe/from-1.8.0rc5-archive/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:probe_x19/probe_x19.log",
+   "repository_path": "evidence/classic-probe/from-1.8.0rc5-archive/probe_x19.log",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:probes/",
+   "repository_path": "evidence/live-probes/",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:probes/K1_locations_lead.json",
+   "repository_path": "evidence/live-probes/K1_locations_lead.json",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:probes/hypotheses.jsonl",
+   "repository_path": "evidence/live-probes/hypotheses.jsonl",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:qualification/",
+   "repository_path": "evidence/live-runs/qualification/",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:qualification/config/",
+   "repository_path": "evidence/live-runs/qualification/config/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:qualification/q180.sh",
+   "repository_path": "evidence/live-runs/qualification/q180.sh",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:qualification/q1c_kill.txt",
+   "repository_path": "evidence/live-runs/qualification/q1c_kill.txt",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:qualification/q2_kill.txt",
+   "repository_path": "evidence/live-runs/qualification/q2_kill.txt",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:rc5/",
+   "repository_path": "evidence/rc5-offline/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:rc5/t_full_rc5_x19b.log",
+   "repository_path": "evidence/rc5-offline/t_full_rc5_x19b.log",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:regress/",
+   "repository_path": "evidence/tests/regress/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:regress/old_4815ed4.log",
+   "repository_path": "evidence/tests/regress/old_4815ed4.log",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:repro/",
+   "repository_path": "evidence/offline-reprocessing/repro/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:repro/size_conflicts.txt",
+   "repository_path": "evidence/offline-reprocessing/repro/size_conflicts.txt",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/",
+   "repository_path": "evidence/live-runs/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/*/db/events.csv",
+   "repository_path": "evidence/live-runs/*/db/events.csv",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E2XXQNX1FYXPM37FGTYCKQ/",
+   "repository_path": "evidence/live-runs/Q1_1.8.0rc1_01M6E2XXQNX1FYXPM37FGTYCKQ/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E2XXQNX1FYXPM37FGTYCKQ/db/events.csv",
+   "repository_path": "evidence/live-runs/Q1_1.8.0rc1_01M6E2XXQNX1FYXPM37FGTYCKQ/db/events.csv",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E49AHDXSQA04JQZ0HZ40GH/db/validation_findings.csv",
+   "repository_path": "evidence/live-runs/Q1c_1.8.0rc3_01M6E49AHDXSQA04JQZ0HZ40GH/db/validation_findings.csv",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/data/exports/memberships.json",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/data/exports/memberships.json",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/data/exports/offers.json",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/data/exports/offers.json",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/data/exports/provenance.json",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/data/exports/provenance.json",
+   "count": 4
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/db/collection_segments.csv",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/db/collection_segments.csv",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/db/events.csv",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/db/events.csv",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/db/provider_usage.csv",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/db/provider_usage.csv",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/db/store_attestations.csv",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/db/store_attestations.csv",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/db/validation_findings.csv",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/db/validation_findings.csv",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:walkthrough/",
+   "repository_path": "evidence/walkthrough/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:walkthrough/WALKTHROUGH_1.8.0rc4_part2.cast",
+   "repository_path": "evidence/walkthrough/WALKTHROUGH_1.8.0rc4_part2.cast",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "E:walkthrough/raw2/",
+   "repository_path": "evidence/walkthrough/raw2/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "FULL_SCOPE_BY_CSV_ROW.csv",
+   "repository_path": "evidence/census/FULL_SCOPE_BY_CSV_ROW.csv",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "FULL_SCOPE_CENSUS.csv",
+   "repository_path": "evidence/census/FULL_SCOPE_CENSUS.csv",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "FULL_SCOPE_ESTIMATE.json",
+   "repository_path": "evidence/census/FULL_SCOPE_ESTIMATE.json",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "LISTING_PAGES.csv",
+   "repository_path": "data/Q2-1.8.0rc4/LISTING_PAGES.csv",
+   "count": 10
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "PACKAGE_VERIFICATION.txt",
+   "repository_path": "evidence/verification/PACKAGE_VERIFICATION.txt",
+   "count": 13
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "PRICE_CONFLICTS.csv",
+   "repository_path": "data/Q2-1.8.0rc4/PRICE_CONFLICTS.csv",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "PRODUCT_DISPOSITION.csv",
+   "repository_path": "data/Q2-1.8.0rc4/PRODUCT_DISPOSITION.csv",
+   "count": 10
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "PROVIDER_COMPARISON.md",
+   "repository_path": "review/PROVIDER_COMPARISON.md",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "REQUEST_LEDGER.csv",
+   "repository_path": "evidence/accounting/REQUEST_LEDGER.csv",
+   "count": 5
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "RETENTION_Q1C_Q2.csv",
+   "repository_path": "data/Q2-1.8.0rc4/RETENTION_Q1C_Q2.csv",
+   "count": 5
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:classic_probe/",
+   "repository_path": "classic-probe/",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:classic_probe/docs/DOCUMENTED_CONTRACT.md",
+   "repository_path": "classic-probe/docs/DOCUMENTED_CONTRACT.md",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:classic_probe/tests/",
+   "repository_path": "classic-probe/tests/",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/Dockerfile",
+   "repository_path": "source/Dockerfile",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/config/Marianos_Category_URLs.csv",
+   "repository_path": "source/config/Marianos_Category_URLs.csv",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/config/collector.yaml",
+   "repository_path": "source/config/collector.yaml",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/config/private_label_brands.yaml",
+   "repository_path": "source/config/private_label_brands.yaml",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/config/stores.yaml",
+   "repository_path": "source/config/stores.yaml",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/tests/integration/test_last_good_survives.py",
+   "repository_path": "source/tests/integration/test_last_good_survives.py",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/tests/integration/test_listing_pages.py",
+   "repository_path": "source/tests/integration/test_listing_pages.py",
+   "count": 5
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/tests/integration/test_operations.py",
+   "repository_path": "source/tests/integration/test_operations.py",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/tests/integration/test_page_regressions.py",
+   "repository_path": "source/tests/integration/test_page_regressions.py",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/tests/integration/test_publication_safety.py",
+   "repository_path": "source/tests/integration/test_publication_safety.py",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/tests/integration/test_queue_locks.py",
+   "repository_path": "source/tests/integration/test_queue_locks.py",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/tests/integration/test_vernon_hills_replay.py",
+   "repository_path": "source/tests/integration/test_vernon_hills_replay.py",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "S:source/tests/unit/test_client_findings_180.py",
+   "repository_path": "source/tests/unit/test_client_findings_180.py",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "SEGMENTS.csv",
+   "repository_path": "evidence/accounting/SEGMENTS.csv",
+   "count": 10
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "SHA256SUMS.txt",
+   "repository_path": "manifests/SHA256SUMS.txt",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "TECHNICAL_REPORT.md",
+   "repository_path": "review/TECHNICAL_REPORT.md",
+   "count": 9
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "WALKTHROUGH_1.8.0rc4_part1.webm",
+   "repository_path": "walkthrough/WALKTHROUGH_1.8.0rc4_part1.webm",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "WALKTHROUGH_1.8.0rc4_part2.webm",
+   "repository_path": "walkthrough/WALKTHROUGH_1.8.0rc4_part2.webm",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "WALKTHROUGH_1.8.0rc5_part3.webm",
+   "repository_path": "walkthrough/WALKTHROUGH_1.8.0rc5_part3.webm",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "products_fresh.json",
+   "repository_path": "data/Q2-1.8.0rc4/products_fresh.json",
+   "count": 9
+  },
+  {
+   "file": "review/ACCEPTANCE_MATRIX.csv",
+   "reference": "products_retained.json",
+   "repository_path": "data/Q2-1.8.0rc4/products_retained.json",
+   "count": 3
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "CLASSIC_PROBE.md",
+   "repository_path": "classic-probe/CLASSIC_PROBE.md",
+   "count": 2
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "COST_AND_RUNTIME_REPORT.md",
+   "repository_path": "review/COST_AND_RUNTIME_REPORT.md",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "E:probe_x19/probe_x19.log",
+   "repository_path": "evidence/classic-probe/from-1.8.0rc5-archive/probe_x19.log",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "E:rc5/t_full_rc5_x19b.log",
+   "repository_path": "evidence/rc5-offline/t_full_rc5_x19b.log",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "E:regress/new_worktree.log",
+   "repository_path": "evidence/tests/regress/new_worktree.log",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "E:regress/old_4815ed4.log",
+   "repository_path": "evidence/tests/regress/old_4815ed4.log",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "E:tests/t_full_rc4_x18.log",
+   "repository_path": "evidence/tests/t_full_rc4_x18.log",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "REQUEST_LEDGER.csv",
+   "repository_path": "evidence/accounting/REQUEST_LEDGER.csv",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "S:source/docs/AZURE.md",
+   "repository_path": "source/docs/AZURE.md",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "S:source/docs/AZURE_VM.md",
+   "repository_path": "source/docs/AZURE_VM.md",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "S:source/docs/OPERATIONS.md",
+   "repository_path": "source/docs/OPERATIONS.md",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "SEGMENTS.csv",
+   "repository_path": "evidence/accounting/SEGMENTS.csv",
+   "count": 1
+  },
+  {
+   "file": "review/ACCEPTANCE_RUNBOOK.md",
+   "reference": "TECHNICAL_REPORT.md",
+   "repository_path": "review/TECHNICAL_REPORT.md",
+   "count": 2
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "COVERAGE_BY_CSV_ROW.csv",
+   "repository_path": "data/Q2-1.8.0rc4/COVERAGE_BY_CSV_ROW.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "COVERAGE_BY_LISTING.csv",
+   "repository_path": "data/Q2-1.8.0rc4/COVERAGE_BY_LISTING.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:conflicts/HONEY_SMACKS_TRACE.json",
+   "repository_path": "evidence/offline-reprocessing/conflicts/HONEY_SMACKS_TRACE.json",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:conflicts/PRICE_CONFLICT_RECONCILIATION.csv",
+   "repository_path": "evidence/offline-reprocessing/conflicts/PRICE_CONFLICT_RECONCILIATION.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:probe_x18/probe_x18.log",
+   "repository_path": "evidence/classic-probe/from-1.8.0rc4-archive/probe_x18.log",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:probes/K1_locations_lead.json",
+   "repository_path": "evidence/live-probes/K1_locations_lead.json",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:rc5/integrity_q180_rc4_vs_rc5.txt",
+   "repository_path": "evidence/rc5-offline/integrity_q180_rc4_vs_rc5.txt",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:rc5/t_rc5_tests_on_rc4.log",
+   "repository_path": "evidence/rc5-offline/t_rc5_tests_on_rc4.log",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:regress/new_worktree.log",
+   "repository_path": "evidence/tests/regress/new_worktree.log",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:regress/old_4815ed4.log",
+   "repository_path": "evidence/tests/regress/old_4815ed4.log",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:repro/SIZE_170_UNDER_180.csv",
+   "repository_path": "evidence/offline-reprocessing/repro/SIZE_170_UNDER_180.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:repro/VOLUME_DEALS_170_UNDER_180.csv",
+   "repository_path": "evidence/offline-reprocessing/repro/VOLUME_DEALS_170_UNDER_180.csv",
+   "count": 2
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:repro/finding_0073679800140.json",
+   "repository_path": "evidence/offline-reprocessing/repro/finding_0073679800140.json",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:repro/finding_0081675102373.json",
+   "repository_path": "evidence/offline-reprocessing/repro/finding_0081675102373.json",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:repro/finding_0086001079386.json",
+   "repository_path": "evidence/offline-reprocessing/repro/finding_0086001079386.json",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:repro/size_conflicts_rc4.txt",
+   "repository_path": "evidence/offline-reprocessing/repro/size_conflicts_rc4.txt",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:runs/01M6E2XXQNX1FYXPM37FGTYCKQ/",
+   "repository_path": "evidence/live-runs/Q1_1.8.0rc1_01M6E2XXQNX1FYXPM37FGTYCKQ/",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:runs/01M6E3RDEBPZ39SVR37JR6PE8F/",
+   "repository_path": "evidence/live-runs/Q1b_1.8.0rc2_01M6E3RDEBPZ39SVR37JR6PE8F/",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:runs/01M6E49AHDXSQA04JQZ0HZ40GH/",
+   "repository_path": "evidence/live-runs/Q1c_1.8.0rc3_01M6E49AHDXSQA04JQZ0HZ40GH/",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/db/events.csv",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/db/events.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/db/page_fetches.csv",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/db/page_fetches.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/db/validation_findings.csv",
+   "repository_path": "evidence/live-runs/Q2_1.8.0rc4_01M6E5V6CASQ8F00VC8PE9TFYW/db/validation_findings.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:tests/t_full_rc4_x18.log",
+   "repository_path": "evidence/tests/t_full_rc4_x18.log",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:tests/t_lg2.log",
+   "repository_path": "evidence/tests/t_lg2.log",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "E:tests/t_rc4_on_rc3.log",
+   "repository_path": "evidence/tests/t_rc4_on_rc3.log",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "LISTING_PAGES.csv",
+   "repository_path": "data/Q2-1.8.0rc4/LISTING_PAGES.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "PACKAGE_VERIFICATION.txt",
+   "repository_path": "evidence/verification/PACKAGE_VERIFICATION.txt",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "PRICE_CONFLICTS.csv",
+   "repository_path": "data/Q2-1.8.0rc4/PRICE_CONFLICTS.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "PRODUCT_DISPOSITION.csv",
+   "repository_path": "data/Q2-1.8.0rc4/PRODUCT_DISPOSITION.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "PROVIDER_COMPARISON.md",
+   "repository_path": "review/PROVIDER_COMPARISON.md",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "REQUEST_LEDGER.csv",
+   "repository_path": "evidence/accounting/REQUEST_LEDGER.csv",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "S:source/tests/integration/test_last_good_survives.py",
+   "repository_path": "source/tests/integration/test_last_good_survives.py",
+   "count": 2
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "S:source/tests/integration/test_listing_pages.py",
+   "repository_path": "source/tests/integration/test_listing_pages.py",
+   "count": 4
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "S:source/tests/integration/test_page_regressions.py",
+   "repository_path": "source/tests/integration/test_page_regressions.py",
+   "count": 2
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "S:source/tests/integration/test_vernon_hills_replay.py",
+   "repository_path": "source/tests/integration/test_vernon_hills_replay.py",
+   "count": 2
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "S:source/tests/unit/test_client_findings_180.py",
+   "repository_path": "source/tests/unit/test_client_findings_180.py",
+   "count": 3
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "S:source/tests/unit/test_export_manifest_180.py",
+   "repository_path": "source/tests/unit/test_export_manifest_180.py",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "S:source/tests/unit/test_price_conflict.py",
+   "repository_path": "source/tests/unit/test_price_conflict.py",
+   "count": 1
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "SEGMENTS.csv",
+   "repository_path": "evidence/accounting/SEGMENTS.csv",
+   "count": 2
+  },
+  {
+   "file": "review/CORRECTION_MAP.csv",
+   "reference": "TECHNICAL_REPORT.md",
+   "repository_path": "review/TECHNICAL_REPORT.md",
+   "count": 1
+  },
+  {
+   "file": "review/COST_AND_RUNTIME_REPORT.md",
+   "reference": "E:ledger/budget180.jsonl",
+   "repository_path": "evidence/accounting/budget180.jsonl",
+   "count": 1
+  },
+  {
+   "file": "review/COST_AND_RUNTIME_REPORT.md",
+   "reference": "FULL_SCOPE_BY_CSV_ROW.csv",
+   "repository_path": "evidence/census/FULL_SCOPE_BY_CSV_ROW.csv",
+   "count": 1
+  },
+  {
+   "file": "review/COST_AND_RUNTIME_REPORT.md",
+   "reference": "FULL_SCOPE_CENSUS.csv",
+   "repository_path": "evidence/census/FULL_SCOPE_CENSUS.csv",
+   "count": 1
+  },
+  {
+   "file": "review/COST_AND_RUNTIME_REPORT.md",
+   "reference": "FULL_SCOPE_ESTIMATE.json",
+   "repository_path": "evidence/census/FULL_SCOPE_ESTIMATE.json",
+   "count": 1
+  },
+  {
+   "file": "review/COST_AND_RUNTIME_REPORT.md",
+   "reference": "REQUEST_LEDGER.csv",
+   "repository_path": "evidence/accounting/REQUEST_LEDGER.csv",
+   "count": 2
+  },
+  {
+   "file": "review/PROVIDER_COMPARISON.md",
+   "reference": "CLASSIC_PROBE.md",
+   "repository_path": "classic-probe/CLASSIC_PROBE.md",
+   "count": 1
+  },
+  {
+   "file": "review/PROVIDER_COMPARISON.md",
+   "reference": "COST_AND_RUNTIME_REPORT.md",
+   "repository_path": "review/COST_AND_RUNTIME_REPORT.md",
+   "count": 2
+  },
+  {
+   "file": "review/PROVIDER_COMPARISON.md",
+   "reference": "E:census/",
+   "repository_path": "evidence/census/",
+   "count": 1
+  },
+  {
+   "file": "review/PROVIDER_COMPARISON.md",
+   "reference": "E:probes/",
+   "repository_path": "evidence/live-probes/",
+   "count": 1
+  },
+  {
+   "file": "review/PROVIDER_COMPARISON.md",
+   "reference": "E:probes/K1_locations_lead.json",
+   "repository_path": "evidence/live-probes/K1_locations_lead.json",
+   "count": 1
+  },
+  {
+   "file": "review/PROVIDER_COMPARISON.md",
+   "reference": "E:runs/*/db/store_attestations.csv",
+   "repository_path": "evidence/live-runs/*/db/store_attestations.csv",
+   "count": 1
+  },
+  {
+   "file": "review/PROVIDER_COMPARISON.md",
+   "reference": "REQUEST_LEDGER.csv",
+   "repository_path": "evidence/accounting/REQUEST_LEDGER.csv",
+   "count": 1
+  },
+  {
+   "file": "review/PROVIDER_COMPARISON.md",
+   "reference": "TEST_PLAN_180.md",
+   "repository_path": "evidence/plan/TEST_PLAN_180.md",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "ACCEPTANCE_MATRIX.csv",
+   "repository_path": "review/ACCEPTANCE_MATRIX.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "ACCEPTANCE_RUNBOOK.md",
+   "repository_path": "review/ACCEPTANCE_RUNBOOK.md",
+   "count": 3
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "CORRECTION_MAP.csv",
+   "repository_path": "review/CORRECTION_MAP.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "COST_AND_RUNTIME_REPORT.md",
+   "repository_path": "review/COST_AND_RUNTIME_REPORT.md",
+   "count": 3
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "COVERAGE_BY_CSV_ROW.csv",
+   "repository_path": "data/Q2-1.8.0rc4/COVERAGE_BY_CSV_ROW.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "COVERAGE_BY_LISTING.csv",
+   "repository_path": "data/Q2-1.8.0rc4/COVERAGE_BY_LISTING.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "COVERAGE_RECONCILIATION.json",
+   "repository_path": "data/Q2-1.8.0rc4/COVERAGE_RECONCILIATION.json",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:classic/docs_20261102/",
+   "repository_path": "evidence/classic-probe/oxylabs-docs-20261102/",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:conflicts/",
+   "repository_path": "evidence/offline-reprocessing/conflicts/",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:probe_x18/",
+   "repository_path": "evidence/classic-probe/from-1.8.0rc4-archive/",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:probe_x19/",
+   "repository_path": "evidence/classic-probe/from-1.8.0rc5-archive/",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:probes/",
+   "repository_path": "evidence/live-probes/",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:probes/K1_locations_lead.json",
+   "repository_path": "evidence/live-probes/K1_locations_lead.json",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:rc5/integrity_q180_rc4_vs_rc5.txt",
+   "repository_path": "evidence/rc5-offline/integrity_q180_rc4_vs_rc5.txt",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:rc5/t_full_rc5_x19.log",
+   "repository_path": "evidence/rc5-offline/t_full_rc5_x19.log",
+   "count": 2
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:rc5/t_full_rc5_x19b.log",
+   "repository_path": "evidence/rc5-offline/t_full_rc5_x19b.log",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:rc5/t_rc5_tests_on_rc4.log",
+   "repository_path": "evidence/rc5-offline/t_rc5_tests_on_rc4.log",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:rc5/t_windowed_gap_rc5.log",
+   "repository_path": "evidence/rc5-offline/t_windowed_gap_rc5.log",
+   "count": 2
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:regress/mutants.json",
+   "repository_path": "evidence/tests/regress/mutants.json",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:regress/new_worktree.log",
+   "repository_path": "evidence/tests/regress/new_worktree.log",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:regress/old_4815ed4.log",
+   "repository_path": "evidence/tests/regress/old_4815ed4.log",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:repro/SIZE_170_UNDER_180.csv",
+   "repository_path": "evidence/offline-reprocessing/repro/SIZE_170_UNDER_180.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:repro/VOLUME_DEALS_170_UNDER_180.csv",
+   "repository_path": "evidence/offline-reprocessing/repro/VOLUME_DEALS_170_UNDER_180.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:repro/finding_0081675102373.json",
+   "repository_path": "evidence/offline-reprocessing/repro/finding_0081675102373.json",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:retention/DIGITAL_OFFER_CHANGES_Q1C_Q2.csv",
+   "repository_path": "data/Q2-1.8.0rc4/DIGITAL_OFFER_CHANGES_Q1C_Q2.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:runs/",
+   "repository_path": "evidence/live-runs/",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:tests/t_full_rc4_x18.log",
+   "repository_path": "evidence/tests/t_full_rc4_x18.log",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:tools/check_records.py",
+   "repository_path": "evidence/tools/check_records.py",
+   "count": 2
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:tools/conflict_trace.py",
+   "repository_path": "evidence/tools/conflict_trace.py",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:tools/repro_findings.py",
+   "repository_path": "evidence/tools/repro_findings.py",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "E:walkthrough/",
+   "repository_path": "evidence/walkthrough/",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "FULL_SCOPE_BY_CSV_ROW.csv",
+   "repository_path": "evidence/census/FULL_SCOPE_BY_CSV_ROW.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "FULL_SCOPE_CENSUS.csv",
+   "repository_path": "evidence/census/FULL_SCOPE_CENSUS.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "FULL_SCOPE_ESTIMATE.json",
+   "repository_path": "evidence/census/FULL_SCOPE_ESTIMATE.json",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "LISTING_PAGES.csv",
+   "repository_path": "data/Q2-1.8.0rc4/LISTING_PAGES.csv",
+   "count": 2
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "PACKAGE_VERIFICATION.txt",
+   "repository_path": "evidence/verification/PACKAGE_VERIFICATION.txt",
+   "count": 5
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "PRICE_CONFLICTS.csv",
+   "repository_path": "data/Q2-1.8.0rc4/PRICE_CONFLICTS.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "PROVIDER_COMPARISON.md",
+   "repository_path": "review/PROVIDER_COMPARISON.md",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "REQUEST_LEDGER.csv",
+   "repository_path": "evidence/accounting/REQUEST_LEDGER.csv",
+   "count": 2
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "RETENTION_Q1C_Q2.csv",
+   "repository_path": "data/Q2-1.8.0rc4/RETENTION_Q1C_Q2.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "S:classic_probe/",
+   "repository_path": "classic-probe/",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "S:source/tests/fixtures/oxylabs_2026-11-02/",
+   "repository_path": "source/tests/fixtures/oxylabs_2026-11-02/",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "S:source/tests/integration/test_last_good_survives.py",
+   "repository_path": "source/tests/integration/test_last_good_survives.py",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "S:source/tests/integration/test_listing_pages.py",
+   "repository_path": "source/tests/integration/test_listing_pages.py",
+   "count": 2
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "S:source/tests/integration/test_page_regressions.py",
+   "repository_path": "source/tests/integration/test_page_regressions.py",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "S:source/tests/unit/test_client_findings_180.py",
+   "repository_path": "source/tests/unit/test_client_findings_180.py",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "SEGMENTS.csv",
+   "repository_path": "evidence/accounting/SEGMENTS.csv",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "TEST_PLAN_180.md",
+   "repository_path": "evidence/plan/TEST_PLAN_180.md",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "WALKTHROUGH_1.8.0rc4_part1.webm",
+   "repository_path": "walkthrough/WALKTHROUGH_1.8.0rc4_part1.webm",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "WALKTHROUGH_1.8.0rc4_part2.webm",
+   "repository_path": "walkthrough/WALKTHROUGH_1.8.0rc4_part2.webm",
+   "count": 1
+  },
+  {
+   "file": "review/TECHNICAL_REPORT.md",
+   "reference": "WALKTHROUGH_1.8.0rc5_part3.webm",
+   "repository_path": "walkthrough/WALKTHROUGH_1.8.0rc5_part3.webm",
+   "count": 1
+  }
+ ]
+}

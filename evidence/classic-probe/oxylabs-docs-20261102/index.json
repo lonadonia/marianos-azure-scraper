@@ -1,0 +1,145 @@
+{
+ "what": "Oxylabs Web Scraper API public documentation pages, each downloaded once with curl on 2026-11-02 (no provider API was called). same_as_2026_10_31: true when the SHA-256 equals the copy of 2026-10-31 listed in the Classic probe's docs/DOCUMENTED_CONTRACT.md; null when no copy of that date exists.",
+ "pages": [
+  {
+   "file": "products_web-scraper-api.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api.md",
+   "url_from": "the page's own first line",
+   "bytes": 7887,
+   "saved_utc": "2026-11-02T11:53:45Z",
+   "sha256": "20ea8ea923b5e10ec4bc7bd0da94a08dc2fb76fb80cb53f57e43505d6c7d0348",
+   "page_not_found": false,
+   "same_as_2026_10_31": true
+  },
+  {
+   "file": "products_web-scraper-api_features.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/features.md",
+   "url_from": "the page's own first line",
+   "bytes": 1938,
+   "saved_utc": "2026-11-02T11:53:38Z",
+   "sha256": "d441f45dc6d616f46732021bd3d3afbc5071892f58efc984c4c6dbc32a953376",
+   "page_not_found": false,
+   "same_as_2026_10_31": true
+  },
+  {
+   "file": "products_web-scraper-api_features_js-rendering-and-browser-control.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/features/js-rendering-and-browser-control.md",
+   "url_from": "the page's own first line",
+   "bytes": 41633,
+   "saved_utc": "2026-11-02T11:53:39Z",
+   "sha256": "1911d892c20a241a6e55fa4f7f4468973a4c45fff93dfca92cd203a9fe0ded1d",
+   "page_not_found": false,
+   "same_as_2026_10_31": true
+  },
+  {
+   "file": "products_web-scraper-api_integration-methods.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/integration-methods.md",
+   "url_from": "the page's own first line",
+   "bytes": 3972,
+   "saved_utc": "2026-11-02T11:53:37Z",
+   "sha256": "5be4e1f8fd4543f0e54fc500ea123f68ac3e57643443a567cb2d439ec4cc9ca3",
+   "page_not_found": false,
+   "same_as_2026_10_31": true
+  },
+  {
+   "file": "products_web-scraper-api_integration-methods_realtime.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/integration-methods/realtime.md",
+   "url_from": "the page's own first line",
+   "bytes": 12356,
+   "saved_utc": "2026-11-02T11:53:35Z",
+   "sha256": "1a6fe8e898164cad8b5320a434bf89f0ebabd7fc6986a95111a88b4155b93027",
+   "page_not_found": false,
+   "same_as_2026_10_31": true
+  },
+  {
+   "file": "products_web-scraper-api_response-codes.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/response-codes.md",
+   "url_from": "the page's own first line",
+   "bytes": 9117,
+   "saved_utc": "2026-11-02T11:53:40Z",
+   "sha256": "3ed8aa064352b9a8c2bea8f587081b2bed2df14c12bca505145993dd81ca17c0",
+   "page_not_found": false,
+   "same_as_2026_10_31": true
+  },
+  {
+   "file": "products_web-scraper-api_targets.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/targets.md",
+   "url_from": "the page's own first line",
+   "bytes": 3005,
+   "saved_utc": "2026-11-02T11:53:12Z",
+   "sha256": "7cb3d7ce6f5158d0cf4d5bc13189d0a6d151f652000f8919aef654190eee4abc",
+   "page_not_found": false,
+   "same_as_2026_10_31": null
+  },
+  {
+   "file": "products_web-scraper-api_targets_e-commerce.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/targets/e-commerce.md",
+   "url_from": "the page's own first line",
+   "bytes": 29871,
+   "saved_utc": "2026-11-02T11:53:13Z",
+   "sha256": "ed35aeee906b82126754b21ceed6cde67c855dfc9ee05d3befddf705cbd8ee4c",
+   "page_not_found": false,
+   "same_as_2026_10_31": null
+  },
+  {
+   "file": "products_web-scraper-api_targets_e-commerce_kroger.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/targets/e-commerce/kroger.md",
+   "url_from": "the page's own first line",
+   "bytes": 21231,
+   "saved_utc": "2026-11-02T11:53:08Z",
+   "sha256": "fcacaeec85eb5239efa59f0d2eaec44898118b1466b492aea8f3aa4cc11c752f",
+   "page_not_found": false,
+   "same_as_2026_10_31": null
+  },
+  {
+   "file": "products_web-scraper-api_targets_e-commerce_marianos.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/targets/e-commerce/marianos.md",
+   "url_from": "the page's own first line",
+   "bytes": 20896,
+   "saved_utc": "2026-11-02T11:53:06Z",
+   "sha256": "54aaacc189f0f86d271a6a7b3f7993c45d45ff390706403453ce5895b5575851",
+   "page_not_found": false,
+   "same_as_2026_10_31": null
+  },
+  {
+   "file": "products_web-scraper-api_targets_marianos.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/targets/marianos.md",
+   "url_from": "the request (the page names no URL of its own; its text says web-scraper-api/targets/marianos does not exist)",
+   "bytes": 2379,
+   "saved_utc": "2026-11-02T11:53:11Z",
+   "sha256": "e9d7adcc1a4347ef9f4c3f54268bc7922dfe1d5548bb7419ee9dabf27888297e",
+   "page_not_found": true,
+   "same_as_2026_10_31": null
+  },
+  {
+   "file": "products_web-scraper-api_usage-and-billing_billing-information.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/usage-and-billing/billing-information.md",
+   "url_from": "the page's own first line",
+   "bytes": 4882,
+   "saved_utc": "2026-11-02T11:53:41Z",
+   "sha256": "c6b89586b4f12ba338307999167ff1aac89d80ed1392803450c6007773881aa4",
+   "page_not_found": false,
+   "same_as_2026_10_31": true
+  },
+  {
+   "file": "products_web-scraper-api_usage-and-billing_rate-limits.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/usage-and-billing/rate-limits.md",
+   "url_from": "the page's own first line",
+   "bytes": 4797,
+   "saved_utc": "2026-11-02T11:53:42Z",
+   "sha256": "a3a0c802cb26df1d191b32c58728c5defd933fd6351484a176be548e0d97f0c0",
+   "page_not_found": false,
+   "same_as_2026_10_31": true
+  },
+  {
+   "file": "products_web-scraper-api_usage-and-billing_usage-statistics.md",
+   "url": "https://developers.oxylabs.io/products/web-scraper-api/usage-and-billing/usage-statistics.md",
+   "url_from": "the page's own first line",
+   "bytes": 11488,
+   "saved_utc": "2026-11-02T11:53:44Z",
+   "sha256": "a612ad688f0f78153007340858c79e705f5328a4aa9678e4f47ebd0465e6bed0",
+   "page_not_found": false,
+   "same_as_2026_10_31": true
+  }
+ ]
+}

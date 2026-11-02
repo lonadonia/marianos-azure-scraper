@@ -1,0 +1,16 @@
+# command: bash -c bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -
+# started: 2026-11-02T13:51:45Z
+store marianos-53100502-pickup  hold: none
+  run 01M6E5V6CASQ8F00VC8PE9TFYW  running    dataset partial  complete None  canary passed
+  run 01M6E49AHDXSQA04JQZ0HZ40GH  published  dataset complete complete True  canary passed
+      records {'valid': 351, 'price_conflict': 7, 'eligible_unpriced': 3, 'exported_not_valid': 1}
+  run 01M6E3RDEBPZ39SVR37JR6PE8F  rejected   dataset partial  complete None  canary -
+      stop ABNORMAL_RESULT: https://www.marianos.com/pl/candles-home-fragrances/32001: the page state lists 24 products and the 
+  run 01M6E2XXQNX1FYXPM37FGTYCKQ  rejected   dataset partial  complete None  canary failed
+      stop CANARY_CHECK_FAILED: 1 valid records differ from the site's product data
+  published: {"run_id": "01M6E49AHDXSQA04JQZ0HZ40GH", "version": 1, "published_at": "2026-11-02T12:52:42.462824Z", "latest": "published/marianos-53100502-pickup/la
+provider Oxylabs Web API (webapi.oxylabs.io, Bearer key)
+  used 102 submissions, USD 0.1485 (11 unknown, kept as possibly charged)
+  ceiling 200 / USD 0.3 since 2026-11-02 12:14:32; room 98 submissions
+# exit: 0
+# ended: 2026-11-02T13:51:48Z

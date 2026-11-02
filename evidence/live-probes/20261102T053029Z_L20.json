@@ -1,0 +1,95 @@
+{
+ "id": "L20",
+ "at": "20261102T053029Z",
+ "seconds": 7.0,
+ "endpoint": "/v1/scrape/marianos",
+ "request": {
+  "url": "https://www.marianos.com/pl/cold-cereal/0300100001?brandName=General%20Mills",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "the brand filter proven on /search (L8) narrows a /pl/ listing above the window",
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "ledger": "OXP-L-150169",
+ "request_id": "7522892875269446657",
+ "problem": {
+  "state": "done"
+ },
+ "result_metadata": {
+  "page": 1,
+  "run_js": false,
+  "url": "https://www.marianos.com/pl/cold-cereal/0300100001?brandName=General%20Mills",
+  "statuses": {
+   "http_request": {
+    "code": 200,
+    "tag": "HTTP_OK"
+   }
+  }
+ },
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "store_id": "53100502",
+  "url": "https://www.marianos.com/pl/cold-cereal/0300100001?brandName=General%20Mills"
+ },
+ "body_sha256": "a02839e37129d62422c674813c2d9e4700d19671f882ba508faa3eaccdde3b4d",
+ "analysis": {
+  "chars": 1026318,
+  "requestVars": {
+   "taxonomyId": "0300100001",
+   "page": 1,
+   "brandName": [
+    "General Mills"
+   ],
+   "fulfillment": "all",
+   "locationId": "53100502",
+   "activeModalityType": "PICKUP"
+  },
+  "summary": {
+   "query": null,
+   "page": 1,
+   "location_id": "53100502",
+   "modality": "PICKUP",
+   "total": 8,
+   "available": 8,
+   "upcs": [
+    "0001600012025",
+    "0001600022783",
+    "0001600015781",
+    "0001600023574",
+    "0001600022984",
+    "0001600015764",
+    "0001600023402",
+    "0001600023856"
+   ],
+   "sponsored": [
+    "0001600015781",
+    "0001600022984",
+    "0001600015764"
+   ],
+   "ways_to_shop": [
+    "pickup"
+   ]
+  },
+  "state_products": 8,
+  "price_locations": [
+   "53100502"
+  ]
+ }
+}

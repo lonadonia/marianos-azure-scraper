@@ -1,0 +1,37 @@
+ec3b6fe4f8ed3bb9a10a0eef2116a03cf9f45a61
+F.F                                                                      [100%]
+================================== FAILURES ===================================
+____________ test_the_coverage_files_are_read_back_with_the_export ____________
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-935/test_the_coverage_files_are_re0')
+
+    def test_the_coverage_files_are_read_back_with_the_export(tmp_path: Path) -> None:
+        storage = LocalStorageAdapter(tmp_path)
+        ex = _export(storage, COVERAGE)
+        files = manifest_files(ex.manifest_body)
+>       assert [n for n in files if n in COVERAGE] == list(COVERAGE_FILES)
+E       AssertionError: assert [] == ['coverage_re...ng_pages.csv']
+E         
+E         Right contains 4 more items, first extra item: 'coverage_reconciliation.json'
+E         Use -v to get more diff
+
+C:\m6\ev\rc4_on_rc3\test_export_manifest_180.py:57: AssertionError
+______________ test_the_parser_version_names_the_release_series _______________
+
+    def test_the_parser_version_names_the_release_series() -> None:
+        # Q1c's manifest said {"collector": "1.7.0"} for a 1.8.0rc3 run.
+        m = re.match(r"\d+\.\d+\.\d+", __version__)
+>       assert m is not None and PARSER_VERSION == m.group(0)
+E       AssertionError: assert (<re.Match object; span=(0, 5), match='1.8.0'> is not None and '1.7.0' == '1.8.0'
+E         
+E         - 1.8.0
+E         ?   ^
+E         + 1.7.0
+E         ?   ^)
+
+C:\m6\ev\rc4_on_rc3\test_export_manifest_180.py:74: AssertionError
+=========================== short test summary info ===========================
+FAILED ..\..\..\ev\rc4_on_rc3\test_export_manifest_180.py::test_the_coverage_files_are_read_back_with_the_export
+FAILED ..\..\..\ev\rc4_on_rc3\test_export_manifest_180.py::test_the_parser_version_names_the_release_series
+2 failed, 1 passed in 1.02s
+exit=1

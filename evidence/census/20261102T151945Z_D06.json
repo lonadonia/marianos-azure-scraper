@@ -1,0 +1,106 @@
+{
+ "id": "D06",
+ "at": "20261102T151945Z",
+ "department": "06",
+ "slug": "fresh-fruits-vegetables",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/fresh-fruits-vegetables/06",
+ "ledger": "OXP-D-7dd89a",
+ "seconds": 28.6,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041170440602625",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "5688c905be6fdfa8664c3cdf1e743671513de44f1535212edc23c112c5b4e45e",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 1097,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 27,
+ "departments": [
+  {
+   "id": "06",
+   "name": "Fresh Fruits & Vegetables",
+   "slug": "fresh-fruits-vegetables",
+   "count": 1097,
+   "categories": [
+    {
+     "id": "06112",
+     "name": "Fresh Vegetables",
+     "count": 374,
+     "subcategories": 0
+    },
+    {
+     "id": "06111",
+     "name": "Fresh Fruit",
+     "count": 199,
+     "subcategories": 0
+    },
+    {
+     "id": "06176",
+     "name": "Seasonal",
+     "count": 168,
+     "subcategories": 0
+    },
+    {
+     "id": "06110",
+     "name": "Dressings & Dips",
+     "count": 166,
+     "subcategories": 0
+    },
+    {
+     "id": "06114",
+     "name": "Salad",
+     "count": 131,
+     "subcategories": 0
+    },
+    {
+     "id": "06123",
+     "name": "Packaged Produce",
+     "count": 70,
+     "subcategories": 0
+    },
+    {
+     "id": "06122",
+     "name": "Fresh Herbs",
+     "count": 48,
+     "subcategories": 0
+    },
+    {
+     "id": "06121",
+     "name": "Fresh Cut Fruit & Vegetables",
+     "count": 47,
+     "subcategories": 0
+    },
+    {
+     "id": "06113",
+     "name": "Fresh Juice & Smoothies",
+     "count": 39,
+     "subcategories": 0
+    },
+    {
+     "id": "06120",
+     "name": "Dried Fruit & Nuts",
+     "count": 34,
+     "subcategories": 0
+    },
+    {
+     "id": "06116",
+     "name": "Tofu/Soy Products",
+     "count": 11,
+     "subcategories": 0
+    },
+    {
+     "id": "06119",
+     "name": "Party Trays",
+     "count": 8,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

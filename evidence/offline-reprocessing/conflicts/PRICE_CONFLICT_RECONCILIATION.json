@@ -1,0 +1,26 @@
+{
+ "source_file": "PRICE_CONFLICTS.csv of 20261030_marianos_1.7.0rc2",
+ "run": "01M650QGTRZCPNYSYWFTWGX2SB",
+ "conflicts": 120,
+ "unique_upc_field": 120,
+ "fields": {
+  "regular_price": 120
+ },
+ "pages_read": 48,
+ "page_hash_matches": 120,
+ "pages_missing": 0,
+ "structured_in_page_equals_report": 120,
+ "counted_as_valid": 0,
+ "in_products_retained": 120,
+ "exported_equals_displayed": 120,
+ "differences": {
+  "0.01": 120
+ },
+ "floor_pattern_holds": 120,
+ "stores": {
+  "53100503 IN_STORE": 120
+ },
+ "price_locations": {
+  "53100503": 120
+ }
+}

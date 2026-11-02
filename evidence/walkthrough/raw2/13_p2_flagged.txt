@@ -1,0 +1,30 @@
+# command: bash -c bash /c/m6/walk/show.sh flagged C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW
+# started: 2026-11-02T14:11:00Z
+products.json 1160 records; products_fresh.json 1137 (status valid); the others, with the
+supporting log's status, reasons and flags (provenance.json):
+  0005000044569  Friskies Shreds Chicken and Salmon Dinner in price ""     eligible_unpriced: PPM_NOT_DISPLAYED,PRICE_NOT_DISPLAYED
+  0005000057034  Purina Fancy Feast Medleys Wet Cat Food Turk price ""     eligible_unpriced: PPM_NOT_DISPLAYED,PRICE_NOT_DISPLAYED
+  0078436920775  Multipet Lamb Chop Cat Toy                   price ""     eligible_unpriced: PPM_NOT_DISPLAYED,PRICE_NOT_DISPLAYED
+  0001780016627  Beneful Freshly Prepared Blends Wet Dog Food price 18.98  price_conflict: PRICE_DOM_JSON_MISMATCH
+  0001780015103  Beneful Freshly Prepared Meals Beef Stew/Chi price 18.98  price_conflict: PRICE_DOM_JSON_MISMATCH
+  0002310013777  Cesar Wholesome Bowls Soft Wet Dog Food Topp price ""     eligible_unpriced: PPM_NOT_DISPLAYED,PRICE_NOT_DISPLAYED
+  0084013466395  BARK Habenero Pupper Sauce Plush Dog Toy     price 10.99  exported_not_valid: PPM_NOT_DISPLAYED,PRICE_STORE_NOT_STATED
+  0084013466735  BARK Star Spangled Squeak Plush Dog Toy      price ""     eligible_unpriced: PPM_NOT_DISPLAYED,PRICE_NOT_DISPLAYED
+  0081001339725  Bark Roast coffee cup dog toy                price ""     eligible_unpriced: PPM_NOT_DISPLAYED,PRICE_NOT_DISPLAYED
+  0085411100417  Lumabone Medium Bacon Flavor Durable Chew    price ""     eligible_unpriced: PPM_NOT_DISPLAYED,PRICE_NOT_DISPLAYED
+  0074677235002  Mammoth® TireBiter® II Small Dog Toy         price 3.99   exported_not_valid: PPM_NOT_DISPLAYED,PRICE_STORE_NOT_STATED
+  0080702016085  Waggin' Train® Limited Ingredient Grain Free price 19.98  price_conflict: PRICE_DOM_JSON_MISMATCH
+  0019798100139  Glade® Candle Jar, Embers & Sandalwood, 4.08 price 8.69   exported_not_valid: PPM_NOT_DISPLAYED,PRICE_STORE_NOT_STATED
+  0003980014486  Energizer Hearing Aid 312 Zinc Air Batteries price 16.98  price_conflict: PRICE_DOM_JSON_MISMATCH
+  0003980014520  Energizer Max AA Alkaline Batteries          price 17.98  price_conflict: PRICE_DOM_JSON_MISMATCH
+  0003980014516  Energizer Max AAA Alkaline Batteries         price 17.98  price_conflict: PRICE_DOM_JSON_MISMATCH
+  0003980013067  Energizer Photo 123 Lithium Batteries        price 19.98  price_conflict: PRICE_DOM_JSON_MISMATCH
+  0004667757330  Philips 3.5-Watt (40-Watt) G16.5 LED Globe D price ""     eligible_unpriced: PPM_NOT_DISPLAYED,PRICE_NOT_DISPLAYED
+  0004667756885  Philips 4-Watt (40-Watt) A19 LED Yellow Part price ""     eligible_unpriced: PPM_NOT_DISPLAYED,PRICE_NOT_DISPLAYED
+  0004667758259  Philips Ultra Efficient, A19 Clear Dimmable, price 17.98  price_conflict: PRICE_DOM_JSON_MISMATCH
+  0061934438755  2027 Backyard Birds Wall Calendar            price 16.98  price_conflict: PRICE_DOM_JSON_MISMATCH
+  0061934438787  2027 Stargazing Wall Calendar                price 16.98  price_conflict: PRICE_DOM_JSON_MISMATCH
+  0002120053377  Post-it® Super Energy Boost Collection Stick price ""     eligible_unpriced: PPM_NOT_DISPLAYED,PRICE_NOT_DISPLAYED
+23 records exported but not valid
+# exit: 0
+# ended: 2026-11-02T14:11:00Z

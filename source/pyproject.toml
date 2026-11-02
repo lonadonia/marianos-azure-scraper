@@ -1,0 +1,74 @@
+[project]
+name = "marianos-azure-headless"
+version = "1.8.0rc5"
+description = "Headless Mariano's store-price collector: Scrapfly Cloud Browser, PostgreSQL, Azure Container Apps jobs"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pydantic>=2.9",
+    "pyyaml>=6.0",
+    "sqlalchemy>=2.0.36",
+    "alembic>=1.14",
+    "psycopg[binary]>=3.2",
+    "selectolax>=0.3.21",
+    "python-ulid>=3.0",
+    "httpx>=0.27",
+    "azure-storage-blob>=12.23",
+    "azure-identity>=1.19",
+    "tzdata>=2024.2",
+    # Scrapfly Cloud Browser over CDP (no local browser is installed in the image). Exact pin.
+    "playwright==1.63.0",
+]
+
+[project.scripts]
+marianos-collector = "marianos_headless.cli:entrypoint"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "hypothesis>=6.115",
+    "ruff>=0.8",
+    "mypy>=1.13",
+    "types-pyyaml>=6.0",
+    "pgserver==0.1.4",
+]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/marianos_headless"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+    "postgres: needs PostgreSQL (a temporary pgserver instance, or MARIANOS_COLLECTOR_TEST_DATABASE_URL)",
+    "captures: replays authentic Mariano's pages and responses captured by earlier live runs (offline)",
+    "browser: drives a local Chromium against a local mock site (never the retailer)",
+]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+src = ["src", "tests", "."]  # "." makes probes/ first-party
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/marianos_headless/migrations/versions/*" = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["marianos_headless"]
+mypy_path = "src"
+plugins = ["pydantic.mypy"]
+exclude = ["src/marianos_headless/migrations/"]
+
+[[tool.mypy.overrides]]
+module = ["selectolax.*", "azure.*", "ulid.*", "pgserver.*", "lxml.*"]
+ignore_missing_imports = true

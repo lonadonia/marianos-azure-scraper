@@ -1,0 +1,34 @@
+# robots.txt for The Kroger Co. Family of Stores
+User-agent: *
+
+# Accounts
+Disallow: /forgot-password
+
+# Checkout
+Disallow: /checkout$
+Disallow: /checkout?
+Disallow: /checkout/*
+Disallow: /checkout-mobile$
+Disallow: /checkout-mobile?
+Disallow: /checkout-mobile/*
+Disallow: /scheduling$
+Disallow: /scheduling?
+Disallow: /scheduling/*
+
+# Clickstream
+Disallow: /clickstream$
+Disallow: /clickstream?
+Disallow: /clickstream/*
+
+# Order Ahead
+Disallow: /order-ahead/kiosk*
+
+# Recipes
+Disallow: /recipes/api/v1/*
+
+# Misc
+Disallow: *.pdf
+Disallow: /in-stores/
+Disallow: /locations*
+
+Sitemap: https://www.marianos.com/sitemap.xml

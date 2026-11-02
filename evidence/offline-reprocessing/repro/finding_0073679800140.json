@@ -1,0 +1,392 @@
+[
+ {
+  "run": "R1",
+  "file": "01M650S6MX3YGV1N13MZQH5T7N.html.gz",
+  "card": {
+   "position": 16,
+   "card_testid": "product-card-16",
+   "upc": "0073679800140",
+   "url": "https://www.marianos.com/p/avocado-green-goddess-dip-spread-8-oz-/0073679800140",
+   "title": "Avocado Green Goddess Dip & Spread 8 oz.",
+   "size_text": "2 tbsp",
+   "price": {
+    "kind": "sale",
+    "current_text": "$3.99",
+    "original_text": "$4.99",
+    "sr_text": "Sale: $3.99 discounted from $4.99",
+    "placeholder_text": "",
+    "regular_price": "4.99",
+    "sale_price": "3.99"
+   },
+   "price_tag": "",
+   "zone": null,
+   "image_src": "https://www.kroger.com/product/images/medium/front/0073679800140",
+   "image_url": "https://www.kroger.com/product/images/medium/front/0073679800140",
+   "snap_ebt": true,
+   "flags": [],
+   "ppm_text": "$0.50/oz"
+  },
+  "state": {
+   "description": "Avocado Green Goddess Dip & Spread 8 oz.",
+   "customerFacingSize": "2 tbsp",
+   "pidSizeQuantity": {
+    "customerFacingSize": "2 tbsp",
+    "pidSizeQuantity": 8,
+    "pidSizeUnitOfMeasureName": "OUNCES",
+    "weight": "0.5 [lb_av]"
+   },
+   "item_keys": [
+    "alcoholFlag",
+    "assortments",
+    "bounceFlag",
+    "brand",
+    "categories",
+    "clickListItem",
+    "countriesOfOrigin",
+    "customerFacingSize",
+    "description",
+    "dietaryInformation",
+    "dimensions",
+    "familyTree",
+    "glutenFreeClaimName",
+    "gtin14",
+    "hazmatFlag",
+    "homeDeliveryItem",
+    "images",
+    "itemTypeCode",
+    "krogerDeliveryItem",
+    "liveNaturallyEligible",
+    "mainImagePerspective",
+    "nonGmo",
+    "omniChannelBrandName",
+    "organicClaimName",
+    "pidSizeQuantity",
+    "pidSizeUnitOfMeasureName",
+    "privacyRestricted",
+    "privacyRestrictedStates",
+    "prop65",
+    "prop65Info",
+    "receiptDescription",
+    "salesChannelCode",
+    "salesChannelName",
+    "seoDescription",
+    "shareLink",
+    "snapEligible",
+    "soldInStore",
+    "tareValue",
+    "taxGroupCode",
+    "taxonomies",
+    "temperatureIndicator",
+    "temperatureIndicatorName",
+    "upc",
+    "verified",
+    "weight"
+   ],
+   "price": {
+    "displayTemplate": "YellowTag",
+    "offerCode": "110963",
+    "orderBy": "Unit",
+    "sellBy": "Unit",
+    "storePrices": {
+     "promo": {
+      "defaultDescription": "$3.99",
+      "expirationDate": {
+       "value": "2026-11-02T04:59:59.999Z",
+       "timezone": "UTC"
+      },
+      "nfor": 1,
+      "nforPrice": "USD 3.99",
+      "unitPrice": "USD 3.99",
+      "price": "USD 3.99",
+      "equivalizedUnitPrice": {
+       "amount": "49.88",
+       "denomination": "CENT",
+       "unit": "PER OUNCE"
+      },
+      "equivalizedUnitPriceString": "$0.50/oz"
+     },
+     "regular": {
+      "defaultDescription": "$4.99",
+      "expirationDate": {
+       "value": "2026-11-02T04:59:59.999Z",
+       "timezone": "UTC"
+      },
+      "nfor": 1,
+      "nforPrice": "USD 4.99",
+      "unitPrice": "USD 4.99",
+      "price": "USD 4.99",
+      "equivalizedUnitPrice": {
+       "amount": "62.38",
+       "denomination": "CENT",
+       "unit": "PER OUNCE"
+      },
+      "equivalizedUnitPriceString": "$0.62/oz"
+     },
+     "sourceLocationId": "53100503",
+     "sellerId": "KR001",
+     "sellerName": "Kroger"
+    }
+   }
+  }
+ },
+ {
+  "run": "R1",
+  "file": "01M65156J06XNBMD960VNXVW8M.html.gz",
+  "card": {
+   "position": 20,
+   "card_testid": "product-card-20",
+   "upc": "0073679800140",
+   "url": "https://www.marianos.com/p/avocado-green-goddess-dip-spread-8-oz-/0073679800140",
+   "title": "Avocado Green Goddess Dip & Spread 8 oz.",
+   "size_text": "2 tbsp",
+   "price": {
+    "kind": "sale",
+    "current_text": "$3.99",
+    "original_text": "$4.99",
+    "sr_text": "Sale: $3.99 discounted from $4.99",
+    "placeholder_text": "",
+    "regular_price": "4.99",
+    "sale_price": "3.99"
+   },
+   "price_tag": "",
+   "zone": null,
+   "image_src": "https://www.kroger.com/product/images/medium/front/0073679800140",
+   "image_url": "https://www.kroger.com/product/images/medium/front/0073679800140",
+   "snap_ebt": true,
+   "flags": [],
+   "ppm_text": "$0.50/oz"
+  },
+  "state": {
+   "description": "Avocado Green Goddess Dip & Spread 8 oz.",
+   "customerFacingSize": "2 tbsp",
+   "pidSizeQuantity": {
+    "customerFacingSize": "2 tbsp",
+    "pidSizeQuantity": 8,
+    "pidSizeUnitOfMeasureName": "OUNCES",
+    "weight": "0.5 [lb_av]"
+   },
+   "item_keys": [
+    "alcoholFlag",
+    "assortments",
+    "bounceFlag",
+    "brand",
+    "categories",
+    "clickListItem",
+    "countriesOfOrigin",
+    "customerFacingSize",
+    "description",
+    "dietaryInformation",
+    "dimensions",
+    "familyTree",
+    "glutenFreeClaimName",
+    "gtin14",
+    "hazmatFlag",
+    "homeDeliveryItem",
+    "images",
+    "itemTypeCode",
+    "krogerDeliveryItem",
+    "liveNaturallyEligible",
+    "mainImagePerspective",
+    "nonGmo",
+    "omniChannelBrandName",
+    "organicClaimName",
+    "pidSizeQuantity",
+    "pidSizeUnitOfMeasureName",
+    "privacyRestricted",
+    "privacyRestrictedStates",
+    "prop65",
+    "prop65Info",
+    "receiptDescription",
+    "salesChannelCode",
+    "salesChannelName",
+    "seoDescription",
+    "shareLink",
+    "snapEligible",
+    "soldInStore",
+    "tareValue",
+    "taxGroupCode",
+    "taxonomies",
+    "temperatureIndicator",
+    "temperatureIndicatorName",
+    "upc",
+    "verified",
+    "weight"
+   ],
+   "price": {
+    "displayTemplate": "YellowTag",
+    "offerCode": "110963",
+    "orderBy": "Unit",
+    "sellBy": "Unit",
+    "storePrices": {
+     "promo": {
+      "defaultDescription": "$3.99",
+      "expirationDate": {
+       "value": "2026-11-02T04:59:59.999Z",
+       "timezone": "UTC"
+      },
+      "nfor": 1,
+      "nforPrice": "USD 3.99",
+      "unitPrice": "USD 3.99",
+      "price": "USD 3.99",
+      "equivalizedUnitPrice": {
+       "amount": "49.88",
+       "denomination": "CENT",
+       "unit": "PER OUNCE"
+      },
+      "equivalizedUnitPriceString": "$0.50/oz"
+     },
+     "regular": {
+      "defaultDescription": "$4.99",
+      "expirationDate": {
+       "value": "2026-11-02T04:59:59.999Z",
+       "timezone": "UTC"
+      },
+      "nfor": 1,
+      "nforPrice": "USD 4.99",
+      "unitPrice": "USD 4.99",
+      "price": "USD 4.99",
+      "equivalizedUnitPrice": {
+       "amount": "62.38",
+       "denomination": "CENT",
+       "unit": "PER OUNCE"
+      },
+      "equivalizedUnitPriceString": "$0.62/oz"
+     },
+     "sourceLocationId": "53100503",
+     "sellerId": "KR001",
+     "sellerName": "Kroger"
+    }
+   }
+  }
+ },
+ {
+  "run": "R2",
+  "file": "01M6541X86VR8N6T5NV3B9VM1C.html.gz",
+  "card": {
+   "position": 17,
+   "card_testid": "product-card-17",
+   "upc": "0073679800140",
+   "url": "https://www.marianos.com/p/avocado-green-goddess-dip-spread-8-oz-/0073679800140",
+   "title": "Avocado Green Goddess Dip & Spread 8 oz.",
+   "size_text": "2 tbsp",
+   "price": {
+    "kind": "sale",
+    "current_text": "$3.99",
+    "original_text": "$4.99",
+    "sr_text": "Sale: $3.99 discounted from $4.99",
+    "placeholder_text": "",
+    "regular_price": "4.99",
+    "sale_price": "3.99"
+   },
+   "price_tag": "",
+   "zone": null,
+   "image_src": "https://www.kroger.com/product/images/medium/front/0073679800140",
+   "image_url": "https://www.kroger.com/product/images/medium/front/0073679800140",
+   "snap_ebt": true,
+   "flags": [],
+   "ppm_text": "$0.50/oz"
+  },
+  "state": {
+   "description": "Avocado Green Goddess Dip & Spread 8 oz.",
+   "customerFacingSize": "2 tbsp",
+   "pidSizeQuantity": {
+    "customerFacingSize": "2 tbsp",
+    "pidSizeQuantity": 8,
+    "pidSizeUnitOfMeasureName": "OUNCES",
+    "weight": "0.5 [lb_av]"
+   },
+   "item_keys": [
+    "alcoholFlag",
+    "assortments",
+    "bounceFlag",
+    "brand",
+    "categories",
+    "clickListItem",
+    "countriesOfOrigin",
+    "customerFacingSize",
+    "description",
+    "dietaryInformation",
+    "dimensions",
+    "familyTree",
+    "glutenFreeClaimName",
+    "gtin14",
+    "hazmatFlag",
+    "homeDeliveryItem",
+    "images",
+    "itemTypeCode",
+    "krogerDeliveryItem",
+    "liveNaturallyEligible",
+    "mainImagePerspective",
+    "nonGmo",
+    "omniChannelBrandName",
+    "organicClaimName",
+    "pidSizeQuantity",
+    "pidSizeUnitOfMeasureName",
+    "privacyRestricted",
+    "privacyRestrictedStates",
+    "prop65",
+    "prop65Info",
+    "receiptDescription",
+    "salesChannelCode",
+    "salesChannelName",
+    "seoDescription",
+    "shareLink",
+    "snapEligible",
+    "soldInStore",
+    "tareValue",
+    "taxGroupCode",
+    "taxonomies",
+    "temperatureIndicator",
+    "temperatureIndicatorName",
+    "upc",
+    "verified",
+    "weight"
+   ],
+   "price": {
+    "displayTemplate": "YellowTag",
+    "offerCode": "110963",
+    "orderBy": "Unit",
+    "sellBy": "Unit",
+    "storePrices": {
+     "promo": {
+      "defaultDescription": "$3.99",
+      "expirationDate": {
+       "value": "2026-11-02T04:59:59.999Z",
+       "timezone": "UTC"
+      },
+      "nfor": 1,
+      "nforPrice": "USD 3.99",
+      "unitPrice": "USD 3.99",
+      "price": "USD 3.99",
+      "equivalizedUnitPrice": {
+       "amount": "49.88",
+       "denomination": "CENT",
+       "unit": "PER OUNCE"
+      },
+      "equivalizedUnitPriceString": "$0.50/oz"
+     },
+     "regular": {
+      "defaultDescription": "$4.99",
+      "expirationDate": {
+       "value": "2026-11-02T04:59:59.999Z",
+       "timezone": "UTC"
+      },
+      "nfor": 1,
+      "nforPrice": "USD 4.99",
+      "unitPrice": "USD 4.99",
+      "price": "USD 4.99",
+      "equivalizedUnitPrice": {
+       "amount": "62.38",
+       "denomination": "CENT",
+       "unit": "PER OUNCE"
+      },
+      "equivalizedUnitPriceString": "$0.62/oz"
+     },
+     "sourceLocationId": "53100503",
+     "sellerId": "KR001",
+     "sellerName": "Kroger"
+    }
+   }
+  }
+ }
+]

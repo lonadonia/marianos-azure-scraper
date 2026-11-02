@@ -1,0 +1,12 @@
+== rc4 (C:/m6/qwt, 9d16475)
+collector 1.8.0rc4 from C:\m6\qwt\headless\marianos-azure-headless\src\marianos_headless
+01M6E2XXQNX1FYXPM37FGTYCKQ: tasks_terminal=True artifact_hashes_verified=True records_verified=True
+01M6E3RDEBPZ39SVR37JR6PE8F: tasks_terminal=True artifact_hashes_verified=True records_verified=True
+01M6E49AHDXSQA04JQZ0HZ40GH: tasks_terminal=True artifact_hashes_verified=True records_verified=True
+01M6E5V6CASQ8F00VC8PE9TFYW: tasks_terminal=True artifact_hashes_verified=False records_verified=True
+== rc5 candidate (C:/m5/wt, uncommitted fix)
+collector 1.8.0rc5 from C:\m5\wt\headless\marianos-azure-headless\src\marianos_headless
+01M6E2XXQNX1FYXPM37FGTYCKQ: tasks_terminal=True artifact_hashes_verified=True records_verified=True
+01M6E3RDEBPZ39SVR37JR6PE8F: tasks_terminal=True artifact_hashes_verified=True records_verified=True
+01M6E49AHDXSQA04JQZ0HZ40GH: tasks_terminal=True artifact_hashes_verified=True records_verified=True
+01M6E5V6CASQ8F00VC8PE9TFYW: tasks_terminal=True artifact_hashes_verified=True records_verified=True

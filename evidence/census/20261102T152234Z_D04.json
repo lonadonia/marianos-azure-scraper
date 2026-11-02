@@ -1,0 +1,25 @@
+{
+ "id": "D04",
+ "at": "20261102T152234Z",
+ "department": "04",
+ "slug": "beverages",
+ "slug_known": false,
+ "url": "https://www.marianos.com/pl/beverages/04",
+ "ledger": "OXP-D-99cea4",
+ "seconds": 6.2,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041879902939137",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "5f862b29340e71c64cfa56ba75dbcec8775d1ae86a320a22f8828066995c450d",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": null,
+ "available": null,
+ "taxonomy_id": null,
+ "state_products": 0,
+ "departments": []
+}

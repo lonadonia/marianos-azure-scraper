@@ -1,0 +1,57 @@
+........................                                                 [100%]
+============================== warnings summary ===============================
+tests/integration/test_listing_pages.py::test_a_worker_killed_while_page_2_is_out_resumes_at_page_2_and_its_request_stays_counted
+  C:\m5\wt\headless\marianos-azure-headless\.venv\Lib\site-packages\_pytest\threadexception.py:58: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-229 (_readerthread)
+  
+  Traceback (most recent call last):
+    File "C:\w6\py312\pkg\tools\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\w6\py312\pkg\tools\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "C:\w6\py312\pkg\tools\Lib\subprocess.py", line 1599, in _readerthread
+      buffer.append(fh.read())
+                    ^^^^^^^^^
+    File "<frozen codecs>", line 322, in decode
+  UnicodeDecodeError: 'utf-8' codec can't decode byte 0x9b in position 2285: invalid start byte
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+tests/integration/test_listing_pages.py::test_a_worker_killed_after_a_pages_commit_never_asks_for_that_page_again
+  C:\m5\wt\headless\marianos-azure-headless\.venv\Lib\site-packages\_pytest\threadexception.py:58: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-243 (_readerthread)
+  
+  Traceback (most recent call last):
+    File "C:\w6\py312\pkg\tools\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\w6\py312\pkg\tools\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "C:\w6\py312\pkg\tools\Lib\subprocess.py", line 1599, in _readerthread
+      buffer.append(fh.read())
+                    ^^^^^^^^^
+    File "<frozen codecs>", line 322, in decode
+  UnicodeDecodeError: 'utf-8' codec can't decode byte 0x9b in position 2285: invalid start byte
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+tests/integration/test_listing_pages.py::test_a_dead_workers_reservation_at_the_ceiling_cannot_refuse_its_own_recovery
+  C:\m5\wt\headless\marianos-azure-headless\.venv\Lib\site-packages\_pytest\threadexception.py:58: PytestUnhandledThreadExceptionWarning: Exception in thread Thread-257 (_readerthread)
+  
+  Traceback (most recent call last):
+    File "C:\w6\py312\pkg\tools\Lib\threading.py", line 1075, in _bootstrap_inner
+      self.run()
+    File "C:\w6\py312\pkg\tools\Lib\threading.py", line 1012, in run
+      self._target(*self._args, **self._kwargs)
+    File "C:\w6\py312\pkg\tools\Lib\subprocess.py", line 1599, in _readerthread
+      buffer.append(fh.read())
+                    ^^^^^^^^^
+    File "<frozen codecs>", line 322, in decode
+  UnicodeDecodeError: 'utf-8' codec can't decode byte 0x9b in position 2285: invalid start byte
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnhandledThreadExceptionWarning(msg))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html

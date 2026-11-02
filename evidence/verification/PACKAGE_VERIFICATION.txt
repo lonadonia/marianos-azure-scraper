@@ -1,0 +1,34 @@
+MARIANO'S 1.8.0rc5 DELIVERY VERIFICATION, STEP BY STEP (clean extraction; no provider request)
+written (UTC): 2026-11-02T18:13:55+00:00
+delivery: <delivery> (the folder 20261102_marianos_1.8.0rc5)
+clean extraction: <work>/x; the full output of each step: <work>/logs (on Hamza's workstation)
+verifier: verify_marianos_180.py, sha256 7515af446b6e05daf235afb08eb339bcc9f3366a0e5e9dbece0218ceab29b5ef; the copy in E:tools/ is identical: True
+release: 1.8.0rc5, commit ee5ec99b27bf68f63f6026a5b2e97937abccc5d3
+Each step ran as its own process on the extracted archives (or on the delivery folder). No step sends a provider request. Steps that use a database use throwaway test databases, or read the qualification database without writing. A step not recorded is NOT RUN and counts as a problem. When a step ran more than once, the last run counts and the number of runs is shown.
+
+| Step | Exit | Runs | Seconds | Started (UTC) | Result |
+|---|---|---|---|---|---|
+| freeze | 0 | 1 |  | 2026-11-02T17:39:04+00:00 | 0 problem(s): commit ee5ec99 is HEAD, release folders clean, git archive matches the source archive's record |
+| archives | 0 | 1 |  | 2026-11-02T17:39:04+00:00 | both archives extracted fresh; every file matches its archive's SHA256SUMS.txt and MANIFEST.json; MARIANOS_SOURCE_1.8.0rc5.zip sha256 1832ef6e5051f20e55842057b60d37a61924e1af92d360fea6ae810104481485 members 278; SHA256SUMS lines 277; files 278; not listed []; absent []; differ []; manifest differ [] / MARIANOS_EVIDENCE_1.8.0rc5.zip sha256 7dc352c5ccca19a0ac73a916ad0df00c8f765338de11d91cb077e6981de7e026 members 723; SHA256SUMS lines 722; files 723; not listed []; absent []; differ []; manifest differ [] |
+| install | 0 | 1 | 4.8 | 2026-11-02T17:39:07+00:00 | uv sync --frozen:  + typing-inspection==0.4.4 /  + tzdata==2026.5 /  + urllib3==2.8.0 |
+| version | 0 | 2 | 2.2 | 2026-11-02T17:49:01+00:00 | CLI, pyproject, __init__, wheel name and METADATA all 1.8.0rc5; the wheel's 90 package files are byte-identical to source/src; the documents name the same release |
+| ruff | 0 | 1 | 0.2 | 2026-11-02T17:39:41+00:00 | All checks passed! |
+| ruff-format | 0 | 1 | 0.1 | 2026-11-02T17:39:41+00:00 | 160 files already formatted |
+| mypy | 0 | 1 | 24.1 | 2026-11-02T17:39:42+00:00 | Success: no issues found in 84 source files |
+| unit | 0 | 1 | 21.7 | 2026-11-02T17:40:06+00:00 | 426 tests, 0 failed, 0 errors, 0 skipped |
+| regressions | 0 | 1 | 172.5 | 2026-11-02T17:40:27+00:00 | client findings and listing-page regressions (G13 included): 110 tests, 0 failed, 0 errors, 0 skipped |
+| suite | 0 | 1 |  | 2026-11-02T18:13:55+00:00 | full suite from this extraction: 576 tests, 0 failed, 0 errors, 0 skipped; ['576 passed in 1522.55s (0:25:22)'] |
+| data | 0 | 1 |  | 2026-11-02T17:39:26+00:00 | fresh 1137 and retained 1160: the 22 fields in order, strings, JSON = CSV, one store (60061), no duplicate UPC or URL, gupc and unit_price empty; both files are Q2's exports as recorded; 61 listing pages {'new': 57, 'partial_overlap': 1, 'failed': 2, 'malformed': 1}; request ledger 116 rows |
+| records | 0 | 1 | 8.5 | 2026-11-02T17:39:26+00:00 | every fresh record (1137) found in the stored page its provenance names: seed 1802; 1137 of 1137 records / page hash mismatches: 0 |
+| integrity | 0 | 1 | 2.7 | 2026-11-02T17:39:34+00:00 | G13 reading by this extraction's code over the qualification database (read only): collector 1.8.0rc5 from <work>\x\MARIANOS_SOURCE_1.8.0rc5\source\src\marianos_headless / 01M6E2XXQNX1FYXPM37FGTYCKQ: tasks_terminal=True artifact_hashes_verified=True records_verified=True / 01M6E3RDEBPZ39SVR37JR6PE8F: tasks_terminal=True artifact_hashes_verified=True records_verified=True / 01M6E49AHDXSQA04JQZ0HZ40GH: tasks_terminal=True artifact_hashes_verified=True records_verified=True / 01M6E5V6CASQ8F00VC8PE9TFYW: tasks_terminal=True artifact_hashes_verified=True records_verified=True |
+| links | 0 | 2 |  | 2026-11-02T17:49:03+00:00 | 268 E:/S:/D170: references and every file name in the documents resolved |
+| docs | 0 | 2 |  | 2026-11-02T17:49:06+00:00 | no unsupported claim (production-ready, 100%, all functions work perfectly, only the provider) in the documents; [redacted for publication: internal wording and packaging checks]; no placeholder left |
+| pdf | 0 | 1 |  | 2026-11-02T17:39:40+00:00 | CLIENT_SUMMARY.pdf: 96076 bytes, 2 pages; its source is E:reports/CLIENT_SUMMARY.md (identical: True); layout renderings 2 (E:pdfcheck/); walkthrough paragraph names three parts |
+| walkthrough | 0 | 1 |  | 2026-11-02T17:39:40+00:00 | WALKTHROUGH_1.8.0rc4_part1: webm 15190012 bytes, duration 00:02:23.28, last frame decodes True; cast v2 132x40, 238 events / WALKTHROUGH_1.8.0rc4_part2: webm 10510358 bytes, duration 00:01:33.04, last frame decodes True; cast v2 132x40, 436 events / WALKTHROUGH_1.8.0rc5_part3: webm 3935295 bytes, duration 00:00:40.88, last frame decodes True; cast v2 132x40, 78 events |
+| secrets | 0 | 2 | 77.6 | 2026-11-02T17:49:06+00:00 | exact values: scanned 1487 files/members against 17 credential forms: 0 hits; patterns: ['scanned 33 files (1364 blobs: 1095 archive entries, 236 gzip members opened) against 17 local secret values and 7 generic patterns']; findings 3: allowed {'094cd0663ff1': 2, 'a98699cc08c7': 1} (094cd0663ff1 = the unit tests' fake key (tests/unit/test_oxylabs.py KEY) inside pytest test ids of the JUnit XML files; a98699cc08c7 = the Classic probe's ENV_PASSWORD variable name (the name, not a value)), other 0 |
+| earlier | 0 | 1 |  | 2026-11-02T17:39:41+00:00 | 1.7.0rc2: 4 files match the manifest / [redacted for publication: the check of another project's delivery] |
+
+RESULT: PASS (0 step(s) not passed or not run)
+
+Not verified here: the client's VM (not executed; TECHNICAL_REPORT.md §12); a live run of 1.8.0rc5 (none: its live evidence is from 1.8.0rc4); the full category list (not collected).
+SHA256SUMS.txt is written after this file and read back.

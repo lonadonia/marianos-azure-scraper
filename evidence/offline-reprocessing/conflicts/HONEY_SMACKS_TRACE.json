@@ -1,0 +1,40 @@
+{
+  "capture": {
+    "product": "Kellogg's® Honey Smacks® Cereal",
+    "upc": "0004119211060",
+    "run": "01M5NAQKQ0H28DCGK5BE8XCP2N (release 1.2.0, live)",
+    "page_fetch": "01M5NC5JY5YSX2A07DEW223TYJ",
+    "page": "/pl/cereal-granola/03001, page step 9",
+    "timestamp_card": "2026-10-23T21:55:13Z",
+    "timestamp_structured": "2026-10-23T21:55:20Z",
+    "store": "53100503 Marianos Lakeshore East",
+    "fulfillment": "IN_STORE",
+    "evidence": "tests/fixtures/live_2026-10-23_honey_smacks (the card and the product object, unchanged)"
+  },
+  "stage_1_displayed_text_in_the_page": {
+    "screen_reader_or_label": "Sale: $5.49 discounted from $8.78",
+    "parser_original_text": "$8.78",
+    "parser_current_text": "$5.49"
+  },
+  "stage_2_parser_number": {
+    "regular_price": "8.78",
+    "sale_price": "5.49",
+    "normalized_from_text": "8.78"
+  },
+  "stage_3_structured_value_in_the_same_response": {
+    "path": "price.storePrices.regular.price",
+    "value": "USD 8.79",
+    "promo_path": "price.storePrices.promo.price",
+    "promo": "USD 5.49",
+    "sourceLocationId": "53100503"
+  },
+  "stage_4_arithmetic_pattern": {
+    "formula": "floor(8.79 * 100) / 100 in binary floating point",
+    "8.79*100": 878.9999999999999,
+    "floor/100": 8.78,
+    "equals_displayed": true
+  },
+  "collector_transformation": "the collector reads the text the card shows and normalizes it to two decimals; no float arithmetic touches a displayed price, so '$8.78' becomes '8.78' and the export stays equal to the page text",
+  "collector_caused": false,
+  "attribution": "Not established. The page reached the collector with the card text and the structured value already different. A page returned through a provider does not show whether the retailer, the provider or another upstream component produced the difference. The arithmetic pattern is a description, not a cause."
+}

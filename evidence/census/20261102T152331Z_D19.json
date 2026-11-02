@@ -1,0 +1,25 @@
+{
+ "id": "D19",
+ "at": "20261102T152331Z",
+ "department": "19",
+ "slug": "frozen",
+ "slug_known": false,
+ "url": "https://www.marianos.com/pl/frozen/19",
+ "ledger": "OXP-D-b2dc59",
+ "seconds": 9.3,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523042117459955713",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "924f5327ff46e4f9f766ba5e9025e3ac85510f1e1fbd2dc8e6e1655c1899ca30",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": null,
+ "available": null,
+ "taxonomy_id": null,
+ "state_products": 0,
+ "departments": []
+}

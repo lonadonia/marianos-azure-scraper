@@ -1,0 +1,23 @@
+{
+ "label": "SYNTHETIC Classic envelopes around saved Vernon Hills pages",
+ "steps": {
+  "marianos-search-p1": [
+   {
+    "http_status": 200,
+    "body_file": "marianos-search-p1_0.json"
+   }
+  ],
+  "marianos-product": [
+   {
+    "http_status": 200,
+    "body_file": "marianos-product_0.json"
+   }
+  ],
+  "marianos-category-url": [
+   {
+    "http_status": 200,
+    "body_file": "marianos-category-url_0.json"
+   }
+  ]
+ }
+}

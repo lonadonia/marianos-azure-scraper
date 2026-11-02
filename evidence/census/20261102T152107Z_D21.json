@@ -1,0 +1,25 @@
+{
+ "id": "D21",
+ "at": "20261102T152107Z",
+ "department": "21",
+ "slug": "personal-care",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/personal-care/21",
+ "ledger": "OXP-D-6bef27",
+ "seconds": 7.6,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041519192812546",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "889282b910458d0e1522f8d41718bfb4b17c8dabb3114755600e7bd694c1e2fc",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": null,
+ "available": null,
+ "taxonomy_id": null,
+ "state_products": 0,
+ "departments": []
+}

@@ -1,0 +1,9 @@
+step 2 release: exit 0
+step 3 clean_checkout: exit 0
+step 4 version: exit 0
+step 5 validate_config: exit 0
+step 7 status_before: exit 0
+step 8 q1c_segments: exit 0
+step 10 kill: exit 0
+step 10 q2_run: exit 1
+step 11 status_after_kill: exit 0

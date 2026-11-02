@@ -1,0 +1,25 @@
+# command: bash -c bash /c/m6/tools/q180.sh export --run 01M6E5V6CASQ8F00VC8PE9TFYW --out C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW | bash /c/m6/walk/show.sh result -
+# started: 2026-11-02T14:10:43Z
+{
+ "run_id": "01M6E5V6CASQ8F00VC8PE9TFYW",
+ "out": "C:\\m6\\q180\\exports\\01M6E5V6CASQ8F00VC8PE9TFYW",
+ "files": [
+  "products.json",
+  "products.csv",
+  "memberships.json",
+  "offers.json",
+  "provenance.json",
+  "validation_report.json",
+  "products_fresh.json",
+  "products_fresh.csv",
+  "coverage_reconciliation.json",
+  "coverage_reconciliation.csv",
+  "coverage_by_csv_row.csv",
+  "listing_pages.csv",
+  "manifest.json"
+ ],
+ "verified": true
+}
+exit_code 0
+# exit: 0
+# ended: 2026-11-02T14:10:46Z

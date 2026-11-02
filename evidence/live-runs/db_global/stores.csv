@@ -1,0 +1,3 @@
+id,key,retailer,location_id,division_number,store_number,expected_display_name,expected_postal_code,expected_address_line1,modality,timezone,enabled,is_contest_store,created_at,updated_at
+01M6E2X1F1NS7Z1613JYZEKP0C,marianos-53100502-pickup,marianos,53100502,531,00502,Marianos Vernon Hills,60061,1720 N Milwaukee Ave,PICKUP,America/Chicago,True,False,2026-11-02T12:14:17.047982+00:00,2026-11-02T12:14:17.047982+00:00
+01M6E2X1F1NS7Z1613JYZEKP0D,marianos-53100503-instore,marianos,53100503,531,00503,Marianos Lakeshore East,60601,333 E Benton Pl,IN_STORE,America/Chicago,True,False,2026-11-02T12:14:17.047982+00:00,2026-11-02T12:14:17.047982+00:00

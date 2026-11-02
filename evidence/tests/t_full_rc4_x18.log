@@ -1,0 +1,29 @@
+Mon Nov  2 13:16:31 UTC 2026
+source: C:/x18/MARIANOS_SOURCE_1.8.0rc4/source (clean extraction of MARIANOS_SOURCE_1.8.0rc4.zip sha256 7d6d44a8de15d2e4359c7a07b5eefbb152257ca97d618408da44e376a7cc2b9d, commit 923afa4); install: uv sync --frozen --offline; db marianos_test_x180
+........................................................................ [ 12%]
+........................................................................ [ 25%]
+........................................................................ [ 37%]
+........................................................................ [ 50%]
+........................................................................ [ 62%]
+........................................................................ [ 75%]
+........................................................................ [ 87%]
+......................................................................   [100%]
+============================ slowest 15 durations =============================
+68.52s call     tests/integration/test_operations.py::test_the_next_occurrence_closes_an_unfinished_scheduled_run_and_reads_its_backlog_first[sigterm_armed]
+53.44s call     tests/integration/test_live_collector.py::test_a_layer_over_the_load_more_button_does_not_lose_the_listing[overlay]
+48.03s call     tests/integration/test_live_collector.py::test_a_product_read_through_a_child_listing_is_carried_forward_under_its_listing[windowed]
+45.14s call     tests/integration/test_publication_safety.py::test_an_interrupted_publication_keeps_the_last_good_dataset_and_one_retry_publishes_atomically
+44.09s call     tests/integration/test_live_collector.py::test_a_product_limit_stops_inside_a_page_and_a_resume_continues_without_counting_twice
+43.66s call     tests/integration/test_publication_safety.py::test_a_published_dataset_is_never_replaced_by_a_run_that_fails_its_checks[thin]
+43.54s call     tests/integration/test_publication_safety.py::test_a_published_dataset_is_never_replaced_by_a_run_that_fails_its_checks[stopped_and_finalized]
+42.98s call     tests/integration/test_publication_safety.py::test_a_published_dataset_is_never_replaced_by_a_run_that_fails_its_checks[empty]
+42.69s call     tests/integration/test_publication_safety.py::test_a_published_dataset_is_never_replaced_by_a_run_that_fails_its_checks[wrong_store]
+42.26s call     tests/integration/test_operations.py::test_a_termination_signal_closes_the_browser_and_resume_finishes_the_run[sigterm]
+41.96s call     tests/integration/test_operations.py::test_products_a_later_partial_run_does_not_observe_are_carried_forward
+33.74s call     tests/integration/test_last_good_survives.py::test_a_page_failure_never_replaces_the_last_good_dataset[provider_failure_on_page_2]
+33.12s call     tests/integration/test_vernon_hills_replay.py::test_a_price_the_product_data_states_for_no_store_is_exported_as_displayed_and_never_valid[listing_32001_p1_mini]
+32.89s call     tests/integration/test_page_regressions.py::test_regression_2_a_page_2_failure_remains_unfinished_and_resumes_correctly
+32.83s call     tests/integration/test_listing_pages.py::test_a_failed_page_2_leaves_the_listing_unfinished_and_a_resume_continues_at_it
+574 passed in 1533.68s (0:25:33)
+exit=0
+Mon Nov  2 13:42:13 UTC 2026

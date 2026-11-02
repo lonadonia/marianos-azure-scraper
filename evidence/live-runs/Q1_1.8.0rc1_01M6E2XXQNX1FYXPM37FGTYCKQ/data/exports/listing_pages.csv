@@ -1,0 +1,2 @@
+csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
+23,32001,https://www.marianos.com/pl/candles-home-fragrances/32001,listing,1,1,1,completed,new,,52,52,24,7,24,0,0,0,6255651e9c869340ea1cdbb2cecda0c695001f4723a0989cac2a020517d64c25,7522994634109262849

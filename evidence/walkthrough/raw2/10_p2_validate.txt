@@ -1,0 +1,66 @@
+# command: bash -c bash /c/m6/tools/q180.sh validate-export --run 01M6E5V6CASQ8F00VC8PE9TFYW | bash /c/m6/walk/show.sh result -
+# started: 2026-11-02T14:10:46Z
+{
+ "run_id": "01M6E5V6CASQ8F00VC8PE9TFYW",
+ "manifest": {
+  "key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/exports/manifest.json",
+  "problems": [],
+  "files": [
+   "products.json",
+   "products.csv",
+   "memberships.json",
+   "offers.json",
+   "provenance.json",
+   "validation_report.json",
+   "products_fresh.json",
+   "products_fresh.csv",
+   "coverage_reconciliation.json",
+   "coverage_reconciliation.csv",
+   "coverage_by_csv_row.csv",
+   "listing_pages.csv"
+  ]
+ },
+ "contract": {
+  "file": "products.json",
+  "rows": 1160,
+  "problems": {},
+  "duplicate_upc": 0,
+  "duplicate_url": 0,
+  "leading_zero_upcs": 1160,
+  "populated": {
+   "zipcode": 1160,
+   "store_name": 1160,
+   "store_location": 1160,
+   "store_logo": 1160,
+   "store_brand": 1160,
+   "category": 1160,
+   "sub_category": 752,
+   "product_title": 1160,
+   "weight": 1157,
+   "regular_price": 1150,
+   "sale_price": 127,
+   "volume_deals_description": 37,
+   "volume_deals_price": 37,
+   "digital_deals_description": 4,
+   "digital_deals_price": 1,
+   "image_url": 1160,
+   "url": 1160,
+   "upc": 1160,
+   "gupc": 0,
+   "ppm": 1142,
+   "unit_price": 0,
+   "crawl_date": 1160
+  },
+  "categories": {
+   "Pet Supplies": 752,
+   "Candles Home Fragrances": 52,
+   "Batteries": 97,
+   "Light Bulbs": 94,
+   "School Office": 119,
+   "Hardware Home Improvement": 46
+  },
+  "ppm_units": {
+... (99 more lines in the saved output)
+exit_code 0
+# exit: 0
+# ended: 2026-11-02T14:10:59Z

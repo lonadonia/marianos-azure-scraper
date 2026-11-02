@@ -1,0 +1,36 @@
+# command: bash -c bash /c/m6/walk/show.sh coverage C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW
+# started: 2026-11-02T14:10:59Z
+run 01M6E5V6CASQ8F00VC8PE9TFYW  store 53100502 PICKUP  CSV rows 28  listings planned 17  complete rows 5  complete listings 16
+by CSV row (rows outside this run's scope are listed in the file as NOT_ATTEMPTED):
+  row 22 Pet Supplies               pages  38 unique  754  INCOMPLETE: accessible pages exhausted; coverage incomplete
+  row 23 Candles Home Fragrances    pages   3 unique   52  COMPLETE: every listing of the row reached the source's reported total
+  row 24 Batteries                  pages   5 unique   97  COMPLETE: every listing of the row reached the source's reported total
+  row 25 Light Bulbs                pages   4 unique   94  COMPLETE: every listing of the row reached the source's reported total
+  row 26 School Office              pages   5 unique  119  COMPLETE: every listing of the row reached the source's reported total
+  row 27 Hardware Home Improvement  pages   3 unique   64  COMPLETE: every listing of the row reached the source's reported total
+  (22 rows not attempted: not in this run's scope)
+by listing:
+  27017   total  222 pages 10/10 not counted 0 unique  222 dup  20 gap 0  DONE
+  27018   total  150 pages 7/7 not counted 0 unique  150 dup  13 gap 0  DONE
+  27019   total   16 pages 1/1 not counted 0 unique   16 dup   0 gap 0  DONE
+  27020   total    6 pages 1/1 not counted 0 unique    6 dup   0 gap 0  DONE
+  27021   total  232 pages 10/10 not counted 0 unique  231 dup  35 gap 1  INCOMPLETE
+  27022   total   52 pages 3/3 not counted 0 unique   52 dup   8 gap 0  DONE
+  27023   total   64 pages 3/3 not counted 0 unique   64 dup  10 gap 0  DONE
+  27024   total    6 pages 1/1 not counted 0 unique    6 dup   0 gap 0  DONE
+  27025   total    4 pages 1/1 not counted 0 unique    4 dup   0 gap 0  DONE
+  27026   total    3 pages 1/1 not counted 0 unique    3 dup   0 gap 0  DONE
+  27027   total    0 pages 0/0 not counted 0 unique    0 dup   0 gap 0  EMPTY
+  27029   total    0 pages 0/0 not counted 0 unique    0 dup   0 gap 0  EMPTY
+  32001   total   52 pages 3/3 not counted 0 unique   52 dup   6 gap 0  DONE
+  26003   total   97 pages 5/5 not counted 0 unique   97 dup  23 gap 0  DONE
+  26002   total   94 pages 4/4 not counted 0 unique   94 dup   0 gap 0  DONE
+  35      total  119 pages 5/5 not counted 0 unique  119 dup  34 gap 0  DONE
+  33      total   64 pages 3/3 not counted 3 unique   64 dup  36 gap 0  DONE
+identity sets: record_rows 1160, fresh_valid 1137, fresh_not_valid 23, carried_forward 0, excluded 0, excluded_rows 0, exported_rows 1160, retained_unique 1160, duplicates 0, holds True
+  no identity is in two classes: True
+  retained = fresh valid + fresh not valid + carried forward: True
+  no exported identity twice: True
+  all relations hold: True
+# exit: 0
+# ended: 2026-11-02T14:10:59Z

@@ -1,0 +1,252 @@
+{
+  "mode": "LIVE",
+  "run_id": "01M6E3RDEBPZ39SVR37JR6PE8F",
+  "status": "rejected",
+  "dataset": "partial",
+  "counts": {
+    "coupons_route": {
+      "url": "https://www.marianos.com/savings/cl/coupons/",
+      "run_js": true,
+      "status": "READ",
+      "coupons": [
+        {
+          "brand": "VISA",
+          "title": "Get 4x POINTS",
+          "coupon_id": "4250760",
+          "other_tags": [],
+          "description": "Get 4x POINTS",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "4X Gift Card Event"
+        },
+        {
+          "brand": "Other",
+          "title": "Get 4x POINTS",
+          "coupon_id": "4251390",
+          "other_tags": [],
+          "description": "Get 4x POINTS",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "4X Gift Card Event"
+        },
+        {
+          "brand": "Other",
+          "title": "Save $20.00 When You Spend $75.00",
+          "coupon_id": "4250554",
+          "other_tags": [
+            "Pickup & Delivery Only"
+          ],
+          "description": "$20 off Your First Pickup or Delivery Order of $75 or more",
+          "expiry_text": "Exp. Nov. 17",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Other",
+          "title": "No Delivery Fee",
+          "coupon_id": "4250336",
+          "other_tags": [],
+          "description": "No Delivery Fee",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "Delivery Only"
+        },
+        {
+          "brand": "Lay's",
+          "title": "$1.99",
+          "coupon_id": "4255558",
+          "other_tags": [],
+          "description": "$1.99 Lay's, Kettle Cooked or Rold Gold",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "PHILADELPHIA",
+          "title": "Save 25%",
+          "coupon_id": "4255203",
+          "other_tags": [
+            "Pickup & Delivery Only"
+          ],
+          "description": "Save 25% on Philadelphia Cream Cheese PICKUP OR DELIVERY ONLY",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": ""
+        },
+        {
+          "brand": "General Mills",
+          "title": "Save $1.00 on 2",
+          "coupon_id": "4251362",
+          "other_tags": [],
+          "description": "SAVE $1.00 on 2 General Mills Cereals",
+          "expiry_text": "Exp. Dec. 14",
+          "savings_tag": "Nutritious Savings For You"
+        },
+        {
+          "brand": "Private Selection",
+          "title": "Save $1.50",
+          "coupon_id": "4243199",
+          "other_tags": [],
+          "description": "Save $1.50 on Private Selection Fresh Sliced Deli Meat or Cheese",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Pillsbury",
+          "title": "Save $1.00 on 2",
+          "coupon_id": "4251363",
+          "other_tags": [],
+          "description": "SAVE $1.00 on 2 Pillsbury™ Refrigerated and Frozen Products",
+          "expiry_text": "Exp. Dec. 14",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Produce Department",
+          "title": "$1.79/lb Honeycrisp Apples",
+          "coupon_id": "4255485",
+          "other_tags": [],
+          "description": "$1.79 lb Honeycrisp Apples",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Talenti",
+          "title": "$3.49",
+          "coupon_id": "4255920",
+          "other_tags": [],
+          "description": "$3.49 Ben & Jerry's or Talenti",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Haagen-Dazs",
+          "title": "Save $2.00",
+          "coupon_id": "4253139",
+          "other_tags": [
+            "Pickup & Delivery Only"
+          ],
+          "description": "Save $2 on Haagen-Daz PICKUP OR DELIVERY ONLY",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Kroger Brand",
+          "title": "$1.99",
+          "coupon_id": "4255493",
+          "other_tags": [],
+          "description": "$1.99 Kroger or PS Ice Cream",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Old El Paso",
+          "title": "Save $1.00 on 4",
+          "coupon_id": "4251359",
+          "other_tags": [],
+          "description": "SAVE $1.00 on 4 Progresso ™ or Old El Paso ™ Soup or Broth",
+          "expiry_text": "Exp. Dec. 14",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Progresso",
+          "title": "Save $3.00 on 3",
+          "coupon_id": "4255197",
+          "other_tags": [
+            "Pickup & Delivery Only"
+          ],
+          "description": "Buy 3, Save $3 on Progresso Soup and Broth PICKUP OR DELIVERY ONLY",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Produce Department",
+          "title": "$3.99/lb Cotton Candy Grapes",
+          "coupon_id": "4255468",
+          "other_tags": [],
+          "description": "$3.99 lb Cotton Candy Grapes",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Kikkoman",
+          "title": "Save 75¢",
+          "coupon_id": "4247928",
+          "other_tags": [],
+          "description": "Save $0.75 on Kikkoman",
+          "expiry_text": "Exp. Nov. 30",
+          "savings_tag": ""
+        },
+        {
+          "brand": "General Mills",
+          "title": "Save 50¢ on 2",
+          "coupon_id": "4251357",
+          "other_tags": [],
+          "description": "SAVE $0.50 on 2 General Mills Snack Bars",
+          "expiry_text": "Exp. Dec. 14",
+          "savings_tag": "Nutritious Savings For You"
+        },
+        {
+          "brand": "Takis",
+          "title": "Save 20%",
+          "coupon_id": "4253137",
+          "other_tags": [
+            "Pickup & Delivery Only"
+          ],
+          "description": "Save 20% on Takis PICKUP OR DELIVERY ONLY",
+          "expiry_text": "Exp. Nov. 20",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Simple Truth",
+          "title": "$3.99",
+          "coupon_id": "4255545",
+          "other_tags": [],
+          "description": "$3.99 ST Cage Free Eggs",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Simply",
+          "title": "Save $1.00",
+          "coupon_id": "4255202",
+          "other_tags": [
+            "Pickup & Delivery Only"
+          ],
+          "description": "Save $1 on SimplyAdes PICKUP OR DELIVERY ONLY",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Froot Loops",
+          "title": "Save $2.00",
+          "coupon_id": "4255199",
+          "other_tags": [
+            "Pickup & Delivery Only"
+          ],
+          "description": "Save $2 on Kellogg's bag cereals & Bear Naked family sizes. PICKUP OR DELIVERY ONLY",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Toll House",
+          "title": "$3.49",
+          "coupon_id": "4255889",
+          "other_tags": [],
+          "description": "$3.49 Toll House Morsels",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Private Selection",
+          "title": "$7.99/lb PS Honey Ham",
+          "coupon_id": "4255463",
+          "other_tags": [],
+          "description": "$7.99 lb PS Honey Ham",
+          "expiry_text": "Exp. Nov. 03",
+          "savings_tag": "Weekly Digital Deal"
+        }
+      ],
+      "fetch_id": "01M6E3TWG9W8M6WVA3XDZYDZCP",
+      "provider": "oxylabs",
+      "store_check": "PASS",
+      "coupon_cards": 24,
+      "products_listed": false
+    }
+  },
+  "excluded_by_reason": {},
+  "duplicates": 0
+}

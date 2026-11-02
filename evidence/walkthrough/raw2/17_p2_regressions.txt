@@ -1,0 +1,7 @@
+# command: bash -c bash /c/m6/tools/t2.sh C:/m6/qwt/headless/marianos-azure-headless marianos_test_walk tests/unit/test_client_findings_180.py tests/unit/test_export_manifest_180.py tests/integration/test_page_regressions.py -p no:randomly
+# started: 2026-11-02T14:11:04Z
+........................................................................ [ 78%]
+....................                                                     [100%]
+92 passed in 53.83s
+# exit: 0
+# ended: 2026-11-02T14:12:03Z

@@ -1,0 +1,5 @@
+# command: bash -c git -C C:/m6/qwt status --short | wc -l
+# started: 2026-11-02T13:05:26Z
+0
+# exit: 0
+# ended: 2026-11-02T13:05:27Z

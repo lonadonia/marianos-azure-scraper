@@ -1,0 +1,136 @@
+{
+ "id": "D08",
+ "at": "20261102T152241Z",
+ "department": "08",
+ "slug": "beer-wine-liquor",
+ "slug_known": false,
+ "url": "https://www.marianos.com/pl/beer-wine-liquor/08",
+ "ledger": "OXP-D-c206c3",
+ "seconds": 7.5,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041906088009729",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "8f16ac134b312958b7f77324a422857a7a093daa34b8213b6b9475cbbc4a74d3",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 2431,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 25,
+ "departments": [
+  {
+   "id": "08",
+   "name": "Beer, Wine, Liquor & Mixers",
+   "slug": "beer-wine-liquor-mixers",
+   "count": 2431,
+   "categories": [
+    {
+     "id": "08120",
+     "name": "Red Wine",
+     "count": 558,
+     "subcategories": 0
+    },
+    {
+     "id": "08121",
+     "name": "Liquor",
+     "count": 472,
+     "subcategories": 0
+    },
+    {
+     "id": "08122",
+     "name": "White Wine",
+     "count": 436,
+     "subcategories": 0
+    },
+    {
+     "id": "08145",
+     "name": "Craft Beer",
+     "count": 141,
+     "subcategories": 0
+    },
+    {
+     "id": "08180",
+     "name": "Champagne & Sparkling Wine",
+     "count": 117,
+     "subcategories": 0
+    },
+    {
+     "id": "08184",
+     "name": "Non Alcoholic",
+     "count": 104,
+     "subcategories": 0
+    },
+    {
+     "id": "08119",
+     "name": "American Lager Beer",
+     "count": 90,
+     "subcategories": 0
+    },
+    {
+     "id": "08183",
+     "name": "Hard Seltzers",
+     "count": 84,
+     "subcategories": 0
+    },
+    {
+     "id": "08190",
+     "name": "Import Beer",
+     "count": 84,
+     "subcategories": 0
+    },
+    {
+     "id": "08189",
+     "name": "Cocktail Mixers",
+     "count": 78,
+     "subcategories": 0
+    },
+    {
+     "id": "08193",
+     "name": "Ready To Drink Cocktails",
+     "count": 72,
+     "subcategories": 0
+    },
+    {
+     "id": "08181",
+     "name": "Rose & Blush Wine",
+     "count": 63,
+     "subcategories": 0
+    },
+    {
+     "id": "08192",
+     "name": "Flavored Malt Beverages",
+     "count": 58,
+     "subcategories": 0
+    },
+    {
+     "id": "08182",
+     "name": "Box Wine",
+     "count": 47,
+     "subcategories": 0
+    },
+    {
+     "id": "08185",
+     "name": "Desserts & Vermouth Wine",
+     "count": 26,
+     "subcategories": 0
+    },
+    {
+     "id": "08191",
+     "name": "Hard Teas & Lemonades",
+     "count": 20,
+     "subcategories": 0
+    },
+    {
+     "id": "08194",
+     "name": "Hard Cider",
+     "count": 6,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

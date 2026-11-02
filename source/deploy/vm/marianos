@@ -1,0 +1,35 @@
+#!/bin/bash
+# marianos-collector on the VM (installed as /usr/local/sbin/marianos), run as the service user with the
+# environment of /etc/marianos-collector/collector.env and of the current release's release.env (both read
+# by systemd as data, never run as shell code). Run as root.
+#
+#   marianos ARGS...                   one command; waits for it, output on this terminal, exit code kept
+#   marianos --unit NAME ARGS...       a long command as the transient unit NAME (marianos-*): it survives a
+#                                      lost SSH session; output in the journal (journalctl -u NAME);
+#                                      `systemctl stop NAME` sends SIGTERM, a resumable stop for the collector
+#   marianos --at WHEN NAME ARGS...    the same, started once by a transient timer NAME.timer at WHEN
+#                                      (systemd time, e.g. "2026-10-29 10:00:00 UTC"); nothing stays
+#                                      scheduled after it fired or after `systemctl stop NAME.timer`
+set -euo pipefail
+
+SVC_USER="${SVC_USER:-marianos}"
+CURRENT=/opt/marianos-collector/current
+BIN="$CURRENT/venv/bin/marianos-collector"
+common=(--uid="$SVC_USER" --gid="$SVC_USER"
+  -p EnvironmentFile=/etc/marianos-collector/collector.env -p EnvironmentFile="$CURRENT/release.env"
+  -p WorkingDirectory=/var/lib/marianos-collector -p NoNewPrivileges=yes -p PrivateTmp=yes)
+service=(-p KillSignal=SIGTERM -p TimeoutStopSec=120)
+
+[ "$(id -u)" -eq 0 ] || { echo "run as root" >&2; exit 2; }
+unit_name() { [[ "$1" =~ ^marianos-[a-z0-9-]+$ ]] || { echo "unit names are marianos-<a-z0-9->" >&2; exit 2; }; }
+
+case "${1:-}" in
+  --unit)
+    unit_name "${2:-}"; unit="$2"; shift 2
+    exec systemd-run --quiet --unit="$unit" "${service[@]}" "${common[@]}" "$BIN" "$@" ;;
+  --at)
+    when="${2:?WHEN}"; unit_name "${3:-}"; unit="$3"; shift 3
+    exec systemd-run --quiet --unit="$unit" --on-calendar="$when" --timer-property=AccuracySec=1s \
+      --timer-property=Persistent=false "${service[@]}" "${common[@]}" "$BIN" "$@" ;;
+esac
+exec systemd-run --quiet --wait --pipe --collect "${common[@]}" "$BIN" "$@"

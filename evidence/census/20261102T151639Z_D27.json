@@ -1,0 +1,94 @@
+{
+ "id": "D27",
+ "at": "20261102T151639Z",
+ "department": "27",
+ "slug": "pet",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/pet/27",
+ "ledger": "OXP-D-c23542",
+ "seconds": 41.2,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523040395052217345",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "9f2019794ea73743fbc227aa4e9f27eb70ab01f8c7bc6ca43850350037ff2555",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 753,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 33,
+ "departments": [
+  {
+   "id": "27",
+   "name": "Pet",
+   "slug": "pet",
+   "count": 753,
+   "categories": [
+    {
+     "id": "27021",
+     "name": "Cat Food",
+     "count": 232,
+     "subcategories": 0
+    },
+    {
+     "id": "27017",
+     "name": "Dog Food",
+     "count": 222,
+     "subcategories": 0
+    },
+    {
+     "id": "27018",
+     "name": "Dog Treats",
+     "count": 150,
+     "subcategories": 0
+    },
+    {
+     "id": "27023",
+     "name": "Cat Litter & Accessories",
+     "count": 64,
+     "subcategories": 0
+    },
+    {
+     "id": "27022",
+     "name": "Cat Treats",
+     "count": 52,
+     "subcategories": 0
+    },
+    {
+     "id": "27019",
+     "name": "Dog Toys",
+     "count": 16,
+     "subcategories": 0
+    },
+    {
+     "id": "27024",
+     "name": "Cat Toys",
+     "count": 6,
+     "subcategories": 0
+    },
+    {
+     "id": "27020",
+     "name": "Dog Supplies",
+     "count": 6,
+     "subcategories": 0
+    },
+    {
+     "id": "27025",
+     "name": "Cat Supplies",
+     "count": 4,
+     "subcategories": 0
+    },
+    {
+     "id": "27026",
+     "name": "Bird Supplies",
+     "count": 3,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+# command: bash -c bash /c/m6/walk/show.sh run 01M6E49AHDXSQA04JQZ0HZ40GH
+# started: 2026-11-02T13:05:37Z
+run 01M6E49AHDXSQA04JQZ0HZ40GH  status published  site_version 90.88.10-rc.0  parser_version 1.7.0
+segments (each start or resume; how it ended):
+  01M6E49ANZSWPRAZ2BKVST8JG5  manual   2026-11-02 12:38:28 -> last seen 2026-11-02 12:40:21, found 2026-11-02 12:41:08 abandoned steps 3   stop TERMINATED
+  01M6E4E725D256GG6YH7VX1ZCJ  resume   2026-11-02 12:41:08 -> 2026-11-02 12:52:42                          ended     steps 15  stop -
+provider submissions: 22, USD 0.0315 at the reserve rate
+    1  coupons    settled   cost rule
+   18  listing    settled   cost rule
+    1  listing    settled   cost unknown
+    2  robots     settled   cost rule
+# exit: 0
+# ended: 2026-11-02T13:05:38Z

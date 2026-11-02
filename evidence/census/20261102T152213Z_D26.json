@@ -1,0 +1,130 @@
+{
+ "id": "D26",
+ "at": "20261102T152213Z",
+ "department": "26",
+ "slug": "cleaning-and-household",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/cleaning-and-household/26",
+ "ledger": "OXP-D-03632c",
+ "seconds": 13.7,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041793273787393",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "12cf8a0aed9b5a2396a9379a185e0164ca88adf478f0dbea6809ffe61cb972f0",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 1712,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 28,
+ "departments": [
+  {
+   "id": "26",
+   "name": "Cleaning and Household",
+   "slug": "cleaning-and-household",
+   "count": 1712,
+   "categories": [
+    {
+     "id": "26004",
+     "name": "Cleaning Supplies",
+     "count": 335,
+     "subcategories": 0
+    },
+    {
+     "id": "26025",
+     "name": "Laundry",
+     "count": 335,
+     "subcategories": 0
+    },
+    {
+     "id": "26001",
+     "name": "Air Fresheners",
+     "count": 149,
+     "subcategories": 0
+    },
+    {
+     "id": "26006",
+     "name": "Food Storage",
+     "count": 145,
+     "subcategories": 0
+    },
+    {
+     "id": "26024",
+     "name": "Paper Products",
+     "count": 144,
+     "subcategories": 0
+    },
+    {
+     "id": "26005",
+     "name": "Dishwashing Needs",
+     "count": 119,
+     "subcategories": 0
+    },
+    {
+     "id": "26018",
+     "name": "Disposable Tableware",
+     "count": 98,
+     "subcategories": 0
+    },
+    {
+     "id": "26003",
+     "name": "Batteries",
+     "count": 97,
+     "subcategories": 0
+    },
+    {
+     "id": "26002",
+     "name": "Light Bulbs",
+     "count": 94,
+     "subcategories": 0
+    },
+    {
+     "id": "26022",
+     "name": "Brooms, Mops & Dusters",
+     "count": 70,
+     "subcategories": 0
+    },
+    {
+     "id": "26021",
+     "name": "Pest Control",
+     "count": 62,
+     "subcategories": 0
+    },
+    {
+     "id": "26020",
+     "name": "Trash Bags",
+     "count": 61,
+     "subcategories": 0
+    },
+    {
+     "id": "26019",
+     "name": "Baking Paper & Foils",
+     "count": 36,
+     "subcategories": 0
+    },
+    {
+     "id": "26012",
+     "name": "Laundry Care Accessories",
+     "count": 7,
+     "subcategories": 0
+    },
+    {
+     "id": "26011",
+     "name": "Water Filtration",
+     "count": 5,
+     "subcategories": 0
+    },
+    {
+     "id": "26023",
+     "name": "Vacuums & Floor Care",
+     "count": 3,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

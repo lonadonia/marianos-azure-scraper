@@ -1,0 +1,9 @@
+# command: bash -c git -C C:/m5/wt diff --stat 9d16475 ee5ec99 -- headless/marianos-azure-headless/src headless/marianos-azure-headless/tests headless/marianos-azure-headless/pyproject.toml
+# started: 2026-11-02T16:55:22Z
+ headless/marianos-azure-headless/pyproject.toml    |  2 +-
+ .../src/marianos_headless/__init__.py              |  2 +-
+ .../src/marianos_headless/worker/pipeline.py       | 41 +++++++++++---
+ .../tests/integration/test_listing_pages.py        | 63 ++++++++++++++++++++++
+ 4 files changed, 99 insertions(+), 9 deletions(-)
+# exit: 0
+# ended: 2026-11-02T16:55:22Z

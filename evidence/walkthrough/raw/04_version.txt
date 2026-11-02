@@ -1,0 +1,5 @@
+# command: bash -c bash /c/m6/tools/q180.sh --version
+# started: 2026-11-02T13:05:27Z
+marianos-azure-headless 1.8.0rc4
+# exit: 0
+# ended: 2026-11-02T13:05:29Z

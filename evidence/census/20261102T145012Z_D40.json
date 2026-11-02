@@ -1,0 +1,11 @@
+{
+ "id": "D40",
+ "at": "20261102T145012Z",
+ "department": "40",
+ "slug": "dining",
+ "slug_known": false,
+ "url": "https://www.marianos.com/pl/dining/40",
+ "ledger": "OXP-D-c6f805",
+ "kind": "transport ConnectError",
+ "seconds": 2.7
+}

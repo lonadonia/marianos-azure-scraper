@@ -1,0 +1,16 @@
+step 2 p2_release: exit 0
+step 3 p2_status_before: exit 0
+step 4 p2_segments_before: exit 0
+step 6 p2_resume: exit 6
+step 7 p2_segments: exit 0
+step 8 p2_pages: exit 0
+step 9 p2_export: exit 0
+step 10 p2_validate: exit 0
+step 11 p2_coverage: exit 0
+step 12 p2_records: exit 0
+step 13 p2_flagged: exit 0
+step 14 p2_q1c_vs_q2: exit 0
+step 15 p2_status_end: exit 0
+step 17 p2_regressions: exit 0
+run 
+exit=0

@@ -1,0 +1,212 @@
+{
+ "data": {
+  "coupons": [
+   {
+    "id": "4247050",
+    "type": "STANDARD",
+    "displayDescription": "Save 20% on Private Selection Potatoes PICKUP OR DELIVERY ONLY",
+    "shortDescription": "Save 20% on Private Selection Potatoes PICKUP OR DELIVERY ONLY",
+    "title": "Save 20%",
+    "requirementDescription": "When you buy ONE Private Selection Potatoes on PICKUP OR DELIVERY ONLY. Use up to 5 times in a single transaction, while supplies last. Download and redeem the coupon once from October 7 - October 20 only. Offer valid when you select Pickup, Delivery or Express Delivery. Offer not valid on in-store orders.",
+    "expirationDate": "2026-10-20T23:59:59Z",
+    "displayEndDate": "2026-10-20T23:59:59Z",
+    "modalities": [
+     "DELIVERY",
+     "PICKUP"
+    ],
+    "upcs": [
+     "0001111066323"
+    ],
+    "requirementQuantity": 1,
+    "specialSavings": [
+     {
+      "name": "CL",
+      "displayName": "Pickup & Delivery Only",
+      "description": "Pickup & Delivery Only",
+      "displayOrder": 4,
+      "startDate": "2017-04-16T04:00:00Z",
+      "endDate": "2124-12-31T05:00:00Z"
+     },
+     {
+      "name": "Expiring Soon",
+      "displayName": "Expiring Soon",
+      "displayOrder": 1000,
+      "description": "Coupons nearing their expiration date.",
+      "startDate": "",
+      "endDate": ""
+     }
+    ]
+   },
+   {
+    "id": "4248722",
+    "type": "CASH_BACK",
+    "displayDescription": "$0.50 Cash Back on Totino’s™ Products",
+    "shortDescription": "$0.50 Cash Back on Totino’s™ Products",
+    "title": "50¢ Cash Back",
+    "requirementDescription": "Buy ONE (1) PACKAGE Totino's™ Pizza Rolls™ Snacks (50 COUNT OR LARGER), Old El Paso™ Frozen Stuffed Nachos (40 COUNT OR LARGER), Totino's™ Pizzas, OR SINGLE Totino's™ Ultimate Pizza (4 PACK OR LARGER), any flavor/variety, Get $0.50 cash back",
+    "expirationDate": "2026-11-14T23:59:00Z",
+    "displayEndDate": "2026-10-31T23:59:00Z",
+    "modalities": [
+     "PICKUP",
+     "IN_STORE",
+     "DELIVERY"
+    ],
+    "upcs": [
+     "0004280010953"
+    ],
+    "requirementQuantity": 1,
+    "specialSavings": [
+     {
+      "name": "General Savings",
+      "displayName": "General Savings",
+      "displayOrder": 2,
+      "description": "Coupons with no other special savings tags.",
+      "startDate": "",
+      "endDate": ""
+     }
+    ]
+   },
+   {
+    "id": "4248723",
+    "type": "STANDARD",
+    "displayDescription": "SAVE $0.50 on Totino’s™ Products",
+    "shortDescription": "SAVE $0.50 on Totino’s™ Products",
+    "title": "Save 50¢",
+    "requirementDescription": "when you buy ONE (1) PACKAGE Totino's™ Pizza Rolls™ Snacks (50 COUNT OR LARGER), Old El Paso™ Frozen Stuffed Nachos (40 COUNT OR LARGER), Totino's™ Pizzas, OR SINGLE Totino's™ Ultimate Pizza (4 PACK OR LARGER), any flavor/variety",
+    "expirationDate": "2026-11-14T23:59:00Z",
+    "displayEndDate": "2026-10-31T23:59:00Z",
+    "modalities": [
+     "PICKUP",
+     "IN_STORE",
+     "DELIVERY"
+    ],
+    "upcs": [
+     "0004280010953"
+    ],
+    "requirementQuantity": 1,
+    "specialSavings": [
+     {
+      "name": "General Savings",
+      "displayName": "General Savings",
+      "displayOrder": 2,
+      "description": "Coupons with no other special savings tags.",
+      "startDate": "",
+      "endDate": ""
+     }
+    ]
+   },
+   {
+    "id": "4250208",
+    "type": "STANDARD",
+    "displayDescription": "Earn 4X Points on Frozen Food and Dairy Purchases on 10/14 -10/20. Points will load within 24 hrs",
+    "shortDescription": "Earn 4X Points on Frozen Food and Dairy Purchases on 10/14 -10/20. Points will load within 24 hrs",
+    "title": "Earn 4X Points on Frozen Food and Dairy Purchases on 10/14 -10/20. Points will load within 24 hrs",
+    "requirementDescription": "Must clip the digital coupon to earn 4X Points when you shop Wednesday 10/14 - Tuesday 10/20. Points will be loaded within 24 hours. Boost Members get 5X Points. In-store purchases, pick-up or delivery must be completed Wednesday 10/14 - Tuesday 10/20 to receive 4X Points",
+    "expirationDate": "2026-10-20T23:59:59Z",
+    "displayEndDate": "2026-10-20T23:59:59Z",
+    "modalities": [
+     "PICKUP",
+     "IN_STORE",
+     "DELIVERY"
+    ],
+    "upcs": [
+     "0085631200277",
+     "0001111060933"
+    ],
+    "requirementQuantity": 1,
+    "specialSavings": [
+     {
+      "name": "POINTS",
+      "displayName": "Points Event",
+      "description": "",
+      "displayOrder": 4,
+      "startDate": "2024-04-30T04:00:00Z",
+      "endDate": "2034-01-01T05:00:00Z"
+     },
+     {
+      "name": "Expiring Soon",
+      "displayName": "Expiring Soon",
+      "displayOrder": 1000,
+      "description": "Coupons nearing their expiration date.",
+      "startDate": "",
+      "endDate": ""
+     }
+    ]
+   },
+   {
+    "id": "4251503",
+    "type": "STANDARD",
+    "displayDescription": "$7.99 Pre Ground Beef, 95% Lean",
+    "shortDescription": "$7.99 Pre Ground Beef, 95% Lean",
+    "title": "$7.99",
+    "requirementDescription": "When You Buy ONE (1) Pre Ground Beef, 95% Lean (1 lb), Offer Valid at Select Markets.  Download and redeem the coupon from October 14-October 20 only. Use up to 5 times per transaction in unlimited transactions, while supplies last.",
+    "expirationDate": "2026-10-20T23:59:59Z",
+    "displayEndDate": "2026-10-20T23:59:59Z",
+    "modalities": [
+     "PICKUP",
+     "IN_STORE",
+     "DELIVERY"
+    ],
+    "upcs": [
+     "0086344100002"
+    ],
+    "requirementQuantity": 1,
+    "specialSavings": [
+     {
+      "name": "WDD",
+      "displayName": "Weekly Digital Deals",
+      "description": "",
+      "displayOrder": 4,
+      "startDate": "2020-08-11T04:00:00Z",
+      "endDate": "2124-12-31T05:00:00Z"
+     },
+     {
+      "name": "Expiring Soon",
+      "displayName": "Expiring Soon",
+      "displayOrder": 1000,
+      "description": "Coupons nearing their expiration date.",
+      "startDate": "",
+      "endDate": ""
+     }
+    ]
+   },
+   {
+    "id": "4251508",
+    "type": "STANDARD",
+    "displayDescription": "$4.99 Kroger Seedless Grapes",
+    "shortDescription": "$4.99 Kroger Seedless Grapes",
+    "title": "$4.99",
+    "requirementDescription": "When You Buy ONE (1) Kroger Red, Green, Black or Tri-Color Seedless Grapes (3 lb), Offer Valid at Select Markets.  Download and redeem the coupon from October 14-October 20 only. Use up to 5 times per transaction in unlimited transactions, while supplies last.",
+    "expirationDate": "2026-10-20T23:59:59Z",
+    "displayEndDate": "2026-10-20T23:59:59Z",
+    "modalities": [
+     "PICKUP",
+     "IN_STORE",
+     "DELIVERY"
+    ],
+    "upcs": [
+     "0001111061375"
+    ],
+    "requirementQuantity": 1,
+    "specialSavings": [
+     {
+      "name": "WDD",
+      "displayName": "Weekly Digital Deals",
+      "description": "",
+      "displayOrder": 4,
+      "startDate": "2020-08-11T04:00:00Z",
+      "endDate": "2124-12-31T05:00:00Z"
+     },
+     {
+      "name": "Expiring Soon",
+      "displayName": "Expiring Soon",
+      "displayOrder": 1000,
+      "description": "Coupons nearing their expiration date.",
+      "startDate": "",
+      "endDate": ""
+     }
+    ]
+   }
+  ]
+ }
+}

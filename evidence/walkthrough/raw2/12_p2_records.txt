@@ -1,0 +1,53 @@
+# command: bash -c bash /c/m6/walk/show.sh records C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW 2
+# started: 2026-11-02T14:10:59Z
+products_fresh.json: 1137 records; every record has these 22 keys in this order: True; every value a string: True
+{
+  "zipcode": "60061"
+  "store_name": "Marianos Vernon Hills"
+  "store_location": "1720 N Milwaukee Ave, Vernon Hills, IL 60061"
+  "store_logo": "https://www.marianos.com/cdn/images/multiColor-4Jf6i6B.svg"
+  "store_brand": "no"
+  "category": "Pet Supplies"
+  "sub_category": "Bird Supplies"
+  "product_title": "Kaytee® Forti-Diet Parrot Food"
+  "weight": "5 lb"
+  "regular_price": "23.99"
+  "sale_price": ""
+  "volume_deals_description": ""
+  "volume_deals_price": ""
+  "digital_deals_description": ""
+  "digital_deals_price": ""
+  "image_url": "https://www.kroger.com/product/images/medium/front/0007185954612"
+  "url": "https://www.marianos.com/p/kaytee-forti-diet-parrot-food/0007185954612"
+  "upc": "0007185954612"
+  "gupc": ""
+  "ppm": "$0.30/oz"
+  "unit_price": ""
+  "crawl_date": "2026-11-02"
+}
+{
+  "zipcode": "60061"
+  "store_name": "Marianos Vernon Hills"
+  "store_location": "1720 N Milwaukee Ave, Vernon Hills, IL 60061"
+  "store_logo": "https://www.marianos.com/cdn/images/multiColor-4Jf6i6B.svg"
+  "store_brand": "yes"
+  "category": "Pet Supplies"
+  "sub_category": "Bird Supplies"
+  "product_title": "Kroger® Black Oil Sunflower Bird Seed"
+  "weight": "10 lb"
+  "regular_price": "14.99"
+  "sale_price": ""
+  "volume_deals_description": ""
+  "volume_deals_price": ""
+  "digital_deals_description": ""
+  "digital_deals_price": ""
+  "image_url": "https://www.kroger.com/product/images/medium/front/0001111088090"
+  "url": "https://www.marianos.com/p/kroger-black-oil-sunflower-bird-seed/0001111088090"
+  "upc": "0001111088090"
+  "gupc": ""
+  "ppm": "$1.50/lb"
+  "unit_price": ""
+  "crawl_date": "2026-11-02"
+}
+# exit: 0
+# ended: 2026-11-02T14:11:00Z

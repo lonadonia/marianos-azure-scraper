@@ -1,0 +1,142 @@
+{
+ "id": "D05",
+ "at": "20261102T151932Z",
+ "department": "05",
+ "slug": "meat-seafood",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/meat-seafood/05",
+ "ledger": "OXP-D-edd9a8",
+ "seconds": 13.1,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041114052365313",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "a7beb42b08fba9c2a80805011a8e0d8f39b72e676949d20bfbff53451da38340",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 1338,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 30,
+ "departments": [
+  {
+   "id": "05",
+   "name": "Meat & Seafood",
+   "slug": "meat-seafood",
+   "count": 1338,
+   "categories": [
+    {
+     "id": "05009",
+     "name": "Seasonings & Sauces",
+     "count": 221,
+     "subcategories": 0
+    },
+    {
+     "id": "05001",
+     "name": "Beef",
+     "count": 135,
+     "subcategories": 0
+    },
+    {
+     "id": "05003",
+     "name": "Dinner Sausage",
+     "count": 132,
+     "subcategories": 0
+    },
+    {
+     "id": "05004",
+     "name": "Fish",
+     "count": 124,
+     "subcategories": 0
+    },
+    {
+     "id": "05013",
+     "name": "Lunchmeat & Packaged Deli Meat",
+     "count": 116,
+     "subcategories": 0
+    },
+    {
+     "id": "05002",
+     "name": "Chicken",
+     "count": 109,
+     "subcategories": 0
+    },
+    {
+     "id": "05017",
+     "name": "Bacon & Breakfast Sausage",
+     "count": 104,
+     "subcategories": 0
+    },
+    {
+     "id": "05006",
+     "name": "Pork & Ham",
+     "count": 78,
+     "subcategories": 0
+    },
+    {
+     "id": "05010",
+     "name": "Shrimp & Shellfish",
+     "count": 72,
+     "subcategories": 0
+    },
+    {
+     "id": "05018",
+     "name": "Lunch & Snack Kits",
+     "count": 59,
+     "subcategories": 0
+    },
+    {
+     "id": "05016",
+     "name": "Prepared Meals",
+     "count": 58,
+     "subcategories": 0
+    },
+    {
+     "id": "05005",
+     "name": "Hot Dogs & Franks",
+     "count": 51,
+     "subcategories": 0
+    },
+    {
+     "id": "05015",
+     "name": "Pepperoni, Salami & Summer Sausage",
+     "count": 47,
+     "subcategories": 0
+    },
+    {
+     "id": "05012",
+     "name": "Turkey",
+     "count": 29,
+     "subcategories": 0
+    },
+    {
+     "id": "05008",
+     "name": "Refrigerated Pickles & Sauerkraut",
+     "count": 14,
+     "subcategories": 0
+    },
+    {
+     "id": "05014",
+     "name": "Lamb, Veal & Bison",
+     "count": 12,
+     "subcategories": 0
+    },
+    {
+     "id": "05011",
+     "name": "Specialty Meat",
+     "count": 5,
+     "subcategories": 0
+    },
+    {
+     "id": "05007",
+     "name": "Prepared Salads & Spreads",
+     "count": 4,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

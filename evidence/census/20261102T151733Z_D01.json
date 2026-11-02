@@ -1,0 +1,25 @@
+{
+ "id": "D01",
+ "at": "20261102T151733Z",
+ "department": "01",
+ "slug": "pantry",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/pantry/01",
+ "ledger": "OXP-D-9a0c69",
+ "seconds": 4.8,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523040616570185729",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "89ead4c3c28a0d67c38731b966ac05a4836d799c2d562d36f390189398bda3bd",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": null,
+ "available": null,
+ "taxonomy_id": null,
+ "state_products": 0,
+ "departments": []
+}

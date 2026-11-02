@@ -1,0 +1,29 @@
+# Mariano's stores. location_id = 3-digit division + 5-digit store (Kroger's location id); expected.* are
+# labels checked against the site's own store details on every page (the records take the name and address
+# from the site, never from this file). The same store collected for two fulfillment modes is two entries.
+stores:
+  # The client's store (release 1.8.0). Location 53100502 comes from the Kroger Locations API and every page of a
+  # run is checked against it. Prices for Pickup: the site's In Store prices are another price context.
+  - key: marianos-53100502-pickup
+    retailer: marianos
+    enabled: true
+    location_id: "53100502"
+    division_number: "531"
+    store_number: "00502"
+    expected: { display_name: "Marianos Vernon Hills", postal_code: "60061", address_line1: "1720 N Milwaukee Ave" }
+    modality: PICKUP
+    timezone: America/Chicago
+    store_page_url: https://www.marianos.com/stores/grocery/il/vernon-hills/marianos-vernon-hills/531/00502
+    notes: Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.
+  # Development evidence only: the store of the releases before 1.8.0.
+  - key: marianos-53100503-instore
+    retailer: marianos
+    enabled: true
+    location_id: "53100503"
+    division_number: "531"
+    store_number: "00503"
+    expected: { display_name: "Marianos Lakeshore East", postal_code: "60601", address_line1: "333 E Benton Pl" }
+    modality: IN_STORE
+    timezone: America/Chicago
+    store_page_url: https://www.marianos.com/stores/grocery/il/chicago/marianos-lakeshore-east/531/00503
+    notes: Marianos Lakeshore East, 333 E Benton Pl, Chicago, IL 60601; In Store prices.

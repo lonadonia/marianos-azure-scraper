@@ -1,0 +1,44 @@
+{
+ "id": "L4",
+ "at": "20261102T050309Z",
+ "seconds": 92.6,
+ "endpoint": "/v1/scrape/marianos",
+ "request": {
+  "url": "https://www.marianos.com/q/cereal",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "/q/:slug (retailer route table) is a server-rendered route with its own product list",
+ "status": 500,
+ "kind": "provider_failed_free",
+ "charged": false,
+ "ledger": "OXP-L-5683ea",
+ "request_id": "7522885999735642113",
+ "problem": {
+  "title": "REQUEST_FAILED_AFTER_TOO_MANY_RETRIES",
+  "detail": "The request failed after the maximum number of retries. You can try again at no extra cost, as we don't charge you for faulted scrapes.",
+  "state": "faulted"
+ },
+ "result_metadata": null,
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "store_id": "53100502",
+  "url": "https://www.marianos.com/q/cereal"
+ },
+ "error_body": "{\"status\":500,\"title\":\"REQUEST_FAILED_AFTER_TOO_MANY_RETRIES\",\"detail\":\"The request failed after the maximum number of retries. You can try again at no extra cost, as we don't charge you for faulted scrapes.\",\"instance\":\"6ae8198e-34de30f7aad59b772ed582ea\",\"state\":\"faulted\",\"params\":{\"output\":[\"html\"],\"json\":{\"schema\":null,\"prompt\":null},\"location\":\"US\",\"device\":\"desktop\",\"run_js\":null,\"delivery_zip\":null,\"fulfillment_type\":\"pickup\",\"store_id\":\"53100502\",\"url\":\"https://www.marianos.com/q/cereal\"},\"metadata\":{\"timestamp\":1793595790,\"request_id\":\"7522885999735642113\"}}\n"
+}

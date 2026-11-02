@@ -1,0 +1,76 @@
+# marianos-azure-headless: the collector's configuration (no secrets: the Scrapfly key and the database
+# connection come from environment variables, which are Azure Key Vault secret references in Azure).
+# Relative paths are read from this file's folder. `marianos-collector validate-config` checks everything.
+retailer: marianos
+settings_file: settings.yaml
+stores_file: stores.yaml
+categories_csv: Marianos_Category_URLs.csv          # the client's category list (Retailer,Category (Auto),URL,Scope,Notes)
+private_label_file: private_label_brands.yaml
+taxonomy_seed_file: taxonomy_seed.snapshot_2026-10-17.json   # the site menu: each category's listing pages
+
+# One entry per store key of stores.yaml.
+collections:
+  marianos-53100502-pickup:
+    categories: [22, 23, 24, 25, 26, 27]   # QUALIFICATION SCOPE (TEST_PLAN_180 Amendments 3 and 6), not full coverage
+    subcategories: {}              # optional: a row narrowed to some menu taxonomy ids, e.g. {"1": ["06111"]}
+    timezone: America/Chicago      # the store's local time: schedule, crawl_date and daily limits
+    limits:                        # empty = no limit (the full configured scope)
+      max_products_per_run: null
+      max_products_per_day: null
+      max_run_minutes: 2880        # the whole run over all its executions: 48 h of active collection
+      max_segment_minutes: 300     # one execution (segment); reaching it pauses the run resumably
+      max_credits_per_run: 95      # qualification: Oxylabs submissions per run (Amendment 3)
+      max_credits_per_day: null
+      min_credit_reserve: 0
+    schedule:
+      enabled: false               # OFF until the client approves
+      weekdays: [0, 3]             # 0 = Monday ... 6 = Sunday: twice a week, Monday and Thursday
+      start_time: "07:00"          # store-local; daylight-saving changes are handled
+      window_end: "19:00"          # a scheduled run stops collecting at this local time
+      continue_unfinished: true
+      backlog_first: true
+    max_auto_resumes: 3
+    start_tolerance_minutes: 45
+  marianos-53100503-instore:
+    categories: []                 # CSV row numbers counted from 0 (Coupons = 0, Produce = 1); empty = every row
+    subcategories: {}              # optional: a row narrowed to some menu taxonomy ids, e.g. {"1": ["06111"]}
+    timezone: America/Chicago      # the store's local time: schedule, crawl_date and daily limits
+    limits:                        # empty = no limit (the full configured scope)
+      max_products_per_run: null
+      max_products_per_day: null
+      max_run_minutes: 2880        # the whole run over all its executions: 48 h of active collection
+      max_segment_minutes: 300     # one execution (segment); below the Azure replica timeout (360 min);
+                                   # reaching it pauses the run resumably, the next execution continues it
+      max_credits_per_run: null    # Scrapfly API credits (estimated from session time and bandwidth)
+      max_credits_per_day: null
+      min_credit_reserve: 0        # the account balance live runs keep (checked before every step)
+    schedule:
+      enabled: false               # OFF until the client approves; read by `run --scheduled` (Azure starts the job)
+      weekdays: [0, 3]             # 0 = Monday ... 6 = Sunday: Monday and Thursday
+      start_time: "07:00"          # store-local; daylight-saving changes are handled (see docs/AZURE.md)
+      window_end: "19:00"          # a scheduled run stops collecting at this local time
+      continue_unfinished: true    # later firings continue an unfinished scheduled run inside the daily
+                                   # window until the next occurrence closes it as partial (never published)
+      backlog_first: true          # that occurrence's run reads first the listings no run has read to their
+                                   # end, then the others, the one read longest ago first (release 1.5.0)
+    max_auto_resumes: 3            # transient provider failures resumed within one execution
+    start_tolerance_minutes: 45    # how late a scheduled execution may start and still collect
+
+# The automated canary: the first recorded page step of every run is checked before collection goes on.
+# A failure stops the run (CANARY_CHECK_FAILED) and holds the store until `release-hold`.
+canary:
+  enabled: true
+  min_valid_records: 1
+  min_valid_ratio: 0.05
+  source_check: true               # every valid record equal to the site's own product data for the store
+
+# The store's verified products are kept (collection/retention.py): one a run does not observe is carried
+# forward unchanged from its last verified observation, with its own crawl date and the reason.
+historical:
+  enabled: true
+  max_age_days: null               # null = no age limit
+
+# A complete, validated, non-pilot run becomes the store's published dataset (published/<store>/latest.json).
+publish:
+  auto: true
+  accept_warnings_reason: null     # publish runs with WARN findings only with a recorded reason

@@ -1,0 +1,240 @@
+{
+ "title": "Mariano's collector 1.8.0rc4 walkthrough (recorded 2026-11-02)",
+ "steps": [
+  {
+   "say": [
+    "Mariano's collector 1.8.0rc4: a recorded walkthrough.",
+    "Recorded on 2026-11-02 on Hamza's workstation (Windows 11), NOT on the client's VM. Every command below runs",
+    "for real while it is recorded, and its output appears as it arrives; nothing is typed in afterwards. The",
+    "collector writes JSON lines: they are shown one line per event (time, level, event, message), cut at the",
+    "screen's width. The whole outputs are kept beside this recording. The video shortens idle time only.",
+    "",
+    "Live scope: store 53100502 Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills IL 60061, PICKUP, through",
+    "the Oxylabs Web API on Hamza's own account (not the client's Classic account). CSV rows 22-27 only: a",
+    "qualification scope, NOT the client's full category list. q180.sh sets this stage's database, configuration,",
+    "data folder and key file, then runs the collector's command line (python -m marianos_headless.cli)."
+   ]
+  },
+  {
+   "cmd": "git -C C:/m6/qwt log -1 --format='%H %s'",
+   "argv": [
+    "bash",
+    "-c",
+    "git -C C:/m6/qwt log -1 --format='%H %s'"
+   ],
+   "save": "release"
+  },
+  {
+   "cmd": "git -C C:/m6/qwt status --short | wc -l",
+   "argv": [
+    "bash",
+    "-c",
+    "git -C C:/m6/qwt status --short | wc -l"
+   ],
+   "save": "clean_checkout"
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh --version",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh --version"
+   ],
+   "save": "version"
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh validate-config --check-db | bash /c/m6/walk/show.sh result -",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh validate-config --check-db | bash /c/m6/walk/show.sh result -"
+   ],
+   "save": "validate_config"
+  },
+  {
+   "say": [
+    "Earlier today at this store (same stage, same database):",
+    "  Q1  (1.8.0rc1) stopped itself at the canary: a product's data stated its price for no store. Fixed in rc2.",
+    "  Q1b (1.8.0rc2) stopped itself on three grids drawn as 'mini' product cards. Fixed in rc3.",
+    "  Q1c (1.8.0rc3) was killed hard while a page was in flight, resumed, read rows 23-26 to their end and was",
+    "      published to this stage's own local folder: it is the last-good dataset now.",
+    "  1.8.0rc4 fixes two defects found in Q1c's export (coverage files not read back; collector version 1.7.0)."
+   ]
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -"
+   ],
+   "save": "status_before"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh run 01M6E49AHDXSQA04JQZ0HZ40GH",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh run 01M6E49AHDXSQA04JQZ0HZ40GH"
+   ],
+   "save": "q1c_segments"
+  },
+  {
+   "say": [
+    "Q2: the repeat run, started now from 1.8.0rc4, rows 22-27 (rows 23-26 repeat Q1c). After its fourth collected",
+    "page step the collector is killed hard (taskkill /F /T), as if the machine stopped; then it is resumed."
+   ]
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh run --store marianos-53100502-pickup",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh run --store marianos-53100502-pickup"
+   ],
+   "save": "q2_run",
+   "view": "events",
+   "kill_after": {
+    "event": "PAGE_COLLECTED",
+    "count": 4,
+    "cmd": "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\m6\\tools\\q180_kill.ps1 -Out C:\\m6\\q180\\ev\\q2_kill.txt",
+    "argv": [
+     "powershell",
+     "-NoProfile",
+     "-ExecutionPolicy",
+     "Bypass",
+     "-File",
+     "C:\\m6\\tools\\q180_kill.ps1",
+     "-Out",
+     "C:\\m6\\q180\\ev\\q2_kill.txt"
+    ],
+    "save": "q2_kill"
+   }
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -"
+   ],
+   "save": "status_after_kill"
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh resume --store marianos-53100502-pickup",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh resume --store marianos-53100502-pickup"
+   ],
+   "save": "q2_resume",
+   "view": "events"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh run {RUN}",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh run {RUN}"
+   ],
+   "save": "q2_segments"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh pages {RUN}",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh pages {RUN}"
+   ],
+   "save": "q2_pages"
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh export --run {RUN} --out C:/m6/q180/exports/{RUN} | bash /c/m6/walk/show.sh result -",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh export --run {RUN} --out C:/m6/q180/exports/{RUN} | bash /c/m6/walk/show.sh result -"
+   ],
+   "save": "q2_export"
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh validate-export --run {RUN} | bash /c/m6/walk/show.sh result -",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh validate-export --run {RUN} | bash /c/m6/walk/show.sh result -"
+   ],
+   "save": "q2_validate"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh coverage C:/m6/q180/exports/{RUN}",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh coverage C:/m6/q180/exports/{RUN}"
+   ],
+   "save": "q2_coverage"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh records C:/m6/q180/exports/{RUN} 2",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh records C:/m6/q180/exports/{RUN} 2"
+   ],
+   "save": "q2_records"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh flagged C:/m6/q180/exports/{RUN}",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh flagged C:/m6/q180/exports/{RUN}"
+   ],
+   "save": "q2_flagged"
+  },
+  {
+   "cmd": "bash /c/m6/walk/show.sh compare C:/m6/q180/exports/01M6E49AHDXSQA04JQZ0HZ40GH C:/m6/q180/exports/{RUN}",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/walk/show.sh compare C:/m6/q180/exports/01M6E49AHDXSQA04JQZ0HZ40GH C:/m6/q180/exports/{RUN}"
+   ],
+   "save": "q1c_vs_q2"
+  },
+  {
+   "cmd": "bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/q180.sh status --store marianos-53100502-pickup | bash /c/m6/walk/show.sh status -"
+   ],
+   "save": "status_end"
+  },
+  {
+   "say": [
+    "The regressions of the client's findings and of today's fixes (pagination, promotions, pack size, price",
+    "attribution, the two rc4 export defects), on their own test database:"
+   ]
+  },
+  {
+   "cmd": "bash /c/m6/tools/t2.sh C:/m6/qwt/headless/marianos-azure-headless marianos_test_walk tests/unit/test_client_findings_180.py tests/unit/test_export_manifest_180.py tests/integration/test_page_regressions.py -p no:randomly",
+   "argv": [
+    "bash",
+    "-c",
+    "bash /c/m6/tools/t2.sh C:/m6/qwt/headless/marianos-azure-headless marianos_test_walk tests/unit/test_client_findings_180.py tests/unit/test_export_manifest_180.py tests/integration/test_page_regressions.py -p no:randomly"
+   ],
+   "save": "regressions"
+  },
+  {
+   "say": [
+    "Not shown here, and not done:",
+    "  - the client's full category list (28 rows) has not been collected at this store; rows 22-27 only;",
+    "  - the Oxylabs Classic probe has never sent a request: its live mode is disabled pending approval;",
+    "  - publication went only to this stage's own local folder; schedules stay disabled;",
+    "  - the checks on the client's VM are reported separately (offline only, no provider request).",
+    "End of the walkthrough."
+   ]
+  }
+ ]
+}

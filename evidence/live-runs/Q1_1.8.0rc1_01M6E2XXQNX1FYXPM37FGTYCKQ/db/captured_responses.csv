@@ -1,0 +1,2 @@
+id,run_id,page_fetch_id,kind,url,status,request_location_id,request_taxonomies,body_sha256,artifact_id,schema_ok,observed_at
+01M6E31R9981TAS8FFRFNP7PWC,01M6E2XXQNX1FYXPM37FGTYCKQ,01M6E2Y2P3C8QJP3S4AC5HSRC5,products_v2,https://www.marianos.com/pl/candles-home-fragrances/32001#page-state:calypso.domains.products,200,,[],45cf30d070d89e6f86505f4485c95befdd9b9564d1efcf04e340f9b2b4ffff7e,01M6E31R9482Q41YWXE4R1J8DR,True,2026-11-02T12:14:51.075017+00:00

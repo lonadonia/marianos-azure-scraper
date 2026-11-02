@@ -1,0 +1,6 @@
+{
+  "campaign_id": "X18-OFFLINE",
+  "ledger_path": "C:\\m6\\ev\\probe_x18\\ledger\\ledger.jsonl",
+  "ledger_genesis_id": "500c88776e014db9ab5f101b9798a774",
+  "offline": true
+}

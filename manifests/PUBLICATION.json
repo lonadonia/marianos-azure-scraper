@@ -1,0 +1,113 @@
+{
+ "repository": "https://github.com/lonadonia/marianos-azure-scraper",
+ "review_tag": "review-1.8.0rc5-20261102",
+ "packaging_commit": "the commit named by the review tag (a file cannot hold the id of the commit that adds it)",
+ "status": "correction delivery for review: not a final release, not accepted by the client, not production",
+ "prepared_by": "Hamza",
+ "prepared_on": "2026-11-02",
+ "collector": {
+  "name": "marianos-azure-headless",
+  "version": "1.8.0rc5",
+  "original_commit": "ee5ec99b27bf68f63f6026a5b2e97937abccc5d3",
+  "original_tree": "c2ee5611faa6da875c235ec5e1d46d8b9cc09bb7",
+  "development_branch": "marianos-1.8 (local; its history is not published)",
+  "published_at": "source/ (213 files, byte-identical to the source archive: manifests/check_frozen_trees.py)",
+  "live_runs": "none with 1.8.0rc5; Q1 to Q2 ran 1.8.0rc1 to 1.8.0rc4 (evidence/accounting/SEGMENTS.csv)"
+ },
+ "classic_probe": {
+  "name": "oxylabs-classic-probe",
+  "version": "1.6.0",
+  "live_mode": "disabled",
+  "published_at": "classic-probe/ (51 files from the source archive, plus CLASSIC_PROBE.md)"
+ },
+ "original_delivery": {
+  "folder": "20261102_marianos_1.8.0rc5",
+  "archives": {
+   "MARIANOS_SOURCE_1.8.0rc5.zip": "1832ef6e5051f20e55842057b60d37a61924e1af92d360fea6ae810104481485",
+   "MARIANOS_EVIDENCE_1.8.0rc5.zip": "7dc352c5ccca19a0ac73a916ad0df00c8f765338de11d91cb077e6981de7e026",
+   "CLIENT_SUMMARY.zip": "29b23c8b8d56e7dfe4ed0deb95e7d3b193e743121ef371b697f387f4b42c4a73",
+   "all-in-one ZIP (not published)": "c8a3580741017352b6144eb926d0ca1fdc0927022a2dca85b7b63c81df90a922"
+  },
+  "kept_unchanged_locally": true,
+  "member_accounting": {
+   "MARIANOS_SOURCE_1.8.0rc5.zip": {
+    "members": 278,
+    "published": 267,
+    "excluded_listed": 11,
+    "excluded_workstation_scripts": 0
+   },
+   "MARIANOS_EVIDENCE_1.8.0rc5.zip": {
+    "members": 723,
+    "published": 596,
+    "excluded_listed": 13,
+    "excluded_workstation_scripts": 114
+   },
+   "CLIENT_SUMMARY.zip": {
+    "members": 32,
+    "published": 28,
+    "excluded_listed": 4,
+    "excluded_workstation_scripts": 0
+   }
+  }
+ },
+ "files": {
+  "published": 905,
+  "by_state": {
+   "added": 14,
+   "unchanged": 863,
+   "corrected": 7,
+   "redacted": 20,
+   "rewritten for the repository": 1
+  },
+  "map": "manifests/FILE_MAP.csv",
+  "corrections": "manifests/DOC_CORRECTIONS.md",
+  "redactions": "manifests/REDACTIONS.csv",
+  "excluded": "manifests/EXCLUDED.csv",
+  "checksums": "manifests/SHA256SUMS.txt (written last; covers every file but itself)"
+ },
+ "checks_before_commit": {
+  "frozen_trees": "264 files listed for source/ and classic-probe/: 264 identical, 0 missing or different, 0 extra; 13 archive entries outside these trees (release_build/ and the archive index), not published",
+  "links_and_references": "10 documents, 188 relative links, 167 backticked repository paths; problems: 0",
+  "random_records": "evidence/tools/check_records.py, 25 records, seed 20261102: page hash mismatches: 0",
+  "dataset": {
+   "products_fresh": 1137,
+   "products_retained": 1160,
+   "fields": 22,
+   "same_fields_every_record": true,
+   "duplicate_upc": 0,
+   "duplicate_url": 0,
+   "zipcode": [
+    "60061"
+   ],
+   "store_name": [
+    "Marianos Vernon Hills"
+   ],
+   "crawl_date": [
+    "2026-11-02"
+   ],
+   "identical_to_run_export": true,
+   "coverage": "rows 23-27 complete; row 22 11 of 12 listings complete (Cat Food 231 of 232); rows 0-21 not collected"
+  },
+  "test_claims": {
+   "1.8.0rc5 full suite, 576 passed in 26:02": "evidence/rc5-offline/t_full_rc5_x19b.log (and junit_full_rc5_x19b.xml: 576 tests, 0 failures)",
+   "1.8.0rc5 full suite at delivery, 576 passed": "evidence/verification/PACKAGE_VERIFICATION.txt (release 1.8.0rc5, commit ee5ec99)",
+   "1.8.0rc4 full suite, 574 passed": "evidence/tests/t_full_rc4_x18.log (source archive of 1.8.0rc4, commit 923afa4, documentation-only after 9d16475)",
+   "Classic probe 1.6.0, 93 passed, 2 skipped": "evidence/classic-probe/from-1.8.0rc5-archive/probe_x19.log (progress marks, exit 0)",
+   "pagination regressions: 6 failed on 1.7.0rc2, 6 passed on 1.8.0": "evidence/tests/regress/old_4815ed4.log, new_worktree.log"
+  },
+  "tests_rerun_for_this_publication": "none: the trees are byte-identical to the verified source archive",
+  "scans": {
+   "exact_credential_values": "0 hits: every credential value of the workstation's local credential files, raw and URL-encoded, searched in 1,154 files and gzip members",
+   "secret_patterns": "0 local secret values; 3 matches of a generic key-assignment pattern, all false positives: an environment-variable name in classic-probe/src/classic_probe/gates.py and the same fake unit-test key in two JUnit reports",
+   "disclosure_patterns": "886 files and gzip members searched for machine, identity, client-access, internal-material and secret-shaped patterns: no client VM address, user or host-key fingerprint, no key fingerprint, no private key or Azure secret, no user folder, no workstation host name. Remaining matches were reviewed one by one: bytes of the videos and images, 'desktop-header' in saved retailer pages, the provider's list of scrapers, placeholders and test fakes in the frozen source, masked connection strings in test logs, the repository's own clone URL, the frozen source's mention of the developer's earlier VM name, and working-folder paths kept in logs as written"
+  }
+ },
+ "not_done": [
+  "no paid or live request",
+  "no schedule enabled",
+  "no Azure deployment",
+  "no message sent",
+  "no change to sharing or visibility",
+  "no force-push"
+ ]
+}

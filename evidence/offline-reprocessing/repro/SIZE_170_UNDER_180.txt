@@ -1,0 +1,18 @@
+  114  agree/R1 | not in 1.7.0rc2's retained export
+    3  agree/R1 | replaced
+ 4066  agree/R1 | unchanged
+   72  displayed_kept/R4 | unchanged
+    4  not_comparable/R1 | not in 1.7.0rc2's retained export
+   13  not_comparable/R1 | replaced
+  322  not_comparable/R1 | unchanged
+   18  not_comparable/R2 | not in 1.7.0rc2's retained export
+   18  not_comparable/R2 | replaced
+  360  not_comparable/R2 | unchanged
+    1  replaced/R4 | not in 1.7.0rc2's retained export
+   19  replaced/R4 | replaced
+    1  serving_replaced/R3 | replaced
+   39  unit_denominator/R5 | emptied (unresolved conflict; observations kept outside the schema)
+   35  unit_denominator/R5 | unchanged
+   65  unresolved/R4 | emptied (unresolved conflict; observations kept outside the schema)
+    1  unresolved/R4 | not in 1.7.0rc2's retained export
+client product: [{'upc': '0073679800140', 'product_title': 'Avocado Green Goddess Dip & Spread 8 oz.', 'size_slot_observed': '2 tbsp', 'product_data_quantity': 8, 'product_data_unit': 'OUNCES', 'package_weight': '0.5 [lb_av]', 'weight_exported_170': '2 tbsp', 'rule_180': 'R3', 'class_180': 'serving_replaced', 'weight_exported_180': '8 oz', 'change': 'replaced'}]

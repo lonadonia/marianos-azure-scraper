@@ -1,0 +1,87 @@
+{
+ "at": "2026-11-02T04:58:08Z",
+ "host": "https://api-ce.kroger.com",
+ "status": 200,
+ "items": [
+  {
+   "locationId": "53100502",
+   "chain": "MARIANOS",
+   "name": "Marianos - Marianos Vernon Hills",
+   "divisionNumber": "531",
+   "storeNumber": "00502",
+   "addressLine1": "1720 N Milwaukee Ave",
+   "city": "Vernon Hills",
+   "zipCode": "60061"
+  },
+  {
+   "locationId": "53100542",
+   "chain": "MARIANOS",
+   "name": "Marianos - Marianos Bannockburn",
+   "divisionNumber": "531",
+   "storeNumber": "00542",
+   "addressLine1": "2999 Waukegan Rd",
+   "city": "Bannockburn",
+   "zipCode": "60015"
+  },
+  {
+   "locationId": "53100514",
+   "chain": "MARIANOS",
+   "name": "Marianos - Marianos Lake Zurich",
+   "divisionNumber": "531",
+   "storeNumber": "00514",
+   "addressLine1": "1350 East Route 22",
+   "city": "LAKE ZURICH",
+   "zipCode": "60047"
+  },
+  {
+   "locationId": "53100505",
+   "chain": "MARIANOS",
+   "name": "Marianos - Marianos Palatine",
+   "divisionNumber": "531",
+   "storeNumber": "00505",
+   "addressLine1": "545 N Hicks Rd",
+   "city": "PALATINE",
+   "zipCode": "60067"
+  },
+  {
+   "locationId": "53100501",
+   "chain": "MARIANOS",
+   "name": "Marianos - Marianos Arlington Heights",
+   "divisionNumber": "531",
+   "storeNumber": "00501",
+   "addressLine1": "802 E Northwest Hwy",
+   "city": "ARLINGTON HEIGHTS",
+   "zipCode": "60004"
+  },
+  {
+   "locationId": "53100533",
+   "chain": "MARIANOS",
+   "name": "Marianos - Marianos Northbrook",
+   "divisionNumber": "531",
+   "storeNumber": "00533",
+   "addressLine1": "784 Skokie Blvd",
+   "city": "NORTHBROOK",
+   "zipCode": "60062"
+  },
+  {
+   "locationId": "53100541",
+   "chain": "MARIANOS",
+   "name": "Marianos - Marianos Des Plaines",
+   "divisionNumber": "531",
+   "storeNumber": "00541",
+   "addressLine1": "10 E Golf Rd",
+   "city": "Des Plaines",
+   "zipCode": "60016"
+  },
+  {
+   "locationId": "53100518",
+   "chain": "MARIANOS",
+   "name": "Marianos - Marianos Glenview East",
+   "divisionNumber": "531",
+   "storeNumber": "00518",
+   "addressLine1": "25 Waukegan Rd",
+   "city": "Glenview",
+   "zipCode": "60025"
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+"id": "L19",
+"seconds": 161.4,
+"status": 500,
+"kind": "provider_failure",
+"charged": null,
+"request_id": "",
+ERR {"status":500,"title":"REQUEST_FAILED_SCRAPE_TIMEOUT","detail":"Scraping took too long, try again.","instance":"6ae81f52-93ccd958141c784bf9bfede1"}
+Mon Nov  2 05:30:27 UTC 2026
+"id": "L20",
+"seconds": 7.0,
+"status": 200,
+"kind": null,
+"charged": true,
+"request_id": "7522892875269446657",
+"page": 1,
+"chars": 1026318,
+"page": 1,
+"page": 1,
+"location_id": "53100502",
+"modality": "PICKUP",
+"total": 8,
+"available": 8,
+"state_products": 8,
+Mon Nov  2 05:30:36 UTC 2026
+Oxylabs cumulative: earlier 0.5739 + 1.8.0 0.0225 of 1.0; left 0.4036
+Scrapfly cumulative: earlier 113 + 1.8.0 0 of 300; left 187
+open reservations: none

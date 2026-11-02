@@ -1,0 +1,98 @@
+{
+ "id": "L8",
+ "at": "20261102T050519Z",
+ "seconds": 7.0,
+ "endpoint": "/v1/scrape/marianos/search",
+ "request": {
+  "query": "cereal",
+  "brand": "General Mills",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "the brand filter narrows the total at this store and fulfillment",
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "ledger": "OXP-L-6a6ff1",
+ "request_id": "7522886544118559745",
+ "problem": {
+  "state": "done"
+ },
+ "result_metadata": {
+  "page": 1,
+  "run_js": false,
+  "url": "https://www.marianos.com/search?brandName=General%20Mills&query=cereal",
+  "statuses": {
+   "http_request": {
+    "code": 200,
+    "tag": "HTTP_OK"
+   }
+  }
+ },
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "brand": "General Mills",
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "price_range": null,
+  "query": "cereal",
+  "store_id": "53100502"
+ },
+ "body_sha256": "c4673ec079791c292ca193012a0024b3299f6a69b6edee78f1483410379aede9",
+ "analysis": {
+  "chars": 1037264,
+  "requestVars": {
+   "query": "cereal",
+   "page": 1,
+   "brandName": [
+    "General Mills"
+   ],
+   "fulfillment": "all",
+   "locationId": "53100502",
+   "activeModalityType": "PICKUP"
+  },
+  "summary": {
+   "query": "cereal",
+   "page": 1,
+   "location_id": "53100502",
+   "modality": "PICKUP",
+   "total": 9,
+   "available": 9,
+   "upcs": [
+    "0001600012025",
+    "0001600023574",
+    "0001600022783",
+    "0001600015781",
+    "0001600023402",
+    "0001600015764",
+    "0001600023856",
+    "0001600022984",
+    "0001600023571"
+   ],
+   "sponsored": [
+    "0001600012025",
+    "0001600023574"
+   ],
+   "ways_to_shop": [
+    "pickup"
+   ]
+  },
+  "state_products": 9,
+  "price_locations": [
+   "53100502"
+  ]
+ }
+}

@@ -1,0 +1,138 @@
+[
+ {
+  "run": "R1",
+  "file": "01M651J3BPFMPYYRJR66MSMYEX.html.gz",
+  "card": {
+   "position": 13,
+   "card_testid": "product-card-13",
+   "upc": "0086001079386",
+   "url": "https://www.marianos.com/p/the-finnish-long-drink-zero-sugar-cocktail-can/0086001079386",
+   "title": "The Finnish Long Drink Zero Sugar Cocktail Can",
+   "size_text": "12 cans / 12 fl oz",
+   "price": {
+    "kind": "sale",
+    "current_text": "$22.99",
+    "original_text": "$32.99",
+    "sr_text": "Sale: $22.99 discounted from $32.99",
+    "placeholder_text": "",
+    "regular_price": "32.99",
+    "sale_price": "22.99"
+   },
+   "price_tag": "",
+   "zone": {
+    "text": "Buy 1 Save $2",
+    "requires_clip": false,
+    "checkbox_label": "",
+    "label": "",
+    "details": true
+   },
+   "image_src": "https://www.kroger.com/product/images/medium/front/0086001079386",
+   "image_url": "https://www.kroger.com/product/images/medium/front/0086001079386",
+   "snap_ebt": false,
+   "flags": [],
+   "ppm_text": "$0.16/fl oz"
+  },
+  "state": {
+   "description": "The Finnish Long Drink Zero Sugar Cocktail Can",
+   "customerFacingSize": "12 cans / 12 fl oz",
+   "pidSizeQuantity": {
+    "customerFacingSize": "12 cans / 12 fl oz",
+    "pidSizeQuantity": 144,
+    "pidSizeUnitOfMeasureName": "FLUID OUNCES"
+   },
+   "item_keys": [
+    "ageRestrictionFlag",
+    "alcoholFlag",
+    "assortments",
+    "bounceFlag",
+    "brand",
+    "categories",
+    "clickListItem",
+    "countriesOfOrigin",
+    "customerFacingSize",
+    "description",
+    "dimensions",
+    "familyCode",
+    "familyTree",
+    "gtin14",
+    "hazmatFlag",
+    "homeDeliveryItem",
+    "images",
+    "itemTypeCode",
+    "krogerDeliveryItem",
+    "linkedItem",
+    "liveNaturallyEligible",
+    "mainImagePerspective",
+    "omniChannelBrandName",
+    "pidSizeQuantity",
+    "pidSizeUnitOfMeasureName",
+    "privacyRestricted",
+    "privacyRestrictedStates",
+    "prop65",
+    "prop65Info",
+    "ratingsAndReviewsAggregate",
+    "receiptDescription",
+    "restrictionGroupCodes",
+    "romanceDescription",
+    "salesChannelCode",
+    "salesChannelName",
+    "seoDescription",
+    "shareLink",
+    "snapEligible",
+    "soldInStore",
+    "tareValue",
+    "taxGroupCode",
+    "taxonomies",
+    "temperatureIndicator",
+    "temperatureIndicatorName",
+    "upc",
+    "verified"
+   ],
+   "price": {
+    "displayTemplate": "YellowTag",
+    "offerCode": "116255",
+    "orderBy": "Unit",
+    "sellBy": "Unit",
+    "storePrices": {
+     "promo": {
+      "defaultDescription": "$22.99",
+      "expirationDate": {
+       "value": "2026-11-04T04:59:59.999Z",
+       "timezone": "UTC"
+      },
+      "nfor": 1,
+      "nforPrice": "USD 22.99",
+      "unitPrice": "USD 22.99",
+      "price": "USD 22.99",
+      "equivalizedUnitPrice": {
+       "amount": "15.97",
+       "denomination": "CENT",
+       "unit": "PER FLUID OUNCE"
+      },
+      "equivalizedUnitPriceString": "$0.16/fl oz"
+     },
+     "regular": {
+      "defaultDescription": "$32.99",
+      "expirationDate": {
+       "value": "2026-11-04T04:59:59.999Z",
+       "timezone": "UTC"
+      },
+      "nfor": 1,
+      "nforPrice": "USD 32.99",
+      "unitPrice": "USD 32.99",
+      "price": "USD 32.99",
+      "equivalizedUnitPrice": {
+       "amount": "22.91",
+       "denomination": "CENT",
+       "unit": "PER FLUID OUNCE"
+      },
+      "equivalizedUnitPriceString": "$0.23/fl oz"
+     },
+     "sourceLocationId": "53100503",
+     "sellerId": "KR001",
+     "sellerName": "Kroger"
+    }
+   }
+  }
+ }
+]

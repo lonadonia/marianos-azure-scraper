@@ -1,0 +1,82 @@
+{
+ "id": "D20",
+ "at": "20261102T152037Z",
+ "department": "20",
+ "slug": "beauty",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/beauty/20",
+ "ledger": "OXP-D-8510bc",
+ "seconds": 28.8,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041390159244289",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "3cc4c73492b3b99367e8060aa1f7a29e0f1eb310060f19336e0bc4ec3de19a75",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 2628,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 26,
+ "departments": [
+  {
+   "id": "20",
+   "name": "Beauty",
+   "slug": "beauty",
+   "count": 2628,
+   "categories": [
+    {
+     "id": "20001",
+     "name": "Makeup",
+     "count": 1052,
+     "subcategories": 0
+    },
+    {
+     "id": "20004",
+     "name": "Hair Care",
+     "count": 834,
+     "subcategories": 0
+    },
+    {
+     "id": "20002",
+     "name": "Face Care",
+     "count": 326,
+     "subcategories": 0
+    },
+    {
+     "id": "20005",
+     "name": "Bath & Body",
+     "count": 301,
+     "subcategories": 0
+    },
+    {
+     "id": "20007",
+     "name": "Travel Size",
+     "count": 88,
+     "subcategories": 0
+    },
+    {
+     "id": "20006",
+     "name": "Sun & Tanning",
+     "count": 72,
+     "subcategories": 0
+    },
+    {
+     "id": "20003",
+     "name": "Fragrance",
+     "count": 16,
+     "subcategories": 0
+    },
+    {
+     "id": "20008",
+     "name": "Beauty Gifting",
+     "count": 1,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

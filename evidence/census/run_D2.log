@@ -1,0 +1,31 @@
+key fingerprint <key-fingerprint>
+15:17:21Z D27 200 None 41.2 store 53100502 PICKUP total 753 deps [('27', 'pet', 753, 10)]
+15:17:33Z D40 200 None 12.1 store 53100502 PICKUP total 125 deps [('40', 'dining', 125, 7)]
+slug test (40): cosmetic: assumed slugs are sent
+15:17:38Z D01 200 None 4.8 store 53100502 PICKUP total None deps []
+15:19:32Z D02 200 None 113.0 store 53100502 PICKUP total 1517 deps [('02', 'dairy-eggs', 1517, 10)]
+15:19:45Z D05 200 None 13.1 store 53100502 PICKUP total 1338 deps [('05', 'meat-seafood', 1338, 18)]
+15:20:14Z D06 200 None 28.6 store 53100502 PICKUP total 1097 deps [('06', 'fresh-fruits-vegetables', 1097, 12)]
+15:20:25Z D13 200 None 10.3 store 53100502 PICKUP total 826 deps [('13', 'deli', 826, 13)]
+15:20:37Z D18 200 None 12.0 store 53100502 PICKUP total 2811 deps [('18', 'natural-organic', 2811, 11)]
+15:21:07Z D20 200 None 28.8 store 53100502 PICKUP total 2628 deps [('20', 'beauty', 2628, 8)]
+15:21:14Z D21 200 None 7.6 store 53100502 PICKUP total None deps []
+15:22:13Z D22 200 None 58.4 store 53100502 PICKUP total 2291 deps []
+15:22:27Z D26 200 None 13.7 store 53100502 PICKUP total 1712 deps [('26', 'cleaning-and-household', 1712, 16)]
+15:22:34Z D28 200 None 6.8 store 53100502 PICKUP total 483 deps [('28', 'kitchen', 483, 10)]
+15:22:41Z D04 200 None 6.2 store 53100502 PICKUP total None deps []
+15:22:49Z D08 200 None 7.5 store 53100502 PICKUP total 2431 deps [('08', 'beer-wine-liquor-mixers', 2431, 17)]
+15:22:58Z D09 200 None 9.4 store 53100502 PICKUP total 62 deps [('09', 'floral', 62, 9)]
+15:23:21Z D10 200 None 22.3 store 53100502 PICKUP total 614 deps [('10', 'baby', 614, 7)]
+15:23:31Z D14 200 None 9.4 store 53100502 PICKUP total 331 deps [('14', 'bakery', 331, 15)]
+15:23:40Z D19 200 None 9.3 store 53100502 PICKUP total None deps []
+15:24:13Z D23 200 None 31.9 store 53100502 PICKUP total 742 deps [('23', 'candy', 742, 9)]
+OXP  L  usd=0.0225 credits=0 requests=20 | {'usd': 0.036, 'requests': 24}
+OXQ  Q  usd=0.1590 credits=0 requests=116 | {'usd': 0.3, 'requests': 200}
+OXP  D  usd=0.0345 credits=0 requests=23 | {'usd': 0.036, 'requests': 24}
+SF   S  usd=0.0000 credits=0 requests=0 | {'credits': 120, 'requests': 1}
+KR   K  usd=0.0000 credits=0 requests=2 | {'requests': 6}
+Oxylabs cumulative: earlier 0.5739 + 1.8.0 0.2160 of 1.0; left 0.2101
+Scrapfly cumulative: earlier 113 + 1.8.0 0 of 300; left 187
+open reservations: none
+exit=0

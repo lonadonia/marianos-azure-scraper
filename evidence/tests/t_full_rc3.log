@@ -1,0 +1,6 @@
+Mon Nov  2 12:37:57 UTC 2026
+........................................................................ [ 12%]
+........................................................................ [ 25%]
+
+
+INTERRUPTED by the operator at 13:03:22Z: superseded by 1.8.0rc4 (9d16475); 144 tests had passed and 0 failed when stopped (no failure seen). The full suite runs on 1.8.0rc4 from the clean extraction of the delivery.

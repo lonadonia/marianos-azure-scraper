@@ -1,0 +1,17 @@
+# command: bash -c bash /c/m6/walk/show.sh compare C:/m6/q180/exports/01M6E49AHDXSQA04JQZ0HZ40GH C:/m6/q180/exports/01M6E5V6CASQ8F00VC8PE9TFYW
+# started: 2026-11-02T14:11:00Z
+first 01M6E49AHDXSQA04JQZ0HZ40GH: 351 valid fresh; second 01M6E5V6CASQ8F00VC8PE9TFYW: 1137 valid fresh
+in both 351; first only 0; second only 786
+  regular_price              differs for 0
+  sale_price                 differs for 0
+  digital_deals_description  differs for 38, e.g. 0003980001636: 'Coupon: Save $1.00 on Energizer' -> ''
+  volume_deals_description   differs for 0
+  weight                     differs for 0
+  ppm                        differs for 0
+  second only: 0001111001768 Pet Pride® Adult Wet Cat Food Paté Mixed Grill
+  second only: 0001111001772 Pet Pride® Adult Wet Cat Food Paté Poultry Platter
+  second only: 0001111001775 Pet Pride® Adult Wet Cat Food Paté Chicken and Tuna Dinner
+  second only: 0001111002593 ABOUND® All Life Stages Dry Cat Food Chicken & Brown Rice
+  second only: 0001111002594 ABOUND® All Life Stages Dry Cat Food Salmon & Brown Rice
+# exit: 0
+# ended: 2026-11-02T14:11:00Z

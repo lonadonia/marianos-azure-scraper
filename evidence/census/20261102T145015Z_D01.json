@@ -1,0 +1,11 @@
+{
+ "id": "D01",
+ "at": "20261102T145015Z",
+ "department": "01",
+ "slug": "pantry",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/pantry/01",
+ "ledger": "OXP-D-1c6148",
+ "kind": "transport ConnectError",
+ "seconds": 1.3
+}

@@ -1,0 +1,17 @@
+# command: bash -c bash /c/m6/walk/show.sh run 01M6E5V6CASQ8F00VC8PE9TFYW
+# started: 2026-11-02T14:10:40Z
+run 01M6E5V6CASQ8F00VC8PE9TFYW  status rejected  site_version 90.88.10-rc.0  parser_version 1.8.0
+segments (each start or resume; how it ended):
+  01M6E5V6HFMHDRFQ8D2AZ8T1XB  manual   2026-11-02 13:05:42 -> last seen 2026-11-02 13:13:01, found 2026-11-02 13:13:08 abandoned steps 5   stop TERMINATED
+  01M6E68TKYD7GG6DEXR8AWVEZ8  resume   2026-11-02 13:13:08 -> last seen 2026-11-02 13:45:43, found 2026-11-02 13:51:53 abandoned steps 52  stop TERMINATED
+  01M6E8FRVD6DSJXYSDQPJ4EJ1T  resume   2026-11-02 13:51:53 -> 2026-11-02 14:09:03                          ended     steps 4   stop PROVIDER_ERROR
+  01M6E9H0WERD7V1MMK60FA5JZ1  auto     2026-11-02 14:10:03 -> 2026-11-02 14:10:40                          ended     steps 1   stop -
+provider submissions: 85, USD 0.1140 at the reserve rate
+    1  coupons    settled   cost rule
+    1  coupons    settled   cost unknown
+   70  listing    settled   cost rule
+    8  listing    settled   cost unknown
+    4  robots     settled   cost rule
+    1  robots     settled   cost unknown
+# exit: 0
+# ended: 2026-11-02T14:10:42Z

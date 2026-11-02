@@ -1,0 +1,112 @@
+[
+ {
+  "mutant": "a repeated page counts as a page",
+  "file": "src/marianos_headless/collection/pagination.py",
+  "exit": 1,
+  "summary": [
+   "2 failed, 22 passed in 130.39s (0:02:10)"
+  ],
+  "failed": [
+   "test_a_page_that_repeats_earlier_products_stops_the_listing_as_incomplete[repeat-repeated]",
+   "test_a_page_that_repeats_earlier_products_stops_the_listing_as_incomplete[reorder-reordered_repeat]"
+  ],
+  "seconds": 133
+ },
+ {
+  "mutant": "any row of a page counts as completed",
+  "file": "src/marianos_headless/collection/pagination.py",
+  "exit": 1,
+  "summary": [
+   "5 failed, 19 passed in 109.31s (0:01:49)"
+  ],
+  "failed": [
+   "test_a_failed_page_2_leaves_the_listing_unfinished_and_a_resume_continues_at_it",
+   "test_an_empty_or_malformed_page_is_asked_again_within_its_bounds[empty-empty]",
+   "test_an_empty_or_malformed_page_is_asked_again_within_its_bounds[no_metadata-malformed]",
+   "test_an_empty_or_malformed_page_is_asked_again_within_its_bounds[no_cards-malformed]",
+   "test_a_product_limit_inside_a_page_leaves_the_page_unfinished"
+  ],
+  "seconds": 113
+ },
+ {
+  "mutant": "a failed page closes the listing and the run goes on",
+  "file": "src/marianos_headless/collection/oxylabs_live.py",
+  "exit": 1,
+  "summary": [
+   "1 failed, 23 passed in 100.62s (0:01:40)"
+  ],
+  "failed": [
+   "test_a_failed_page_2_leaves_the_listing_unfinished_and_a_resume_continues_at_it"
+  ],
+  "seconds": 104
+ },
+ {
+  "mutant": "the page's store is not checked after page 1",
+  "file": "src/marianos_headless/collection/pagination.py",
+  "exit": 1,
+  "summary": [
+   "2 failed, 22 passed in 135.00s (0:02:14)"
+  ],
+  "failed": [
+   "test_a_page_of_another_store_or_fulfillment_is_refused_and_stops_the_run[wrong_store]",
+   "test_a_page_of_another_store_or_fulfillment_is_refused_and_stops_the_run[wrong_fulfillment]"
+  ],
+  "seconds": 138
+ },
+ {
+  "mutant": "a resume trusts the task's cursor, not the table",
+  "file": "src/marianos_headless/collection/oxylabs_live.py",
+  "exit": 1,
+  "summary": [
+   "7 failed, 17 passed in 105.57s (0:01:45)"
+  ],
+  "failed": [
+   "test_a_failed_page_2_leaves_the_listing_unfinished_and_a_resume_continues_at_it",
+   "test_an_empty_or_malformed_page_is_asked_again_within_its_bounds[empty-empty]",
+   "test_an_empty_or_malformed_page_is_asked_again_within_its_bounds[no_metadata-malformed]",
+   "test_an_empty_or_malformed_page_is_asked_again_within_its_bounds[no_cards-malformed]",
+   "test_a_product_limit_inside_a_page_leaves_the_page_unfinished",
+   "test_a_worker_killed_while_page_2_is_out_resumes_at_page_2_and_its_request_stays_counted",
+   "test_a_worker_killed_after_a_pages_commit_never_asks_for_that_page_again"
+  ],
+  "seconds": 109
+ },
+ {
+  "mutant": "the page number the response states is not compared",
+  "file": "src/marianos_headless/collection/pagination.py",
+  "exit": 1,
+  "summary": [
+   "1 failed, 23 passed in 133.26s (0:02:13)"
+  ],
+  "failed": [
+   "test_a_page_that_is_not_the_one_asked_for_never_counts[wrong_page-wrong_page]"
+  ],
+  "seconds": 136
+ },
+ {
+  "mutant": "the listing the response states is not compared",
+  "file": "src/marianos_headless/collection/pagination.py",
+  "exit": 1,
+  "summary": [
+   "1 failed, 23 passed in 132.82s (0:02:12)"
+  ],
+  "failed": [
+   "test_a_page_that_is_not_the_one_asked_for_never_counts[wrong_listing-wrong_listing]"
+  ],
+  "seconds": 136
+ },
+ {
+  "mutant": "the last page ends a listing as DONE whatever was read",
+  "file": "src/marianos_headless/collection/pagination.py",
+  "exit": 1,
+  "summary": [
+   "3 failed, 21 passed in 134.27s (0:02:14)"
+  ],
+  "failed": [
+   "test_a_page_that_overlaps_counts_its_new_products_and_the_listing_stays_short",
+   "test_a_total_that_changes_during_the_read_is_kept_and_the_listing_stays_short",
+   "test_a_leaf_above_the_window_is_read_to_the_window_and_stays_incomplete"
+  ],
+  "seconds": 137
+ }
+]

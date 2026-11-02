@@ -1,0 +1,94 @@
+{
+ "id": "D02",
+ "at": "20261102T151738Z",
+ "department": "02",
+ "slug": "dairy-eggs",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/dairy-eggs/02",
+ "ledger": "OXP-D-4874bf",
+ "seconds": 113.0,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523040636669281281",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "2fdc8bb1ef0b8d46b7d163ce40733e8b4de7709e2b4d5ca0f1f8179245b54a9b",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 1517,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 32,
+ "departments": [
+  {
+   "id": "02",
+   "name": "Dairy & Eggs",
+   "slug": "dairy-eggs",
+   "count": 1517,
+   "categories": [
+    {
+     "id": "02009",
+     "name": "Yogurt",
+     "count": 391,
+     "subcategories": 0
+    },
+    {
+     "id": "02002",
+     "name": "Cheese",
+     "count": 380,
+     "subcategories": 0
+    },
+    {
+     "id": "02001",
+     "name": "Milk & Dairy Free Milk",
+     "count": 251,
+     "subcategories": 0
+    },
+    {
+     "id": "02005",
+     "name": "Cream & Creamer",
+     "count": 152,
+     "subcategories": 0
+    },
+    {
+     "id": "02007",
+     "name": "Refrigerated Dough, Biscuits, & Rolls",
+     "count": 75,
+     "subcategories": 0
+    },
+    {
+     "id": "02004",
+     "name": "Butter & Margarine",
+     "count": 74,
+     "subcategories": 0
+    },
+    {
+     "id": "02006",
+     "name": "Sour Cream & Dips",
+     "count": 56,
+     "subcategories": 0
+    },
+    {
+     "id": "02003",
+     "name": "Eggs",
+     "count": 50,
+     "subcategories": 0
+    },
+    {
+     "id": "02010",
+     "name": "Cream Cheese",
+     "count": 49,
+     "subcategories": 0
+    },
+    {
+     "id": "02008",
+     "name": "Pudding, Gelatin, & Desserts",
+     "count": 41,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

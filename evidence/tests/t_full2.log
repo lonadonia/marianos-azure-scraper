@@ -1,0 +1,4 @@
+........................................................................ [ 12%]
+...F.....exit=1
+
+INTERRUPTED by the operator at 12:23:33Z: the source tree changed under it (1.8.0rc2 fix); one failure seen at test 76 (test_migrations::test_the_dispositions_migration_keeps_existing_rows), not yet diagnosed

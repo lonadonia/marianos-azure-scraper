@@ -1,0 +1,43 @@
+{
+  "run_id": "01M6E3RDEBPZ39SVR37JR6PE8F",
+  "mode": "LIVE",
+  "generated_at": "2026-11-02T12:32:19.047293Z",
+  "collector": {
+    "run_code": {
+      "commit": "b1d69d1004f7b8f8457d90c7c5d9f378be9fddfd",
+      "source": "git",
+      "version": "1.8.0rc2",
+      "parser_version": "1.7.0",
+      "uncommitted_changes": false
+    },
+    "export_code": {
+      "version": "1.8.0rc2",
+      "parser_version": "1.7.0",
+      "commit": "b1d69d1004f7b8f8457d90c7c5d9f378be9fddfd",
+      "source": "git",
+      "uncommitted_changes": false
+    }
+  },
+  "about": "Supporting log of the products file: field sources, missing-value reasons, store and fulfillment checks against the site's own data, offer details, the store-assortment decision apart from the current offer, the UPC outcome of each product's own page, and the collection segment that observed each product. 'observation_kind' is 'fresh' (observed by this run; 'observation.earlier_segment' is true when an earlier segment of this resumed run observed it) or 'carried_forward' (not observed by this run: an earlier run's verified observation kept unchanged, with its own crawl date, in 'historical').",
+  "segments": [
+    {
+      "id": "01M6E3RDKHYJ4MFN9T4R0EX4NB",
+      "trigger": "manual",
+      "started_at": "2026-11-02T12:29:14.223527Z",
+      "ended_at": "2026-11-02T12:32:18.971742Z",
+      "stop_code": "ABNORMAL_RESULT"
+    }
+  ],
+  "counts": {
+    "records": 0,
+    "by_status": {},
+    "observed": {
+      "fresh": 0,
+      "fresh_earlier_segment": 0,
+      "carried_forward": 0,
+      "not_recorded": 0
+    },
+    "upc_outcomes_of_fresh_exported": {}
+  },
+  "records": {}
+}

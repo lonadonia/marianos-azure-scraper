@@ -1,0 +1,826 @@
+{
+ "about": "Release identity, every collector run, the probes and the department census of the Mariano's task of 2026-11-02 (brief 'Mariano's 1.8.0: client corrections and live pagination'), release candidates 1.8.0rc1 to 1.8.0rc5. Charges: REQUEST_LEDGER.csv and E:ledger/budget180.jsonl.",
+ "release": {
+  "project": "marianos-azure-headless",
+  "version": "1.8.0rc5",
+  "status": "release candidate: verified offline (full suite from the clean extraction of its source archive, the integrity re-check of the live runs' data). It has not run live; the live runs of this task used 1.8.0rc1 to 1.8.0rc4. The client's full category list is not collected",
+  "commit": "ee5ec99b27bf68f63f6026a5b2e97937abccc5d3",
+  "branch": "marianos-1.8",
+  "parent": "923afa40623bbb31b243c1723cd8925b3d2fc6b3",
+  "commit_date": "2026-11-02T14:20:44Z",
+  "subject": "marianos-azure-headless 1.8.0rc5: no integrity failure for a page the provider never brought",
+  "files_changed_since_1.7.0rc2": [
+   "headless/marianos-azure-headless/README.md",
+   "headless/marianos-azure-headless/config/collector.yaml",
+   "headless/marianos-azure-headless/config/stores.yaml",
+   "headless/marianos-azure-headless/docs/AZURE.md",
+   "headless/marianos-azure-headless/docs/AZURE_VM.md",
+   "headless/marianos-azure-headless/docs/CLI.md",
+   "headless/marianos-azure-headless/docs/OPERATIONS.md",
+   "headless/marianos-azure-headless/pyproject.toml",
+   "headless/marianos-azure-headless/src/marianos_headless/__init__.py",
+   "headless/marianos-azure-headless/src/marianos_headless/assembly/offers.py",
+   "headless/marianos-azure-headless/src/marianos_headless/assembly/record_builder.py",
+   "headless/marianos-azure-headless/src/marianos_headless/assembly/size_evidence.py",
+   "headless/marianos-azure-headless/src/marianos_headless/collection/live.py",
+   "headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py",
+   "headless/marianos-azure-headless/src/marianos_headless/collection/pagination.py",
+   "headless/marianos-azure-headless/src/marianos_headless/collection/reconciliation.py",
+   "headless/marianos-azure-headless/src/marianos_headless/collection/recovery.py",
+   "headless/marianos-azure-headless/src/marianos_headless/collection/reprocess.py",
+   "headless/marianos-azure-headless/src/marianos_headless/collection/retention.py",
+   "headless/marianos-azure-headless/src/marianos_headless/core/findings.py",
+   "headless/marianos-azure-headless/src/marianos_headless/core/paths.py",
+   "headless/marianos-azure-headless/src/marianos_headless/core/settings.py",
+   "headless/marianos-azure-headless/src/marianos_headless/db/models.py",
+   "headless/marianos-azure-headless/src/marianos_headless/migrations/versions/0004_listing_pages.py",
+   "headless/marianos-azure-headless/src/marianos_headless/operations.py",
+   "headless/marianos-azure-headless/src/marianos_headless/publishing/exports.py",
+   "headless/marianos-azure-headless/src/marianos_headless/publishing/publish.py",
+   "headless/marianos-azure-headless/src/marianos_headless/sites/marianos/search_state.py",
+   "headless/marianos-azure-headless/src/marianos_headless/sites/marianos/source_json.py",
+   "headless/marianos-azure-headless/src/marianos_headless/worker/pipeline.py",
+   "headless/marianos-azure-headless/src/marianos_headless/worker/store_selection.py",
+   "headless/marianos-azure-headless/tests/fixtures/oxylabs_2026-11-02/README.md",
+   "headless/marianos-azure-headless/tests/fixtures/oxylabs_2026-11-02/listing_0300100001_brand.html.gz",
+   "headless/marianos-azure-headless/tests/fixtures/oxylabs_2026-11-02/listing_03001_p1.html.gz",
+   "headless/marianos-azure-headless/tests/fixtures/oxylabs_2026-11-02/listing_03001_p2.html.gz",
+   "headless/marianos-azure-headless/tests/fixtures/oxylabs_2026-11-02/listing_03001_p2_no_js.html.gz",
+   "headless/marianos-azure-headless/tests/fixtures/oxylabs_2026-11-02/listing_32001_p1.html.gz",
+   "headless/marianos-azure-headless/tests/fixtures/oxylabs_2026-11-02/listing_32001_p1_mini.html.gz",
+   "headless/marianos-azure-headless/tests/fixtures/oxylabs_2026-11-02/search_cereal_p1.html.gz",
+   "headless/marianos-azure-headless/tests/fixtures/oxylabs_2026-11-02/search_cereal_p2.html.gz",
+   "headless/marianos-azure-headless/tests/integration/test_daily_credit_units.py",
+   "headless/marianos-azure-headless/tests/integration/test_last_good_survives.py",
+   "headless/marianos-azure-headless/tests/integration/test_listing_pages.py",
+   "headless/marianos-azure-headless/tests/integration/test_migrations.py",
+   "headless/marianos-azure-headless/tests/integration/test_operations.py",
+   "headless/marianos-azure-headless/tests/integration/test_oxylabs_collector.py",
+   "headless/marianos-azure-headless/tests/integration/test_oxylabs_replay.py",
+   "headless/marianos-azure-headless/tests/integration/test_page_regressions.py",
+   "headless/marianos-azure-headless/tests/integration/test_vernon_hills_replay.py",
+   "headless/marianos-azure-headless/tests/listing_site.py",
+   "headless/marianos-azure-headless/tests/synthetic_marianos.py",
+   "headless/marianos-azure-headless/tests/unit/test_client_findings_180.py",
+   "headless/marianos-azure-headless/tests/unit/test_export_manifest_180.py",
+   "headless/marianos-azure-headless/tests/unit/test_oxylabs.py",
+   "headless/marianos-azure-headless/tests/unit/test_price_conflict.py",
+   "headless/marianos-azure-headless/uv.lock"
+  ],
+  "files_changed_since_1.8.0rc4": [
+   "headless/marianos-azure-headless/README.md",
+   "headless/marianos-azure-headless/docs/AZURE.md",
+   "headless/marianos-azure-headless/docs/AZURE_VM.md",
+   "headless/marianos-azure-headless/docs/CLI.md",
+   "headless/marianos-azure-headless/docs/OPERATIONS.md",
+   "headless/marianos-azure-headless/pyproject.toml",
+   "headless/marianos-azure-headless/src/marianos_headless/__init__.py",
+   "headless/marianos-azure-headless/src/marianos_headless/worker/pipeline.py",
+   "headless/marianos-azure-headless/tests/integration/test_listing_pages.py",
+   "headless/marianos-azure-headless/uv.lock"
+  ],
+  "tree_headless_marianos_azure_headless": "c2ee5611faa6da875c235ec5e1d46d8b9cc09bb7",
+  "git_archive_tar_sha256": "701bf3df0ecaadbea257f3296d6d9d2ef4be188438239ef4abb6d19feebd5090",
+  "git_archive_files": 213,
+  "source_archive": {
+   "name": "MARIANOS_SOURCE_1.8.0rc5.zip",
+   "sha256": "1832ef6e5051f20e55842057b60d37a61924e1af92d360fea6ae810104481485",
+   "bytes": 6655086
+  },
+  "classic_probe": "oxylabs-classic-probe 1.6.0 (headless/oxylabs-classic-probe at the same commit); live mode disabled",
+  "remote_publication": "local commits only; nothing pushed",
+  "build_files": {
+   "backup.sh": {
+    "sha256": "ec37a7478ce3be67147e37fd5379e29567316c01685f94fe79ab95873a8a0446",
+    "bytes": 886
+   },
+   "collector.env.example": {
+    "sha256": "cad2188cf81048c87da8b74ae4864d9a047aaeec807766606a66d0b90315f9c5",
+    "bytes": 705
+   },
+   "config.tgz": {
+    "sha256": "605fe660178c427541ce3e73774dc73d51ab340f013ba06051bd5984d725460c",
+    "bytes": 14289
+   },
+   "install_release.sh": {
+    "sha256": "2cb55758a9f886c9164f90570fa38bcd018691fe40cf6119346ac3726c86abd9",
+    "bytes": 3067
+   },
+   "marianos": {
+    "sha256": "c92f91f50009f84804f1cd299f57cf9b2d6e5cf312bff6e021e00a00529530b9",
+    "bytes": 2117
+   },
+   "marianos_azure_headless-1.8.0rc5-py3-none-any.whl": {
+    "sha256": "4af96181729d7948e36eca992541533b8a411f5b6144a01d41d64bb9795b615d",
+    "bytes": 279799
+   },
+   "prepare_host.sh": {
+    "sha256": "de284cc86b82ee611d1b437ab1cd3540da1d519f309644e1952be692fcd92c5a",
+    "bytes": 1844
+   },
+   "requirements-dev.lock.txt": {
+    "sha256": "da724e4c22544769e7d7ed5144154db2ac2208218d98a39aeae9523e742ef934",
+    "bytes": 36850
+   },
+   "requirements.lock.txt": {
+    "sha256": "892e3ae90c4bed6034147719140248694bb8a10e74b49b294e239dd94c67b610",
+    "bytes": 22602
+   },
+   "rollback.sh": {
+    "sha256": "5a3dd06e439f9c548128a8b281cbed5d1e42acda9da6cb0702a454e79691f597",
+    "bytes": 829
+   },
+   "source-ee5ec99.tar.gz": {
+    "sha256": "5bb9fb72b79461d9351aa470560863f17db40e4dc9517c23e9f85628e156ac86",
+    "bytes": 2519996
+   }
+  },
+  "lockfiles": "requirements.lock.txt (runtime, hashed) and requirements-dev.lock.txt; uv.lock inside the source"
+ },
+ "earlier_candidates": [
+  {
+   "version": "1.8.0rc1",
+   "commit": "3b2650a0ffad65ea72fe853276463a6cc39c348f",
+   "commit_date": "2026-11-02T12:07:26Z",
+   "subject": "marianos-azure-headless 1.8.0rc1 candidate: listing pages, page checks, coverage reconciliation, lineage check; oxylabs-classic-probe 1.6.0 adds Mariano's",
+   "used_by": "Q1 (every segment records it)"
+  },
+  {
+   "version": "1.8.0rc2",
+   "commit": "b1d69d1004f7b8f8457d90c7c5d9f378be9fddfd",
+   "commit_date": "2026-11-02T12:28:38Z",
+   "subject": "marianos-azure-headless 1.8.0rc2: a price the product data states for no store is never valid",
+   "used_by": "Q1b"
+  },
+  {
+   "version": "1.8.0rc3",
+   "commit": "ec3b6fe4f8ed3bb9a10a0eef2116a03cf9f45a61",
+   "commit_date": "2026-11-02T12:37:34Z",
+   "subject": "marianos-azure-headless 1.8.0rc3: the grid's mini product cards; oxylabs-classic-probe 1.6.0 documentation",
+   "used_by": "Q1c"
+  },
+  {
+   "version": "1.8.0rc4",
+   "commit": "9d16475470a480b148823e30a07ec11c3e5184d6",
+   "commit_date": "2026-11-02T13:01:35Z",
+   "subject": "marianos-azure-headless 1.8.0rc4: the coverage files are read back and copied with every export; the collector version says 1.8.0",
+   "used_by": "Q2 (all four segments)"
+  },
+  {
+   "version": "1.8.0rc4 documentation",
+   "commit": "923afa40623bbb31b243c1723cd8925b3d2fc6b3",
+   "commit_date": "2026-11-02T13:11:34Z",
+   "subject": "marianos-azure-headless 1.8.0rc4: documentation brought in line with the release (no code change)",
+   "used_by": "no run (documentation only, no code change)"
+  }
+ ],
+ "deployment": {
+  "client_vm": "not executed: the SSH key was not loaded before the VM's scheduled shutdown (2026-11-02 15:57 UTC), so there was no login and nothing ran or changed on it; the only contact was a scan of its SSH host key at 04:47 UTC (no login), which matched the brief's fingerprint (TECHNICAL_REPORT.md §12)",
+  "schedule": "disabled",
+  "where_the_runs_ran": "Hamza's workstation (Windows 11), PostgreSQL from pgserver, the qualification configuration of E:qualification/config/"
+ },
+ "collector_runs": [
+  {
+   "name": "Q1",
+   "run_id": "01M6E2XXQNX1FYXPM37FGTYCKQ",
+   "role": "rows 23-26, the first candidate; stopped by its canary check (T01); nothing published",
+   "trigger": "manual",
+   "status": "rejected",
+   "started_at": "2026-11-02T12:14:46.135341+00:00",
+   "finished_at": "2026-11-02T12:17:07.151707+00:00",
+   "segments": [
+    {
+     "id": "01M6E2XXXB6AAR9E8PQEP2N6WP",
+     "trigger": "manual",
+     "started_at": "2026-11-02T12:14:46.185187+00:00",
+     "ended_at": "2026-11-02T12:17:07.138513+00:00",
+     "end_state": "ended",
+     "stop_code": "CANARY_CHECK_FAILED",
+     "recovered_at": null,
+     "release": "1.8.0rc1",
+     "commit": "3b2650a0ffad65ea72fe853276463a6cc39c348f"
+    }
+   ],
+   "provider_submissions": 3,
+   "provider_outcomes": {
+    "settled:ok": 3
+   },
+   "counted_usd": 0.0045,
+   "exports": {
+    "products_fresh.json": {
+     "sha256": "a01a469cdec01912256f597966d4a6d82ec073c63e2ae0f6f0f48f4696fcfc20",
+     "rows": 24
+    },
+    "products_fresh.csv": {
+     "sha256": "1d7c8b6163088bf7fa241bebe3dd7c956981940d2551e5380b80f920deba8d7b",
+     "rows": 24
+    },
+    "products.json": {
+     "sha256": "a01a469cdec01912256f597966d4a6d82ec073c63e2ae0f6f0f48f4696fcfc20",
+     "rows": 24
+    },
+    "products.csv": {
+     "sha256": "1d7c8b6163088bf7fa241bebe3dd7c956981940d2551e5380b80f920deba8d7b",
+     "rows": 24
+    }
+   },
+   "published_to_production": false,
+   "database": "marianos_q180 (isolated qualification database on Hamza's workstation)",
+   "evidence": "E:runs/01M6E2XXQNX1FYXPM37FGTYCKQ/"
+  },
+  {
+   "name": "Q1b",
+   "run_id": "01M6E3RDEBPZ39SVR37JR6PE8F",
+   "role": "rows 23-26; stopped as an abnormal result (T02); nothing published",
+   "trigger": "manual",
+   "status": "rejected",
+   "started_at": "2026-11-02T12:29:14.181166+00:00",
+   "finished_at": "2026-11-02T12:32:18.984999+00:00",
+   "segments": [
+    {
+     "id": "01M6E3RDKHYJ4MFN9T4R0EX4NB",
+     "trigger": "manual",
+     "started_at": "2026-11-02T12:29:14.223527+00:00",
+     "ended_at": "2026-11-02T12:32:18.971742+00:00",
+     "end_state": "ended",
+     "stop_code": "ABNORMAL_RESULT",
+     "recovered_at": null,
+     "release": "1.8.0rc2",
+     "commit": "b1d69d1004f7b8f8457d90c7c5d9f378be9fddfd"
+    }
+   ],
+   "provider_submissions": 6,
+   "provider_outcomes": {
+    "settled:ok": 5,
+    "settled:provider_failure": 1
+   },
+   "counted_usd": 0.009,
+   "exports": {
+    "products_fresh.json": {
+     "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+     "rows": 0
+    },
+    "products_fresh.csv": {
+     "sha256": "2e86b1fdf7cda3bb20fc56ca73460819f648411574a750ad998539680f51cbbf",
+     "rows": 0
+    },
+    "products.json": {
+     "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+     "rows": 0
+    },
+    "products.csv": {
+     "sha256": "2e86b1fdf7cda3bb20fc56ca73460819f648411574a750ad998539680f51cbbf",
+     "rows": 0
+    }
+   },
+   "published_to_production": false,
+   "database": "marianos_q180 (isolated qualification database on Hamza's workstation)",
+   "evidence": "E:runs/01M6E3RDEBPZ39SVR37JR6PE8F/"
+  },
+  {
+   "name": "Q1c",
+   "run_id": "01M6E49AHDXSQA04JQZ0HZ40GH",
+   "role": "rows 23-26; planned kill and resume; published to the isolated qualification folder",
+   "trigger": "manual",
+   "status": "published",
+   "started_at": "2026-11-02T12:38:28.246049+00:00",
+   "finished_at": "2026-11-02T12:52:42.239256+00:00",
+   "segments": [
+    {
+     "id": "01M6E49ANZSWPRAZ2BKVST8JG5",
+     "trigger": "manual",
+     "started_at": "2026-11-02T12:38:28.286470+00:00",
+     "ended_at": null,
+     "end_state": "abandoned",
+     "stop_code": "TERMINATED",
+     "recovered_at": "2026-11-02T12:41:08.378163+00:00",
+     "release": "1.8.0rc3",
+     "commit": "ec3b6fe4f8ed3bb9a10a0eef2116a03cf9f45a61"
+    },
+    {
+     "id": "01M6E4E725D256GG6YH7VX1ZCJ",
+     "trigger": "resume",
+     "started_at": "2026-11-02T12:41:08.421169+00:00",
+     "ended_at": "2026-11-02T12:52:42.298158+00:00",
+     "end_state": "ended",
+     "stop_code": null,
+     "recovered_at": null,
+     "release": "1.8.0rc3",
+     "commit": "ec3b6fe4f8ed3bb9a10a0eef2116a03cf9f45a61"
+    }
+   ],
+   "provider_submissions": 22,
+   "provider_outcomes": {
+    "settled:interrupted_unknown": 1,
+    "settled:ok": 20,
+    "settled:provider_failed_free": 1
+   },
+   "counted_usd": 0.0315,
+   "exports": {
+    "products_fresh.json": {
+     "sha256": "8eafee6c34833176db8b1d47060f46491bcafd089fbb881b9171109875332df3",
+     "rows": 351
+    },
+    "products_fresh.csv": {
+     "sha256": "7fc94da13168fd73c9d0b6b6eec04a3dd75fca426dd6613a38e4e3ad833915d0",
+     "rows": 351
+    },
+    "products.json": {
+     "sha256": "79d422525d790e81279c630ba935cb5723472f243170412d9a7dcc840fd1610e",
+     "rows": 362
+    },
+    "products.csv": {
+     "sha256": "008756eb1167403f169c2034a6f55ba967d140725623441cae5d247278d35eb7",
+     "rows": 362
+    }
+   },
+   "published_to_production": false,
+   "database": "marianos_q180 (isolated qualification database on Hamza's workstation)",
+   "evidence": "E:runs/01M6E49AHDXSQA04JQZ0HZ40GH/"
+  },
+  {
+   "name": "Q2",
+   "run_id": "01M6E5V6CASQ8F00VC8PE9TFYW",
+   "role": "rows 22-27; planned kill, an unplanned stop, a provider-error pause and an automatic resume; rejected by G3 (Cat Food 231 of 232) and G13 (T08, fixed in 1.8.0rc5); never published",
+   "trigger": "manual",
+   "status": "rejected",
+   "started_at": "2026-11-02T13:05:42.416227+00:00",
+   "finished_at": "2026-11-02T14:10:40.465709+00:00",
+   "segments": [
+    {
+     "id": "01M6E5V6HFMHDRFQ8D2AZ8T1XB",
+     "trigger": "manual",
+     "started_at": "2026-11-02T13:05:42.447614+00:00",
+     "ended_at": null,
+     "end_state": "abandoned",
+     "stop_code": "TERMINATED",
+     "recovered_at": "2026-11-02T13:13:08.924549+00:00",
+     "release": "1.8.0rc4",
+     "commit": "9d16475470a480b148823e30a07ec11c3e5184d6"
+    },
+    {
+     "id": "01M6E68TKYD7GG6DEXR8AWVEZ8",
+     "trigger": "resume",
+     "started_at": "2026-11-02T13:13:08.986315+00:00",
+     "ended_at": null,
+     "end_state": "abandoned",
+     "stop_code": "TERMINATED",
+     "recovered_at": "2026-11-02T13:51:53.642437+00:00",
+     "release": "1.8.0rc4",
+     "commit": "9d16475470a480b148823e30a07ec11c3e5184d6"
+    },
+    {
+     "id": "01M6E8FRVD6DSJXYSDQPJ4EJ1T",
+     "trigger": "resume",
+     "started_at": "2026-11-02T13:51:53.705595+00:00",
+     "ended_at": "2026-11-02T14:09:03.133454+00:00",
+     "end_state": "ended",
+     "stop_code": "PROVIDER_ERROR",
+     "recovered_at": null,
+     "release": "1.8.0rc4",
+     "commit": "9d16475470a480b148823e30a07ec11c3e5184d6"
+    },
+    {
+     "id": "01M6E9H0WERD7V1MMK60FA5JZ1",
+     "trigger": "auto",
+     "started_at": "2026-11-02T14:10:03.277035+00:00",
+     "ended_at": "2026-11-02T14:10:40.521728+00:00",
+     "end_state": "ended",
+     "stop_code": null,
+     "recovered_at": null,
+     "release": "1.8.0rc4",
+     "commit": "9d16475470a480b148823e30a07ec11c3e5184d6"
+    }
+   ],
+   "provider_submissions": 85,
+   "provider_outcomes": {
+    "settled:interrupted_unknown": 2,
+    "settled:ok": 66,
+    "settled:provider_failed_free": 9,
+    "settled:provider_failure": 3,
+    "settled:transport ConnectTimeout": 2,
+    "settled:transport RemoteProtocolError": 3
+   },
+   "counted_usd": 0.114,
+   "exports": {
+    "products_fresh.json": {
+     "sha256": "c785a77811d1fa261714dad51eaeb4bb4ae47ac4a5daee2b2108c47eaab2efdd",
+     "rows": 1137
+    },
+    "products_fresh.csv": {
+     "sha256": "ef4f283db758a31889944a729211454f7f62fee4e30f4751f6db0bac5c33c162",
+     "rows": 1137
+    },
+    "products.json": {
+     "sha256": "5c9d41874be9184533f09b82bf603a74efe712450db6d24d04da6a8a67ec0add",
+     "rows": 1160
+    },
+    "products.csv": {
+     "sha256": "88c3cac342e88d765657eecd0eddc9f7d86b37bcf10aefa49e4407c5f38e9e41",
+     "rows": 1160
+    }
+   },
+   "published_to_production": false,
+   "database": "marianos_q180 (isolated qualification database on Hamza's workstation)",
+   "evidence": "E:runs/01M6E5V6CASQ8F00VC8PE9TFYW/"
+  }
+ ],
+ "probes": {
+  "stage_L": "pagination diagnosis L0-L20 (E:probes/)",
+  "stage_K": "K1 Kroger certification API, locations near 60061, lead only (E:probes/K1_locations_lead.json)",
+  "stage_D": {
+   "what": "department census (TEST_PLAN_180.md amendments 8 and 9; E:census/)",
+   "submissions": 23,
+   "answered_with_totals": 16,
+   "answered_without_totals": [
+    "D01",
+    "D21",
+    "D04",
+    "D19"
+   ],
+   "transport_failures": [
+    "D27",
+    "D40",
+    "D01"
+   ],
+   "entries": [
+    {
+     "id": "D27",
+     "at": "20261102T143435Z",
+     "department": "27",
+     "slug": "pet",
+     "http_status": null,
+     "failure": "transport RemoteProtocolError",
+     "total": null,
+     "available": null,
+     "body_sha256": null,
+     "provider_request_id": null,
+     "seconds": 937.4
+    },
+    {
+     "id": "D40",
+     "at": "20261102T145012Z",
+     "department": "40",
+     "slug": "dining",
+     "http_status": null,
+     "failure": "transport ConnectError",
+     "total": null,
+     "available": null,
+     "body_sha256": null,
+     "provider_request_id": null,
+     "seconds": 2.7
+    },
+    {
+     "id": "D01",
+     "at": "20261102T145015Z",
+     "department": "01",
+     "slug": "pantry",
+     "http_status": null,
+     "failure": "transport ConnectError",
+     "total": null,
+     "available": null,
+     "body_sha256": null,
+     "provider_request_id": null,
+     "seconds": 1.3
+    },
+    {
+     "id": "D27",
+     "at": "20261102T151639Z",
+     "department": "27",
+     "slug": "pet",
+     "http_status": 200,
+     "failure": null,
+     "total": 753,
+     "available": 250,
+     "body_sha256": "9f2019794ea73743fbc227aa4e9f27eb70ab01f8c7bc6ca43850350037ff2555",
+     "provider_request_id": "7523040395052217345",
+     "seconds": 41.2
+    },
+    {
+     "id": "D40",
+     "at": "20261102T151721Z",
+     "department": "40",
+     "slug": "dining",
+     "http_status": 200,
+     "failure": null,
+     "total": 125,
+     "available": 125,
+     "body_sha256": "f2ed294fbdba4f7d00643901b56377520bf4b7b12279921e08163640f2bc5969",
+     "provider_request_id": "7523040580264312833",
+     "seconds": 12.1
+    },
+    {
+     "id": "D01",
+     "at": "20261102T151733Z",
+     "department": "01",
+     "slug": "pantry",
+     "http_status": 200,
+     "failure": null,
+     "total": null,
+     "available": null,
+     "body_sha256": "89ead4c3c28a0d67c38731b966ac05a4836d799c2d562d36f390189398bda3bd",
+     "provider_request_id": "7523040616570185729",
+     "seconds": 4.8
+    },
+    {
+     "id": "D02",
+     "at": "20261102T151738Z",
+     "department": "02",
+     "slug": "dairy-eggs",
+     "http_status": 200,
+     "failure": null,
+     "total": 1517,
+     "available": 250,
+     "body_sha256": "2fdc8bb1ef0b8d46b7d163ce40733e8b4de7709e2b4d5ca0f1f8179245b54a9b",
+     "provider_request_id": "7523040636669281281",
+     "seconds": 113.0
+    },
+    {
+     "id": "D05",
+     "at": "20261102T151932Z",
+     "department": "05",
+     "slug": "meat-seafood",
+     "http_status": 200,
+     "failure": null,
+     "total": 1338,
+     "available": 250,
+     "body_sha256": "a7beb42b08fba9c2a80805011a8e0d8f39b72e676949d20bfbff53451da38340",
+     "provider_request_id": "7523041114052365313",
+     "seconds": 13.1
+    },
+    {
+     "id": "D06",
+     "at": "20261102T151945Z",
+     "department": "06",
+     "slug": "fresh-fruits-vegetables",
+     "http_status": 200,
+     "failure": null,
+     "total": 1097,
+     "available": 250,
+     "body_sha256": "5688c905be6fdfa8664c3cdf1e743671513de44f1535212edc23c112c5b4e45e",
+     "provider_request_id": "7523041170440602625",
+     "seconds": 28.6
+    },
+    {
+     "id": "D13",
+     "at": "20261102T152014Z",
+     "department": "13",
+     "slug": "deli",
+     "http_status": 200,
+     "failure": null,
+     "total": 826,
+     "available": 250,
+     "body_sha256": "1d5e89b751a187e855c33a754723d59f95d2030a7807adb3af88494b4236cdf2",
+     "provider_request_id": "7523041305782433793",
+     "seconds": 10.3
+    },
+    {
+     "id": "D18",
+     "at": "20261102T152025Z",
+     "department": "18",
+     "slug": "natural-organic",
+     "http_status": 200,
+     "failure": null,
+     "total": 2811,
+     "available": 250,
+     "body_sha256": "eb60f09c3584dec6b4b9f723f68980b07912ca19209ab312450f7b35451239bb",
+     "provider_request_id": "7523041337386501121",
+     "seconds": 12.0
+    },
+    {
+     "id": "D20",
+     "at": "20261102T152037Z",
+     "department": "20",
+     "slug": "beauty",
+     "http_status": 200,
+     "failure": null,
+     "total": 2628,
+     "available": 250,
+     "body_sha256": "3cc4c73492b3b99367e8060aa1f7a29e0f1eb310060f19336e0bc4ec3de19a75",
+     "provider_request_id": "7523041390159244289",
+     "seconds": 28.8
+    },
+    {
+     "id": "D21",
+     "at": "20261102T152107Z",
+     "department": "21",
+     "slug": "personal-care",
+     "http_status": 200,
+     "failure": null,
+     "total": null,
+     "available": null,
+     "body_sha256": "889282b910458d0e1522f8d41718bfb4b17c8dabb3114755600e7bd694c1e2fc",
+     "provider_request_id": "7523041519192812546",
+     "seconds": 7.6
+    },
+    {
+     "id": "D22",
+     "at": "20261102T152114Z",
+     "department": "22",
+     "slug": "health-wellness",
+     "http_status": 200,
+     "failure": null,
+     "total": 2291,
+     "available": 250,
+     "body_sha256": "b5bd5f05a8efb31866e0ded69e90608217c05e134d1d94e8caff321d51f2216f",
+     "provider_request_id": "7523041544631246849",
+     "seconds": 58.4
+    },
+    {
+     "id": "D26",
+     "at": "20261102T152213Z",
+     "department": "26",
+     "slug": "cleaning-and-household",
+     "http_status": 200,
+     "failure": null,
+     "total": 1712,
+     "available": 250,
+     "body_sha256": "12cf8a0aed9b5a2396a9379a185e0164ca88adf478f0dbea6809ffe61cb972f0",
+     "provider_request_id": "7523041793273787393",
+     "seconds": 13.7
+    },
+    {
+     "id": "D28",
+     "at": "20261102T152227Z",
+     "department": "28",
+     "slug": "kitchen",
+     "http_status": 200,
+     "failure": null,
+     "total": 483,
+     "available": 250,
+     "body_sha256": "786c13a3d4a9fd2002e917723e014a906593a0f243e807a07374e80facaefaac",
+     "provider_request_id": "7523041850123364353",
+     "seconds": 6.8
+    },
+    {
+     "id": "D04",
+     "at": "20261102T152234Z",
+     "department": "04",
+     "slug": "beverages",
+     "http_status": 200,
+     "failure": null,
+     "total": null,
+     "available": null,
+     "body_sha256": "5f862b29340e71c64cfa56ba75dbcec8775d1ae86a320a22f8828066995c450d",
+     "provider_request_id": "7523041879902939137",
+     "seconds": 6.2
+    },
+    {
+     "id": "D08",
+     "at": "20261102T152241Z",
+     "department": "08",
+     "slug": "beer-wine-liquor",
+     "http_status": 200,
+     "failure": null,
+     "total": 2431,
+     "available": 250,
+     "body_sha256": "8f16ac134b312958b7f77324a422857a7a093daa34b8213b6b9475cbbc4a74d3",
+     "provider_request_id": "7523041906088009729",
+     "seconds": 7.5
+    },
+    {
+     "id": "D09",
+     "at": "20261102T152249Z",
+     "department": "09",
+     "slug": "floral",
+     "http_status": 200,
+     "failure": null,
+     "total": 62,
+     "available": 62,
+     "body_sha256": "6488aebb4cb1901583a081e8a3a8532d2363c2d2a5e77b726d0e2335aa792a07",
+     "provider_request_id": "7523041956763565057",
+     "seconds": 9.4
+    },
+    {
+     "id": "D10",
+     "at": "20261102T152258Z",
+     "department": "10",
+     "slug": "baby",
+     "http_status": 200,
+     "failure": null,
+     "total": 614,
+     "available": 250,
+     "body_sha256": "eaa3ea5ddcc3dcd502393cdb0528c0c62d1750bb3e26740f3015dfa6f7c422dd",
+     "provider_request_id": "7523041979668654081",
+     "seconds": 22.3
+    },
+    {
+     "id": "D14",
+     "at": "20261102T152321Z",
+     "department": "14",
+     "slug": "bakery",
+     "http_status": 200,
+     "failure": null,
+     "total": 331,
+     "available": 250,
+     "body_sha256": "47814656dbd5aa33ae1c3a1603c9cf6ed7da9bb31cde70267a5650107a006524",
+     "provider_request_id": "7523042075122601985",
+     "seconds": 9.4
+    },
+    {
+     "id": "D19",
+     "at": "20261102T152331Z",
+     "department": "19",
+     "slug": "frozen",
+     "http_status": 200,
+     "failure": null,
+     "total": null,
+     "available": null,
+     "body_sha256": "924f5327ff46e4f9f766ba5e9025e3ac85510f1e1fbd2dc8e6e1655c1899ca30",
+     "provider_request_id": "7523042117459955713",
+     "seconds": 9.3
+    },
+    {
+     "id": "D23",
+     "at": "20261102T152340Z",
+     "department": "23",
+     "slug": "candy",
+     "http_status": 200,
+     "failure": null,
+     "total": 742,
+     "available": 250,
+     "body_sha256": "f7fefc1be3d3dec0d85083352170fe54a1ed48c3a42b290e5d8d99e9ac881794",
+     "provider_request_id": "7523042156504688641",
+     "seconds": 31.9
+    }
+   ]
+  }
+ },
+ "full_scope_estimate": {
+  "departments_measured": [
+   "02",
+   "03",
+   "05",
+   "06",
+   "08",
+   "09",
+   "10",
+   "13",
+   "14",
+   "18",
+   "20",
+   "22",
+   "23",
+   "26",
+   "27",
+   "28",
+   "40"
+  ],
+  "categories_named_by_rows_measured": 158,
+  "products_listed_in_those_categories": 19911,
+  "categories_above_window": 20,
+  "products_in_categories_above_window": 11034,
+  "pages_union": 909
+ },
+ "ledger_totals_by_mode_and_stage": {
+  "KR/K": {
+   "usd": 0.0,
+   "credits": 0.0,
+   "requests": 2,
+   "positions": 1
+  },
+  "OXP/D": {
+   "usd": 0.0345,
+   "credits": 0.0,
+   "requests": 23,
+   "positions": 23
+  },
+  "OXP/L": {
+   "usd": 0.0225,
+   "credits": 0.0,
+   "requests": 20,
+   "positions": 20
+  },
+  "OXQ/Q": {
+   "usd": 0.159,
+   "credits": 0.0,
+   "requests": 116,
+   "positions": 1
+  }
+ },
+ "oxylabs_this_task": {
+  "submissions": 159,
+  "usd": 0.216,
+  "basis": "USD 0.0015 (the reserve rate) for each submission charged or possibly charged; one not answered by the provider counts 0; not an invoice"
+ },
+ "oxylabs_cumulative_1.6.0_to_1.8.0": {
+  "before_this_task_usd": 0.5739,
+  "this_task_usd": 0.216,
+  "total_usd": 0.7899,
+  "ceiling_usd": 1.0
+ },
+ "delivered_data": {
+  "run": "Q2 01M6E5V6CASQ8F00VC8PE9TFYW (release 1.8.0rc4, 2026-11-02 13:05:42Z to 14:10:40Z)",
+  "products_fresh.json": "Q2 exports/products_fresh.json, unchanged",
+  "products_fresh.csv": "Q2 exports/products_fresh.csv, unchanged",
+  "products_retained.json": "Q2 exports/products.json, renamed only",
+  "products_retained.csv": "Q2 exports/products.csv, renamed only"
+ },
+ "earlier_deliveries_referenced_by_hash": {
+  "20261030_marianos_1.7.0rc2": {
+   "CLIENT_SUMMARY.zip": "9520532059227a4087543f85bab00af25b963ac01ca504cb470275de82f8785f",
+   "MARIANOS_EVIDENCE_1.7.0rc2.zip": "4ccbe20ef219fe34f89a9637ab67697732247ccf54bac999dd97cda28fb57af6",
+   "MARIANOS_SOURCE_1.7.0rc2.zip": "92d140313962d073a59c32ed557a2042bb1a707eb63601005f661adbbc239837"
+  }
+ }
+}

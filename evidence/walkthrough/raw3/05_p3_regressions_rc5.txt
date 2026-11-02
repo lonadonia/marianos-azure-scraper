@@ -1,0 +1,5 @@
+# command: bash -c bash /c/m6/tools/t2.sh /c/x19/MARIANOS_SOURCE_1.8.0rc5/source marianos_test_walk3 -p no:randomly tests/integration/test_listing_pages.py -k 'never_brought or depends_on' -v 2>&1 | grep -E 'PASSED|FAILED|ERROR|passed|failed'
+# started: 2026-11-02T16:55:23Z
+====================== 2 passed, 25 deselected in 37.86s ======================
+# exit: 0
+# ended: 2026-11-02T16:56:06Z

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "C:\m6\tools\mutants.py", line 134, in <module>
+    r = subprocess.run(
+        ^^^^^^^^^^^^^^^
+  File "C:\w6\py312\pkg\tools\Lib\subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\w6\py312\pkg\tools\Lib\subprocess.py", line 1228, in communicate
+    sts = self.wait(timeout=self._remaining_time(endtime))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\w6\py312\pkg\tools\Lib\subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\w6\py312\pkg\tools\Lib\subprocess.py", line 1593, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['C:\\m5\\wt\\headless\\marianos-azure-headless\\.venv\\Scripts\\python.exe', '-X', 'utf8', '-m', 'pytest', '-q', '--no-header', '-p', 'no:cacheprovider', '--tb=no', 'tests/integration/test_listing_pages.py']' timed out after -19551.172000000006 seconds

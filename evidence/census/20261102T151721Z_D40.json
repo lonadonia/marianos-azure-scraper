@@ -1,0 +1,76 @@
+{
+ "id": "D40",
+ "at": "20261102T151721Z",
+ "department": "40",
+ "slug": "dining",
+ "slug_known": false,
+ "url": "https://www.marianos.com/pl/dining/40",
+ "ledger": "OXP-D-5cb801",
+ "seconds": 12.1,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523040580264312833",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "f2ed294fbdba4f7d00643901b56377520bf4b7b12279921e08163640f2bc5969",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 125,
+ "available": 125,
+ "taxonomy_id": null,
+ "state_products": 26,
+ "departments": [
+  {
+   "id": "40",
+   "name": "Dining",
+   "slug": "dining",
+   "count": 125,
+   "categories": [
+    {
+     "id": "40004",
+     "name": "Thermal & Water Bottles",
+     "count": 67,
+     "subcategories": 0
+    },
+    {
+     "id": "40008",
+     "name": "Wine And Bar Essentials",
+     "count": 21,
+     "subcategories": 0
+    },
+    {
+     "id": "40003",
+     "name": "Glassware & Drinkware",
+     "count": 20,
+     "subcategories": 0
+    },
+    {
+     "id": "40006",
+     "name": "Serveware",
+     "count": 12,
+     "subcategories": 0
+    },
+    {
+     "id": "40002",
+     "name": "Cutlery & Knife Accessories",
+     "count": 11,
+     "subcategories": 0
+    },
+    {
+     "id": "40001",
+     "name": "Dinnerware",
+     "count": 2,
+     "subcategories": 0
+    },
+    {
+     "id": "40005",
+     "name": "Flatware",
+     "count": 1,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

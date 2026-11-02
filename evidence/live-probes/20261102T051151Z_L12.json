@@ -1,0 +1,115 @@
+{
+ "id": "L12",
+ "at": "20261102T051151Z",
+ "seconds": 52.1,
+ "endpoint": "/v1/scrape/marianos",
+ "request": {
+  "url": "https://www.marianos.com/pl/cereal-granola/03001?page=11",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "the last page inside the 250 window answers",
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "ledger": "OXP-L-a1dc11",
+ "request_id": "7522888189531412481",
+ "problem": {
+  "state": "done"
+ },
+ "result_metadata": {
+  "page": 1,
+  "run_js": false,
+  "url": "https://www.marianos.com/pl/cereal-granola/03001?page=11",
+  "statuses": {
+   "http_request": {
+    "code": 200,
+    "tag": "HTTP_OK"
+   }
+  }
+ },
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "store_id": "53100502",
+  "url": "https://www.marianos.com/pl/cereal-granola/03001?page=11"
+ },
+ "body_sha256": "b63c0d474d6fb548f18cc64b0deca2c8c7226e93f60c78aca161725709a1b5b9",
+ "analysis": {
+  "chars": 2070910,
+  "requestVars": {
+   "taxonomyId": "03001",
+   "page": 11,
+   "fulfillment": "all",
+   "locationId": "53100502",
+   "activeModalityType": "PICKUP"
+  },
+  "summary": {
+   "query": null,
+   "page": 11,
+   "location_id": "53100502",
+   "modality": "PICKUP",
+   "total": 397,
+   "available": 250,
+   "upcs": [
+    "0001862711599",
+    "0004240039548",
+    "0004119211105",
+    "0088491247577",
+    "0001600012685",
+    "0001600012495",
+    "0060265217184",
+    "0001600023402",
+    "0005844977731",
+    "0001111015011",
+    "0085641600001",
+    "0001111009265",
+    "0001600016347",
+    "0001111009253",
+    "0002190814275",
+    "0001111004981",
+    "0002190813312",
+    "0088491237747",
+    "0001862711613",
+    "0001111010186",
+    "0002190813318",
+    "0002190813199",
+    "0003997850103",
+    "0001600023378",
+    "0001111014115",
+    "0001111015368"
+   ],
+   "sponsored": [
+    "0004119211105",
+    "0001600012685",
+    "0001600012495",
+    "0060265217184",
+    "0085641600001",
+    "0002190814275",
+    "0001862711613",
+    "0003997850103"
+   ],
+   "ways_to_shop": [
+    "pickup"
+   ]
+  },
+  "state_products": 26,
+  "price_locations": [
+   "53100502"
+  ]
+ }
+}

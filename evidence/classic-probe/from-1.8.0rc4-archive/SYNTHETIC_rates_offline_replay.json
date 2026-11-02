@@ -1,0 +1,13 @@
+{
+  "synthetic": true,
+  "confirmed_by": "SYNTHETIC test rate card for the offline replay only",
+  "confirmed_at": "2026-11-02",
+  "basis": "SYNTHETIC: invented for the offline replay of saved pages (the values of the probe's own tests); not this or any account's rates, not a quote",
+  "rates": {
+    "walmart_search": {"unit": "usd_per_result", "plain": "0.0015", "rendered": "0.0020"},
+    "walmart_product": {"unit": "usd_per_result", "plain": "0.0015", "rendered": "0.0020"},
+    "url_only": {"unit": "usd_per_result", "plain": "0.0010", "rendered": "0.0015"},
+    "marianos_search": {"unit": "usd_per_result", "plain": "0.0015", "rendered": "0.0020"},
+    "marianos_product": {"unit": "usd_per_result", "plain": "0.0015", "rendered": "0.0020"}
+  }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "L1",
+ "at": "20261102T045809Z",
+ "seconds": 1.1,
+ "endpoint": "C:/Program Files/Git/v1/scrape/marianos/search",
+ "request": {
+  "query": "cereal",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "store 53100502 pickup honoured: page state shows Vernon Hills, 60061, PICKUP, sourceLocationId 53100502",
+ "status": 404,
+ "kind": "bad_request",
+ "charged": null,
+ "ledger": "OXP-L-0a7330",
+ "request_id": null,
+ "problem": {},
+ "result_metadata": null,
+ "params_echo": null,
+ "error_body": "<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+}

@@ -1,0 +1,7 @@
+﻿kill requested 2026-11-02T13:13:01.894Z
+pid 16140 parent 21528 started 2026-11-02T13:05:39Z cmd C:\m6\qwt\headless\marianos-azure-headless\.venv\Scripts\python.exe -X utf8 -m marianos_headless.cli run --store marianos-53100502-pickup
+pid 22828 parent 16140 started 2026-11-02T13:05:39Z cmd "C:\w6\py312\pkg\tools\python.exe" -X utf8 -m marianos_headless.cli run --store marianos-53100502-pickup
+taskkill /F /T /PID 16140: exit 0: SUCCESS: The process with PID 22828 (child process of PID 16140) has been terminated.
+SUCCESS: The process with PID 16140 (child process of PID 21528) has been terminated.
+kill done 2026-11-02T13:13:02.138Z
+processes left: 0

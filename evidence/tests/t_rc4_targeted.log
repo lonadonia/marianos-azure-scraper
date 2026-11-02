@@ -1,0 +1,20 @@
+Mon Nov  2 12:58:38 UTC 2026
+........................................................................ [ 14%]
+........................................................................ [ 28%]
+........................................................................ [ 42%]
+........................................................................ [ 57%]
+........................................................................ [ 71%]
+........................................................................ [ 85%]
+.......................................................................  [100%]
+============================= slowest 8 durations =============================
+71.14s call     tests/integration/test_operations.py::test_the_next_occurrence_closes_an_unfinished_scheduled_run_and_reads_its_backlog_first[sigterm_armed]
+47.45s call     tests/integration/test_publication_safety.py::test_an_interrupted_publication_keeps_the_last_good_dataset_and_one_retry_publishes_atomically
+45.22s call     tests/integration/test_publication_safety.py::test_a_published_dataset_is_never_replaced_by_a_run_that_fails_its_checks[stopped_and_finalized]
+44.47s call     tests/integration/test_publication_safety.py::test_a_published_dataset_is_never_replaced_by_a_run_that_fails_its_checks[empty]
+44.03s call     tests/integration/test_publication_safety.py::test_a_published_dataset_is_never_replaced_by_a_run_that_fails_its_checks[thin]
+43.35s call     tests/integration/test_operations.py::test_a_termination_signal_closes_the_browser_and_resume_finishes_the_run[sigterm]
+43.28s call     tests/integration/test_publication_safety.py::test_a_published_dataset_is_never_replaced_by_a_run_that_fails_its_checks[wrong_store]
+42.79s call     tests/integration/test_operations.py::test_products_a_later_partial_run_does_not_observe_are_carried_forward
+503 passed in 960.62s (0:16:00)
+exit=0
+Mon Nov  2 13:14:45 UTC 2026

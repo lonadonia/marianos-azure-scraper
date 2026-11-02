@@ -1,0 +1,5 @@
+# command: bash -c git -C C:/m6/qwt log -1 --format='%H %s'
+# started: 2026-11-02T13:05:26Z
+9d16475470a480b148823e30a07ec11c3e5184d6 marianos-azure-headless 1.8.0rc4: the coverage files are read back and copied with every export; the collector version says 1.8.0
+# exit: 0
+# ended: 2026-11-02T13:05:26Z

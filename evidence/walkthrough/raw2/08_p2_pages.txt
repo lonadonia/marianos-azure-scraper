@@ -1,0 +1,66 @@
+# command: bash -c bash /c/m6/walk/show.sh pages 01M6E5V6CASQ8F00VC8PE9TFYW
+# started: 2026-11-02T14:10:42Z
+row listing page->got try state      verdict      new dup total store    fulfil. observed  segment
+ 22 27017      1->1     1 completed new           27   0   222 53100502 PICKUP  13:08:53  ..Z8T1XB
+ 22 27017      2->2     1 completed new           21   5   222 53100502 PICKUP  13:09:27  ..Z8T1XB
+ 22 27017      3->3     1 completed new           24   6   222 53100502 PICKUP  13:09:35  ..Z8T1XB
+ 22 27017      4->4     1 completed new           24   1   222 53100502 PICKUP  13:12:08  ..Z8T1XB
+ 22 27017      5->5     1 completed new           24   1   222 53100502 PICKUP  13:13:14  ..AWVEZ8
+ 22 27017      6->6     1 completed new           24   1   222 53100502 PICKUP  13:13:34  ..AWVEZ8
+ 22 27017      7->7     1 completed new           24   1   222 53100502 PICKUP  13:13:59  ..AWVEZ8
+ 22 27017      8->8     1 completed new           24   2   222 53100502 PICKUP  13:15:39  ..AWVEZ8
+ 22 27017      9->9     1 completed new           24   1   222 53100502 PICKUP  13:15:58  ..AWVEZ8
+ 22 27017     10->10    1 completed new            6   2   222 53100502 PICKUP  13:16:07  ..AWVEZ8
+ 22 27018      1->1     1 completed new           27   0   150 53100502 PICKUP  13:16:15  ..AWVEZ8
+ 22 27018      2->2     1 completed new           22   4   150 53100502 PICKUP  13:16:24  ..AWVEZ8
+ 22 27018      3->3     1 completed new           23   1   150 53100502 PICKUP  13:16:37  ..AWVEZ8
+ 22 27018      4->4     1 completed new           24   1   150 53100502 PICKUP  13:16:59  ..AWVEZ8
+ 22 27018      5->5     1 completed new           24   1   150 53100502 PICKUP  13:17:07  ..AWVEZ8
+ 22 27018      6->6     1 completed new           24   2   150 53100502 PICKUP  13:17:24  ..AWVEZ8
+ 22 27018      7->7     1 completed new            6   4   150 53100502 PICKUP  13:17:34  ..AWVEZ8
+ 22 27019      1->1     1 completed new           16   0    16 53100502 PICKUP  13:17:40  ..AWVEZ8
+ 22 27020      1->1     1 completed new            6   0     6 53100502 PICKUP  13:17:47  ..AWVEZ8
+ 22 27021      1->1     1 completed new           33   0   232 53100502 PICKUP  13:18:02  ..AWVEZ8
+ 22 27021      2->2     1 completed new           18   9   232 53100502 PICKUP  13:18:16  ..AWVEZ8
+ 22 27021      3->3     1 completed new           23   6   232 53100502 PICKUP  13:18:28  ..AWVEZ8
+ 22 27021      4->4     1 completed new           23   4   232 53100502 PICKUP  13:18:38  ..AWVEZ8
+ 22 27021      5->5     1 completed new           23   4   232 53100502 PICKUP  13:18:47  ..AWVEZ8
+ 22 27021      6->6     1 completed new           24   5   232 53100502 PICKUP  13:18:55  ..AWVEZ8
+ 22 27021      7->7     1 completed new           24   0   232 53100502 PICKUP  13:19:03  ..AWVEZ8
+ 22 27021      8->8     1 completed partial_overlap  23   2   232 53100502 PICKUP  13:19:11  ..AWVEZ8  1 products of earlier pages again
+ 22 27021      9->9     1 completed new           24   3   232 53100502 PICKUP  13:19:49  ..AWVEZ8
+ 22 27021     10->10    1 completed new           16   2   232 53100502 PICKUP  13:20:19  ..AWVEZ8
+ 22 27022      1->1     1 completed new           25   0    52 53100502 PICKUP  13:20:30  ..AWVEZ8
+ 22 27022      2->2     1 completed new           23   1    52 53100502 PICKUP  13:21:48  ..AWVEZ8
+ 22 27022      3->3     1 completed new            4   7    52 53100502 PICKUP  13:23:52  ..AWVEZ8
+ 22 27023      1->1     1 completed new           25   0    64 53100502 PICKUP  13:23:58  ..AWVEZ8
+ 22 27023      2->2     1 completed new           23   6    64 53100502 PICKUP  13:24:07  ..AWVEZ8
+ 22 27023      3->3     1 completed new           16   4    64 53100502 PICKUP  13:30:07  ..AWVEZ8
+ 22 27024      1->1     1 completed new            6   0     6 53100502 PICKUP  13:31:17  ..AWVEZ8
+ 22 27025      1->1     1 completed new            4   0     4 53100502 PICKUP  13:31:23  ..AWVEZ8
+ 22 27026      1->1     1 completed new            3   0     3 53100502 PICKUP  13:31:27  ..AWVEZ8
+ 23 32001      1->1     1 completed new           24   0    52 53100502 PICKUP  13:33:50  ..AWVEZ8
+ 23 32001      2->2     1 completed new           24   3    52 53100502 PICKUP  13:33:59  ..AWVEZ8
+ 23 32001      3->3     1 completed new            4   3    52 53100502 PICKUP  13:34:05  ..AWVEZ8
+ 24 26003      1->1     1 completed new           32   0    97 53100502 PICKUP  13:34:16  ..AWVEZ8
+ 24 26003      2->2     1 completed new           20   9    97 53100502 PICKUP  13:34:25  ..AWVEZ8
+ 24 26003      3->3     1 completed new           20   4    97 53100502 PICKUP  13:37:03  ..AWVEZ8
+ 24 26003      4->4     1 completed new           24   6    97 53100502 PICKUP  13:37:19  ..AWVEZ8
+ 24 26003      5->5     1 completed new            1   4    97 53100502 PICKUP  13:37:40  ..AWVEZ8
+ 25 26002      1->1     1 completed new           24   0    94 53100502 PICKUP  13:38:04  ..AWVEZ8
+ 25 26002      2->2     1 completed new           24   0    94 53100502 PICKUP  13:41:28  ..AWVEZ8
+ 25 26002      3->3     1 completed new           24   0    94 53100502 PICKUP  13:41:36  ..AWVEZ8
+ 25 26002      4->4     1 completed new           22   0    94 53100502 PICKUP  13:42:04  ..AWVEZ8
+ 26 35         1->1     1 completed new           30   0   119 53100502 PICKUP  13:44:32  ..AWVEZ8
+ 26 35         2->2     1 completed new           18   9   119 53100502 PICKUP  13:44:42  ..AWVEZ8
+ 26 35         3->3     1 completed new           24   8   119 53100502 PICKUP  13:45:07  ..AWVEZ8
+ 26 35         4->4     1 completed new           24   8   119 53100502 PICKUP  13:45:22  ..AWVEZ8
+ 26 35         5->5     1 completed new           23   9   119 53100502 PICKUP  13:52:40  ..J4EJ1T
+ 27 33         1->1     1 completed new           26  15    64 53100502 PICKUP  13:53:01  ..J4EJ1T
+ 27 33         2->      1 failed    failed         0   0                        13:59:19  ..J4EJ1T  no page from Oxylabs for https://www.mar
+ 27 33         2->      2 failed    failed         0   0                        14:04:26  ..J4EJ1T  no page from Oxylabs for https://www.mar
+ 27 33         2->2     3 completed new           22  12    64 53100502 PICKUP  14:04:46  ..J4EJ1T
+ 27 33         3->3     1 refused   malformed      0   0       53100502 PICKUP  14:08:40  ..J4EJ1T  the response states no page number or no
+ 27 33         3->3     2 completed new           16   9    64 53100502 PICKUP  14:10:10  ..FA5JZ1
+# exit: 0
+# ended: 2026-11-02T14:10:43Z

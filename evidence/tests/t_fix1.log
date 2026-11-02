@@ -1,0 +1,111 @@
+.........F.                                                              [100%]
+================================== FAILURES ===================================
+_ test_a_price_the_product_data_states_for_no_store_is_exported_as_displayed_and_never_valid _
+
+migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:63464/marianos_test)
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-926/test_a_price_the_product_data_0')
+private_label = PrivateLabelConfig(brands=('Kroger', 'Kroger Mercado', 'Simple Truth', 'Simple Truth Organic', 'Private Selection', 'S... 'Luvsome', 'Comforts', "Roundy's", "Roundy's Select", "Roundy's Organics"), upc_prefix_signals=('0001111', '0001115'))
+settings = Settings(acquisition=AcquisitionSettings(mode=<AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'>, browser_provider=<BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    @pytest.mark.postgres
+    def test_a_price_the_product_data_states_for_no_store_is_exported_as_displayed_and_never_valid(
+        migrated_engine: Engine, tmp_path: Path, private_label: PrivateLabelConfig, settings: Settings
+    ) -> None:
+        """Release 1.8.0rc2, from the live qualification run Q1 of 1.8.0rc1 (2026-11-02): on the real Candles
+        page 1 at 53100502 Pickup, UPC 0019798100139 shows $8.69 while its own data states that price for no store
+        (``price.storePrices`` without ``sourceLocationId``; the price is under ``postalCodes`` for 60061; the
+        store's stock level is TEMPORARILY_OUT_OF_STOCK). 1.8.0rc1 counted it VALID and the canary's source check
+        stopped the run. Now the record keeps its displayed price, is flagged and not valid, and the canary (its
+        source check unchanged) lets the run go on to page 2. FIXTURE: a replay of the stored page."""
+        factory, _ = seed(migrated_engine)
+        store = _store(TARGET)
+        with factory() as s:
+            ids = {c.csv_row_index: c.id for c in s.scalars(select(CategorySource))}
+            oxylabs.set_ceiling(s, submissions=30, usd=1, actor="test", reason="replay")
+            s.commit()
+        nodes = [
+            Node(
+                23,
+                "Candles Home Fragrances",
+                ids[23],
+                "Candles Home Fragrances",
+                "32001",
+                f"{BASE}/pl/candles-home-fragrances/32001",
+            )
+        ]
+        acq = AcquisitionSettings(browser_provider=BrowserProvider.OXYLABS)
+        pipe = Pipeline(
+            migrated_engine,
+            LocalStorageAdapter(tmp_path / "data"),
+            Settings(acquisition=acq, records=settings.records, attestation=settings.attestation),
+            store,
+            private_label,
+        )
+        with factory() as s:
+            run_id = pipe.create_live_run(
+                s,
+                nodes,
+                trigger="console",
+                snapshot={"plan": {"nodes": [n.as_dict() for n in nodes], "skipped": []}, "provider": "oxylabs"},
+            )
+            s.commit()
+        replay = Replay({"/pl/candles-home-fragrances/32001": "listing_32001_p1"})
+    
+        async def nap(_: float) -> None:
+            return None
+    
+        collector = OxylabsCollector(
+            pipe,
+            run_id,
+            api_key=SecretStr(KEY),
+            transport=httpx.MockTransport(replay),
+            sleep=nap,
+            config=CollectionConfig(),
+            trigger="manual",
+        )
+        status = asyncio.run(pipe.execute(run_id, "replay", collector=collector))
+        with factory() as s:
+            r = s.get(Run, run_id)
+            assert r is not None
+            # Past the canary: page 2 was asked for (and not served by this fixture).
+            assert r.stop_code != "CANARY_CHECK_FAILED" and status == "interrupted"
+            assert any(str(b["url"]).endswith("32001?page=2") for b in replay.requests)
+            recs = {x.upc: x for x in s.scalars(select(RecordRow).where(RecordRow.run_id == run_id))}
+        candle = recs["0019798100139"]
+        assert candle.status == "exported_not_valid" and "PRICE_STORE_NOT_STATED" in candle.flags
+        assert candle.record["regular_price"] == "8.69"  # exported as displayed
+>       why = candle.provenance["_price_store_not_stated"]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: 'NoneType' object is not subscriptable
+
+tests\integration\test_vernon_hills_replay.py:292: TypeError
+---------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-02T12:24:28.198Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "LIVE run for marianos-53100502-pickup", "data": {"trigger": "console"}}
+{"ts": "2026-11-02T12:24:28.288Z", "level": "INFO", "event": "RUN_PREFLIGHT", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "queued -> preflight", "data": {}}
+{"ts": "2026-11-02T12:24:28.455Z", "level": "INFO", "event": "SEGMENT_STARTED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "collection segment 01M6E3FPD3D818RGMQ3Z1CF694 started (manual)", "data": {"segment": "01M6E3FPD3D818RGMQ3Z1CF694", "code": {"version": "1.8.0rc1", "parser_version": "1.7.0", "commit": "3b2650a0ffad65ea72fe853276463a6cc39c348f", "source": "git", "uncommitted_changes": true}, "account_remaining": 30, "verified_so_far": 0, "abandoned_segments_recovered": []}}
+{"ts": "2026-11-02T12:24:28.573Z", "level": "INFO", "event": "PROVIDER_SESSION_OPENED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "Oxylabs Web API: robots.txt read through the provider", "data": {"session": 1, "robots_sha256": "6716c42352c68765c98e2608b2683cf5ac2738ea3189aa974b921b9bd09d6539", "provider": "oxylabs"}}
+{"ts": "2026-11-02T12:24:29.501Z", "level": "INFO", "event": "STORE_VERIFIED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "Marianos Vernon Hills requested from Oxylabs with its store_id and fulfillment_type and verified on the page", "data": {"url": "https://www.marianos.com/pl/candles-home-fragrances/32001"}}
+{"ts": "2026-11-02T12:24:29.509Z", "level": "INFO", "event": "RUN_RUNNING", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "preflight -> running", "data": {}}
+{"ts": "2026-11-02T12:24:29.585Z", "level": "WARN", "event": "COUPONS_ROUTE", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "Coupons page: NOT READ: the provider brought no page (provider_failed_free); 0 coupon cards", "data": {"url": "https://www.marianos.com/savings/cl/coupons/", "provider": "oxylabs", "run_js": true, "status": "NOT READ: the provider brought no page (provider_failed_free)"}}
+{"ts": "2026-11-02T12:24:30.288Z", "level": "INFO", "event": "PAGE_COLLECTED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "Candles Home Fragrances › Candles Home Fragrances: page step 0", "data": {"node": "32001", "step": 0, "cards": 24, "new_cards": 24, "new_records": 24, "new_verified": 23, "duplicates": 0, "sponsored": 0, "sponsored_elsewhere": 0, "other_listing": 0, "off_plan": 0, "total": 52, "seen": 24, "replay": false}}
+{"ts": "2026-11-02T12:24:30.318Z", "level": "INFO", "event": "CANARY_PASSED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "first recorded page step passed the automated checks: collection continues", "data": {"page": "01M6E3FPNG55FEZEXJBAPQC6B3", "url": "https://www.marianos.com/pl/candles-home-fragrances/32001", "records": 24, "valid": 23, "valid_ratio": 0.958, "source_check": {"records": 23, "verified": 23, "mismatch": 0, "unverified": 0}, "problems": []}}
+{"ts": "2026-11-02T12:24:30.385Z", "level": "WARN", "event": "PAGE_NOT_COUNTED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "Candles Home Fragrances › Candles Home Fragrances: page 2 failed: no page from Oxylabs for https://www.marianos.com/pl/candles-home-fragrances/32001?page=2: provider_failed_free (HTTP 500)", "data": {"node": "32001", "page": 2, "verdict": "failed", "attempt": 1}}
+{"ts": "2026-11-02T12:24:30.396Z", "level": "WARN", "event": "TASK_RETRY", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "https://www.marianos.com/pl/candles-home-fragrances/32001: page 2 not read: the provider brought no page (provider_failed_free)", "data": {"task": "01M6E3FP90J29102R67F6VGKTM/node/0000-32001", "decision": "retry", "delay_s": 10.0}}
+{"ts": "2026-11-02T12:24:40.590Z", "level": "WARN", "event": "PAGE_NOT_COUNTED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "Candles Home Fragrances › Candles Home Fragrances: page 2 failed: no page from Oxylabs for https://www.marianos.com/pl/candles-home-fragrances/32001?page=2: provider_failed_free (HTTP 500)", "data": {"node": "32001", "page": 2, "verdict": "failed", "attempt": 2}}
+{"ts": "2026-11-02T12:24:40.599Z", "level": "WARN", "event": "TASK_RETRY", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "https://www.marianos.com/pl/candles-home-fragrances/32001: page 2 not read: the provider brought no page (provider_failed_free)", "data": {"task": "01M6E3FP90J29102R67F6VGKTM/node/0000-32001", "decision": "retry", "delay_s": 20.0}}
+{"ts": "2026-11-02T12:25:00.899Z", "level": "WARN", "event": "PAGE_NOT_COUNTED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "Candles Home Fragrances › Candles Home Fragrances: page 2 failed: no page from Oxylabs for https://www.marianos.com/pl/candles-home-fragrances/32001?page=2: provider_failed_free (HTTP 500)", "data": {"node": "32001", "page": 2, "verdict": "failed", "attempt": 3}}
+{"ts": "2026-11-02T12:25:00.910Z", "level": "WARN", "event": "RUN_LIMIT_REACHED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "3 pages in a row not read; last: https://www.marianos.com/pl/candles-home-fragrances/32001: page 2 not read: the provider brought no page (provider_failed_free)", "data": {"stop_code": "PROVIDER_ERROR", "task": "01M6E3FP90J29102R67F6VGKTM/node/0000-32001", "resumable": true}}
+{"ts": "2026-11-02T12:25:00.922Z", "level": "INFO", "event": "RUN_INTERRUPTED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "running -> interrupted", "data": {}}
+{"ts": "2026-11-02T12:25:00.922Z", "level": "INFO", "event": "RUN_PAUSED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "paused at a checkpoint; resume continues from it (PROVIDER_ERROR: 3 pages in a row not read; last: https://www.marianos.com/pl/candles-home-fragrances/32001: page 2 not read: the provider brought no page (provider_failed_free))", "data": {"stop_code": "PROVIDER_ERROR", "stop_detail": "3 pages in a row not read; last: https://www.marianos.com/pl/candles-home-fragrances/32001: page 2 not read: the provider brought no page (provider_failed_free)"}}
+{"ts": "2026-11-02T12:25:00.931Z", "level": "INFO", "event": "SESSION_PROVIDER_SESSION_STARTED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "Oxylabs Web API (no browser)", "data": {"provider": "oxylabs", "session_id": "01M6E3FPK97ZM2NG0BF4MHHTMQ", "api_base": "https://webapi.oxylabs.io", "store_id": "53100502", "fulfillment_type": "pickup", "at": "2026-11-02T12:24:28.521885Z"}}
+{"ts": "2026-11-02T12:25:00.931Z", "level": "INFO", "event": "SESSION_ROBOTS_FETCHED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "https://www.marianos.com/robots.txt", "data": {"status": 200, "sha256": "6716c42352c68765c98e2608b2683cf5ac2738ea3189aa974b921b9bd09d6539", "disallow": ["/checkout$"], "via": "oxylabs", "at": "2026-11-02T12:24:28.554036Z"}}
+{"ts": "2026-11-02T12:25:00.931Z", "level": "INFO", "event": "SESSION_PAGE_CAPTURED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "https://www.marianos.com/pl/candles-home-fragrances/32001", "data": {"fetch_id": "01M6E3FPNG55FEZEXJBAPQC6B3", "status": 200, "ms": 50, "captured": 1, "reasons": [], "request_id": "replay-2", "at": "2026-11-02T12:24:29.001389Z"}}
+{"ts": "2026-11-02T12:25:00.931Z", "level": "WARN", "event": "SESSION_PROVIDER_NO_PAGE", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "https://www.marianos.com/savings/cl/coupons/", "data": {"fetch_id": "01M6E3FQK8SXPS778V717TS6YN", "kind": "provider_failed_free", "status": 500, "attempts": [{"attempt": 1, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.0, "usd": 0.0}, {"attempt": 2, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.0, "usd": 0.0}, {"attempt": 3, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.02, "usd": 0.0}], "at": "2026-11-02T12:24:29.581770Z"}}
+{"ts": "2026-11-02T12:25:00.931Z", "level": "WARN", "event": "SESSION_PROVIDER_NO_PAGE", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "https://www.marianos.com/pl/candles-home-fragrances/32001?page=2", "data": {"fetch_id": "01M6E3FRC39WZ9JH3NFZHEW9TT", "kind": "provider_failed_free", "status": 500, "attempts": [{"attempt": 1, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.0, "usd": 0.0}, {"attempt": 2, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.0, "usd": 0.0}, {"attempt": 3, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.0, "usd": 0.0}], "at": "2026-11-02T12:24:30.381949Z"}}
+{"ts": "2026-11-02T12:25:00.931Z", "level": "WARN", "event": "SESSION_PROVIDER_NO_PAGE", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "https://www.marianos.com/pl/candles-home-fragrances/32001?page=2", "data": {"fetch_id": "01M6E3G2AW2WZPKZETKR88BFPE", "kind": "provider_failed_free", "status": 500, "attempts": [{"attempt": 1, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.0, "usd": 0.0}, {"attempt": 2, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.0, "usd": 0.0}, {"attempt": 3, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.02, "usd": 0.0}], "at": "2026-11-02T12:24:40.583279Z"}}
+{"ts": "2026-11-02T12:25:00.931Z", "level": "WARN", "event": "SESSION_PROVIDER_NO_PAGE", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "https://www.marianos.com/pl/candles-home-fragrances/32001?page=2", "data": {"fetch_id": "01M6E3GP5VW5T4ERZ9EA37XHHV", "kind": "provider_failed_free", "status": 500, "attempts": [{"attempt": 1, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.0, "usd": 0.0}, {"attempt": 2, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.0, "usd": 0.0}, {"attempt": 3, "status": 500, "kind": "provider_failed_free", "request_id": "", "seconds": 0.0, "usd": 0.0}], "at": "2026-11-02T12:25:00.895002Z"}}
+{"ts": "2026-11-02T12:25:00.932Z", "level": "INFO", "event": "SESSION_PROVIDER_SESSION_CLOSED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "oxylabs", "data": {"session_id": "01M6E3FPK97ZM2NG0BF4MHHTMQ", "submissions": 14, "at": "2026-11-02T12:25:00.931606Z"}}
+{"ts": "2026-11-02T12:25:00.932Z", "level": "INFO", "event": "PROVIDER_SESSION_CLOSED", "collector": "marianos-azure-headless", "run_id": "01M6E3FP90J29102R67F6VGKTM", "message": "Oxylabs Web API session closed", "data": {"submissions": 14, "pages": 6}}
+=========================== short test summary info ===========================
+FAILED tests/integration/test_vernon_hills_replay.py::test_a_price_the_product_data_states_for_no_store_is_exported_as_displayed_and_never_valid
+1 failed, 10 passed in 49.63s

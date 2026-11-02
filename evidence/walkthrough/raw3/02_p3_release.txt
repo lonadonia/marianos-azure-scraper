@@ -1,0 +1,8 @@
+# command: bash -c cd /c/m6/pkg185 && sha256sum MARIANOS_SOURCE_1.8.0rc5.zip && /c/x19/MARIANOS_SOURCE_1.8.0rc5/source/.venv/Scripts/marianos-collector.exe --version && git -C C:/m5/wt log -1 --format='commit %H%n%s'
+# started: 2026-11-02T16:55:17Z
+1832ef6e5051f20e55842057b60d37a61924e1af92d360fea6ae810104481485 *MARIANOS_SOURCE_1.8.0rc5.zip
+marianos-azure-headless 1.8.0rc5
+commit ee5ec99b27bf68f63f6026a5b2e97937abccc5d3
+marianos-azure-headless 1.8.0rc5: no integrity failure for a page the provider never brought
+# exit: 0
+# ended: 2026-11-02T16:55:22Z

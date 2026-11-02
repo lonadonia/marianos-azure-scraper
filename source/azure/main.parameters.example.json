@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "namePrefix": { "value": "marianos-collector" },
+    "image": { "value": "<registry>.azurecr.io/marianos-collector:1.3.5" },
+    "acrName": { "value": "<registry>" },
+    "keyVaultName": { "value": "<key-vault>" },
+    "scrapflyKeySecretName": { "value": "marianos-collector-scrapfly-api-key" },
+    "databaseUrlSecretName": { "value": "marianos-collector-database-url" },
+    "databaseAuth": { "value": "password" },
+    "storageAccountName": { "value": "<storage-account>" },
+    "blobContainerName": { "value": "marianos-collector" },
+    "schedules": {
+      "value": [
+        { "storeKey": "marianos-53100503-instore", "cronUtc": "*/30 * * * *", "jobName": "marianos-53100503-instore" }
+      ]
+    },
+    "replicaTimeoutSeconds": { "value": 21600 },
+    "replicaRetryLimit": { "value": 1 },
+    "cpu": { "value": "0.5" },
+    "memory": { "value": "1Gi" },
+    "createEnvironment": { "value": false },
+    "environmentId": { "value": "/subscriptions/<subscription>/resourceGroups/<group>/providers/Microsoft.App/managedEnvironments/<environment>" }
+  }
+}

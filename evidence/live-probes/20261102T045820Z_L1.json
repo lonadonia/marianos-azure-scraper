@@ -1,0 +1,106 @@
+{
+ "id": "L1",
+ "at": "20261102T045820Z",
+ "seconds": 9.1,
+ "endpoint": "/v1/scrape/marianos/search",
+ "request": {
+  "query": "cereal",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "store 53100502 pickup honoured: page state shows Vernon Hills, 60061, PICKUP, sourceLocationId 53100502; resent after the earlier 404 caused by Git Bash path conversion",
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "ledger": "OXP-L-813df7",
+ "request_id": "7522884788051567617",
+ "problem": {
+  "state": "done"
+ },
+ "result_metadata": {
+  "page": 1,
+  "run_js": false,
+  "url": "https://www.marianos.com/search?query=cereal",
+  "statuses": {
+   "http_request": {
+    "code": 200,
+    "tag": "HTTP_OK"
+   }
+  }
+ },
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "brand": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "price_range": null,
+  "query": "cereal",
+  "store_id": "53100502"
+ },
+ "body_sha256": "268a882dbe9adc46b9c71097ddde73cae745332b44536857a26e3c23354a7222",
+ "analysis": {
+  "chars": 1840645,
+  "requestVars": {
+   "query": "cereal",
+   "page": 1,
+   "fulfillment": "all",
+   "locationId": "53100502",
+   "activeModalityType": "PICKUP"
+  },
+  "summary": {
+   "query": "cereal",
+   "page": 1,
+   "location_id": "53100502",
+   "modality": "PICKUP",
+   "total": 511,
+   "available": 250,
+   "upcs": [
+    "0001600012254",
+    "0001600012479",
+    "0088491212971",
+    "0001600012399",
+    "0088491212951",
+    "0088491235915",
+    "0088491248176",
+    "0088491235916",
+    "0001600015163",
+    "0001600027532",
+    "0001111086705",
+    "0003000057322",
+    "0003000006322",
+    "0001111013876",
+    "0004240026521",
+    "0088491211762",
+    "0088491200672",
+    "0088491235948",
+    "0004240040758",
+    "0088491227310",
+    "0001600012685",
+    "0003000057331",
+    "0001600012025",
+    "0004240093978"
+   ],
+   "sponsored": [],
+   "ways_to_shop": [
+    "pickup"
+   ]
+  },
+  "state_products": 24,
+  "price_locations": [
+   "53100502"
+  ]
+ }
+}

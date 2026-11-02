@@ -1,0 +1,11 @@
+{
+ "id": "D27",
+ "at": "20261102T143435Z",
+ "department": "27",
+ "slug": "pet",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/pet/27",
+ "ledger": "OXP-D-27ee79",
+ "kind": "transport RemoteProtocolError",
+ "seconds": 937.4
+}

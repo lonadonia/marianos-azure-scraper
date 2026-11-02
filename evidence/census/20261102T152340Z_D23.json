@@ -1,0 +1,88 @@
+{
+ "id": "D23",
+ "at": "20261102T152340Z",
+ "department": "23",
+ "slug": "candy",
+ "slug_known": false,
+ "url": "https://www.marianos.com/pl/candy/23",
+ "ledger": "OXP-D-e9f5b6",
+ "seconds": 31.9,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523042156504688641",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "f7fefc1be3d3dec0d85083352170fe54a1ed48c3a42b290e5d8d99e9ac881794",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 742,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 29,
+ "departments": [
+  {
+   "id": "23",
+   "name": "Candy",
+   "slug": "candy",
+   "count": 742,
+   "categories": [
+    {
+     "id": "23001",
+     "name": "Chocolate",
+     "count": 344,
+     "subcategories": 0
+    },
+    {
+     "id": "23003",
+     "name": "Gummy & Chewy",
+     "count": 167,
+     "subcategories": 0
+    },
+    {
+     "id": "23009",
+     "name": "Healthier Options",
+     "count": 78,
+     "subcategories": 0
+    },
+    {
+     "id": "23002",
+     "name": "Gum & Mints",
+     "count": 72,
+     "subcategories": 0
+    },
+    {
+     "id": "23008",
+     "name": "Premium Chocolate",
+     "count": 59,
+     "subcategories": 0
+    },
+    {
+     "id": "23007",
+     "name": "Seasonal",
+     "count": 53,
+     "subcategories": 0
+    },
+    {
+     "id": "23005",
+     "name": "International",
+     "count": 22,
+     "subcategories": 0
+    },
+    {
+     "id": "23004",
+     "name": "Hard Candy & Lollipops",
+     "count": 20,
+     "subcategories": 0
+    },
+    {
+     "id": "23010",
+     "name": "Bulk",
+     "count": 6,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

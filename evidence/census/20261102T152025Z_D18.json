@@ -1,0 +1,100 @@
+{
+ "id": "D18",
+ "at": "20261102T152025Z",
+ "department": "18",
+ "slug": "natural-organic",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/natural-organic/18",
+ "ledger": "OXP-D-010221",
+ "seconds": 12.0,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041337386501121",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "eb60f09c3584dec6b4b9f723f68980b07912ca19209ab312450f7b35451239bb",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 2811,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 32,
+ "departments": [
+  {
+   "id": "18",
+   "name": "Natural & Organic",
+   "slug": "natural-organic",
+   "count": 2811,
+   "categories": [
+    {
+     "id": "18012",
+     "name": "Grocery",
+     "count": 1035,
+     "subcategories": 0
+    },
+    {
+     "id": "18007",
+     "name": "Dairy & Eggs",
+     "count": 353,
+     "subcategories": 0
+    },
+    {
+     "id": "18001",
+     "name": "Beauty & Personal Care",
+     "count": 290,
+     "subcategories": 0
+    },
+    {
+     "id": "18010",
+     "name": "Frozen",
+     "count": 279,
+     "subcategories": 0
+    },
+    {
+     "id": "18005",
+     "name": "Beverages",
+     "count": 236,
+     "subcategories": 0
+    },
+    {
+     "id": "18006",
+     "name": "Spices & Baking",
+     "count": 208,
+     "subcategories": 0
+    },
+    {
+     "id": "18004",
+     "name": "Meat & Seafood",
+     "count": 191,
+     "subcategories": 0
+    },
+    {
+     "id": "18003",
+     "name": "Organic Produce",
+     "count": 130,
+     "subcategories": 0
+    },
+    {
+     "id": "18009",
+     "name": "Bakery & Bread",
+     "count": 50,
+     "subcategories": 0
+    },
+    {
+     "id": "18011",
+     "name": "Cleaning & Household",
+     "count": 44,
+     "subcategories": 0
+    },
+    {
+     "id": "18008",
+     "name": "Deli",
+     "count": 16,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

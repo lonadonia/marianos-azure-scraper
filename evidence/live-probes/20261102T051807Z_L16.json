@@ -1,0 +1,44 @@
+{
+ "id": "L16",
+ "at": "20261102T051807Z",
+ "seconds": 108.4,
+ "endpoint": "/v1/scrape/marianos",
+ "request": {
+  "url": "https://www.marianos.com/p/general-mills-gluten-free-lucky-charms-with-marshmallows-cereal/0001600012399",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "a product page is served with store and pickup context",
+ "status": 500,
+ "kind": "provider_failed_free",
+ "charged": false,
+ "ledger": "OXP-L-e82657",
+ "request_id": "7522889766195483649",
+ "problem": {
+  "title": "REQUEST_FAILED_AFTER_TOO_MANY_RETRIES",
+  "detail": "The request failed after the maximum number of retries. You can try again at no extra cost, as we don't charge you for faulted scrapes.",
+  "state": "faulted"
+ },
+ "result_metadata": null,
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "store_id": "53100502",
+  "url": "https://www.marianos.com/p/general-mills-gluten-free-lucky-charms-with-marshmallows-cereal/0001600012399"
+ },
+ "error_body": "{\"status\":500,\"title\":\"REQUEST_FAILED_AFTER_TOO_MANY_RETRIES\",\"detail\":\"The request failed after the maximum number of retries. You can try again at no extra cost, as we don't charge you for faulted scrapes.\",\"instance\":\"6ae81d10-31ec5678df4276c9a2f8de84\",\"state\":\"faulted\",\"params\":{\"output\":[\"html\"],\"json\":{\"schema\":null,\"prompt\":null},\"location\":\"US\",\"device\":\"desktop\",\"run_js\":null,\"delivery_zip\":null,\"fulfillment_type\":\"pickup\",\"store_id\":\"53100502\",\"url\":\"https://www.marianos.com/p/general-mills-gluten-free-lucky-charms-with-marshmallows-cereal/0001600012399\"},\"metadata\":{\"timestamp\":1793596688,\"request_id\":\"7522889766195483649\"}}\n"
+}

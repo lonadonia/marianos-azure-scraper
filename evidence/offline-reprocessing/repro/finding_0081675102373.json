@@ -1,0 +1,141 @@
+[
+ {
+  "run": "R1",
+  "file": "01M651J3BPFMPYYRJR66MSMYEX.html.gz",
+  "card": {
+   "position": 14,
+   "card_testid": "product-card-14",
+   "upc": "0081675102373",
+   "url": "https://www.marianos.com/p/cutwater-espresso-martini-canned-cocktail/0081675102373",
+   "title": "Cutwater Espresso Martini Canned Cocktail",
+   "size_text": "4 cans / 12 fl oz",
+   "price": {
+    "kind": "sale",
+    "current_text": "$10.99",
+    "original_text": "$14.99",
+    "sr_text": "Sale: $10.99 discounted from $14.99",
+    "placeholder_text": "",
+    "regular_price": "14.99",
+    "sale_price": "10.99"
+   },
+   "price_tag": "",
+   "zone": {
+    "text": "Buy 1 Save $1",
+    "requires_clip": false,
+    "checkbox_label": "",
+    "label": "",
+    "details": true
+   },
+   "image_src": "https://www.kroger.com/product/images/medium/front/0081675102373",
+   "image_url": "https://www.kroger.com/product/images/medium/front/0081675102373",
+   "snap_ebt": false,
+   "flags": [],
+   "ppm_text": "$0.23/fl oz"
+  },
+  "state": {
+   "description": "Cutwater Espresso Martini Canned Cocktail",
+   "customerFacingSize": "4 cans / 12 fl oz",
+   "pidSizeQuantity": {
+    "customerFacingSize": "4 cans / 12 fl oz",
+    "pidSizeQuantity": 48,
+    "pidSizeUnitOfMeasureName": "FLUID OUNCES",
+    "weight": "3.5 [lb_av]"
+   },
+   "item_keys": [
+    "ageRestrictionFlag",
+    "alcoholFlag",
+    "assortments",
+    "bounceFlag",
+    "brand",
+    "categories",
+    "clickListItem",
+    "countriesOfOrigin",
+    "customerFacingSize",
+    "description",
+    "dietaryInformation",
+    "dimensions",
+    "familyTree",
+    "gtin14",
+    "hazmatFlag",
+    "homeDeliveryItem",
+    "images",
+    "itemTypeCode",
+    "krogerDeliveryItem",
+    "linkedItem",
+    "liveNaturallyEligible",
+    "mainImagePerspective",
+    "omniChannelBrandName",
+    "pidSizeQuantity",
+    "pidSizeUnitOfMeasureName",
+    "privacyRestricted",
+    "privacyRestrictedStates",
+    "prop65",
+    "prop65Info",
+    "prop65Warning",
+    "ratingsAndReviewsAggregate",
+    "receiptDescription",
+    "restrictionGroupCodes",
+    "romanceDescription",
+    "salesChannelCode",
+    "salesChannelName",
+    "seoDescription",
+    "shareLink",
+    "snapEligible",
+    "soldInStore",
+    "tareValue",
+    "taxGroupCode",
+    "taxonomies",
+    "temperatureIndicator",
+    "temperatureIndicatorName",
+    "upc",
+    "verified",
+    "weight"
+   ],
+   "price": {
+    "displayTemplate": "YellowTag",
+    "offerCode": "115947",
+    "orderBy": "Unit",
+    "sellBy": "Unit",
+    "storePrices": {
+     "promo": {
+      "defaultDescription": "$10.99",
+      "expirationDate": {
+       "value": "2026-11-04T04:59:59.999Z",
+       "timezone": "UTC"
+      },
+      "nfor": 1,
+      "nforPrice": "USD 10.99",
+      "unitPrice": "USD 10.99",
+      "price": "USD 10.99",
+      "equivalizedUnitPrice": {
+       "amount": "22.90",
+       "denomination": "CENT",
+       "unit": "PER FLUID OUNCE"
+      },
+      "equivalizedUnitPriceString": "$0.23/fl oz"
+     },
+     "regular": {
+      "defaultDescription": "$14.99",
+      "expirationDate": {
+       "value": "2026-11-04T04:59:59.999Z",
+       "timezone": "UTC"
+      },
+      "nfor": 1,
+      "nforPrice": "USD 14.99",
+      "unitPrice": "USD 14.99",
+      "price": "USD 14.99",
+      "equivalizedUnitPrice": {
+       "amount": "31.23",
+       "denomination": "CENT",
+       "unit": "PER FLUID OUNCE"
+      },
+      "equivalizedUnitPriceString": "$0.31/fl oz"
+     },
+     "sourceLocationId": "53100503",
+     "sellerId": "KR001",
+     "sellerName": "Kroger"
+    }
+   }
+  }
+ }
+]

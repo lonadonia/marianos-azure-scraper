@@ -1,0 +1,44 @@
+{
+ "id": "L3",
+ "at": "20261102T050120Z",
+ "seconds": 107.2,
+ "endpoint": "/v1/scrape/marianos/product",
+ "request": {
+  "query": "0001600012254",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "the product endpoint is still refused at the new store and fulfillment",
+ "status": 500,
+ "kind": "provider_failed_free",
+ "charged": false,
+ "ledger": "OXP-L-45d4d8",
+ "request_id": "7522885543131147265",
+ "problem": {
+  "title": "REQUEST_FAILED_AFTER_TOO_MANY_RETRIES",
+  "detail": "The request failed after the maximum number of retries. You can try again at no extra cost, as we don't charge you for faulted scrapes.",
+  "state": "faulted"
+ },
+ "result_metadata": null,
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "query": "0001600012254",
+  "store_id": "53100502"
+ },
+ "error_body": "{\"status\":500,\"title\":\"REQUEST_FAILED_AFTER_TOO_MANY_RETRIES\",\"detail\":\"The request failed after the maximum number of retries. You can try again at no extra cost, as we don't charge you for faulted scrapes.\",\"instance\":\"6ae81921-65832a9a1add34b2352e7877\",\"state\":\"faulted\",\"params\":{\"output\":[\"html\"],\"json\":{\"schema\":null,\"prompt\":null},\"location\":\"US\",\"device\":\"desktop\",\"run_js\":null,\"delivery_zip\":null,\"fulfillment_type\":\"pickup\",\"query\":\"0001600012254\",\"store_id\":\"53100502\"},\"metadata\":{\"timestamp\":1793595681,\"request_id\":\"7522885543131147265\"}}\n"
+}

@@ -1,0 +1,115 @@
+{
+ "id": "L11",
+ "at": "20261102T051055Z",
+ "seconds": 54.3,
+ "endpoint": "/v1/scrape/marianos",
+ "request": {
+  "url": "https://www.marianos.com/pl/cold-cereal/0300100001",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "a child listing named by the retailer's productsInfo.departments is served",
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "ledger": "OXP-L-54c0c7",
+ "request_id": "7522887952821652481",
+ "problem": {
+  "state": "done"
+ },
+ "result_metadata": {
+  "page": 1,
+  "run_js": false,
+  "url": "https://www.marianos.com/pl/cold-cereal/0300100001",
+  "statuses": {
+   "http_request": {
+    "code": 200,
+    "tag": "HTTP_OK"
+   }
+  }
+ },
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "store_id": "53100502",
+  "url": "https://www.marianos.com/pl/cold-cereal/0300100001"
+ },
+ "body_sha256": "7e1cd75335695a14b7abb96ec0b4fe79a9f4bedc3df465425236c33b86d9222b",
+ "analysis": {
+  "chars": 2230895,
+  "requestVars": {
+   "taxonomyId": "0300100001",
+   "page": 1,
+   "fulfillment": "all",
+   "locationId": "53100502",
+   "activeModalityType": "PICKUP"
+  },
+  "summary": {
+   "query": null,
+   "page": 1,
+   "location_id": "53100502",
+   "modality": "PICKUP",
+   "total": 277,
+   "available": 250,
+   "upcs": [
+    "0001600012479",
+    "0001600012399",
+    "0001600012254",
+    "0001600012495",
+    "0003000006354",
+    "0003000006322",
+    "0001600012183",
+    "0001600027526",
+    "0088491212971",
+    "0003000057322",
+    "0001600012541",
+    "0088491235916",
+    "0001111086705",
+    "0001111003245",
+    "0003800028190",
+    "0088491235915",
+    "0001600012506",
+    "0004119210239",
+    "0004119210043",
+    "0088491212951",
+    "0003800027011",
+    "0004119210375",
+    "0001600012685",
+    "0088491212974",
+    "0001600012593",
+    "0004119210041"
+   ],
+   "sponsored": [
+    "0001600012254",
+    "0003000006354",
+    "0003000006322",
+    "0001600012183",
+    "0001600012541",
+    "0003800028190",
+    "0004119210043",
+    "0001600012685"
+   ],
+   "ways_to_shop": [
+    "pickup"
+   ]
+  },
+  "state_products": 26,
+  "price_locations": [
+   "53100502"
+  ]
+ }
+}

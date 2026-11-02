@@ -1,0 +1,37 @@
+{
+ "project": "marianos-azure-headless",
+ "version": "1.8.0rc5",
+ "package": "MARIANOS_SOURCE_1.8.0rc5",
+ "source_commit": "ee5ec99b27bf68f63f6026a5b2e97937abccc5d3",
+ "source_commit_date": "2026-11-02T14:20:44Z",
+ "source": {
+  "path_in_repository": "headless/marianos-azure-headless",
+  "tree": "c2ee5611faa6da875c235ec5e1d46d8b9cc09bb7",
+  "git_archive_tar_sha256": "701bf3df0ecaadbea257f3296d6d9d2ef4be188438239ef4abb6d19feebd5090",
+  "files": 213
+ },
+ "classic_probe": {
+  "path_in_repository": "headless/oxylabs-classic-probe",
+  "tree": "28ae360373e2670888db99d36d0956a02ab272fe",
+  "git_archive_tar_sha256": "a1ed54bd957762767e1bd102452ba5fcd7c65f96d5f14d9970b1b69110f3bde6",
+  "files": 51,
+  "project": "oxylabs-classic-probe",
+  "version": "1.6.0",
+  "live_mode": "disabled: refuses to send without an approved configuration and confirmed rates"
+ },
+ "release_build": [
+  "backup.sh",
+  "collector.env.example",
+  "config.tgz",
+  "install_release.sh",
+  "marianos",
+  "marianos_azure_headless-1.8.0rc5-py3-none-any.whl",
+  "prepare_host.sh",
+  "requirements-dev.lock.txt",
+  "requirements.lock.txt",
+  "rollback.sh",
+  "source-ee5ec99.tar.gz"
+ ],
+ "runs": "SOURCE_AND_RUN_MANIFEST.json beside this archive names every run of the task and the revision of each segment",
+ "remote_publication": "local commit only: the repository has no remote"
+}

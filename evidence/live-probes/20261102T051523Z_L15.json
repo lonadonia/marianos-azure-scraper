@@ -1,0 +1,115 @@
+{
+ "id": "L15",
+ "at": "20261102T051523Z",
+ "seconds": 161.9,
+ "endpoint": "/v1/scrape/marianos",
+ "request": {
+  "url": "https://www.marianos.com/pl/breakfast/03",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "a department-level listing (the CSV's own /pl/ form with a 2-digit id) gives the department's tree and counts",
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "ledger": "OXP-L-9c9d6d",
+ "request_id": "7522889078329623553",
+ "problem": {
+  "state": "done"
+ },
+ "result_metadata": {
+  "page": 1,
+  "run_js": true,
+  "url": "https://www.marianos.com/pl/breakfast/03",
+  "statuses": {
+   "http_request": {
+    "code": 200,
+    "tag": "HTTP_OK"
+   }
+  }
+ },
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "store_id": "53100502",
+  "url": "https://www.marianos.com/pl/breakfast/03"
+ },
+ "body_sha256": "4ced5a20a38c69bfb9a64469471f45ceb72f468aac1227a5497b47bfa7ba3d44",
+ "analysis": {
+  "chars": 2161116,
+  "requestVars": {
+   "taxonomyId": "03",
+   "page": 1,
+   "fulfillment": "all",
+   "locationId": "53100502",
+   "activeModalityType": "PICKUP"
+  },
+  "summary": {
+   "query": null,
+   "page": 1,
+   "location_id": "53100502",
+   "modality": "PICKUP",
+   "total": 949,
+   "available": 250,
+   "upcs": [
+    "0001111060933",
+    "0001111060903",
+    "0004812110208",
+    "0001111060904",
+    "0001600012685",
+    "0001600012495",
+    "0003800028190",
+    "0004812195951",
+    "0001111079770",
+    "0001600012479",
+    "0004119210043",
+    "0001111007294",
+    "0001111060905",
+    "0007203096039",
+    "0001800000501",
+    "0004812195950",
+    "0071514150349",
+    "0001600012399",
+    "0088810915004",
+    "0001111060914",
+    "0001111060906",
+    "0001111015097",
+    "0001600012254",
+    "0001600027526",
+    "0004812195940",
+    "0001111079772"
+   ],
+   "sponsored": [
+    "0004812110208",
+    "0001600012685",
+    "0001600012495",
+    "0003800028190",
+    "0004119210043",
+    "0001800000501",
+    "0088810915004",
+    "0001600012254"
+   ],
+   "ways_to_shop": [
+    "pickup"
+   ]
+  },
+  "state_products": 26,
+  "price_locations": [
+   "53100502"
+  ]
+ }
+}

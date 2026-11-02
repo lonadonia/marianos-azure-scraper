@@ -1,0 +1,26 @@
+{
+  "campaign_id": "classic-proposal-walmart-marianos",
+  "note": "The two retailers of the proposed Classic campaign. Limits are shared: one ledger, 10 requests per retailer, 20 in all, 30 minutes, USD 5 with USD 0.50 headroom (config is read by plan, validate and replay; nothing here is sent anywhere).",
+  "retailers": {
+    "walmart": {
+      "store_id": "3891",
+      "store_address": "Walmart #3891 Waukegan, 3900 Fountain Square Pl, Waukegan, IL 60085",
+      "fulfillment": "PICKUP",
+      "store_id_verified_from_source": true,
+      "store_id_evidence": "Walmart's own store page (https://www.walmart.com/store/3891-waukegan-il) and page data (pageMetadata.location storeId and intent), as the Walmart collector's store check reads them (its config/stores.yaml, key walmart-3891-pickup)",
+      "adapter": "walmart",
+      "search_query": "milk",
+      "category_probe_url": "https://www.walmart.com/browse/food/fresh-fruits/976759_976793_9756351"
+    },
+    "marianos": {
+      "store_id": "53100502",
+      "store_address": "Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061",
+      "fulfillment": "PICKUP",
+      "store_id_verified_from_source": true,
+      "store_id_evidence": "A lead, then the site: Kroger's Locations API in its certification environment (api-ce.kroger.com, 2026-11-02 04:58Z, chain Mariano's near 60061) lists locationId 53100502, Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills 60061, division 531, store 00502. Mariano's own pages confirmed it: the page state of the Mariano's collector's Web API requests of 2026-11-02 (probes L1 search, L2 and L10 listing pages; qualification runs Q1, Q1b and Q1c) shows selected store 53100502 at that address, activeModalityType PICKUP, and sourceLocationId 53100502 on the store prices it states (one product, temporarily out of stock at the store, had its price stated for ZIP 60061 and no store). The store page URL in the collector's config/stores.yaml is built from the division and store numbers and was not fetched. Those were Web API requests, not Classic.",
+      "adapter": "marianos",
+      "search_query": "cereal",
+      "category_probe_url": "https://www.marianos.com/pl/cereal-granola/03001"
+    }
+  }
+}

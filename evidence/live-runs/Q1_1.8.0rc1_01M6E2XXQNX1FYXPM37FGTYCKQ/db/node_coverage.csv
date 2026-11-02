@@ -1,0 +1,2 @@
+id,run_id,category_source_id,taxonomy_id,total_count,organic_upcs,coverage_ratio,status,partition
+01M6E327F0ZZR67S9NSJC2D5EH,01M6E2XXQNX1FYXPM37FGTYCKQ,01M6E2X1FG621SNE0DT61BPJDD,32001,52,24,0.46153846153846156,IN_PROGRESS,"{""available"": 52, ""parent"": null, ""partitions"": [], ""reason"": """", ""steps"": 0, ""url"": ""https://www.marianos.com/pl/candles-home-fragrances/32001?pzn=relevance""}"

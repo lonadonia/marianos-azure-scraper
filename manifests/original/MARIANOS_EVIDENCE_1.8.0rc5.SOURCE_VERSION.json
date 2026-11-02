@@ -1,0 +1,13 @@
+{
+ "project": "marianos-azure-headless",
+ "version": "1.8.0rc5",
+ "package": "MARIANOS_EVIDENCE_1.8.0rc5",
+ "source_commit": "ee5ec99b27bf68f63f6026a5b2e97937abccc5d3",
+ "source_commit_date": "2026-11-02T14:20:44Z",
+ "source_tree": "c2ee5611faa6da875c235ec5e1d46d8b9cc09bb7",
+ "source_archive": "MARIANOS_SOURCE_1.8.0rc5.zip",
+ "source_archive_sha256": "1832ef6e5051f20e55842057b60d37a61924e1af92d360fea6ae810104481485",
+ "source_included": false,
+ "runs": "Q1 1.8.0rc1 3b2650a, Q1b 1.8.0rc2 b1d69d1, Q1c 1.8.0rc3 ec3b6fe, Q2 1.8.0rc4 9d16475; 1.8.0rc5 has not run live (README.md)",
+ "remote_publication": "local commits only; nothing pushed"
+}

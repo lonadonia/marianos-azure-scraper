@@ -1,0 +1,34 @@
+{
+  "synthetic": true,
+  "note": "A PLACEHOLDER. No rate ships with this probe: Oxylabs' published list prices are not the account's rates. The account owner fills in the account's maximum rate per result for each class, says where they read it, and sets synthetic to false. Until then every rate is unknown and a live campaign is refused.",
+  "confirmed_by": "",
+  "confirmed_at": "",
+  "basis": "",
+  "rates": {
+    "walmart_search": {
+      "unit": "usd_per_result",
+      "plain": null,
+      "rendered": null
+    },
+    "walmart_product": {
+      "unit": "usd_per_result",
+      "plain": null,
+      "rendered": null
+    },
+    "url_only": {
+      "unit": "usd_per_result",
+      "plain": null,
+      "rendered": null
+    },
+    "marianos_search": {
+      "unit": "usd_per_result",
+      "plain": null,
+      "rendered": null
+    },
+    "marianos_product": {
+      "unit": "usd_per_result",
+      "plain": null,
+      "rendered": null
+    }
+  }
+}

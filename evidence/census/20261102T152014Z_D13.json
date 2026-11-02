@@ -1,0 +1,112 @@
+{
+ "id": "D13",
+ "at": "20261102T152014Z",
+ "department": "13",
+ "slug": "deli",
+ "slug_known": true,
+ "url": "https://www.marianos.com/pl/deli/13",
+ "ledger": "OXP-D-788974",
+ "seconds": 10.3,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041305782433793",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "1d5e89b751a187e855c33a754723d59f95d2030a7807adb3af88494b4236cdf2",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 826,
+ "available": 250,
+ "taxonomy_id": null,
+ "state_products": 30,
+ "departments": [
+  {
+   "id": "13",
+   "name": "Deli",
+   "slug": "deli",
+   "count": 826,
+   "categories": [
+    {
+     "id": "13005",
+     "name": "Specialty Cheeses",
+     "count": 255,
+     "subcategories": 0
+    },
+    {
+     "id": "13011",
+     "name": "Hummus, Salsa, Dips & Snacks",
+     "count": 175,
+     "subcategories": 0
+    },
+    {
+     "id": "13006",
+     "name": "Ready To Heat Meals & Soups",
+     "count": 124,
+     "subcategories": 0
+    },
+    {
+     "id": "13003",
+     "name": "Packaged Deli Meat & Lunchmeat",
+     "count": 64,
+     "subcategories": 0
+    },
+    {
+     "id": "13013",
+     "name": "Sushi",
+     "count": 49,
+     "subcategories": 0
+    },
+    {
+     "id": "13001",
+     "name": "Fresh Deli Meats",
+     "count": 44,
+     "subcategories": 0
+    },
+    {
+     "id": "13009",
+     "name": "Cold Side Dishes",
+     "count": 34,
+     "subcategories": 0
+    },
+    {
+     "id": "13008",
+     "name": "Grab & Go Meals",
+     "count": 31,
+     "subcategories": 0
+    },
+    {
+     "id": "13012",
+     "name": "Charcuterie",
+     "count": 30,
+     "subcategories": 0
+    },
+    {
+     "id": "13004",
+     "name": "Packaged Deli Sliced Cheese and Cubes",
+     "count": 22,
+     "subcategories": 0
+    },
+    {
+     "id": "13002",
+     "name": "Fresh Deli Cheese",
+     "count": 14,
+     "subcategories": 0
+    },
+    {
+     "id": "13007",
+     "name": "Chicken and Hot Meals",
+     "count": 11,
+     "subcategories": 0
+    },
+    {
+     "id": "13010",
+     "name": "Party Platters",
+     "count": 9,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}

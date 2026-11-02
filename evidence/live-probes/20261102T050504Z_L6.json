@@ -1,0 +1,109 @@
+{
+ "id": "L6",
+ "at": "20261102T050504Z",
+ "seconds": 4.4,
+ "endpoint": "/v1/scrape/marianos",
+ "request": {
+  "url": "https://www.marianos.com/search?page=2&fulfillment=all",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "hypothesis": "the retailer's failed request in the page state shows the page.offset its server asked for page=2",
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "ledger": "OXP-L-719d31",
+ "request_id": "7522886478398011393",
+ "problem": {
+  "state": "done"
+ },
+ "result_metadata": {
+  "page": 1,
+  "run_js": false,
+  "url": "https://www.marianos.com/search?page=2&fulfillment=all",
+  "statuses": {
+   "http_request": {
+    "code": 200,
+    "tag": "HTTP_OK"
+   }
+  }
+ },
+ "params_echo": {
+  "output": [
+   "html"
+  ],
+  "json": {
+   "schema": null,
+   "prompt": null
+  },
+  "location": "US",
+  "device": "desktop",
+  "run_js": null,
+  "delivery_zip": null,
+  "fulfillment_type": "pickup",
+  "store_id": "53100502",
+  "url": "https://www.marianos.com/search?page=2&fulfillment=all"
+ },
+ "body_sha256": "254775e6b77b75395dc2256c4fc2f9890fbbe6ecbea8ad0653004625aaada005",
+ "analysis": {
+  "chars": 329877,
+  "requestVars": {
+   "page": 2,
+   "fulfillment": "all",
+   "locationId": "53100502",
+   "activeModalityType": "PICKUP"
+  },
+  "summary": {
+   "query": null,
+   "page": 2,
+   "location_id": "53100502",
+   "modality": "PICKUP",
+   "total": null,
+   "available": null,
+   "upcs": [],
+   "sponsored": [],
+   "ways_to_shop": []
+  },
+  "state_products": 0,
+  "price_locations": [],
+  "retailer_error": {
+   "status": 400,
+   "message": "Request failed with status code 400",
+   "url": "/atlas/v1/search/v1/products-search",
+   "params": {
+    "option.facets": [
+     "TAXONOMY",
+     "BRAND",
+     "NUTRITION",
+     "MORE_OPTIONS",
+     "PRICE",
+     "SAVINGS",
+     "COLOR",
+     "FLAVOR",
+     "SCENT",
+     "FSA_HSA_ELIGIBLE"
+    ],
+    "filter.locationId": "53100502",
+    "filter.savings": [],
+    "filter.brands": [],
+    "filter.nutrition": [],
+    "filter.color": [],
+    "filter.flavor": [],
+    "filter.scent": [],
+    "filter.moreOptions": [],
+    "filter.fulfillmentMethods": [
+     "IN_STORE",
+     "PICKUP",
+     "DELIVERY"
+    ],
+    "page.offset": 24,
+    "page.size": 24,
+    "option.personalization": "PURCHASE_HISTORY"
+   }
+  }
+ }
+}

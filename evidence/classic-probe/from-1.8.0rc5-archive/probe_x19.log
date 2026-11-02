@@ -1,0 +1,383 @@
+
+### /c/Users/<user>/.local/bin/uv.exe sync --frozen --offline (15:21:13Z)
+Using CPython 3.12.10 interpreter at: C:\w6\py312\pkg\tools\python.exe
+Creating virtual environment at: .venv
+   Building oxylabs-classic-probe @ file:///C:/x19/MARIANOS_SOURCE_1.8.0rc5/classic_probe
+      Built oxylabs-classic-probe @ file:///C:/x19/MARIANOS_SOURCE_1.8.0rc5/classic_probe
+Prepared 1 package in 1.68s
+Installed 15 packages in 1.62s
+ + ast-serialize==0.13.1
+ + colorama==0.4.6
+ + iniconfig==2.3.1
+ + librt==0.16.0
+ + mypy==2.4.0
+ + mypy-extensions==1.1.0
+ + oxylabs-classic-probe==1.6.0 (from file:///C:/x19/MARIANOS_SOURCE_1.8.0rc5/classic_probe)
+ + packaging==26.3
+ + pathspec==1.1.1
+ + pluggy==1.7.0
+ + pygments==2.21.0
+ + pytest==9.1.1
+ + ruff==0.17.1
+ + selectolax==1.0.1
+ + typing-extensions==4.16.0
+### exit=0
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline python -c import classic_probe; print(classic_probe.__version__) (15:21:17Z)
+1.6.0
+### exit=0
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline pytest -q -p no:cacheprovider (15:21:18Z)
+........................................................................ [ 75%]
+.....................ss                                                  [100%]
+### exit=0
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline ruff check src tests (15:21:48Z)
+All checks passed!
+### exit=0
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline ruff format --check src tests (15:21:48Z)
+25 files already formatted
+### exit=0
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline mypy (15:21:48Z)
+Success: no issues found in 19 source files
+### exit=0
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline classic-probe plan --targets config/targets.json (15:22:02Z)
+{
+ "campaign_id": "classic-proposal-walmart-marianos",
+ "limits": {
+  "billing_headroom_usd": "0.50",
+  "campaign_minutes": 30,
+  "export_reserve_seconds": 180,
+  "per_retailer_requests": 10,
+  "retailers": [
+   "walmart",
+   "marianos"
+  ],
+  "total_requests": 20,
+  "total_usd": "5.00"
+ },
+ "mode": "plan (nothing is sent, nothing is written)",
+ "not_planned": {
+  "marianos-search-p2": "marianos_search documents no start_page or pages parameter; a page-2 URL could only be sent by URL alone, without store_id or fulfillment_type. Not sent: listing pagination through Classic is an open gap."
+ },
+ "rates": "no rate card given: a live campaign would be refused",
+ "retailer_share_usd": "2.25",
+ "steps": [
+  {
+   "endpoint": "https://realtime.oxylabs.io/v1/queries?type=raw,parsed",
+   "max_billable_results": 2,
+   "payload": {
+    "fulfillment_type": "pickup",
+    "parse": true,
+    "query": "milk",
+    "source": "walmart_search",
+    "store_id": "3891"
+   },
+   "purpose": "result page 1 of the store's Pickup search: store, fulfillment, seller, parsing",
+   "retailer": "walmart",
+   "step": "walmart-search-p1"
+  },
+  {
+   "endpoint": "https://realtime.oxylabs.io/v1/queries?type=raw,parsed",
+   "max_billable_results": 2,
+   "payload": {
+    "fulfillment_type": "pickup",
+    "parse": true,
+    "query": "milk",
+    "source": "walmart_search",
+    "start_page": 2,
+    "store_id": "3891"
+   },
+   "purpose": "result page 2 of the store's Pickup search: store, fulfillment, seller, parsing; does the page advance",
+   "retailer": "walmart",
+   "step": "walmart-search-p2"
+  },
+  {
+   "endpoint": "https://realtime.oxylabs.io/v1/queries?type=raw,parsed",
+   "max_billable_results": 2,
+   "payload": {
+    "fulfillment_type": "pickup",
+    "parse": true,
+    "product_id": "<from page 1>",
+    "source": "walmart_product",
+    "store_id": "3891"
+   },
+   "purpose": "the product's own page for the store's Pickup: identity, UPC, store, seller",
+   "retailer": "walmart",
+   "step": "walmart-product"
+  },
+  {
+   "endpoint": "https://realtime.oxylabs.io/v1/queries",
+   "max_billable_results": 1,
+   "payload": {
+    "url": "https://www.walmart.com/browse/food/fresh-fruits/976759_976793_9756351"
+   },
+   "purpose": "a required category page by its URL alone: is it served for the store at all (undocumented)",
+   "retailer": "walmart",
+   "step": "walmart-category-url"
+  },
+  {
+   "endpoint": "https://realtime.oxylabs.io/v1/queries",
+   "max_billable_results": 1,
+   "payload": {
+    "fulfillment_type": "pickup",
+    "query": "cereal",
+    "source": "marianos_search",
+    "store_id": "53100502"
+   },
+   "purpose": "result page 1 of the store's Pickup search: store, fulfillment, products and their store prices",
+   "retailer": "marianos",
+   "step": "marianos-search-p1"
+  },
+  {
+   "endpoint": "https://realtime.oxylabs.io/v1/queries",
+   "max_billable_results": 1,
+   "payload": {
+    "fulfillment_type": "pickup",
+    "product_id": "0000000000000",
+    "source": "marianos_product",
+    "store_id": "53100502"
+   },
+   "purpose": "the product's own page for the store's Pickup: identity, store of its prices, fulfillment",
+   "retailer": "marianos",
+   "step": "marianos-product"
+  },
+  {
+   "endpoint": "https://realtime.oxylabs.io/v1/queries",
+   "max_billable_results": 1,
+   "payload": {
+    "url": "https://www.marianos.com/pl/cereal-granola/03001"
+   },
+   "purpose": "a required category page by its URL alone: is it served for the store and Pickup at all (undocumented)",
+   "retailer": "marianos",
+   "step": "marianos-category-url"
+  }
+ ],
+ "targets": {
+  "marianos": [
+   "ready to plan"
+  ],
+  "walmart": [
+   "ready to plan"
+  ]
+ }
+}
+### exit=0
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline classic-probe validate --targets config/targets.json (15:22:04Z)
+{
+ "campaign_id": "classic-proposal-walmart-marianos",
+ "documented_payloads": "ok",
+ "targets": "ok",
+ "targets_detail": {
+  "marianos": [
+   "ready to plan"
+  ],
+  "walmart": [
+   "ready to plan"
+  ]
+ }
+}
+### exit=0
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline classic-probe replay --targets config/targets.json --fixtures tests/captures_marianos --rates config/rates.example.json --out C:/m6/ev/probe_x19/replay_example_rates --retailer marianos (15:22:04Z)
+{"refused": "UnknownRate: the rate card has no confirmed_by: its rates are not confirmed"}
+### exit=2
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline classic-probe campaign-init --manifest C:/m6/ev/probe_x19/ledger/manifest.json --ledger C:/m6/ev/probe_x19/ledger/ledger.jsonl --campaign-id X19-OFFLINE --offline (15:22:05Z)
+{
+ "campaign_id": "X19-OFFLINE",
+ "ledger_genesis_id": "f73f39a14ac346ceb76a9ed1274a406b",
+ "manifest": "C:\\m6\\ev\\probe_x19\\ledger\\manifest.json",
+ "offline": true
+}
+### exit=0
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline classic-probe live --manifest C:/m6/ev/probe_x19/ledger/manifest.json (15:22:05Z)
+{
+ "live": "refused",
+ "missing": [
+  "live mode is disabled in this build (a later, separately approved version may enable it)",
+  "credentials: not checked while live mode is disabled",
+  "this ledger is an offline test ledger: it never authorizes a provider request",
+  "no explicit approval",
+  "the account's target entitlement is not verified",
+  "the account's maximum billing rates are not confirmed",
+  "credentials are not present"
+ ],
+ "nothing was sent": true
+}
+### exit=3
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline classic-probe status --manifest C:/m6/ev/probe_x19/ledger/manifest.json (15:22:06Z)
+{
+ "campaign_id": "X19-OFFLINE",
+ "dispatches": [],
+ "stopped": null,
+ "totals": {
+  "committed_usd": "0",
+  "confirmed_usd": "0",
+  "dispatched_by_retailer": {},
+  "dispatched_total": 0,
+  "estimated_usd": "0",
+  "other_units": {},
+  "reserved_unconfirmed_usd": "0",
+  "unknown_billing": 0
+ }
+}
+### exit=0
+
+### build the replay folder from the probe's tests (15:22:07Z)
+{"marianos-search-p1": 1, "marianos-product": 1, "marianos-category-url": 1}
+### exit=0
+
+### /c/Users/<user>/.local/bin/uv.exe run --frozen --offline classic-probe replay --targets config/targets.json --fixtures C:/m6/ev/probe_x19/fixtures_marianos --rates C:/m6/ev/probe_x19/SYNTHETIC_rates_offline_replay.json --out C:/m6/ev/probe_x19/replay_marianos --retailer marianos (15:22:08Z)
+{
+ "OFFLINE REPLAY": true,
+ "campaign_id": "offline-replay",
+ "cleanup_errors": [],
+ "detail": "",
+ "dispatched": 3,
+ "export_errors": [],
+ "out_dir": "C:\\m6\\ev\\probe_x19\\replay_marianos",
+ "retailer": "marianos",
+ "steps": [
+  {
+   "attempts": [
+    {
+     "attempt": 1,
+     "billing": "documented_billable",
+     "detail": "",
+     "estimated_usd": "0.0015",
+     "facts": {
+      "available": 250,
+      "page": 1,
+      "product_stores": [
+       "53100502"
+      ],
+      "ranked_upcs": [
+       "0001600012254",
+       "0001600012479",
+       "0088491212971",
+       "0001600012399",
+       "0088491212951",
+       "0088491235915",
+       "0088491248176",
+       "0088491235916",
+       "0001600015163",
+       "0001600027532",
+       "0001111086705",
+       "0003000057322",
+       "0003000006322",
+       "0001111013876",
+       "0004240026521",
+       "0088491211762",
+       "0088491200672",
+       "0088491235948",
+       "0004240040758",
+       "0088491227310",
+       "0001600012685",
+       "0003000057331",
+       "0001600012025",
+       "0004240093978"
+      ],
+      "request_location_id": "53100502",
+      "request_modality": "PICKUP",
+      "selected_location_id": "53100502",
+      "selected_modality": "PICKUP",
+      "sponsored_upcs": [],
+      "total": 511
+     },
+     "outcome": "ok",
+     "parser_status": null,
+     "provider_status": 200,
+     "reserved_usd": "0.0020",
+     "retailer_statuses": [
+      200
+     ],
+     "seq": 1
+    }
+   ],
+   "payload": {
+    "fulfillment_type": "pickup",
+    "query": "cereal",
+    "source": "marianos_search",
+    "store_id": "53100502"
+   },
+   "purpose": "result page 1 of the store's Pickup search: store, fulfillment, products and their store prices",
+   "query_string": "",
+   "step": "marianos-search-p1"
+  },
+  {
+   "attempts": [
+    {
+     "attempt": 1,
+     "billing": "documented_billable",
+     "detail": "",
+     "estimated_usd": "0.0020",
+     "facts": {
+      "product_price_location_id": "53100502",
+      "products_in_state": [
+       "0001600012254"
+      ],
+      "selected_location_id": "53100502",
+      "selected_modality": "PICKUP"
+     },
+     "outcome": "ok",
+     "parser_status": null,
+     "provider_status": 200,
+     "reserved_usd": "0.0020",
+     "retailer_statuses": [
+      200
+     ],
+     "seq": 2
+    }
+   ],
+   "payload": {
+    "fulfillment_type": "pickup",
+    "product_id": "0001600012254",
+    "source": "marianos_product",
+    "store_id": "53100502"
+   },
+   "purpose": "the product's own page for the store's Pickup: identity, store of its prices, fulfillment",
+   "query_string": "",
+   "step": "marianos-product"
+  },
+  {
+   "attempts": [
+    {
+     "attempt": 1,
+     "billing": "documented_billable",
+     "detail": "",
+     "estimated_usd": "0.0015",
+     "facts": {
+      "products": 31,
+      "selected_location_id": "53100502",
+      "selected_modality": "PICKUP",
+      "total": null
+     },
+     "outcome": "ok",
+     "parser_status": null,
+     "provider_status": 200,
+     "reserved_usd": "0.0015",
+     "retailer_statuses": [
+      200
+     ],
+     "seq": 3
+    }
+   ],
+   "payload": {
+    "url": "https://www.marianos.com/pl/cereal-granola/03001"
+   },
+   "purpose": "a required category page by its URL alone: is it served for the store and Pickup at all (undocumented)",
+   "query_string": "",
+   "step": "marianos-category-url"
+  }
+ ],
+ "stop": null
+}
+### exit=0
+END 15:22:10Z

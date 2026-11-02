@@ -1,0 +1,30 @@
+# environments, caches and build output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+# credentials and local configuration
+.env
+*.env
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+# database dumps and local data
+*.sql
+*.dump
+data/local/
+# drafts and editor files
+*.draft.*
+*.swp
+.DS_Store
+Thumbs.db

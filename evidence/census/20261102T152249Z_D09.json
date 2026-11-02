@@ -1,0 +1,88 @@
+{
+ "id": "D09",
+ "at": "20261102T152249Z",
+ "department": "09",
+ "slug": "floral",
+ "slug_known": false,
+ "url": "https://www.marianos.com/pl/floral/09",
+ "ledger": "OXP-D-aff1cf",
+ "seconds": 9.4,
+ "status": 200,
+ "kind": null,
+ "charged": true,
+ "request_id": "7523041956763565057",
+ "problem": {
+  "state": "done"
+ },
+ "body_sha256": "6488aebb4cb1901583a081e8a3a8532d2363c2d2a5e77b726d0e2335aa792a07",
+ "location_id": "53100502",
+ "modality": "PICKUP",
+ "total": 62,
+ "available": 62,
+ "taxonomy_id": null,
+ "state_products": 24,
+ "departments": [
+  {
+   "id": "09",
+   "name": "Floral",
+   "slug": "floral",
+   "count": 62,
+   "categories": [
+    {
+     "id": "09125",
+     "name": "Balloons",
+     "count": 17,
+     "subcategories": 0
+    },
+    {
+     "id": "09133",
+     "name": "Potted Plants",
+     "count": 15,
+     "subcategories": 0
+    },
+    {
+     "id": "09126",
+     "name": "Bouquets",
+     "count": 14,
+     "subcategories": 0
+    },
+    {
+     "id": "09176",
+     "name": "Seasonal",
+     "count": 7,
+     "subcategories": 0
+    },
+    {
+     "id": "09130",
+     "name": "Fresh Cut Roses",
+     "count": 6,
+     "subcategories": 0
+    },
+    {
+     "id": "09128",
+     "name": "Floral Arrangements",
+     "count": 4,
+     "subcategories": 0
+    },
+    {
+     "id": "09129",
+     "name": "Foliage",
+     "count": 3,
+     "subcategories": 0
+    },
+    {
+     "id": "09131",
+     "name": "Gifts & Fruit Baskets",
+     "count": 3,
+     "subcategories": 0
+    },
+    {
+     "id": "09132",
+     "name": "Orchids",
+     "count": 1,
+     "subcategories": 0
+    }
+   ]
+  }
+ ]
+}
