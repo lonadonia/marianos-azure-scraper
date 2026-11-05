@@ -26,7 +26,7 @@ This is a correction delivery for the client's review. It is not a final release
 | Path | What it holds |
 |---|---|
 | [`source/`](source/) | Collector 1.8.0rc5: the frozen tree of commit `ee5ec99b27bf68f63f6026a5b2e97937abccc5d3` ([setup](source/README.md), [operations](source/docs/OPERATIONS.md), [Azure](source/docs/AZURE.md)) |
-| [`classic-probe/`](classic-probe/) | Offline Classic probe 1.6.0, with live mode disabled ([note](classic-probe/CLASSIC_PROBE.md)). Its defects C1 to C5 are corrected in the shared probe 1.7.0: [pinned reference](review/SHARED_CLASSIC_PROBE.md) |
+| [`classic-probe/`](classic-probe/) | Offline Classic probe 1.6.0, with live mode disabled ([note](classic-probe/CLASSIC_PROBE.md)). Its defects C1 to C5 are corrected in the shared probe 1.7.1 (1.7.0 corrected C2 and C4 only in part): [pinned reference](review/SHARED_CLASSIC_PROBE.md) |
 | [`review/`](review/) | [Technical report](review/TECHNICAL_REPORT.md), [correction map](review/CORRECTION_MAP.csv), [acceptance matrix](review/ACCEPTANCE_MATRIX.csv), [runbook](review/ACCEPTANCE_RUNBOOK.md), [cost and runtime](review/COST_AND_RUNTIME_REPORT.md), [provider comparison](review/PROVIDER_COMPARISON.md) |
 | [`data/Q2-1.8.0rc4/`](data/Q2-1.8.0rc4/) | The Q2 dataset, its coverage and page tables ([description](data/Q2-1.8.0rc4/README.md)) |
 | [`evidence/`](evidence/) | Live runs, probes, tests, census, ledger and tools ([index](evidence/README.md)) |
