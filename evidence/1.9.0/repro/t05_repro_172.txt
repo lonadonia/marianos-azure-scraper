@@ -1,0 +1,5 @@
+probe: 1.7.2 C:\m8\scratch\p172\headless\oxylabs-classic-probe\src\classic_probe\__init__.py
+{"case": "missing_replay_json", "exit": 1, "out_created": true, "out_holds": ["ledger.sqlite3"], "traceback": true, "stderr_lines": 24, "stderr_last": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\m8\\\\scratch\\\\t05_172\\\\missing_replay_json\\\\fixtures\\\\replay.json'", "stdout": ""}
+{"case": "empty_object", "exit": 1, "out_created": true, "out_holds": ["ledger.sqlite3"], "traceback": true, "stderr_lines": 18, "stderr_last": "KeyError: 'steps'", "stdout": ""}
+{"case": "not_json", "exit": 2, "out_created": true, "out_holds": ["ledger.sqlite3"], "traceback": false, "stderr_lines": 1, "stderr_last": "{\"refused\": \"JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\"}", "stdout": ""}
+{"case": "missing_body_file", "exit": 1, "out_created": true, "out_holds": ["ledger.sqlite3"], "traceback": true, "stderr_lines": 23, "stderr_last": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\m8\\\\scratch\\\\t05_172\\\\missing_body_file\\\\fixtures\\\\absent.json'", "stdout": ""}

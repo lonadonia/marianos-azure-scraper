@@ -8,6 +8,7 @@ counts. Cancellation is cooperative: handlers check ``ctx.cancelled()`` between 
 
 from __future__ import annotations
 
+import asyncio
 from collections.abc import Awaitable, Callable, Mapping
 from dataclasses import dataclass, field
 from typing import Any
@@ -22,6 +23,33 @@ from marianos_headless.db.models import Run, Task
 from marianos_headless.storage.base import StorageAdapter
 from marianos_headless.worker.retry import CircuitBreaker, FailureKind, TaskFailure, decide
 from marianos_headless.worker.runs import clear_pause, event, transition
+
+# 1.9.0 (T07): the event of a resumable stop names its cause: a limit, the operator, or a failure. A provider
+# error that pauses the run is never reported as a limit.
+LIMIT_CODES = frozenset(
+    {
+        "RUN_PRODUCT_LIMIT",
+        "DAILY_PRODUCT_LIMIT",
+        "RUN_DURATION_LIMIT",
+        "SEGMENT_DURATION_LIMIT",
+        "RUN_CREDIT_LIMIT",
+        "DAILY_CREDIT_LIMIT",
+        "CREDIT_RESERVE",
+        "CREDITS_EXHAUSTED",
+        "SPENDING_CEILING",
+        "SCHEDULE_WINDOW_END",
+    }
+)
+OPERATOR_CODES = frozenset({"OPERATOR_PAUSE", "OPERATOR_STOP"})
+
+
+def pause_event(code: str) -> str:
+    """The event code of a resumable stop."""
+    if code in LIMIT_CODES:
+        return "RUN_LIMIT_REACHED"
+    if code in OPERATOR_CODES:
+        return "RUN_PAUSE_REQUESTED"
+    return "RUN_PAUSED_ON_FAILURE"
 
 
 class CancelledByOperator(Exception):
@@ -49,6 +77,9 @@ class TaskContext:
     storage: StorageAdapter
     lease_s: float
     data: dict[str, Any] = field(default_factory=dict)
+    # 1.9.0 (M8): set by the worker when another lane stopped the run (a lane then stops at its next
+    # check, as for an operator's pause, and hands its task back).
+    halt: asyncio.Event | None = None
 
     @property
     def cursor(self) -> dict[str, Any]:
@@ -67,7 +98,10 @@ class TaskContext:
             s.commit()
 
     def cancelled(self) -> bool:
-        """True when the operator asked to stop or pause: handlers check it between navigations."""
+        """True when the operator asked to stop or pause (or another lane stopped the run): handlers check
+        it between navigations."""
+        if self.halt is not None and self.halt.is_set():
+            return True
         with self.factory() as s:
             row = s.execute(
                 select(Run.cancel_requested, Run.pause_requested).where(Run.id == self.run_id)
@@ -99,6 +133,7 @@ class Worker:
         storage: StorageAdapter,
         *,
         lease_s: float = 120,
+        lanes: int = 1,
     ):
         self.factory = factory
         self.run_id = run_id
@@ -109,6 +144,11 @@ class Worker:
         self.lease_s = lease_s
         self.breaker = CircuitBreaker(settings.circuit_breaker)
         self._rate_limited: set[str] = set()
+        # 1.9.0 (M8): listing tasks read at once (each with at most one provider request in flight). Other
+        # tasks (preflight, assemble, validate) always run alone.
+        self.lanes = max(1, int(lanes))
+        self.halt = asyncio.Event()
+        self.max_lanes_busy = 0
 
     def _cancel_requested(self) -> bool:
         with self.factory() as s:
@@ -128,99 +168,162 @@ class Worker:
             s.commit()
 
     async def run(self, *, max_tasks: int | None = None) -> WorkerResult:
-        processed = 0
-        while True:
-            if self._cancel_requested():
-                with self.factory() as s:
-                    transition(s, self.run_id, "cancelled")
-                    s.commit()
-                return self._result("cancelled", processed)
-            if self._pause_requested():
-                with self.factory() as s:
-                    clear_pause(s, self.run_id)
-                    run = transition(s, self.run_id, "interrupted")
-                    reason = f"{run.stop_code}: {run.stop_detail or ''}".rstrip(": ") if run.stop_code else ""
+        if self.lanes <= 1:
+            return await self._run_serial(max_tasks)
+        return await self._run_lanes(max_tasks)
+
+    def _head(self, processed: int) -> WorkerResult | None:
+        """The loop head: the operator's stop or pause (applied here, once no task is in hand)."""
+        if self._cancel_requested():
+            with self.factory() as s:
+                transition(s, self.run_id, "cancelled")
+                s.commit()
+            return self._result("cancelled", processed)
+        if self._pause_requested():
+            with self.factory() as s:
+                clear_pause(s, self.run_id)
+                run = transition(s, self.run_id, "interrupted")
+                reason = f"{run.stop_code}: {run.stop_detail or ''}".rstrip(": ") if run.stop_code else ""
+                event(
+                    s,
+                    self.run_id,
+                    "INFO",
+                    "RUN_PAUSED",
+                    "paused at a checkpoint; resume continues from it" + (f" ({reason})" if reason else ""),
+                    {"stop_code": run.stop_code, "stop_detail": run.stop_detail},
+                )
+                s.commit()
+            return self._result("paused", processed)
+        return None
+
+    def _lease(self, kinds: tuple[str, ...] | None = None) -> queue.Lease | None:
+        with self.factory() as s:
+            lease = queue.lease_next(s, self.run_id, self.owner, lease_s=self.lease_s, kinds=kinds)
+            if lease is not None:
+                queue.mark_running(s, lease)
+                if lease.reclaimed:
                     event(
                         s,
                         self.run_id,
-                        "INFO",
-                        "RUN_PAUSED",
-                        "paused at a checkpoint; resume continues from it"
-                        + (f" ({reason})" if reason else ""),
-                        {"stop_code": run.stop_code, "stop_detail": run.stop_detail},
+                        "WARN",
+                        "TASK_LEASE_RECLAIMED",
+                        lease.idem_key,
+                        {"attempts": lease.attempts, "cursor": lease.cursor},
                     )
-                    s.commit()
-                return self._result("paused", processed)
+            s.commit()
+        return lease
+
+    async def _run_serial(self, max_tasks: int | None) -> WorkerResult:
+        processed = 0
+        while True:
+            head = self._head(processed)
+            if head is not None:
+                return head
             if max_tasks is not None and processed >= max_tasks:
                 return self._result("max_tasks", processed)
-            with self.factory() as s:
-                lease = queue.lease_next(s, self.run_id, self.owner, lease_s=self.lease_s)
-                if lease is not None:
-                    queue.mark_running(s, lease)
-                    if lease.reclaimed:
-                        event(
-                            s,
-                            self.run_id,
-                            "WARN",
-                            "TASK_LEASE_RECLAIMED",
-                            lease.idem_key,
-                            {"attempts": lease.attempts, "cursor": lease.cursor},
-                        )
-                s.commit()
+            lease = self._lease()
             if lease is None:
                 with self.factory() as s:
                     done = queue.all_terminal(s, self.run_id)
                 return self._result("idle" if done else "waiting", processed)
             processed += 1
-            category = lease.category_source_id or lease.kind
-            if self.breaker.is_open(category):
-                with self.factory() as s:
-                    queue.skip(s, lease, "category circuit open")
-                    s.commit()
-                continue
-            handler = self.handlers.get(lease.kind)
-            if handler is None:
-                with self.factory() as s:
-                    queue.fail(s, lease, f"no handler for {lease.kind}", retry_after_s=None)
-                    s.commit()
-                continue
-            ctx = TaskContext(lease, self.run_id, self.factory, self.settings, self.storage, self.lease_s)
-            try:
-                final_cursor = await handler(ctx)
-            except queue.LeaseLost:
-                with self.factory() as s:
-                    event(s, self.run_id, "WARN", "TASK_LEASE_LOST", lease.idem_key)
-                    s.commit()
-                continue
-            except CancelledByOperator:
-                # Hand the task back (cursor kept) so a resumed worker can lease it immediately;
-                # the loop head then sees the cancel/pause flag and stops.
-                with self.factory() as s:
-                    queue.release(s, ctx.lease)
-                    s.commit()
-                continue
-            except RunStop as stop:
-                if self._stop(ctx, stop):
-                    return self._result("aborted", processed)
-                continue
-            except TaskFailure as failure:
-                aborted = self._handle_failure(ctx, category, failure)
+            if await self._process(lease):
+                return self._result("aborted", processed)
+
+    async def _run_lanes(self, max_tasks: int | None) -> WorkerResult:
+        """Up to ``lanes`` listing tasks at once (release 1.9.0, M8). A stage task (preflight, assemble,
+        validate) is leased only when no lane is busy and runs alone; the queue's stage barrier keeps it
+        from starting while a listing task is unfinished. A lane that stops the run (a limit, the provider,
+        the site) halts the others at their next check: they hand their tasks back with their checkpoints."""
+        processed = 0
+        busy: dict[asyncio.Task[bool], queue.Lease] = {}
+        aborted = False
+        while True:
+            for t in [t for t in busy if t.done()]:
+                busy.pop(t)
+                if t.result():
+                    aborted = True
+                    self.halt.set()
+            stopping = aborted or self.halt.is_set() or self._cancel_requested() or self._pause_requested()
+            if stopping or (max_tasks is not None and processed >= max_tasks):
+                if stopping:
+                    self.halt.set()
+                if busy:
+                    await asyncio.wait(busy)
+                    continue
                 if aborted:
+                    self._skip_pending("run stopped by another lane")
                     return self._result("aborted", processed)
+                head = self._head(processed)
+                if head is not None:
+                    return head
+                if max_tasks is not None and processed >= max_tasks:
+                    return self._result("max_tasks", processed)
+                self.halt.clear()
                 continue
-            except SQLAlchemyError:
-                raise  # database trouble stops the worker; a resume continues from the checkpoints
-            except Exception as exc:
-                # A parser or contract error (e.g. a malformed response) is a permanent task failure,
-                # recorded with its type, never a worker crash that leaves the run stalled.
-                permanent = TaskFailure(FailureKind.PERMANENT, f"{type(exc).__name__}: {exc}"[:500])
-                if self._handle_failure(ctx, category, permanent):
-                    return self._result("aborted", processed)
+            lease = self._lease(("listing_node",) if busy else None) if len(busy) < self.lanes else None
+            if lease is not None:
+                processed += 1
+                task = asyncio.create_task(self._process(lease))
+                busy[task] = lease
+                self.max_lanes_busy = max(self.max_lanes_busy, len(busy))
+                if lease.kind != "listing_node":
+                    await asyncio.wait({task})  # a stage task runs alone
                 continue
+            if not busy:
+                with self.factory() as s:
+                    done = queue.all_terminal(s, self.run_id)
+                return self._result("idle" if done else "waiting", processed)
+            # A lane may free up, or a running listing may plan child listings: look again soon.
+            await asyncio.wait(busy, timeout=2.0, return_when=asyncio.FIRST_COMPLETED)
+
+    async def _process(self, lease: queue.Lease) -> bool:
+        """One leased task: its handler, then succeed, retry, block or stop. True when the run is aborted."""
+        category = lease.category_source_id or lease.kind
+        if self.breaker.is_open(category):
             with self.factory() as s:
-                queue.succeed(s, ctx.lease, final_cursor if final_cursor is not None else ctx.lease.cursor)
+                queue.skip(s, lease, "category circuit open")
                 s.commit()
-            self.breaker.record_success(category)
+            return False
+        handler = self.handlers.get(lease.kind)
+        if handler is None:
+            with self.factory() as s:
+                queue.fail(s, lease, f"no handler for {lease.kind}", retry_after_s=None)
+                s.commit()
+            return False
+        ctx = TaskContext(
+            lease, self.run_id, self.factory, self.settings, self.storage, self.lease_s, halt=self.halt
+        )
+        try:
+            final_cursor = await handler(ctx)
+        except queue.LeaseLost:
+            with self.factory() as s:
+                event(s, self.run_id, "WARN", "TASK_LEASE_LOST", lease.idem_key)
+                s.commit()
+            return False
+        except CancelledByOperator:
+            # Hand the task back (cursor kept) so a resumed worker can lease it immediately;
+            # the loop head then sees the cancel/pause flag and stops.
+            with self.factory() as s:
+                queue.release(s, ctx.lease)
+                s.commit()
+            return False
+        except RunStop as stop:
+            return self._stop(ctx, stop)
+        except TaskFailure as failure:
+            return self._handle_failure(ctx, category, failure)
+        except SQLAlchemyError:
+            raise  # database trouble stops the worker; a resume continues from the checkpoints
+        except Exception as exc:
+            # A parser or contract error (e.g. a malformed response) is a permanent task failure,
+            # recorded with its type, never a worker crash that leaves the run stalled.
+            permanent = TaskFailure(FailureKind.PERMANENT, f"{type(exc).__name__}: {exc}"[:500])
+            return self._handle_failure(ctx, category, permanent)
+        with self.factory() as s:
+            queue.succeed(s, ctx.lease, final_cursor if final_cursor is not None else ctx.lease.cursor)
+            s.commit()
+        self.breaker.record_success(category)
+        return False
 
     def _stop(self, ctx: TaskContext, stop: RunStop) -> bool:
         """Record the stop on the run. A resumable stop hands the task back and pauses the run (the
@@ -238,7 +341,7 @@ class Worker:
                 s,
                 self.run_id,
                 "WARN",
-                "RUN_STOPPED" if not stop.resumable else "RUN_LIMIT_REACHED",
+                "RUN_STOPPED" if not stop.resumable else pause_event(stop.code),
                 stop.detail[:500],
                 {"stop_code": stop.code, "task": ctx.lease.idem_key, "resumable": stop.resumable},
             )

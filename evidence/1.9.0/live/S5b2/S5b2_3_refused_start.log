@@ -1,0 +1,2 @@
+{"ts": "2026-11-09T15:16:15.834Z", "level": "ERROR", "event": "COMMAND_REFUSED", "collector": "marianos-azure-headless", "command": "run", "exit_code": 9, "message": "marianos-53100502-pickup has an unfinished run 01M70E1GNA85H05HDM45F5XQRS (running): resume or finalize it", "run_id": "01M70E1GNA85H05HDM45F5XQRS"}
+{"event": "LIVE190_REFUSED_START_ENDED", "stage": "M-S5b2-rows23-26-two-lanes-190rc4-20261109", "exit_code": 9, "seconds": 1.1, "gate_refusals": []}

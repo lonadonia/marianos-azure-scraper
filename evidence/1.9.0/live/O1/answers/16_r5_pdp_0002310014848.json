@@ -1,0 +1,70 @@
+{
+ "step": 16,
+ "label": "r5_pdp_0002310014848",
+ "utc_start": "2026-11-06T18:50:03+00:00",
+ "utc_end": "2026-11-06T18:50:08+00:00",
+ "seconds": 5.0,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\wt\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/p/temptations-birthday-adult-crunchy-and-soft-cat-treats-lobster-and-beef/0002310014848",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ],
+  "run_js": true
+ },
+ "purpose": "m4 terms second sample: Savings section absent on a fully rendered page (22.6 s)",
+ "target": "https://www.marianos.com/p/temptations-birthday-adult-crunchy-and-soft-cat-treats-lobster-and-beef/0002310014848",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524543649003086849",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524543649003086849",
+   "seconds": 4.12,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 479790,
+ "raw_bytes": 549624,
+ "raw_sha256": "72c3878aaf8f5c42f5481fcd070e6d4e930eff85c52ee926c964469c8cd4de5e",
+ "raw_file": "16_r5_pdp_0002310014848.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:50:04+00:00",
+   "event": "reserved",
+   "rid": "7cb16bcdc66a4f9388e679d90d1b2d3c",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:50:04+00:00",
+   "event": "dispatched",
+   "rid": "7cb16bcdc66a4f9388e679d90d1b2d3c"
+  },
+  {
+   "at": "2026-11-06T18:50:08+00:00",
+   "event": "settled",
+   "rid": "7cb16bcdc66a4f9388e679d90d1b2d3c",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524543649003086849"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 42
+}

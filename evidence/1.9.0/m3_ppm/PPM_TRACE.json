@@ -1,0 +1,215 @@
+{
+ "run_id": "01M6E5V6CASQ8F00VC8PE9TFYW",
+ "collector": {
+  "run_code": {
+   "commit": "9d16475470a480b148823e30a07ec11c3e5184d6",
+   "source": "git",
+   "version": "1.8.0rc4",
+   "parser_version": "1.8.0",
+   "uncommitted_changes": false
+  },
+  "export_code": {
+   "version": "1.8.0rc4",
+   "parser_version": "1.8.0",
+   "commit": "9d16475470a480b148823e30a07ec11c3e5184d6",
+   "source": "git",
+   "uncommitted_changes": false
+  }
+ },
+ "traces": [
+  {
+   "upc": "0084024314377",
+   "title": "Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Cuts in Gravy Salmon & Tuna",
+   "run_id": "01M6E5V6CASQ8F00VC8PE9TFYW",
+   "collector": {
+    "run_code": {
+     "commit": "9d16475470a480b148823e30a07ec11c3e5184d6",
+     "source": "git",
+     "version": "1.8.0rc4",
+     "parser_version": "1.8.0",
+     "uncommitted_changes": false
+    },
+    "export_code": {
+     "version": "1.8.0rc4",
+     "parser_version": "1.8.0",
+     "commit": "9d16475470a480b148823e30a07ec11c3e5184d6",
+     "source": "git",
+     "uncommitted_changes": false
+    }
+   },
+   "status": "valid",
+   "exported": {
+    "ppm": "$19.99/oz",
+    "weight": "12 ct / 2.6 oz",
+    "regular_price": "19.99",
+    "sale_price": "",
+    "unit_price": "",
+    "crawl_date": "2026-11-02"
+   },
+   "provenance_ppm": {
+    "source": "dom_card",
+    "fetch_id": "01M6E6NZ6AZ3H49PWX963VBAR6",
+    "observed_at": "2026-11-02T13:20:19.658343Z",
+    "response_sha256": null,
+    "selector_or_path": "[data-testid=\"product-item-sizing\"] (the $/unit slot)"
+   },
+   "capture": {
+    "page_fetch_id": "01M6E6NZ6AZ3H49PWX963VBAR6",
+    "run_id": "01M6E5V6CASQ8F00VC8PE9TFYW",
+    "url": "https://www.marianos.com/pl/cat-food/27021?page=10",
+    "http_status": 200,
+    "fetched_at": "2026-11-02T13:20:19.658343Z",
+    "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E6NZ6AZ3H49PWX963VBAR6.html.gz",
+    "dom_sha256": "984251b075c220d2508b11c6e5909c8dfb3be7539649caaf4dee24a7df19745d"
+   },
+   "file": "data/live/dom/01M6E6NZ6AZ3H49PWX963VBAR6.html.gz",
+   "file_sha256": "984251b075c220d2508b11c6e5909c8dfb3be7539649caaf4dee24a7df19745d",
+   "file_sha256_matches_provenance": true,
+   "decoded_html_sha256": "1aa7d72affefe82fcbba4a4b71fccce51705007e909204d716f9935d050ea3c1",
+   "card": {
+    "test_id": "mini-product-card-221",
+    "offset": [
+     117319,
+     121295
+    ],
+    "sizing_slots": [
+     "$19.99/oz",
+     "12 ct / 2.6 oz"
+    ],
+    "ppm_slots": [
+     "$19.99/oz"
+    ],
+    "size_slots": [
+     "12 ct / 2.6 oz"
+    ],
+    "sponsored_placement": true
+   },
+   "structured": {
+    "calypso.domains.products['0084024314377'].data.price.storePrices.regular.equivalizedUnitPrice": {
+     "amount": "19.99",
+     "denomination": "DOLLAR",
+     "unit": "PER OUNCE"
+    },
+    "calypso.domains.products['0084024314377'].data.price.storePrices.regular.equivalizedUnitPriceString": "$19.99/oz",
+    "calypso.domains.products['0084024314377'].data.price.storePrices.promo.equivalizedUnitPrice": null,
+    "calypso.domains.products['0084024314377'].data.price.storePrices.promo.equivalizedUnitPriceString": null,
+    "calypso.domains.products['0084024314377'].data.price.storePrices.regular.price": "USD 19.99",
+    "calypso.domains.products['0084024314377'].data.price.storePrices.promo.price": null,
+    "calypso.domains.products['0084024314377'].data.price.storePrices.sourceLocationId": "53100502",
+    "calypso.domains.products['0084024314377'].data.item.customerFacingSize": "12 ct / 2.6 oz",
+    "calypso.domains.products['0084024314377'].data.item.pidSizeQuantity": 31.2,
+    "calypso.domains.products['0084024314377'].data.item.pidSizeUnitOfMeasureName": "OUNCES",
+    "calypso.domains.products['0084024314377'].data.price.sellBy": "Unit"
+   },
+   "request_state": {
+    "locationId": "53100502",
+    "activeModalityType": "PICKUP",
+    "taxonomyId": "27021",
+    "page": 10,
+    "brandName": []
+   },
+   "exported_value_in_card_slot": true,
+   "exported_value_in_structured_node": true,
+   "conclusion": "SOURCE_VALUE_ANOMALY: the source itself displays this value for this product at this store and fulfillment (card slot and structured node agree); exported as displayed, never recomputed"
+  },
+  {
+   "upc": "0001280052496",
+   "title": "Rayovac 100 Lumens Workhorse LED Headlight",
+   "run_id": "01M6E5V6CASQ8F00VC8PE9TFYW",
+   "collector": {
+    "run_code": {
+     "commit": "9d16475470a480b148823e30a07ec11c3e5184d6",
+     "source": "git",
+     "version": "1.8.0rc4",
+     "parser_version": "1.8.0",
+     "uncommitted_changes": false
+    },
+    "export_code": {
+     "version": "1.8.0rc4",
+     "parser_version": "1.8.0",
+     "commit": "9d16475470a480b148823e30a07ec11c3e5184d6",
+     "source": "git",
+     "uncommitted_changes": false
+    }
+   },
+   "status": "valid",
+   "exported": {
+    "ppm": "$7.99/oz",
+    "weight": "1 Count",
+    "regular_price": "10.49",
+    "sale_price": "7.99",
+    "unit_price": "",
+    "crawl_date": "2026-11-02"
+   },
+   "provenance_ppm": {
+    "source": "dom_card",
+    "fetch_id": "01M6E9H7FSD5411610DJXRJ40P",
+    "observed_at": "2026-11-02T14:10:10.041815Z",
+    "response_sha256": null,
+    "selector_or_path": "[data-testid=\"product-item-sizing\"] (the $/unit slot)"
+   },
+   "capture": {
+    "page_fetch_id": "01M6E9H7FSD5411610DJXRJ40P",
+    "run_id": "01M6E5V6CASQ8F00VC8PE9TFYW",
+    "url": "https://www.marianos.com/pl/hardware-home-improvement/33?page=3",
+    "http_status": 200,
+    "fetched_at": "2026-11-02T14:10:10.041815Z",
+    "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E9H7FSD5411610DJXRJ40P.html.gz",
+    "dom_sha256": "71bbd9d5004ea168aea193683f0c408c1aa6373e73f38de36250e6feb3205a3f"
+   },
+   "file": "data/live/dom/01M6E9H7FSD5411610DJXRJ40P.html.gz",
+   "file_sha256": "71bbd9d5004ea168aea193683f0c408c1aa6373e73f38de36250e6feb3205a3f",
+   "file_sha256_matches_provenance": true,
+   "decoded_html_sha256": "80a1426cbece768c5407b1aa840bcf8e7d9b02891ad950bb792bedab6ea626aa",
+   "card": {
+    "test_id": "mini-product-card-65",
+    "offset": [
+     150364,
+     153913
+    ],
+    "sizing_slots": [
+     "$7.99/oz",
+     "1 Count"
+    ],
+    "ppm_slots": [
+     "$7.99/oz"
+    ],
+    "size_slots": [
+     "1 Count"
+    ],
+    "sponsored_placement": false
+   },
+   "structured": {
+    "calypso.domains.products['0001280052496'].data.price.storePrices.regular.equivalizedUnitPrice": {
+     "amount": "10.49",
+     "denomination": "DOLLAR",
+     "unit": "PER OUNCE"
+    },
+    "calypso.domains.products['0001280052496'].data.price.storePrices.regular.equivalizedUnitPriceString": "$10.49/oz",
+    "calypso.domains.products['0001280052496'].data.price.storePrices.promo.equivalizedUnitPrice": {
+     "amount": "7.99",
+     "denomination": "DOLLAR",
+     "unit": "PER OUNCE"
+    },
+    "calypso.domains.products['0001280052496'].data.price.storePrices.promo.equivalizedUnitPriceString": "$7.99/oz",
+    "calypso.domains.products['0001280052496'].data.price.storePrices.regular.price": "USD 10.49",
+    "calypso.domains.products['0001280052496'].data.price.storePrices.promo.price": "USD 7.99",
+    "calypso.domains.products['0001280052496'].data.price.storePrices.sourceLocationId": "53100502",
+    "calypso.domains.products['0001280052496'].data.item.customerFacingSize": "1 Count",
+    "calypso.domains.products['0001280052496'].data.item.pidSizeQuantity": 1,
+    "calypso.domains.products['0001280052496'].data.item.pidSizeUnitOfMeasureName": "EACH",
+    "calypso.domains.products['0001280052496'].data.price.sellBy": "Unit"
+   },
+   "request_state": {
+    "locationId": "53100502",
+    "activeModalityType": "PICKUP",
+    "taxonomyId": "33",
+    "page": 3,
+    "brandName": []
+   },
+   "exported_value_in_card_slot": true,
+   "exported_value_in_structured_node": true,
+   "conclusion": "SOURCE_VALUE_ANOMALY: the source itself displays this value for this product at this store and fulfillment (card slot and structured node agree); exported as displayed, never recomputed"
+  }
+ ]
+}

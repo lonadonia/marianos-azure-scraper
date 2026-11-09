@@ -1,0 +1,2 @@
+id,run_id,category_source_id,taxonomy_id,total_count,organic_upcs,coverage_ratio,status,partition
+01M70HCRT79S6V65B05B6GFHYD,01M70H9RB4Q736926MP3W5117A,01M6E2X1FG621SNE0DT61BPJD0,18010,273,24,0.08791208791208792,INCOMPLETE,"{""available"": 250, ""parent"": null, ""partitions"": [], ""read"": {""pages_read"": 1, ""route"": ""listing""}, ""reason"": ""accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly"", ""steps"": 1, ""url"": ""https://www.marianos.com/pl/frozen/18010?pzn=relevance""}"

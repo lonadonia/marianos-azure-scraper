@@ -1,0 +1,50 @@
+{
+  "note": "Copied unchanged from the collectors so that the probe reads each retailer's page data with the readers the collector was validated with. Never edit these copies: a change is made in the collector and copied again, with new hashes here. tests/test_vendored.py checks both. One copy differs from its origin by its import line alone (import_rewrite): the test applies the rewrite to the collector's file and compares the result byte for byte.",
+  "files": [
+    {
+      "vendored": "src/classic_probe/vendor/walmart_page_data.py",
+      "origin": "walmart-azure-headless/src/walmart_headless/sites/walmart/page_data.py",
+      "origin_last_changed_in_commit": "37ffca808f2163287e3d50b91529c5fd69213418",
+      "git_blob": "4f9bd5fdb22328607379555f575e52ba93873a05",
+      "sha256": "048ab48646dea7e81742c1f13a0c526edf0c355289fb96a58bfaf75aac67849f",
+      "origin_release": "walmart-azure-headless 1.5.2"
+    },
+    {
+      "vendored": "src/classic_probe/vendor/walmart_challenge.py",
+      "origin": "walmart-azure-headless/src/walmart_headless/acquisition/challenge.py",
+      "origin_last_changed_in_commit": "37ffca808f2163287e3d50b91529c5fd69213418",
+      "git_blob": "d2f9abe74b2833573da779087be518ee4597546a",
+      "sha256": "0df7b020150fa4e26546fbb3cbc064c2a405f00304861ee71a225177c0b8a13a",
+      "origin_release": "walmart-azure-headless 1.5.2"
+    },
+    {
+      "vendored": "src/classic_probe/vendor/walmart_sanitize.py",
+      "origin": "walmart-azure-headless/src/walmart_headless/sites/walmart/sanitize.py",
+      "origin_last_changed_in_commit": "61a67d8aa617d13ef2a07a58b8e353fa49532211",
+      "git_blob": "9e955f3042ea3c2be077f0c77fa0e25795500ee7",
+      "sha256": "6e14fbb1aafbfeae41df104b2abdf45084fdf68d82d4c9f0a491ee5555f15ad4",
+      "origin_release": "walmart-azure-headless 1.5.2"
+    },
+    {
+      "vendored": "src/classic_probe/vendor/marianos_initial_state.py",
+      "origin": "marianos-azure-headless/src/marianos_headless/sites/marianos/initial_state.py",
+      "origin_last_changed_in_commit": "053bf139bb0436769c1645dce5b75b3255680762",
+      "git_blob": "44ee75d54f31a92d4ff8900f36eb0819583005bb",
+      "sha256": "cbe4767b4aed0758b5e99c592c6884a4985aaf09dd59b76f5a35294261048a4e",
+      "origin_release": "marianos-azure-headless 1.8.0rc3"
+    },
+    {
+      "vendored": "src/classic_probe/vendor/marianos_sanitize.py",
+      "origin": "marianos-azure-headless/src/marianos_headless/sites/marianos/sanitize.py",
+      "origin_last_changed_in_commit": "053bf139bb0436769c1645dce5b75b3255680762",
+      "git_blob": "6530c7afd59b2cdfc54294b4cf1810f35e30aa8f",
+      "origin_sha256": "37204e124c5a463ddd0272c7fb43100d859e2841abbc5c7059d635995e0b130c",
+      "import_rewrite": {
+        "from": "from marianos_headless.sites.marianos.initial_state import",
+        "to": "from classic_probe.vendor.marianos_initial_state import"
+      },
+      "sha256": "a380f97d6c425abeb97b93b3a3d1d3521bf189af40217d90221dd73ca72dc290",
+      "origin_release": "marianos-azure-headless 1.8.0rc3"
+    }
+  ]
+}

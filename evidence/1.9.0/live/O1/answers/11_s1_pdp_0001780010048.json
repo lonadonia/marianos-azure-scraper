@@ -1,0 +1,70 @@
+{
+ "step": 11,
+ "label": "s1_pdp_0001780010048",
+ "utc_start": "2026-11-06T18:42:27+00:00",
+ "utc_end": "2026-11-06T18:42:50+00:00",
+ "seconds": 23.06,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\t19\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/p/puppy-chow-high-protein-dry-puppy-food-tender-crunchy-with-real-beef/0001780010048",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ],
+  "run_js": true
+ },
+ "purpose": "m6 size Puppy Chow",
+ "target": "https://www.marianos.com/p/puppy-chow-high-protein-dry-puppy-food-tender-crunchy-with-real-beef/0001780010048",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524541736475973633",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524541736475973633",
+   "seconds": 22.2,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 420362,
+ "raw_bytes": 484301,
+ "raw_sha256": "e47472a67f23db1aed8e2f43918d1a3b31d5de54181d41b7aac468562ca76f17",
+ "raw_file": "11_s1_pdp_0001780010048.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:42:28+00:00",
+   "event": "reserved",
+   "rid": "d56ba1dd060843e5b02e88f43be0c10f",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:42:28+00:00",
+   "event": "dispatched",
+   "rid": "d56ba1dd060843e5b02e88f43be0c10f"
+  },
+  {
+   "at": "2026-11-06T18:42:50+00:00",
+   "event": "settled",
+   "rid": "d56ba1dd060843e5b02e88f43be0c10f",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524541736475973633"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 38
+}

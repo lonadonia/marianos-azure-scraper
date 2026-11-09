@@ -343,8 +343,16 @@ def format_description(offer: OfferObservation, fmt: DealDescriptionFormat) -> s
     terms = collapse_ws(offer.terms)
     if terms and text_key(terms) != text_key(text):
         out += f" — {terms}"
-    if offer.expiry_text:
-        out += f" ({collapse_ws(offer.expiry_text)})"
+    # Release 1.9.0 (M4): a coupon read from the product's own page also names the clipping instruction the
+    # page displays ("Sign In To Clip"), with the expiry it displays.
+    clip = (
+        next((collapse_ws(c) for c in offer.ctas if _CLIP_CTA.search(c)), "")
+        if OfferSource.PDP in {offer.source, *offer.sources}
+        else ""
+    )
+    when = "; ".join(x for x in (collapse_ws(offer.expiry_text), clip) if x)
+    if when:
+        out += f" ({when})"
     return out
 
 

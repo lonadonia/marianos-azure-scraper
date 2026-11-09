@@ -44,9 +44,12 @@ def test_a_new_installation_collects_nothing_until_configured() -> None:
     cfg = CollectionConfig()
     assert cfg.categories == [] and cfg.schedule.enabled is False
     assert cfg.limits == Limits() and all(
-        v is None for k, v in cfg.limits.model_dump().items() if k != "min_credit_reserve"
+        v is None
+        for k, v in cfg.limits.model_dump().items()
+        if k not in ("min_credit_reserve", "max_concurrent_listings")
     )
     assert cfg.limits.min_credit_reserve == 0 and cfg.timezone == "America/Chicago"
+    assert cfg.limits.max_concurrent_listings == 1  # 1.9.0: one listing at a time unless configured
 
 
 @pytest.mark.parametrize(

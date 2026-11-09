@@ -1,0 +1,34 @@
+csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
+1,06119,https://www.marianos.com/pl/party-trays/06119,listing,1,1,1,completed,new,,8,8,8,0,8,0,0,0,1a7d46c4c614bee64767399e8886f0e4b10ac7bc6e90aec0ecbbb5d6a36de1a0,7525593201948779521
+2,05008,https://www.marianos.com/pl/refrigerated-pickles-sauerkraut/05008,listing,1,1,1,completed,new,,14,14,14,0,14,0,0,0,4a2e26aa29aa54ee86f009ab6019de9a75d48a7fc20c3e22c2aef2e8d6d3b001,7525593353698674689
+2,05011,https://www.marianos.com/pl/specialty-meat/05011,listing,1,1,1,completed,new,,7,7,7,0,7,0,0,0,54726b913f4658b3f819d85fd63802031715de69b1d521d38421e0168580b9b8,7525593322165917697
+2,05014,https://www.marianos.com/pl/lamb-veal-bison/05014,listing,1,1,1,completed,new,,11,11,11,0,11,0,0,0,12b9cc4310a74f03c4a7c5068f2ca0bb13286f0b12ac49e5a6c8ac2c6874bfd5,7525593288686986241
+4,13002,https://www.marianos.com/pl/fresh-deli-cheese/13002,listing,1,1,1,completed,new,,14,14,14,0,14,0,0,0,42c524e33235e307a015fdbd8d875330ef0de49caa3e162a9fd0edea2194c3be,7525593380441616385
+4,13007,https://www.marianos.com/pl/hot-meals/13007,listing,1,1,1,completed,new,,11,11,11,0,11,0,0,0,52627db732587f8970e28c7bd09db84eb2a7789f56f9831bb52042ec8861d9e7,7525593401455072257
+4,13010,https://www.marianos.com/pl/party-platters/13010,listing,1,1,1,completed,new,,11,11,11,0,11,0,0,2,6252823ccc668804ea01898b5a8a7c778a4217c2cb6f30c73c3ad9846ba37e76,7525593426411168769
+5,14161,https://www.marianos.com/pl/angel-food-pound-pudding-cakes/14161,listing,1,1,1,completed,new,,8,8,8,0,8,0,0,0,1c446e5decc1a449e6486c0104dbae39237f8e851229af32058f3c56cc69bd1b,7525593458774385665
+5,14164,https://www.marianos.com/pl/cheesecakes/14164,listing,1,1,1,completed,new,,5,5,5,0,5,0,0,0,367dccaa2e549013225edfaf1f2a4f7822679e75d19d69309c63f178e4b46eff,7525593483864728577
+5,14180,https://www.marianos.com/pl/sweet-goods-snacks/14180,listing,1,1,1,completed,new,,12,12,12,0,12,0,0,0,5539cf2337a5729e60a85b6f2410101df33f73f43a6077da4a38a4c3e1d4a309,7525593504966293505
+5,14182,https://www.marianos.com/pl/dinner-bread-and-rolls/14182,listing,1,1,1,completed,new,,15,15,15,0,15,0,0,0,78b5a7784de80a022e1673ddf59046af1968b3f601cc68092ea4910e03bcfbc2,7525593543939761153
+5,14183,https://www.marianos.com/pl/breakfast-breads/14183,listing,1,1,1,completed,new,,7,7,7,0,7,0,0,0,115ebcd870218a639fea3edd791ff954095541e1fdda35f65a318c275c5fc648,7525593585446589441
+5,14184,https://www.marianos.com/pl/bread-by-lifestyle/14184,listing,1,1,1,completed,new,,10,10,10,0,10,0,0,0,0af66ba4081b786a3eb239c9b2355d29dc558f19d51bdf26fb4b42e9017c2d4c,7525593614852828162
+5,14185,https://www.marianos.com/pl/specialty-breads-and-rolls/14185,listing,1,1,1,completed,new,,18,18,18,0,18,0,0,2,260410f9412100ba0245d0dcb98c6aff9428de31e60b85b5b36b45094db93481,7525593644032641025
+5,14186,https://www.marianos.com/pl/specialty-butters-and-spreads/14186,listing,1,1,1,completed,new,,7,7,7,1,7,0,0,0,d9e44735ef4859a0f0df866db94caaa81afe2e6c9b818e49794ca79f5a877d60,7525593686936166401
+6,09125,https://www.marianos.com/pl/balloons/09125,listing,1,1,1,completed,new,,18,18,18,0,18,0,0,0,34b2cbaf4e91715c58c55f3f346580ad0c3c74112ee3e4aec04f44103c0f3653,7525594104441393153
+6,09126,https://www.marianos.com/pl/bouquets/09126,listing,1,1,1,completed,new,,13,13,13,0,13,0,0,0,86ce7f640f999685690ae401deff830f633bb9155fc42dc8637a0f7df744376b,7525593755844376577
+6,09128,https://www.marianos.com/pl/floralarrangements/09128,listing,1,1,1,refused,malformed,"the page state lists 5 products and the grid shows 0 cards; the provider ran the page's scripts (its answer states run_js true), and a rendered listing page carries no product tile: asked for again",5,5,5,0,0,0,0,0,4fced0ce2df1a72b0ffe91ab5d598ce75b87387077c371ce08722266d6f9dab5,7525593790778762241
+6,09128,https://www.marianos.com/pl/floralarrangements/09128,listing,1,1,2,completed,new,,5,5,5,2,5,0,0,0,10fe2b7786fdf396a0b434c7208c16fd28fb9a50af5cc080247623ec02ce28b4,7525594030768451585
+6,09130,https://www.marianos.com/pl/fresh-cut-roses/09130,listing,1,1,1,completed,new,,6,6,6,0,6,0,0,0,f45676f3b357e4529dc08953c3fdd4d51225a780d51e9c6b7908dac53a6d9295,7525593707911890945
+6,09132,https://www.marianos.com/pl/orchids/09132,listing,1,1,1,refused,malformed,"the page state lists 1 products and the grid shows 0 cards; the provider ran the page's scripts (its answer states run_js true), and a rendered listing page carries no product tile: asked for again",1,1,1,0,0,0,0,0,913417fc5ce50dfc37481bac6434221791498263f27d733e92b6fae4a3859001,7525593909070698497
+6,09132,https://www.marianos.com/pl/orchids/09132,listing,1,1,2,completed,new,,1,1,1,0,1,0,0,0,f451c1bbaf5b3ff9dfe9ba889f65c8e3006e1882290b4bfafe8d5c3a14844637,7525594077937546241
+6,09133,https://www.marianos.com/pl/potted-plants/09133,listing,1,1,1,completed,new,,15,15,15,0,15,0,0,0,bc28f1c7bf24e83d02a9451afbc294d09dcc91d74defb13f9529ce95bd536f36,7525594048741019649
+10,18008,https://www.marianos.com/pl/deli/18008,listing,1,1,1,completed,new,,16,16,16,2,16,0,0,0,81853f8147355d18b6eb776dcd7772d491b5fb672ff0f18f784acefcb271034f,7525594146585717761
+18,20003,https://www.marianos.com/pl/fragrance/20003,listing,1,1,1,completed,new,,16,16,16,0,16,0,0,0,2fffbf3f90981a3b437fb15ccd8c35b96124d91abf9b828aea46e01f5420d7e2,7525594173840310273
+20,26011,https://www.marianos.com/pl/Water-Filtration/26011,listing,1,1,1,completed,new,,5,5,5,0,5,0,0,0,6619d994c22663b1785857364deeb09cdb26145f902ac28a0d2548286ca36cca,7525594207185065985
+21,28015,https://www.marianos.com/pl/reusable-bags-totes/28015,listing,1,1,1,completed,new,,3,3,3,0,3,0,0,0,79088b49318a6582fccb1c5f41c7b5c0d9e111f08c92590b28470bba0a4d52e3,7525594268291881985
+21,28016,https://www.marianos.com/pl/kitchen-maintenance/28016,listing,1,1,1,completed,new,,6,6,6,0,6,2,0,0,39511d4e63d106aaf6889bb84f1e346ea525a80320a92262cefc99cd5ce31919,7525594229955935233
+21,40001,https://www.marianos.com/pl/tableware/40001,listing,1,1,1,completed,new,,34,34,24,0,24,0,0,3,9efe860879a9ea5b4cf63ab38f65d7f106b60a1cfafd886ced5cc66d3c0030d5,7525594287858257921
+21,40001,https://www.marianos.com/pl/tableware/40001?page=2,listing,2,2,1,stopped,repeated,page 2 repeats an earlier page exactly,34,34,24,0,0,24,0,0,9750e8797394f416d7fa1ff5b27a688920737abd094bcb3ae8c3ffb2c193bcfa,7525594334264054785
+21,40002,https://www.marianos.com/pl/cutlery-knife-accessories/40002,listing,1,1,1,completed,new,,11,11,11,0,11,0,0,0,304b8a34576919e3c04ccac5db5266979e9e5cd10d9d8346e6b4eea47eb33876,7525594393965815809
+21,40005,https://www.marianos.com/pl/flatware/40005,listing,1,1,1,completed,new,,1,1,1,0,1,0,0,0,d6e5d2f45aa3b143db7f0b4b75e34b546656597db50f39dbd1244a48bc727f29,7525594429755783169
+21,40006,https://www.marianos.com/pl/serveware/40006,listing,1,1,1,completed,new,,11,11,11,0,11,1,0,1,698419fcfc627d84b4790589507a591eeb2e9c117e8d33871cfc01b16ba90ef2,7525594355952823297

@@ -166,7 +166,14 @@ class Pipeline:
                 refused = await collector.begin()
                 if refused is not None:
                     return self._refuse_start(run_id, *refused)
-                worker = Worker(self.factory, run_id, owner, handlers, self.settings, self.storage)
+                lanes = int(
+                    getattr(
+                        getattr(getattr(collector, "cfg", None), "limits", None), "max_concurrent_listings", 1
+                    )
+                )
+                worker = Worker(
+                    self.factory, run_id, owner, handlers, self.settings, self.storage, lanes=lanes
+                )
                 result = await worker.run()
                 # A task waits for its retry time (backoff or a 429 pause): keep the store lock and wait,
                 # so an unattended run continues on its own instead of stopping half-way.

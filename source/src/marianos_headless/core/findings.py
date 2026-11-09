@@ -73,6 +73,36 @@ class RecordFlag(StrEnum):
     SIZE_CONFLICT_UNRESOLVED = "SIZE_CONFLICT_UNRESOLVED"
     # "1 lb" on a product sold by weight: the unit its price is stated in, not a pack size.
     SIZE_IS_UNIT_OF_PRICE = "SIZE_IS_UNIT_OF_PRICE"
+    # Release 1.9.0 (M3). The displayed price per measure is exported as displayed (never computed or
+    # corrected); these record a source-value anomaly in the supporting files. Its amount equals the item's
+    # displayed price while the product's own data states a pack quantity other than 1 ("$19.99/oz" on a
+    # $19.99 pack of 12 x 2.6 oz) ...
+    PPM_EQUALS_ITEM_PRICE = "PPM_EQUALS_ITEM_PRICE"
+    # ... or its unit is a measure while the product's own data states the pack as a count (or the reverse):
+    # "$7.99/oz" on a product whose data states 1 EACH.
+    PPM_UNIT_FAMILY_MISMATCH = "PPM_UNIT_FAMILY_MISMATCH"
+    # Release 1.9.0 (M4). The card shows a digital coupon whose complete terms were not read from the
+    # product's own page (not rendered by the provider, a failed or refused request, the read limit, the
+    # store check): the description is the card's headline only; the reason is in the supporting files.
+    DIGITAL_TERMS_UNREAD = "DIGITAL_TERMS_UNREAD"
+    # The product's rendered page and its card disagree about the coupon (the page shows none, or other
+    # coupons than the card): both are kept as observed, neither is chosen.
+    DIGITAL_TERMS_CONFLICT = "DIGITAL_TERMS_CONFLICT"
+    # Release 1.9.0rc3. The record comes from the tile served since 2026-11-06, which shows no coupon even for
+    # a product whose own page shows one (stages O1 and O2: the Purina ONE tiles and pages), and the product's
+    # own page was not read or not brought rendered: whether a digital coupon applies is unknown. The digital
+    # fields are empty for that reason, not because the product has no coupon.
+    DIGITAL_COUPONS_UNOBSERVED = "DIGITAL_COUPONS_UNOBSERVED"
+    # Release 1.9.0rc2. The tile served since 2026-11-06 shows no size: the weight is the product's own
+    # customer-facing size in the same page's product data (``item.customerFacingSize``; in run Q2 the
+    # displayed size equalled it for 1,157 of 1,157 comparable records), checked by the same size rules; its
+    # source is in the field provenance.
+    SIZE_FROM_PRODUCT_DATA = "SIZE_FROM_PRODUCT_DATA"
+    # The tile shows its price in a form not seen before (known: a plain price, "Sale: $X discounted from $Y",
+    # "about $X each"): no price is exported, the record is not valid, and the texts are kept.
+    PRICE_DISPLAY_UNRECOGNIZED = "PRICE_DISPLAY_UNRECOGNIZED"
+    # The tile's price-per-measure element shows text that is not a price per measure: not exported.
+    PPM_TEXT_UNRECOGNIZED = "PPM_TEXT_UNRECOGNIZED"
 
 
 class RunCode(StrEnum):

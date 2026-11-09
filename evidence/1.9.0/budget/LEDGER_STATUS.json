@@ -1,0 +1,182 @@
+{
+ "read_at": "2026-11-09T17:34:54.203504Z",
+ "verify_chain": "{\"chain_ok\": true, \"events\": 5560}",
+ "campaign": {
+  "campaign_id": "oxylabs-trial-20261103",
+  "cap_usd": "5.000000",
+  "headroom_usd": "0.500000",
+  "allocatable_usd": "4.500000",
+  "envelopes_total_usd": "4.500000",
+  "committed_usd": "2.656500",
+  "settled_usd": "2.622000",
+  "held_usd": "0.034500",
+  "unknown_usd": "0.034500",
+  "spendable_campaign_usd": "1.843500",
+  "reservations_by_state": {
+   "settled": 1766,
+   "unknown": 23
+  },
+  "projects": {
+   "marianos": {
+    "envelope_usd": "2.250000",
+    "rows": "276",
+    "held_usd": "0.010500",
+    "held_results": "7",
+    "unknown_usd": "0.010500",
+    "unknown_rows": "7",
+    "settled_usd": "0.399000",
+    "settled_results": "266",
+    "committed_usd": "0.409500",
+    "spendable_in_envelope_usd": "1.840500"
+   },
+   "walmart": {
+    "envelope_usd": "2.250000",
+    "rows": "1513",
+    "held_usd": "0.024000",
+    "held_results": "16",
+    "unknown_usd": "0.024000",
+    "unknown_rows": "16",
+    "settled_usd": "2.223000",
+    "settled_results": "1482",
+    "committed_usd": "2.247000",
+    "spendable_in_envelope_usd": "0.003000"
+   }
+  },
+  "active_lease": null,
+  "controller_sha256": "bf90e2a323a749863d97aa6c57bc558e0fd9cd82b0c3e2169fbd70952b8873f2",
+  "read_at": "2026-11-09T17:34:54.203504Z"
+ },
+ "marianos_stages": [
+  {
+   "stage_id": "M-O1-terms-offers-190-20261106",
+   "project": "marianos",
+   "opened_at": "2026-11-06T18:35:01.964042Z",
+   "max_usd": "0.030000",
+   "max_requests": 20,
+   "deadline_utc": "2026-11-06T21:34:55Z",
+   "closed_at": "2026-11-06T19:17:39.458129Z",
+   "outcome": "closed after all 16 answers were read; 16 of 20 requests, settled USD 0.021000 for 14 results (2 coupon-API requests faulted, settled 0); findings: the product page is the only source of complete coupon terms and its coupons load only when the provider renders the page (result metadata run_js true for 1 of 16 product pages, no wait option in the documented contract); coupon API faults; M6 reobserved (Nutrl Buy 1 Save $2 current MUST_BUY 2026-09-16..2027-01-05; Cutwater and Finnish state no offer; dip 2 tbsp displayed, 8 OUNCES product data; three Q2 sizes unchanged); 4 requests unused; evidence C:/m8/evidence/live190/o1"
+  },
+  {
+   "stage_id": "M-S1-canary-catfood-190-20261106",
+   "project": "marianos",
+   "opened_at": "2026-11-06T19:33:49.437324Z",
+   "max_usd": "0.037500",
+   "max_requests": 25,
+   "deadline_utc": "2026-11-06T20:23:40Z",
+   "closed_at": "2026-11-06T19:40:51.600806Z",
+   "outcome": "STOPPED ABNORMAL_RESULT (collector exit 6); no record accepted. Cat Food 27021 page 1 read 3 times: page state lists 24 of 232 products, the 1.9.0rc1 grid parser found 0 tiles. Attempt 1 (provider run_js true) had no product grid at all; attempts 2-3 (run_js false) carry 24 tiles in a new site markup (horizontal-product-card-N, CardTemplate-Horizontal; Q2 used mini-product-card-N) that rc1 does not parse. Store verified; Coupons page READ with 0 coupon tiles. 5 results settled (USD 0.0075), none unknown or held; terms path not reached. Needs a parser for the new tile (release 1.9.0rc2) before any further listing stage."
+  },
+  {
+   "stage_id": "M-O2-tile-discovery-190-20261106",
+   "project": "marianos",
+   "opened_at": "2026-11-06T19:45:38.047802Z",
+   "max_usd": "0.012000",
+   "max_requests": 8,
+   "deadline_utc": "2026-11-06T21:00:00Z",
+   "closed_at": "2026-11-06T19:51:12.503575Z",
+   "outcome": "closed after 7 of 8 requests (t4 not sent: t2 already showed a rendered listing page), all HTTP 200, one attempt each. Findings: (1) new site tiles: listing pages horizontal-product-card-N, search pages default-product-card-N, shared inner ids (product-description, product-price as citrus-Price current/original/screen-reader or citrus-RelativePrice 'about $X each', product-price-equivalized-unit-price, eyebrow-text, aisle-location, savings-zone with savings-zone-text and View N Offer, pla-compliance-tag Sponsored); no tile displays a size (page state customerFacingSize only); 'Prices May Vary' without a price for a temporarily out-of-stock product. (2) t2 was rendered by the provider although run_js was not requested (41.7 s) and carried no tiles while its state listed 24: a rendered listing page has no grid, unrendered pages carry all tiles. (3) Nutrl tiles 'Sale: $16.99 discounted from $18.98' while the state regular is USD 18.99. (4) Purina ONE tiles show no coupon (coupons 4257015/4257014 on the product page, O1). (5) Dog Food '4 For $9.00' regular shown as $2.25 only, as recorded in Q2. Evidence C:/m8/evidence/live190/o2"
+  },
+  {
+   "stage_id": "M-S1b-canary-catfood-190rc3-20261109",
+   "project": "marianos",
+   "opened_at": "2026-11-09T12:36:09.616025Z",
+   "max_usd": "0.037500",
+   "max_requests": 25,
+   "deadline_utc": "2026-11-09T13:21:09Z",
+   "closed_at": "2026-11-09T12:39:40.015735Z",
+   "outcome": "ENDED exit 0, run 01M704YFEYRM4ZD5WNW3S7WVH8 rejected (G3, G14): canary PASSED on the 2026-11-06 tile (24 cards, 23 valid, source check 23/23); Cat Food page 2 repeated page 1 exactly (unrendered), coverage 24 of 232; 13 submissions settled, 0 unknown"
+  },
+  {
+   "stage_id": "M-S4-rows22-27-190rc3-20261109",
+   "project": "marianos",
+   "opened_at": "2026-11-09T14:30:27.569140Z",
+   "max_usd": "0.195000",
+   "max_requests": 130,
+   "deadline_utc": "2026-11-09T17:00:27Z",
+   "closed_at": "2026-11-09T14:41:16.791280Z",
+   "outcome": "exit 0 in 433.6 s; run 01M70BG79WGW9EC5ZTW2M4V4XS (1.9.0rc3, 9090537) rejected: G3 FAIL (8 listings incomplete), G1-G2 and G4-G14 PASS; canary PASSED (Dog Food page 1: 27 cards, 27 valid, source check 27 of 27); store checks PASS on every check (preflight 1, task start 17, periodic 14, final 1: 53100502, PICKUP); Coupons page READ with 0 coupon cards. 43 submissions reserved, dispatched and settled (rule estimate USD 0.0645), 0 unknown, 0 unsent. 17 listings: 7 DONE (Dog Treats 150 of 150 over 7 pages, Hardware Home Improvement 65 of 65 over 3, Dog Toys 16, Dog Supplies 7, Cat Toys 6, Cat Supplies 4, Bird Supplies 3), 2 EMPTY (Fish Supplies, Small Animal Supplies: the page shows 0 results), 8 INCOMPLETE on a repeated page (Dog Food 168 of 222 at page 8; at page 2: Cat Food 24 of 232, Cat Treats 24 of 52, Cat Litter and Accessories 24 of 64, Candles 24 of 58, Batteries 24 of 96, Light Bulbs 24 of 100, School Office 24 of 115); 587 of the 1,190 products the listings state were read (0.493). Records: 552 fresh valid (552 verified against their page), 14 price_conflict, 5 eligible_unpriced, 3 exported_not_valid, 591 historical carried forward (earlier observations, not fresh); 1,165 in all. At least 500 fresh valid from one logical run of the delivered revision, with coverage incomplete: rejected, not publishable. The note in this stage objective (the repeat on every listing above 24 products; at least 500 not expected) is contradicted by this stage: the repeat is intermittent and clustered in time: 12 page-N answers distinct from 14:31:50Z to 14:33:28Z (Dog Treats pages 2-7, Dog Food pages 2-7), 8 repeated page 1 from 14:33:35Z to 14:36:51Z (Dog Food page 8, rendered; then the 7 page-2 answers above, unrendered), Hardware pages 2-3 distinct again at 14:37:57Z and 14:38:01Z. Two answers without tiles (Dog Food page 3, unrendered by its own statement; Dog Toys page 1, rendered) were asked again and read on the second answer."
+  },
+  {
+   "stage_id": "M-S5a-rows23-26-one-lane-190rc3-20261109",
+   "project": "marianos",
+   "opened_at": "2026-11-09T14:41:28.134561Z",
+   "max_usd": "0.045000",
+   "max_requests": 30,
+   "deadline_utc": "2026-11-09T15:41:27Z",
+   "closed_at": "2026-11-09T14:46:27.839772Z",
+   "outcome": "exit 0 in 248.3 s (segment active 240.7 s); run 01M70C404FTCMYSY621EKJ015X (1.9.0rc3, 9090537, one listing lane) rejected: G3 FAIL (Candles 56 of 57: 3 pages read, 56 distinct products of the 57 reported; School Office 74 of 113: its page 4, rendered, repeated page 1), G14 FAIL (306 valid records, below the 500 of a qualifying run), G1-G2 and G4-G13 PASS; canary PASSED (Candles page 1: 24 records, 13 valid, source check 13 of 13); store checks PASS on every check (preflight 1, task start 4, periodic 11, final 1: 53100502, PICKUP). 19 submissions reserved, dispatched and settled (rule estimate USD 0.0285), 0 unknown, 0 unsent. Batteries 96 of 96 over 4 pages; Light Bulbs 100 of 100 over 5 pages (its page 2 came back unrendered without a page number or result count and was asked again). 326 of the 366 products the four listings state were read (0.891). Records: 306 fresh valid, 17 price_conflict, 2 eligible_unpriced, 1 exported_not_valid, 865 historical carried forward (earlier observations, not fresh); 1,191 in all. Each of these four listings had repeated page 1 at page 2 in S4 (14:36Z); six minutes later (14:42-14:45Z) their pages 2 and 3 were distinct and the only repeat came at School Office page 4: the repeat is not a property of the listing."
+  },
+  {
+   "stage_id": "M-S5b-rows23-26-two-lanes-190rc3-20261109",
+   "project": "marianos",
+   "opened_at": "2026-11-09T14:46:28.669790Z",
+   "max_usd": "0.045000",
+   "max_requests": 30,
+   "deadline_utc": "2026-11-09T16:16:28Z",
+   "closed_at": "2026-11-09T14:55:47.633550Z",
+   "outcome": "run 01M70CD8PJQS3QDMWR5AXPS39P (1.9.0rc3, 9090537, two listing lanes), steps in s5b_steps.json: (1) run 14:46:42-14:47:32Z, Ctrl+Break: RUN_INTERRUPTED (TERMINATED), exit 75, resumable; 5 submissions, 3 settled, 2 in flight at the signal held as unknown when the lease was released. (2) resume 14:47:32Z: Candles pages 2-3 (56 of 57 again), Batteries page 1 rendered without tiles and asked again; (3) a second run started at 14:48:11Z while the resume ran: refused, exit 9 (the store has an unfinished run 01M70CD8PJQS3QDMWR5AXPS39P (running): resume or finalize it), no submission (0 gate refusals); (4) hard kill of the resume at 14:48:15Z (taskkill /F /T, exit 1) with 1 request in flight; (5) resume at 14:50:30Z after the lease expired: RUN_RECOVERED, the killed segment closed as abandoned with its bounds (ended between 14:48:11.85Z and 14:50:34.04Z, exact end unknown; 1 unsettled provider request kept as possibly billed), then Batteries 96 of 96 over 4 pages, Light Bulbs 24 of 100 and School Office 24 of 113 (page 2 repeated page 1 in both); exit 6, rejected: G3 FAIL (coverage), G13 FAIL (artifact_hashes_verified not confirmed), G14 FAIL (182 valid). Records: 182 fresh valid, 17 price_conflict, 1 exported_not_valid, 992 historical carried forward (1,192). 20 submissions: 17 settled (rule estimate), 3 unknown held at their worst case (USD 0.0045): 2 at the signal, 1 at the kill. The stage stop condition more than 2 outcomes unknown was exceeded by the planned interruptions themselves; the final resume ran as the objective planned. DEFECT FOUND (G13): 6 of the run 17 page rows have no stored page linked, no HTTP status and no duration, though all 14 page files are stored: with two lanes the session pages are written to the database by whichever lane saves first, including a page whose answer has not arrived, and such a row is never completed; the records then name a page without its stored capture and G13 rejects the run, as designed. One lane is unaffected (S4: 43 rows, S5a: 19 rows, none without its page). The two-lane mode of 1.9.0rc3 is not usable; corrected in 1.9.0rc4. Two-lane timing is not comparable with S5a (interrupted run, different pages repeated)."
+  },
+  {
+   "stage_id": "M-S3-milk-brand-union-190rc3-20261109",
+   "project": "marianos",
+   "opened_at": "2026-11-09T14:56:12.745087Z",
+   "max_usd": "0.120000",
+   "max_requests": 80,
+   "deadline_utc": "2026-11-09T16:56:12Z",
+   "closed_at": "2026-11-09T15:07:30.949107Z",
+   "outcome": "exit 0 in 80.5 s; run 01M70CYWNRZNS4NCZVDX2X13XK (1.9.0rc3, 9090537, one listing lane) rejected: G3 FAIL (Milk 77 of 246: pages 1-3 read, 77 distinct products; its page 4, unrendered, repeated an earlier page exactly and the listing ended incomplete), G14 FAIL (77 valid records, below the 500 of a qualifying run), G1-G2 and G4-G13 PASS; canary PASSED (Milk page 1: 24 records, 24 valid, source check 24 of 24); store verified on the first page (53100502, PICKUP). 6 submissions reserved, dispatched and settled (rule estimate USD 0.009): robots.txt, Milk pages 1-4 and the coupons page (rendered, 39.7 s); 0 unknown, 0 unsent. Records: 77 fresh valid, 1,192 historical carried forward (earlier observations, not fresh); 1,269 in all. The objective was not testable: Milk now states 246 products (251 in Q2's menu count), within the 250-result window, so the collector planned no brand reading; the M1 identities and the M2 binding were not exercised live. Measuring them needs a listing that states more than 250 (proposed as stage S3b on the next revision)."
+  },
+  {
+   "stage_id": "M-S5b2-rows23-26-two-lanes-190rc4-20261109",
+   "project": "marianos",
+   "opened_at": "2026-11-09T15:15:05.134170Z",
+   "max_usd": "0.045000",
+   "max_requests": 30,
+   "deadline_utc": "2026-11-09T16:45:04Z",
+   "closed_at": "2026-11-09T15:52:13.561912Z",
+   "outcome": "Steps (s5b2_steps.json), run 01M70E1GNA85H05HDM45F5XQRS (1.9.0rc4, 8abc2c1, two listing lanes): 1. run from 15:15:17Z; store verified (53100502, PICKUP); canary PASSED (Candles page 1: 24 records, 13 valid, source check 13 of 13); Ctrl+Break at 15:15:57Z: exit 75, run interrupted (TERMINATED), segment 01M70E1GT1A4BB1FECH6YGP93Z ended with its end; the two requests in flight (Candles page 2, Batteries page 1) held as unknown. 2. resume at 15:16:00Z: those two pages asked again (their first requests stay held as unknown); Candles page 2 repeated an earlier page exactly (Candles incomplete, 24 of 57). 3. a second start at 15:16:15Z through a gate refusing every submission: exit 9 in 1.1 s (the store has an unfinished run), no reservation. 4. hard kill of the resume (taskkill /F /T) at 15:16:16Z: the two requests in flight (Light Bulbs page 1, Batteries page 2) became unknown by the ledger's lease recovery; segment 01M70E2TKJBZW0XB6F5QB4G4D3 abandoned, its end kept as bounds (15:16:13.600Z to 15:18:34.087Z). 5. resume after the lease expired, 15:18:34Z: run recovered, 2 task leases reclaimed from their checkpoints, the two unanswered pages asked again, then to the end: exit 0 at 15:19:11Z, run rejected: G3 FAIL (Batteries 29 of 96 and Light Bulbs 24 of 100: page 2 repeated an earlier page exactly; School Office 51 of 113: page 3 repeated; Candles 24 of 57), G14 FAIL (115 valid records, below 500), G13 PASS, G1-G2 and G4-G12 PASS. Every page row of the run (9 listing, 3 robots.txt, 1 coupons) has its stored page, status and duration (S5b on 1.9.0rc3: 6 of 13 listing-page rows without them, G13 FAIL): the 1.9.0rc4 correction held live with two lanes, a signal and a kill. No completed page was asked again; each of the 4 pages asked twice was unanswered the first time. 17 submissions: 13 settled (rule estimate USD 0.0195), 4 unknown held at worst case (USD 0.0060), 0 unsent; the stage's bound of 4 unknown was not exceeded. Records: 115 fresh valid, 12 price_conflict, 1 exported_not_valid, 1,141 historical carried forward (earlier observations, not fresh); 1,269 in all. Status and export run after it (S5b2_6_status.log, S5b2_7_export.log: 13 files, verified). Active collection 83.8 s in three segments (39.4 + 12.7 + 31.7 s). The repeat came back on all four listings at 15:16-15:19Z (in S5a, at 14:42-14:45Z, only School Office page 4 repeated)."
+  },
+  {
+   "stage_id": "M-S4b-rows22-27-190rc4-20261109",
+   "project": "marianos",
+   "opened_at": "2026-11-09T15:52:24.886193Z",
+   "max_usd": "0.105000",
+   "max_requests": 70,
+   "deadline_utc": "2026-11-09T17:52:24Z",
+   "closed_at": "2026-11-09T15:59:38.223538Z",
+   "outcome": "exit 0 in 370.2 s; run 01M70G5ZEPFG1GVT2H5QWPVQKJ (1.9.0rc4, 8abc2c1, one listing lane) rejected: G3 FAIL, G14 FAIL (243 valid records, below the 500 of a qualifying run), G1-G2 and G4-G13 PASS; store verified (53100502, PICKUP); canary PASSED (Dog Food page 1: 24 records, 24 valid, source check 24 of 24). 17 listings: 5 DONE (Dog Toys 16, Dog Supplies 7, Cat Toys 6, Bird Supplies 3, Cat Supplies 4), 2 EMPTY (Fish Supplies, Small Animal Supplies: the page shows 0 results), 10 INCOMPLETE because every page 2 asked (10 of 10, 15:54:14Z to 15:58:44Z) repeated an earlier page exactly: Dog Food 24 of 222, Dog Treats 24 of 150, Cat Food 24 of 232, Cat Treats 24 of 52, Cat Litter & Accessories 24 of 64, Candles 24 of 57, Batteries 24 of 96, Light Bulbs 24 of 100, School Office 24 of 113, Hardware 24 of 65 (in S4 on 1.9.0rc3, 14:31-14:38Z, Dog Treats 150 of 150 and Hardware 65 of 65 were complete). Two page-1 answers came back rendered without tiles (Cat Supplies, Candles) and were asked again and read. The Coupons page answered HTTP 500 once (settled at 0, documented free), then was read rendered: 24 coupon cards. 32 submissions: 31 settled (rule estimate USD 0.0465), 1 settled free, 0 unknown, 0 unsent. Records: 243 fresh valid, 12 price_conflict, 5 eligible_unpriced, 3 exported_not_valid, 1,006 historical carried forward (earlier observations, not fresh); 1,269 in all. The final revision's at-least-500 fresh qualification is not reached by this run: with every page 2 repeating, these rows' first pages hold about 260 products. The repeat of page 2 is not caused by the revision (1.9.0rc4 changes only the two-lane save; S4 read these listings' later pages on 1.9.0rc3 at 14:31-14:33Z and then met the same repeat from 14:33:35Z)."
+  },
+  {
+   "stage_id": "M-S4c-rows1-21-small-listings-190rc4-20261109",
+   "project": "marianos",
+   "opened_at": "2026-11-09T15:59:49.248859Z",
+   "max_usd": "0.096000",
+   "max_requests": 64,
+   "deadline_utc": "2026-11-09T17:29:48Z",
+   "closed_at": "2026-11-09T16:11:25.978121Z",
+   "outcome": "exit 0 in 606.4 s (segment active 597.7 s); run 01M70GKE2KJF0D6CKSY04VD8YK (1.9.0rc4, 8abc2c1, one listing lane) rejected: G3 FAIL (coverage: 25 listings incomplete), G1-G2 and G4-G14 PASS, including G13 (integrity) and G14 (at least 500 valid); canary PASSED (Fresh Herbs page 1: 24 records, 22 valid, source check 22 of 22); store checks PASS on every check (preflight 1, task start 31, final 1: 53100502, PICKUP). 59 submissions reserved, dispatched and settled (rule estimate USD 0.0885): robots.txt, the Coupons page (rendered: 24 coupon cards), 31 page-1 answers plus one asked again (Dessert & Vermouth Wine page 1 came back rendered without tiles), 25 page-2 answers; 0 unknown, 0 unsent. 31 listings of rows 1, 2, 4, 5, 8, 10, 14, 15, 19, 20, 21: 6 DONE in one page (Packaged Deli Cheeses 21, Brownies 17, International candy 21, Hard Teas & Lemonades 20, Glassware & Drinkware 23, Wine & Bar Essentials 21), 25 INCOMPLETE because every page 2 asked (25 of 25, 16:02:16Z to 16:09:45Z) repeated page 1 exactly; 723 of the 1,078 products the 31 listings state were read (0.671). Records: 700 fresh valid (700 distinct UPCs, all 700 verified against their page, mode LIVE), 5 price_conflict, 9 eligible_unpriced, 5 excluded (approximate-weight turkeys, APPROX_WEIGHT), 1,269 historical carried forward (earlier observations, not fresh); 1,988 in all. The final revision's fresh qualification of at least 500 distinct valid products from one identified logical run is met by this run (700); the run is rejected for coverage and is not publishable, and it is not production coverage: each row was narrowed to the listed listings, and 25 of the 31 listings stopped at page 1."
+  },
+  {
+   "stage_id": "M-S3b-natural-frozen-brand-union-190rc4-20261109",
+   "project": "marianos",
+   "opened_at": "2026-11-09T16:12:02.381935Z",
+   "max_usd": "0.129000",
+   "max_requests": 86,
+   "deadline_utc": "2026-11-09T18:12:01Z",
+   "closed_at": "2026-11-09T16:18:48.770339Z",
+   "outcome": "exit 0 in 118.8 s (segment active 110.5 s); run 01M70H9RB4Q736926MP3W5117A (1.9.0rc4, 8abc2c1, one listing lane) rejected: G3 FAIL (Natural & Organic > Frozen 24 of 273), G14 FAIL (23 valid records), G1-G2 and G4-G13 PASS; canary PASSED (Frozen page 1: 24 records, 23 valid, source check 23 of 23); store checks PASS on every check (preflight 1, task start 1, final 1: 53100502, PICKUP). 4 submissions reserved, dispatched and settled (rule estimate USD 0.006): robots.txt, Frozen page 1 (unrendered, 4.5 s), the Coupons page (rendered, 88.7 s: 24 coupon cards), Frozen page 2 (unrendered, 9.8 s); 0 unknown, 0 unsent. The listing states 273 products with 250 reachable (above the window), but its page state names no brand filter and no child listing: productsInfo holds only waysToShop, totalCount, availableCount, searchId and promotions, and the site's settings in the same state say areLazyFacetsEnabled true (the filters load in a later request made by the page's scripts). On Q2's pages of 2026-11-02 the same state held the filters (productsInfo.availability, brands, departments). 1.9 builds its brand readings and child readings only from those filters, so it planned none, read the pages, and page 2 (its own search id, loadedPages [2], products ranked 25 to 48) listed exactly page 1's 24 products: the listing ended incomplete (24 of 273). Records: 23 fresh valid, 1 price_conflict, 1,983 historical carried forward (earlier observations, not fresh); 2,007 in all. The objective (an above-window union by brand on the final revision, the M1 identities and the M2 binding live) is not reachable on the current site with 1.9: the brand list is no longer in the page the collector reads, and later pages repeat. Not retried: a second run would meet the same page state. 82 submissions of the approval are left unused by this stage."
+  },
+  {
+   "stage_id": "M-S4d-rows1-21-single-page-listings-190rc4-20261109",
+   "project": "marianos",
+   "opened_at": "2026-11-09T16:20:20.270701Z",
+   "max_usd": "0.096000",
+   "max_requests": 64,
+   "deadline_utc": "2026-11-09T17:20:19Z",
+   "closed_at": "2026-11-09T16:26:37.740519Z",
+   "outcome": "exit 0 in 311.8 s (segment active 302.8 s); run 01M70HRZQX1KXHZQVNMS1KDCPK (1.9.0rc4, 8abc2c1, one listing lane) rejected: G3 FAIL (Dinnerware 24 of 34), G14 FAIL (294 valid records, below the 500 of a qualifying run), G1-G2 and G4-G13 PASS; canary PASSED (Party Trays page 1: 8 records, 8 valid, source check 8 of 8); store checks PASS on every check (preflight 1, task start 30, final 1: 53100502, PICKUP). 35 submissions reserved, dispatched and settled (rule estimate USD 0.0525): robots.txt, the Coupons page (rendered: 24 coupon cards), 30 page-1 answers plus two asked again (Floral Arrangements and Orchids page 1 came back rendered without tiles), and Dinnerware page 2; 0 unknown, 0 unsent. 30 listings of rows 1, 2, 4, 5, 6, 10, 18, 20, 21: 29 DONE, each in one page (285 products: Party Trays 8, Lamb Veal & Bison 11, Specialty Meat 7, Enhancements 14, Fresh Deli Cheeses 14, Chicken & Hot Meals 11, Party Platters 11, Angel Food Pound & Pudding Cakes 8, Cheesecakes 5, Sweet Goods & Snacks 12, Dinner Bread & Rolls 15, Breakfast Breads 7, Bread by Lifestyle 10, Specialty Breads & Rolls 18, Specialty Butters & Spreads 7, Fresh Cut Roses 6, Bouquets 13, Floral Arrangements 5, Plants 15, Orchids 1, Balloons 18, Natural & Organic Deli 16, Beauty Shop All 16, Water Filtration 5, Kitchen Maintenance 6, Reusable Bags & Totes 3, Serveware 11, Cutlery & Knives 11, Flatware 1); 1 INCOMPLETE: Dinnerware states 34 products (2 in the census of 2026-11-02) and its page 2 repeated page 1 exactly; 309 of the 319 products the 30 listings state were read. Records: 294 fresh valid (294 distinct UPCs, all verified against their page), 8 price_conflict, 3 eligible_unpriced, 1 exported_not_valid, 2,001 historical carried forward (earlier observations, not fresh); 2,307 in all. 29 listings of rows 1-21 completed on the final revision, from the exact queue; not a coverage claim for their rows (each row narrowed to the listed listings)."
+  }
+ ],
+ "marianos_rows": 276
+}

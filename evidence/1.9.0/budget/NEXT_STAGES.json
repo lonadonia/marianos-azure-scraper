@@ -1,0 +1,42 @@
+{
+ "about": "The smallest next live stages for Mariano's at Vernon Hills 53100502 PICKUP, proposed on 2026-11-09 after the stages of 2026-11-09. Not run: they wait for change C1 (technical report 1.9.0 §15: a form-B answer where form A is needed is asked again later in the run, a bounded number of times) to be implemented and verified offline as a new candidate, and for Hamza's approval of their ceilings. Each would be opened as a stage of the shared trial ledger (campaign oxylabs-trial-20261103, project marianos) and every submission reserved at its worst case before it is sent. Within the authorized trial credit only: no client account, no top-up.",
+ "revision": {
+  "collector": "the candidate after 1.9.0rc4 that implements C1 (not yet written; it gets its own review, tests and tag)",
+  "base": {"collector": "1.9.0rc4", "development_commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548", "tree": "7a4dfa05e526bddefdfeab9777b9616890e129ea"}
+ },
+ "rate": "USD 0.0015 per result, Oxylabs' published list price for 'Custom domain, JS' (pricing page read 2026-11-03), used as the worst case; not a confirmed account rate",
+ "common": {
+  "store": "marianos-53100502-pickup",
+  "database": "marianos_q190 (the stage database of 2026-11-06 and 2026-11-09, a copy of Q2's database; Q2's own database is never written)",
+  "config": "the shipped configuration (listing_run_js false, one listing lane, product-terms reads off), with C1 on",
+  "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff; a rendered listing answer without tiles asked again; with C1, a page N that repeats page 1 and the page 1 of an above-window listing that carries no filters are set aside and asked again after the run's other listings, at least 5 minutes after the answer, at most 2 more times; every attempt reserved at its worst case",
+  "stop_conditions": ["the stage's submission ceiling", "store or fulfillment not verified on a page", "ABNORMAL_RESULT", "PROVIDER_ERROR", "a ledger refusal", "more than 2 outcomes unknown", "the stage deadline"]
+ },
+ "stages": [
+  {
+   "stage": "S6",
+   "command": "run --store marianos-53100502-pickup --categories 22,23,24,25,26,27 --max-credits 130",
+   "objective": "whether C1 recovers form-A answers: rows 22-27 (17 listings, 1,190 products stated in S4) in one logical run; how many repeated pages a re-ask turns into distinct pages, how long after, and at what cost",
+   "max_submissions": 130, "worst_case_usd": "0.1950", "deadline_minutes": 150
+  },
+  {
+   "stage": "S6b",
+   "command": "run --store marianos-53100502-pickup --categories 10 --subcategory 10:18010 --max-credits 86",
+   "objective": "the above-window union on the C1 candidate: 18010 Natural & Organic > Frozen (273 products, 250 reachable) by brand, with the M1 identities and the M2 binding, if C1 obtains a form-A page 1; the union against the listing's total",
+   "max_submissions": 86, "worst_case_usd": "0.1290", "deadline_minutes": 120
+  },
+  {
+   "stage": "S7",
+   "command": "run --store marianos-53100502-pickup --categories <rows> --subcategory <row>:<taxonomy id> ... --max-credits 200, one run per slice of INCOMPLETE_QUEUE_190.csv: its incomplete listings first, then the not-collected below-window listings of rows 1-21 in CSV order",
+   "objective": "progressive coverage of rows 0-21 from the exact queue, each run's completed listings recorded in the queue; continued only while S6 shows form-A answers recovered",
+   "max_submissions_per_run": 200, "worst_case_usd_per_run": "0.3000", "deadline_minutes_per_run": 240
+  }
+ ],
+ "total": {
+  "S6_and_S6b": {"max_submissions": 216, "worst_case_usd": "0.3240"},
+  "S7": "at most what Hamza approves of Mariano's envelope",
+  "marianos_spendable_in_envelope_usd": "1.840500 (ledger read at 2026-11-09 17:34:54Z)"
+ },
+ "earlier_proposal": "the stages proposed on 2026-11-07 (S1b, S3, S4, S5: at most 295 submissions, USD 0.4425) were approved by Hamza on 2026-11-09 and run, with continuations within their objectives, as S1b; S3 and S3b; S4, S4b, S4c and S4d; S5a, S5b and S5b2 (248 submissions; technical report 1.9.0 §11). The 47 submissions left of that approval are not carried over to these stages",
+ "after": "the full scope with brand partitions (scenario B: 3,928-6,277 submissions a run, USD 5.89-9.41 at the list rate) does not fit the trial credit and is continued only with the client's account and authorization"
+}

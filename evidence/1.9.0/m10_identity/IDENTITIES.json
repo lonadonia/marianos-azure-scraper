@@ -1,0 +1,28 @@
+{
+ "computed_by": "git rev-parse / ls-tree at build time",
+ "collector": {
+  "release": "1.9.0rc4",
+  "development_commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+  "tree_headless/marianos-azure-headless": "7a4dfa05e526bddefdfeab9777b9616890e129ea"
+ },
+ "shared_classic_probe_1.7.3": {
+  "development_commit": "95f96a02329bd3a92c9c8b07dd53e53ae89fe553",
+  "tree_headless/oxylabs-classic-probe": "912801d038092bc84906f6e0c5507388980fb9d8",
+  "blob_marianos.py": "9de6510bddbb0cae7fd86e09dac5ed32fc3487a4"
+ },
+ "frozen_classic_probe_1.6.0": {
+  "publication_revision": "1f568b8d367ee90e0f4a87879a44873ae649e906",
+  "tree_classic-probe": "33c2d786fa793e2e588746f219eb9118cc789c38",
+  "blob_marianos.py": "9de6510bddbb0cae7fd86e09dac5ed32fc3487a4"
+ },
+ "vendored_in_probe_vs_collector_1.9.0rc4": {
+  "initial_state.py": [
+   "44ee75d54f31a92d4ff8900f36eb0819583005bb",
+   "44ee75d54f31a92d4ff8900f36eb0819583005bb"
+  ],
+  "sanitize.py (origin blob recorded in VENDORED.json; the copy rewrites its import line)": [
+   "6530c7afd59b2cdfc54294b4cf1810f35e30aa8f",
+   "6530c7afd59b2cdfc54294b4cf1810f35e30aa8f"
+  ]
+ }
+}

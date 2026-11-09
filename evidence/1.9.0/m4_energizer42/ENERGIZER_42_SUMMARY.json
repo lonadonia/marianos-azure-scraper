@@ -1,0 +1,33 @@
+{
+ "q1c_run": [
+  "01M6E49AHDXSQA04JQZ0HZ40GH",
+  "1.8.0rc3"
+ ],
+ "q2_run": [
+  "01M6E5V6CASQ8F00VC8PE9TFYW",
+  "1.8.0rc4"
+ ],
+ "description": "Coupon: Save $1.00 on Energizer",
+ "q1c_records_with_it": 42,
+ "verdicts": {
+  "Q2_CARD_SHOWS_NO_SAVINGS_ZONE": 42
+ },
+ "q1c_cards_found": {
+  "card": 42
+ },
+ "q1c_zone_texts": {
+  "Coupon: Save $1.00 on Energizer": 42
+ },
+ "q2_zone_texts": {
+  "": 42
+ },
+ "q1c_fetch_times": [
+  "2026-11-02T12:41:45.287362Z",
+  "2026-11-02T12:45:00.495230Z"
+ ],
+ "q2_fetch_times": [
+  "2026-11-02T13:34:16.522925Z",
+  "2026-11-02T13:34:25.483237Z",
+  "2026-11-02T13:37:03.317792Z"
+ ]
+}

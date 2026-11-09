@@ -16,6 +16,7 @@ from __future__ import annotations
 import gzip
 import hashlib
 import json
+import re
 from typing import Any
 from urllib.parse import quote_plus
 
@@ -42,11 +43,28 @@ from marianos_headless.core.ids import new_id
 from marianos_headless.core.settings import AcquisitionSettings, StoreConfig
 from marianos_headless.core.timeutil import iso, utcnow
 from marianos_headless.sites.marianos.initial_state import InitialStateNotFound, parse_initial_state
+from marianos_headless.sites.marianos.pdp_savings import savings_document
 from marianos_headless.sites.marianos.sanitize import sanitize_html
 from marianos_headless.sites.marianos.search_state import state_products
+from marianos_headless.sites.marianos.source_json import PDP_SAVINGS
 from marianos_headless.storage.base import StorageAdapter
 
 STATE_ARTIFACT_KIND = "products_v2"
+# Release 1.9.0 (M4): the purpose of a product's own page read for its coupons' complete terms, and the kind
+# of the capture artifact holding that page's Savings section.
+PRODUCT_TERMS = "product_terms"
+SAVINGS_ARTIFACT_KIND = PDP_SAVINGS
+_PDP_UPC = re.compile(r"/p/[^?#]*/(\d{13})(?:[?#]|$)")
+
+
+def rendered_by_provider(result_metadata: Any) -> bool | None:
+    """The provider's own statement that it ran the page's scripts (``results[0].metadata.run_js``): a page
+    requested with ``run_js`` can come back without it (stage O1, 2026-11-06: 13 of 14 product pages). None
+    when the answer does not say."""
+    value = result_metadata.get("run_js") if isinstance(result_metadata, dict) else None
+    return value if isinstance(value, bool) else None
+
+
 STATE_SUFFIX = "#page-state:calypso.domains.products"
 
 
@@ -104,6 +122,7 @@ class OxylabsPageSession:
         self.max_credits: float | None = None
         self.closed_at: str | None = None
         self.last_html = ""
+        self.pending_fetches: set[str] = set()
 
     async def __aenter__(self) -> OxylabsPageSession:
         self.event(
@@ -154,12 +173,23 @@ class OxylabsPageSession:
     def _new_fetch(self, purpose: str, url: str) -> PageFetch:
         f = PageFetch(fetch_id=new_id(), purpose=purpose, url=url, started_at=iso(utcnow()))
         self.fetches.append(f)
+        # Release 1.9.0rc4: until its answer is processed the fetch is pending, and the collector does not
+        # write it to the database. With two listing lanes the other lane saves the session's fetches while
+        # this request is out (stage S5b, 2026-11-09: such rows were written without their page, status or
+        # duration and never completed, and G13 rejected the run).
+        self.pending_fetches.add(f.fetch_id)
         return f
 
     async def load_robots(self, url: str) -> RobotsPolicy:
         """robots.txt through the provider (the retailer's edge drops direct connections from this
         collector's host: probe of 2026-10-28)."""
         fetch = self._new_fetch("robots", url)
+        try:
+            return await self._load_robots(fetch, url)
+        finally:
+            self.pending_fetches.discard(fetch.fetch_id)
+
+    async def _load_robots(self, fetch: PageFetch, url: str) -> RobotsPolicy:
         self.pacer.count += 1
         body = robots_body(self.settings.oxylabs, url=url)
         answer = await self.client.fetch(
@@ -216,12 +246,37 @@ class OxylabsPageSession:
         expect_initial_state: bool = True,
         query: str | None = None,
         run_js: bool = False,
+        attempts: int | None = None,
     ) -> PageFetch:
         """One page: a search for ``query`` (``url`` is then the retailer's address of that search page),
         else the page at ``url``. Raises :class:`ChallengeDetected` on a refusal page and
         :class:`OxylabsError` when the provider brought no page."""
         self.check_allowed(url)
         fetch = self._new_fetch(purpose, url)
+        try:
+            return await self._navigate(
+                fetch,
+                url,
+                purpose,
+                expect_initial_state=expect_initial_state,
+                query=query,
+                run_js=run_js,
+                attempts=attempts,
+            )
+        finally:
+            self.pending_fetches.discard(fetch.fetch_id)
+
+    async def _navigate(
+        self,
+        fetch: PageFetch,
+        url: str,
+        purpose: str,
+        *,
+        expect_initial_state: bool,
+        query: str | None,
+        run_js: bool,
+        attempts: int | None,
+    ) -> PageFetch:
         self.pacer.count += 1
         ox = self.settings.oxylabs
         if query is not None:
@@ -232,7 +287,7 @@ class OxylabsPageSession:
             body = page_body(
                 ox, url=url, store_id=self.store.location_id, fulfillment=self.fulfillment, run_js=run_js
             )
-        answer = await self.client.fetch(endpoint, body, purpose=purpose, target=url)
+        answer = await self.client.fetch(endpoint, body, purpose=purpose, target=url, attempts=attempts)
         fetch.notes["provider"] = answer_record(answer)
         fetch.duration_ms = int(answer.seconds * 1000)
         fetch.final_url = url
@@ -260,10 +315,18 @@ class OxylabsPageSession:
         )
         sanitized, _ = sanitize_html(html)
         dom_key = f"{self.prefix}/dom/{fetch.fetch_id}.html.gz"
-        self.storage.put_bytes(dom_key, gzip_bytes(sanitized.encode("utf-8")), "application/gzip")
+        dom_gz = gzip_bytes(sanitized.encode("utf-8"))
+        self.storage.put_bytes(dom_key, dom_gz, "application/gzip")
         fetch.dom_key = dom_key
         self.last_html = sanitized
-        self._state_products(fetch, html)
+        rendered = rendered_by_provider(answer.meta.get("result_metadata"))
+        fetch.notes["rendered"] = rendered
+        if purpose == PRODUCT_TERMS:
+            # Only the page's Savings section is kept as a source (the product's data comes from the listing
+            # page that showed the card); it is read from the stored page, so it can be checked again.
+            self._savings(fetch, sanitized, dom_gz, rendered=rendered, requested_run_js=run_js)
+        else:
+            self._state_products(fetch, html)
         self.event(
             "WARN" if fetch.challenge.is_challenge else "INFO",
             "CHALLENGE_DETECTED" if fetch.challenge.is_challenge else "PAGE_CAPTURED",
@@ -275,11 +338,52 @@ class OxylabsPageSession:
                 "captured": len(fetch.captured),
                 "reasons": list(fetch.challenge.reasons),
                 "request_id": answer.meta.get("request_id"),
+                # Release 1.9.0: whether the provider ran the page's scripts, as it states it (None: unsaid).
+                "run_js_requested": bool(run_js) if query is None else None,
+                "rendered": rendered,
             },
         )
         if fetch.challenge.is_challenge:
             raise _refusal(fetch, None)
         return fetch
+
+    def _savings(
+        self, fetch: PageFetch, html: str, dom_gz: bytes, *, rendered: bool | None, requested_run_js: bool
+    ) -> None:
+        m = _PDP_UPC.search(fetch.url)
+        doc = savings_document(
+            html, upc=m.group(1) if m else "", rendered=rendered, requested_run_js=requested_run_js
+        )
+        doc["data"]["dom_key"] = fetch.dom_key
+        doc["data"]["dom_gz_sha256"] = hashlib.sha256(dom_gz).hexdigest()
+        body = json.dumps(doc, ensure_ascii=False, sort_keys=True).encode("utf-8")
+        seq = len(self.captured) + 1
+        key = f"{self.prefix}/raw/{fetch.fetch_id}.{seq:04d}.{SAVINGS_ARTIFACT_KIND}.json.gz"
+        self.storage.put_bytes(key, gzip_bytes(body), "application/gzip")
+        rec = CapturedResponse(
+            seq=seq,
+            fetch_id=fetch.fetch_id,
+            kind=SAVINGS_ARTIFACT_KIND,
+            url=fetch.url + "#savings",
+            method="PAGE",
+            status=200,
+            request_location_id=None,
+            request_taxonomies=[],
+            request_headers={},
+            response_headers={},
+            body_sha256=hashlib.sha256(body).hexdigest(),
+            body_bytes=len(body),
+            artifact_key=key,
+            observed_at=fetch.started_at,
+            json_ok=True,
+            extra={
+                "source": "product page Savings section",
+                "rows": len(doc["data"]["rows"]),
+                "rendered": rendered,
+            },
+        )
+        fetch.captured.append(rec)
+        self.captured.append(rec)
 
     def _state_products(self, fetch: PageFetch, html: str) -> None:
         try:

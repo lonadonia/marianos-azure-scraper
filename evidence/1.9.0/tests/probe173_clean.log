@@ -1,0 +1,11 @@
+........................................................................ [ 31%]
+........................................................................ [ 63%]
+.............................s.....................ss................... [ 95%]
+.........ss                                                              [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_review_of_171.py:420: Windows has no FIFO in its file system (a named pipe lives under the pipe namespace, never at a file's path), so nothing at the evidence path can hold an open; the same bound is tested on Windows by the stale, left-behind and wall-clock tests below
+SKIPPED [1] tests\test_supervisor_evidence.py:44: Windows has no FIFO in its file system (see test_review_of_171.py); the refusal of a directory and of an oversized file above runs on Windows
+SKIPPED [1] tests\test_supervisor_evidence.py:58: making a symbolic link on Windows needs a privilege a normal account lacks; Windows links are refused by the same lstat test
+SKIPPED [1] tests\test_vendored.py:55: the collector beside this probe is walmart-azure-headless 1.6.6; the copies were taken from walmart-azure-headless 1.5.2 (each copy is checked against its recorded git object above)
+SKIPPED [1] tests\test_vendored.py:55: the collector beside this probe is marianos-azure-headless 1.2.1; the copies were taken from marianos-azure-headless 1.8.0rc3 (each copy is checked against its recorded git object above)
+222 passed, 5 skipped in 138.28s (0:02:18)

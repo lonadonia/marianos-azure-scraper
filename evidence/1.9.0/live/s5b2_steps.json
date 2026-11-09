@@ -1,0 +1,97 @@
+{
+ "stage": "M-S5b2-rows23-26-two-lanes-190rc4-20261109",
+ "steps": [
+  {
+   "step": "1_run",
+   "utc_start": "2026-11-09T15:15:15+00:00",
+   "pid": 4944,
+   "args": [
+    "run",
+    "M-S5b2-rows23-26-two-lanes-190rc4-20261109",
+    "--",
+    "run",
+    "--store",
+    "marianos-53100502-pickup",
+    "--categories",
+    "23,24,25,26",
+    "--max-credits",
+    "30"
+   ],
+   "ledger_before": {},
+   "progress": "reached",
+   "signal_utc": "2026-11-09T15:15:57+00:00",
+   "utc_end": "2026-11-09T15:15:58+00:00",
+   "ended_by": "Ctrl+Break (termination signal)",
+   "end": "exited",
+   "exit_code": 75,
+   "ledger_after": {
+    "settled": 3,
+    "unknown": 2
+   }
+  },
+  {
+   "step": "2_resume",
+   "utc_start": "2026-11-09T15:15:58+00:00",
+   "pid": 23772,
+   "args": [
+    "run",
+    "M-S5b2-rows23-26-two-lanes-190rc4-20261109",
+    "--",
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "ledger_before": {
+    "settled": 3,
+    "unknown": 2
+   },
+   "progress": "reached",
+   "utc_end": "2026-11-09T15:16:16+00:00",
+   "ended_by": "hard kill (taskkill /F /T)",
+   "exit_code": 1,
+   "ledger_at_kill": {
+    "settled": 6,
+    "unknown": 2,
+    "dispatched": 2
+   },
+   "taskkill": "SUCCESS: The process with PID 5588 (child process of PID 23772) has been terminated.\nSUCCESS: The process with PID 23772 (child process of PID 13932) has been terminated."
+  },
+  {
+   "step": "3_refused_start",
+   "utc_start": "2026-11-09T15:16:13+00:00",
+   "utc_end": "2026-11-09T15:16:16+00:00",
+   "exit_code": 9,
+   "resume_still_running": true,
+   "ledger_after": {
+    "settled": 6,
+    "unknown": 2,
+    "dispatched": 2
+   }
+  },
+  {
+   "step": "5_resume",
+   "utc_start": "2026-11-09T15:18:31+00:00",
+   "pid": 23568,
+   "args": [
+    "run",
+    "M-S5b2-rows23-26-two-lanes-190rc4-20261109",
+    "--",
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "ledger_before": {
+    "settled": 6,
+    "unknown": 2,
+    "dispatched": 2
+   },
+   "utc_end": "2026-11-09T15:19:12+00:00",
+   "ended_by": "exited",
+   "exit_code": 0,
+   "ledger_after": {
+    "settled": 13,
+    "unknown": 4
+   }
+  }
+ ]
+}

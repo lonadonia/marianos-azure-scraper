@@ -146,12 +146,19 @@ def test_a_coupon_gets_its_view_offer_terms_and_its_final_price(
     assert "_offer_details_4251508" in b.provenance and b.source_check["result"] == "PASS"
 
 
-def test_without_the_coupon_response_the_card_text_alone_is_kept_clean(
+def test_without_the_coupon_response_the_card_text_alone_is_kept_clean_and_unpriced(
     cards: dict[str, CardObservation], build: Any
 ) -> None:
+    # Release 1.9.0 (M4): the headline's price is exported only with the coupon's complete terms (until 1.8.0
+    # "4.99" was exported from the card's headline alone).
     b = build(cards[GRAPES], sources(coupons=False)).built
     assert b.record["digital_deals_description"] == "Coupon: $4.99 Kroger Seedless Grapes"
-    assert b.record["digital_deals_price"] == "4.99"
+    assert b.record["digital_deals_price"] == ""
+    assert RecordFlag.DIGITAL_TERMS_UNREAD in b.flags
+    assert "complete terms were not read" in b.missing["digital_deals_price"]
+    with_terms = build(cards[GRAPES]).built
+    assert with_terms.record["digital_deals_price"] == "4.99"
+    assert RecordFlag.DIGITAL_TERMS_UNREAD not in with_terms.flags
 
 
 def test_a_discount_coupon_or_cash_back_never_sets_a_price(

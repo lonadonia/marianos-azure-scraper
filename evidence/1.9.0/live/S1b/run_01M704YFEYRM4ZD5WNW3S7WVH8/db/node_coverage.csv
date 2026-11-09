@@ -1,0 +1,2 @@
+id,run_id,category_source_id,taxonomy_id,total_count,organic_upcs,coverage_ratio,status,partition
+01M70538VCCP93DFNCPZRKSP63,01M704YFEYRM4ZD5WNW3S7WVH8,01M6E2X1FG621SNE0DT61BPJDC,27021,232,24,0.10344827586206896,INCOMPLETE,"{""available"": 232, ""parent"": null, ""partitions"": [], ""read"": {""pages_read"": 1, ""route"": ""listing""}, ""reason"": ""accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly"", ""steps"": 1, ""url"": ""https://www.marianos.com/pl/cat-food/27021""}"

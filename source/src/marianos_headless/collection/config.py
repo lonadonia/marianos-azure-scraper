@@ -40,6 +40,15 @@ class Limits(_Model):
     # Bounded (pilot) runs: page steps read per listing (the first load and each "Load More"). A listing
     # stopped by it is incomplete and the run is a pilot.
     max_pages_per_listing: int | None = Field(None, ge=1)
+    # Release 1.9.0 (M8): listing tasks one worker reads at once, each with at most one provider request in
+    # flight (so at most this many requests are in flight). 1 = one listing at a time (the default and the
+    # behaviour of every earlier release). Preflight, assembly and validation always run alone.
+    max_concurrent_listings: int = Field(1, ge=1, le=4)
+    # Release 1.9.0 (M4): product pages read for coupon terms in one run (``coverage.read_product_terms``);
+    # empty: one for each product whose card shows a digital coupon; 0: none. Not a scope limit: a product
+    # whose terms were not read is still recorded, flagged DIGITAL_TERMS_UNREAD with the reason.
+    # Release 1.9.0rc3: on the tile served since 2026-11-06 (no coupon shown) every product is a candidate.
+    max_product_term_reads: int | None = Field(None, ge=0)
 
     def bounded(self) -> bool:
         """True when a limit narrows the scope (the run is then a pilot, never a complete catalogue)."""

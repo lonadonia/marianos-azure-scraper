@@ -1,0 +1,2 @@
+id,run_id,category_source_id,taxonomy_id,total_count,organic_upcs,coverage_ratio,status,partition
+01M70D0GKM3ZDX6TFDMBQ7HWXS,01M70CYWNRZNS4NCZVDX2X13XK,01M6E2X1FG621SNE0DT61BPJCY,02001,246,77,0.3130081300813008,INCOMPLETE,"{""available"": 246, ""parent"": null, ""partitions"": [], ""read"": {""pages_read"": 3, ""route"": ""listing""}, ""reason"": ""accessible pages exhausted; coverage incomplete: page 4: page 4 repeats an earlier page exactly"", ""steps"": 3, ""url"": ""https://www.marianos.com/pl/milk-plant-based-%20milk/02001?pzn=relevance""}"

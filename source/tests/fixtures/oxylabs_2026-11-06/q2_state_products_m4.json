@@ -1,0 +1,2651 @@
+{
+ "data": {
+  "products": [
+   {
+    "inventory": {
+     "locations": [
+      {
+       "locationId": "53100502",
+       "available": 2,
+       "stockLevel": "LOW"
+      }
+     ],
+     "effective": {
+      "total": 0,
+      "available": 0
+     }
+    },
+    "item": {
+     "alcoholFlag": false,
+     "assortments": [
+      {
+       "assortmentKey": "f914db25-4beb-41ce-b30d-9bc58253783a",
+       "modalityEnabled": true,
+       "modalityType": "PICKUP"
+      }
+     ],
+     "bounceFlag": false,
+     "brand": {
+      "name": "Purina ONE",
+      "code": "21537"
+     },
+     "categories": [
+      {
+       "code": "34",
+       "name": "Pet Care"
+      }
+     ],
+     "clickListItem": true,
+     "countriesOfOrigin": "UNITED STATES",
+     "customerFacingSize": "31.1 lb.",
+     "description": "Natural Dog Food, Chicken and Rice Formula Dry Dog food for Digestive and Gut Health Support",
+     "dimensions": {
+      "height": "25.0 [in_i]",
+      "width": "21.0 [in_i]",
+      "length": "6.0 [in_i]"
+     },
+     "familyCode": [
+      "145"
+     ],
+     "familyTree": {
+      "commodity": {
+       "code": "091",
+       "name": "DRY DOG FOOD"
+      },
+      "department": {
+       "code": "52",
+       "name": "PET"
+      },
+      "subCommodity": {
+       "code": "07193",
+       "name": "DRY DOG FOOD SUPER PREM"
+      }
+     },
+     "glutenFreeClaimName": "NO",
+     "gtin14": "00017800149396",
+     "hazmatFlag": false,
+     "heatSensitive": false,
+     "homeDeliveryItem": false,
+     "images": [
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/xlarge/right/0001780014939",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/large/right/0001780014939",
+       "size": "large"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/medium/right/0001780014939",
+       "size": "medium"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/small/right/0001780014939",
+       "size": "small"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/thumbnail/right/0001780014939",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/xlarge/back/0001780014939",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/large/back/0001780014939",
+       "size": "large"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/medium/back/0001780014939",
+       "size": "medium"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/small/back/0001780014939",
+       "size": "small"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/thumbnail/back/0001780014939",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/xlarge/front/0001780014939",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/large/front/0001780014939",
+       "size": "large"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/medium/front/0001780014939",
+       "size": "medium"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/small/front/0001780014939",
+       "size": "small"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/thumbnail/front/0001780014939",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/xlarge/bottom/0001780014939",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/large/bottom/0001780014939",
+       "size": "large"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/medium/bottom/0001780014939",
+       "size": "medium"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/small/bottom/0001780014939",
+       "size": "small"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/thumbnail/bottom/0001780014939",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/xlarge/top/0001780014939",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/large/top/0001780014939",
+       "size": "large"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/medium/top/0001780014939",
+       "size": "medium"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/small/top/0001780014939",
+       "size": "small"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/thumbnail/top/0001780014939",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/xlarge/left/0001780014939",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/large/left/0001780014939",
+       "size": "large"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/medium/left/0001780014939",
+       "size": "medium"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/small/left/0001780014939",
+       "size": "small"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/thumbnail/left/0001780014939",
+       "size": "thumbnail"
+      }
+     ],
+     "itemTypeCode": "0",
+     "krogerDeliveryItem": false,
+     "liveNaturallyEligible": false,
+     "mainImagePerspective": "front",
+     "nonGmo": false,
+     "nutritionalClaims": [
+      "No Artificial Ingredients"
+     ],
+     "omniChannelBrandName": "Purina ONE",
+     "organicClaimName": "NO",
+     "pidSizeQuantity": 31.1,
+     "pidSizeUnitOfMeasureName": "POUNDS",
+     "privacyRestricted": false,
+     "privacyRestrictedStates": [],
+     "prop65": {
+      "required": false
+     },
+     "prop65Info": {
+      "required": false
+     },
+     "ratingsAndReviewsAggregate": {
+      "averageRating": 4.8,
+      "numOfFiveStarRating": 2645,
+      "numOfFourStarRating": 278,
+      "numOfOneStarRating": 42,
+      "numOfThreeStarRating": 53,
+      "numOfTwoStarRating": 22,
+      "numberOfReviews": 3040
+     },
+     "receiptDescription": "PRNA1 DOG FOOD",
+     "romanceDescription": "<p>Purina ONE Chicken and Rice Formula Dry Dog Food features a delicious blend of tender bites and crunchy kibble with added vitamins and minerals for a dog food for healthy energy levels that supports a healthy gut and more.</p><ul><li>Chicken and Rice Recipe Dog Food: Purina ONE Natural Dry Dog Food is a high protein dog food with real meat as the first ingredient that supports strong muscles including a healthy heart.</li><li>Digestive Microbiome Support for Dogs: Gut and immune health dog food features Microbiome Balance and prebiotic fiber to support gut and immune health.</li><li>Dry Dog Food with Tender Morsels: Dog food for digestion and immune support with tender morsels and crunchy kibble combines delicious taste and texture dogs love.</li><li>Natural Dog Food: Nutrient dense dog food delivers glucosamine to support healthy joints, and Omega-6 fatty acids and vitamins A and E to support healthy skin, coat, and eye health.</li><li>28 Day Challenge: Take the 28 Day Challenge with Purina ONE dog food for muscle support and more to see a shiny coat, healthy skin, and healthy energy.</li></ul>",
+     "salesChannelCode": "STORE",
+     "salesChannelName": "Store",
+     "seoDescription": "natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support",
+     "shareLink": "https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014939",
+     "shipsWithColdPack": false,
+     "snapEligible": false,
+     "soldInStore": false,
+     "tareValue": 0,
+     "taxGroupCode": "PP051195",
+     "taxonomies": [
+      {
+       "commodity": {
+        "code": "017",
+        "name": "Dog Food"
+       },
+       "department": {
+        "code": "27",
+        "name": "Pet"
+       },
+       "subCommodity": {
+        "code": "00002",
+        "name": "Dry Dog Food"
+       }
+      }
+     ],
+     "temperatureIndicator": "55688103654",
+     "temperatureIndicatorName": "Ambient",
+     "upc": "0001780014939",
+     "verified": true,
+     "weight": "31.1 [lb_av]"
+    },
+    "location": {
+     "locations": [
+      {
+       "aisle": {
+        "description": "AISLE 17",
+        "number": "17",
+        "side": "L"
+       },
+       "bayInAisle": "5",
+       "numOfFacings": "1",
+       "physicalShelfNumber": "1",
+       "shelfPositionInBay": "1"
+      }
+     ]
+    },
+    "price": {
+     "displayTemplate": "WhiteTag",
+     "orderBy": "Unit",
+     "sellBy": "Unit",
+     "storePrices": {
+      "regular": {
+       "defaultDescription": "$54.99",
+       "expirationDate": {
+        "value": "9999-12-31T00:00:00Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 54.99",
+       "unitPrice": "USD 54.99",
+       "price": "USD 54.99",
+       "equivalizedUnitPrice": {
+        "amount": "1.77",
+        "denomination": "DOLLAR",
+        "unit": "PER POUND"
+       },
+       "equivalizedUnitPriceString": "$1.77/lb"
+      },
+      "sourceLocationId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    },
+    "id": "0001780014939",
+    "sourceLocations": [
+     {
+      "id": "53100502",
+      "itemLocations": [
+       {
+        "aisleDescription": "AISLE 17",
+        "aisleNumber": "17",
+        "aisleSide": "L",
+        "areaId": "017",
+        "areaTypeCode": "AL",
+        "areaTypeDescription": "Aisle",
+        "bayNumber": "004",
+        "bayNumberInAisle": "5",
+        "dataSource": "JDA_TRUE_FLOOR_PLAN",
+        "departmentCode": "HH",
+        "departmentDescription": "Household",
+        "fixtureNumber": "1",
+        "itemDepth": "4.50000",
+        "itemHeight": "24.00",
+        "itemWidth": "20.00",
+        "numberOfDepthFacings": "1",
+        "numberOfFacings": "1",
+        "numberOfVerticalFacings": "2",
+        "orientationCode": "L",
+        "orientationDescription": "Left",
+        "pogName": "D531_L00000_D03_C091_V154_F020_MX",
+        "position": "1",
+        "shelfNumber": "1",
+        "shelfPositionInBay": "1",
+        "subAreaId": "XXX",
+        "subAreaTypeCode": "XX",
+        "subAreaTypeDescription": "XX"
+       }
+      ],
+      "modalityAvailabilities": [
+       {
+        "availability": true,
+        "modalityType": "DELIVERY"
+       },
+       {
+        "availability": true,
+        "modalityType": "IN_STORE"
+       },
+       {
+        "availability": true,
+        "modalityType": "PICKUP"
+       },
+       {
+        "availability": false,
+        "modalityType": "SHIP"
+       }
+      ],
+      "prices": [
+       {
+        "displayTemplate": "WhiteTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2026-09-28T08:16:13.072Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "9999-12-31T00:00:00Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$54.99",
+         "equivalizedUnitPrice": {
+          "amount": "1.77",
+          "denomination": "DOLLAR",
+          "unit": "PER POUND"
+         },
+         "nFor": {
+          "count": 1,
+          "price": "USD 54.99"
+         },
+         "price": "USD 54.99"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "womenInfantChildFlg": "N"
+       }
+      ],
+      "restrictions": {
+       "shippable": false
+      },
+      "inventory": [
+       {
+        "availableToSell": 2,
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "stockLevel": "LOW",
+        "included": {
+         "projections": []
+        }
+       }
+      ],
+      "laf": [
+       {
+        "modality": {
+         "type": "PICKUP",
+         "handoffLocation": {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         },
+         "handoffAddress": {
+          "address": {
+           "addressLines": [
+            "1720 N Milwaukee Ave"
+           ],
+           "cityTown": "Vernon Hills",
+           "name": "Marianos Vernon Hills",
+           "postalCode": "60061",
+           "stateProvince": "IL",
+           "residential": false,
+           "countryCode": "US"
+          },
+          "location": {
+           "lat": 42.2568706,
+           "lng": -87.9508553
+          }
+         }
+        },
+        "sources": [
+         {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         }
+        ],
+        "assortmentKeys": [
+         "f914db25-4beb-41ce-b30d-9bc58253783a"
+        ],
+        "listingKeys": [
+         "53100502"
+        ]
+       }
+      ],
+      "sourceId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    ],
+    "itemsV1": {
+     "product": {
+      "familyTree": {
+       "commodity": {
+        "code": "091",
+        "name": "DRY DOG FOOD"
+       },
+       "primaryDepartment": {
+        "code": "03",
+        "name": "DRUG/GM",
+        "recapDepartment": {
+         "code": "03",
+         "department": {
+          "code": "52",
+          "name": "PET"
+         },
+         "name": "HBC"
+        }
+       },
+       "subCommodity": {
+        "code": "07193",
+        "name": "DRY DOG FOOD SUPER PREM"
+       }
+      },
+      "id": "1000036203",
+      "variantGroupId": "1578351404802506"
+     }
+    },
+    "postalCodes": [
+     {
+      "postalCode": "60061",
+      "prices": [
+       {
+        "displayTemplate": "WhiteTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2025-09-08T00:00:00Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "9999-12-31T00:00:00Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$51.99",
+         "nFor": {
+          "count": 1,
+          "price": "USD 51.99"
+         },
+         "price": "USD 51.99"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "KROGER"
+       }
+      ]
+     }
+    ],
+    "laf": [
+     {
+      "assortmentKeys": [
+       "f914db25-4beb-41ce-b30d-9bc58253783a"
+      ],
+      "listingKeys": [
+       "53100502"
+      ],
+      "modality": {
+       "handoffAddress": {
+        "address": {
+         "addressLines": [
+          "1720 N Milwaukee Ave"
+         ],
+         "cityTown": "Vernon Hills",
+         "countryCode": "US",
+         "postalCode": "60061",
+         "stateProvince": "IL"
+        }
+       },
+       "handoffLocation": {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       },
+       "type": "PICKUP"
+      },
+      "priceAvailabilities": [
+       {
+        "id": "53100502",
+        "lookup": "LISTING_KEY",
+        "storeId": "53100502"
+       }
+      ],
+      "sources": [
+       {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       }
+      ]
+     }
+    ],
+    "inventorySummaries": [
+     {
+      "modalityType": "PICKUP",
+      "details": [
+       {
+        "sourceId": "53100502",
+        "availableToSell": 2,
+        "stockLevel": "LOW"
+       }
+      ],
+      "availableToSell": 2,
+      "stockLevel": "LOW"
+     }
+    ],
+    "fulfillmentOptions": [
+     "PICKUP"
+    ],
+    "fulfillmentSummaries": [
+     {
+      "type": "PICKUP",
+      "regular": {
+       "price": "USD 54.99",
+       "displayTemplate": "WhiteTag",
+       "pricePerUnitString": "31.1 lb.",
+       "equivalizedUnitPrice": {
+        "amount": "1.77",
+        "denomination": "DOLLAR",
+        "unit": "PER POUND"
+       },
+       "equivalizedUnitPriceString": "$1.77/lb"
+      },
+      "availability": {
+       "sellable": true,
+       "inventoryLevel": "LOW"
+      },
+      "maxOrderQuantity": 2
+     },
+     {
+      "type": "DELIVERY",
+      "regular": {
+       "price": "USD 54.99",
+       "displayTemplate": "WhiteTag",
+       "pricePerUnitString": "31.1 lb.",
+       "equivalizedUnitPrice": {
+        "amount": "1.77",
+        "denomination": "DOLLAR",
+        "unit": "PER POUND"
+       },
+       "equivalizedUnitPriceString": "$1.77/lb"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      }
+     },
+     {
+      "type": "IN_STORE",
+      "regular": {
+       "price": "USD 54.99",
+       "displayTemplate": "WhiteTag",
+       "pricePerUnitString": "31.1 lb.",
+       "equivalizedUnitPrice": {
+        "amount": "1.77",
+        "denomination": "DOLLAR",
+        "unit": "PER POUND"
+       },
+       "equivalizedUnitPriceString": "$1.77/lb"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      }
+     }
+    ]
+   },
+   {
+    "inventory": {
+     "locations": [
+      {
+       "locationId": "53100502",
+       "available": 2,
+       "stockLevel": "LOW"
+      }
+     ],
+     "effective": {
+      "total": 0,
+      "available": 0
+     }
+    },
+    "item": {
+     "alcoholFlag": false,
+     "assortments": [
+      {
+       "assortmentKey": "f914db25-4beb-41ce-b30d-9bc58253783a",
+       "modalityEnabled": true,
+       "modalityType": "PICKUP"
+      }
+     ],
+     "bounceFlag": false,
+     "brand": {
+      "name": "Purina ONE",
+      "code": "21537"
+     },
+     "categories": [
+      {
+       "code": "34",
+       "name": "Pet Care"
+      }
+     ],
+     "clickListItem": true,
+     "countriesOfOrigin": "UNITED STATES",
+     "customerFacingSize": "31.1 lb.",
+     "description": "ONE Natural Dog Food, Lamb and Rice Formula Dry Dog food for Digestive and Gut Health Support",
+     "dimensions": {
+      "height": "5.85 [in_i]",
+      "width": "20.95 [in_i]",
+      "length": "28.25 [in_i]"
+     },
+     "familyCode": [
+      "145",
+      "347"
+     ],
+     "familyTree": {
+      "commodity": {
+       "code": "091",
+       "name": "DRY DOG FOOD"
+      },
+      "department": {
+       "code": "52",
+       "name": "PET"
+      },
+      "subCommodity": {
+       "code": "07193",
+       "name": "DRY DOG FOOD SUPER PREM"
+      }
+     },
+     "glutenFreeClaimName": "NO",
+     "gtin14": "00017800149419",
+     "hazmatFlag": false,
+     "heatSensitive": false,
+     "homeDeliveryItem": false,
+     "images": [
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/xlarge/back/0001780014941",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/large/back/0001780014941",
+       "size": "large"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/medium/back/0001780014941",
+       "size": "medium"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/small/back/0001780014941",
+       "size": "small"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/thumbnail/back/0001780014941",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/xlarge/front/0001780014941",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/large/front/0001780014941",
+       "size": "large"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/medium/front/0001780014941",
+       "size": "medium"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/small/front/0001780014941",
+       "size": "small"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/thumbnail/front/0001780014941",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/xlarge/right/0001780014941",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/large/right/0001780014941",
+       "size": "large"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/medium/right/0001780014941",
+       "size": "medium"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/small/right/0001780014941",
+       "size": "small"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/thumbnail/right/0001780014941",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/xlarge/bottom/0001780014941",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/large/bottom/0001780014941",
+       "size": "large"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/medium/bottom/0001780014941",
+       "size": "medium"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/small/bottom/0001780014941",
+       "size": "small"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/thumbnail/bottom/0001780014941",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/xlarge/left/0001780014941",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/large/left/0001780014941",
+       "size": "large"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/medium/left/0001780014941",
+       "size": "medium"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/small/left/0001780014941",
+       "size": "small"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/thumbnail/left/0001780014941",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/xlarge/top/0001780014941",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/large/top/0001780014941",
+       "size": "large"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/medium/top/0001780014941",
+       "size": "medium"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/small/top/0001780014941",
+       "size": "small"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/thumbnail/top/0001780014941",
+       "size": "thumbnail"
+      }
+     ],
+     "itemTypeCode": "0",
+     "krogerDeliveryItem": false,
+     "liveNaturallyEligible": false,
+     "mainImagePerspective": "front",
+     "nonGmo": false,
+     "nutritionalClaims": [
+      "No Artificial Ingredients"
+     ],
+     "omniChannelBrandName": "Purina ONE",
+     "organicClaimName": "NO",
+     "pidSizeQuantity": 31.1,
+     "pidSizeUnitOfMeasureName": "POUNDS",
+     "privacyRestricted": false,
+     "privacyRestrictedStates": [],
+     "prop65": {
+      "required": false
+     },
+     "prop65Info": {
+      "required": false
+     },
+     "ratingsAndReviewsAggregate": {
+      "averageRating": 4.8,
+      "numOfFiveStarRating": 2357,
+      "numOfFourStarRating": 236,
+      "numOfOneStarRating": 33,
+      "numOfThreeStarRating": 53,
+      "numOfTwoStarRating": 23,
+      "numberOfReviews": 2702
+     },
+     "receiptDescription": "PRNA1 DOG FOOD",
+     "romanceDescription": "<p>Purina ONE Lamb and Rice Formula Dry Dog Food features a delicious blend of tender bites and crunchy kibble with added vitamins and minerals for a dog food for healthy energy levels, that supports a healthy gut and more.</p><ul><li>Lamb and Rice Recipe Dog Food: Purina ONE Natural Dry Dog Food is a high protein dog food with real meat as the first ingredient that supports strong muscles, including a healthy heart.</li><li>Digestive Microbiome Support for Dogs: Gut and immune health dog food features Microbiome Balance and prebiotic fiber to support gut and immune health.</li><li>Dry Dog Food with Tender Morsels: Dog food for digestion and immune support with tender morsels and crunchy kibble combines delicious taste and texture dogs love.</li><li>Natural Dog Food: Nutrient dense dog food delivers glucosamine to support healthy joints, and Omega-6 fatty acids and vitamins A and E to support healthy skin, coat, and eye health.</li><li>28 Day Challenge: Take the 28 Day Challenge with Purina ONE dog food for muscle support and more to see a shiny coat, healthy skin, and healthy energy.</li></ul>",
+     "salesChannelCode": "MP; STORE",
+     "salesChannelName": "Marketplace; Store",
+     "seoDescription": "one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support",
+     "shareLink": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941",
+     "shipsWithColdPack": false,
+     "snapEligible": false,
+     "soldInStore": false,
+     "tareValue": 0,
+     "taxGroupCode": "PP051195",
+     "taxonomies": [
+      {
+       "commodity": {
+        "code": "017",
+        "name": "Dog Food"
+       },
+       "department": {
+        "code": "27",
+        "name": "Pet"
+       },
+       "subCommodity": {
+        "code": "00002",
+        "name": "Dry Dog Food"
+       }
+      }
+     ],
+     "temperatureIndicator": "55688103654",
+     "temperatureIndicatorName": "Ambient",
+     "upc": "0001780014941",
+     "verified": true,
+     "weight": "31.1 [lb_av]"
+    },
+    "location": {
+     "locations": [
+      {
+       "aisle": {
+        "description": "AISLE 17",
+        "number": "17",
+        "side": "L"
+       },
+       "bayInAisle": "5",
+       "numOfFacings": "1",
+       "physicalShelfNumber": "1",
+       "shelfPositionInBay": "2"
+      }
+     ]
+    },
+    "price": {
+     "displayTemplate": "WhiteTag",
+     "orderBy": "Unit",
+     "sellBy": "Unit",
+     "storePrices": {
+      "regular": {
+       "defaultDescription": "$54.99",
+       "expirationDate": {
+        "value": "9999-12-31T00:00:00Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 54.99",
+       "unitPrice": "USD 54.99",
+       "price": "USD 54.99",
+       "equivalizedUnitPrice": {
+        "amount": "1.77",
+        "denomination": "DOLLAR",
+        "unit": "PER POUND"
+       },
+       "equivalizedUnitPriceString": "$1.77/lb"
+      },
+      "sourceLocationId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    },
+    "id": "0001780014941",
+    "sourceLocations": [
+     {
+      "id": "53100502",
+      "itemLocations": [
+       {
+        "aisleDescription": "AISLE 17",
+        "aisleNumber": "17",
+        "aisleSide": "L",
+        "areaId": "017",
+        "areaTypeCode": "AL",
+        "areaTypeDescription": "Aisle",
+        "bayNumber": "004",
+        "bayNumberInAisle": "5",
+        "dataSource": "JDA_TRUE_FLOOR_PLAN",
+        "departmentCode": "HH",
+        "departmentDescription": "Household",
+        "fixtureNumber": "1",
+        "itemDepth": "4.50000",
+        "itemHeight": "24.00",
+        "itemWidth": "20.00",
+        "numberOfDepthFacings": "1",
+        "numberOfFacings": "1",
+        "numberOfVerticalFacings": "2",
+        "orientationCode": "L",
+        "orientationDescription": "Left",
+        "pogName": "D531_L00000_D03_C091_V154_F020_MX",
+        "position": "2",
+        "shelfNumber": "1",
+        "shelfPositionInBay": "2",
+        "subAreaId": "XXX",
+        "subAreaTypeCode": "XX",
+        "subAreaTypeDescription": "XX"
+       }
+      ],
+      "modalityAvailabilities": [
+       {
+        "availability": true,
+        "modalityType": "DELIVERY"
+       },
+       {
+        "availability": true,
+        "modalityType": "IN_STORE"
+       },
+       {
+        "availability": true,
+        "modalityType": "PICKUP"
+       },
+       {
+        "availability": false,
+        "modalityType": "SHIP"
+       }
+      ],
+      "prices": [
+       {
+        "displayTemplate": "WhiteTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2026-09-28T08:16:11.777Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "9999-12-31T00:00:00Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$54.99",
+         "equivalizedUnitPrice": {
+          "amount": "1.77",
+          "denomination": "DOLLAR",
+          "unit": "PER POUND"
+         },
+         "nFor": {
+          "count": 1,
+          "price": "USD 54.99"
+         },
+         "price": "USD 54.99"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "womenInfantChildFlg": "N"
+       }
+      ],
+      "restrictions": {
+       "shippable": false
+      },
+      "inventory": [
+       {
+        "availableToSell": 2,
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "stockLevel": "LOW",
+        "included": {
+         "projections": []
+        }
+       }
+      ],
+      "laf": [
+       {
+        "modality": {
+         "type": "PICKUP",
+         "handoffLocation": {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         },
+         "handoffAddress": {
+          "address": {
+           "addressLines": [
+            "1720 N Milwaukee Ave"
+           ],
+           "cityTown": "Vernon Hills",
+           "name": "Marianos Vernon Hills",
+           "postalCode": "60061",
+           "stateProvince": "IL",
+           "residential": false,
+           "countryCode": "US"
+          },
+          "location": {
+           "lat": 42.2568706,
+           "lng": -87.9508553
+          }
+         }
+        },
+        "sources": [
+         {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         }
+        ],
+        "assortmentKeys": [
+         "f914db25-4beb-41ce-b30d-9bc58253783a"
+        ],
+        "listingKeys": [
+         "53100502"
+        ]
+       }
+      ],
+      "sourceId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    ],
+    "itemsV1": {
+     "product": {
+      "familyTree": {
+       "commodity": {
+        "code": "091",
+        "name": "DRY DOG FOOD"
+       },
+       "primaryDepartment": {
+        "code": "03",
+        "name": "DRUG/GM",
+        "recapDepartment": {
+         "code": "03",
+         "department": {
+          "code": "52",
+          "name": "PET"
+         },
+         "name": "HBC"
+        }
+       },
+       "subCommodity": {
+        "code": "07193",
+        "name": "DRY DOG FOOD SUPER PREM"
+       }
+      },
+      "id": "1000036206",
+      "variantGroupId": "1578351404802506"
+     }
+    },
+    "postalCodes": [
+     {
+      "postalCode": "60061",
+      "prices": [
+       {
+        "displayTemplate": "WhiteTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2025-09-08T00:00:00Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "9999-12-31T00:00:00Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$51.99",
+         "nFor": {
+          "count": 1,
+          "price": "USD 51.99"
+         },
+         "price": "USD 51.99"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "KROGER"
+       }
+      ]
+     }
+    ],
+    "laf": [
+     {
+      "assortmentKeys": [
+       "f914db25-4beb-41ce-b30d-9bc58253783a"
+      ],
+      "listingKeys": [
+       "53100502"
+      ],
+      "modality": {
+       "handoffAddress": {
+        "address": {
+         "addressLines": [
+          "1720 N Milwaukee Ave"
+         ],
+         "cityTown": "Vernon Hills",
+         "countryCode": "US",
+         "postalCode": "60061",
+         "stateProvince": "IL"
+        }
+       },
+       "handoffLocation": {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       },
+       "type": "PICKUP"
+      },
+      "priceAvailabilities": [
+       {
+        "id": "53100502",
+        "lookup": "LISTING_KEY",
+        "storeId": "53100502"
+       }
+      ],
+      "sources": [
+       {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       }
+      ]
+     }
+    ],
+    "inventorySummaries": [
+     {
+      "modalityType": "PICKUP",
+      "details": [
+       {
+        "sourceId": "53100502",
+        "availableToSell": 2,
+        "stockLevel": "LOW"
+       }
+      ],
+      "availableToSell": 2,
+      "stockLevel": "LOW"
+     }
+    ],
+    "fulfillmentOptions": [
+     "PICKUP"
+    ],
+    "fulfillmentSummaries": [
+     {
+      "type": "PICKUP",
+      "regular": {
+       "price": "USD 54.99",
+       "displayTemplate": "WhiteTag",
+       "pricePerUnitString": "31.1 lb.",
+       "equivalizedUnitPrice": {
+        "amount": "1.77",
+        "denomination": "DOLLAR",
+        "unit": "PER POUND"
+       },
+       "equivalizedUnitPriceString": "$1.77/lb"
+      },
+      "availability": {
+       "sellable": true,
+       "inventoryLevel": "LOW"
+      },
+      "maxOrderQuantity": 2
+     },
+     {
+      "type": "DELIVERY",
+      "regular": {
+       "price": "USD 54.99",
+       "displayTemplate": "WhiteTag",
+       "pricePerUnitString": "31.1 lb.",
+       "equivalizedUnitPrice": {
+        "amount": "1.77",
+        "denomination": "DOLLAR",
+        "unit": "PER POUND"
+       },
+       "equivalizedUnitPriceString": "$1.77/lb"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      }
+     },
+     {
+      "type": "IN_STORE",
+      "regular": {
+       "price": "USD 54.99",
+       "displayTemplate": "WhiteTag",
+       "pricePerUnitString": "31.1 lb.",
+       "equivalizedUnitPrice": {
+        "amount": "1.77",
+        "denomination": "DOLLAR",
+        "unit": "PER POUND"
+       },
+       "equivalizedUnitPriceString": "$1.77/lb"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      }
+     }
+    ]
+   },
+   {
+    "inventory": {
+     "locations": [
+      {
+       "locationId": "53100502",
+       "available": 8,
+       "stockLevel": "HIGH"
+      }
+     ],
+     "effective": {
+      "total": 0,
+      "available": 0
+     }
+    },
+    "item": {
+     "alcoholFlag": false,
+     "assortments": [
+      {
+       "assortmentKey": "f914db25-4beb-41ce-b30d-9bc58253783a",
+       "modalityEnabled": true,
+       "modalityType": "PICKUP"
+      }
+     ],
+     "bounceFlag": false,
+     "brand": {
+      "name": "Temptations",
+      "code": "6144"
+     },
+     "categories": [
+      {
+       "code": "34",
+       "name": "Pet Care"
+      }
+     ],
+     "clickListItem": true,
+     "countriesOfOrigin": "UNITED STATES",
+     "customerFacingSize": "16 oz",
+     "description": "Temptations Birthday Adult Crunchy and Soft Cat Treats Lobster and Beef",
+     "dimensions": {
+      "height": "6.73 [in_i]",
+      "width": "5.0 [in_i]",
+      "length": "4.09 [in_i]"
+     },
+     "familyCode": [
+      "641"
+     ],
+     "familyTree": {
+      "commodity": {
+       "code": "351",
+       "name": "CAT TREATS"
+      },
+      "department": {
+       "code": "52",
+       "name": "PET"
+      },
+      "subCommodity": {
+       "code": "07210",
+       "name": "WET CAT FOOD - TREATS"
+      }
+     },
+     "gtin14": "00023100148489",
+     "hazmatFlag": false,
+     "homeDeliveryItem": false,
+     "images": [
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/xlarge/back/0002310014848",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/large/back/0002310014848",
+       "size": "large"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/medium/back/0002310014848",
+       "size": "medium"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/small/back/0002310014848",
+       "size": "small"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/thumbnail/back/0002310014848",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/xlarge/front/0002310014848",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/large/front/0002310014848",
+       "size": "large"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/medium/front/0002310014848",
+       "size": "medium"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/small/front/0002310014848",
+       "size": "small"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/thumbnail/front/0002310014848",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/xlarge/right/0002310014848",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/large/right/0002310014848",
+       "size": "large"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/medium/right/0002310014848",
+       "size": "medium"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/small/right/0002310014848",
+       "size": "small"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/thumbnail/right/0002310014848",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/xlarge/bottom/0002310014848",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/large/bottom/0002310014848",
+       "size": "large"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/medium/bottom/0002310014848",
+       "size": "medium"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/small/bottom/0002310014848",
+       "size": "small"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/thumbnail/bottom/0002310014848",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/xlarge/left/0002310014848",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/large/left/0002310014848",
+       "size": "large"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/medium/left/0002310014848",
+       "size": "medium"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/small/left/0002310014848",
+       "size": "small"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/thumbnail/left/0002310014848",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/xlarge/top/0002310014848",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/large/top/0002310014848",
+       "size": "large"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/medium/top/0002310014848",
+       "size": "medium"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/small/top/0002310014848",
+       "size": "small"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/thumbnail/top/0002310014848",
+       "size": "thumbnail"
+      }
+     ],
+     "itemTypeCode": "0",
+     "krogerDeliveryItem": false,
+     "mainImagePerspective": "front",
+     "omniChannelBrandName": "Temptations",
+     "pidSizeQuantity": 16,
+     "pidSizeUnitOfMeasureName": "OUNCES",
+     "privacyRestricted": false,
+     "privacyRestrictedStates": [],
+     "prop65": {
+      "required": false
+     },
+     "prop65Info": {
+      "required": false
+     },
+     "ratingsAndReviewsAggregate": {
+      "averageRating": 4.83,
+      "numOfFiveStarRating": 175,
+      "numOfFourStarRating": 14,
+      "numOfOneStarRating": 2,
+      "numOfThreeStarRating": 6,
+      "numOfTwoStarRating": 0,
+      "numberOfReviews": 197
+     },
+     "receiptDescription": "WHISKAS TMPTTNS",
+     "romanceDescription": "<p>Throwing your cat a birthday bash or celebrating their gotcha day? You’ll be the life of paw-ty with Temptations Birthday Cat Treats in delicious lobster and beef flavors. These cat snacks make a great gift because each cat treat is crunchy on the outside, soft on the inside, and are less than 2 calories each. Temptations Birthday Cat Treats are 100% nutritionally complete and balanced for adult cats. It’s the one gift they’ll want to tear open, but our stay-fresh pouch is resealable to keep their prying paws off while you’re hanging party streamers. Temptations Birthday Cat Treats are irresistible on their own, as a special birthday meal, or can be added as a topper to your cat’s food. Temptations Birthday Cat Treats are the purr-fect way to show your feline friend how much you care on their big day.</p><ul><li>Cat Birthday Treats: Celebrate your cat’s birthday or gotcha day with delicious lobster and beef-flavored treats</li><li>Cats Lose Their Cool: Crunchy on the outside and soft on the inside, so just shake the pack, and they’ll come running for these delicious cat treats</li><li>Under 2 Calories Per Cat Treat: Each cat treat is under 2 calories and 100% complete and balanced for adult cats, so you can feel good about celebrating your cat on their special day</li><li>Convenient Stay-Fresh Pouch: Resealable for easy treating so your cat can always enjoy a fresh, crunchy cat treat</li><li>Pack of 1: Contains one (1) 16 oz. pouch of Temptations Birthday Cat Treats, Lobster and Beef Flavor</li></ul>",
+     "salesChannelCode": "STORE",
+     "salesChannelName": "Store",
+     "seoDescription": "temptations-birthday-adult-crunchy-and-soft-cat-treats-lobster-and-beef",
+     "shareLink": "https://www.marianos.com/p/temptations-birthday-adult-crunchy-and-soft-cat-treats-lobster-and-beef/0002310014848",
+     "snapEligible": false,
+     "soldInStore": false,
+     "tareValue": 0,
+     "taxGroupCode": "PP051195",
+     "taxonomies": [
+      {
+       "commodity": {
+        "code": "022",
+        "name": "Cat Treats"
+       },
+       "department": {
+        "code": "27",
+        "name": "Pet"
+       },
+       "subCommodity": {
+        "code": "00002",
+        "name": "Soft & Chewy"
+       }
+      }
+     ],
+     "temperatureIndicator": "55688103654",
+     "temperatureIndicatorName": "Ambient",
+     "upc": "0002310014848",
+     "verified": true,
+     "weight": "1.0 [lb_av]"
+    },
+    "location": {
+     "locations": [
+      {
+       "aisle": {
+        "description": "AISLE 17",
+        "number": "17",
+        "side": "R"
+       },
+       "bayInAisle": "4",
+       "numOfFacings": "1",
+       "physicalShelfNumber": "1",
+       "shelfPositionInBay": "2"
+      }
+     ]
+    },
+    "price": {
+     "displayTemplate": "YellowTag",
+     "offerCode": "113748",
+     "orderBy": "Unit",
+     "sellBy": "Unit",
+     "storePrices": {
+      "promo": {
+       "defaultDescription": "$8.99",
+       "expirationDate": {
+        "value": "2026-11-04T04:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 8.99",
+       "unitPrice": "USD 8.99",
+       "price": "USD 8.99",
+       "equivalizedUnitPrice": {
+        "amount": "56.19",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.56/oz"
+      },
+      "regular": {
+       "defaultDescription": "$9.49",
+       "expirationDate": {
+        "value": "2026-11-04T04:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 9.49",
+       "unitPrice": "USD 9.49",
+       "price": "USD 9.49",
+       "equivalizedUnitPrice": {
+        "amount": "59.31",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.59/oz"
+      },
+      "sourceLocationId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    },
+    "id": "0002310014848",
+    "sourceLocations": [
+     {
+      "id": "53100502",
+      "itemLocations": [
+       {
+        "aisleDescription": "AISLE 17",
+        "aisleNumber": "17",
+        "aisleSide": "R",
+        "areaId": "017",
+        "areaTypeCode": "AL",
+        "areaTypeDescription": "Aisle",
+        "bayNumber": "004",
+        "bayNumberInAisle": "4",
+        "dataSource": "JDA_TRUE_FLOOR_PLAN",
+        "departmentCode": "HH",
+        "departmentDescription": "Household",
+        "fixtureNumber": "1",
+        "itemDepth": "4.10000",
+        "itemHeight": "6.75",
+        "itemWidth": "5.00",
+        "numberOfDepthFacings": "6",
+        "numberOfFacings": "1",
+        "numberOfVerticalFacings": "1",
+        "orientationCode": "R",
+        "orientationDescription": "Right",
+        "pogName": "D531_L00000_D03_C351_V303_F004_MX",
+        "position": "2",
+        "shelfNumber": "1",
+        "shelfPositionInBay": "2",
+        "subAreaId": "XXX",
+        "subAreaTypeCode": "XX",
+        "subAreaTypeDescription": "XX"
+       }
+      ],
+      "modalityAvailabilities": [
+       {
+        "availability": true,
+        "modalityType": "DELIVERY"
+       },
+       {
+        "availability": true,
+        "modalityType": "IN_STORE"
+       },
+       {
+        "availability": true,
+        "modalityType": "PICKUP"
+       },
+       {
+        "availability": false,
+        "modalityType": "SHIP"
+       }
+      ],
+      "prices": [
+       {
+        "displayTemplate": "YellowTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2026-10-28T10:26:29.672Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "2026-11-04T04:59:59.999Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$9.49",
+         "equivalizedUnitPrice": {
+          "amount": "59.31",
+          "denomination": "CENT",
+          "unit": "PER OUNCE"
+         },
+         "nFor": {
+          "count": 1,
+          "price": "USD 9.49"
+         },
+         "price": "USD 9.49"
+        },
+        "sale": {
+         "defaultDescription": "$8.99",
+         "equivalizedUnitPrice": {
+          "amount": "56.19",
+          "denomination": "CENT",
+          "unit": "PER OUNCE"
+         },
+         "linkedOfferCode": "113748",
+         "nFor": {
+          "count": 1,
+          "price": "USD 8.99"
+         },
+         "price": "USD 8.99"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "womenInfantChildFlg": "N"
+       }
+      ],
+      "restrictions": {
+       "shippable": false
+      },
+      "inventory": [
+       {
+        "availableToSell": 8,
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "stockLevel": "HIGH",
+        "included": {
+         "projections": []
+        }
+       }
+      ],
+      "laf": [
+       {
+        "modality": {
+         "type": "PICKUP",
+         "handoffLocation": {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         },
+         "handoffAddress": {
+          "address": {
+           "addressLines": [
+            "1720 N Milwaukee Ave"
+           ],
+           "cityTown": "Vernon Hills",
+           "name": "Marianos Vernon Hills",
+           "postalCode": "60061",
+           "stateProvince": "IL",
+           "residential": false,
+           "countryCode": "US"
+          },
+          "location": {
+           "lat": 42.2568706,
+           "lng": -87.9508553
+          }
+         }
+        },
+        "sources": [
+         {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         }
+        ],
+        "assortmentKeys": [
+         "f914db25-4beb-41ce-b30d-9bc58253783a"
+        ],
+        "listingKeys": [
+         "53100502"
+        ]
+       }
+      ],
+      "sourceId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    ],
+    "itemsV1": {
+     "product": {
+      "familyTree": {
+       "commodity": {
+        "code": "351",
+        "name": "CAT TREATS"
+       },
+       "primaryDepartment": {
+        "code": "03",
+        "name": "DRUG/GM",
+        "recapDepartment": {
+         "code": "03",
+         "department": {
+          "code": "52",
+          "name": "PET"
+         },
+         "name": "HBC"
+        }
+       },
+       "subCommodity": {
+        "code": "07210",
+        "name": "WET CAT FOOD - TREATS"
+       }
+      },
+      "id": "2004682717",
+      "variantGroupId": "6000000000061352"
+     }
+    },
+    "postalCodes": [
+     {
+      "postalCode": "60061",
+      "prices": [
+       {
+        "displayTemplate": "WhiteTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2026-10-28T00:00:00Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "2026-11-05T00:00:00Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$9.49",
+         "nFor": {
+          "count": 1,
+          "price": "USD 9.49"
+         },
+         "price": "USD 9.49"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "KROGER"
+       }
+      ]
+     }
+    ],
+    "laf": [
+     {
+      "assortmentKeys": [
+       "f914db25-4beb-41ce-b30d-9bc58253783a"
+      ],
+      "listingKeys": [
+       "53100502"
+      ],
+      "modality": {
+       "handoffAddress": {
+        "address": {
+         "addressLines": [
+          "1720 N Milwaukee Ave"
+         ],
+         "cityTown": "Vernon Hills",
+         "countryCode": "US",
+         "postalCode": "60061",
+         "stateProvince": "IL"
+        }
+       },
+       "handoffLocation": {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       },
+       "type": "PICKUP"
+      },
+      "priceAvailabilities": [
+       {
+        "id": "53100502",
+        "lookup": "LISTING_KEY",
+        "storeId": "53100502"
+       }
+      ],
+      "sources": [
+       {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       }
+      ]
+     }
+    ],
+    "inventorySummaries": [
+     {
+      "modalityType": "PICKUP",
+      "details": [
+       {
+        "sourceId": "53100502",
+        "availableToSell": 8,
+        "stockLevel": "HIGH"
+       }
+      ],
+      "availableToSell": 8,
+      "stockLevel": "HIGH"
+     }
+    ],
+    "fulfillmentOptions": [
+     "PICKUP"
+    ],
+    "fulfillmentSummaries": [
+     {
+      "type": "PICKUP",
+      "regular": {
+       "price": "USD 9.49",
+       "displayTemplate": "YellowTag",
+       "pricePerUnitString": "16 oz",
+       "equivalizedUnitPrice": {
+        "amount": "59.31",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.59/oz"
+      },
+      "availability": {
+       "sellable": true,
+       "inventoryLevel": "HIGH"
+      },
+      "sale": {
+       "price": "USD 8.99",
+       "pricePerUnitString": "16 oz",
+       "expirationDate": {
+        "value": "2026-11-04T04:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "56.19",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.56/oz"
+      },
+      "maxOrderQuantity": 8
+     },
+     {
+      "type": "DELIVERY",
+      "regular": {
+       "price": "USD 9.49",
+       "displayTemplate": "YellowTag",
+       "pricePerUnitString": "16 oz",
+       "equivalizedUnitPrice": {
+        "amount": "59.31",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.59/oz"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      },
+      "sale": {
+       "price": "USD 8.99",
+       "pricePerUnitString": "16 oz",
+       "expirationDate": {
+        "value": "2026-11-04T04:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "56.19",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.56/oz"
+      }
+     },
+     {
+      "type": "IN_STORE",
+      "regular": {
+       "price": "USD 9.49",
+       "displayTemplate": "YellowTag",
+       "pricePerUnitString": "16 oz",
+       "equivalizedUnitPrice": {
+        "amount": "59.31",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.59/oz"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      },
+      "sale": {
+       "price": "USD 8.99",
+       "pricePerUnitString": "16 oz",
+       "expirationDate": {
+        "value": "2026-11-04T04:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "56.19",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.56/oz"
+      }
+     }
+    ]
+   },
+   {
+    "inventory": {
+     "locations": [
+      {
+       "locationId": "53100502",
+       "available": 3,
+       "stockLevel": "HIGH"
+      }
+     ],
+     "effective": {
+      "total": 0,
+      "available": 0
+     }
+    },
+    "item": {
+     "alcoholFlag": false,
+     "assortments": [
+      {
+       "assortmentKey": "f914db25-4beb-41ce-b30d-9bc58253783a",
+       "modalityEnabled": true,
+       "modalityType": "PICKUP"
+      }
+     ],
+     "bounceFlag": false,
+     "brand": {
+      "name": "Energizer®",
+      "code": "23158"
+     },
+     "categories": [
+      {
+       "code": "42",
+       "name": "Hardware"
+      }
+     ],
+     "clickListItem": true,
+     "countriesOfOrigin": "CHINA",
+     "customerFacingSize": "10 Count",
+     "description": "Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries",
+     "dimensions": {
+      "height": "4.25 [in_i]",
+      "width": "7.05 [in_i]",
+      "length": "0.22 [in_i]"
+     },
+     "familyCode": [
+      "146"
+     ],
+     "familyTree": {
+      "commodity": {
+       "code": "808",
+       "name": "BATTERIES"
+      },
+      "department": {
+       "code": "77",
+       "name": "HOME IMPRVMNT"
+      },
+      "subCommodity": {
+       "code": "90605",
+       "name": "SPECIALTY & MISC BATTERIES"
+      }
+     },
+     "gtin14": "00039800149954",
+     "hazardous": "Y",
+     "hazmatFlag": true,
+     "homeDeliveryItem": false,
+     "images": [
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/xlarge/right/0003980014995",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/large/right/0003980014995",
+       "size": "large"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/medium/right/0003980014995",
+       "size": "medium"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/small/right/0003980014995",
+       "size": "small"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/thumbnail/right/0003980014995",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/xlarge/back/0003980014995",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/large/back/0003980014995",
+       "size": "large"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/medium/back/0003980014995",
+       "size": "medium"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/small/back/0003980014995",
+       "size": "small"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/thumbnail/back/0003980014995",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/xlarge/front/0003980014995",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/large/front/0003980014995",
+       "size": "large"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/medium/front/0003980014995",
+       "size": "medium"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/small/front/0003980014995",
+       "size": "small"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/thumbnail/front/0003980014995",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/xlarge/bottom/0003980014995",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/large/bottom/0003980014995",
+       "size": "large"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/medium/bottom/0003980014995",
+       "size": "medium"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/small/bottom/0003980014995",
+       "size": "small"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/thumbnail/bottom/0003980014995",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/xlarge/top/0003980014995",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/large/top/0003980014995",
+       "size": "large"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/medium/top/0003980014995",
+       "size": "medium"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/small/top/0003980014995",
+       "size": "small"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/thumbnail/top/0003980014995",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/xlarge/left/0003980014995",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/large/left/0003980014995",
+       "size": "large"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/medium/left/0003980014995",
+       "size": "medium"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/small/left/0003980014995",
+       "size": "small"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/thumbnail/left/0003980014995",
+       "size": "thumbnail"
+      }
+     ],
+     "itemTypeCode": "0",
+     "krogerDeliveryItem": false,
+     "liveNaturallyEligible": false,
+     "mainImagePerspective": "front",
+     "omniChannelBrandName": "Energizer®",
+     "pidSizeQuantity": 0,
+     "pidSizeUnitOfMeasureName": "EACH",
+     "privacyRestricted": false,
+     "privacyRestrictedStates": [],
+     "prop65": {
+      "required": false
+     },
+     "prop65Info": {
+      "required": false
+     },
+     "receiptDescription": "ENERGIZR BATTERIES",
+     "romanceDescription": "<p>Energizer CR2032 Coin Lithium Batteries feature Energizer Ultimate Child Shield with a superior number of safety features: Ingestion Burn Protection, Color Alert Technology, a bitter coating, and secure packaging. Innovative World's First Ingestion Burn Protection prevents burning if ingested. Only Energizer has Color Alert technology that dyes the mouth blue seconds after contact with saliva to help alert caregivers to act fast. The non-toxic bitter coating helps discourage ingestion, while the child-resistant packaging helps prevent child access to batteries. Energizer CR2032 batteries perform in extreme temperatures ranging from -4 to 140 degrees Fahrenheit for dependable power, even in tough conditions. Reach for these Energizer batteries when you need watch batteries, key fob batteries, remote batteries, batteries for glucose monitors, heart monitors, Apple AirTags and similar devices. Energizer Coin Lithium Batteries are also an ideal power source for your keyless entry system, toys and games.</p><ul><li>10 pack of Energizer CR2032 Batteries, 3V Lithium Coin Batteries that work great as Apple AirTag batteries and watch batteries</li><li>Energizer Ultimate Child Shield with a superior number of safety features: Ingestion Burn Protection, Color Alert, a bitter coating, and child-resistant packaging</li><li>World's only coin lithium battery with Ingestion Burn Protection that prevents burning if swallowed</li><li>Color Alert Technology dyes the mouth blue seconds after contact with saliva to help alert caregivers to act fast</li><li>Non-toxic bitter coating helps discourage ingestion and child-resistant packaging helps prevent child access to batteries</li><li>Performs in extreme temperatures from -4 to 140 degrees Fahrenheit for dependable power, even in tough conditions; No other 2032 batteries last longer*</li></ul>",
+     "salesChannelCode": "STORE",
+     "salesChannelName": "Store",
+     "seoDescription": "energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries",
+     "shareLink": "https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995",
+     "snapEligible": false,
+     "soldInStore": false,
+     "tareValue": 0,
+     "taxonomies": [
+      {
+       "commodity": {
+        "code": "012",
+        "name": "Electrical"
+       },
+       "department": {
+        "code": "33",
+        "name": "Hardware & Home Improvement"
+       },
+       "subCommodity": {
+        "code": "00010",
+        "name": "Batteries"
+       }
+      }
+     ],
+     "temperatureIndicator": "55688103654",
+     "temperatureIndicatorName": "Ambient",
+     "upc": "0003980014995",
+     "verified": true,
+     "weight": "0.09 [lb_av]"
+    },
+    "location": {
+     "locations": [
+      {
+       "aisle": {
+        "description": "AISLE 10",
+        "number": "10",
+        "side": "L"
+       },
+       "bayInAisle": "1",
+       "numOfFacings": "1",
+       "physicalShelfNumber": "2",
+       "shelfPositionInBay": "33"
+      }
+     ]
+    },
+    "price": {
+     "displayTemplate": "YellowTag",
+     "offerCode": "114558",
+     "orderBy": "Unit",
+     "sellBy": "Unit",
+     "storePrices": {
+      "promo": {
+       "defaultDescription": "$19.99",
+       "expirationDate": {
+        "value": "2026-12-09T04:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 19.99",
+       "unitPrice": "USD 19.99",
+       "price": "USD 19.99",
+       "equivalizedUnitPrice": {
+        "amount": "2.00",
+        "denomination": "DOLLAR",
+        "unit": "PER EACH"
+       },
+       "equivalizedUnitPriceString": "$2.00/each"
+      },
+      "regular": {
+       "defaultDescription": "$21.99",
+       "expirationDate": {
+        "value": "2026-12-09T04:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 21.99",
+       "unitPrice": "USD 21.99",
+       "price": "USD 21.99",
+       "equivalizedUnitPrice": {
+        "amount": "2.20",
+        "denomination": "DOLLAR",
+        "unit": "PER EACH"
+       },
+       "equivalizedUnitPriceString": "$2.20/each"
+      },
+      "sourceLocationId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    },
+    "id": "0003980014995",
+    "sourceLocations": [
+     {
+      "id": "53100502",
+      "itemLocations": [
+       {
+        "aisleDescription": "AISLE 10",
+        "aisleNumber": "10",
+        "aisleSide": "L",
+        "areaId": "010",
+        "areaTypeCode": "AL",
+        "areaTypeDescription": "Aisle",
+        "bayNumber": "001",
+        "bayNumberInAisle": "1",
+        "dataSource": "JDA_TRUE_FLOOR_PLAN",
+        "departmentCode": "CR",
+        "departmentDescription": "Cards",
+        "fixtureNumber": "2",
+        "itemDepth": "0.21000",
+        "itemHeight": "4.25",
+        "itemWidth": "7.05",
+        "numberOfDepthFacings": "38",
+        "numberOfFacings": "1",
+        "numberOfVerticalFacings": "1",
+        "orientationCode": "F",
+        "orientationDescription": "Front",
+        "pogName": "D060_L00000_D03_C808_V534_F003_MX",
+        "position": "33",
+        "shelfNumber": "2",
+        "shelfPositionInBay": "33",
+        "subAreaId": "001",
+        "subAreaTypeCode": "EC",
+        "subAreaTypeDescription": "ENDCAP"
+       }
+      ],
+      "modalityAvailabilities": [
+       {
+        "availability": true,
+        "modalityType": "DELIVERY"
+       },
+       {
+        "availability": true,
+        "modalityType": "IN_STORE"
+       },
+       {
+        "availability": true,
+        "modalityType": "PICKUP"
+       },
+       {
+        "availability": false,
+        "modalityType": "SHIP"
+       }
+      ],
+      "prices": [
+       {
+        "displayTemplate": "YellowTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2026-10-30T08:28:59.107Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "2026-12-09T04:59:59.999Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$21.99",
+         "equivalizedUnitPrice": {
+          "amount": "2.20",
+          "denomination": "DOLLAR",
+          "unit": "PER EACH"
+         },
+         "nFor": {
+          "count": 1,
+          "price": "USD 21.99"
+         },
+         "price": "USD 21.99"
+        },
+        "sale": {
+         "defaultDescription": "$19.99",
+         "equivalizedUnitPrice": {
+          "amount": "2.00",
+          "denomination": "DOLLAR",
+          "unit": "PER EACH"
+         },
+         "linkedOfferCode": "114558",
+         "nFor": {
+          "count": 1,
+          "price": "USD 19.99"
+         },
+         "price": "USD 19.99"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "womenInfantChildFlg": "N"
+       }
+      ],
+      "restrictions": {
+       "shippable": false
+      },
+      "inventory": [
+       {
+        "availableToSell": 3,
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "stockLevel": "HIGH",
+        "included": {
+         "projections": []
+        }
+       }
+      ],
+      "laf": [
+       {
+        "modality": {
+         "type": "PICKUP",
+         "handoffLocation": {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         },
+         "handoffAddress": {
+          "address": {
+           "addressLines": [
+            "1720 N Milwaukee Ave"
+           ],
+           "cityTown": "Vernon Hills",
+           "name": "Marianos Vernon Hills",
+           "postalCode": "60061",
+           "stateProvince": "IL",
+           "residential": false,
+           "countryCode": "US"
+          },
+          "location": {
+           "lat": 42.2568706,
+           "lng": -87.9508553
+          }
+         }
+        },
+        "sources": [
+         {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         }
+        ],
+        "assortmentKeys": [
+         "f914db25-4beb-41ce-b30d-9bc58253783a"
+        ],
+        "listingKeys": [
+         "53100502"
+        ]
+       }
+      ],
+      "sourceId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    ],
+    "itemsV1": {
+     "product": {
+      "familyTree": {
+       "commodity": {
+        "code": "808",
+        "name": "BATTERIES"
+       },
+       "primaryDepartment": {
+        "code": "03",
+        "name": "DRUG/GM",
+        "recapDepartment": {
+         "code": "87",
+         "department": {
+          "code": "77",
+          "name": "HOME IMPRVMNT"
+         },
+         "name": "GM"
+        }
+       },
+       "subCommodity": {
+        "code": "90605",
+        "name": "SPECIALTY & MISC BATTERIES"
+       }
+      },
+      "id": "2005193577",
+      "variantGroupId": "6000000000132418"
+     }
+    },
+    "laf": [
+     {
+      "assortmentKeys": [
+       "f914db25-4beb-41ce-b30d-9bc58253783a"
+      ],
+      "listingKeys": [
+       "53100502"
+      ],
+      "modality": {
+       "handoffAddress": {
+        "address": {
+         "addressLines": [
+          "1720 N Milwaukee Ave"
+         ],
+         "cityTown": "Vernon Hills",
+         "countryCode": "US",
+         "postalCode": "60061",
+         "stateProvince": "IL"
+        }
+       },
+       "handoffLocation": {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       },
+       "type": "PICKUP"
+      },
+      "priceAvailabilities": [
+       {
+        "id": "53100502",
+        "lookup": "LISTING_KEY",
+        "storeId": "53100502"
+       }
+      ],
+      "sources": [
+       {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       }
+      ]
+     }
+    ],
+    "inventorySummaries": [
+     {
+      "modalityType": "PICKUP",
+      "details": [
+       {
+        "sourceId": "53100502",
+        "availableToSell": 3,
+        "stockLevel": "HIGH"
+       }
+      ],
+      "availableToSell": 3,
+      "stockLevel": "HIGH"
+     }
+    ],
+    "fulfillmentOptions": [
+     "PICKUP"
+    ],
+    "fulfillmentSummaries": [
+     {
+      "type": "PICKUP",
+      "regular": {
+       "price": "USD 21.99",
+       "displayTemplate": "YellowTag",
+       "pricePerUnitString": "10 Count",
+       "equivalizedUnitPrice": {
+        "amount": "2.20",
+        "denomination": "DOLLAR",
+        "unit": "PER EACH"
+       },
+       "equivalizedUnitPriceString": "$2.20/each"
+      },
+      "availability": {
+       "sellable": true,
+       "inventoryLevel": "HIGH"
+      },
+      "sale": {
+       "price": "USD 19.99",
+       "pricePerUnitString": "10 Count",
+       "expirationDate": {
+        "value": "2026-12-09T04:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "2.00",
+        "denomination": "DOLLAR",
+        "unit": "PER EACH"
+       },
+       "equivalizedUnitPriceString": "$2.00/each"
+      },
+      "maxOrderQuantity": 3
+     },
+     {
+      "type": "DELIVERY",
+      "regular": {
+       "price": "USD 21.99",
+       "displayTemplate": "YellowTag",
+       "pricePerUnitString": "10 Count",
+       "equivalizedUnitPrice": {
+        "amount": "2.20",
+        "denomination": "DOLLAR",
+        "unit": "PER EACH"
+       },
+       "equivalizedUnitPriceString": "$2.20/each"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      },
+      "sale": {
+       "price": "USD 19.99",
+       "pricePerUnitString": "10 Count",
+       "expirationDate": {
+        "value": "2026-12-09T04:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "2.00",
+        "denomination": "DOLLAR",
+        "unit": "PER EACH"
+       },
+       "equivalizedUnitPriceString": "$2.00/each"
+      }
+     },
+     {
+      "type": "IN_STORE",
+      "regular": {
+       "price": "USD 21.99",
+       "displayTemplate": "YellowTag",
+       "pricePerUnitString": "10 Count",
+       "equivalizedUnitPrice": {
+        "amount": "2.20",
+        "denomination": "DOLLAR",
+        "unit": "PER EACH"
+       },
+       "equivalizedUnitPriceString": "$2.20/each"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      },
+      "sale": {
+       "price": "USD 19.99",
+       "pricePerUnitString": "10 Count",
+       "expirationDate": {
+        "value": "2026-12-09T04:59:59.999Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "2.00",
+        "denomination": "DOLLAR",
+        "unit": "PER EACH"
+       },
+       "equivalizedUnitPriceString": "$2.00/each"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

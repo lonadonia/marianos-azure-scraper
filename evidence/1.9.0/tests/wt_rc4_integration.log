@@ -1,0 +1,33 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.7.0
+rootdir: C:\m8\wt\headless\marianos-azure-headless
+configfile: pyproject.toml
+plugins: anyio-4.15.1, hypothesis-6.170.5, platformdirs-4.13.5
+collected 183 items
+
+tests\integration\test_account_gate.py ......                            [  3%]
+tests\integration\test_availability_retention.py .                       [  3%]
+tests\integration\test_backlog_policy.py ..                              [  4%]
+tests\integration\test_daily_credit_units.py ...                         [  6%]
+tests\integration\test_last_good_survives.py .........................   [ 20%]
+tests\integration\test_listing_pages.py .............................    [ 36%]
+tests\integration\test_live_collector.py .................               [ 45%]
+tests\integration\test_migrations.py ...                                 [ 46%]
+tests\integration\test_operations.py ......                              [ 50%]
+tests\integration\test_oxylabs_cli.py ..                                 [ 51%]
+tests\integration\test_oxylabs_collector.py ...........                  [ 57%]
+tests\integration\test_oxylabs_replay.py ..                              [ 58%]
+tests\integration\test_page_regressions.py ......                        [ 61%]
+tests\integration\test_partitions_190.py .............                   [ 68%]
+tests\integration\test_product_terms_collector.py ....                   [ 71%]
+tests\integration\test_publication_safety.py ......                      [ 74%]
+tests\integration\test_publish.py .....                                  [ 77%]
+tests\integration\test_queue_locks.py ..........                         [ 82%]
+tests\integration\test_recovery_and_rollback.py ....                     [ 84%]
+tests\integration\test_reprocess.py ...                                  [ 86%]
+tests\integration\test_runner.py .......                                 [ 90%]
+tests\integration\test_segment_end_t06.py ....                           [ 92%]
+tests\integration\test_tiles_listing.py ...                              [ 93%]
+tests\integration\test_vernon_hills_replay.py ...........                [100%]
+
+====================== 183 passed in 1952.86s (0:32:32) =======================

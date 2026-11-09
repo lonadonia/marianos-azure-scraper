@@ -1,0 +1,49 @@
+{
+ "M-S5b-rows23-26-two-lanes-190rc3-20261109": {
+  "stage_id": "M-S5b-rows23-26-two-lanes-190rc3-20261109",
+  "project": "marianos",
+  "objective": "M8/M9 S5b on 1.9.0rc3: the same rows with two listing lanes (limits.max_concurrent_listings 2): the time and submissions of two lanes; in this run a termination signal (interrupted, resumable), resume, a second start while it runs (expected refused, sent through a gate that refuses every submission), a hard kill, resume to the end; then status and export; and whether these rows' listings repeat at page 2 again. Known before this stage (O2 2026-11-06; S1b and S4 2026-11-09): an unrendered listing answer for ?page=N can carry page 1's products under ranks shifted by 24(N-1); the collector then ends that listing as incomplete (repeated page). S4 showed it is intermittent and clustered in time, not tied to a listing: 12 page-N answers were distinct from 14:31:50Z to 14:33:28Z (Dog Treats 150 of 150 over 7 pages; Dog Food pages 2-7), 8 repeated page 1 from 14:33:35Z to 14:36:51Z (Dog Food page 8, then page 2 of Cat Food, Cat Treats, Cat Litter, Candles, Batteries, Light Bulbs and School Office), and Hardware's pages 2-3 were distinct again at 14:37:57Z.",
+  "command": "C:/m8/qwt/headless/marianos-azure-headless/.venv/Scripts/python.exe -I C:/m8/live/live190_run.py run M-S5b-rows23-26-two-lanes-190rc3-20261109 -- run --store marianos-53100502-pickup --categories 23,24,25,26 --max-credits 30",
+  "collector_args": [
+   "run",
+   "--store",
+   "marianos-53100502-pickup",
+   "--categories",
+   "23,24,25,26",
+   "--max-credits",
+   "30"
+  ],
+  "config": {
+   "config_dir": "C:\\m8\\q190\\cfg_s5_l2",
+   "config_sha256": {
+    "collector.yaml": "8c490727cb848a48d1ad92597740b0220a3571fafbb274b727fbb2632da8d91f",
+    "Marianos_Category_URLs.csv": "606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4",
+    "private_label_brands.yaml": "75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1",
+    "settings.yaml": "7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd",
+    "stores.yaml": "3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6",
+    "taxonomy_seed.snapshot_2026-10-17.json": "32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c"
+   },
+   "lanes": 2,
+   "database": "marianos_q190 (copy of Q2's database, cluster C:/m8/pg/data port 55190)",
+   "data_dir": "C:\\m8\\q190\\data",
+   "collector_ceiling": {
+    "submissions": 30,
+    "usd": "0.0450"
+   },
+   "read_product_terms": false,
+   "listing_route": "listing (/pl/ pages), listing_run_js false (shipped)",
+   "publish_auto": false,
+   "changes_from_shipped": [
+    "publish.auto false",
+    "limits.max_concurrent_listings 2"
+   ]
+  },
+  "source_revision": "90905377f4919d33854c23d8068fd7e36553ab31",
+  "max_requests": 30,
+  "max_results": 30,
+  "max_usd": "0.0450",
+  "deadline_utc": "2026-11-09T16:16:28Z",
+  "retry_policy": "the collector's own, as shipped: a listing page up to 3 attempts on 408/429/5xx with backoff (failed requests are documented as not charged; every attempt is still reserved at its worst case); a rendered listing answer without tiles is asked again, three in a row stop the run resumably (PROVIDER_ERROR); a product-page terms read is sent once and never retried; the stage is not repeated before its outcome is read",
+  "stop_conditions": "the store or PICKUP not verified on a page; the canary failing; a refusal page; 401/402/403 or a quota answer; ABNORMAL_RESULT; the stage's or the collector's ceiling; more than 2 outcomes unknown; lease loss; the key fingerprint differing from the noted one; the deadline"
+ }
+}

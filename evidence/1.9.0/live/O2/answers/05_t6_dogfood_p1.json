@@ -1,0 +1,69 @@
+{
+ "step": 5,
+ "label": "t6_dogfood_p1",
+ "utc_start": "2026-11-06T19:47:55+00:00",
+ "utc_end": "2026-11-06T19:48:21+00:00",
+ "seconds": 26.81,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\qwt\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.9.0rc1",
+  "revision": "b0f919118cbfd45bde7fd74130356b4eec807ca5",
+  "modified": []
+ },
+ "stage": "M-O2-tile-discovery-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/pl/dog-food/27017",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "purpose": "new listing tile: more coupon and volume samples (unrendered)",
+ "target": "https://www.marianos.com/pl/dog-food/27017",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524558209143579649",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524558209143579649",
+   "seconds": 25.83,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 1098389,
+ "raw_bytes": 1262177,
+ "raw_sha256": "e0c09df4cb80b8a87d5a946319dfd7fb756dfe019d5539561e733b84f3fa3e1e",
+ "raw_file": "05_t6_dogfood_p1.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T19:47:55+00:00",
+   "event": "reserved",
+   "rid": "0d06bd63f99247e0989cabd6db0b8061",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T19:47:55+00:00",
+   "event": "dispatched",
+   "rid": "0d06bd63f99247e0989cabd6db0b8061"
+  },
+  {
+   "at": "2026-11-06T19:48:21+00:00",
+   "event": "settled",
+   "rid": "0d06bd63f99247e0989cabd6db0b8061",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524558209143579649"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 49
+}

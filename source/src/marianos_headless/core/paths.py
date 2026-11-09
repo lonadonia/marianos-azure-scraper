@@ -25,6 +25,6 @@ def data_dir() -> Path:
 # suffix (1.8.0 for 1.8.0rc4). Every run, observation and export records it, next to the release and the
 # source commit. Release 1.8.0rc4: it had stayed at 1.7.0 through 1.8.0rc1-rc3 although their parser and
 # record rules changed.
-PARSER_VERSION = "1.8.0"
+PARSER_VERSION = "1.9.0"
 # The verified application release this standalone collector was derived from.
 DERIVED_FROM = "mscraper 1.2.6 (f9c03085aee2156cfdb21751db233e521b5a2d4c)"

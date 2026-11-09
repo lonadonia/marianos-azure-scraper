@@ -97,6 +97,22 @@ checkpoint and the next continues it, within `max_run_minutes` (2880) and before
 supersedes it. Until it completes it is a partial run and never replaces the published dataset. **No
 full-scope run has been executed.**
 
+### Release 1.9.0: lanes and the schedule's real capacity (M8)
+
+`limits.max_concurrent_listings` (default 1, at most 4) lets one execution read that many listing tasks
+at once, each with at most one provider request in flight; the run's spending ceiling, limits and
+checkpoints are shared, and a lane that stops the run halts the others. A page is written to the database
+only once its answer has been processed (1.9.0rc4; in 1.9.0rc3 one lane could write the other's page while its
+request was still out, without its stored page, and the integrity check G13 rejected the run: stage S5b,
+2026-11-09). Keep one lane unless a two-lane run of the release in use has passed its checks (the delivery's
+report lists the live runs). `collection.schedule.capacity`
+gives the collection hours an occurrence's run has before the next occurrence supersedes it: with the
+shipped Monday/Thursday 07:00 schedule, the 07:00-19:00 window and `max_run_minutes` 2880, a Monday run
+has 36 collection hours (72 elapsed) and a Thursday run 48 (96 elapsed), against a full-scope workload
+estimated at 48.4 to 77.3 active hours with one lane (an estimate, not a measured full run; the
+delivery's COST_AND_RUNTIME_REPORT has the measured rates and the proposed configuration). The schedule
+stays off until the client authorizes one.
+
 ## Monitoring
 
 * **Exit codes** of each execution (Azure shows them per execution; CLI.md lists them). Anything but 0 needs

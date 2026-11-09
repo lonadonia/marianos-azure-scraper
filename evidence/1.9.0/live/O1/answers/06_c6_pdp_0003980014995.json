@@ -1,0 +1,70 @@
+{
+ "step": 6,
+ "label": "c6_pdp_0003980014995",
+ "utc_start": "2026-11-06T18:41:33+00:00",
+ "utc_end": "2026-11-06T18:41:40+00:00",
+ "seconds": 7.27,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\t19\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ],
+  "run_js": true
+ },
+ "purpose": "m4 terms Energizer",
+ "target": "https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524541506707811329",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524541506707811329",
+   "seconds": 6.62,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 431686,
+ "raw_bytes": 496233,
+ "raw_sha256": "7731f230096704939a1ec7362a2a4f0dbdd52a71b9f23a7906875e23ae00df86",
+ "raw_file": "06_c6_pdp_0003980014995.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:41:33+00:00",
+   "event": "reserved",
+   "rid": "e1a4c7ed5cb24e6bbba7723a92bbf468",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:41:33+00:00",
+   "event": "dispatched",
+   "rid": "e1a4c7ed5cb24e6bbba7723a92bbf468"
+  },
+  {
+   "at": "2026-11-06T18:41:40+00:00",
+   "event": "settled",
+   "rid": "e1a4c7ed5cb24e6bbba7723a92bbf468",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524541506707811329"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 33
+}

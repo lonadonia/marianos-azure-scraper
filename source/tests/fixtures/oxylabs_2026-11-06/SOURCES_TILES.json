@@ -1,0 +1,164 @@
+{
+ "s1_catfood_p1_rendered_nogrid.html.gz": {
+  "stage": "M-S1-canary-catfood-190-20261106",
+  "run_id": "01M6S5MYBC05W3S308EC7XWTGV",
+  "fetch_id": "01M6S5N6KJTSK5GDR5W1TXMSTQ",
+  "url": "https://www.marianos.com/pl/cat-food/27021",
+  "request_id": "7524554721458169857",
+  "requested_run_js": true,
+  "provider_run_js": true,
+  "fetched_at": "2026-11-06T19:34:43.676101Z",
+  "file_sha256": "e344617b452d8efb9579b720418b0e14fb2c308c51ba8b65ae191c7b06e4a4c1",
+  "origin": "runs/marianos-53100502-pickup/01M6S5MYBC05W3S308EC7XWTGV/live/dom/01M6S5N6KJTSK5GDR5W1TXMSTQ.html.gz (byte copy)"
+ },
+ "s1_catfood_p1_tiles.html.gz": {
+  "stage": "M-S1-canary-catfood-190-20261106",
+  "run_id": "01M6S5MYBC05W3S308EC7XWTGV",
+  "fetch_id": "01M6S5RDC5TP4XK2CV3TGTMG52",
+  "url": "https://www.marianos.com/pl/cat-food/27021",
+  "request_id": "7524555165278425089",
+  "requested_run_js": true,
+  "provider_run_js": false,
+  "fetched_at": "2026-11-06T19:35:57.758711Z",
+  "file_sha256": "bad83ade448bdb2ad330940b50d193daddc946235e67c90456640404420f8cae",
+  "origin": "runs/marianos-53100502-pickup/01M6S5MYBC05W3S308EC7XWTGV/live/dom/01M6S5RDC5TP4XK2CV3TGTMG52.html.gz (byte copy)"
+ },
+ "o2_cattreats_p1_tiles.html.gz": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "capture": "stage O2 capture 01_t1_cattreats_p1.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+  "capture_sha256": "5f92e71f55f9ba4656ce738c44bf81bf586fff4bb2a973d46efc24dc0bd55084",
+  "request_id": "7524557652697865217",
+  "endpoint": "/v1/scrape/marianos",
+  "requested": {
+   "url": "https://www.marianos.com/pl/cat-treats/27022",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "provider_run_js": false,
+  "fetched_at": "2026-11-06T19:45:42+00:00",
+  "sanitized_html_sha256": "0e99eb112dc0d79c9b441f02f0a146eeaad37ecf31808f3d38fc73322b23f6ce",
+  "sanitize": {
+   "input_sha256": "801545be3f594666e3b04cfc99388d394e82ac8ba19fb56dec1573443f988653",
+   "output_sha256": "0e99eb112dc0d79c9b441f02f0a146eeaad37ecf31808f3d38fc73322b23f6ce"
+  }
+ },
+ "o2_cattreats_p2_rendered_nogrid.html.gz": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "capture": "stage O2 capture 02_t2_cattreats_p2.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+  "capture_sha256": "8196aa8a9d1b8eb5ba82444f761396bc7338572bc653a5594916e240338438ec",
+  "request_id": "7524557833694627841",
+  "endpoint": "/v1/scrape/marianos",
+  "requested": {
+   "url": "https://www.marianos.com/pl/cat-treats/27022?page=2",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "provider_run_js": true,
+  "fetched_at": "2026-11-06T19:46:25+00:00",
+  "sanitized_html_sha256": "20ac21e1da6e4bb110a06c18f7af5ae430aeac007344fd2852879ed48f19bf90",
+  "sanitize": {
+   "input_sha256": "16716bea2674582f5beb4dd2054ba4a16fca17ea61e3eabb6aaa85d377e6d629",
+   "output_sha256": "20ac21e1da6e4bb110a06c18f7af5ae430aeac007344fd2852879ed48f19bf90"
+  }
+ },
+ "o2_search_bananas_tiles.html.gz": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "capture": "stage O2 capture 04_t5_search_bananas.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+  "capture_sha256": "6541a0e8844255f921c68790913c711770c86aaeca40167628c7b6b0a53c734b",
+  "request_id": "7524558144228338689",
+  "endpoint": "/v1/scrape/marianos/search",
+  "requested": {
+   "query": "bananas",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "provider_run_js": false,
+  "fetched_at": "2026-11-06T19:47:39+00:00",
+  "sanitized_html_sha256": "32cabf5ce89b7d334c45974a2e3183bd372bebfa7fe29a86c56fec826bcbe0a4",
+  "sanitize": {
+   "input_sha256": "92b37c15b560b68a4b25934328f3425d5426bc646556244596f1bbb7305220ab",
+   "output_sha256": "32cabf5ce89b7d334c45974a2e3183bd372bebfa7fe29a86c56fec826bcbe0a4"
+  }
+ },
+ "o2_dogfood_p1_tiles.html.gz": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "capture": "stage O2 capture 05_t6_dogfood_p1.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+  "capture_sha256": "e0c09df4cb80b8a87d5a946319dfd7fb756dfe019d5539561e733b84f3fa3e1e",
+  "request_id": "7524558209143579649",
+  "endpoint": "/v1/scrape/marianos",
+  "requested": {
+   "url": "https://www.marianos.com/pl/dog-food/27017",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "provider_run_js": false,
+  "fetched_at": "2026-11-06T19:47:55+00:00",
+  "sanitized_html_sha256": "8f50df76403544c51966178f707ee93c7f8cf92c23a7c94a338d591d01e6cc1f",
+  "sanitize": {
+   "input_sha256": "7fb5f93c720b2256440902c774860bb0436599e54cba8d44545ecf5665468567",
+   "output_sha256": "8f50df76403544c51966178f707ee93c7f8cf92c23a7c94a338d591d01e6cc1f"
+  }
+ },
+ "o2_search_nutrl_tiles.html.gz": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "capture": "stage O2 capture 06_t7_search_nutrl.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+  "capture_sha256": "8b4eaafab54c7073a7b29600850e2e598bcc811fd8addac83178f42d10d6d160",
+  "request_id": "7524558564300469249",
+  "endpoint": "/v1/scrape/marianos/search",
+  "requested": {
+   "query": "nutrl vodka seltzer",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "provider_run_js": false,
+  "fetched_at": "2026-11-06T19:49:19+00:00",
+  "sanitized_html_sha256": "a33bbf34495fdbaffb8d89c10f998d2da7b6d8f0512ec1edbedaacb59d5ec8fc",
+  "sanitize": {
+   "input_sha256": "87f35f6736dd7596443e679bc8912296f849ff20c3f35fe471a216c1980124ad",
+   "output_sha256": "a33bbf34495fdbaffb8d89c10f998d2da7b6d8f0512ec1edbedaacb59d5ec8fc"
+  }
+ },
+ "o2_search_purina_one_tiles.html.gz": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "capture": "stage O2 capture 07_t8_search_purina_one.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+  "capture_sha256": "4a80f5efde0e2c82386509afc9bef5adc1ac00b5d535183976f012da6d3bb13d",
+  "request_id": "7524558596630121473",
+  "endpoint": "/v1/scrape/marianos/search",
+  "requested": {
+   "query": "purina one dry dog food",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "provider_run_js": false,
+  "fetched_at": "2026-11-06T19:49:27+00:00",
+  "sanitized_html_sha256": "1a105345dc5811ddee14953191d982ce7fbc0b80eb2ae55db05a4da3e78dbaa7",
+  "sanitize": {
+   "input_sha256": "991965f310497a4185c485f3aeeef86385e4c39d1f99e95a1b20e761ae073394",
+   "output_sha256": "1a105345dc5811ddee14953191d982ce7fbc0b80eb2ae55db05a4da3e78dbaa7"
+  }
+ }
+}

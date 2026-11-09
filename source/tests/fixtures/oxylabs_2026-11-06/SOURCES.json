@@ -1,0 +1,126 @@
+{
+ "q2_cards_and_state": {
+  "0001780014939": {
+   "page_fetch_id": "01M6E6ABS7VC0G2DVYM6Y54XD3",
+   "url": "https://www.marianos.com/pl/dog-food/27017?page=7",
+   "fetched_at": "2026-11-02T13:13:59.335411Z",
+   "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E6ABS7VC0G2DVYM6Y54XD3.html.gz",
+   "dom_gz_sha256": "192da861468602e96ea7f5c62ca884c11daadc77367eeeec12fb15227aafc021",
+   "state_artifact": "01M6E6ABS7VC0G2DVYM6Y54XD3.0003.products_v2.json.gz",
+   "state_artifact_gz_sha256": "4054f64f448f920dee6877a9edd6f216f612555afe9154e810d13f65d968a6f5"
+  },
+  "0001780014941": {
+   "page_fetch_id": "01M6E6ABS7VC0G2DVYM6Y54XD3",
+   "url": "https://www.marianos.com/pl/dog-food/27017?page=7",
+   "fetched_at": "2026-11-02T13:13:59.335411Z",
+   "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E6ABS7VC0G2DVYM6Y54XD3.html.gz",
+   "dom_gz_sha256": "192da861468602e96ea7f5c62ca884c11daadc77367eeeec12fb15227aafc021",
+   "state_artifact": "01M6E6ABS7VC0G2DVYM6Y54XD3.0003.products_v2.json.gz",
+   "state_artifact_gz_sha256": "4054f64f448f920dee6877a9edd6f216f612555afe9154e810d13f65d968a6f5"
+  },
+  "0002310014848": {
+   "page_fetch_id": "01M6E6RNSJXNW6F4FCGTQH2TXA",
+   "url": "https://www.marianos.com/pl/cat-treats/27022?page=2",
+   "fetched_at": "2026-11-02T13:21:48.338411Z",
+   "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E6RNSJXNW6F4FCGTQH2TXA.html.gz",
+   "dom_gz_sha256": "cb56de716e9fe0d9432f35a0956dbc527864e51bec6ad1ebb30047ece0d8c70f",
+   "state_artifact": "01M6E6RNSJXNW6F4FCGTQH2TXA.0027.products_v2.json.gz",
+   "state_artifact_gz_sha256": "9f3b72c43a6f5ced07651fa17dc282b031dc38cf719ecc76e36919067ed4b693"
+  },
+  "0003980014995": {
+   "page_fetch_id": "01M6E97BZ9NBCDTGJ1HMSZZF83",
+   "url": "https://www.marianos.com/pl/hardware-home-improvement/33?page=2",
+   "fetched_at": "2026-11-02T14:04:46.953210Z",
+   "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E97BZ9NBCDTGJ1HMSZZF83.html.gz",
+   "dom_gz_sha256": "0d41b7b8c428fcb9797b8a8706d44e5ffa68db6fb3b17f40f242286f7e4bc627",
+   "state_artifact": "01M6E97BZ9NBCDTGJ1HMSZZF83.0003.products_v2.json.gz",
+   "state_artifact_gz_sha256": "fc717e752ffbc4b6564a826a2a55d087946e29ed40851929bd317d68f0411d61"
+  }
+ },
+ "o1_product_pages": {
+  "pdp_0001780014939_rendered.html.gz": {
+   "capture": "stage O1 capture 03_c3_pdp_js.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+   "capture_sha256": "4c76091e75c6d17451a4abd6284d7a269642c2c03c911539a44e5820035d254b",
+   "request_id": "7524540530412231682",
+   "url": "https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014939",
+   "result_metadata_run_js": true,
+   "requested": {
+    "output": [
+     "html"
+    ],
+    "json": {
+     "schema": null,
+     "prompt": null
+    },
+    "location": "US",
+    "device": "desktop",
+    "run_js": true,
+    "delivery_zip": null,
+    "fulfillment_type": "pickup",
+    "store_id": "53100502",
+    "url": "https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014939"
+   },
+   "sanitized_html_sha256": "e88fb4171f0a1ef6c397f970231a4b5a72dbceb70676f28b98354bcffaa621e8",
+   "sanitize": {
+    "input_sha256": "f0d54c3c941c5c89684d3b80e0cb625b30c28ab2834d8b27dd6a3fbbf33ae277",
+    "output_sha256": "e88fb4171f0a1ef6c397f970231a4b5a72dbceb70676f28b98354bcffaa621e8"
+   }
+  },
+  "pdp_0001780014941_unrendered.html.gz": {
+   "capture": "stage O1 capture 04_c4_pdp_0001780014941.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+   "capture_sha256": "deadea281cc9959747f76834d7f4f593d0ba66590faa1b6dc25c3c9642380292",
+   "request_id": "7524541391263784961",
+   "url": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941",
+   "result_metadata_run_js": false,
+   "requested": {
+    "output": [
+     "html"
+    ],
+    "json": {
+     "schema": null,
+     "prompt": null
+    },
+    "location": "US",
+    "device": "desktop",
+    "run_js": true,
+    "delivery_zip": null,
+    "fulfillment_type": "pickup",
+    "store_id": "53100502",
+    "url": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941"
+   },
+   "sanitized_html_sha256": "5c64997b3172e59548f9b813f348692850db84c21ded5f75f4c3f620cdf682da",
+   "sanitize": {
+    "input_sha256": "80e6db9a942781044e57207e307e78592adec86e64ccf818b960aee3dbb8594f",
+    "output_sha256": "5c64997b3172e59548f9b813f348692850db84c21ded5f75f4c3f620cdf682da"
+   }
+  },
+  "pdp_0001820020352_unrendered_sale.html.gz": {
+   "capture": "stage O1 capture 09_m6c_pdp_0001820020352.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+   "capture_sha256": "d41dca996396cc21933bd6f2fe70fd2c2a28858e8ab277379f974e292c887a78",
+   "request_id": "7524541623041038337",
+   "url": "https://www.marianos.com/p/nutrl-vodka-hard-seltzer-real-fruit-juice-variety/0001820020352",
+   "result_metadata_run_js": false,
+   "requested": {
+    "output": [
+     "html"
+    ],
+    "json": {
+     "schema": null,
+     "prompt": null
+    },
+    "location": "US",
+    "device": "desktop",
+    "run_js": true,
+    "delivery_zip": null,
+    "fulfillment_type": "pickup",
+    "store_id": "53100502",
+    "url": "https://www.marianos.com/p/nutrl-vodka-hard-seltzer-real-fruit-juice-variety/0001820020352"
+   },
+   "sanitized_html_sha256": "317ce4caf52b1f8a1092d98a85e1ffc48c99f5eff82b8cb077a913bd4918b8db",
+   "sanitize": {
+    "input_sha256": "7ddc68011edc76ce5973952ea5d020eb61b65ccb7fe128474d05f1cf3150e6ff",
+    "output_sha256": "317ce4caf52b1f8a1092d98a85e1ffc48c99f5eff82b8cb077a913bd4918b8db"
+   }
+  }
+ }
+}

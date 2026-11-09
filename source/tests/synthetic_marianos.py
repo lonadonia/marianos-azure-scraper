@@ -386,6 +386,12 @@ def search_page(
     store_name: str = "Marianos Lakeshore East",
     store_address: str = "333 E Benton Pl",
     store_postal: str = "60601",
+    filters: dict[str, Any] | None = None,
+    search_id: str = "00000000-syn-search",
+    latest_search_id: str | None = None,
+    loaded: bool = True,
+    loading: bool = False,
+    has_error: bool = False,
 ) -> str:
     """A search result page, or (with ``taxonomy_id`` and ``ranks``) a listing's page: the grid's cards and
     the page state (``products``: (product, taxonomy)). ``show_cards=False`` is a page brought without its
@@ -410,7 +416,13 @@ def search_page(
                     "fulfillment": "all",
                     "locationId": request_location_id or location_id,
                     "activeModalityType": modality,
+                    # 1.9.0: the facets a real page states (all 99 saved pages of 2026-11-02)
+                    **(filters if filters is not None else {"brandName": []}),
                 },
+                "loaded": loaded,
+                "loading": loading,
+                "hasError": has_error,
+                "latestResponseSearchId": latest_search_id or search_id,
                 "response": {
                     "upcs": [p.upc for p, _ in products],
                     "sponsoredItems": [{"upc": u} for u in sponsored],
@@ -419,6 +431,7 @@ def search_page(
                         **({"totalCount": total} if page_number is not None else {}),
                         "availableCount": min(total, 250) if available is None else available,
                         "waysToShop": [{"name": "In-Store", "slug": "in_store"}],
+                        "searchId": search_id,
                         **({"departments": departments} if departments is not None else {}),
                         **({"brands": brands} if brands is not None else {}),
                     },

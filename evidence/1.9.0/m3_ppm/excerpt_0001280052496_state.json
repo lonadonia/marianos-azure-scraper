@@ -1,0 +1,31 @@
+{
+ "path": "calypso.domains.products['0001280052496'].data",
+ "nodes": {
+  "calypso.domains.products['0001280052496'].data.price.storePrices.regular.equivalizedUnitPrice": {
+   "amount": "10.49",
+   "denomination": "DOLLAR",
+   "unit": "PER OUNCE"
+  },
+  "calypso.domains.products['0001280052496'].data.price.storePrices.regular.equivalizedUnitPriceString": "$10.49/oz",
+  "calypso.domains.products['0001280052496'].data.price.storePrices.promo.equivalizedUnitPrice": {
+   "amount": "7.99",
+   "denomination": "DOLLAR",
+   "unit": "PER OUNCE"
+  },
+  "calypso.domains.products['0001280052496'].data.price.storePrices.promo.equivalizedUnitPriceString": "$7.99/oz",
+  "calypso.domains.products['0001280052496'].data.price.storePrices.regular.price": "USD 10.49",
+  "calypso.domains.products['0001280052496'].data.price.storePrices.promo.price": "USD 7.99",
+  "calypso.domains.products['0001280052496'].data.price.storePrices.sourceLocationId": "53100502",
+  "calypso.domains.products['0001280052496'].data.item.customerFacingSize": "1 Count",
+  "calypso.domains.products['0001280052496'].data.item.pidSizeQuantity": 1,
+  "calypso.domains.products['0001280052496'].data.item.pidSizeUnitOfMeasureName": "EACH",
+  "calypso.domains.products['0001280052496'].data.price.sellBy": "Unit"
+ },
+ "request_state": {
+  "locationId": "53100502",
+  "activeModalityType": "PICKUP",
+  "taxonomyId": "33",
+  "page": 3,
+  "brandName": []
+ }
+}

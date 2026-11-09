@@ -1,0 +1,328 @@
+{
+  "mode": "LIVE",
+  "run_id": "01M70E1GNA85H05HDM45F5XQRS",
+  "store_key": "marianos-53100502-pickup",
+  "created_at": "2026-11-09T15:19:11.385828Z",
+  "record_count": 1269,
+  "fresh_record_count": 115,
+  "dataset": "pilot",
+  "files": {
+    "products.json": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/products.json",
+      "sha256": "eaa5c3769932d5c2bc8d9dfe2e683e39fab8091044b01b12a9e58cd760998163",
+      "size": 1187033
+    },
+    "products.csv": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/products.csv",
+      "sha256": "2010a0629cf59c99fef7687e4f1dd8a5d2a5e24b233d1d08ca0b141b56f8c794",
+      "size": 567243
+    },
+    "memberships.json": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/memberships.json",
+      "sha256": "4c00526f5479825b64c5edbe8389b88da4ba42259d52bf95ea1f6c549b2d9275",
+      "size": 76187
+    },
+    "offers.json": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/offers.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size": 3
+    },
+    "provenance.json": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/provenance.json",
+      "sha256": "f143706e2434ca81df568d71c06ccfe653a5e9c0d4872bb82aca2e374d775782",
+      "size": 3537637
+    },
+    "validation_report.json": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/validation_report.json",
+      "sha256": "b3274ec81d09c6e5bd069be62ec9713556a7e19b3626a1a862520de82f510829",
+      "size": 2274
+    },
+    "products_fresh.json": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/products_fresh.json",
+      "sha256": "47f04e993ee0a6143825e451807631802b2bc30f100f234edca736071e6afb0d",
+      "size": 105071
+    },
+    "products_fresh.csv": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/products_fresh.csv",
+      "sha256": "2b1ee38a57acf0a67eaad3887ddaa9751627b23675c53bea04869aa96cdf59c8",
+      "size": 49165
+    },
+    "coverage_reconciliation.json": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/coverage_reconciliation.json",
+      "sha256": "1ffd8ded46fa6184dd9b069f905134acdac315ad103ab9d7ed465e55a4b0cf8b",
+      "size": 18261
+    },
+    "coverage_reconciliation.csv": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/coverage_reconciliation.csv",
+      "sha256": "c54bd36b7eaae7e73b53af36160ebfe42380a2b368c0a7261b57070d72190dde",
+      "size": 1545
+    },
+    "coverage_by_csv_row.csv": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/coverage_by_csv_row.csv",
+      "sha256": "09600fd2469c6ef60a279db359b1aa2da2a8645f7d9a58e0b673f61f1c826ffc",
+      "size": 3332
+    },
+    "listing_pages.csv": {
+      "key": "runs/marianos-53100502-pickup/01M70E1GNA85H05HDM45F5XQRS/exports/listing_pages.csv",
+      "sha256": "7789641f1c045bbc04f7ac3bda142c691a36d793dab9a59be6ea75e97f4642f9",
+      "size": 2115
+    }
+  },
+  "config_snapshot": {
+    "code": {
+      "commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+      "source": "git",
+      "version": "1.9.0rc4",
+      "parser_version": "1.9.0",
+      "uncommitted_changes": false
+    },
+    "plan": {
+      "nodes": [
+        {
+          "url": "https://www.marianos.com/pl/candles-home-fragrances/32001?pzn=relevance",
+          "kind": "row_listing",
+          "only": [],
+          "parent": "",
+          "category": "Candles Home Fragrances",
+          "excluded": [],
+          "row_index": 23,
+          "taxonomy_id": "32001",
+          "sub_category": "",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDD"
+        },
+        {
+          "url": "https://www.marianos.com/pl/batteries/26003?pzn=relevance",
+          "kind": "row_listing",
+          "only": [],
+          "parent": "",
+          "category": "Batteries",
+          "excluded": [],
+          "row_index": 24,
+          "taxonomy_id": "26003",
+          "sub_category": "",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDE"
+        },
+        {
+          "url": "https://www.marianos.com/pl/Light-Bulbs/26002?pzn=relevance",
+          "kind": "row_listing",
+          "only": [],
+          "parent": "",
+          "category": "Light Bulbs",
+          "excluded": [],
+          "row_index": 25,
+          "taxonomy_id": "26002",
+          "sub_category": "",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDF"
+        },
+        {
+          "url": "https://www.marianos.com/pl/school-office/35?pzn=relevance",
+          "kind": "row_listing",
+          "only": [],
+          "parent": "",
+          "category": "School Office",
+          "excluded": [],
+          "row_index": 26,
+          "taxonomy_id": "35",
+          "sub_category": "",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDG"
+        }
+      ],
+      "order": {
+        "policy": "csv"
+      },
+      "skipped": []
+    },
+    "gates": {
+      "coverage_fail_below": 0.9,
+      "coverage_warn_below": 0.98,
+      "canary_missing_is_fail": false,
+      "reconciliation_fail_above": 0.02,
+      "reconciliation_warn_above": 0.005,
+      "price_completeness_warn_below": 0.98
+    },
+    "pilot": true,
+    "store": {
+      "key": "marianos-53100502-pickup",
+      "name": "Marianos Vernon Hills",
+      "modality": "PICKUP",
+      "retailer": "marianos",
+      "location_id": "53100502"
+    },
+    "yield": {
+      "fail_drop_vs_last_good": 0.5,
+      "warn_drop_vs_last_good": 0.3
+    },
+    "contest": {
+      "enabled": true,
+      "min_categories": 3,
+      "min_valid_records": 500
+    },
+    "records": {
+      "crawl_date": "STORE_LOCAL_DATE",
+      "exclude_ship_only": true,
+      "ppm_source_policy": "DOM_ONLY",
+      "other_promo_target": "NONE",
+      "sub_category_format": "LEAF",
+      "approx_weight_pattern": "(?i)\\b(approx\\.?|approximately|avg\\.?|average|estimated)(?=[\\s\\d.]|$)|~\\s*\\d|\\babout\\s+\\d|\\b\\d+(\\.\\d+)?\\s*(-|to)\\s*\\d+(\\.\\d+)?\\s*(lb|lbs|pound|pounds|oz|ounce|ounces|kg|g)\\b",
+      "approx_weight_sources": [
+        "weight",
+        "product_data_size",
+        "title"
+      ],
+      "fail_on_price_mismatch": true,
+      "deal_description_format": "TAG_TEXT_EXPIRY",
+      "primary_category_policy": "CSV_ORDER_COUPONS_LAST",
+      "deal_description_separator": " | ",
+      "store_brand_negative_value": "no",
+      "store_brand_positive_value": "yes",
+      "include_cashback_in_digital": false,
+      "sub_category_path_separator": " > ",
+      "include_points_offers_in_deals": false
+    },
+    "retries": {
+      "backoff_max_s": 300.0,
+      "backoff_base_s": 10.0,
+      "pause_on_429_s": 600.0,
+      "max_retry_after_s": 1800.0,
+      "max_attempts_per_task": 3
+    },
+    "storage": {
+      "backend": "local",
+      "local_root": "C:\\m8\\q190\\data",
+      "azure_container": null,
+      "azure_account_url": null
+    },
+    "coverage": {
+      "read_product_terms": false,
+      "row_fail_below_ratio": 0.9,
+      "node_min_coverage_ratio": 0.98,
+      "partition_large_listings": true,
+      "allow_paid_only_membership": false
+    },
+    "provider": "oxylabs",
+    "retailer": "marianos",
+    "overrides": {
+      "categories": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "max_credits_per_run": 30
+    },
+    "collection": {
+      "limits": {
+        "max_run_minutes": 2880,
+        "min_credit_reserve": 0,
+        "max_credits_per_day": null,
+        "max_credits_per_run": 30,
+        "max_segment_minutes": 300,
+        "max_products_per_day": null,
+        "max_products_per_run": null,
+        "max_pages_per_listing": null,
+        "max_product_term_reads": null,
+        "max_concurrent_listings": 2
+      },
+      "schedule": {
+        "enabled": false,
+        "end_date": null,
+        "weekdays": [
+          0,
+          3
+        ],
+        "start_date": null,
+        "start_time": "07:00",
+        "window_end": "19:00",
+        "window_start": null,
+        "backlog_first": true,
+        "continue_unfinished": true
+      },
+      "timezone": "America/Chicago",
+      "categories": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "subcategories": {},
+      "max_auto_resumes": 3,
+      "start_tolerance_minutes": 45
+    },
+    "started_by": "hamza-qualification-190",
+    "acquisition": {
+      "mode": "UI_CAPTURE",
+      "oxylabs": {
+        "api_base": "https://webapi.oxylabs.io",
+        "location": "US",
+        "max_attempts": 3,
+        "listing_route": "listing",
+        "page_endpoint": "/v1/scrape/marianos",
+        "coupons_run_js": true,
+        "listing_run_js": false,
+        "usd_per_result": 0.0015,
+        "search_endpoint": "/v1/scrape/marianos/search",
+        "request_timeout_s": 180.0,
+        "product_terms_run_js": true
+      },
+      "headless": true,
+      "scrapfly": {
+        "cache": true,
+        "country": "us",
+        "endpoint": "wss://browser.scrapfly.io",
+        "blacklist": true,
+        "browser_os": null,
+        "proxy_pool": "residential",
+        "target_url": "https://www.marianos.com/",
+        "account_url": "https://api.scrapfly.io/account",
+        "block_fonts": true,
+        "block_media": true,
+        "concurrency": 1,
+        "block_images": true,
+        "block_styles": false,
+        "browser_brand": null,
+        "connect_timeout_s": 60.0,
+        "session_timeout_s": 1800,
+        "max_credits_per_run": 300,
+        "bandwidth_overhead_factor": 2.0,
+        "credits_per_mb_datacenter": 7.0,
+        "credits_per_mb_residential": 52.0
+      },
+      "entry_url": null,
+      "browser_provider": "oxylabs",
+      "page_load_timeout_s": 45.0,
+      "response_wait_timeout_s": 30.0,
+      "navigation_min_interval_s": 4.0,
+      "navigation_interval_jitter_s": 1.0
+    },
+    "attestation": {
+      "trusted_modality_sources": [],
+      "require_is_trusted_source": true,
+      "periodic_every_navigations": 25
+    },
+    "circuit_breaker": {
+      "challenge_pages_to_abort_run": 1,
+      "consecutive_failures_to_fail_category": 5
+    }
+  },
+  "versions": {
+    "collector": "1.9.0",
+    "source": {
+      "commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+      "source": "git",
+      "uncommitted_changes": false
+    }
+  },
+  "site_version": "91.44.4-rc.0"
+}

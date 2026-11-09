@@ -1,4 +1,4 @@
-# Cost and runtime: Mariano's collector 1.8.0rc5 (task 1.8.0, 2026-11-02)
+# Cost and runtime: Mariano's collector 1.8.0rc5 (task 1.8.0, 2026-11-02), with release 1.9 (section 0, 2026-11-09)
 
 All amounts are in USD. Each figure says what kind of number it is:
 
@@ -12,6 +12,87 @@ Store for every live figure: Mariano's Vernon Hills 53100502, PICKUP. Ledgers: t
 ([`evidence/accounting/budget180.jsonl`](../evidence/accounting/budget180.jsonl), reserve before dispatch, append-only) and the collector's provider ledger in the
 qualification database ([`evidence/accounting/REQUEST_LEDGER.csv`](../evidence/accounting/REQUEST_LEDGER.csv)). Both agree for every run.
 
+## 0. Release 1.9 (2026-11-06 to 2026-11-09)
+
+Sections 1 to 7 are the 1.8.0 report as published on 2026-11-02, unchanged. This section adds what release 1.9 spent
+and measured, and what it changes in the estimates.
+
+**One ledger for the trial credit of both projects.** Since 2026-11-03 Hamza's Oxylabs trial credit is governed by
+one ledger for Walmart and Mariano's (campaign `oxylabs-trial-20261103`, the shared trial controller): USD 5.00 in
+total for both, USD 0.50 kept as uncertainty headroom, envelopes of USD 2.25 per retailer. Every submission is
+reserved at its worst case (USD 0.0015 per result) before it is sent, under an exclusive lease; an answered page is
+settled at that rate, a provider failure documented as free at 0, and a submission without an answer stays held as
+unknown at its worst case. A restart, a branch or a new configuration cannot open a second campaign. For this account
+it replaces the per-task ceilings of §1. Read at 2026-11-09 17:34:54Z, hash chain verified (chain_ok true over 5,560 events):
+
+| Ledger, USD at the reservation rate | Envelope | Settled | Unknown, held at worst case | Committed | Spendable |
+|---|---|---|---|---|---|
+| Campaign, both projects | cap 5.00; headroom 0.50; allocatable 4.50 | 2.6220 (1,748 results) | 0.0345 (23 submissions) | 2.6565 | **1.8435** |
+| Walmart (its own tasks; not used by this one) | 2.25 | 2.2230 (1,482 results) | 0.0240 (16) | 2.2470 | 0.0030 |
+| **Mariano's** (276 submissions) | 2.25 | 0.3990 (266 results; 3 submissions settled free) | 0.0105 (7) | 0.4095 | **1.8405** |
+| of which 2026-11-06: O1, S1, O2 (28) | | 0.0390 (26 results; 2 free) | 0 | 0.0390 | |
+| of which 2026-11-09: ten stages (248) | | 0.3600 (240 results; 1 free) | 0.0105 (7) | 0.3705 | |
+
+"Settled" is measured usage times the reservation rate, the highest non-AI row of Oxylabs' published pricing ("Custom
+domain, JS", USD 1.50 per 1,000 results, read 2026-11-03): a **list price used as a worst case**, not an invoice and
+not a confirmed account rate. The account balance is still not readable with this key, and no invoice was read.
+
+**Mariano's stages of release 1.9** (measured usage; every row in
+[`evidence/1.9.0/budget/LEDGER_ROWS_MARIANOS.csv`](../evidence/1.9.0/budget/LEDGER_ROWS_MARIANOS.csv)):
+
+| Stage | Started (UTC) | Revision | Submissions | Results settled | Settled free | Unknown, held | USD settled | USD held |
+|---|---|---|---|---|---|---|---|---|
+| O1, terms and offers | 2026-11-06 18:35 | requests by the stage tool | 16 | 14 | 2 | 0 | 0.0210 | 0 |
+| S1, canary | 2026-11-06 19:33 | 1.9.0rc1 | 5 | 5 | 0 | 0 | 0.0075 | 0 |
+| O2, tile discovery | 2026-11-06 19:45 | requests by the stage tool | 7 | 7 | 0 | 0 | 0.0105 | 0 |
+| S1b, canary | 2026-11-09 12:36 | 1.9.0rc3 | 13 | 13 | 0 | 0 | 0.0195 | 0 |
+| S4, rows 22-27 | 14:30 | 1.9.0rc3 | 43 | 43 | 0 | 0 | 0.0645 | 0 |
+| S5a, rows 23-26, one lane | 14:41 | 1.9.0rc3 | 19 | 19 | 0 | 0 | 0.0285 | 0 |
+| S5b, rows 23-26, two lanes | 14:46 | 1.9.0rc3 | 20 | 17 | 0 | 3 | 0.0255 | 0.0045 |
+| S3, Milk | 14:56 | 1.9.0rc3 | 6 | 6 | 0 | 0 | 0.0090 | 0 |
+| S5b2, rows 23-26, two lanes | 15:15 | 1.9.0rc4 | 17 | 13 | 0 | 4 | 0.0195 | 0.0060 |
+| S4b, rows 22-27 | 15:52 | 1.9.0rc4 | 32 | 31 | 1 | 0 | 0.0465 | 0 |
+| S4c, 31 listings of rows 1-21 | 16:00 | 1.9.0rc4 | 59 | 59 | 0 | 0 | 0.0885 | 0 |
+| S3b, Frozen | 16:12 | 1.9.0rc4 | 4 | 4 | 0 | 0 | 0.0060 | 0 |
+| S4d, 30 single-page listings | 16:20 | 1.9.0rc4 | 35 | 35 | 0 | 0 | 0.0525 | 0 |
+| **All** | | | **276** | **266** | **3** | **7** | **0.3990** | **0.0105** |
+
+No purchase, top-up, overage or other provider was used, and the client's account was not used. The stages of
+2026-11-09 ran under Hamza's approval of at most 295 submissions and USD 0.4425; 248 were used.
+
+**Latencies measured on 2026-11-09** (the provider's queue included; listing answers from the paging census, the
+others from the stage logs):
+
+| Request (2026-11-09) | Answers with a time | Median | Range |
+|---|---|---|---|
+| listing page, asked unrendered and brought unrendered | 187 | 5.1 s (90th percentile 8.9 s) | 2.9 to 52.1 s |
+| listing page, asked unrendered and rendered by the provider anyway | 12 | 33.7 s | 27.5 to 45.7 s |
+| the Coupons page (rendered every time) | 10 | 29.1 s | 13.3 to 88.7 s |
+| product page asked rendered (S1b), rendered | 2 | | 16.7 and 25.4 s |
+| product page asked rendered (S1b), brought unrendered | 6 | | 3.6 to 5.0 s |
+
+Listing answers from the paging census ([`PAGING_CENSUS_190.csv`](../evidence/1.9.0/live/PAGING_CENSUS_190.csv)): 13 of the 202 asked unrendered were rendered by the provider, 12 of them with a time; 6 answers have no provider metadata (sessions ended by the hard kills of S5b and S5b2). The Coupons page from each run's `page_fetches` table, the product pages from S1b's log.
+
+**What changes in the §5 estimate.** The submissions do not change: they count pages (scenario B, all rows, 3,928 to
+6,277 a run, USD 5.89 to 9.41 at the reserve rate, about USD 51 to 82 a month twice weekly). The time per page does:
+the 57.7 s per page of §5 was measured on rendered listing pages, and 1.9 reads them unrendered. One lane read
+188 submissions (one of them a provider failure, settled free) in 1,931.7 s of active collection over the five one-lane runs S4, S5a, S4b, S4c and S4d (each run's `collection_segments` table): 10.3 s per submission, 8.7 to 12.7 by run; at that rate, scenario B would take about **11 to 18 hours** with one lane instead
+of 48.4 to 77.3. **This is an extrapolation from five runs of 19 to 59 submissions, not a full run**, and it holds
+only if the listings are answered in form A, with distinct later pages and the filters present (technical report
+1.9.0 §3.2). Whether unrendered requests are billed below the reserve rate is not known.
+
+**Product-page reads for coupon terms** (off by default) would add one submission per product read; with the tile
+showing no coupon, every product is a candidate, and the provider rendered 1 of 14 product pages on 2026-11-06 and
+2 of 8 on 2026-11-09.
+
+**A re-ask of form-B answers** (proposed change C1, technical report 1.9.0 §15) would add at most 2 submissions per
+answer it sets aside.
+
+**The trial credit cannot hold the full scope.** Scenario B needs USD 5.89 to 9.41 a run at the reserve rate, against
+USD 1.84 left in Mariano's envelope. The next proposed stages (S6, at most 130 submissions, USD 0.195; S6b,
+at most 86, USD 0.129; S7, runs of at most 200 submissions, USD 0.30, within what Hamza approves;
+[`evidence/1.9.0/budget/NEXT_STAGES.json`](../evidence/1.9.0/budget/NEXT_STAGES.json)) fit; a full-scope run is for the
+client's account, after the client's decision.
 ## 1. Spending against the ceilings
 
 | Account | Unit | Ceiling | Used in this task (measured) | Remaining |

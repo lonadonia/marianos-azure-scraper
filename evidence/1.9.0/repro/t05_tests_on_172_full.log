@@ -1,0 +1,1277 @@
+FFFFFFFFFFFFFFFFFFFFF.F                                                  [100%]
+================================== FAILURES ===================================
+______ test_a_missing_replay_file_is_refused_before_anything_is_created _______
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_missing_replay_file_is_0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB0E390>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001EA7FB0D3A0>
+
+    def test_a_missing_replay_file_is_refused_before_anything_is_created(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        def no_credentials() -> Any:
+            raise AssertionError("a replay read a credential")
+    
+        monkeypatch.setattr(gates, "load_credentials", no_credentials)
+        monkeypatch.setattr(gates, "credentials_present", no_credentials)
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:78: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\classic_probe\cli.py:281: in main
+    code: int = args.func(args)
+                ^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:189: in cmd_replay
+    transport = load_replay(args.fixtures)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:167: in load_replay
+    spec = json.loads((fixtures / "replay.json").read_text(encoding="utf-8"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\w6\py312\pkg\tools\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_missing_replay_file_is_0/fixtures/replay.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\<user>\\AppData\\Local\\Temp\\pytest-of-<user>\\pytest-1285\\test_a_missing_replay_file_is_0\\fixtures\\replay.json'
+
+C:\w6\py312\pkg\tools\Lib\pathlib.py:1013: FileNotFoundError
+__________________ test_a_missing_fixtures_folder_is_refused __________________
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_missing_fixtures_folder0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB0E6C0>
+
+    def test_a_missing_fixtures_folder_is_refused(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+>       message = refused(capsys, cli.main(args(tmp_path, tmp_path / "nowhere")))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\classic_probe\cli.py:281: in main
+    code: int = args.func(args)
+                ^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:189: in cmd_replay
+    transport = load_replay(args.fixtures)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:167: in load_replay
+    spec = json.loads((fixtures / "replay.json").read_text(encoding="utf-8"))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\w6\py312\pkg\tools\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_missing_fixtures_folder0/nowhere/replay.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\<user>\\AppData\\Local\\Temp\\pytest-of-<user>\\pytest-1285\\test_a_missing_fixtures_folder0\\nowhere\\replay.json'
+
+C:\w6\py312\pkg\tools\Lib\pathlib.py:1013: FileNotFoundError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{not json-is not valid JSON (line 1, column 2)] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB0ECC0>
+text = '{not json', expected = 'is not valid JSON (line 1, column 2)'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB0ECC0>, code = 2
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+        assert code == cli.EXIT_USAGE == 2
+        assert out.out == "" and "Traceback" not in out.err
+        lines = out.err.strip().splitlines()
+        assert len(lines) == 1
+        message: str = json.loads(lines[0])["refused"]
+>       assert message.startswith("ReplayRefused: ")
+E       AssertionError: assert False
+E        +  where False = <built-in method startswith of str object at 0x000001EA7FB55470>('ReplayRefused: ')
+E        +    where <built-in method startswith of str object at 0x000001EA7FB55470> = 'JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)'.startswith
+
+tests\test_t05_replay_input.py:64: AssertionError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[-is not valid JSON (line 1, column 1)] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re1')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3B0E0>
+text = '', expected = 'is not valid JSON (line 1, column 1)'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3B0E0>, code = 2
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+        assert code == cli.EXIT_USAGE == 2
+        assert out.out == "" and "Traceback" not in out.err
+        lines = out.err.strip().splitlines()
+        assert len(lines) == 1
+        message: str = json.loads(lines[0])["refused"]
+>       assert message.startswith("ReplayRefused: ")
+E       AssertionError: assert False
+E        +  where False = <built-in method startswith of str object at 0x000001EA7FBA5CA0>('ReplayRefused: ')
+E        +    where <built-in method startswith of str object at 0x000001EA7FBA5CA0> = 'JSONDecodeError: Expecting value: line 1 column 1 (char 0)'.startswith
+
+tests\test_t05_replay_input.py:64: AssertionError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[[]-must be an object whose "steps"] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re2')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3A5D0>
+text = '[]', expected = 'must be an object whose "steps"'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\classic_probe\cli.py:281: in main
+    code: int = args.func(args)
+                ^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:189: in cmd_replay
+    transport = load_replay(args.fixtures)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fixtures = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re2/fixtures')
+
+    def load_replay(fixtures: Path) -> ReplayTransport:
+        """``replay.json`` maps each step to its saved responses: ``{"step": [{"http_status": 200, "body_file":
+        "x.json"}]}``."""
+        spec = json.loads((fixtures / "replay.json").read_text(encoding="utf-8"))
+        responses = {
+            step: [
+                ProviderResponse(
+                    int(r["http_status"]),
+                    (fixtures / r["body_file"]).read_bytes()
+                    if r.get("body_file")
+                    else str(r.get("body", "")).encode("utf-8"),
+                )
+                for r in rows
+            ]
+>           for step, rows in spec["steps"].items()
+                              ^^^^^^^^^^^^^
+        }
+E       TypeError: list indices must be integers or slices, not str
+
+src\classic_probe\cli.py:178: TypeError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{}-must be an object whose "steps"] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re3')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3B2F0>
+text = '{}', expected = 'must be an object whose "steps"'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\classic_probe\cli.py:281: in main
+    code: int = args.func(args)
+                ^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:189: in cmd_replay
+    transport = load_replay(args.fixtures)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fixtures = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re3/fixtures')
+
+    def load_replay(fixtures: Path) -> ReplayTransport:
+        """``replay.json`` maps each step to its saved responses: ``{"step": [{"http_status": 200, "body_file":
+        "x.json"}]}``."""
+        spec = json.loads((fixtures / "replay.json").read_text(encoding="utf-8"))
+        responses = {
+            step: [
+                ProviderResponse(
+                    int(r["http_status"]),
+                    (fixtures / r["body_file"]).read_bytes()
+                    if r.get("body_file")
+                    else str(r.get("body", "")).encode("utf-8"),
+                )
+                for r in rows
+            ]
+>           for step, rows in spec["steps"].items()
+                              ^^^^^^^^^^^^^
+        }
+E       KeyError: 'steps'
+
+src\classic_probe\cli.py:178: KeyError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": []}-must be an object whose "steps"] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re4')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3A840>
+text = '{"steps": []}', expected = 'must be an object whose "steps"'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\classic_probe\cli.py:281: in main
+    code: int = args.func(args)
+                ^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:189: in cmd_replay
+    transport = load_replay(args.fixtures)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fixtures = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re4/fixtures')
+
+    def load_replay(fixtures: Path) -> ReplayTransport:
+        """``replay.json`` maps each step to its saved responses: ``{"step": [{"http_status": 200, "body_file":
+        "x.json"}]}``."""
+        spec = json.loads((fixtures / "replay.json").read_text(encoding="utf-8"))
+        responses = {
+            step: [
+                ProviderResponse(
+                    int(r["http_status"]),
+                    (fixtures / r["body_file"]).read_bytes()
+                    if r.get("body_file")
+                    else str(r.get("body", "")).encode("utf-8"),
+                )
+                for r in rows
+            ]
+>           for step, rows in spec["steps"].items()
+                              ^^^^^^^^^^^^^^^^^^^
+        }
+E       AttributeError: 'list' object has no attribute 'items'
+
+src\classic_probe\cli.py:178: AttributeError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {}}-must be an object whose "steps"] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re5')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3BD40>
+text = '{"steps": {}}', expected = 'must be an object whose "steps"'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3BD40>, code = 4
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+>       assert code == cli.EXIT_USAGE == 2
+E       assert 4 == 2
+E        +  where 2 = cli.EXIT_USAGE
+
+tests\test_t05_replay_input.py:59: AssertionError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": []}}-step 's': a non-empty list] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re6')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB0F950>
+text = '{"steps": {"s": []}}', expected = "step 's': a non-empty list"
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB0F950>, code = 4
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+>       assert code == cli.EXIT_USAGE == 2
+E       assert 4 == 2
+E        +  where 2 = cli.EXIT_USAGE
+
+tests\test_t05_replay_input.py:59: AssertionError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [1]}}-step 's', response 1: an object is required] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re7')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3BFB0>
+text = '{"steps": {"s": [1]}}'
+expected = "step 's', response 1: an object is required"
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\classic_probe\cli.py:281: in main
+    code: int = args.func(args)
+                ^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:189: in cmd_replay
+    transport = load_replay(args.fixtures)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fixtures = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re7/fixtures')
+
+    def load_replay(fixtures: Path) -> ReplayTransport:
+        """``replay.json`` maps each step to its saved responses: ``{"step": [{"http_status": 200, "body_file":
+        "x.json"}]}``."""
+        spec = json.loads((fixtures / "replay.json").read_text(encoding="utf-8"))
+        responses = {
+            step: [
+                ProviderResponse(
+>                   int(r["http_status"]),
+                        ^^^^^^^^^^^^^^^^
+                    (fixtures / r["body_file"]).read_bytes()
+                    if r.get("body_file")
+                    else str(r.get("body", "")).encode("utf-8"),
+                )
+                for r in rows
+            ]
+            for step, rows in spec["steps"].items()
+        }
+E       TypeError: 'int' object is not subscriptable
+
+src\classic_probe\cli.py:171: TypeError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"body": "x"}]}}-http_status must be an integer from 100 to 599] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re8')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3AFF0>
+text = '{"steps": {"s": [{"body": "x"}]}}'
+expected = 'http_status must be an integer from 100 to 599'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\classic_probe\cli.py:281: in main
+    code: int = args.func(args)
+                ^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:189: in cmd_replay
+    transport = load_replay(args.fixtures)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fixtures = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re8/fixtures')
+
+    def load_replay(fixtures: Path) -> ReplayTransport:
+        """``replay.json`` maps each step to its saved responses: ``{"step": [{"http_status": 200, "body_file":
+        "x.json"}]}``."""
+        spec = json.loads((fixtures / "replay.json").read_text(encoding="utf-8"))
+        responses = {
+            step: [
+                ProviderResponse(
+>                   int(r["http_status"]),
+                        ^^^^^^^^^^^^^^^^
+                    (fixtures / r["body_file"]).read_bytes()
+                    if r.get("body_file")
+                    else str(r.get("body", "")).encode("utf-8"),
+                )
+                for r in rows
+            ]
+            for step, rows in spec["steps"].items()
+        }
+E       KeyError: 'http_status'
+
+src\classic_probe\cli.py:171: KeyError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": "200"}]}}-http_status must be an integer] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re9')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3B230>
+text = '{"steps": {"s": [{"http_status": "200"}]}}'
+expected = 'http_status must be an integer'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB3B230>, code = 4
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+>       assert code == cli.EXIT_USAGE == 2
+E       assert 4 == 2
+E        +  where 2 = cli.EXIT_USAGE
+
+tests\test_t05_replay_input.py:59: AssertionError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": true}]}}-http_status must be an integer] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re10')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB85BB0>
+text = '{"steps": {"s": [{"http_status": true}]}}'
+expected = 'http_status must be an integer'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB85BB0>, code = 4
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+>       assert code == cli.EXIT_USAGE == 2
+E       assert 4 == 2
+E        +  where 2 = cli.EXIT_USAGE
+
+tests\test_t05_replay_input.py:59: AssertionError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 99}]}}-http_status must be an integer from 100 to 599] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re11')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB85250>
+text = '{"steps": {"s": [{"http_status": 99}]}}'
+expected = 'http_status must be an integer from 100 to 599'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB85250>, code = 4
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+>       assert code == cli.EXIT_USAGE == 2
+E       assert 4 == 2
+E        +  where 2 = cli.EXIT_USAGE
+
+tests\test_t05_replay_input.py:59: AssertionError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body": 5}]}}-body must be a string] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re12')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB85340>
+text = '{"steps": {"s": [{"http_status": 200, "body": 5}]}}'
+expected = 'body must be a string'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB85340>, code = 4
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+>       assert code == cli.EXIT_USAGE == 2
+E       assert 4 == 2
+E        +  where 2 = cli.EXIT_USAGE
+
+tests\test_t05_replay_input.py:59: AssertionError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}-not both] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re13')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB86000>
+text = '{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}'
+expected = 'not both'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\classic_probe\cli.py:281: in main
+    code: int = args.func(args)
+                ^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:189: in cmd_replay
+    transport = load_replay(args.fixtures)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:172: in load_replay
+    (fixtures / r["body_file"]).read_bytes()
+C:\w6\py312\pkg\tools\Lib\pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re13/fixtures/a')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\<user>\\AppData\\Local\\Temp\\pytest-of-<user>\\pytest-1285\\test_a_malformed_or_invalid_re13\\fixtures\\a'
+
+C:\w6\py312\pkg\tools\Lib\pathlib.py:1013: FileNotFoundError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}-'gone.json' is missing] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re14')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB85A90>
+text = '{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}'
+expected = "'gone.json' is missing"
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\classic_probe\cli.py:281: in main
+    code: int = args.func(args)
+                ^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:189: in cmd_replay
+    transport = load_replay(args.fixtures)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\classic_probe\cli.py:172: in load_replay
+    (fixtures / r["body_file"]).read_bytes()
+C:\w6\py312\pkg\tools\Lib\pathlib.py:1019: in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re14/fixtures/gone.json')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\<user>\\AppData\\Local\\Temp\\pytest-of-<user>\\pytest-1285\\test_a_malformed_or_invalid_re14\\fixtures\\gone.json'
+
+C:\w6\py312\pkg\tools\Lib\pathlib.py:1013: FileNotFoundError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}-outside the fixtures folder] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re15')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB84BF0>
+text = '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}'
+expected = 'outside the fixtures folder'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB84BF0>, code = 4
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+>       assert code == cli.EXIT_USAGE == 2
+E       assert 4 == 2
+E        +  where 2 = cli.EXIT_USAGE
+
+tests\test_t05_replay_input.py:59: AssertionError
+_ test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}-body_file must be a file name] _
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_malformed_or_invalid_re16')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB38770>
+text = '{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}'
+expected = 'body_file must be a file name'
+
+    @pytest.mark.parametrize(
+        ("text", "expected"),
+        [
+            ("{not json", "is not valid JSON (line 1, column 2)"),
+            ("", "is not valid JSON (line 1, column 1)"),
+            ("[]", 'must be an object whose "steps"'),
+            ("{}", 'must be an object whose "steps"'),
+            ('{"steps": []}', 'must be an object whose "steps"'),
+            ('{"steps": {}}', 'must be an object whose "steps"'),
+            ('{"steps": {"s": []}}', "step 's': a non-empty list"),
+            ('{"steps": {"s": [1]}}', "step 's', response 1: an object is required"),
+            ('{"steps": {"s": [{"body": "x"}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": "200"}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": true}]}}', "http_status must be an integer"),
+            ('{"steps": {"s": [{"http_status": 99}]}}', "http_status must be an integer from 100 to 599"),
+            ('{"steps": {"s": [{"http_status": 200, "body": 5}]}}', "body must be a string"),
+            ('{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}', "not both"),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}', "'gone.json' is missing"),
+            (
+                '{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}',
+                "outside the fixtures folder",
+            ),
+            ('{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}', "body_file must be a file name"),
+        ],
+    )
+    def test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str], text: str, expected: str
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_text(text, "utf-8")
+>       message = refused(capsys, cli.main(args(tmp_path, fixtures)))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB38770>, code = 4
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+>       assert code == cli.EXIT_USAGE == 2
+E       assert 4 == 2
+E        +  where 2 = cli.EXIT_USAGE
+
+tests\test_t05_replay_input.py:59: AssertionError
+_______________ test_a_replay_file_that_is_not_utf8_is_refused ________________
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_a_replay_file_that_is_not0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB878F0>
+
+    def test_a_replay_file_that_is_not_utf8_is_refused(
+        tmp_path: Path, capsys: pytest.CaptureFixture[str]
+    ) -> None:
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        (fixtures / "replay.json").write_bytes(b"\xff\xfe{")
+>       assert "cannot be read (UnicodeDecodeError)" in refused(capsys, cli.main(args(tmp_path, fixtures)))
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:130: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB878F0>, code = 2
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+        assert code == cli.EXIT_USAGE == 2
+        assert out.out == "" and "Traceback" not in out.err
+        lines = out.err.strip().splitlines()
+        assert len(lines) == 1
+        message: str = json.loads(lines[0])["refused"]
+>       assert message.startswith("ReplayRefused: ")
+E       assert False
+E        +  where False = <built-in method startswith of str object at 0x000001EA7FB9A280>('ReplayRefused: ')
+E        +    where <built-in method startswith of str object at 0x000001EA7FB9A280> = "UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte".startswith
+
+tests\test_t05_replay_input.py:64: AssertionError
+________________ test_missing_targets_or_rates_are_refused_too ________________
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_missing_targets_or_rates_0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB859D0>
+
+    def test_missing_targets_or_rates_are_refused_too(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+        fixtures = tmp_path / "fixtures"
+        valid_fixtures(fixtures)
+        argv = args(tmp_path, fixtures)
+        argv[argv.index("--rates") + 1] = str(tmp_path / "no-rates.json")
+>       assert "--rates" in refused(capsys, cli.main(argv)) and not (tmp_path / "out").exists()
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_t05_replay_input.py:138: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+capsys = <_pytest.capture.CaptureFixture object at 0x000001EA7FB859D0>, code = 2
+
+    def refused(capsys: pytest.CaptureFixture[str], code: int) -> str:
+        out = capsys.readouterr()
+        assert code == cli.EXIT_USAGE == 2
+        assert out.out == "" and "Traceback" not in out.err
+        lines = out.err.strip().splitlines()
+        assert len(lines) == 1
+        message: str = json.loads(lines[0])["refused"]
+>       assert message.startswith("ReplayRefused: ")
+E       AssertionError: assert False
+E        +  where False = <built-in method startswith of str object at 0x000001EA7FC94730>('ReplayRefused: ')
+E        +    where <built-in method startswith of str object at 0x000001EA7FC94730> = 'UnknownRate: the rate card has no confirmed_by: its rates are not confirmed'.startswith
+
+tests\test_t05_replay_input.py:64: AssertionError
+_ test_the_refusal_in_its_own_process_has_no_traceback_network_or_credential __
+
+tmp_path = WindowsPath('C:/Users/<user>/AppData/Local/Temp/pytest-of-<user>/pytest-1285/test_the_refusal_in_its_own_pr0')
+
+    def test_the_refusal_in_its_own_process_has_no_traceback_network_or_credential(tmp_path: Path) -> None:
+        guard = tmp_path / "guard"
+        guard.mkdir()
+        (guard / "sitecustomize.py").write_text(GUARD, encoding="utf-8")
+        log = tmp_path / "network.log"
+        env = {k: v for k, v in os.environ.items() if not k.startswith("OXYLABS")}
+        # The process runs the same source as this test (the folder that holds the imported ``classic_probe``),
+        # not whatever build the environment has installed.
+        source = Path(cli.__file__).resolve().parents[1]
+        env.update(
+            PYTHONPATH=os.pathsep.join([str(guard), str(source)]), PROBE_NETWORK_LOG=str(log), PYTHONUTF8="1"
+        )
+        env[gates.ENV_USERNAME] = "sentinel-username-not-a-credential"
+        env[gates.ENV_PASSWORD] = "sentinel-password-not-a-credential"
+        fixtures = tmp_path / "fixtures"
+        fixtures.mkdir()
+        for case in ("missing", "malformed"):
+            if case == "malformed":
+                (fixtures / "replay.json").write_text("{", "utf-8")
+            done = subprocess.run(
+                [sys.executable, "-m", "classic_probe", *args(tmp_path, fixtures)],
+                cwd=ROOT,
+                env=env,
+                capture_output=True,
+                text=True,
+                timeout=120,
+                check=False,
+            )
+            assert Path(str(log) + ".loaded").is_file(), "the network guard was not loaded"
+            probe = subprocess.run(
+                [sys.executable, "-c", "import classic_probe; print(classic_probe.__file__)"],
+                env=env,
+                capture_output=True,
+                text=True,
+                timeout=60,
+                check=True,
+            )
+            assert Path(probe.stdout.strip()).resolve().parent.parent == source
+>           assert done.returncode == 2, (case, done.stdout, done.stderr)
+E           AssertionError: ('missing', '', 'Traceback (most recent call last):
+E               File "<frozen runpy>", line 198, in _run_module_as_main
+E               File...ata\\\\Local\\\\Temp\\\\pytest-of-<user>\\\\pytest-1285\\\\test_the_refusal_in_its_own_pr0\\\\fixtures\\\\replay.json\'
+E             ')
+E           assert 1 == 2
+E            +  where 1 = CompletedProcess(args=['C:\\m8\\probe173\\headless\\oxylabs-classic-probe\\.venv\\Scripts\\python.exe', '-m', 'classic...ata\\\\Local\\\\Temp\\\\pytest-of-<user>\\\\pytest-1285\\\\test_the_refusal_in_its_own_pr0\\\\fixtures\\\\replay.json\'\n').returncode
+
+tests\test_t05_replay_input.py:191: AssertionError
+=================================== PASSES ====================================
+=========================== short test summary info ===========================
+PASSED tests/test_t05_replay_input.py::test_a_valid_replay_runs_as_before
+FAILED tests/test_t05_replay_input.py::test_a_missing_replay_file_is_refused_before_anything_is_created
+FAILED tests/test_t05_replay_input.py::test_a_missing_fixtures_folder_is_refused
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{not json-is not valid JSON (line 1, column 2)]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[-is not valid JSON (line 1, column 1)]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[[]-must be an object whose "steps"]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{}-must be an object whose "steps"]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": []}-must be an object whose "steps"]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {}}-must be an object whose "steps"]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": []}}-step 's': a non-empty list]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [1]}}-step 's', response 1: an object is required]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"body": "x"}]}}-http_status must be an integer from 100 to 599]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": "200"}]}}-http_status must be an integer]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": true}]}}-http_status must be an integer]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 99}]}}-http_status must be an integer from 100 to 599]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body": 5}]}}-body must be a string]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}-not both]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}-'gone.json' is missing]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}-outside the fixtures folder]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}-body_file must be a file name]
+FAILED tests/test_t05_replay_input.py::test_a_replay_file_that_is_not_utf8_is_refused
+FAILED tests/test_t05_replay_input.py::test_missing_targets_or_rates_are_refused_too
+FAILED tests/test_t05_replay_input.py::test_the_refusal_in_its_own_process_has_no_traceback_network_or_credential

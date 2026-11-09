@@ -179,6 +179,13 @@ def supporting_log(s: Session, run_id: str) -> dict[str, Any]:
                 "started_at": iso(g.started_at),
                 "ended_at": iso(g.ended_at) if g.ended_at else None,
                 "stop_code": g.stop_code,
+                # Release 1.9.0 (T06): how the end is known. ended: closed by its own worker at
+                # ``ended_at``. abandoned: its worker stopped without closing it (forced kill): the end is
+                # unknown, after ``last_seen_at`` and not after ``ended_not_after`` (when recovery found
+                # it). open: still running when this file was written.
+                "end_state": g.end_state or "open",
+                "last_seen_at": iso(g.heartbeat_at) if g.heartbeat_at else None,
+                "ended_not_after": iso(g.recovered_at) if g.recovered_at else None,
             }
             for g in segments
         ],

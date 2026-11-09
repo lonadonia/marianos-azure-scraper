@@ -18,9 +18,12 @@ that, and a window (``availableCount``) that hides results leaves the listing in
 
 from __future__ import annotations
 
+import hashlib
+import json
 import math
+import unicodedata
 from collections.abc import Iterable, Mapping, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import StrEnum
 from typing import Any
 from urllib.parse import parse_qsl, quote, urlencode, urlsplit, urlunsplit
@@ -47,10 +50,20 @@ class PageVerdict(StrEnum):
     WRONG_LISTING = "wrong_listing"  # the source answered another listing
     BLOCKED = "blocked"  # the site refused
     FAILED = "failed"  # the provider brought no page
+    # Release 1.9.0 (M2): the response states other filters than the reading asked for (a brand reading
+    # answered unfiltered or for another brand, a base listing answered with a filter applied).
+    WRONG_FILTER = "wrong_filter"
+    # Release 1.9.0 (M2): the response does not prove it answers the reading asked for: a filtered reading
+    # whose page states no filter, a search ID that is not the page's latest, or a search still loading or in
+    # error.
+    UNBOUND = "unbound"
 
 
 ACCEPTED = frozenset({PageVerdict.NEW, PageVerdict.PARTIAL_OVERLAP})
 REPEATS = frozenset({PageVerdict.REPEATED, PageVerdict.REORDERED_REPEAT})
+FILTER_VERDICTS = frozenset({PageVerdict.WRONG_FILTER, PageVerdict.UNBOUND})
+# The unfiltered value of the site's scalar facets (every saved page of 2026-11-02 states these).
+SCALAR_FACETS_UNFILTERED: Mapping[str, str] = {"fulfillment": "all", "price": ""}
 
 
 @dataclass(frozen=True)
@@ -68,6 +81,13 @@ class PageFacts:
     organic: tuple[str, ...]  # the listing's own results, in rank order
     sponsored: tuple[str, ...]  # shown with rank 0
     cards: int  # product cards in the page's grid
+    # Release 1.9.0 (M2): the search the response states it answers (see SearchSummary).
+    filters: Mapping[str, Any] | None = None
+    search_id: str | None = None
+    latest_search_id: str | None = None
+    loaded: bool | None = None
+    loading: bool | None = None
+    has_error: bool | None = None
 
 
 @dataclass(frozen=True)
@@ -76,6 +96,10 @@ class Judgement:
     detail: str = ""
     new: tuple[str, ...] = ()
     duplicates: tuple[str, ...] = ()
+    # A response that may answer properly when asked again (a search still loading, or in error).
+    retry: bool = False
+    # Release 1.9.0 (M2): what the response states about its filters and search binding.
+    binding: Mapping[str, Any] = field(default_factory=dict)
 
     @property
     def accepted(self) -> bool:
@@ -97,7 +121,90 @@ def page_facts(page: int, summary: SearchSummary | None, cards: int) -> PageFact
         organic=summary.organic,
         sponsored=summary.rank_zero,
         cards=cards,
+        filters=summary.filters,
+        search_id=summary.search_id,
+        latest_search_id=summary.latest_search_id,
+        loaded=summary.loaded,
+        loading=summary.loading,
+        has_error=summary.has_error,
     )
+
+
+def filter_binding(
+    facts: PageFacts, requested: Mapping[str, Any] | None
+) -> tuple[PageVerdict | None, str, bool, dict[str, Any]]:
+    """Whether the response proves it answers the reading asked for (release 1.9.0, M2).
+
+    ``requested``: a filtered reading's descriptor (``filter`` and its exact ``value``), or None for the
+    listing itself. Returns (verdict or None, detail, retry, the binding as stated). The response must be
+    the page's latest search (``productsInfo.searchId`` = ``latestResponseSearchId``), loaded, not loading,
+    without error; every facet list it states must be exactly the requested filter's value (``brandName``:
+    ``[value]``) or empty, and the scalar facets unfiltered (``fulfillment`` "all", ``price`` ""). A filtered
+    reading whose response states no filter at all is never proved; a page of the listing itself that states
+    no request makes no claim (pages of earlier releases' fixtures)."""
+    stated = dict(facts.filters) if facts.filters is not None else None
+    want: dict[str, list[str]] = {}
+    if requested:
+        want[str(requested["filter"])] = [str(requested["value"])]
+    binding: dict[str, Any] = {
+        "requested": {k: v[0] for k, v in want.items()},
+        "stated": {k: v for k, v in (stated or {}).items() if v not in ([], None)},
+        "search_id": facts.search_id,
+        "latest_search_id": facts.latest_search_id,
+        "loaded": facts.loaded,
+        "loading": facts.loading,
+        "has_error": facts.has_error,
+    }
+    if facts.has_error is True or facts.loading is True or facts.loaded is False:
+        return (
+            PageVerdict.UNBOUND,
+            f"the page's search is not a finished answer (loaded {facts.loaded}, loading {facts.loading}, "
+            f"error {facts.has_error})",
+            True,
+            binding,
+        )
+    if facts.search_id and facts.latest_search_id and facts.search_id != facts.latest_search_id:
+        return (
+            PageVerdict.UNBOUND,
+            f"the results are for search {facts.search_id}, the page's latest search is "
+            f"{facts.latest_search_id}",
+            True,
+            binding,
+        )
+    if stated is None:
+        if requested:
+            return (
+                PageVerdict.UNBOUND,
+                f"the response states no search request: the {requested['filter']} reading "
+                f"{requested['value']!r} cannot be proved",
+                False,
+                binding,
+            )
+        return None, "", False, binding
+    wrong: list[str] = []
+    for k, v in sorted(stated.items()):
+        if isinstance(v, list):
+            got = [str(x) for x in v]
+            if got != want.get(k, []):
+                wrong.append(f"{k} {got!r} (asked {want.get(k, [])!r})")
+        elif k in SCALAR_FACETS_UNFILTERED and v != SCALAR_FACETS_UNFILTERED[k]:
+            wrong.append(f"{k} {v!r} (unfiltered: {SCALAR_FACETS_UNFILTERED[k]!r})")
+    for k in want:
+        if k not in stated:
+            return (
+                PageVerdict.UNBOUND,
+                f"the response does not state {k}: the reading {want[k][0]!r} cannot be proved",
+                False,
+                binding,
+            )
+    if wrong:
+        return (
+            PageVerdict.WRONG_FILTER,
+            "the response states other filters: " + "; ".join(wrong),
+            False,
+            binding,
+        )
+    return None, "", False, binding
 
 
 def judge(
@@ -107,8 +214,10 @@ def judge(
     earlier: Sequence[Sequence[str]],
     store_verified: bool,
     store_problem: str = "",
+    requested_filter: Mapping[str, Any] | None = None,
 ) -> Judgement:
-    """Whether a response may count as page ``facts.requested_page`` of the listing ``taxonomy``."""
+    """Whether a response may count as page ``facts.requested_page`` of the listing ``taxonomy`` (read
+    through ``requested_filter`` when it is a filtered reading)."""
     page = facts.requested_page
     if not store_verified:
         return Judgement(
@@ -127,30 +236,47 @@ def judge(
             PageVerdict.WRONG_LISTING,
             f"listing {taxonomy} was requested; the response is for {facts.taxonomy_id}",
         )
+    bad, why, retry, binding = filter_binding(facts, requested_filter)
+    if bad is not None:
+        return Judgement(bad, why, retry=retry, binding=binding)
     if not facts.organic:
-        return Judgement(PageVerdict.EMPTY, f"no products on page {page} of {facts.total} results")
+        return Judgement(
+            PageVerdict.EMPTY, f"no products on page {page} of {facts.total} results", binding=binding
+        )
     seen = {u for rows in earlier for u in rows}
     new = tuple(u for u in facts.organic if u not in seen)
     again = tuple(u for u in facts.organic if u in seen)
     if not new:  # whatever the page shows of them: asking again would not bring anything else
         if any(tuple(rows) == facts.organic for rows in earlier):
-            return Judgement(PageVerdict.REPEATED, f"page {page} repeats an earlier page exactly", (), again)
+            return Judgement(
+                PageVerdict.REPEATED,
+                f"page {page} repeats an earlier page exactly",
+                (),
+                again,
+                binding=binding,
+            )
         return Judgement(
             PageVerdict.REORDERED_REPEAT,
             f"page {page} shows only products of earlier pages, in another order",
             (),
             again,
+            binding=binding,
         )
     if facts.cards < len(facts.organic):
         return Judgement(
             PageVerdict.MALFORMED,
             f"the page state lists {len(facts.organic)} products and the grid shows {facts.cards} cards",
+            binding=binding,
         )
     if again:
         return Judgement(
-            PageVerdict.PARTIAL_OVERLAP, f"{len(again)} products of earlier pages again", new, again
+            PageVerdict.PARTIAL_OVERLAP,
+            f"{len(again)} products of earlier pages again",
+            new,
+            again,
+            binding=binding,
         )
-    return Judgement(PageVerdict.NEW, "", new, ())
+    return Judgement(PageVerdict.NEW, "", new, (), binding=binding)
 
 
 def last_page(total: int | None, available: int | None) -> int | None:
@@ -191,7 +317,9 @@ def page_url(listing_url: str, page: int) -> str:
     return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query, quote_via=quote), ""))
 
 
-FILTER_MARK = "~"  # a filtered reading of a listing: "<listing ID>~<brand>"
+FILTER_MARK = "~"  # a filtered reading of a listing: "<listing ID>~<digest of its full identity>"
+PARTITION_SCHEME = 2  # 1: "<listing>~<brand>"[:64] (to 1.8.0rc5); 2: a digest of the full identity (1.9.0)
+PARTITION_ID_HEX = 24  # 96 bits of the SHA-256 digest in the ID; the full digest is the page rows' key
 
 
 def listing_id(taxonomy_id: str) -> str:
@@ -199,15 +327,70 @@ def listing_id(taxonomy_id: str) -> str:
     return taxonomy_id.split(FILTER_MARK, 1)[0]
 
 
+def partition_descriptor(
+    *, store_id: str, modality: str, listing: str, filter_name: str, value: str
+) -> dict[str, Any]:
+    """The full identity of a filtered reading (release 1.9.0, M1): the retailer, the store and fulfillment,
+    the listing, the filter and its exact value as the source names it (never trimmed, folded or cut)."""
+    return {
+        "scheme": PARTITION_SCHEME,
+        "retailer": "marianos",
+        "store_id": str(store_id),
+        "modality": str(modality),
+        "listing": str(listing),
+        "filter": str(filter_name),
+        "value": str(value),
+    }
+
+
+def canonical(descriptor: Mapping[str, Any]) -> str:
+    return json.dumps(dict(descriptor), sort_keys=True, ensure_ascii=False, separators=(",", ":"))
+
+
+def partition_digest(descriptor: Mapping[str, Any]) -> str:
+    return hashlib.sha256(canonical(descriptor).encode("utf-8")).hexdigest()
+
+
+def partition_id(descriptor: Mapping[str, Any]) -> str:
+    """``<listing>~<first 24 hex of the digest>``: at most 10 + 1 + 24 characters, so no column cuts it;
+    two values that differ anywhere (even past the 64th character) get different IDs."""
+    return f"{descriptor['listing']}{FILTER_MARK}{partition_digest(descriptor)[:PARTITION_ID_HEX]}"
+
+
+def facet_key(name: str) -> str:
+    """How a person would read a facet value: NFC, case-folded, spaces collapsed. Only for warnings: the
+    reading always uses the exact value."""
+    return " ".join(unicodedata.normalize("NFC", name).casefold().split())
+
+
 def brand_partitions(
-    listing_url: str, taxonomy_id: str, brands: Iterable[Mapping[str, Any]]
+    listing_url: str,
+    taxonomy_id: str,
+    brands: Iterable[Mapping[str, Any]],
+    *,
+    store_id: str,
+    modality: str,
 ) -> list[dict[str, Any]]:
     """A listing above the window with no child listing, subdivided by the retailer's own brand filter: one
-    filtered reading per brand the page names. Never a search term of ours. Each stays incomplete when the
-    source's count is not reached, and the parent stays incomplete when the brands do not cover its total."""
+    filtered reading per brand value the page names, by its exact value. Never a search term of ours. Each
+    stays incomplete when the source's count is not reached, and the parent stays incomplete when the brands
+    do not cover its total.
+
+    Release 1.9.0 (M1): each reading's ID is a digest of its full identity (:func:`partition_descriptor`),
+    and the descriptor travels with it (the task's node, the page rows). A value the facet names twice is read
+    once (the repeat is noted); values that differ only in case, Unicode form or spacing are distinct values
+    of the source, each read, and noted as a group."""
     out: list[dict[str, Any]] = []
+    first: dict[str, dict[str, Any]] = {}
+    groups: dict[str, list[str]] = {}
     for b in brands:
         name = str(b["name"])
+        if name in first:
+            first[name].setdefault("notes", []).append(
+                f"the brand facet names {name!r} again (count {b.get('count')}): read once"
+            )
+            continue
+        groups.setdefault(facet_key(name), []).append(name)
         parts = urlsplit(listing_url)
         query = [
             (k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True) if k not in ("pzn", "page")
@@ -221,17 +404,43 @@ def brand_partitions(
                 "",
             )
         )
-        out.append(
-            {
-                "id": f"{taxonomy_id}{FILTER_MARK}{name}"[:64],
-                "name": name,
-                "slug": "",
-                "count": b.get("count"),
-                "url": url,
-                "filter": "brandName",
-            }
+        desc = partition_descriptor(
+            store_id=store_id,
+            modality=modality,
+            listing=listing_id(taxonomy_id),
+            filter_name="brandName",
+            value=name,
         )
+        entry = {
+            "id": partition_id(desc),
+            "name": name,
+            "slug": "",
+            "count": b.get("count"),
+            "url": url,
+            "filter": "brandName",
+            "descriptor": desc,
+            "partition_key": partition_digest(desc),
+        }
+        first[name] = entry
+        out.append(entry)
+    for names in groups.values():
+        if len(names) > 1:
+            for n in names:
+                first[n].setdefault("notes", []).append(
+                    "distinct values of the source that read alike: " + ", ".join(repr(x) for x in names)
+                )
     return out
+
+
+def node_filter(partition_filter: str) -> dict[str, Any] | None:
+    """A node's filtered-reading descriptor (its canonical JSON), or None for a listing itself."""
+    return dict(json.loads(partition_filter)) if partition_filter else None
+
+
+def legacy_partition(taxonomy_id: str, partition_filter: str) -> bool:
+    """A filtered reading planned before release 1.9.0: its ID was ``<listing>~<brand>`` cut at 64
+    characters (two brands could share it) and no descriptor travelled with it."""
+    return FILTER_MARK in taxonomy_id and not partition_filter
 
 
 # -- the table ----------------------------------------------------------------------------------------------

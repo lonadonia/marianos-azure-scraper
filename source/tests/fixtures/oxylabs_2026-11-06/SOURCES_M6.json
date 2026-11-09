@@ -1,0 +1,89 @@
+{
+ "q2_cards_and_state": {
+  "0001780010048": {
+   "page_fetch_id": "01M6E69058HCDRMF4T3YV21W0W",
+   "url": "https://www.marianos.com/pl/dog-food/27017?page=5",
+   "fetched_at": "2026-11-02T13:13:14.664093Z",
+   "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E69058HCDRMF4T3YV21W0W.html.gz",
+   "dom_gz_sha256": "edec6db9aae33aed5c48725e2890d6223bac77698b60699c8688f241e9da0ee1",
+   "state_artifact": "01M6E69058HCDRMF4T3YV21W0W.0001.products_v2.json.gz",
+   "state_artifact_gz_sha256": "4bb5b27bc7252abd43cb765debec89969eb2f6f0403414971e84b452997146b8"
+  },
+  "0065922318120": {
+   "page_fetch_id": "01M6E6F6AG2ZZ9M29SN75QB0NT",
+   "url": "https://www.marianos.com/pl/dog-treats/27018?page=3",
+   "fetched_at": "2026-11-02T13:16:37.584159Z",
+   "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E6F6AG2ZZ9M29SN75QB0NT.html.gz",
+   "dom_gz_sha256": "aad7e8c399be3f39da86a16eba8d3a30e4a068be8dc800628a36f196a498c407",
+   "state_artifact": "01M6E6F6AG2ZZ9M29SN75QB0NT.0009.products_v2.json.gz",
+   "state_artifact_gz_sha256": "f36c8eb9e6f2aef9c92d2489a98c89e47b499dcfc0b386e02abf0eebc5b55594"
+  },
+  "0087786900820": {
+   "page_fetch_id": "01M6E6F6AG2ZZ9M29SN75QB0NT",
+   "url": "https://www.marianos.com/pl/dog-treats/27018?page=3",
+   "fetched_at": "2026-11-02T13:16:37.584159Z",
+   "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E6F6AG2ZZ9M29SN75QB0NT.html.gz",
+   "dom_gz_sha256": "aad7e8c399be3f39da86a16eba8d3a30e4a068be8dc800628a36f196a498c407",
+   "state_artifact": "01M6E6F6AG2ZZ9M29SN75QB0NT.0009.products_v2.json.gz",
+   "state_artifact_gz_sha256": "f36c8eb9e6f2aef9c92d2489a98c89e47b499dcfc0b386e02abf0eebc5b55594"
+  }
+ },
+ "o1_product_pages": {
+  "0081675102373": {
+   "capture": "stage O1 capture 07_m6a_pdp_0081675102373.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+   "capture_sha256": "9ebb38257de92f3cf30380604f09cd28815729f7a9ea7c52029bffe5139030ee",
+   "capture_gz_sha256": "e367c78fa5cdefcffd7323efcc63092be594b595fe4ba0aa9f4ace4f46a89cd0",
+   "request_id": "7524541538731342849",
+   "result_metadata_run_js": false,
+   "state_path": "calypso.domains.products.<upc>.data"
+  },
+  "0086001079386": {
+   "capture": "stage O1 capture 08_m6b_pdp_0086001079386.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+   "capture_sha256": "8761fa9cfe448736ade53a6c9d9ae5f56f5140115d8dc8d89ec5e87b98de5773",
+   "capture_gz_sha256": "5d1177a8074d219bcf4b0c6246d8b6e05ecd2ff32a589b137871f3024a6e6c52",
+   "request_id": "7524541598739257345",
+   "result_metadata_run_js": false,
+   "state_path": "calypso.domains.products.<upc>.data"
+  },
+  "0001820020352": {
+   "capture": "stage O1 capture 09_m6c_pdp_0001820020352.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+   "capture_sha256": "d41dca996396cc21933bd6f2fe70fd2c2a28858e8ab277379f974e292c887a78",
+   "capture_gz_sha256": "5701a35d4b5d6e265ae294bc02dcb724d9674bcb835e41dd3b7ad4797cad67d7",
+   "request_id": "7524541623041038337",
+   "result_metadata_run_js": false,
+   "state_path": "calypso.domains.products.<upc>.data"
+  },
+  "0073679800140": {
+   "capture": "stage O1 capture 10_m6d_pdp_0073679800140.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+   "capture_sha256": "10edaa36164585fa4af8ae54f49729a235ff8a4070d42810e461aaf8fb9fe84a",
+   "capture_gz_sha256": "1bdfd9e0eb4da7dba5f65f95621dd361dd100d008b6e7c688526e3609a487126",
+   "request_id": "7524541711507271681",
+   "result_metadata_run_js": false,
+   "state_path": "calypso.domains.products.<upc>.data"
+  },
+  "0001780010048": {
+   "capture": "stage O1 capture 11_s1_pdp_0001780010048.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+   "capture_sha256": "e47472a67f23db1aed8e2f43918d1a3b31d5de54181d41b7aac468562ca76f17",
+   "capture_gz_sha256": "c8e666e88a1ea986220d67e6a6cffcbd8ae9d1a38566e39c6b387e1398cd9a6b",
+   "request_id": "7524541736475973633",
+   "result_metadata_run_js": false,
+   "state_path": "calypso.domains.products.<upc>.data"
+  },
+  "0065922318120": {
+   "capture": "stage O1 capture 12_s2_pdp_0065922318120.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+   "capture_sha256": "eb9ec0dbed7e6a36c24f353a7132e69cd7610810e00061e716ab1dc5a0e61520",
+   "capture_gz_sha256": "c1cfb1294ebe2fd9ab21dcc07e38378fe302f7d0af4edb06ee277b4520803b68",
+   "request_id": "7524541833913881601",
+   "result_metadata_run_js": false,
+   "state_path": "calypso.domains.products.<upc>.data"
+  },
+  "0087786900820": {
+   "capture": "stage O1 capture 13_s3_pdp_0087786900820.raw.gz (the provider's answer as received; kept privately, identified by its SHA-256 here)",
+   "capture_sha256": "0b88c374e337f0ad82d1f0aa19a1a224862bea40510d4a55996c0b0a528ad29f",
+   "capture_gz_sha256": "9100d73291afb9ceee4fe484b008c02b569fe261650509243ec7ead4dea76a67",
+   "request_id": "7524541856273716225",
+   "result_metadata_run_js": true,
+   "state_path": "calypso.domains.products.<upc>.data"
+  }
+ }
+}

@@ -54,8 +54,12 @@ class Site:
         modality: str = "IN_STORE",
         address: dict[str, str] | None = None,
         on_request: Callable[[str, int], None] | None = None,
+        listing_run_js: bool = False,
     ):
         self.listings = listings
+        # Whether the collector asks for listing pages rendered: since release 1.9.0rc2 it does not by default
+        # (``OxylabsSettings.listing_run_js``); the site checks every listing request against it.
+        self.listing_run_js = listing_run_js
         self.location_id = location_id
         self.fulfillment = fulfillment
         self.modality = modality
@@ -82,7 +86,7 @@ class Site:
     def _html(self, key: str, page: int, what: str) -> str:
         items = self.listings.get(key, [])
         total = self.totals.get(key, len(items))
-        taxonomy = key.split("~", 1)[0]
+        taxonomy, _, brand = key.partition("~")
         start = (page - 1) * SIZE
         rows = items[start : start + SIZE]
         first = items[:SIZE]
@@ -94,6 +98,9 @@ class Site:
             "brands": self.brands.get(key),
             "location_id": self.location_id,
             "modality": self.modality,
+            # 1.9.0: the page states the filters of the search it answers, as the real pages do
+            "filters": {"brandName": [brand] if brand else []},
+            "search_id": f"syn-{key}-{page}",
         }
         if self.address:  # the selected store the page shows: name, address line, postal code
             kw.update(
@@ -121,6 +128,16 @@ class Site:
             kw["page_number"] = None
         elif what == "no_cards":
             kw["show_cards"] = False
+        elif what == "unfiltered":  # 1.9.0: a brand reading answered with the whole listing
+            kw["filters"] = {"brandName": []}
+        elif what == "other_brand":
+            kw["filters"] = {"brandName": ["Someone Else"]}
+        elif what == "no_filter_state":  # the page states no facet at all
+            kw["filters"] = {}
+        elif what == "stale_search":  # results of an earlier search than the page's latest
+            kw["latest_search_id"] = "syn-a-later-search"
+        elif what == "loading":
+            kw.update(loaded=False, loading=True)
         elif what == "total_up":
             self.totals[key] = total = total + 3
         ranks = {p.upc: start + i + 1 for i, p in enumerate(rows)}
@@ -154,7 +171,7 @@ class Site:
             page = int(query.get("page", ["1"])[0])
             assert "pzn" not in query, url  # one ordering for every page of a read
             assert body["store_id"] == self.location_id and body["fulfillment_type"] == self.fulfillment
-            assert body.get("run_js") is True, url
+            assert bool(body.get("run_js")) is self.listing_run_js, url
             self.asked.append((key, page))
             if self.on_request is not None:
                 self.on_request(key, page)
@@ -238,8 +255,14 @@ def _killed(args: dict[str, Any]) -> None:
         runner.TaskContext.checkpoint = checkpoint  # type: ignore[method-assign]
 
     site = Site(
-        args["listings_n"] and {k: products(v) for k, v in args["listings_n"].items()}, on_request=on_request
+        args["listings_n"]
+        and {k: products(*v) if isinstance(v, list) else products(v) for k, v in args["listings_n"].items()},
+        on_request=on_request,
     )
+    # 1.9.0: a listing above the window read through its brands (totals, window and brand facet as given)
+    site.totals.update(args.get("totals") or {})
+    site.available.update(args.get("available") or {})
+    site.brands.update(args.get("brands") or {})
 
     async def nap(_: float) -> None:
         return None

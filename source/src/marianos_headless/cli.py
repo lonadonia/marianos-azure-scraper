@@ -43,6 +43,7 @@ LIMIT_FLAGS = {
     "max_pages_per_listing": "max_pages_per_listing",
     "max_credits": "max_credits_per_run",
     "max_minutes": "max_run_minutes",
+    "max_term_reads": "max_product_term_reads",
 }
 
 
@@ -262,7 +263,10 @@ def dispatch(args: argparse.Namespace) -> int:
             return _result(args, operations.sync_config(ctx, actor), Exit.OK)
         if cmd == "run":
             overrides: dict[str, Any] = {
-                LIMIT_FLAGS[k]: getattr(args, k) for k in LIMIT_FLAGS if getattr(args, k)
+                # "is not None": 0 is a value (``--max-term-reads 0``: no product page read for terms).
+                LIMIT_FLAGS[k]: getattr(args, k)
+                for k in LIMIT_FLAGS
+                if getattr(args, k) is not None
             }
             if args.categories:
                 overrides["categories"] = args.categories

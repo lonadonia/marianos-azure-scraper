@@ -111,6 +111,8 @@ LISTING_FIELDS = (
     "unresolved_gap",
     "status",
     "completion_reason",
+    "partition_identity",
+    "pages_filter_refused",
 )
 ROW_FIELDS = (
     "csv_row",
@@ -283,6 +285,13 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
             "unresolved_gap": max(0, total - distinct) if isinstance(total, int) else None,
             "status": outcome["status"],
             "completion_reason": _reason(outcome, len(done), unique),
+            # 1.9.0 (M1): a filtered reading's full identity; (M2) its responses refused for their filters
+            "partition_identity": node.get("partition_filter") or "",
+            "pages_filter_refused": sum(
+                1
+                for r in rows
+                if r.verdict in (pagination.PageVerdict.WRONG_FILTER, pagination.PageVerdict.UNBOUND)
+            ),
         }
         lines.append(line)
         if not line["parent_listing"]:

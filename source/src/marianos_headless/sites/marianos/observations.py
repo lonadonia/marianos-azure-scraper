@@ -10,6 +10,7 @@ from marianos_headless.assembly.record_builder import FieldSource, ProductEviden
 from marianos_headless.core.findings import RecordFlag
 from marianos_headless.sites.marianos.dom_parsers import (
     DEFAULT_SELECTORS,
+    TILE_SELECTORS,
     CardObservation,
     CouponCardObservation,
     DrawerOffer,
@@ -41,6 +42,8 @@ class OfferDetails:
     notes: tuple[str, ...] = ()  # listed offers left out of the record, and why
     check: SourceCheck | None = None
     sources: tuple[dict[str, object], ...] = ()  # the responses read, for the field provenance
+    # The product's own page read for its coupons (release 1.9.0rc3): "rendered", "not_rendered" or "".
+    page_read: str = ""
 
 
 def offer_details(
@@ -68,7 +71,9 @@ def offer_details(
         refs.append({"coupon_id": c.coupon_id, **c.ref.as_dict()})
     if product is not None:
         refs.append({"upc": product.upc, **product.ref.as_dict()})
+    read = sources.terms_read(card.upc)
     return OfferDetails(
+        page_read="" if read is None else "rendered" if read.rendered is True else "not_rendered",
         offers=tuple(offers),
         notes=tuple(notes),
         check=product.check(store, modality) if product is not None else None,
@@ -114,6 +119,8 @@ def card_evidence(
     details: OfferDetails | None = None,
     sel: Selectors = DEFAULT_SELECTORS,
 ) -> ProductEvidence:
+    if card.layout == "tile":  # release 1.9.0rc2: the tile's own selectors name the sources
+        sel = TILE_SELECTORS
     offers = [o for o in (zone_offer(card),) if o is not None]
     offers.extend(extra_offers)
     if details is not None:
@@ -125,7 +132,8 @@ def card_evidence(
     deal_src = src(sel.savings_zone)
     provenance = {
         "product_title": src(sel.title),
-        "weight": src(sel.size),
+        # A tile has no size slot: its weight, when the product's own data states one, is sourced there.
+        **({"weight": src(sel.size)} if card.size_displayed else {}),
         "regular_price": src(sel.price_block),
         "sale_price": src(sel.price_block),
         "volume_deals_description": deal_src,
@@ -133,7 +141,7 @@ def card_evidence(
         "image_url": src(sel.product_image),
         "url": src(sel.product_link),
         "upc": src(sel.product_link + " (href)"),
-        **({"ppm": src(sel.size + " (the $/unit slot)")} if card.ppm_text else {}),
+        **({"ppm": src(sel.ppm or sel.size + " (the $/unit slot)")} if card.ppm_text else {}),
     }
     if details is not None and details.sources:
         # Terms, dates and the offers "View Offer" lists come from the site's own responses.
@@ -157,6 +165,9 @@ def card_evidence(
         offers=tuple(offers),
         image_url=card.image_url,
         ppm_text=card.ppm_text,
+        size_displayed=card.size_displayed,
+        listing_shows_coupons=card.layout != "tile",
+        product_page_read=details.page_read if details is not None else "",
         location_attested=location_attested,
         provenance=provenance,
         flags=tuple(RecordFlag(f) for f in card.flags),

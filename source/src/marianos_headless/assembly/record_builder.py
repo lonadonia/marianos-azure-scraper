@@ -6,7 +6,7 @@ import math
 import re
 from collections.abc import Mapping
 from dataclasses import dataclass, field, replace
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from enum import StrEnum
 from typing import Any
 
@@ -18,10 +18,12 @@ from marianos_headless.assembly.exclusions import (
     weight_range_in,
 )
 from marianos_headless.assembly.offers import (
+    ClassifiedOffer,
     DealFields,
     OfferKind,
     OfferObservation,
     derive_deal_fields,
+    restriction_reason,
     states_bundle_price,
 )
 from marianos_headless.assembly.private_label import PrivateLabelDetector
@@ -49,6 +51,12 @@ _CONTROL_LABEL = re.compile(
     r"|see (?:details|options|more)|shop (?:all )?items?|select|\d+ more (?:sizes?|options?|flavors?))$",
     re.I,
 )
+# Release 1.9.0rc2: a text that states no quantity is not a pack size: "N/A" (the product data's own "not
+# applicable", run Q2 and stage O2: 0002310032784) and a unit named alone ("Count", Q2: 0019283330664).
+_NO_QUANTITY = re.compile(r"^(?:n/?a|not applicable|count|ct)$", re.I)
+NO_QUANTITY = "states no quantity"
+# Release 1.9.0rc3: the digital fields' reason on a tile when no coupon is known (``no_coupon_reason``).
+COUPON_UNKNOWN = "whether a digital coupon applies is unknown"
 
 
 def size_text_problem(size_text: str, title: str = "") -> str:
@@ -62,6 +70,8 @@ def size_text_problem(size_text: str, title: str = "") -> str:
         return f"the size slot shows {text!r}, a control's label, not a size"
     if title and text.casefold() == collapse_ws(title).casefold():
         return "the size slot repeats the product name"
+    if _NO_QUANTITY.match(text):
+        return f"the size is given as {text!r}, which {NO_QUANTITY}: not a pack size"
     return ""
 
 
@@ -263,6 +273,14 @@ class ProductEvidence:
     image_url: str
     ppm_text: str = ""  # PPM exactly as displayed, "" if not displayed
     pdp_size_text: str = ""  # size from the PDP when the card's size slot shows a unit price
+    # False: the card has no size slot (the tile served since 2026-11-06, release 1.9.0rc2).
+    size_displayed: bool = True
+    # False: a tile (served since 2026-11-06), which shows no coupon even for a product whose own page shows
+    # one (release 1.9.0rc3): its empty coupon zone is not an observed absence.
+    listing_shows_coupons: bool = True
+    # The product's own page read for its coupons: "rendered", "not_rendered" (not brought rendered), or ""
+    # (not read).
+    product_page_read: str = ""
     brand: str | None = None
     is_ship_only: bool = False
     # The offer is a marketplace seller's, not the retailer's own local offer (Walmart): no local price.
@@ -321,6 +339,62 @@ def assess_weight(
     )
 
 
+_PPM_TEXT = re.compile(r"^\$(?P<amount>\d[\d,]*(?:\.\d+)?)\s*/\s*(?P<unit>[A-Za-z][A-Za-z .]*)$")
+_COUNT_WORDS = frozenset({"each", "ea", "ct", "count"})
+_COUNT_UNITS = frozenset({"EACH", "COUNT", "CT", "EA"})
+
+
+def ppm_source_anomalies(ppm: str, prices: tuple[str, str], check: SourceCheck | None) -> list[RecordFlag]:
+    """Source-value anomalies of a displayed price per measure (release 1.9.0, M3), from comparisons only:
+    nothing is computed and the exported text is never changed. Found in run Q2 (2026-11-02): "$19.99/oz" on
+    a $19.99 pack of 12 x 2.6 oz (UPC 0084024314377; the product data's own unit price states 19.99 PER
+    OUNCE too) and "$7.99/oz" on a product whose data states 1 EACH (UPC 0001280052496)."""
+    m = _PPM_TEXT.match(collapse_ws(ppm))
+    if m is None or check is None or check.response is None:
+        return []
+    try:
+        amount = Decimal(m.group("amount").replace(",", ""))
+        quantity = Decimal(check.size_quantity) if check.size_quantity else None
+    except InvalidOperation:
+        return []
+    out: list[RecordFlag] = []
+    shown: set[Decimal] = set()
+    for p in prices:
+        try:
+            if p:
+                shown.add(Decimal(p))
+        except InvalidOperation:
+            continue
+    if amount in shown and quantity is not None and quantity != 1:
+        out.append(RecordFlag.PPM_EQUALS_ITEM_PRICE)
+    pack_unit = check.size_unit.strip().upper()
+    if pack_unit and (m.group("unit").strip().casefold() not in _COUNT_WORDS) == (pack_unit in _COUNT_UNITS):
+        out.append(RecordFlag.PPM_UNIT_FAMILY_MISMATCH)
+    return out
+
+
+def _terms_unread(c: ClassifiedOffer) -> bool:
+    return c.kind is OfferKind.DIGITAL and restriction_reason(c) is None and not collapse_ws(c.offer.terms)
+
+
+def _require_coupon_terms(deals: DealFields) -> DealFields:
+    """A digital coupon whose complete terms were not read (release 1.9.0, M4): the record keeps the headline
+    the card displays and is flagged ``DIGITAL_TERMS_UNREAD``; a price its headline states ("$6.99 Temptations
+    Cat Treats") is not exported, since the quantity, products and conditions it applies under are not
+    established. The supporting files say why the terms were not read."""
+    unread = [c for c in deals.classified if _terms_unread(c)]
+    if not unread:
+        return deals
+    price = deals.digital_deals_price
+    if price and any(c.explicit_price == price for c in unread):
+        price = ""
+    return replace(
+        deals,
+        digital_deals_price=price,
+        flags=tuple(dict.fromkeys((*deals.flags, RecordFlag.DIGITAL_TERMS_UNREAD))),
+    )
+
+
 def _check_coupon_price(deals: DealFields, price: PriceDisplay) -> DealFields:
     """A coupon's headline price ("$4.99 Kroger Seedless Grapes") is a final price only below the price the
     card shows; otherwise it cannot be what the product costs with the coupon, and no price is set."""
@@ -344,6 +418,21 @@ def _check_coupon_price(deals: DealFields, price: PriceDisplay) -> DealFields:
 
 def _offer_texts(deals: DealFields, kinds: tuple[OfferKind, ...]) -> str:
     return "; ".join(repr(c.offer.text) for c in deals.classified if c.kind in kinds)
+
+
+def no_coupon_reason(evidence: ProductEvidence) -> str:
+    """Why a record holds no digital coupon. A card's empty coupon zone is an observed absence; a tile's is
+    not (release 1.9.0rc3): tiles showed no coupon for products whose own page shows one, so only that page,
+    rendered, tells."""
+    if evidence.listing_shows_coupons:
+        return "no digital coupon is displayed"
+    if evidence.product_page_read == "rendered":
+        return "neither the tile nor the product's own page, rendered, shows an applicable digital coupon"
+    page = "was not brought rendered" if evidence.product_page_read == "not_rendered" else "was not read"
+    return (
+        "the tile shows no coupon (tiles omit coupons that the product's own page shows) and that page "
+        f"{page}: {COUPON_UNKNOWN}"
+    )
 
 
 def missing_reasons(
@@ -382,6 +471,8 @@ def missing_reasons(
                 reason = (
                     f"the size slot shows a price per unit ({evidence.size_text!r}); no size is displayed"
                 )
+            elif not evidence.size_displayed:
+                reason = "the tile shows no size, and the product's own data in the page states none"
             else:
                 reason = "the card shows no size"
         elif name == "regular_price" and price.is_relative:
@@ -394,6 +485,11 @@ def missing_reasons(
             reason = (
                 f"the sale is shown only as an estimated item price ({price.sr_text!r}); an estimate is "
                 "not a fixed price (kept in the supporting log)"
+            )
+        elif name in ("regular_price", "sale_price") and price.kind is PriceDisplayKind.UNRECOGNIZED:
+            reason = (
+                f"the tile shows its price in a form this release does not know ({price.sr_text!r}, "
+                f"{price.current_text!r}); no price is read from it (PRICE_DISPLAY_UNRECOGNIZED)"
             )
         elif name == "regular_price":
             if price.kind is PriceDisplayKind.NOT_DISPLAYED:
@@ -424,14 +520,23 @@ def missing_reasons(
                 left_out.append(f"points offer {p} left out (include_points_offers_in_deals is off)")
             if not settings.include_cashback_in_digital and (c := _offer_texts(deals, (OfferKind.CASHBACK,))):
                 left_out.append(f"cash-back offer {c} left out (include_cashback_in_digital is off)")
-            reason = "no digital coupon is displayed" + (f"; {'; '.join(left_out)}" if left_out else "")
+            reason = no_coupon_reason(evidence) + (f"; {'; '.join(left_out)}" if left_out else "")
         elif name == "digital_deals_price":
             if not digital_offers:
-                reason = "no digital coupon is displayed"
+                reason = no_coupon_reason(evidence)
             elif RecordFlag.MULTIPLE_DIGITAL_PRICES in deals.flags:
                 reason = "several coupons state different prices"
             elif RecordFlag.DEAL_PRICE_NOT_BELOW_PRICE in deals.flags:
                 reason = "the coupon's price is not below the displayed price, so it is not a final price"
+            elif any(_terms_unread(c) and c.explicit_price for c in digital_offers):
+                reason = (
+                    "the coupon's headline states a price ("
+                    + "; ".join(
+                        repr(c.offer.text) for c in digital_offers if _terms_unread(c) and c.explicit_price
+                    )
+                    + ") but its complete terms were not read: the quantity, products and conditions it "
+                    "applies under are not established"
+                )
             else:
                 reason = (
                     "the coupon states a discount or no final price ("
@@ -479,7 +584,11 @@ def missing_kinds(missing: Mapping[str, str], *, size_problem: str = "") -> dict
         elif reason.startswith("unresolved size conflict") or "state different prices" in reason:
             kind = MissingKind.UNRESOLVED_CONFLICT
         elif name == "weight" and size_problem and reason == size_problem:
-            kind = MissingKind.PARSING_FAILURE
+            # A size given as "N/A" or "Count" states none (release 1.9.0rc2); other texts are misplaced.
+            kind = MissingKind.NOT_DISPLAYED if NO_QUANTITY in reason else MissingKind.PARSING_FAILURE
+        elif COUPON_UNKNOWN in reason:
+            # A tile's coupon, when its product's own page was not read rendered (release 1.9.0rc3).
+            kind = MissingKind.NOT_ATTEMPTED
         elif "no product response was captured" in reason:
             kind = MissingKind.NOT_ATTEMPTED
         else:
@@ -505,8 +614,29 @@ def build_product_record(
 
     # Weight: displayed size; for relative-price items the size slot holds "$0.69/lb" instead. Text that
     # is not a size ("Front", a picture's view name the retailer put in its size field) is left out.
-    size_is_unit_price = size_slot_is_unit_price(evidence.size_text)
-    weight = evidence.pdp_size_text if size_is_unit_price else evidence.size_text
+    # Release 1.9.0rc2: the tile has no size slot; the product's own customer-facing size in the same page's
+    # data stands for it (the displayed size equalled it in 1,157 of 1,157 comparable Q2 records), with its
+    # source, and goes through the same checks as a displayed size.
+    size_shown = evidence.size_text
+    size_source: FieldSource | None = None
+    if (
+        not evidence.size_displayed
+        and not size_shown
+        and check is not None
+        and check.response is not None
+        and check.size
+    ):
+        size_shown = check.size
+        flags.append(RecordFlag.SIZE_FROM_PRODUCT_DATA)
+        size_source = FieldSource(
+            "state",
+            "data.products[].item.customerFacingSize (the product's own data in the same page)",
+            str(check.response.get("fetch_id") or ""),
+            str(check.response.get("sha256")) if check.response.get("sha256") else None,
+            str(check.response.get("observed_at") or ""),
+        )
+    size_is_unit_price = size_slot_is_unit_price(size_shown)
+    weight = evidence.pdp_size_text if size_is_unit_price else size_shown
     size_problem = size_text_problem(weight, evidence.title)
     if size_problem:
         weight = ""
@@ -567,9 +697,11 @@ def build_product_record(
         flags.append(RecordFlag.WEIGHT_RANGE_IN_TITLE)
     if is_plu_code(evidence.upc):
         flags.append(RecordFlag.PLU_CODE)
+    flags.extend(ppm_source_anomalies(ppm, (shown_regular, shown_sale), check))
 
     deals = derive_deal_fields(evidence.offers, settings, configured_modality)
     deals = _check_coupon_price(deals, price)
+    deals = _require_coupon_terms(deals)
     flags.extend(deals.flags)
 
     # store_brand from source-backed brand data only (1.3.1): the product's brand as displayed, else as
@@ -653,6 +785,8 @@ def build_product_record(
         status = RecordStatus.EXPORTED_NOT_VALID
     elif conflicts:
         status = RecordStatus.PRICE_CONFLICT
+    elif RecordFlag.PRICE_DISPLAY_UNRECOGNIZED in flags:
+        status = RecordStatus.EXPORTED_NOT_VALID
     elif not (record["regular_price"] or record["sale_price"]):
         # A product of the store's assortment without a fixed current price is still a valid identity.
         status = RecordStatus.ELIGIBLE_UNPRICED
@@ -661,7 +795,26 @@ def build_product_record(
     else:
         status = RecordStatus.VALID
 
-    provenance = {k: v.as_dict() for k, v in {**(store_provenance or {}), **evidence.provenance}.items()}
+    sources = {**(store_provenance or {}), **evidence.provenance}
+    if size_source is not None:
+        sources["weight"] = size_source
+    provenance = {k: v.as_dict() for k, v in sources.items()}
+    if size_source is not None and check is not None:
+        provenance["_size_from_product_data"] = {
+            "product_data_size": check.size,
+            "exported": weight,
+            "response": check.response,
+            "rule": "the tile served since 2026-11-06 shows no size: the weight is the product's own "
+            "customer-facing size in the same page's data, checked by the same size rules (release 1.9.0rc2)",
+        }
+    if price.kind is PriceDisplayKind.UNRECOGNIZED:
+        provenance["_price_display_unrecognized"] = {
+            "displayed_current": price.current_text,
+            "displayed_original": price.original_text,
+            "screen_reader_text": price.sr_text,
+            "rule": "only a plain price, 'Sale: $X discounted from $Y' and 'about $X each' are read from a "
+            "tile; any other form is kept as shown and no price is exported (release 1.9.0rc2)",
+        }
     provenance["_store_brand_signals"] = {
         "signals": pl.signals,
         "brand": brand,
@@ -746,6 +899,8 @@ def build_product_record(
         settings=settings,
         size=size,
     )
+    if COUPON_UNKNOWN in missing.get("digital_deals_description", ""):
+        flags.append(RecordFlag.DIGITAL_COUPONS_UNOBSERVED)
     return BuiltRecord(
         upc=identity,
         record=record,

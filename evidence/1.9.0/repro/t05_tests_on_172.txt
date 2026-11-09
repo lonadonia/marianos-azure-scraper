@@ -1,0 +1,23 @@
+FAILED tests/test_t05_replay_input.py::test_a_missing_replay_file_is_refused_before_anything_is_created
+FAILED tests/test_t05_replay_input.py::test_a_missing_fixtures_folder_is_refused
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{not json-is not valid JSON (line 1, column 2)]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[-is not valid JSON (line 1, column 1)]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[[]-must be an object whose "steps"]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{}-must be an object whose "steps"]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": []}-must be an object whose "steps"]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {}}-must be an object whose "steps"]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": []}}-step 's': a non-empty list]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [1]}}-step 's', response 1: an object is required]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"body": "x"}]}}-http_status must be an integer from 100 to 599]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": "200"}]}}-http_status must be an integer]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": true}]}}-http_status must be an integer]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 99}]}}-http_status must be an integer from 100 to 5
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body": 5}]}}-body must be a string]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body": "", "body_file": "a"}]}}-not both]
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body_file": "gone.json"}]}}-'gone.json' is mi
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body_file": "../rates.json"}]}}-outside the f
+FAILED tests/test_t05_replay_input.py::test_a_malformed_or_invalid_replay_file_is_refused_with_its_reason[{"steps": {"s": [{"http_status": 200, "body_file": ""}]}}-body_file must be a file n
+FAILED tests/test_t05_replay_input.py::test_a_replay_file_that_is_not_utf8_is_refused
+FAILED tests/test_t05_replay_input.py::test_missing_targets_or_rates_are_refused_too
+PASSED tests/test_t05_replay_input.py::test_a_valid_replay_runs_as_before
+PASSED tests/test_t05_replay_input.py::test_the_refusal_in_its_own_process_has_no_traceback_network_or_credential

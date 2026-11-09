@@ -1,0 +1,2 @@
+id,run_id,store_id,trigger,day,started_at,heartbeat_at,ended_at,active_s,credits_estimated,browser_sessions,browsers_closed,steps,products_verified,account_remaining_start,account_remaining_end,stop_code,stop_detail,end_state,recovered_at
+01M70G5ZMG4QEHY4JV26F46H1M,01M70G5ZEPFG1GVT2H5QWPVQKJ,01M6E2X1F1NS7Z1613JYZEKP0C,manual,2026-11-09,2026-11-09T15:52:41.356785+00:00,2026-11-09T15:58:44.469037+00:00,2026-11-09T15:58:44.469037+00:00,362.9679999999935,32.0,1,1,30,243,70,38,,,ended,

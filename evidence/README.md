@@ -10,6 +10,15 @@ maps every original path to its path here; older documents and logs write archiv
 References written `D170:` or `D150:` name files of the earlier 1.7.0rc2 and 1.5.0 deliveries, which are not
 republished here. Logs keep the workstation's working-folder paths (such as `C:\m6\...`) as they were written.
 
+## Release 1.9 (2026-11-06 to 2026-11-09)
+
+[`1.9.0/`](1.9.0/README.md): the live stages of 2026-11-06 (O1, S1, O2) and of 2026-11-09 on 1.9.0rc3 (S1b, S4,
+S5a, S5b, S3) and 1.9.0rc4 (S5b2, S4b, S4c, S3b, S4d): logs, stage records, the runs' tables and exports, the
+paging census, the exact incomplete queue; the M2 to M5 analyses, the T05, T06, T07, N09 and two-lane reproductions, the adapter's identities,
+the test sessions of 1.9.0rc3, 1.9.0rc4 and probe 1.7.3, the
+shared trial ledger's Mariano's rows and the proposed next stages. Everything below is the 1.8 evidence, as
+published.
+
 ## Live evidence: Oxylabs Web API, Vernon Hills 53100502 PICKUP, from Hamza's workstation
 
 No live request was made with 1.8.0rc5. Each run folder holds the run's database tables (`<run>/db/`), its

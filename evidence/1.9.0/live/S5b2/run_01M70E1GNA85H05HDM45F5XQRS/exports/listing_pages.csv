@@ -1,0 +1,10 @@
+csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
+23,32001,https://www.marianos.com/pl/candles-home-fragrances/32001,listing,1,1,1,completed,new,,57,57,24,0,24,0,0,10,97017e4367f48dc7603dcf9ff885437d361e20910cfd4810979a865e708d54cc,7525576787447836673
+23,32001,https://www.marianos.com/pl/candles-home-fragrances/32001?page=2,listing,2,2,1,stopped,repeated,page 2 repeats an earlier page exactly,57,57,24,0,0,24,0,0,6793f4df2f4078571553fb254deef27ad95f6827823ed3d0de6c8a1267f7defa,7525576959309392897
+24,26003,https://www.marianos.com/pl/batteries/26003,listing,1,1,1,completed,new,,96,96,24,9,29,0,0,2,b20a919058c2bbbf9a3200d0a127456846537af288d1161001b1ae9c9f209e30,7525576960118893569
+24,26003,https://www.marianos.com/pl/batteries/26003?page=2,listing,2,2,1,stopped,repeated,page 2 repeats an earlier page exactly,96,96,24,0,0,24,0,0,28f9fadffcf49cb641bcd3e5ad0eb84956aa675d2e632579d7f7c0f03f6fbf24,7525577591755941889
+25,26002,https://www.marianos.com/pl/Light-Bulbs/26002,listing,1,1,1,completed,new,,100,100,24,16,24,0,0,0,1bbc898780a8dcd51a4b38f33bdf09230b2847c5ecada5aba5d559f30f24caf9,7525577592544447489
+25,26002,https://www.marianos.com/pl/Light-Bulbs/26002?page=2,listing,2,2,1,stopped,repeated,page 2 repeats an earlier page exactly,100,100,24,0,0,24,0,0,4eab12f03558bbdff034bd7a474f7d38509a4934efc2db5b876c7c53c5203bd5,7525577629248837633
+26,35,https://www.marianos.com/pl/school-office/35,listing,1,1,1,completed,new,,113,113,24,9,30,0,0,0,eedcbe09d59e41fbb7449c1056885672931c9ae888b80db32b2aa8686767bfea,7525577616137430017
+26,35,https://www.marianos.com/pl/school-office/35?page=2,listing,2,2,1,completed,new,,113,113,24,0,21,8,0,0,8b8ffb52075e0990a2efd39146e95cf905f787017799c594f743b10db2be6cef,7525577643421341697
+26,35,https://www.marianos.com/pl/school-office/35?page=3,listing,3,3,1,stopped,repeated,page 3 repeats an earlier page exactly,113,113,24,0,0,24,0,0,ae1087a4a3fd793575b263f194b539357a948f2f5dba3bd15c7c7976d94e9222,7525577684173221891

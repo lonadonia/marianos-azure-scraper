@@ -1,0 +1,5 @@
+probe: 1.7.3 C:\m8\probe173\headless\oxylabs-classic-probe\src\classic_probe\__init__.py
+{"case": "missing_replay_json", "exit": 2, "out_created": false, "out_holds": [], "traceback": false, "stderr_lines": 1, "stderr_last": "{\"refused\": \"ReplayRefused: replay.json is missing in C:\\\\m8\\\\scratch\\\\t05_173\\\\missing_replay_json\\\\fixtures\"}", "stdout": ""}
+{"case": "empty_object", "exit": 2, "out_created": false, "out_holds": [], "traceback": false, "stderr_lines": 1, "stderr_last": "{\"refused\": \"ReplayRefused: replay.json must be an object whose \\\"steps\\\" maps each step to its saved responses\"}", "stdout": ""}
+{"case": "not_json", "exit": 2, "out_created": false, "out_holds": [], "traceback": false, "stderr_lines": 1, "stderr_last": "{\"refused\": \"ReplayRefused: replay.json is not valid JSON (line 1, column 2)\"}", "stdout": ""}
+{"case": "missing_body_file", "exit": 2, "out_created": false, "out_holds": [], "traceback": false, "stderr_lines": 1, "stderr_last": "{\"refused\": \"ReplayRefused: step 's1', response 1: body_file 'absent.json' is missing\"}", "stdout": ""}

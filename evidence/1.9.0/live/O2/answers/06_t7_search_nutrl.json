@@ -1,0 +1,69 @@
+{
+ "step": 6,
+ "label": "t7_search_nutrl",
+ "utc_start": "2026-11-06T19:49:19+00:00",
+ "utc_end": "2026-11-06T19:49:27+00:00",
+ "seconds": 7.86,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\qwt\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.9.0rc1",
+  "revision": "b0f919118cbfd45bde7fd74130356b4eec807ca5",
+  "modified": []
+ },
+ "stage": "M-O2-tile-discovery-190-20261106",
+ "endpoint": "/v1/scrape/marianos/search",
+ "body_sent": {
+  "query": "nutrl vodka seltzer",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "purpose": "new tile: a volume-style offer (Nutrl Buy 1 Save $2, O1: current to 2027-01-05)",
+ "target": "https://www.marianos.com/search?query=nutrl+vodka+seltzer",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524558564300469249",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524558564300469249",
+   "seconds": 7.16,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 522156,
+ "raw_bytes": 600562,
+ "raw_sha256": "8b4eaafab54c7073a7b29600850e2e598bcc811fd8addac83178f42d10d6d160",
+ "raw_file": "06_t7_search_nutrl.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T19:49:20+00:00",
+   "event": "reserved",
+   "rid": "70e399eb2d4d48ebbc39d47830d5788c",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T19:49:20+00:00",
+   "event": "dispatched",
+   "rid": "70e399eb2d4d48ebbc39d47830d5788c"
+  },
+  {
+   "at": "2026-11-06T19:49:27+00:00",
+   "event": "settled",
+   "rid": "70e399eb2d4d48ebbc39d47830d5788c",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524558564300469249"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 50
+}

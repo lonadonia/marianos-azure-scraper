@@ -1,0 +1,325 @@
+{
+  "mode": "LIVE",
+  "run_id": "01M70GKE2KJF0D6CKSY04VD8YK",
+  "status": "rejected",
+  "dataset": "pilot",
+  "counts": {
+    "gates": {
+      "G1": "PASS",
+      "G2": "PASS",
+      "G3": "FAIL",
+      "G4": "PASS",
+      "G5": "PASS",
+      "G6": "PASS",
+      "G7": "PASS",
+      "G8": "PASS",
+      "G9": "PASS",
+      "G10": "PASS",
+      "G11": "PASS",
+      "G12": "PASS",
+      "G13": "PASS",
+      "G14": "PASS"
+    },
+    "nodes": {
+      "DONE": 6,
+      "INCOMPLETE": 25
+    },
+    "canary": {
+      "at": "2026-11-09T16:01:41.879543Z",
+      "url": "https://www.marianos.com/pl/fresh-herbs/06122",
+      "page": "01M70GKJ5YXK9PPA0CSV4EBZAK",
+      "valid": 22,
+      "status": "passed",
+      "records": 24,
+      "problems": [],
+      "valid_ratio": 0.917,
+      "source_check": {
+        "records": 22,
+        "mismatch": 0,
+        "verified": 22,
+        "unverified": 0
+      }
+    },
+    "outcome": "rejected",
+    "contract": {
+      "pages": 31,
+      "problems": []
+    },
+    "verified": 700,
+    "historical": {
+      "too_old": 0,
+      "carried_forward": 1269
+    },
+    "completeness": {
+      "ppm": 0.8935574229691877,
+      "upc": 1.0,
+      "url": 1.0,
+      "gupc": 0.0,
+      "weight": 0.9397759103641457,
+      "zipcode": 1.0,
+      "category": 1.0,
+      "image_url": 1.0,
+      "crawl_date": 1.0,
+      "sale_price": 0.18067226890756302,
+      "store_logo": 1.0,
+      "store_name": 1.0,
+      "unit_price": 0.0,
+      "store_brand": 1.0,
+      "sub_category": 1.0,
+      "product_title": 1.0,
+      "regular_price": 0.9873949579831933,
+      "store_location": 1.0,
+      "volume_deals_price": 0.0070028011204481795,
+      "digital_deals_price": 0.0,
+      "volume_deals_description": 0.047619047619047616,
+      "digital_deals_description": 0.0
+    },
+    "coupons_route": {
+      "url": "https://www.marianos.com/savings/cl/coupons/",
+      "run_js": true,
+      "status": "READ",
+      "coupons": [
+        {
+          "brand": "Other",
+          "title": "Get 5x POINTS",
+          "coupon_id": "4248497",
+          "other_tags": [],
+          "description": "Get 5x POINTS",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "4X Gift Card Event"
+        },
+        {
+          "brand": "MasterCard",
+          "title": "Save $6.95 When You Spend $150.00",
+          "coupon_id": "4249285",
+          "other_tags": [],
+          "description": "NO Purchase Fee",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Gift Card Savings Event"
+        },
+        {
+          "brand": "Other",
+          "title": "Save $20.00 When You Spend $75.00",
+          "coupon_id": "4250554",
+          "other_tags": [
+            "Pickup & Delivery Only"
+          ],
+          "description": "$20 off Your First Pickup or Delivery Order of $75 or more",
+          "expiry_text": "Exp. Nov. 17",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Kroger Brand",
+          "title": "FRI-SUN 2X Points on Purchases 11/13 - 11/15 excluding Gift Cards. Points load within 24 hrs",
+          "coupon_id": "4260234",
+          "other_tags": [],
+          "description": "FRI-SUN 2X Points on Purchases 11/13 - 11/15 excluding Gift Cards. Points load within 24 hrs",
+          "expiry_text": "Exp. Nov. 15",
+          "savings_tag": "Points Event"
+        },
+        {
+          "brand": "Kroger Brand",
+          "title": "$3.99",
+          "coupon_id": "4258054",
+          "other_tags": [],
+          "description": "$3.99 Kroger Red Grapefruit",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Produce Department",
+          "title": "$1.99",
+          "coupon_id": "4257884",
+          "other_tags": [],
+          "description": "$1.99 Blackberries or Raspberries",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Bimbo",
+          "title": "Save 50%",
+          "coupon_id": "4255201",
+          "other_tags": [
+            "Pickup & Delivery Only"
+          ],
+          "description": "Save 50% on Oroweat Bread Items PICKUP OR DELIVERY ONLY",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Private Selection",
+          "title": "Save $1.50",
+          "coupon_id": "4243199",
+          "other_tags": [],
+          "description": "Save $1.50 on Private Selection Fresh Sliced Deli Meat or Cheese",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Kroger Brand",
+          "title": "$4.99",
+          "coupon_id": "4257867",
+          "other_tags": [],
+          "description": "$4.99 Roundy's Cheese",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Frito-Lay",
+          "title": "$2.99",
+          "coupon_id": "4257922",
+          "other_tags": [],
+          "description": "$2.99 Fritos, Simply, Smartfood, or Miss Vickies",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Kroger Brand",
+          "title": "$2.49",
+          "coupon_id": "4257863",
+          "other_tags": [],
+          "description": "$2.49 Kroger Large Eggs, Grade A",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Kroger Brand",
+          "title": "$1.99/lb Kroger Black or Red Grapes",
+          "coupon_id": "4258060",
+          "other_tags": [],
+          "description": "$1.99 lb Kroger Black or Red Grapes",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Progresso",
+          "title": "Save $1.00 on 4",
+          "coupon_id": "4251359",
+          "other_tags": [],
+          "description": "SAVE $1.00 on 4 Progresso ™ or Old El Paso ™ Soup or Broth",
+          "expiry_text": "Exp. Dec. 14",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Edy's",
+          "title": "$2.99",
+          "coupon_id": "4257894",
+          "other_tags": [],
+          "description": "$2.99 Edy's Ice Cream",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "General Mills",
+          "title": "$3.99",
+          "coupon_id": "4257925",
+          "other_tags": [],
+          "description": "$3.99 GM Giant Size Cereal",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Haagen-Dazs",
+          "title": "$2.99",
+          "coupon_id": "4257898",
+          "other_tags": [],
+          "description": "$2.99 Haagen-Dazs Ice Cream",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "General Mills",
+          "title": "Save 50¢ on 2",
+          "coupon_id": "4251357",
+          "other_tags": [],
+          "description": "SAVE $0.50 on 2 General Mills Snack Bars",
+          "expiry_text": "Exp. Dec. 14",
+          "savings_tag": "Nutritious Savings For You"
+        },
+        {
+          "brand": "Hellmann's",
+          "title": "Save $2.00",
+          "coupon_id": "4245875",
+          "other_tags": [],
+          "description": "Save $2.00 on Hellmann's",
+          "expiry_text": "Exp. Nov. 25",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Old El Paso",
+          "title": "Save $5.00 on 5",
+          "coupon_id": "4256907",
+          "other_tags": [
+            "Pickup & Delivery Only"
+          ],
+          "description": "Buy 5, Save $5 on participating Old El Paso items PICKUP OR DELIVERY ONLY",
+          "expiry_text": "Exp. Nov. 17",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Kroger Brand",
+          "title": "$2.99",
+          "coupon_id": "4258069",
+          "other_tags": [],
+          "description": "$2.99 Kroger Dinner Sausage",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        },
+        {
+          "brand": "Francis Coppola Diamond Collection",
+          "title": "Save $4.00 on 2",
+          "coupon_id": "4253808",
+          "other_tags": [],
+          "description": "Save $4.00 on 2 Francis Coppola Diamond Collection",
+          "expiry_text": "Exp. Jan. 02",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Suave",
+          "title": "Save $2.00 on 3",
+          "coupon_id": "4255221",
+          "other_tags": [],
+          "description": "Save $2.00 on 3 Suave",
+          "expiry_text": "Exp. Nov. 28",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Oliver Winery",
+          "title": "Save $2.00",
+          "coupon_id": "4253719",
+          "other_tags": [],
+          "description": "Save $2 on any Oliver Wine",
+          "expiry_text": "Exp. Dec. 31",
+          "savings_tag": ""
+        },
+        {
+          "brand": "Outshine",
+          "title": "$2.99",
+          "coupon_id": "4257902",
+          "other_tags": [],
+          "description": "$2.99 Outshine Fruit Bars",
+          "expiry_text": "Exp. Nov. 10",
+          "savings_tag": "Weekly Digital Deal"
+        }
+      ],
+      "fetch_id": "01M70GKTH3V7C1KJATFN7H4P6Y",
+      "provider": "oxylabs",
+      "store_check": "PASS",
+      "coupon_cards": 24,
+      "products_listed": false
+    },
+    "records_by_status": {
+      "valid": 700,
+      "excluded": 5,
+      "historical": 1269,
+      "price_conflict": 5,
+      "eligible_unpriced": 9
+    },
+    "collection_complete": false
+  },
+  "excluded_by_reason": {
+    "CARRIED_FORWARD": 1269,
+    "APPROX_WEIGHT": 5
+  },
+  "duplicates": 0
+}

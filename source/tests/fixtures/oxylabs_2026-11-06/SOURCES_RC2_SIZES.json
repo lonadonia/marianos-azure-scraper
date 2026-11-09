@@ -1,0 +1,20 @@
+{
+ "0002310032784": {
+  "page_fetch_id": "01M6E6PA5WAQ5X5BKH2VYQWNPE",
+  "url": "https://www.marianos.com/pl/cat-treats/27022",
+  "fetched_at": "2026-11-02T13:20:30.908542Z",
+  "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E6PA5WAQ5X5BKH2VYQWNPE.html.gz",
+  "dom_gz_sha256": "c926210f0a009eb1c05cf645f0f39a23b2fa672f85f81b92d40e02023cc5a4c8",
+  "state_artifact": "01M6E6PA5WAQ5X5BKH2VYQWNPE.0026.products_v2.json.gz",
+  "state_artifact_gz_sha256": "eab3a475082455dbd98855f36efb826fe926c8540b6686e0552186e384b71bfa"
+ },
+ "0019283330664": {
+  "page_fetch_id": "01M6E7EQ62WSR18NM2AE027897",
+  "url": "https://www.marianos.com/pl/candles-home-fragrances/32001",
+  "fetched_at": "2026-11-02T13:33:50.658604Z",
+  "dom_key": "runs/marianos-53100502-pickup/01M6E5V6CASQ8F00VC8PE9TFYW/live/dom/01M6E7EQ62WSR18NM2AE027897.html.gz",
+  "dom_gz_sha256": "3105504fa536646454c0eba4e7d7b70efed823ed574958deb41682073e8bce73",
+  "state_artifact": "01M6E7EQ62WSR18NM2AE027897.0035.products_v2.json.gz",
+  "state_artifact_gz_sha256": "6e938e80f41731bad2b40938d2e5d9713283133c7c289c23e460633d2bb70a2f"
+ }
+}

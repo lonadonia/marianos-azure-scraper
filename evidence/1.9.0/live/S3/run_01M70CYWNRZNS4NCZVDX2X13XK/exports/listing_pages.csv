@@ -1,0 +1,5 @@
+csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
+8,02001,https://www.marianos.com/pl/milk-plant-based-%20milk/02001,listing,1,1,1,completed,new,,246,246,24,0,24,0,0,0,dc488bfdc65fd76483f91d171b69fc119c9e092551acbef574f0217ee95e0b29,7525572015042908161
+8,02001,https://www.marianos.com/pl/milk-plant-based-%20milk/02001?page=2,listing,2,2,1,completed,new,,246,246,24,0,30,1,0,0,1e1211ecb0317d9dbf85de9f5d0bce50d6a90f4fb64c0534290e8b6a5b8f67de,7525572221893373953
+8,02001,https://www.marianos.com/pl/milk-plant-based-%20milk/02001?page=3,listing,3,3,1,completed,new,,246,246,24,0,23,3,0,0,d5f65fee92a6899f23f4c71531a9737b23a691c2656d22da1771681cfb2663d3,7525572257075221505
+8,02001,https://www.marianos.com/pl/milk-plant-based-%20milk/02001?page=4,listing,4,4,1,stopped,repeated,page 4 repeats an earlier page exactly,246,246,24,0,0,24,0,0,626414889e3e5a0fd683efe99c20bc407cdaf9093ee30092e67c3110a158f89a,7525572285911038977

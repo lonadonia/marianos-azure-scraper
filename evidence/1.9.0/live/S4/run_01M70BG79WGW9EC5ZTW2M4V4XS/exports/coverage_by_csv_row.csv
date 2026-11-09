@@ -1,0 +1,29 @@
+csv_row,category,source_url,listings_planned,listings_complete,listings_incomplete,listings_not_read,pages_completed,unique_identities,approx_weight_exclusions,unresolved_gap,status,completion_reason
+0,Coupons,https://www.marianos.com/savings/cl/coupons/,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+1,Produce,https://www.marianos.com/d/produce,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+2,Meat,https://www.marianos.com/d/meat,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+3,Seafood,https://www.marianos.com/d/seafood,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+4,Deli,https://www.marianos.com/d/deli,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+5,Bakery,https://www.marianos.com/d/bakery,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+6,Floral,https://www.marianos.com/d/floral,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+7,Grocery,https://www.marianos.com/d/grocery,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+8,Dairy,https://www.marianos.com/d/dairy,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+9,Frozen,https://www.marianos.com/d/frozen,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+10,Natural Organic,https://www.marianos.com/d/natural-organic,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+11,Beverages,https://www.marianos.com/d/beverages,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+12,Breakfast,https://www.marianos.com/d/breakfast,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+13,Coffee,https://www.marianos.com/d/coffee,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+14,Candy,https://www.marianos.com/d/candy,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+15,Beer Wine Liquor,https://www.marianos.com/d/beer-wine-liquor,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+16,Health,https://www.marianos.com/d/health,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+17,Personal Care,https://www.marianos.com/d/personal-care,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+18,Beauty,https://www.marianos.com/d/beauty,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+19,Baby,https://www.marianos.com/d/baby,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+20,Household,https://www.marianos.com/d/household,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+21,Kitchen Dining,https://www.marianos.com/d/kitchen-dining,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+22,Pet Supplies,https://www.marianos.com/d/pet-supplies,12,8,4,0,22,426,0,330,INCOMPLETE,accessible pages exhausted; coverage incomplete
+23,Candles Home Fragrances,https://www.marianos.com/pl/candles-home-fragrances/32001?pzn=relevance,1,0,1,0,1,24,0,34,INCOMPLETE,accessible pages exhausted; coverage incomplete
+24,Batteries,https://www.marianos.com/pl/batteries/26003?pzn=relevance,1,0,1,0,1,24,0,72,INCOMPLETE,accessible pages exhausted; coverage incomplete
+25,Light Bulbs,https://www.marianos.com/pl/Light-Bulbs/26002?pzn=relevance,1,0,1,0,1,24,0,76,INCOMPLETE,accessible pages exhausted; coverage incomplete
+26,School Office,https://www.marianos.com/pl/school-office/35?pzn=relevance,1,0,1,0,1,24,0,91,INCOMPLETE,accessible pages exhausted; coverage incomplete
+27,Hardware Home Improvement,https://www.marianos.com/pl/hardware-home-improvement/33?pzn=relevance,1,1,0,0,3,65,0,0,COMPLETE,every listing of the row reached the source's reported total

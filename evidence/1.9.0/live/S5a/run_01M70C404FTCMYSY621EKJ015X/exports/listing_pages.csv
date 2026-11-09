@@ -1,0 +1,18 @@
+csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
+23,32001,https://www.marianos.com/pl/candles-home-fragrances/32001,listing,1,1,1,completed,new,,57,57,24,6,24,0,0,10,59094b6451f6b04f025f0782662cb374e2641053a81571bff57cc82a7731f1f1,7525568331441532929
+23,32001,https://www.marianos.com/pl/candles-home-fragrances/32001?page=2,listing,2,2,1,completed,new,,57,57,24,0,24,1,0,1,df2aa6c6b5cacdef0b79f8189ae49b559f3b6194dcd570a12a7b8a58024f6ccc,7525568498685217793
+23,32001,https://www.marianos.com/pl/candles-home-fragrances/32001?page=3,listing,3,3,1,completed,partial_overlap,1 products of earlier pages again,57,57,9,0,8,2,0,0,5e9d322f927cb8d5e84f894427d42b09b06035b9d4b5c17722c8633b7e9ab964,7525568526870929409
+24,26003,https://www.marianos.com/pl/batteries/26003,listing,1,1,1,completed,new,,96,96,24,9,30,0,0,2,acbe0ffc1fe65db821194cec9a2576d4eeac2ba974b766d6098fbf088a7899ab,7525568550543605761
+24,26003,https://www.marianos.com/pl/batteries/26003?page=2,listing,2,2,1,completed,new,,96,96,24,0,19,9,0,1,3bb0047c874b0467f4492bec3f269c5cbc472d59a764807d5b777f7d63e9d520,7525568596169241601
+24,26003,https://www.marianos.com/pl/batteries/26003?page=3,listing,3,3,1,completed,new,,96,96,24,0,23,4,0,1,c3580956debf3f0cf9fb6f63af0b371f4d4be2ccebb215a2c32328f703122462,7525568632470908929
+24,26003,https://www.marianos.com/pl/batteries/26003?page=4,listing,4,4,1,completed,new,,96,96,24,0,24,5,0,2,da6dfc3ea108b66a88a3598fb5c2b63d4a0aa9d6f49ed3665823dd964d3608c3,7525568672161600513
+25,26002,https://www.marianos.com/pl/Light-Bulbs/26002,listing,1,1,1,completed,new,,100,100,24,16,24,0,0,0,a68e5ee09ac1036f3b20e61fa6456f03adc73070fa6afbb4aef7d8a95baedfd7,7525568699739197441
+25,26002,https://www.marianos.com/pl/Light-Bulbs/26002?page=2,listing,2,2,1,refused,malformed,the response states no page number or no result count,,,0,0,0,0,0,0,f5c4b0daa3a7b69315a43d03f34cfb563b094ee88034a1807ec284a6d239569c,7525568735701116929
+25,26002,https://www.marianos.com/pl/Light-Bulbs/26002?page=2,listing,2,2,2,completed,new,,100,100,24,0,24,0,0,0,a07f70b4ed26771b508c24a3b6f6764e477f27354d20543c5ae3d10c265bdf21,7525569211213557761
+25,26002,https://www.marianos.com/pl/Light-Bulbs/26002?page=3,listing,3,3,1,completed,new,,100,100,24,0,24,0,0,0,87ac8f4fc8b566cb5f767aa28f48be683b425337c72afb691ba908fcc4397bd5,7525569240837923841
+25,26002,https://www.marianos.com/pl/Light-Bulbs/26002?page=4,listing,4,4,1,completed,new,,100,100,24,0,24,0,0,0,24820139050f2e8bb6fba208c945921a39528be192bca925b62f45170d17d44c,7525569266439999489
+25,26002,https://www.marianos.com/pl/Light-Bulbs/26002?page=5,listing,5,5,1,completed,new,,100,100,4,0,4,0,0,0,e83731035d5264d897692d96b8f0c630d4bce5eabec598b763a3c8982ea9105f,7525569293459704833
+26,35,https://www.marianos.com/pl/school-office/35,listing,1,1,1,completed,new,,113,113,24,9,30,0,0,0,a20f5d4016326a4ac6745075182524d694ffa495588fa0ea61f71b3b3b82a8ca,7525568954203412481
+26,35,https://www.marianos.com/pl/school-office/35?page=2,listing,2,2,1,completed,new,,113,113,24,0,21,8,0,0,616817b5832e9065740827eb55bc60f6c32cf700be079126dd72985e8f1726ea,7525568983790013441
+26,35,https://www.marianos.com/pl/school-office/35?page=3,listing,3,3,1,completed,new,,113,113,24,0,23,4,0,0,7bd32f5312b53f22e685cba45dc01a026dd0ecd780cae06523a5a9ccaace2cb0,7525569018007142401
+26,35,https://www.marianos.com/pl/school-office/35?page=4,listing,4,4,1,stopped,repeated,page 4 repeats an earlier page exactly,113,113,24,0,0,24,0,0,e8209feb83e0022e703c1c02c5d2c16f62abe70589f9ae770bf82a3f5e723e1e,7525569056888351745

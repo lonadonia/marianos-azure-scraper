@@ -1,0 +1,27 @@
+{
+ "path": "calypso.domains.products['0084024314377'].data",
+ "nodes": {
+  "calypso.domains.products['0084024314377'].data.price.storePrices.regular.equivalizedUnitPrice": {
+   "amount": "19.99",
+   "denomination": "DOLLAR",
+   "unit": "PER OUNCE"
+  },
+  "calypso.domains.products['0084024314377'].data.price.storePrices.regular.equivalizedUnitPriceString": "$19.99/oz",
+  "calypso.domains.products['0084024314377'].data.price.storePrices.promo.equivalizedUnitPrice": null,
+  "calypso.domains.products['0084024314377'].data.price.storePrices.promo.equivalizedUnitPriceString": null,
+  "calypso.domains.products['0084024314377'].data.price.storePrices.regular.price": "USD 19.99",
+  "calypso.domains.products['0084024314377'].data.price.storePrices.promo.price": null,
+  "calypso.domains.products['0084024314377'].data.price.storePrices.sourceLocationId": "53100502",
+  "calypso.domains.products['0084024314377'].data.item.customerFacingSize": "12 ct / 2.6 oz",
+  "calypso.domains.products['0084024314377'].data.item.pidSizeQuantity": 31.2,
+  "calypso.domains.products['0084024314377'].data.item.pidSizeUnitOfMeasureName": "OUNCES",
+  "calypso.domains.products['0084024314377'].data.price.sellBy": "Unit"
+ },
+ "request_state": {
+  "locationId": "53100502",
+  "activeModalityType": "PICKUP",
+  "taxonomyId": "27021",
+  "page": 10,
+  "brandName": []
+ }
+}

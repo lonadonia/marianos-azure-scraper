@@ -1,0 +1,123 @@
+{
+ "t1_cattreats_p1": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "body": {
+   "url": "https://www.marianos.com/pl/cat-treats/27022",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "purpose": "new listing tile: sale, coupon and volume samples (unrendered)",
+  "target": "https://www.marianos.com/pl/cat-treats/27022"
+ },
+ "t2_cattreats_p2": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "body": {
+   "url": "https://www.marianos.com/pl/cat-treats/27022?page=2",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "purpose": "new listing tile: sale, coupon and volume samples (unrendered)",
+  "target": "https://www.marianos.com/pl/cat-treats/27022?page=2"
+ },
+ "t3_cattreats_p3": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "body": {
+   "url": "https://www.marianos.com/pl/cat-treats/27022?page=3",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "purpose": "new listing tile: sale, coupon and volume samples (unrendered)",
+  "target": "https://www.marianos.com/pl/cat-treats/27022?page=3"
+ },
+ "t4_cattreats_p1_js": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "body": {
+   "url": "https://www.marianos.com/pl/cat-treats/27022",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  },
+  "purpose": "new listing tile: the same page requested rendered (S1: rendered page had no grid)",
+  "target": "https://www.marianos.com/pl/cat-treats/27022"
+ },
+ "t5_search_bananas": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "endpoint": "/v1/scrape/marianos/search",
+  "body": {
+   "query": "bananas",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "purpose": "new tile: a product sold by weight",
+  "target": "https://www.marianos.com/search?query=bananas"
+ },
+ "t6_dogfood_p1": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "body": {
+   "url": "https://www.marianos.com/pl/dog-food/27017",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "purpose": "new listing tile: more coupon and volume samples (unrendered)",
+  "target": "https://www.marianos.com/pl/dog-food/27017"
+ },
+ "t7_search_nutrl": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "endpoint": "/v1/scrape/marianos/search",
+  "body": {
+   "query": "nutrl vodka seltzer",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "purpose": "new tile: a volume-style offer (Nutrl Buy 1 Save $2, O1: current to 2027-01-05)",
+  "target": "https://www.marianos.com/search?query=nutrl+vodka+seltzer"
+ },
+ "t8_search_purina_one": {
+  "stage": "M-O2-tile-discovery-190-20261106",
+  "endpoint": "/v1/scrape/marianos/search",
+  "body": {
+   "query": "purina one dry dog food",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  },
+  "purpose": "new tile: a coupon (Purina ONE coupons 4257015/4257014, O1: Exp. Nov. 10)",
+  "target": "https://www.marianos.com/search?query=purina+one+dry+dog+food"
+ }
+}

@@ -1,0 +1,70 @@
+{
+ "step": 7,
+ "label": "m6a_pdp_0081675102373",
+ "utc_start": "2026-11-06T18:41:40+00:00",
+ "utc_end": "2026-11-06T18:41:54+00:00",
+ "seconds": 14.45,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\t19\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/p/cutwater-espresso-martini-canned-cocktail/0081675102373",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ],
+  "run_js": true
+ },
+ "purpose": "m6 offer Cutwater",
+ "target": "https://www.marianos.com/p/cutwater-espresso-martini-canned-cocktail/0081675102373",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524541538731342849",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524541538731342849",
+   "seconds": 13.75,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 470817,
+ "raw_bytes": 540248,
+ "raw_sha256": "9ebb38257de92f3cf30380604f09cd28815729f7a9ea7c52029bffe5139030ee",
+ "raw_file": "07_m6a_pdp_0081675102373.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:41:41+00:00",
+   "event": "reserved",
+   "rid": "bbe3281a57364f7b8c01034926660dee",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:41:41+00:00",
+   "event": "dispatched",
+   "rid": "bbe3281a57364f7b8c01034926660dee"
+  },
+  {
+   "at": "2026-11-06T18:41:54+00:00",
+   "event": "settled",
+   "rid": "bbe3281a57364f7b8c01034926660dee",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524541538731342849"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 34
+}

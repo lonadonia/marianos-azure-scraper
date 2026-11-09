@@ -1,0 +1,70 @@
+{
+ "step": 15,
+ "label": "r4_pdp_0001780014941",
+ "utc_start": "2026-11-06T18:49:40+00:00",
+ "utc_end": "2026-11-06T18:50:03+00:00",
+ "seconds": 23.36,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\wt\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ],
+  "run_js": true
+ },
+ "purpose": "m4 terms second sample: Savings section absent while the page still showed loading placeholders (5.0 s)",
+ "target": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524543550592137217",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524543550592137217",
+   "seconds": 22.8,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 446285,
+ "raw_bytes": 512810,
+ "raw_sha256": "8eb5f0c5f9c71aa467c400bd580a4fe2169b8716c00662f97ef2a6fe707db216",
+ "raw_file": "15_r4_pdp_0001780014941.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:49:40+00:00",
+   "event": "reserved",
+   "rid": "71b8707926ad4d3989f78cbedb17fba7",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:49:40+00:00",
+   "event": "dispatched",
+   "rid": "71b8707926ad4d3989f78cbedb17fba7"
+  },
+  {
+   "at": "2026-11-06T18:50:03+00:00",
+   "event": "settled",
+   "rid": "71b8707926ad4d3989f78cbedb17fba7",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524543550592137217"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 41
+}

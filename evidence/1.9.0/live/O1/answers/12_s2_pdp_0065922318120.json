@@ -1,0 +1,70 @@
+{
+ "step": 12,
+ "label": "s2_pdp_0065922318120",
+ "utc_start": "2026-11-06T18:42:50+00:00",
+ "utc_end": "2026-11-06T18:42:55+00:00",
+ "seconds": 5.06,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\t19\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/p/blue-dog-bakery-softies-peanut-butter-flavor-medium-dog-treats/0065922318120",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ],
+  "run_js": true
+ },
+ "purpose": "m6 size Blue Dog Softies",
+ "target": "https://www.marianos.com/p/blue-dog-bakery-softies-peanut-butter-flavor-medium-dog-treats/0065922318120",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524541833913881601",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524541833913881601",
+   "seconds": 4.22,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 396054,
+ "raw_bytes": 456610,
+ "raw_sha256": "eb9ec0dbed7e6a36c24f353a7132e69cd7610810e00061e716ab1dc5a0e61520",
+ "raw_file": "12_s2_pdp_0065922318120.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:42:51+00:00",
+   "event": "reserved",
+   "rid": "f77157889cca4e17848cfba812ddf159",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:42:51+00:00",
+   "event": "dispatched",
+   "rid": "f77157889cca4e17848cfba812ddf159"
+  },
+  {
+   "at": "2026-11-06T18:42:55+00:00",
+   "event": "settled",
+   "rid": "f77157889cca4e17848cfba812ddf159",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524541833913881601"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 39
+}

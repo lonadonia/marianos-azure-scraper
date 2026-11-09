@@ -30,6 +30,7 @@ from marianos_headless.collection.recovery import INTERRUPTED
 from marianos_headless.core.settings import (
     AcquisitionSettings,
     BrowserProvider,
+    OxylabsSettings,
     PrivateLabelConfig,
     Settings,
     StoreConfig,
@@ -78,8 +79,10 @@ def env(
     }
 
 
-def _pipe(env: dict[str, Any], settings: Settings) -> Pipeline:
-    acq = AcquisitionSettings(browser_provider=BrowserProvider.OXYLABS)
+def _pipe(env: dict[str, Any], settings: Settings, *, listing_run_js: bool = False) -> Pipeline:
+    acq = AcquisitionSettings(
+        browser_provider=BrowserProvider.OXYLABS, oxylabs=OxylabsSettings(listing_run_js=listing_run_js)
+    )
     return Pipeline(
         env["engine"],
         env["storage"],
@@ -116,8 +119,9 @@ def _run(
     listings: tuple[str, ...] = ("03001",),
     run_id: str | None = None,
     limits: Limits | None = None,
+    listing_run_js: bool = False,
 ) -> tuple[str, str]:
-    pipe = _pipe(env, settings)
+    pipe = _pipe(env, settings, listing_run_js=listing_run_js)
     resume = run_id is not None
     if run_id is None:
         run_id = _plan(env, pipe, listings)
@@ -235,6 +239,23 @@ def test_every_page_asks_for_the_page_under_one_ordering(env: dict[str, Any], se
         "https://www.marianos.com/pl/listing-03001/03001",
         "https://www.marianos.com/pl/listing-03001/03001?page=2",
     ]
+
+
+@pytest.mark.parametrize("rendered", [False, True])
+def test_listing_pages_are_asked_for_rendered_only_when_configured(
+    env: dict[str, Any], settings: Settings, rendered: bool
+) -> None:
+    """Release 1.9.0rc2: listing pages are asked for without rendering by default (since 2026-11-06 the
+    unrendered page carries the product tiles, a rendered one none: stages S1 and O2); a configuration that
+    asks for rendering still sends ``run_js`` on every listing page."""
+    site = Site({"03001": products(30)}, listing_run_js=rendered)
+    _, status = _run(env, settings, site, listing_run_js=rendered)
+    listing = [r for r in site.requests if "/pl/" in r["url"]]
+    assert len(listing) == 2
+    assert (
+        all(r.get("run_js") is True for r in listing) if rendered else all("run_js" not in r for r in listing)
+    )
+    assert status != "interrupted"
 
 
 # -- a page that does not count ---------------------------------------------------------------------------
@@ -437,7 +458,17 @@ def test_a_leaf_above_the_window_is_read_through_the_sites_own_brand_filter(
     assert "https://www.marianos.com/pl/listing-03001/03001?brandName=Acme%20Foods&page=2" in urls
     with env["factory"]() as s:
         assert len(set(_upcs(s, run_id))) == 60
-        assert _pages(s, run_id, "03001~Acme Foods") == [(1, "completed", "new"), (2, "completed", "new")]
+        acme = pagination.partition_descriptor(  # 1.9.0 (M1): the reading's ID is a digest of its identity
+            store_id="53100503",
+            modality="IN_STORE",
+            listing="03001",
+            filter_name="brandName",
+            value="Acme Foods",
+        )
+        assert _pages(s, run_id, pagination.partition_id(acme)) == [
+            (1, "completed", "new"),
+            (2, "completed", "new"),
+        ]
 
 
 def test_a_product_limit_inside_a_page_leaves_the_page_unfinished(

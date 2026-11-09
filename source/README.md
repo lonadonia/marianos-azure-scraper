@@ -8,9 +8,11 @@ provider:
 - **`oxylabs`** (release 1.3.0, the shipped default): the Oxylabs Web API's Mariano's scraper. The store
   and fulfillment are request parameters (`store_id`, `fulfillment_type`); every page is checked against
   them (the page's own store, modality and search request, and the store each product's prices are for).
-  From release 1.8.0 a listing is read page by page: its own `/pl/` page by URL with `?page=N`, rendered
-  (`acquisition.oxylabs.listing_route: listing`, the default). Oxylabs has no balance API: an operator
-  ceiling (`set-ceiling`) limits the submissions, each reserved in the database before it is sent.
+  From release 1.8.0 a listing is read page by page: its own `/pl/` page by URL with `?page=N`
+  (`acquisition.oxylabs.listing_route: listing`, the default); from release 1.9.0rc2 without rendering
+  (`listing_run_js: false`; since 2026-11-06 the unrendered page carries the product tiles, a rendered one
+  none). Oxylabs has no balance API: an operator ceiling (`set-ceiling`) limits the submissions, each
+  reserved in the database before it is sent.
 - **`scrapfly`**: Scrapfly's Cloud Browser (a Chromium run by Scrapfly, reached over the Chrome DevTools
   Protocol), which selects the store with the site's own store picker. The retailer's edge refused it on
   2026-10-28 (HTTP 403, then 429); it stays available, unchanged.
@@ -90,7 +92,61 @@ validated run is also published:
   Azure), with the results, for the releases up to 1.2.1; the verification of each later release is in that
   release's delivery (TECHNICAL_REPORT).
 
-## Collection rules (release 1.8.0)
+## Release 1.9.0 (candidate 1.9.0rc4, not a final release)
+
+What 1.9.0 changes, each with its regression tests (the delivery's review documents give the evidence):
+
+* **Brand readings and filters (M1, M2).** A brand reading of a listing above the site's result window has an
+  ID that is a digest of its full identity (retailer, store, fulfillment, listing, filter, exact brand value;
+  migration 0005): 1.8.0rc5 cut it at 64 characters, so two brands sharing their first 58 characters got one
+  ID and the second was dropped. A page counts for a brand reading only when it states that very filter, no
+  other facet, is the page's latest search and finished loading (verdicts `wrong_filter`, `unbound`). A
+  reading planned before 1.9.0 is refused on resume.
+* **The product tile served since 2026-11-06 (1.9.0rc2).** Listing pages show `horizontal-product-card-N`
+  tiles, search pages `default-product-card-N`; neither shows a size, and no tile was seen showing a coupon.
+  The tile is read with its own selectors (earlier saved pages read as before). The weight is the product's
+  own customer-facing size in the same page's data (`SIZE_FROM_PRODUCT_DATA`, with its source); a size that
+  states no quantity ("N/A", "Count") is not a pack size. A price is read only in the forms seen on the tile
+  (a plain price, "Sale: $X discounted from $Y", "about $X each"); any other form exports no price and the
+  record is not valid (`PRICE_DISPLAY_UNRECOGNIZED`); a price-per-measure element holding anything else is
+  not exported (`PPM_TEXT_UNRECOGNIZED`).
+* **Listing pages without rendering (1.9.0rc2).** On 2026-11-06 every unrendered listing answer carried all
+  its tiles and every rendered one none (stages S1 and O2), so `acquisition.oxylabs.listing_run_js` is
+  `false`. A rendered answer without tiles is not counted and its page is asked for again; three in a row stop
+  the run resumably (`PROVIDER_ERROR`). A rendered answer that carries its tiles counts like any other (seen
+  on 2026-11-09).
+* **Coupon terms from the product's own page (M4).** With `coverage.read_product_terms` on, a product's page is
+  read (rendered, once per product and run, never retried, within `limits.max_product_term_reads` /
+  `--max-term-reads`) for each coupon's ID, complete terms, displayed expiry, clipping instruction and
+  qualifying products; a coupon attaches only to the product whose page shows it. Savings wording ("Save
+  $10.00 on 2") leaves `digital_deals_price` empty. A card's coupon whose terms were not read keeps its
+  headline, flagged `DIGITAL_TERMS_UNREAD`; a rendered page that disagrees with the card is flagged
+  `DIGITAL_TERMS_CONFLICT`. **Tiles (1.9.0rc3):** a tile showed no coupon even for a product whose own page
+  shows two (Purina ONE, stages O1 and O2), so an empty coupon on a tile is not an absence: unless the
+  product's page was read rendered, the digital fields' reason says the coupon is unknown (missing kind
+  `not_attempted`, flag `DIGITAL_COUPONS_UNOBSERVED`), and with the read on every tile's product is a
+  candidate. The provider brought 1 of 14 product pages requested with rendering rendered (stage O1), so
+  this read is costly and mostly inconclusive: off by default, bounded when on.
+* **Displayed price per measure (M3).** Never computed; a displayed value that equals the item price on a
+  multi-unit pack (`PPM_EQUALS_ITEM_PRICE`) or whose unit family disagrees with the product's own pack data
+  (`PPM_UNIT_FAMILY_MISMATCH`) is exported as displayed and flagged as a source-value anomaly.
+* **Listing lanes (M8).** `limits.max_concurrent_listings` (1 to 4, default 1) runs that many listing tasks at
+  once, each with at most one provider request in flight; preflight, assembly and validation run alone; a
+  lane that stops the run halts the others. A page is written to the database only once its answer has
+  been processed (1.9.0rc4: in 1.9.0rc3 one lane could write the other's page while its request was still
+  out, without its stored page, and G13 rejected the run; stage S5b, 2026-11-09).
+  `collection.schedule.capacity` computes the collection hours an
+  occurrence's run has before the next occurrence supersedes it (daylight-saving aware).
+* **Pause events (T07) and segment ends (T06).** A resumable stop's event names its cause:
+  `RUN_LIMIT_REACHED` only for a limit, `RUN_PAUSE_REQUESTED` for an operator, `RUN_PAUSED_ON_FAILURE` for a
+  provider failure. The provider session closes and the collection segment ends before records are assembled
+  and exported, so the supporting log states each segment's end; a killed segment keeps an unknown end with
+  its bounds only (`last_seen_at`, `ended_not_after`), never an invented time.
+* **Account-wide spending gate.** An operator's harness can attach `OxylabsClient.account_gate_factory`:
+  every submission is then reserved at its worst case in an account-wide ledger before it leaves, settled
+  with the provider's request id, and held as unknown when sent without an answer; a refusal sends nothing.
+
+## Collection rules (release 1.8.0, with 1.9.0 above)
 
 * Exactly the 22 fields, in order, all strings, `""` when missing; `gupc` and `unit_price` always empty.
 * `upc` as the site shows it (13 digits, leading zeros kept); product URLs and pictures as the site gives

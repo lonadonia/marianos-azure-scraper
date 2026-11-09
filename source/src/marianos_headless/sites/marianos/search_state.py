@@ -47,6 +47,18 @@ class SearchSummary:
     taxonomy_id: str | None = None
     loaded_pages: tuple[int, ...] = ()
     ranks: Mapping[str, int] = field(default_factory=dict)
+    # Release 1.9.0: what the response states about the search it answers (M2). ``filters``: every
+    # ``requestVars`` entry other than the listing, page, store, modality and query (``brandName`` and the
+    # site's other facet lists, ``fulfillment`` "all", ``price`` ""), None when the page states no request.
+    # ``search_id`` (``productsInfo.searchId``) must be the page's ``latestResponseSearchId``, and the search
+    # must be loaded, not loading, without error (``loaded``, ``loading``, ``hasError``). Observed on all 99
+    # saved pages of 2026-11-02 (store 53100502, Pickup): BINDING_SCAN.csv in the 1.9.0 evidence.
+    filters: Mapping[str, Any] | None = None
+    search_id: str | None = None
+    latest_search_id: str | None = None
+    loaded: bool | None = None
+    loading: bool | None = None
+    has_error: bool | None = None
 
     @property
     def organic(self) -> tuple[str, ...]:
@@ -77,6 +89,14 @@ def _map(v: Any) -> Mapping[str, Any]:
 
 def _int(v: Any) -> int | None:
     return v if isinstance(v, int) and not isinstance(v, bool) else None
+
+
+def _bool(v: Any) -> bool | None:
+    return v if isinstance(v, bool) else None
+
+
+# requestVars entries that name the listing, page, store and modality (checked on their own), not filters.
+REQUEST_CORE = frozenset({"taxonomyId", "page", "locationId", "activeModalityType", "query"})
 
 
 def search_summary(state: Mapping[str, Any]) -> SearchSummary | None:
@@ -118,6 +138,12 @@ def search_summary(state: Mapping[str, Any]) -> SearchSummary | None:
         taxonomy_id=str(rv.get("taxonomyId")) if rv.get("taxonomyId") else None,
         loaded_pages=tuple(n for n in (_int(x) for x in resp.get("loadedPages") or []) if n is not None),
         ranks=ranks,
+        filters={k: v for k, v in rv.items() if k not in REQUEST_CORE} if rv else None,
+        search_id=str(info["searchId"]) if info.get("searchId") else None,
+        latest_search_id=str(sa["latestResponseSearchId"]) if sa.get("latestResponseSearchId") else None,
+        loaded=_bool(sa.get("loaded")),
+        loading=_bool(sa.get("loading")),
+        has_error=_bool(sa.get("hasError")),
     )
 
 

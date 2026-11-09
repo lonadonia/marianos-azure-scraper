@@ -1,0 +1,70 @@
+{
+ "step": 10,
+ "label": "m6d_pdp_0073679800140",
+ "utc_start": "2026-11-06T18:42:21+00:00",
+ "utc_end": "2026-11-06T18:42:27+00:00",
+ "seconds": 5.81,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\t19\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/p/avocado-green-goddess-dip-spread-8-oz-/0073679800140",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ],
+  "run_js": true
+ },
+ "purpose": "m6 size dip 2 tbsp/8 oz",
+ "target": "https://www.marianos.com/p/avocado-green-goddess-dip-spread-8-oz-/0073679800140",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524541711507271681",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524541711507271681",
+   "seconds": 5.12,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 433455,
+ "raw_bytes": 502883,
+ "raw_sha256": "10edaa36164585fa4af8ae54f49729a235ff8a4070d42810e461aaf8fb9fe84a",
+ "raw_file": "10_m6d_pdp_0073679800140.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:42:22+00:00",
+   "event": "reserved",
+   "rid": "eeb1fdc49d5f43a89309ba6878517018",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:42:22+00:00",
+   "event": "dispatched",
+   "rid": "eeb1fdc49d5f43a89309ba6878517018"
+  },
+  {
+   "at": "2026-11-06T18:42:27+00:00",
+   "event": "settled",
+   "rid": "eeb1fdc49d5f43a89309ba6878517018",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524541711507271681"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 37
+}

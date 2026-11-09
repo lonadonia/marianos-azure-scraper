@@ -1,0 +1,102 @@
+{
+  "mode": "LIVE",
+  "run_id": "01M70BG79WGW9EC5ZTW2M4V4XS",
+  "status": "rejected",
+  "dataset": "pilot",
+  "counts": {
+    "gates": {
+      "G1": "PASS",
+      "G2": "PASS",
+      "G3": "FAIL",
+      "G4": "PASS",
+      "G5": "PASS",
+      "G6": "PASS",
+      "G7": "PASS",
+      "G8": "PASS",
+      "G9": "PASS",
+      "G10": "PASS",
+      "G11": "PASS",
+      "G12": "PASS",
+      "G13": "PASS",
+      "G14": "PASS"
+    },
+    "nodes": {
+      "DONE": 7,
+      "EMPTY": 2,
+      "INCOMPLETE": 8
+    },
+    "canary": {
+      "at": "2026-11-09T14:31:50.678820Z",
+      "url": "https://www.marianos.com/pl/dog-food/27017",
+      "page": "01M70BGC65FQM1V9Z07PVYJ5C0",
+      "valid": 27,
+      "status": "passed",
+      "records": 27,
+      "problems": [],
+      "valid_ratio": 1.0,
+      "source_check": {
+        "records": 27,
+        "mismatch": 0,
+        "verified": 27,
+        "unverified": 0
+      }
+    },
+    "outcome": "rejected",
+    "contract": {
+      "pages": 31,
+      "problems": []
+    },
+    "verified": 552,
+    "historical": {
+      "too_old": 0,
+      "carried_forward": 591
+    },
+    "completeness": {
+      "ppm": 0.9843205574912892,
+      "upc": 1.0,
+      "url": 1.0,
+      "gupc": 0.0,
+      "weight": 0.9930313588850174,
+      "zipcode": 1.0,
+      "category": 1.0,
+      "image_url": 1.0,
+      "crawl_date": 1.0,
+      "sale_price": 0.11846689895470383,
+      "store_logo": 1.0,
+      "store_name": 1.0,
+      "unit_price": 0.0,
+      "store_brand": 1.0,
+      "sub_category": 0.7421602787456446,
+      "product_title": 1.0,
+      "regular_price": 0.9912891986062717,
+      "store_location": 1.0,
+      "volume_deals_price": 0.033101045296167246,
+      "digital_deals_price": 0.0,
+      "volume_deals_description": 0.04006968641114982,
+      "digital_deals_description": 0.0
+    },
+    "coupons_route": {
+      "url": "https://www.marianos.com/savings/cl/coupons/",
+      "run_js": true,
+      "status": "READ",
+      "coupons": [],
+      "fetch_id": "01M70BHC0XGSJ9ZVWB0N4X4E15",
+      "provider": "oxylabs",
+      "store_check": "PASS",
+      "coupon_cards": 0,
+      "products_listed": false
+    },
+    "records_by_status": {
+      "valid": 552,
+      "historical": 591,
+      "price_conflict": 14,
+      "eligible_unpriced": 5,
+      "exported_not_valid": 3
+    },
+    "collection_complete": false
+  },
+  "excluded_by_reason": {
+    "CARRIED_FORWARD": 591
+  },
+  "duplicates": 0
+}

@@ -1,0 +1,55 @@
+upc,title,exported_ppm,exported_weight,regular_price,sale_price,stated_pack_quantity,stated_pack_unit,stated_unit_price_text,flags,record_status
+0084024314377,Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Cuts in Gravy Salmon & Tuna,$19.99/oz,12 ct / 2.6 oz,19.99,,31.2,OUNCES,$19.99/oz,PPM_EQUALS_ITEM_PRICE,valid
+0082927400703,Meow Mix Indoor Health Dry Cat Food for Adult Cats,$8.99/each,3.15 Pounds,8.99,,3.15,POUNDS,$8.99/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0001780054917,"ONE High Protein Dry Cat Food, +Plus Urinary Tract Health Formula",$12.49/oz,3.5 lb.,12.49,,3.5,POUNDS,$12.49/oz,PPM_EQUALS_ITEM_PRICE,valid
+0001780057118,"ONE Natural Dry Cat Food, Tender Selects Blend With Real Chicken",$12.49/oz,3.5 lb.,12.49,,3.5,POUNDS,$12.49/oz,PPM_EQUALS_ITEM_PRICE,valid
+0001780047474,"ONE Natural Dry Cat Food, Tender Selects Blend With Real Salmon",$12.49/oz,3.5 lb.,12.49,,3.5,POUNDS,$12.49/oz,PPM_EQUALS_ITEM_PRICE,valid
+0001780003388,"ONE Plus Indoor Advantage Cat Food with Turkey, Dry Cat Food for Indoor Cats",$12.49/oz,3.5 lb.,12.49,,3.5,POUNDS,$12.49/oz,PPM_EQUALS_ITEM_PRICE,valid
+0001780003199,"Sensitive Stomach, Sensitive Skin, Natural Dry Cat Food, +Plus Sensitive Skin and Stomach Formula",$12.49/oz,3.5 lb.,12.49,,3.5,POUNDS,$12.49/oz,PPM_EQUALS_ITEM_PRICE,valid
+0004460060828,Fresh Step Odor Shield Light Weight Multi Cat Clumping Cat Litter with Febreze Freshness,$15.99/oz,11.5 lb,15.99,,11.5,POUNDS,$15.99/oz,PPM_EQUALS_ITEM_PRICE,valid
+0001111088236,Pet Pride® Jumbo Drawstring Litter Box Liners,$4.99/each,5 ct,4.99,,5,EACH,$4.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0002027999509,KMR Kitten Milk Replacer Liquid Food Supplement,$12.49/each,11 fl oz,12.49,,11,FLUID OUNCES,$12.49/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0001111013044,Pet Pride® Adult Wet Dog Food Variety Pack,$0.26/each,12 ct / 3.5 oz,10.99,,42,OUNCES,$0.26/each,PPM_UNIT_FAMILY_MISMATCH,valid
+0001111087993,Pet Pride® Super Absorbent All Stages Large Training Pads,$12.49/oz,24 ct,12.49,,24,EACH,$12.49/oz,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0084024310633,Blue Buffalo Health Bars Crunchy Biscuits Dog Treats Natural Bacon Egg & Cheese,$6.49/each,1 lb,6.49,,16,OUNCES,$6.49/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0003810013008,Busy Bone Original Large Dog Chew Treats,$1.70/each,35 oz.,16.99,,35,OUNCES,$1.70/each,PPM_UNIT_FAMILY_MISMATCH,valid
+0009109383335,Good 'N' Fun® Triple Flavor Kabob Dog Treats,$9.99/oz,4 oz,9.99,,4,OUNCES,$9.99/oz,PPM_EQUALS_ITEM_PRICE,valid
+0064286310292,"Greenies Adult Natural Dental Dog Treats Petite Size, Original Flavor, 6 oz Pack, 10 Count",$10.99/each,10 ct,10.99,,6,OUNCES,$10.99/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0064286310293,"Greenies Adult Natural Dental Dog Treats Regular Size, Original Flavor, 6 oz Pack, 6 Count",$10.99/each,6 ct,10.99,,6,OUNCES,$10.99/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0064286310291,"Greenies Adult Natural Dental Dog Treats Teenie Size, Original Flavor, 6 oz Pack, 22 Count",$10.99/each,22 ct,10.99,,6,OUNCES,$10.99/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0064286310294,Greenies Original Large Natural Dental Chew Adult Dog Treats,$10.99/each,4 ct,10.99,,6,OUNCES,$10.99/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0064286304131,"Greenies Original Teenie Natural Dental Care Dog Treats, 12 oz Pack, 43 Treats",$18.99/each,12 oz,18.99,,12,OUNCES,$18.99/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0001111089023,Luvsome® Hickory Smoke Flavored Soft Chews Dog Pill Treats,$7.49/each,5.8 oz,7.49,,5.8,OUNCES,$7.49/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0001821483387,Nylabone® Natural Nubz Chicken Edible Dog Chews,$2.00/each,4 ct / 3.3 oz,7.99,,3.3,OUNCES,$2.00/each,PPM_UNIT_FAMILY_MISMATCH,valid
+0002310013998,PDGR DTX ORG LG 40 CT 2.08 LB,$19.99/each,40 ct,19.99,,33.2,OUNCES,$19.99/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0001111005467,Pet Pride® Natural Smokey Beef Rib Bone Dog Treats,$6.79/each,3 ct / 8.8 oz,6.79,,8.8,OUNCES,$6.79/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0001595897886,Pork Chomps® Bacon Flavor Rawhide-Free Dog Treats,$10.79/oz,30 ct,10.79,,30,EACH,$10.79/oz,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0001595898381,Pork Chomps® Roasted Rawhide-Free Dog Treats,$6.49/oz,4 ct,6.49,,4,EACH,$6.49/oz,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0070115914033,Three Dog Bakery® Cookies with Carob Flavored Chips Dog Treats,$5.99/each,13 oz,5.99,,13,OUNCES,$5.99/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0066359592904,WoodWick Café Sweets Medium Hourglass Trilogy Candle,$19.99/each,1 Count,19.99,,9.7,OUNCES,$19.99/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0066359593106,WoodWick® Fireside Scented Candle - Gray,$1.16/oz,1 ct,24.99,,1,EACH,$1.16/oz,PPM_UNIT_FAMILY_MISMATCH,valid
+0003980014982,Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries,$5.99/each,1 Count,5.99,,0,EACH,$5.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0003980011086,Energizer Watch Electronic 395 Silver Oxide Battery,$6.49/each,1 Count,6.49,,0,,$6.49/each,PPM_EQUALS_ITEM_PRICE,valid
+0003980011090,Energizer Watch Electronic A76 Alkaline Battery,$5.99/each,1 Count,5.99,,0,EACH,$5.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0003980001320,Energizer Watch Electronic N Alkaline Batteries,$9.99/oz,2 Count,9.99,,2,EACH,$9.99/oz,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0004122600018,Kroger® Alkaline AAA Batteries Value Pack,$16.99/each,36 ct,16.99,,36,EACH,$16.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0001280054012,Rayovac High Energy AA Alkaline Batteries,$7.99/each,8 Count,7.99,,8,EACH,$7.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0001280054008,Rayovac High Energy AAA Alkaline Batteries,$7.99/each,8 Count,7.99,,8,EACH,$7.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0007033041170,"BIC Velocity Mechanical Pencils, With Colorful Barrel, Medium Point (0.7mm), 2-Count Pack",$3.99/each,2-Count,3.99,,2,EACH,$3.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0007033014367,BIC® Atlantis Black Medium Point Ball Pens,$2.69/each,2 pk,2.69,,2,EACH,$2.69/each,PPM_EQUALS_ITEM_PRICE,valid
+0007166207722,Crayola Broadline Classic Markers,$2.99/each,10 ct,2.99,,10,EACH,$2.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0007166200024,Crayola Crayons,$1.49/each,24 ct,1.49,,24,EACH,$1.49/each,PPM_EQUALS_ITEM_PRICE,valid
+0007166203527,Crayola Washable Glitter Glue,$6.49/each,9 ct,6.49,,9,EACH,$6.49/each,PPM_EQUALS_ITEM_PRICE,valid
+0007166200525,Crayola Washable Watercolor Sets,$2.99/each,8 ct,2.99,,8,EACH,$2.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0002600000304,"Elmer's Liquid School Glue, Washable, Great for Making Slime, 4 Ounces, 1 Count",$1.29/each,1 Count,1.29,,4,FLUID OUNCES,$1.29/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0005242778050,Gorilla® Impact-Tough® Super Glue,$6.49/each,0.53 oz,6.49,,0.53,FLUID OUNCES,$6.49/each,PPM_EQUALS_ITEM_PRICE;PPM_UNIT_FAMILY_MISMATCH,valid
+0007164117460,"Sharpie Pocket Style Highlighters, Chisel Tip, Assorted Fluorescent, 4 Pack",$3.29/each,4 Count,3.29,,4,EACH,$3.29/each,PPM_EQUALS_ITEM_PRICE,valid
+0007206713818,"Ticonderoga Wood-Cased Pencils, Pre-Sharpened, #2 HB Soft, Yellow, 18 Count",$4.79/each,18ct,4.79,,18,EACH,$4.79/each,PPM_EQUALS_ITEM_PRICE,valid
+0007934081742,Duro Super Glue,$3.49/each,0.07 oz,3.49,,2,EACH,$3.49/each,PPM_EQUALS_ITEM_PRICE,valid
+0003980014978,Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries,$13.99/each,4 Count,13.99,,4,EACH,$13.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0005242762020,Gorilla® Wood Glue,$3.79/each,4 fl oz,3.79,,0,EACH,$3.79/each,PPM_EQUALS_ITEM_PRICE,valid
+0007934068969,Loctite® Ultra Liquid Control Super Glue,$5.19/oz,0.14 fl oz,5.19,,0.14,FLUID OUNCES,$5.19/oz,PPM_EQUALS_ITEM_PRICE,valid
+0007164932070,Master Lock Laminated Steel Padlock,$12.99/each,1 9/16 in,12.99,,0,,$12.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0003579470622,Project Partners Bungee Cord Set,$8.49/each,6 pk,8.49,,0,EACH,$8.49/each,PPM_EQUALS_ITEM_PRICE,valid
+0003579470627,Project Partners® Precision Screwdriver Set,$7.99/each,6 pc,7.99,,0,EACH,$7.99/each,PPM_EQUALS_ITEM_PRICE,valid
+0001280052496,Rayovac 100 Lumens Workhorse LED Headlight,$7.99/oz,1 Count,10.49,7.99,1,EACH,$7.99/oz;$10.49/oz,PPM_UNIT_FAMILY_MISMATCH,valid

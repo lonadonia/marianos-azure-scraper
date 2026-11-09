@@ -1,0 +1,67 @@
+{
+ "step": 2,
+ "label": "c2_api_nostore",
+ "utc_start": "2026-11-06T18:36:20+00:00",
+ "utc_end": "2026-11-06T18:37:32+00:00",
+ "seconds": 72.23,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\t19\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/atlas/v1/savings-coupons/v2/coupons?filter.upc=0001780014939&filter.type=standard&filter.type=cash_back",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "purpose": "m4 coupon api (no store)",
+ "target": "https://www.marianos.com/atlas/v1/savings-coupons/v2/coupons?filter.upc=0001780014939&filter.type=standard&filter.type=cash_back",
+ "error": "",
+ "status": 500,
+ "kind": "provider_failed_free",
+ "request_id": "7524540198164669441",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 500,
+   "kind": "provider_failed_free",
+   "request_id": "7524540198164669441",
+   "seconds": 71.61,
+   "usd": 0.0
+  }
+ ],
+ "html_chars": 0,
+ "raw_bytes": 668,
+ "raw_sha256": "ab790ecb21a147d42a5bdfc6e2bd0de7a2c500c54f1f6c0ec3313d430b3dcabb",
+ "raw_file": "02_c2_api_nostore.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:36:21+00:00",
+   "event": "reserved",
+   "rid": "224fb415592247159ecd8cce94339727",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:36:21+00:00",
+   "event": "dispatched",
+   "rid": "224fb415592247159ecd8cce94339727"
+  },
+  {
+   "at": "2026-11-06T18:37:32+00:00",
+   "event": "settled_free",
+   "rid": "224fb415592247159ecd8cce94339727",
+   "status": 500,
+   "kind": "provider_failed_free",
+   "provider_job_id": "7524540198164669441"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 29
+}

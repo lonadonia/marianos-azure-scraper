@@ -72,6 +72,7 @@ command line or a limit makes it a **pilot**: exported, never published.
 | `--max-pages-per-listing N` | page steps per listing (Oxylabs: each listing page; Scrapfly: the first load and each "Load More") |
 | `--max-credits N` | credits this run may spend, in the provider's unit (Oxylabs: submissions; Scrapfly: credits estimated from session time and bandwidth) |
 | `--max-minutes N` | active collection time |
+| `--max-term-reads N` | product pages read for coupon terms (release 1.9.0; with `coverage.read_product_terms` on; `0`: none). Not a scope limit: a product left unread is still recorded, its coupon flagged as unread or unknown |
 
 At the end the run is finalized: a limit, a credit stop or an operator's stop leads to the checks and the
 export of what was collected; a transient provider failure is resumed in the same execution up to
@@ -184,7 +185,9 @@ operations job (AZURE.md, Operations).
 Collection: `RUN_CREATED`, `RUN_EXECUTING`, `BROWSER_STARTED`, `BROWSER_OPENED`, `ROBOTS_FETCHED`,
 `PAGE_CAPTURED`, `ACTION_CAPTURED` (store picker steps), `STORE_VERIFIED`, `PAGE_COLLECTED`,
 `LISTING_PARTITIONED` (a listing read through its child listings), `CANARY_PASSED` /
-`CANARY_FAILED`, `CHALLENGE_DETECTED`, `RUN_LIMIT_REACHED`, `RUN_STOPPED`, `BROWSER_RECONNECT`,
+`CANARY_FAILED`, `CHALLENGE_DETECTED`, `RUN_LIMIT_REACHED` (release 1.9.0: a limit only),
+`RUN_PAUSE_REQUESTED` (an operator's pause or stop), `RUN_PAUSED_ON_FAILURE` (a provider failure;
+resumable), `RUN_STOPPED`, `BROWSER_RECONNECT`,
 `PROVIDER_BUDGET_REACHED`, `BROWSER_CLOSED`, `COLLECTION_CLOSED`. Results: `RECORDS_ASSEMBLED`, `CHECKS_COMPLETE`, `EXPORTS_STAGED`,
 `PARTIAL_EXPORT`, `RUN_VALIDATED` / `RUN_REJECTED`, `RUN_PUBLISHED` / `PUBLICATION_REFUSED`,
 `RUN_FINISHED` (with the exit code and the run's summary). Control: `SIGNAL_RECEIVED`, `RUN_INTERRUPTED`,

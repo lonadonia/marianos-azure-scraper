@@ -33,7 +33,7 @@ import hashlib
 import json
 import math
 import re
-from collections.abc import AsyncIterator, Awaitable, Callable, Mapping, Sequence
+from collections.abc import AsyncIterator, Awaitable, Callable, Collection, Mapping, Sequence
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timedelta
 from time import monotonic
@@ -91,7 +91,7 @@ from marianos_headless.collection.nodes import Node
 from marianos_headless.collection.reconciliation import FINISHED_NODE
 from marianos_headless.collection.schedule import day_bounds, local_day
 from marianos_headless.config_file import CanaryConfig, HistoricalConfig
-from marianos_headless.core.findings import DataMode
+from marianos_headless.core.findings import DataMode, RecordFlag
 from marianos_headless.core.ids import new_id
 from marianos_headless.core.paths import PARSER_VERSION
 from marianos_headless.core.schema import ordered_record
@@ -129,7 +129,13 @@ from marianos_headless.sites.marianos.observations import (
     store_fields,
 )
 from marianos_headless.sites.marianos.serialize import card_to_dict
-from marianos_headless.sites.marianos.source_json import COUPONS, PRODUCTS, ResponseRef, SourceIndex
+from marianos_headless.sites.marianos.source_json import (
+    COUPONS,
+    PDP_SAVINGS,
+    PRODUCTS,
+    ResponseRef,
+    SourceIndex,
+)
 from marianos_headless.sites.marianos.store_context import (
     StoreDetails,
     request_location_id,
@@ -158,7 +164,13 @@ T = TypeVar("T")
 GRID_CSS = '[data-testid="paginate-items"]'
 # A grid card: "product-card-N", or (live 2026-11-02, from 12:30Z at 53100502 Pickup) "mini-product-card-N"
 # (class MiniProductCard), the same product card with the same inner test ids (release 1.8.0rc3).
-CARD_CSS = '[data-testid^="product-card-"], [data-testid^="mini-product-card-"]'
+# Release 1.9.0rc2 (live 2026-11-06, stages S1 and O2): "horizontal-product-card-N" (listing pages) and
+# "default-product-card-N" (search pages), a new tile with other inner test ids
+# (``dom_parsers.TILE_SELECTORS``).
+CARD_CSS = (
+    '[data-testid^="product-card-"], [data-testid^="mini-product-card-"], '
+    '[data-testid^="horizontal-product-card-"], [data-testid^="default-product-card-"]'
+)
 LOAD_MORE_CSS = '[data-testid="paginate-items"] button.LoadMore__load-more-button'
 RESULTS_CSS = '[data-testid="SearchHeader-heading"]'
 GRID_SELECTORS = replace(LISTING_SELECTORS, card_root=CARD_CSS)
@@ -175,7 +187,9 @@ MAX_RECONNECTS = 2  # per segment, when the cloud browser goes away
 KEEPALIVE_S = 30.0
 CARDS_GREW_JS = (
     '(n) => document.querySelectorAll(\'[data-testid="paginate-items"] [data-testid^="product-card-"], '
-    '[data-testid="paginate-items"] [data-testid^="mini-product-card-"]\').length > n'
+    '[data-testid="paginate-items"] [data-testid^="mini-product-card-"], '
+    '[data-testid="paginate-items"] [data-testid^="horizontal-product-card-"], '
+    '[data-testid="paginate-items"] [data-testid^="default-product-card-"]\').length > n'
 )
 
 
@@ -360,10 +374,11 @@ def after_store_confirmed(fetches: Sequence[PageFetch]) -> list[PageFetch]:
 
 
 def index_captures(sources: SourceIndex, fetch: PageFetch, read: Callable[[str], bytes]) -> int:
-    """Add the product and coupon responses of one page step to ``sources``."""
+    """Add the product and coupon responses of one page step to ``sources`` (and, since release 1.9.0, the
+    Savings section of a product's own page)."""
     n = 0
     for c in fetch.captured:
-        if c.kind not in (PRODUCTS, COUPONS) or c.status != 200 or not c.artifact_key:
+        if c.kind not in (PRODUCTS, COUPONS, PDP_SAVINGS) or c.status != 200 or not c.artifact_key:
             continue
         try:
             body = gzip.decompress(read(c.artifact_key))
@@ -526,7 +541,7 @@ class LiveCollector:
     LISTING_SETTLE_MS = 4000  # late data requests of a listing page (as in the pilot)
     STEP_SETTLE_MS = 1500  # after the new cards of a Load More step appeared
     # The site's own data responses kept with the run (product and coupon data for the record checks).
-    CAPTURE_KINDS: tuple[str, ...] = ("products_search", PRODUCTS, COUPONS)
+    CAPTURE_KINDS: tuple[str, ...] = ("products_search", PRODUCTS, COUPONS, PDP_SAVINGS)
     # Fields every exported record must fill (validation G8): Mariano's shows a UPC on every card.
     REQUIRED_FIELDS: tuple[str, ...] = ("product_title", "url", "upc", "category")
 
@@ -573,6 +588,9 @@ class LiveCollector:
         self.persisted: set[str] = set()
         # Product and coupon responses since the store was confirmed: offer details and per-product checks.
         self.sources = SourceIndex()
+        # Release 1.9.0 (M4): UPC -> the outcome of reading the product's own page for its coupons' terms
+        # (the Oxylabs route; empty on the browser route, whose coupon responses carry the terms).
+        self.term_status: dict[str, dict[str, Any]] = {}
         self.indexed: set[str] = set()
         self.verified_at_start = 0
         self.window_end: datetime | None = None
@@ -595,10 +613,22 @@ class LiveCollector:
         return {
             "preflight": self.h_preflight,
             "listing_node": self.h_listing,
-            "assemble": self.h_assemble,
-            "validate": self.h_validate,
-            "export": self.pipe.h_export,
+            "assemble": self.after_collection(self.h_assemble),
+            "validate": self.after_collection(self.h_validate),
+            "export": self.after_collection(self.pipe.h_export),
         }
+
+    def after_collection(self, handler: Handler) -> Handler:
+        """Release 1.9.0 (T06): these steps run only once every listing task is final, so the provider
+        session is closed and this segment's end written first; the records, checks and exports then read
+        the segment as it ended (its end time included), never a segment still open. A run resumed at one
+        of these steps opens a segment of its own, which ends the same way."""
+
+        async def run(ctx: TaskContext) -> dict[str, Any] | None:
+            await self.end()
+            return await handler(ctx)
+
+        return run
 
     @property
     def prefix(self) -> str:
@@ -1098,11 +1128,15 @@ class LiveCollector:
             s.commit()
 
     def persist(self, s: Session, ctx: TaskContext) -> None:
-        """Page fetches of this session not yet in the database (robots, store picker, pages, steps)."""
+        """Page fetches of this session not yet in the database (robots, store picker, pages, steps). A fetch
+        whose answer has not been processed yet (another listing lane's request still out) is left for a later
+        call: written now it would have no page, status or duration, and it would never be completed (release
+        1.9.0rc4; stage S5b, 2026-11-09)."""
         if self.session is None:
             return
+        pending: Collection[str] = getattr(self.session, "pending_fetches", frozenset())
         for f in self.session.fetches:
-            if f.fetch_id in self.persisted:
+            if f.fetch_id in self.persisted or f.fetch_id in pending:
                 continue
             dom_type = "application/gzip" if (f.dom_key or "").endswith(".gz") else "text/plain"
             shot_type = "image/jpeg" if (f.screenshot_key or "").endswith(".jpg") else "image/png"
@@ -1327,6 +1361,9 @@ class LiveCollector:
                 sources=self.sources,
             )
             built = cb.built
+            terms = self.term_status.get(card.upc)
+            if terms is not None and terms.get("status") == "conflict":
+                built = replace(built, flags=(*built.flags, RecordFlag.DIGITAL_TERMS_CONFLICT))
             if target.kind == "row_listing" and "sub_category" in built.missing:
                 built = replace(
                     built,
@@ -1378,6 +1415,8 @@ class LiveCollector:
                         "missing_kind": built.missing_kind,
                         "source_check": built.source_check,
                         "offers": offer_summaries(built, self.settings),
+                        # Release 1.9.0 (M4): the read of the product's own page for its coupon terms.
+                        **({"coupon_terms": terms} if terms is not None else {}),
                     },
                     flags=list(card.flags),
                     parser_version=PARSER_VERSION,
@@ -1660,6 +1699,12 @@ class LiveCollector:
             for ch in children:
                 url = ch.get("url") or f"{base_of(node.url)}/pl/{ch['slug']}/{ch['id']}?pzn=relevance"
                 entry = {"id": ch["id"], "name": ch["name"], "count": ch["count"], "url": url}
+                if ch.get("descriptor"):
+                    entry.update(
+                        {"descriptor": ch["descriptor"], "partition_key": ch.get("partition_key", "")}
+                    )
+                if ch.get("notes"):
+                    entry["notes"] = list(ch["notes"])
                 if ch["count"] == 0:
                     planned.append({**entry, "task": None, "note": "the site reports 0 results: not read"})
                     continue
@@ -1671,18 +1716,33 @@ class LiveCollector:
                     parent=node.taxonomy_id,
                     partition_name=ch["name"],
                     partition_count=ch["count"],
+                    partition_filter=pagination.canonical(ch["descriptor"]) if ch.get("descriptor") else "",
                 )
                 key = f"{ctx.lease.idem_key}/{ch['id']}"
-                queue.enqueue(
+                inserted = queue.enqueue(
                     s,
                     self.run_id,
                     "listing_node",
                     key,
                     priority=priority,
                     category_source_id=node.category_source_id,
-                    taxonomy_id=ch["id"][:10],
+                    taxonomy_id=ch["id"][:64],
                     cursor={"node": child.as_dict(), "steps_done": 0, "seen": [], "status": "IN_PROGRESS"},
                 )
+                if not inserted:
+                    # Planned before (a resume plans again, idempotently): it must be this very reading. A
+                    # task of another reading under the same key would be a collision: never merged.
+                    held = s.scalar(select(Task).where(Task.run_id == self.run_id, Task.idem_key == key))
+                    other = (
+                        Node.from_dict((held.cursor or {}).get("node") or {}) if held is not None else None
+                    )
+                    if other is None or (other.url, other.partition_filter) != (url, child.partition_filter):
+                        raise RunStop(
+                            StopCode.ABNORMAL_RESULT,
+                            f"partition ID collision: {key} is already planned for "
+                            f"{other.url if other else '?'}; {url} is not merged into it",
+                            resumable=False,
+                        )
                 planned.append({**entry, "task": key})
             event(
                 s,

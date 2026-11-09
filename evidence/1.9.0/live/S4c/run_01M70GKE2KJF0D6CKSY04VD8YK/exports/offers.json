@@ -1,0 +1,460 @@
+[
+  {
+    "upc": "0001090000018",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001103441005",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001103442005",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111062686",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0007203095986",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007203095992",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007203096010",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0008043290052",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0008043290907",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0008469230094",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0008469230364",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0008500000690",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0008500000691",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0008500003608",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0008678511073",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0008769202404",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 12/01/2026)",
+    "expiry_text": "Exp. 12/01/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0008894000001",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0008894000097",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0008894011001",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0009479901004",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0009479901008",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0009479902001",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0009479902002",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0060491300490",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 12/15/2026)",
+    "expiry_text": "Exp. 12/15/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0072881719960",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0076235760805",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/10/2026)",
+    "expiry_text": "Exp. 11/10/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0076395501300",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081363602451",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0082415022312",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $3.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "3.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0082415022612",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $3.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "3.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0085650200647",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $6.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "6.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0089856300268",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0089856300270",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0327451000379",
+    "source": "zone",
+    "tag": "",
+    "text": "15% off when you Buy 4, Mix or Match Bottles (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  }
+]

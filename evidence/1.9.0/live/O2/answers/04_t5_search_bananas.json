@@ -1,0 +1,69 @@
+{
+ "step": 4,
+ "label": "t5_search_bananas",
+ "utc_start": "2026-11-06T19:47:39+00:00",
+ "utc_end": "2026-11-06T19:47:54+00:00",
+ "seconds": 15.34,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\qwt\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.9.0rc1",
+  "revision": "b0f919118cbfd45bde7fd74130356b4eec807ca5",
+  "modified": []
+ },
+ "stage": "M-O2-tile-discovery-190-20261106",
+ "endpoint": "/v1/scrape/marianos/search",
+ "body_sent": {
+  "query": "bananas",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ]
+ },
+ "purpose": "new tile: a product sold by weight",
+ "target": "https://www.marianos.com/search?query=bananas",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524558144228338689",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524558144228338689",
+   "seconds": 14.53,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 1335764,
+ "raw_bytes": 1591740,
+ "raw_sha256": "6541a0e8844255f921c68790913c711770c86aaeca40167628c7b6b0a53c734b",
+ "raw_file": "04_t5_search_bananas.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T19:47:40+00:00",
+   "event": "reserved",
+   "rid": "e60c619a8bba4021b16cca747190feae",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T19:47:40+00:00",
+   "event": "dispatched",
+   "rid": "e60c619a8bba4021b16cca747190feae"
+  },
+  {
+   "at": "2026-11-06T19:47:54+00:00",
+   "event": "settled",
+   "rid": "e60c619a8bba4021b16cca747190feae",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524558144228338689"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 48
+}

@@ -1,0 +1,9 @@
+{
+  "note": "A PLACEHOLDER. Only the Classic account's owner can approve a campaign. The approval names the campaign and the one ledger (its ledger_genesis_id from campaign-init), so a second ledger cannot spend a second allowance. This build refuses live mode whatever this file says.",
+  "approved": false,
+  "approved_by": "",
+  "approved_at": "",
+  "campaign_id": "",
+  "ledger_genesis_id": "",
+  "retailers": []
+}

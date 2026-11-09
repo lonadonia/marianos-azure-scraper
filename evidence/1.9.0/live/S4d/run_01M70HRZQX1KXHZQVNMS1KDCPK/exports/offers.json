@@ -1,0 +1,292 @@
+[
+  {
+    "upc": "0007432912338",
+    "source": "zone",
+    "tag": "",
+    "text": "10 For $10.00 (Exp. 11/10/2026)",
+    "expiry_text": "Exp. 11/10/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007432912325",
+    "source": "zone",
+    "tag": "",
+    "text": "10 For $10.00 (Exp. 11/10/2026)",
+    "expiry_text": "Exp. 11/10/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007432912339",
+    "source": "zone",
+    "tag": "",
+    "text": "10 For $10.00 (Exp. 11/10/2026)",
+    "expiry_text": "Exp. 11/10/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007432912305",
+    "source": "zone",
+    "tag": "",
+    "text": "10 For $10.00 (Exp. 11/10/2026)",
+    "expiry_text": "Exp. 11/10/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007432912336",
+    "source": "zone",
+    "tag": "",
+    "text": "10 For $10.00 (Exp. 11/10/2026)",
+    "expiry_text": "Exp. 11/10/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001115078651",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $4 on 1 Coke Mini 10-Pack when you purchase 1 Fresh Roast or 8-Piece Chicken with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004157300250",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $4 on 1 Coke Mini 10-Pack when you purchase 1 Fresh Roast or 8-Piece Chicken with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004157300973",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $4 on 1 Coke Mini 10-Pack when you purchase 1 Fresh Roast or 8-Piece Chicken with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004157300274",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $4 on 1 Coke Mini 10-Pack when you purchase 1 Fresh Roast or 8-Piece Chicken with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004157300316",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $4 on 1 Coke Mini 10-Pack when you purchase 1 Fresh Roast or 8-Piece Chicken with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111009641",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0003498610199",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0087668101362",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $6.00 (Exp. 11/10/2026)",
+    "expiry_text": "Exp. 11/10/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "6.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0087668100751",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $6.00 (Exp. 11/10/2026)",
+    "expiry_text": "Exp. 11/10/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "6.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0087668100750",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $6.00 (Exp. 11/10/2026)",
+    "expiry_text": "Exp. 11/10/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "6.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0081006593514",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081006593519",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081006593515",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081006593520",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081006593516",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081006593518",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004450000432",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  }
+]

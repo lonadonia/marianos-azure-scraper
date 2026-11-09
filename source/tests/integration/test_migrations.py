@@ -25,7 +25,7 @@ def _diff(engine: Engine) -> list[object]:
 
 
 def test_the_migrations_build_the_models_schema(migrated_engine: Engine) -> None:
-    assert migrate.state(migrated_engine) == ("0004", "0004")
+    assert migrate.state(migrated_engine) == ("0005", "0005")
     assert _diff(migrated_engine) == []
 
 
@@ -38,7 +38,7 @@ def test_the_provider_ledger_migration_goes_back_and_forth(migrated_engine: Engi
     assert "provider_usage" not in inspect(migrated_engine).get_table_names()
     with migrated_engine.begin() as conn:
         conn.execute(text("SELECT count(*) FROM runs"))  # the 1.2.x tables stay
-    assert migrate.upgrade(migrated_engine) == ("0001", "0004")
+    assert migrate.upgrade(migrated_engine) == ("0001", "0005")
     assert "provider_usage" in inspect(migrated_engine).get_table_names()
     assert _diff(migrated_engine) == []
 
@@ -64,7 +64,7 @@ def test_the_dispositions_migration_keeps_existing_rows(migrated_engine: Engine)
                 ),
                 {"id": sid, "run": run.id, "store": store.id, "now": now, "ended": ended},
             )
-    assert migrate.upgrade(migrated_engine) == ("0002", "0004")
+    assert migrate.upgrade(migrated_engine) == ("0002", "0005")
     with factory() as s:
         states = {g.id: g.end_state for g in s.scalars(select(CollectionSegment))}
         assert states == {"g1": "ended", "g2": None}
@@ -89,5 +89,5 @@ def test_the_dispositions_migration_keeps_existing_rows(migrated_engine: Engine)
         assert (
             conn.execute(text("SELECT status FROM records WHERE id = 'x1'")).scalar() == "exported_not_valid"
         )
-    assert migrate.upgrade(migrated_engine) == ("0002", "0004")  # 0004 since release 1.8.0
+    assert migrate.upgrade(migrated_engine) == ("0002", "0005")  # 0004 since release 1.8.0
     assert _diff(migrated_engine) == []

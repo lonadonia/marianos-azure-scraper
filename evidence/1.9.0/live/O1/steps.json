@@ -1,0 +1,254 @@
+{
+ "c1_api_store": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m4 coupon api (store)",
+  "target": "https://www.marianos.com/atlas/v1/savings-coupons/v2/coupons?filter.upc=0001780014939&filter.type=standard&filter.type=cash_back",
+  "body": {
+   "url": "https://www.marianos.com/atlas/v1/savings-coupons/v2/coupons?filter.upc=0001780014939&filter.type=standard&filter.type=cash_back",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  }
+ },
+ "c2_api_nostore": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m4 coupon api (no store)",
+  "target": "https://www.marianos.com/atlas/v1/savings-coupons/v2/coupons?filter.upc=0001780014939&filter.type=standard&filter.type=cash_back",
+  "body": {
+   "url": "https://www.marianos.com/atlas/v1/savings-coupons/v2/coupons?filter.upc=0001780014939&filter.type=standard&filter.type=cash_back",
+   "location": "US",
+   "output": [
+    "html"
+   ]
+  }
+ },
+ "c3_pdp_js": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m4 product page rendered",
+  "target": "https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014939",
+  "body": {
+   "url": "https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014939",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "c4_pdp_0001780014941": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m4 terms Purina ONE lamb",
+  "target": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941",
+  "body": {
+   "url": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "c5_pdp_0002310014848": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m4 terms Temptations",
+  "target": "https://www.marianos.com/p/temptations-birthday-adult-crunchy-and-soft-cat-treats-lobster-and-beef/0002310014848",
+  "body": {
+   "url": "https://www.marianos.com/p/temptations-birthday-adult-crunchy-and-soft-cat-treats-lobster-and-beef/0002310014848",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "c6_pdp_0003980014995": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m4 terms Energizer",
+  "target": "https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995",
+  "body": {
+   "url": "https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "m6a_pdp_0081675102373": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m6 offer Cutwater",
+  "target": "https://www.marianos.com/p/cutwater-espresso-martini-canned-cocktail/0081675102373",
+  "body": {
+   "url": "https://www.marianos.com/p/cutwater-espresso-martini-canned-cocktail/0081675102373",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "m6b_pdp_0086001079386": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m6 offer Finnish Long Drink",
+  "target": "https://www.marianos.com/p/the-finnish-long-drink-zero-sugar-cocktail-can/0086001079386",
+  "body": {
+   "url": "https://www.marianos.com/p/the-finnish-long-drink-zero-sugar-cocktail-can/0086001079386",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "m6c_pdp_0001820020352": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m6 offer Nutrl",
+  "target": "https://www.marianos.com/p/nutrl-vodka-hard-seltzer-real-fruit-juice-variety/0001820020352",
+  "body": {
+   "url": "https://www.marianos.com/p/nutrl-vodka-hard-seltzer-real-fruit-juice-variety/0001820020352",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "m6d_pdp_0073679800140": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m6 size dip 2 tbsp/8 oz",
+  "target": "https://www.marianos.com/p/avocado-green-goddess-dip-spread-8-oz-/0073679800140",
+  "body": {
+   "url": "https://www.marianos.com/p/avocado-green-goddess-dip-spread-8-oz-/0073679800140",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "s1_pdp_0001780010048": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m6 size Puppy Chow",
+  "target": "https://www.marianos.com/p/puppy-chow-high-protein-dry-puppy-food-tender-crunchy-with-real-beef/0001780010048",
+  "body": {
+   "url": "https://www.marianos.com/p/puppy-chow-high-protein-dry-puppy-food-tender-crunchy-with-real-beef/0001780010048",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "s2_pdp_0065922318120": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m6 size Blue Dog Softies",
+  "target": "https://www.marianos.com/p/blue-dog-bakery-softies-peanut-butter-flavor-medium-dog-treats/0065922318120",
+  "body": {
+   "url": "https://www.marianos.com/p/blue-dog-bakery-softies-peanut-butter-flavor-medium-dog-treats/0065922318120",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "s3_pdp_0087786900820": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m6 size Ultra Chewy",
+  "target": "https://www.marianos.com/p/ultra-chewy-bac-n-twist/0087786900820",
+  "body": {
+   "url": "https://www.marianos.com/p/ultra-chewy-bac-n-twist/0087786900820",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "r4_pdp_0001780014941": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m4 terms second sample: Savings section absent while the page still showed loading placeholders (5.0 s)",
+  "target": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941",
+  "body": {
+   "url": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "r5_pdp_0002310014848": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m4 terms second sample: Savings section absent on a fully rendered page (22.6 s)",
+  "target": "https://www.marianos.com/p/temptations-birthday-adult-crunchy-and-soft-cat-treats-lobster-and-beef/0002310014848",
+  "body": {
+   "url": "https://www.marianos.com/p/temptations-birthday-adult-crunchy-and-soft-cat-treats-lobster-and-beef/0002310014848",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ },
+ "r6_pdp_0003980014995": {
+  "stage": "M-O1-terms-offers-190-20261106",
+  "endpoint": "/v1/scrape/marianos",
+  "purpose": "m4 terms second sample: Savings section absent while the page still showed loading placeholders (7.3 s)",
+  "target": "https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995",
+  "body": {
+   "url": "https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995",
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "output": [
+    "html"
+   ],
+   "run_js": true
+  }
+ }
+}

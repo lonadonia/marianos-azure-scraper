@@ -349,3 +349,101 @@ def test_the_grids_mini_cards_read_the_same_as_its_product_cards() -> None:
     assert all(c.card_testid.startswith("mini-product-card-") for c in mini)
     for a, b in zip(regular, mini, strict=True):
         assert {**vars(a), "card_testid": ""} == {**vars(b), "card_testid": ""}
+
+
+class BrandReplay:
+    """Release 1.9.0 (M2): the real Cold Cereal page 1 (probe L11: 277 results, 250 reachable, 67 brands)
+    for the listing itself; the real General Mills page (probe L20) for that brand's reading; for every other
+    brand the unfiltered page again, as a provider or site that ignored the filter would answer."""
+
+    def __init__(self) -> None:
+        self.requests: list[str] = []
+
+    def __call__(self, request: httpx.Request) -> httpx.Response:
+        url = json.loads(request.content)["url"]
+        self.requests.append(url)
+        if url.endswith("/robots.txt"):
+            html = ROBOTS
+        elif url.endswith("/pl/cold-cereal/0300100001?brandName=General%20Mills"):
+            html = _html("listing_0300100001_brand")
+        elif "/pl/cold-cereal/0300100001" in url and "page=" not in url:
+            html = _html("listing_0300100001_p1")
+        else:
+            return httpx.Response(500, json={"detail": "REQUEST_FAILED_AFTER_TOO_MANY_RETRIES"})
+        return httpx.Response(
+            200,
+            json={
+                "status": "done",
+                "results": [{"html": html, "metadata": {"status_code": 200}}],
+                "metadata": {"request_id": f"replay-{len(self.requests)}"},
+            },
+        )
+
+
+@pytest.mark.postgres
+def test_a_brand_reading_counts_only_the_real_page_that_states_its_brand(
+    migrated_engine: Engine, tmp_path: Path, private_label: PrivateLabelConfig, settings: Settings
+) -> None:
+    """M2, FIXTURE (a replay of the stored pages of 2026-11-02 through the run loop; no live request)."""
+    factory, _ = seed(migrated_engine)
+    with factory() as s:
+        ids = {c.csv_row_index: c.id for c in s.scalars(select(CategorySource))}
+        oxylabs.set_ceiling(s, submissions=200, usd=1, actor="test", reason="replay")
+        s.commit()
+    nodes = [Node(12, "Breakfast", ids[12], "Cold Cereal", "0300100001", f"{BASE}/pl/cold-cereal/0300100001")]
+    acq = AcquisitionSettings(browser_provider=BrowserProvider.OXYLABS)
+    pipe = Pipeline(
+        migrated_engine,
+        LocalStorageAdapter(tmp_path / "data"),
+        Settings(acquisition=acq, records=settings.records, attestation=settings.attestation),
+        _store(TARGET),
+        private_label,
+    )
+    with factory() as s:
+        run_id = pipe.create_live_run(
+            s,
+            nodes,
+            trigger="console",
+            snapshot={"plan": {"nodes": [n.as_dict() for n in nodes], "skipped": []}, "provider": "oxylabs"},
+        )
+        s.commit()
+    replay = BrandReplay()
+
+    async def nap(_: float) -> None:
+        return None
+
+    collector = OxylabsCollector(
+        pipe,
+        run_id,
+        api_key=SecretStr(KEY),
+        transport=httpx.MockTransport(replay),
+        sleep=nap,
+        config=CollectionConfig(),
+        trigger="manual",
+    )
+    asyncio.run(pipe.execute(run_id, "replay", collector=collector))
+    gm = pagination.partition_descriptor(
+        store_id="53100502",
+        modality="PICKUP",
+        listing="0300100001",
+        filter_name="brandName",
+        value="General Mills",
+    )
+    with factory() as s:
+        rows = list(s.scalars(select(ListingPage).where(ListingPage.run_id == run_id)))
+        base = [r for r in rows if r.taxonomy_id == "0300100001"]
+        assert [(r.requested_page, r.state, r.verdict, r.total, r.available) for r in base] == [
+            (1, "completed", "new", 277, 250)
+        ]
+        brand_rows = [r for r in rows if r.requested_filter]
+        assert (
+            len({r.taxonomy_id for r in brand_rows}) == 67
+        )  # every brand of the facet, each its own reading
+        mine = [r for r in brand_rows if r.taxonomy_id == pagination.partition_id(gm)]
+        assert [(r.requested_page, r.state, r.verdict, r.total) for r in mine] == [(1, "completed", "new", 8)]
+        assert mine[0].binding["stated"]["brandName"] == ["General Mills"]
+        assert mine[0].partition_key == pagination.partition_digest(gm)
+        others = [r for r in brand_rows if r.taxonomy_id != pagination.partition_id(gm)]
+        assert len(others) == 66 and {(r.state, r.verdict) for r in others} == {("refused", "wrong_filter")}
+        assert all("brandName [] (asked [" in r.detail for r in others)
+    assert sum(1 for u in replay.requests if "brandName=" in u) == 67  # each brand asked once, never again

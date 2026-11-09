@@ -1,0 +1,70 @@
+{
+ "step": 9,
+ "label": "m6c_pdp_0001820020352",
+ "utc_start": "2026-11-06T18:42:00+00:00",
+ "utc_end": "2026-11-06T18:42:21+00:00",
+ "seconds": 20.75,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\t19\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/p/nutrl-vodka-hard-seltzer-real-fruit-juice-variety/0001820020352",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ],
+  "run_js": true
+ },
+ "purpose": "m6 offer Nutrl",
+ "target": "https://www.marianos.com/p/nutrl-vodka-hard-seltzer-real-fruit-juice-variety/0001820020352",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524541623041038337",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524541623041038337",
+   "seconds": 20.05,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 429363,
+ "raw_bytes": 494580,
+ "raw_sha256": "d41dca996396cc21933bd6f2fe70fd2c2a28858e8ab277379f974e292c887a78",
+ "raw_file": "09_m6c_pdp_0001820020352.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:42:01+00:00",
+   "event": "reserved",
+   "rid": "29e7fc822a7948e498dc177e3b312589",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:42:01+00:00",
+   "event": "dispatched",
+   "rid": "29e7fc822a7948e498dc177e3b312589"
+  },
+  {
+   "at": "2026-11-06T18:42:21+00:00",
+   "event": "settled",
+   "rid": "29e7fc822a7948e498dc177e3b312589",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524541623041038337"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 36
+}

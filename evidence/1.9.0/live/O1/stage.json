@@ -1,0 +1,23 @@
+{
+ "M-O1-terms-offers-190-20261106": {
+  "stage_id": "M-O1-terms-offers-190-20261106",
+  "project": "marianos",
+  "objective": "M4: find a supported source of complete product-linked coupon terms (coupon API with and without store parameters; the product page rendered); M6: reobserve the named Buy-1-Save offers and the 2 tbsp / 8 oz size at Vernon Hills PICKUP. Single attempts, each step chosen after reading the last.",
+  "command": "C:/m8/t19/headless/marianos-azure-headless/.venv/Scripts/python.exe -I C:/m8/live/observe190.py C:/m8/evidence/live190/o1 probe <label>",
+  "config": {
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "max_attempts": 1,
+   "collector_tree": "C:/m8/t19 (detached, clean)",
+   "steps_file": "C:/m8/evidence/live190/o1/steps.json"
+  },
+  "source_revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "max_requests": 20,
+  "max_results": 20,
+  "max_usd": "0.0300",
+  "deadline_utc": "2026-11-06T21:34:55Z",
+  "retry_policy": "no automatic retry (max_attempts 1); a repeat is a new labelled step only after the previous answer was read, never an identical request after a refusal",
+  "stop_conditions": "401/402/403 or a quota answer: stop the stage; two unknown charges in a row: stop; any stage ceiling; lease loss; the key fingerprint differing from <key fingerprint>"
+ }
+}

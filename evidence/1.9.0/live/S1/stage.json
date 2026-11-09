@@ -1,0 +1,49 @@
+{
+ "M-S1-canary-catfood-190-20261106": {
+  "stage_id": "M-S1-canary-catfood-190-20261106",
+  "project": "marianos",
+  "objective": "M9 S1 on the frozen candidate 1.9.0rc1: the Vernon Hills PICKUP canary (store, fulfillment and page checks on every page); the product-page coupon-terms path live, at most 8 reads, each sent once; M5 Cat Food (CSV row 22, listing 27021) read again in full for the 231/232 reconciliation",
+  "command": "C:/m8/qwt/headless/marianos-azure-headless/.venv/Scripts/python.exe -I C:/m8/live/live190_run.py run M-S1-canary-catfood-190-20261106 -- run --store marianos-53100502-pickup --categories 22 --subcategory 22:27021 --max-term-reads 8 --max-credits 25",
+  "collector_args": [
+   "run",
+   "--store",
+   "marianos-53100502-pickup",
+   "--categories",
+   "22",
+   "--subcategory",
+   "22:27021",
+   "--max-term-reads",
+   "8",
+   "--max-credits",
+   "25"
+  ],
+  "config": {
+   "config_dir": "C:\\m8\\q190\\cfg_s1",
+   "config_sha256": {
+    "collector.yaml": "4e830d9d09917002861701f2d1de2f0219f6e685692e8a69d4b6e19543a18bbb",
+    "Marianos_Category_URLs.csv": "606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4",
+    "private_label_brands.yaml": "75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1",
+    "settings.yaml": "3ddbedbe7f6e329b660df92901a387c2ec3f9d412dd743d278e08a411530a0be",
+    "stores.yaml": "3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6",
+    "taxonomy_seed.snapshot_2026-10-17.json": "32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c"
+   },
+   "lanes": 1,
+   "database": "marianos_q190 (copy of Q2's database, cluster C:/m8/pg/data port 55190)",
+   "data_dir": "C:\\m8\\q190\\data",
+   "collector_ceiling": {
+    "submissions": 25,
+    "usd": "0.0375"
+   },
+   "read_product_terms": true,
+   "listing_route": "listing (/pl/ pages)",
+   "publish_auto": false
+  },
+  "source_revision": "b0f919118cbfd45bde7fd74130356b4eec807ca5",
+  "max_requests": 25,
+  "max_results": 25,
+  "max_usd": "0.0375",
+  "deadline_utc": "2026-11-06T20:23:40Z",
+  "retry_policy": "the collector's own: a listing page up to 3 attempts on 408/429/5xx with backoff (failed requests are documented as not charged; every attempt is still reserved at its worst case); a product-page terms read is sent once and never retried; the stage is not repeated before its outcome is read",
+  "stop_conditions": "the store or PICKUP not verified on a page; the canary failing; a refusal page; 401/402/403 or a quota answer; the stage's or the collector's ceiling; lease loss; the key fingerprint differing from <key fingerprint>; the deadline"
+ }
+}

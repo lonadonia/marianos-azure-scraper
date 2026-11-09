@@ -1,0 +1,3 @@
+csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
+10,18010,https://www.marianos.com/pl/frozen/18010,listing,1,1,1,completed,new,,273,250,24,0,24,0,0,1,41790063a6419fa5467f2b387a3932e019b2a2f38f8800da7a7cde5573c945a5,7525591094550102017
+10,18010,https://www.marianos.com/pl/frozen/18010?page=2,listing,2,2,1,stopped,repeated,page 2 repeats an earlier page exactly,273,250,24,0,0,24,0,0,98a8f6705faa3681d3b9efc1bdf0a745efaa6d24b46b4df910aa4bdb8741729a,7525591499015206913

@@ -1,0 +1,23 @@
+{
+ "label": "wt_rc4_lint",
+ "command": [
+  "ruff check .",
+  "ruff format --check .",
+  "mypy"
+ ],
+ "cwd": "C:\\m8\\wt\\headless\\marianos-azure-headless",
+ "revision": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+ "worktree_modified_tracked_files": [],
+ "utc": "2026-11-09T16:03:03+00:00",
+ "results": {
+  "ruff check .": "All checks passed! (exit 0)",
+  "ruff format --check .": "174 files already formatted (exit 0)",
+  "mypy": "Success: no issues found in 85 source files (exit 0)"
+ },
+ "versions": {
+  "ruff": "0.17.1",
+  "mypy": "2.4.0"
+ },
+ "verdict": "PASS",
+ "note": "run by hand from the project's virtual environment (.venv/Scripts/ruff.exe, mypy.exe) on the clean development tree; the three commands' last lines copied here; not through runlog.py"
+}

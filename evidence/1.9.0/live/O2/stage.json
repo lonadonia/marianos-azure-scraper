@@ -1,0 +1,23 @@
+{
+ "M-O2-tile-discovery-190-20261106": {
+  "stage_id": "M-O2-tile-discovery-190-20261106",
+  "project": "marianos",
+  "objective": "Site change found in S1 (2026-11-06): the listing grid now uses a new tile (horizontal-product-card-N) that 1.9.0rc1 cannot parse. Sample authentic tiles at Vernon Hills PICKUP with sale prices, coupons, volume deals and a sold-by-weight item, unrendered and once rendered, to build and test the 1.9.0rc2 tile parser from real captures. Nothing is collected or exported.",
+  "command": "C:/m8/qwt/headless/marianos-azure-headless/.venv/Scripts/python.exe -I C:/m8/live/observe190.py C:/m8/evidence/live190/o2 probe <label>",
+  "config": {
+   "store_id": "53100502",
+   "fulfillment_type": "pickup",
+   "location": "US",
+   "max_attempts": 1,
+   "collector_tree": "C:/m8/qwt (frozen candidate 1.9.0rc1, clean)",
+   "steps_file": "C:/m8/evidence/live190/o2/steps.json"
+  },
+  "source_revision": "b0f919118cbfd45bde7fd74130356b4eec807ca5",
+  "max_requests": 8,
+  "max_results": 8,
+  "max_usd": "0.0120",
+  "deadline_utc": "2026-11-06T21:00:00Z",
+  "retry_policy": "no automatic retry (max_attempts 1); a repeat is a new labelled step only after the previous answer was read, never an identical request after a refusal",
+  "stop_conditions": "401/402/403 or a quota answer: stop the stage; two unknown charges in a row: stop; any stage ceiling; lease loss; the key fingerprint differing from <key fingerprint>"
+ }
+}

@@ -1,0 +1,9 @@
+label: RC4_LANES_on_8abc2c1
+revision: 8abc2c1297b8005d162721b6ddbf66bf8684d548
+utc_start: 2026-11-09T15:09:28Z
+test: tests/integration/test_partitions_190.py::test_two_lanes_never_save_a_page_whose_answer_has_not_arrived (the revision's own file)
+.                                                                        [100%]
+1 passed in 11.95s
+exit: 0
+utc_end: 2026-11-09T15:09:43Z
+checkout clean after the run: yes

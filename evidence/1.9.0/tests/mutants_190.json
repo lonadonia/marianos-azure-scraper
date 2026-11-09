@@ -1,0 +1,88 @@
+[
+ {
+  "mutant": "control: the unchanged copy",
+  "file": null,
+  "imported_from": "the copy (unchanged)",
+  "tests": [
+   "tests/integration/test_listing_pages.py"
+  ],
+  "exit": 0,
+  "summary": [
+   "29 passed in 190.52s (0:03:10)"
+  ],
+  "failed": [],
+  "failure_lines": [],
+  "seconds": 195,
+  "candidate_revision": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+  "candidate_tracked_changes": "none",
+  "control_passed": true
+ },
+ {
+  "mutant": "a page without its cards counts",
+  "file": "src/marianos_headless/collection/pagination.py",
+  "imported_from": "the copy (mutated)",
+  "tests": [
+   "tests/integration/test_listing_pages.py"
+  ],
+  "exit": 1,
+  "summary": [
+   "1 failed, 28 passed in 180.99s (0:03:00)"
+  ],
+  "failed": [
+   "tests/integration/test_listing_pages.py::test_an_empty_or_malformed_page_is_asked_again_within_its_bounds[no_cards-malformed]"
+  ],
+  "failure_lines": [
+   "C:\\m8\\mutwork4\\mut\\tests\\integration\\test_listing_pages.py:374: AssertionError: assert 1 == 2"
+  ],
+  "seconds": 185,
+  "candidate_revision": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+  "candidate_tracked_changes": "none",
+  "caught": true
+ },
+ {
+  "mutant": "a capped page counts as completed",
+  "file": "src/marianos_headless/collection/oxylabs_live.py",
+  "imported_from": "the copy (mutated)",
+  "tests": [
+   "tests/integration/test_listing_pages.py"
+  ],
+  "exit": 1,
+  "summary": [
+   "1 failed, 28 passed in 185.75s (0:03:05)"
+  ],
+  "failed": [
+   "tests/integration/test_listing_pages.py::test_a_product_limit_inside_a_page_leaves_the_page_unfinished"
+  ],
+  "failure_lines": [
+   "C:\\m8\\mutwork4\\mut\\tests\\integration\\test_listing_pages.py:481: AssertionError: assert (2, 'completed') == (2, 'capped')"
+  ],
+  "seconds": 189,
+  "candidate_revision": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+  "candidate_tracked_changes": "none",
+  "caught": true
+ },
+ {
+  "mutant": "recovery waits until the account has room",
+  "file": "src/marianos_headless/collection/live.py",
+  "imported_from": "the copy (mutated)",
+  "tests": [
+   "tests/integration/test_listing_pages.py"
+  ],
+  "exit": 1,
+  "summary": [
+   "2 failed, 27 passed in 184.01s (0:03:04)"
+  ],
+  "failed": [
+   "tests/integration/test_listing_pages.py::test_a_worker_killed_while_page_2_is_out_resumes_at_page_2_and_its_request_stays_counted",
+   "tests/integration/test_listing_pages.py::test_a_dead_workers_reservation_at_the_ceiling_cannot_refuse_its_own_recovery"
+  ],
+  "failure_lines": [
+   "C:\\m8\\mutwork4\\mut\\tests\\integration\\test_listing_pages.py:552: assert (0 == 1)",
+   "C:\\m8\\mutwork4\\mut\\tests\\integration\\test_listing_pages.py:614: AssertionError: assert (<marianos_headless.db.models.CollectionSegment object at 0x000001DB465C3EF0> is not None and None == 'abandoned')"
+  ],
+  "seconds": 188,
+  "candidate_revision": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+  "candidate_tracked_changes": "none",
+  "caught": true
+ }
+]

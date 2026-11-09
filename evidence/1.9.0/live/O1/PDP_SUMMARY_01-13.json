@@ -1,0 +1,217 @@
+{
+ "03_c3_pdp_js.raw.gz": {
+  "upc": "0001780014939",
+  "title": "Natural Dog Food, Chicken and Rice Formula Dry Dog food for Digestive and Gut Health Support, 31.1 lb. - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "Natural Dog Food, Chicken and Rice Formula Dry Dog food for Digestive and Gut Health Support",
+   "customerFacingSize": "31.1 lb.",
+   "pidSizeQuantity": 31.1,
+   "weight": "31.1 [lb_av]",
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [],
+  "savings": [
+   {
+    "row": "other-coupon",
+    "tag": "Coupon",
+    "coupon_id": "4257015",
+    "headline": "Save $10.00 on 2 Purina ONE",
+    "description": "Save $10.00 on any TWO (2) Purina ONE Dry Dog Food bags (8 lb or larger) or Wet Dog Food 12-count packages (13 oz cans). Mix or match.",
+    "terms": "NOT FOR RESALE. Coupon void if altered, copied, sold, purchased, transferred, exchanged or where prohibited or restricted by law. CIC® Member Coupon Integrity Program. CONSUMER: Limit one coupon per specified item(s) purchased. No cash or credit in excess of shelf price awarded. Any other use constitutes fraud. RETAILER: Nestlé Purina PetCare Company, Inmar Dept #17800, 801 Union Pacific Blvd, STE 5, Laredo, TX 78045, USA will redeem this coupon per our Nestlé Coupon Redemption policy found at www.purina.com/terms-and-conditions. Consumer must pay sales tax where applicable. Valid in the USA, incl. APOs/FPOs. Cash value: 1/80¢. Coupons with no other special savings tags. Limit of one coupon per household. Digital Coupons and paper coupons may not be combined on the purchase of a single item. Specially marked items, such as Clearance or Manager’s Specials may not be eligible for Digital Coupons.",
+    "expiry_text": "Exp. Nov. 10",
+    "days_left_text": "4 days left!",
+    "action": "Sign In To Clip",
+    "action_label": "Sign In To Clip for coupon: Save $10.00 on 2 Purina ONE coupon",
+    "qualifying_upcs": [
+     "0001780014939"
+    ],
+    "has_details": true
+   },
+   {
+    "row": "cash-back",
+    "tag": "Cash Back",
+    "coupon_id": "4257014",
+    "headline": "$10.00 Cash Back on 2 Purina ONE",
+    "description": "Save $10.00 on any TWO (2) Purina ONE Dry Dog Food bags (8 lb or larger) or Wet Dog Food 12-count packages (13 oz cans). Mix or match.",
+    "terms": "NOT FOR RESALE. Coupon void if altered, copied, sold, purchased, transferred, exchanged or where prohibited or restricted by law. CIC® Member Coupon Integrity Program. CONSUMER: Limit one coupon per specified item(s) purchased. No cash or credit in excess of shelf price awarded. Any other use constitutes fraud. RETAILER: Nestlé Purina PetCare Company, Inmar Dept #17800, 801 Union Pacific Blvd, STE 5, Laredo, TX 78045, USA will redeem this coupon per our Nestlé Coupon Redemption policy found at www.purina.com/terms-and-conditions. Consumer must pay sales tax where applicable. Valid in the USA, incl. APOs/FPOs. Cash value: 1/80¢. Coupons with no other special savings tags. Limit of one coupon per household. Digital Coupons and paper coupons may not be combined on the purchase of a single item. Specially marked items, such as Clearance or Manager’s Specials may not be eligible for Digital Coupons.",
+    "expiry_text": "Exp. Nov. 10",
+    "days_left_text": "4 days left!",
+    "action": "Sign In for Cash Back",
+    "action_label": "Sign In for Cash Back for coupon: $10.00 Cash Back on 2 Purina ONE cashback",
+    "qualifying_upcs": [
+     "0001780014939"
+    ],
+    "has_details": true
+   }
+  ]
+ },
+ "04_c4_pdp_0001780014941.raw.gz": {
+  "upc": "0001780014941",
+  "title": "ONE Natural Dog Food, Lamb and Rice Formula Dry Dog food for Digestive and Gut Health Support, 31.1 lb. - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "ONE Natural Dog Food, Lamb and Rice Formula Dry Dog food for Digestive and Gut Health Support",
+   "customerFacingSize": "31.1 lb.",
+   "pidSizeQuantity": 31.1,
+   "weight": "31.1 [lb_av]",
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [],
+  "savings": []
+ },
+ "05_c5_pdp_0002310014848.raw.gz": {
+  "upc": "0002310014848",
+  "title": "Temptations Birthday Adult Crunchy and Soft Cat Treats Lobster and Beef, 16 oz - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "Temptations Birthday Adult Crunchy and Soft Cat Treats Lobster and Beef",
+   "customerFacingSize": "16 oz",
+   "pidSizeQuantity": 16,
+   "weight": "1.0 [lb_av]",
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [],
+  "savings": []
+ },
+ "06_c6_pdp_0003980014995.raw.gz": {
+  "upc": "0003980014995",
+  "title": "Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries, 10 Count - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries",
+   "customerFacingSize": "10 Count",
+   "pidSizeQuantity": 0,
+   "weight": "0.09 [lb_av]",
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [],
+  "savings": []
+ },
+ "07_m6a_pdp_0081675102373.raw.gz": {
+  "upc": "0081675102373",
+  "title": "Cutwater Espresso Martini Canned Cocktail, 4 cans / 12 fl oz - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "Cutwater Espresso Martini Canned Cocktail",
+   "customerFacingSize": "4 cans / 12 fl oz",
+   "pidSizeQuantity": 48,
+   "weight": "3.5 [lb_av]",
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [],
+  "savings": []
+ },
+ "08_m6b_pdp_0086001079386.raw.gz": {
+  "upc": "0086001079386",
+  "title": "The Finnish Long Drink Zero Sugar Cocktail Can, 12 cans / 12 fl oz - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "The Finnish Long Drink Zero Sugar Cocktail Can",
+   "customerFacingSize": "12 cans / 12 fl oz",
+   "pidSizeQuantity": 144,
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [],
+  "savings": []
+ },
+ "09_m6c_pdp_0001820020352.raw.gz": {
+  "upc": "0001820020352",
+  "title": "Nutrl Vodka Hard Seltzer, Real Fruit Juice Variety, 8 cans / 12 fl oz - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "Nutrl Vodka Hard Seltzer, Real Fruit Juice Variety",
+   "customerFacingSize": "8 cans / 12 fl oz",
+   "pidSizeQuantity": 96,
+   "weight": "7.0 [lb_av]",
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [
+   "Buy 1 Save $2",
+   "SaleBuy 1 Save $2Exp. Jan. 05 -"
+  ],
+  "savings": [
+   {
+    "row": "must-buy",
+    "tag": "Sale",
+    "coupon_id": "",
+    "headline": "SaleBuy 1 Save $2Shop ItemsOffer DetailsSaleBuy 1 Save $2Exp. Jan. 05 -",
+    "description": "",
+    "terms": "",
+    "expiry_text": "",
+    "days_left_text": "",
+    "action": "",
+    "action_label": "",
+    "qualifying_upcs": [],
+    "has_details": false
+   }
+  ]
+ },
+ "10_m6d_pdp_0073679800140.raw.gz": {
+  "upc": "0073679800140",
+  "title": "Avocado Green Goddess Dip & Spread 8 oz., 2 tbsp - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "Avocado Green Goddess Dip & Spread 8 oz.",
+   "customerFacingSize": "2 tbsp",
+   "pidSizeQuantity": 8,
+   "weight": "0.5 [lb_av]",
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [],
+  "savings": []
+ },
+ "11_s1_pdp_0001780010048.raw.gz": {
+  "upc": "0001780010048",
+  "title": "Puppy Chow High Protein Dry Puppy Food, Tender & Crunchy With Real Beef, 4 lb. - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "Puppy Chow High Protein Dry Puppy Food, Tender & Crunchy With Real Beef",
+   "customerFacingSize": "4 lb.",
+   "pidSizeQuantity": 4.4,
+   "weight": "4.0 [lb_av]",
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [],
+  "savings": []
+ },
+ "12_s2_pdp_0065922318120.raw.gz": {
+  "upc": "0065922318120",
+  "title": "Blue Dog Bakery® Softies Peanut Butter Flavor Medium Dog Treats, 16.2 oz - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "Blue Dog Bakery® Softies Peanut Butter Flavor Medium Dog Treats",
+   "customerFacingSize": "16.2 oz",
+   "pidSizeQuantity": 18,
+   "weight": "1.01 [lb_av]",
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [],
+  "savings": []
+ },
+ "13_s3_pdp_0087786900820.raw.gz": {
+  "upc": "0087786900820",
+  "title": "Ultra Chewy® Bac'n Twist, 1.3 oz - Mariano’s",
+  "state_found": true,
+  "facts": {
+   "description": "Ultra Chewy® Bac'n Twist",
+   "customerFacingSize": "1.3 oz",
+   "pidSizeQuantity": 1.2,
+   "weight": "0.08 [lb_av]",
+   "itemTypeCode": "0"
+  },
+  "size_nodes": [],
+  "offers": [],
+  "savings": []
+ }
+}

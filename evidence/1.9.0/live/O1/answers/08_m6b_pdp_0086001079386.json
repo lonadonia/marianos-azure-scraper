@@ -1,0 +1,70 @@
+{
+ "step": 8,
+ "label": "m6b_pdp_0086001079386",
+ "utc_start": "2026-11-06T18:41:55+00:00",
+ "utc_end": "2026-11-06T18:42:00+00:00",
+ "seconds": 5.58,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\t19\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/p/the-finnish-long-drink-zero-sugar-cocktail-can/0086001079386",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ],
+  "run_js": true
+ },
+ "purpose": "m6 offer Finnish Long Drink",
+ "target": "https://www.marianos.com/p/the-finnish-long-drink-zero-sugar-cocktail-can/0086001079386",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524541598739257345",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524541598739257345",
+   "seconds": 4.95,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 443405,
+ "raw_bytes": 512552,
+ "raw_sha256": "8761fa9cfe448736ade53a6c9d9ae5f56f5140115d8dc8d89ec5e87b98de5773",
+ "raw_file": "08_m6b_pdp_0086001079386.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:41:55+00:00",
+   "event": "reserved",
+   "rid": "c84866a0543a47dfa60e1e8bcac46ffb",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:41:55+00:00",
+   "event": "dispatched",
+   "rid": "c84866a0543a47dfa60e1e8bcac46ffb"
+  },
+  {
+   "at": "2026-11-06T18:42:00+00:00",
+   "event": "settled",
+   "rid": "c84866a0543a47dfa60e1e8bcac46ffb",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524541598739257345"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 35
+}

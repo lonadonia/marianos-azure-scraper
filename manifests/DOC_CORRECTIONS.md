@@ -1,5 +1,44 @@
 # Documentation corrections for this publication
 
+## Release 1.9.0rc4 (2026-11-09, tag `review-1.9.0rc4-20261109`)
+
+The 1.8.0rc5 documents stay as they were published on 2026-11-02 (tag `review-1.8.0rc5-20261102`); 1.9 adds its own
+([`review/TECHNICAL_REPORT_1.9.0.md`](../review/TECHNICAL_REPORT_1.9.0.md),
+[`review/CORRECTION_MAP_1.9.0.csv`](../review/CORRECTION_MAP_1.9.0.csv),
+[`review/AUDIT_29_RECONCILIATION.csv`](../review/AUDIT_29_RECONCILIATION.csv)) and changes the shared ones as listed
+here. Old run versions and counts are not rewritten.
+
+| Change | Where | Basis |
+|---|---|---|
+| The repository's front page, the runbook and the probe reference describe 1.9.0rc4 and probe 1.7.3; their 1.8.0rc5 texts stay at their tags | `README.md`, `review/ACCEPTANCE_RUNBOOK.md`, `review/SHARED_CLASSIC_PROBE.md` | this delivery |
+| A note at the top of the 1.8.0rc5 report points to the 1.9.0 report for the current state; the report itself is unchanged | `review/TECHNICAL_REPORT.md` (line 1-3 only) | M11 |
+| The acceptance matrix has two new columns, `status_1.9.0rc4` and `evidence_1.9.0rc4`; the 1.8.0rc5 columns are unchanged | `review/ACCEPTANCE_MATRIX.csv` | M11 |
+| **M43:** the first-page parallel proof of 1.7.0 does not close full-pipeline partition concurrency; 1.9's lanes are tested offline, two lanes passed G13 live on 1.9.0rc4 (S5b2), and the gain of a second lane is not measured | matrix `M43` (1.9 column), report 1.9.0 §10 | M11 |
+| **M42:** the Azure test-VM evidence of 1.7.0rc2 does not cover 1.9.0rc4 or the client's VM | matrix `M42`, report 1.9.0 §12 | M11 |
+| **M26:** the "live In Store example" wording does not override the target, Vernon Hills **PICKUP** | matrix `M26` | M11 |
+| **B29:** verified source links do not prove product-page access; stage O1 measured it (1 of 14 product pages rendered), S1b again (2 of 8) | matrix `B29`, report 1.9.0 §6 | M11 |
+| Page 2 is implemented; four digital descriptions exist in Q2 but their terms were incomplete; the six Q2 category labels are rows 22-27, not all 28 CSV rows; Lakeshore East's counts are not proof for Vernon Hills | report 1.9.0 §1, §6, §7, §13 | M11 |
+| The cost report gains a section 0 for 1.9 (the shared trial ledger, the stages of 2026-11-06 and 2026-11-09, latencies and the one-lane rate); sections 1 to 7 are unchanged | `review/COST_AND_RUNTIME_REPORT.md` | M8, M9 |
+| The brand readings of 1.8.0rc5 and 1.9 rely on filters that only a form-A answer of the site carries; what the 1.8.0rc5 report says about reading above-window listings by brand holds for form-A answers only (every answer of 2026-11-02 was form A, 50 of 203 on 2026-11-09) | report 1.9.0 §3.2, §13 | the paging census of 2026-11-09 |
+| The outcome closed in the shared ledger for stage S3b (2026-11-09 16:14Z) said the brand list "is no longer in the page the collector reads" and that a second run "would meet the same page state"; the census made afterwards found the list in 50 answers of that day. Corrected in the report; the closed ledger outcome is part of the hash chain and is not amended | report 1.9.0 §4 | the paging census of 2026-11-09 |
+
+**The Casablanca offset of 2026-11-02 was checked and is not changed.** The 1.8.0rc5 report says "Africa/Casablanca is
+UTC+0 on this date"; the 1.9 brief asked for it to be corrected to UTC+1. It is UTC+0: Morocco left GMT+1 and returned
+to GMT on 2026-09-20 ([timeanddate](https://www.timeanddate.com/news/time/morocco-abolish-dst.html),
+[Microsoft's time-zone guidance for Morocco 2026](https://techcommunity.microsoft.com/blog/dstblog/interim-guidance-for-morocco-dst-change-2026/4551672),
+[Wikipedia](https://en.wikipedia.org/wiki/Daylight_saving_time_in_Morocco)). The IANA time-zone database 2026e
+(Python `tzdata` 2026.5) gives +01:00 on 2026-09-19 and +00:00 from 2026-09-21, so +00:00 on 2026-11-02:
+
+```
+python3 -c "from zoneinfo import ZoneInfo; from datetime import datetime; print(datetime(2026,11,2,12,tzinfo=ZoneInfo('Africa/Casablanca')).utcoffset())"
+```
+
+prints `0:00:00` with tzdata 2026e or later; Windows' own "Morocco Standard Time" agrees. An older time-zone database
+that predates the change gives +01:00. New dates in the 1.9 documents are in UTC; the store's zone, America/Chicago,
+is UTC−6 from 2026-11-01.
+
+## Release 1.8.0rc5 (2026-11-02)
+
 The delivered documents are published with the corrections below; the exact text of each one, before and after, is
 in [`DOC_CORRECTIONS.json`](DOC_CORRECTIONS.json) (37 edits). Historical evidence (logs, run tables, the
 test plan) is not rewritten: its only changes are the redactions in [`REDACTIONS.csv`](REDACTIONS.csv). Every file's

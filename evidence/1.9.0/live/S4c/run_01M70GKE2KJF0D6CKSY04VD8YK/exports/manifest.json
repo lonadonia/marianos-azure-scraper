@@ -1,0 +1,856 @@
+{
+  "mode": "LIVE",
+  "run_id": "01M70GKE2KJF0D6CKSY04VD8YK",
+  "store_key": "marianos-53100502-pickup",
+  "created_at": "2026-11-09T16:10:07.094939Z",
+  "record_count": 1983,
+  "fresh_record_count": 700,
+  "dataset": "pilot",
+  "files": {
+    "products.json": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/products.json",
+      "sha256": "8a008637fa309d32ed5ae46a5d787f554f92bae67eccc2c2c83caa079162703d",
+      "size": 1832852
+    },
+    "products.csv": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/products.csv",
+      "sha256": "6153ee6526458276815e201ecc31b262c79d237da0c6118c5d1b9ea36995c72f",
+      "size": 864192
+    },
+    "memberships.json": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/memberships.json",
+      "sha256": "99860f6d3937fafce665013a235180c0e8f2194ea47feffa610a192ae309b193",
+      "size": 410971
+    },
+    "offers.json": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/offers.json",
+      "sha256": "9f76924d8776cfe57c9614a9c435e4ee93e5416c05ba13a4d0d303a08e3121bc",
+      "size": 10559
+    },
+    "provenance.json": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/provenance.json",
+      "sha256": "4b7b28c73845f39dfca7fd696b94b4db24c460f1563fa1738eb80d7f08a46ab0",
+      "size": 9477013
+    },
+    "validation_report.json": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/validation_report.json",
+      "sha256": "c0b92e2efe92ebe06bbcbf18ef80ca0f3b2e10fb604c07eff349d04925516ef4",
+      "size": 9851
+    },
+    "products_fresh.json": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/products_fresh.json",
+      "sha256": "81bb5648da8a58c6ec0cde81f3b06381ebdeabd95d5d591391bde623844d3cea",
+      "size": 633323
+    },
+    "products_fresh.csv": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/products_fresh.csv",
+      "sha256": "81893bfd73062837fae91227bc9536dabab5ca54c37e473df0fc9964ed77e109",
+      "size": 291562
+    },
+    "coverage_reconciliation.json": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/coverage_reconciliation.json",
+      "sha256": "9dad5b4e5fb5ba40e8b801f0829fcb7701925caf3f6080de1aba59c2fd5c5c7e",
+      "size": 47100
+    },
+    "coverage_reconciliation.csv": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/coverage_reconciliation.csv",
+      "sha256": "22104c5f749ffbe8a30d80a5e5f85045d03eff790b60eea6cd917209e51a1e99",
+      "size": 9010
+    },
+    "coverage_by_csv_row.csv": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/coverage_by_csv_row.csv",
+      "sha256": "fcbb1d3c2e82e9199dac1cd4f9107ad41ff492599fef1ca1ad9293bfcd9a5e71",
+      "size": 3502
+    },
+    "listing_pages.csv": {
+      "key": "runs/marianos-53100502-pickup/01M70GKE2KJF0D6CKSY04VD8YK/exports/listing_pages.csv",
+      "sha256": "af84b1247f1a95bea2b56233aba73de0285dc43c99cf9782abeda9fae03eb83a",
+      "size": 12837
+    }
+  },
+  "config_snapshot": {
+    "code": {
+      "commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+      "source": "git",
+      "version": "1.9.0rc4",
+      "parser_version": "1.9.0",
+      "uncommitted_changes": false
+    },
+    "plan": {
+      "nodes": [
+        {
+          "url": "https://www.marianos.com/pl/fresh-herbs/06122?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Produce",
+          "excluded": [],
+          "row_index": 1,
+          "taxonomy_id": "06122",
+          "sub_category": "Fresh Herbs",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCQ"
+        },
+        {
+          "url": "https://www.marianos.com/pl/fresh-cut-fruit-vegetables/06121?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Produce",
+          "excluded": [],
+          "row_index": 1,
+          "taxonomy_id": "06121",
+          "sub_category": "Fresh-cut Fruit & Vegetables",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCQ"
+        },
+        {
+          "url": "https://www.marianos.com/pl/fresh-juice-smoothies/06113?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Produce",
+          "excluded": [],
+          "row_index": 1,
+          "taxonomy_id": "06113",
+          "sub_category": "Fresh Juice & Smoothies",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCQ"
+        },
+        {
+          "url": "https://www.marianos.com/pl/turkey/05012?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Meat",
+          "excluded": [],
+          "row_index": 2,
+          "taxonomy_id": "05012",
+          "sub_category": "Turkey",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCR"
+        },
+        {
+          "url": "https://www.marianos.com/pl/pepperoni-salami-summer-sausage/05015?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Meat",
+          "excluded": [],
+          "row_index": 2,
+          "taxonomy_id": "05015",
+          "sub_category": "Pepperoni, Salami & Summer Sausage",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCR"
+        },
+        {
+          "url": "https://www.marianos.com/pl/fresh-deli-meats/13001?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Deli",
+          "excluded": [],
+          "row_index": 4,
+          "taxonomy_id": "13001",
+          "sub_category": "Fresh Deli Meats",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCT"
+        },
+        {
+          "url": "https://www.marianos.com/pl/packaged-deli-cheese/13004?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Deli",
+          "excluded": [],
+          "row_index": 4,
+          "taxonomy_id": "13004",
+          "sub_category": "Packaged Deli Cheeses",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCT"
+        },
+        {
+          "url": "https://www.marianos.com/pl/cold-side-dishes/13009?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Deli",
+          "excluded": [],
+          "row_index": 4,
+          "taxonomy_id": "13009",
+          "sub_category": "Cold Side Dishes",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCT"
+        },
+        {
+          "url": "https://www.marianos.com/pl/grab-go-meals/13008?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Deli",
+          "excluded": [],
+          "row_index": 4,
+          "taxonomy_id": "13008",
+          "sub_category": "Grab & Go Meals",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCT"
+        },
+        {
+          "url": "https://www.marianos.com/pl/donuts-danishes-muffins/14166?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Bakery",
+          "excluded": [],
+          "row_index": 5,
+          "taxonomy_id": "14166",
+          "sub_category": "Donuts, Danishes & Muffins",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCV"
+        },
+        {
+          "url": "https://www.marianos.com/pl/cookies/14187?taxonomyId=14187&fulfillment=all",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Bakery",
+          "excluded": [],
+          "row_index": 5,
+          "taxonomy_id": "14187",
+          "sub_category": "Cookies",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCV"
+        },
+        {
+          "url": "https://www.marianos.com/pl/brownies/14165?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Bakery",
+          "excluded": [],
+          "row_index": 5,
+          "taxonomy_id": "14165",
+          "sub_category": "Brownies",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCV"
+        },
+        {
+          "url": "https://www.marianos.com/pl/pies/14169?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Bakery",
+          "excluded": [],
+          "row_index": 5,
+          "taxonomy_id": "14169",
+          "sub_category": "Pies",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCV"
+        },
+        {
+          "url": "https://www.marianos.com/pl/artisan-breads/14162?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Bakery",
+          "excluded": [],
+          "row_index": 5,
+          "taxonomy_id": "14162",
+          "sub_category": "Artisan Bread",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCV"
+        },
+        {
+          "url": "https://www.marianos.com/pl/sandwich-bread-buns-and-rolls/14181",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Bakery",
+          "excluded": [],
+          "row_index": 5,
+          "taxonomy_id": "14181",
+          "sub_category": "Sandwich Bread, Buns and Rolls",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCV"
+        },
+        {
+          "url": "https://www.marianos.com/pl/pudding-gelatin/02008?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Dairy",
+          "excluded": [],
+          "row_index": 8,
+          "taxonomy_id": "02008",
+          "sub_category": "Pudding & Gelatin",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJCY"
+        },
+        {
+          "url": "https://www.marianos.com/pl/cleaning-household/18011?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Natural Organic",
+          "excluded": [],
+          "row_index": 10,
+          "taxonomy_id": "18011",
+          "sub_category": "Cleaning & Household",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJD0"
+        },
+        {
+          "url": "https://www.marianos.com/pl/hard-candy-lollipops/23004?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Candy",
+          "excluded": [],
+          "row_index": 14,
+          "taxonomy_id": "23004",
+          "sub_category": "Hard Candy & Lollipops",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJD4"
+        },
+        {
+          "url": "https://www.marianos.com/pl/international/23005?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Candy",
+          "excluded": [],
+          "row_index": 14,
+          "taxonomy_id": "23005",
+          "sub_category": "International",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJD4"
+        },
+        {
+          "url": "https://www.marianos.com/pl/box-wine/08182?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Beer Wine Liquor",
+          "excluded": [],
+          "row_index": 15,
+          "taxonomy_id": "08182",
+          "sub_category": "Box Wine",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJD5"
+        },
+        {
+          "url": "https://www.marianos.com/pl/desserts-vermouth-wine/08185?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Beer Wine Liquor",
+          "excluded": [],
+          "row_index": 15,
+          "taxonomy_id": "08185",
+          "sub_category": "Dessert & Vermouth Wine",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJD5"
+        },
+        {
+          "url": "https://www.marianos.com/pl/hard-teas-hard-lemonades/08191?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Beer Wine Liquor",
+          "excluded": [],
+          "row_index": 15,
+          "taxonomy_id": "08191",
+          "sub_category": "Hard Teas & Lemonades",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJD5"
+        },
+        {
+          "url": "https://www.marianos.com/pl/baby-toddler-beverage/10098",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Baby",
+          "excluded": [],
+          "row_index": 19,
+          "taxonomy_id": "10098",
+          "sub_category": "Baby & Toddler Beverages",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJD9"
+        },
+        {
+          "url": "https://www.marianos.com/pl/baby-wipes/10099?pzn=relevance&taxonomyId=10099&fulfillment=all",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Baby",
+          "excluded": [],
+          "row_index": 19,
+          "taxonomy_id": "10099",
+          "sub_category": "Baby Wipes",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJD9"
+        },
+        {
+          "url": "https://www.marianos.com/pl/Baking-Paper-&-Foils/26019?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Household",
+          "excluded": [],
+          "row_index": 20,
+          "taxonomy_id": "26019",
+          "sub_category": "Baking Paper & Foils",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDA"
+        },
+        {
+          "url": "https://www.marianos.com/pl/kitchen-appliances/28005?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Kitchen Dining",
+          "excluded": [],
+          "row_index": 21,
+          "taxonomy_id": "28005",
+          "sub_category": "Kitchen Appliances",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDB"
+        },
+        {
+          "url": "https://www.marianos.com/pl/coffee-tea/28004?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Kitchen Dining",
+          "excluded": [],
+          "row_index": 21,
+          "taxonomy_id": "28004",
+          "sub_category": "Coffee & Tea Supplies",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDB"
+        },
+        {
+          "url": "https://www.marianos.com/pl/cookware/28003?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Kitchen Dining",
+          "excluded": [],
+          "row_index": 21,
+          "taxonomy_id": "28003",
+          "sub_category": "Cookware",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDB"
+        },
+        {
+          "url": "https://www.marianos.com/pl/kitchen-table-linens/28006?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Kitchen Dining",
+          "excluded": [],
+          "row_index": 21,
+          "taxonomy_id": "28006",
+          "sub_category": "Kitchen Linens",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDB"
+        },
+        {
+          "url": "https://www.marianos.com/pl/glassware-drinkware/40003?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Kitchen Dining",
+          "excluded": [],
+          "row_index": 21,
+          "taxonomy_id": "40003",
+          "sub_category": "Glassware & Drinkware",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDB"
+        },
+        {
+          "url": "https://www.marianos.com/pl/wine-and-bar-essentials/40008?pzn=relevance",
+          "kind": "listing",
+          "only": [],
+          "parent": "",
+          "category": "Kitchen Dining",
+          "excluded": [],
+          "row_index": 21,
+          "taxonomy_id": "40008",
+          "sub_category": "Wine & Bar Essentials",
+          "partition_name": "",
+          "partition_count": null,
+          "partition_filter": "",
+          "category_source_id": "01M6E2X1FG621SNE0DT61BPJDB"
+        }
+      ],
+      "order": {
+        "policy": "csv"
+      },
+      "skipped": []
+    },
+    "gates": {
+      "coverage_fail_below": 0.9,
+      "coverage_warn_below": 0.98,
+      "canary_missing_is_fail": false,
+      "reconciliation_fail_above": 0.02,
+      "reconciliation_warn_above": 0.005,
+      "price_completeness_warn_below": 0.98
+    },
+    "pilot": true,
+    "store": {
+      "key": "marianos-53100502-pickup",
+      "name": "Marianos Vernon Hills",
+      "modality": "PICKUP",
+      "retailer": "marianos",
+      "location_id": "53100502"
+    },
+    "yield": {
+      "fail_drop_vs_last_good": 0.5,
+      "warn_drop_vs_last_good": 0.3
+    },
+    "contest": {
+      "enabled": true,
+      "min_categories": 3,
+      "min_valid_records": 500
+    },
+    "records": {
+      "crawl_date": "STORE_LOCAL_DATE",
+      "exclude_ship_only": true,
+      "ppm_source_policy": "DOM_ONLY",
+      "other_promo_target": "NONE",
+      "sub_category_format": "LEAF",
+      "approx_weight_pattern": "(?i)\\b(approx\\.?|approximately|avg\\.?|average|estimated)(?=[\\s\\d.]|$)|~\\s*\\d|\\babout\\s+\\d|\\b\\d+(\\.\\d+)?\\s*(-|to)\\s*\\d+(\\.\\d+)?\\s*(lb|lbs|pound|pounds|oz|ounce|ounces|kg|g)\\b",
+      "approx_weight_sources": [
+        "weight",
+        "product_data_size",
+        "title"
+      ],
+      "fail_on_price_mismatch": true,
+      "deal_description_format": "TAG_TEXT_EXPIRY",
+      "primary_category_policy": "CSV_ORDER_COUPONS_LAST",
+      "deal_description_separator": " | ",
+      "store_brand_negative_value": "no",
+      "store_brand_positive_value": "yes",
+      "include_cashback_in_digital": false,
+      "sub_category_path_separator": " > ",
+      "include_points_offers_in_deals": false
+    },
+    "retries": {
+      "backoff_max_s": 300.0,
+      "backoff_base_s": 10.0,
+      "pause_on_429_s": 600.0,
+      "max_retry_after_s": 1800.0,
+      "max_attempts_per_task": 3
+    },
+    "storage": {
+      "backend": "local",
+      "local_root": "C:\\m8\\q190\\data",
+      "azure_container": null,
+      "azure_account_url": null
+    },
+    "coverage": {
+      "read_product_terms": false,
+      "row_fail_below_ratio": 0.9,
+      "node_min_coverage_ratio": 0.98,
+      "partition_large_listings": true,
+      "allow_paid_only_membership": false
+    },
+    "provider": "oxylabs",
+    "retailer": "marianos",
+    "overrides": {
+      "categories": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        14,
+        15,
+        19,
+        20,
+        21
+      ],
+      "subcategories": {
+        "1": [
+          "06113",
+          "06121",
+          "06122"
+        ],
+        "2": [
+          "05012",
+          "05015"
+        ],
+        "4": [
+          "13001",
+          "13004",
+          "13008",
+          "13009"
+        ],
+        "5": [
+          "14162",
+          "14165",
+          "14166",
+          "14169",
+          "14181",
+          "14187"
+        ],
+        "8": [
+          "02008"
+        ],
+        "10": [
+          "18011"
+        ],
+        "14": [
+          "23004",
+          "23005"
+        ],
+        "15": [
+          "08182",
+          "08185",
+          "08191"
+        ],
+        "19": [
+          "10098",
+          "10099"
+        ],
+        "20": [
+          "26019"
+        ],
+        "21": [
+          "28003",
+          "28004",
+          "28005",
+          "28006",
+          "40003",
+          "40008"
+        ]
+      },
+      "max_credits_per_run": 64
+    },
+    "collection": {
+      "limits": {
+        "max_run_minutes": 2880,
+        "min_credit_reserve": 0,
+        "max_credits_per_day": null,
+        "max_credits_per_run": 64,
+        "max_segment_minutes": 300,
+        "max_products_per_day": null,
+        "max_products_per_run": null,
+        "max_pages_per_listing": null,
+        "max_product_term_reads": null,
+        "max_concurrent_listings": 1
+      },
+      "schedule": {
+        "enabled": false,
+        "end_date": null,
+        "weekdays": [
+          0,
+          3
+        ],
+        "start_date": null,
+        "start_time": "07:00",
+        "window_end": "19:00",
+        "window_start": null,
+        "backlog_first": true,
+        "continue_unfinished": true
+      },
+      "timezone": "America/Chicago",
+      "categories": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        14,
+        15,
+        19,
+        20,
+        21
+      ],
+      "subcategories": {
+        "1": [
+          "06113",
+          "06121",
+          "06122"
+        ],
+        "2": [
+          "05012",
+          "05015"
+        ],
+        "4": [
+          "13001",
+          "13004",
+          "13008",
+          "13009"
+        ],
+        "5": [
+          "14162",
+          "14165",
+          "14166",
+          "14169",
+          "14181",
+          "14187"
+        ],
+        "8": [
+          "02008"
+        ],
+        "10": [
+          "18011"
+        ],
+        "14": [
+          "23004",
+          "23005"
+        ],
+        "15": [
+          "08182",
+          "08185",
+          "08191"
+        ],
+        "19": [
+          "10098",
+          "10099"
+        ],
+        "20": [
+          "26019"
+        ],
+        "21": [
+          "28003",
+          "28004",
+          "28005",
+          "28006",
+          "40003",
+          "40008"
+        ]
+      },
+      "max_auto_resumes": 3,
+      "start_tolerance_minutes": 45
+    },
+    "started_by": "hamza-qualification-190",
+    "acquisition": {
+      "mode": "UI_CAPTURE",
+      "oxylabs": {
+        "api_base": "https://webapi.oxylabs.io",
+        "location": "US",
+        "max_attempts": 3,
+        "listing_route": "listing",
+        "page_endpoint": "/v1/scrape/marianos",
+        "coupons_run_js": true,
+        "listing_run_js": false,
+        "usd_per_result": 0.0015,
+        "search_endpoint": "/v1/scrape/marianos/search",
+        "request_timeout_s": 180.0,
+        "product_terms_run_js": true
+      },
+      "headless": true,
+      "scrapfly": {
+        "cache": true,
+        "country": "us",
+        "endpoint": "wss://browser.scrapfly.io",
+        "blacklist": true,
+        "browser_os": null,
+        "proxy_pool": "residential",
+        "target_url": "https://www.marianos.com/",
+        "account_url": "https://api.scrapfly.io/account",
+        "block_fonts": true,
+        "block_media": true,
+        "concurrency": 1,
+        "block_images": true,
+        "block_styles": false,
+        "browser_brand": null,
+        "connect_timeout_s": 60.0,
+        "session_timeout_s": 1800,
+        "max_credits_per_run": 300,
+        "bandwidth_overhead_factor": 2.0,
+        "credits_per_mb_datacenter": 7.0,
+        "credits_per_mb_residential": 52.0
+      },
+      "entry_url": null,
+      "browser_provider": "oxylabs",
+      "page_load_timeout_s": 45.0,
+      "response_wait_timeout_s": 30.0,
+      "navigation_min_interval_s": 4.0,
+      "navigation_interval_jitter_s": 1.0
+    },
+    "attestation": {
+      "trusted_modality_sources": [],
+      "require_is_trusted_source": true,
+      "periodic_every_navigations": 25
+    },
+    "circuit_breaker": {
+      "challenge_pages_to_abort_run": 1,
+      "consecutive_failures_to_fail_category": 5
+    }
+  },
+  "versions": {
+    "collector": "1.9.0",
+    "source": {
+      "commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+      "source": "git",
+      "uncommitted_changes": false
+    }
+  },
+  "site_version": "91.38.1-rc.0"
+}

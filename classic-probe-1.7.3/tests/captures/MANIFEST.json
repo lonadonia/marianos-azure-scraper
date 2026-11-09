@@ -1,0 +1,40 @@
+{
+  "what": "Saved walmart.com pages, copied unchanged from the Walmart collector's tests/captures (already sanitized there: session and trace identifiers replaced with [REDACTED]; product and store data untouched). They were fetched through the collector's providers (Scrape.do and the Oxylabs Web API), NOT through Oxylabs Classic. tests/test_saved_pages.py puts each one inside a SYNTHETIC Classic envelope to show that the probe's checks read real Walmart page data; nothing here shows what Classic returns.",
+  "files": [
+    {
+      "file": "w1_diapering_page1.html.gz",
+      "sha256": "1f4221f0a3af038a656009304df3fcd5d520a94d0e9c338c2c249753ff3788f7",
+      "origin": "walmart-azure-headless/tests/captures/w1_20261021/diapering_page1.html.gz",
+      "fetched": "2026-10-21, run W1 01M5F0864ZTDB3GPHH85HK6EAK, fetch 01M5F0KC63DT2N3T78QEBZAZWC, through Scrape.do's Walmart store endpoint (storeid=3891, zipcode=60085)",
+      "page": "Diapering listing, result page 1 of 25; pageMetadata.location 3891 PICKUP"
+    },
+    {
+      "file": "w1_diapering_page2.html.gz",
+      "sha256": "5dccd1817de33933af9bd7565c7bce4c2f686ecff7348223ba961ef76b44d9ea",
+      "origin": "walmart-azure-headless/tests/captures/w1_20261021/diapering_page2.html.gz",
+      "fetched": "2026-10-21, run W1 01M5F0864ZTDB3GPHH85HK6EAK, fetch 01M5F0KJMNRWVDXYGZ3QQCZ4T0, through Scrape.do's Walmart store endpoint (storeid=3891, zipcode=60085)",
+      "page": "Diapering listing, result page 2 of 25; pageMetadata.location 3891 PICKUP"
+    },
+    {
+      "file": "product_walmart_seller_15268670678.html.gz",
+      "sha256": "5c55262eacd0694fbf44f9e755815fa13e20c0b164483e5c85f2ca398ee0801a",
+      "origin": "walmart-azure-headless/tests/captures/product_pages_20261026/walmart_seller_15268670678.html.gz",
+      "fetched": "2026-10-26 22:31:01Z, fetch 01M5X5D96WAES8ZTCGP7QDAM73 (the collector's MANIFEST.json has its source and original hashes)",
+      "page": "Product page of item 15268670678 (Fresh Peeled Ginger 7oz), sold by Walmart.com; location 3891 PICKUP; UPC 070969002636"
+    },
+    {
+      "file": "store_3891_challenge.html.gz",
+      "sha256": "aa1d267d81556a28823ad4adccc55533bfe99ea07c9b9cae8479d9e33a40519a",
+      "origin": "walmart-azure-headless/tests/captures/challenge_pages/store_3891_challenge.html.gz",
+      "fetched": "2026-10-21, deploy validation 20261021T0315Z_walmart_pilot_3891 (store_evidence/after_click.html)",
+      "page": "Walmart's 'Robot or human?' challenge page (PerimeterX press-and-hold CAPTCHA)"
+    },
+    {
+      "file": "strawberries_page1.html.gz",
+      "sha256": "62684f77b33af83916b75a0a1d4ce61b5e90b65bbe04836ba79f1e9372493845",
+      "origin": "walmart-azure-headless/tests/captures/listing_pages_20261028/strawberries_oxylabs_page1.html.gz",
+      "fetched": "2026-10-28 05:45:11Z, run 01M60GKSSDDC2FPGSE9F0NNGWH, fetch 01M60GMZT54339VB9S4J3D5SBS, through the Oxylabs Web API (not Classic)",
+      "page": "Strawberries category page (https://www.walmart.com/browse/food/strawberries/976759_976793_9756351_3521037), page 1 of 1; location 3891 PICKUP"
+    }
+  ]
+}

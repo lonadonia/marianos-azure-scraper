@@ -1,0 +1,70 @@
+{
+ "step": 3,
+ "label": "c3_pdp_js",
+ "utc_start": "2026-11-06T18:37:39+00:00",
+ "utc_end": "2026-11-06T18:39:10+00:00",
+ "seconds": 90.45,
+ "key_fingerprint": "<key fingerprint>",
+ "tree": {
+  "package_file": "C:\\m8\\t19\\headless\\marianos-azure-headless\\src\\marianos_headless\\__init__.py",
+  "version": "1.8.0rc5",
+  "revision": "51db61dc01795cdb33a2ad922625265bf97f6581",
+  "modified": []
+ },
+ "stage": "M-O1-terms-offers-190-20261106",
+ "endpoint": "/v1/scrape/marianos",
+ "body_sent": {
+  "url": "https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014939",
+  "store_id": "53100502",
+  "fulfillment_type": "pickup",
+  "location": "US",
+  "output": [
+   "html"
+  ],
+  "run_js": true
+ },
+ "purpose": "m4 product page rendered",
+ "target": "https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014939",
+ "error": "",
+ "status": 200,
+ "kind": null,
+ "request_id": "7524540530412231682",
+ "attempts": [
+  {
+   "attempt": 1,
+   "status": 200,
+   "kind": null,
+   "request_id": "7524540530412231682",
+   "seconds": 89.56,
+   "usd": 0.0015
+  }
+ ],
+ "html_chars": 590871,
+ "raw_bytes": 667259,
+ "raw_sha256": "4c76091e75c6d17451a4abd6284d7a269642c2c03c911539a44e5820035d254b",
+ "raw_file": "03_c3_pdp_js.raw.gz",
+ "key_found_in_raw": false,
+ "gate_events": [
+  {
+   "at": "2026-11-06T18:37:40+00:00",
+   "event": "reserved",
+   "rid": "62c6baad05e64b9dbab9903a208f1a67",
+   "worst_usd": "0.0015"
+  },
+  {
+   "at": "2026-11-06T18:37:40+00:00",
+   "event": "dispatched",
+   "rid": "62c6baad05e64b9dbab9903a208f1a67"
+  },
+  {
+   "at": "2026-11-06T18:39:10+00:00",
+   "event": "settled",
+   "rid": "62c6baad05e64b9dbab9903a208f1a67",
+   "status": 200,
+   "kind": null,
+   "provider_job_id": "7524540530412231682"
+  }
+ ],
+ "gate_errors": [],
+ "lease_id": 30
+}

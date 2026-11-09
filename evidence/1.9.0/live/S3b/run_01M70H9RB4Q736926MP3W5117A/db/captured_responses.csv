@@ -1,0 +1,3 @@
+id,run_id,page_fetch_id,kind,url,status,request_location_id,request_taxonomies,body_sha256,artifact_id,schema_ok,observed_at
+01M70HA0JEQW52ED8DBYZ5HG28,01M70H9RB4Q736926MP3W5117A,01M70H9V5KVP0NJ7TKDW81VYSF,products_v2,https://www.marianos.com/pl/frozen/18010#page-state:calypso.domains.products,200,,[],5257c98df9f087ac8936e649fecb845d54b7d94d9a74ebfd801494f50c808395,01M70HA0JAH98NFBZ5E12KE1TJ,True,2026-11-09T16:12:16.435783+00:00
+01M70HD4GEK0E4QEV007M8WYVT,01M70H9RB4Q736926MP3W5117A,01M70HCSAHP6TZDHVDHVK8GCHM,products_v2,https://www.marianos.com/pl/frozen/18010?page=2#page-state:calypso.domains.products,200,,[],5257c98df9f087ac8936e649fecb845d54b7d94d9a74ebfd801494f50c808395,01M70HD4GD0P0ASNCQ4HAH82E1,True,2026-11-09T16:13:52.849379+00:00

@@ -22,6 +22,14 @@ under a transaction-scoped advisory lock, against the ceiling an operator set (`
 and US dollars counted from a start time). With no ceiling no request is sent. A 200 answer is settled as a
 charged result; the documented free failure and an authentication refusal as not charged; any other answer,
 and a request cut after it was sent, keeps its reserved cost as possibly charged ("unknown").
+
+Account gate (1.9.0, as in the Walmart collector's 1.6.0). When several collectors share one provider account
+and one allowance, an operator's harness can set :attr:`OxylabsClient.account_gate_factory` to an account-wide
+controller outside this collector (:class:`AccountGate`). It is consulted for every submission after this
+collector's own ledger has reserved it: the gate reserves the submission's worst case before anything is sent,
+is told just before the request leaves, and hears the outcome; a refusal there is a ceiling (nothing is sent).
+A submission sent without a usable answer is reported to the gate as unknown, never as free. Without a gate
+(the default) nothing changes.
 """
 
 from __future__ import annotations
@@ -32,12 +40,12 @@ import json
 import os
 import random
 import re
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 from time import monotonic
-from typing import Any
+from typing import Any, ClassVar, Protocol
 
 import httpx
 from pydantic import SecretStr
@@ -249,6 +257,35 @@ class Ledger:
             s.commit()
 
 
+# -- an account-wide gate (1.9.0) ----------------------------------------------------------------------------
+
+
+class GateRefused(RuntimeError):
+    """The account-wide gate refused this submission: nothing is sent."""
+
+
+class AccountGate(Protocol):
+    """An optional spending controller outside this collector, shared with the other collectors that use the
+    same provider account. For one submission, in order: :meth:`reserve` (a refusal raises
+    :class:`GateRefused`: nothing is sent), :meth:`dispatched` just before the request leaves (a refusal:
+    :meth:`unsent`, nothing is sent), then exactly one of :meth:`settled` (an answer came) and :meth:`unknown`
+    (sent, no answer: its reservation stays held)."""
+
+    def reserve(
+        self, *, purpose: str, endpoint: str, target_url: str, attempt: int, usd: float, key: str
+    ) -> str: ...
+
+    def dispatched(self, ref: str) -> None: ...
+
+    def unsent(self, ref: str, reason: str) -> None: ...
+
+    def settled(
+        self, ref: str, *, status: int, kind: str | None, charged: bool | None, usd: float, request_id: str
+    ) -> None: ...
+
+    def unknown(self, ref: str, reason: str) -> None: ...
+
+
 # -- answers ----------------------------------------------------------------------------------------------
 
 
@@ -321,6 +358,10 @@ class Answer:
 class OxylabsClient:
     """Requests to the Web API, each attempt reserved in the ledger before it is sent."""
 
+    # 1.9.0: an account-wide spending gate, set by an operator's harness (None: this collector's own ceiling
+    # alone, as before).
+    account_gate_factory: ClassVar[Callable[[], AccountGate] | None] = None
+
     def __init__(
         self,
         settings: OxylabsSettings,
@@ -331,8 +372,12 @@ class OxylabsClient:
         segment_id: str | None = None,
         transport: httpx.AsyncBaseTransport | None = None,
         sleep: Any = asyncio.sleep,
+        account_gate: AccountGate | None = None,
     ):
         self.settings = settings
+        factory = OxylabsClient.account_gate_factory
+        self.gate: AccountGate | None = account_gate or (factory() if factory else None)
+        self.gate_errors: list[str] = []
         self.key = key
         self.ledger = ledger
         self.run_id = run_id
@@ -349,11 +394,56 @@ class OxylabsClient:
     def _headers(self) -> dict[str, str]:
         return {"Authorization": f"Bearer {self.key.get_secret_value()}", "Content-Type": "application/json"}
 
-    async def fetch(self, endpoint: str, body: dict[str, Any], *, purpose: str, target: str) -> Answer:
+    def _gate_open(self, row_id: str, endpoint: str, target: str, purpose: str, attempt: int) -> str | None:
+        """The account-wide gate's reservation and dispatch mark, or a ceiling with nothing sent."""
+        if self.gate is None:
+            return None
+        ref: str | None = None
+        try:
+            ref = self.gate.reserve(
+                purpose=purpose,
+                endpoint=endpoint,
+                target_url=target[:2000],
+                attempt=attempt,
+                usd=float(self.ledger.rate),
+                key=row_id,
+            )
+            self.gate.dispatched(ref)
+        except Exception as exc:  # any failure of the gate is a refusal: nothing is sent
+            if ref is not None:
+                try:
+                    self.gate.unsent(ref, f"refused at dispatch: {type(exc).__name__}")
+                except Exception as exc2:  # recorded; the reservation stays held there
+                    self.gate_errors.append(f"unsent: {type(exc2).__name__}: {exc2}"[:300])
+            self.ledger.release(row_id, sent=False, outcome="gate_refused")
+            raise CeilingReached(
+                redact(f"the account-wide spending gate refused the submission: {exc}", self.key)[:300]
+            ) from None
+        return ref
+
+    def _gate_close(self, ref: str | None, outcome: str, **detail: Any) -> None:
+        """Report an outcome (``settled`` or ``unknown``) to the gate. A failure there is recorded and never
+        loses the answer: the gate keeps that submission's reservation held."""
+        if self.gate is None or ref is None:
+            return
+        try:
+            if outcome == "settled":
+                self.gate.settled(ref, **detail)
+            else:
+                self.gate.unknown(ref, str(detail.get("reason") or ""))
+        except Exception as exc:
+            self.gate_errors.append(redact(f"{type(exc).__name__}: {exc}", self.key)[:300])
+
+    async def fetch(
+        self, endpoint: str, body: dict[str, Any], *, purpose: str, target: str, attempts: int | None = None
+    ) -> Answer:
+        """One submission and, for a retryable answer, up to ``attempts`` in all (default: the setting's
+        ``max_attempts``). Release 1.9.0: a caller may send once (a product page read for coupon terms)."""
         answer = Answer(endpoint=endpoint, body=dict(body))
+        max_attempts = max(1, min(attempts or self.settings.max_attempts, self.settings.max_attempts))
         t_all = monotonic()
         first_429: float | None = None
-        for attempt in range(1, self.settings.max_attempts + 1):
+        for attempt in range(1, max_attempts + 1):
             row_id = self.ledger.reserve(
                 run_id=self.run_id,
                 segment_id=self.segment_id,
@@ -362,16 +452,20 @@ class OxylabsClient:
                 target=target,
                 attempt=attempt,
             )
+            gate_ref = self._gate_open(row_id, endpoint, target, purpose, attempt)
             t0 = monotonic()
             self.submissions += 1
             try:
                 r = await self.http.post(endpoint, json=body, headers=self._headers())
             except asyncio.CancelledError:
                 self.ledger.release(row_id, sent=True, outcome="cancelled")
+                self._gate_close(gate_ref, "unknown", reason="cancelled in flight")
                 raise
             except httpx.HTTPError as exc:
                 sent = not isinstance(exc, httpx.ConnectError)
                 self.ledger.release(row_id, sent=sent, outcome=f"transport {type(exc).__name__}")
+                # The account-wide gate keeps even an unconnected submission held: it was marked dispatched.
+                self._gate_close(gate_ref, "unknown", reason=f"no answer: {type(exc).__name__}")
                 answer.attempts.append(
                     {
                         "attempt": attempt,
@@ -381,7 +475,7 @@ class OxylabsClient:
                     }
                 )
                 answer.kind, answer.cost_unknown = "transport", answer.cost_unknown or sent
-                if attempt < self.settings.max_attempts:
+                if attempt < max_attempts:
                     await self.sleep(min(30.0, 2.0 * 2 ** (attempt - 1)) + random.uniform(0, 1))
                     continue
                 break
@@ -389,6 +483,15 @@ class OxylabsClient:
             kind = classify(r.status_code, r.content, html)
             cost = self.ledger.settle(
                 row_id, status=r.status_code, kind=kind, request_id=meta.get("request_id")
+            )
+            self._gate_close(
+                gate_ref,
+                "settled",
+                status=r.status_code,
+                kind=kind,
+                charged=CHARGED.get(kind),
+                usd=float(cost),
+                request_id=str(meta.get("request_id") or ""),
             )
             answer.cost_usd += cost
             answer.cost_unknown = answer.cost_unknown or CHARGED.get(kind) is None
@@ -412,7 +515,7 @@ class OxylabsClient:
                 if monotonic() - first_429 > QUOTA_AFTER_S:
                     answer.kind = "quota"
                     break
-            if kind in FINAL_KINDS or attempt >= self.settings.max_attempts:
+            if kind in FINAL_KINDS or attempt >= max_attempts:
                 break
             pause = RATE_LIMIT_PAUSE_S if kind == "rate_limit" else min(30.0, 2.0 * 2 ** (attempt - 1))
             await self.sleep(pause + random.uniform(0, 1))

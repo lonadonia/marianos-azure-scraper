@@ -57,9 +57,39 @@ class Selectors:
     current_modality: str = '[data-testid="CurrentModality-button"]'
     current_modality_type: str = '[data-testid="CurrentModality-modalityType"]'
     current_vanity_name: str = '[data-testid="CurrentModality-vanityName"]'
+    # Release 1.9.0rc2. The tile served since 2026-11-06 shows its price per measure in an element of its own
+    # (empty: the older cards' sizing slots hold it) and has no size slot at all.
+    ppm: str = ""
+    has_size_slot: bool = True
+    layout: str = "card"  # "card": the cards up to 2026-11-04; "tile": the tile served since 2026-11-06
 
 
 DEFAULT_SELECTORS = Selectors()
+
+# Release 1.9.0rc2. The product tile the site serves since 2026-11-06 (stages S1 and O2, store 53100502
+# PICKUP): "horizontal-product-card-N" on listing pages and "default-product-card-N" on search pages
+# (CardTemplate-Horizontal / CardTemplate-Default), with the same inner test ids. Its price is the same citrus
+# Price component as before; its price per measure has an element of its own; it shows no size (a product's
+# size is stated only in its own data in the same page, ``item.customerFacingSize``: see
+# ``assembly.record_builder``); its savings zone keeps the earlier test ids ("Buy 1 Save $2", "View 1 Offer").
+# The cards up to 2026-11-04 keep their own selectors (``Selectors()``): earlier saved pages read as before.
+TILE_PREFIXES = ("horizontal-product-card-", "default-product-card-")
+TILE_SELECTORS = Selectors(
+    card_root=", ".join(f'[data-testid^="{p}"]' for p in TILE_PREFIXES),
+    title='[data-testid="product-description"]',
+    price_block='[data-testid="product-price"]',
+    price_tag='[data-testid="eyebrow-text"]',
+    product_image='img[data-testid="product-image"]',
+    ppm='[data-testid="product-price-equivalized-unit-price"]',
+    has_size_slot=False,
+    layout="tile",
+)
+
+
+def selectors_for(card: LexborNode, sel: Selectors = DEFAULT_SELECTORS) -> Selectors:
+    """The selectors of the card's own template: the tile's (release 1.9.0rc2) or the given ones."""
+    testid = card.attributes.get("data-testid") or ""
+    return TILE_SELECTORS if testid.startswith(TILE_PREFIXES) else sel
 
 
 def _all(node: LexborNode, selector: str) -> list[LexborNode]:
@@ -115,6 +145,8 @@ class PriceDisplayKind(StrEnum):
     RELATIVE_SALE = "relative_sale"
     NOT_DISPLAYED = "not_displayed"  # e.g. "Prices May Vary"
     MISSING = "missing"  # no price block at all and no known placeholder
+    # Release 1.9.0rc2: a tile's price in a form not seen on the tile before (nothing is guessed from it).
+    UNRECOGNIZED = "unrecognized"
 
 
 @dataclass(frozen=True)
@@ -159,6 +191,8 @@ class CardObservation:
     snap_ebt: bool
     flags: tuple[str, ...] = ()
     ppm_text: str = ""  # price per measure as displayed (grid cards show it next to the size), or ""
+    layout: str = "card"  # "tile": the tile served since 2026-11-06 (release 1.9.0rc2)
+    size_displayed: bool = True  # False: the card has no size slot (the tile): no size is displayed
 
 
 def _class_tokens(node: LexborNode) -> set[str]:
@@ -220,6 +254,34 @@ def parse_price_block(card: LexborNode, sel: Selectors = DEFAULT_SELECTORS) -> P
     return PriceDisplay(kind, current, original, sr, "", regular, sale)
 
 
+# A single displayed price: "$2.99", "$1,299.00". Anything else in a tile's price element is not read.
+_PLAIN_PRICE = re.compile(r"^\$\d{1,3}(?:,\d{3})*\.\d{2}$")
+
+
+def tile_price(display: PriceDisplay) -> PriceDisplay:
+    """A tile's price, only in the forms the tile was seen to show (stages S1 and O2, 2026-11-06): a plain
+    price whose screen-reader text is the same price; "Sale: $X discounted from $Y" with the promotional
+    style; "about $X each" (a product sold by weight). Any other form, for example a multi-unit price written
+    in the price element, is UNRECOGNIZED: no price is read from it (a single price taken out of "2 For $5.00"
+    would be a guess)."""
+    cur, orig, sr = display.current_text, display.original_text, display.sr_text
+    k = display.kind
+    if k in (PriceDisplayKind.NOT_DISPLAYED, PriceDisplayKind.MISSING):
+        return display
+    plain = bool(_PLAIN_PRICE.match(cur))
+    if k is PriceDisplayKind.REGULAR:
+        ok = plain and not orig and sr == cur
+    elif k is PriceDisplayKind.SALE:
+        ok = plain and bool(_PLAIN_PRICE.match(orig)) and sr == f"Sale: {cur} discounted from {orig}"
+    elif k is PriceDisplayKind.RELATIVE:
+        ok = plain and not orig and sr == f"about {cur} each"
+    else:  # RELATIVE_SALE: not seen on a tile; an estimate is never exported as a price either way
+        ok = plain and sr.startswith(f"about {cur}")
+    if ok:
+        return display
+    return PriceDisplay(PriceDisplayKind.UNRECOGNIZED, cur, orig, sr, "", "", "")
+
+
 def _text_without_buttons(node: LexborNode) -> str:
     """The node's text without its buttons: "View Offer" and other controls are not offer text."""
     sub = LexborHTMLParser(node.html or "")
@@ -265,6 +327,18 @@ def parse_card(card: LexborNode, position: int, sel: Selectors = DEFAULT_SELECTO
     sizes = [_SLOT_SEPARATOR.sub("", text_of(n)) for n in _all(card, sel.size)]
     ppm = next((t for t in sizes if PPM_DISPLAY.match(t)), "") if len(sizes) > 1 else ""
     size_text = next((t for t in sizes if t and t != ppm), "") if ppm else (sizes[0] if sizes else "")
+    price = parse_price_block(card, sel)
+    if sel.ppm:  # the tile (1.9.0rc2): its own price-per-measure element, no size slot
+        shown = text_of(_first(card, sel.ppm))
+        ppm = shown if PPM_DISPLAY.match(shown) else ""
+        if shown and not ppm:
+            flags.append("PPM_TEXT_UNRECOGNIZED")
+    if not sel.has_size_slot:
+        size_text = ""
+    if sel.layout == "tile":
+        price = tile_price(price)
+        if price.kind is PriceDisplayKind.UNRECOGNIZED:
+            flags.append("PRICE_DISPLAY_UNRECOGNIZED")
     return CardObservation(
         position=position,
         card_testid=card.attributes.get("data-testid") or "",
@@ -272,7 +346,7 @@ def parse_card(card: LexborNode, position: int, sel: Selectors = DEFAULT_SELECTO
         url=url,
         title=text_of(_first(card, sel.title)),
         size_text=size_text,
-        price=parse_price_block(card, sel),
+        price=price,
         price_tag=text_of(_first(card, sel.price_tag)),
         zone=parse_zone(card, sel),
         image_src=src if not src.startswith("data:") else "data:",
@@ -280,11 +354,14 @@ def parse_card(card: LexborNode, position: int, sel: Selectors = DEFAULT_SELECTO
         snap_ebt=_first(card, '[data-testid="snap-ebt-eligible-tag"]') is not None,
         flags=tuple(flags),
         ppm_text=ppm,
+        layout=sel.layout,
+        size_displayed=sel.has_size_slot,
     )
 
 
 def parse_cards(tree: LexborHTMLParser, sel: Selectors = DEFAULT_SELECTORS) -> list[CardObservation]:
-    return [parse_card(node, i, sel) for i, node in enumerate(tree.css(sel.card_root))]
+    """Each card with its own template's selectors (release 1.9.0rc2: the tile, or ``sel``)."""
+    return [parse_card(node, i, selectors_for(node, sel)) for i, node in enumerate(tree.css(sel.card_root))]
 
 
 # --- Offer drawer -------------------------------------------------------------------------------

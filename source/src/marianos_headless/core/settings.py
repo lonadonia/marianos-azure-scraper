@@ -134,8 +134,14 @@ class OxylabsSettings(_Strict):
     # refused; such a listing is never complete.
     listing_route: Literal["listing", "search"] = "listing"
     # A listing page without rendering may carry its products in the page state only, with no card (probes L9,
-    # L11, L12): the displayed values need the rendered page.
-    listing_run_js: bool = True
+    # L11, L12): the displayed values needed the rendered page. Release 1.9.0rc2: since the tile of 2026-11-06
+    # the reverse holds: every unrendered listing answer carried all its tiles (5 of 5) and every rendered one
+    # none (2 of 2, one of them not asked to render; stages S1 and O2), so listing pages are asked for without
+    # rendering. The provider may still render one: the collector then asks again (``oxylabs_live``).
+    listing_run_js: bool = False
+    # Release 1.9.0 (M4): a product's own page, read for its coupons' complete terms, is requested rendered:
+    # its Savings section loads only when the page's scripts run.
+    product_terms_run_js: bool = True
 
 
 class AcquisitionSettings(_Strict):
@@ -174,6 +180,15 @@ class CoverageSettings(_Strict):
     # A listing whose site total exceeds what its search lets the page reach (availableCount) is read through
     # the child listings the site's own category facet names (each one checked and paged like any listing).
     partition_large_listings: bool = True
+    # Release 1.9.0 (M4), Oxylabs route: the product's own page is read (rendered, once per product and run)
+    # for every card that shows a digital coupon, for the coupon's ID, complete terms, displayed expiry,
+    # clipping instruction and qualifying products. Each read is one more provider request (counted and
+    # bounded like any other; ``limits.max_product_term_reads``). Off: the card's headline only, flagged
+    # DIGITAL_TERMS_UNREAD.
+    # Release 1.9.0rc3: the tile served since 2026-11-06 shows no coupon, so with this on every tile's product
+    # page is read (one more request per product, within ``limits.max_product_term_reads``); a product left
+    # unread is flagged DIGITAL_COUPONS_UNOBSERVED (its coupon is unknown, not absent).
+    read_product_terms: bool = False
 
 
 class YieldSettings(_Strict):

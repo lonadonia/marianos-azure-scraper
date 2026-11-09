@@ -1,0 +1,1278 @@
+{
+ "data": {
+  "products": [
+   {
+    "inventory": {
+     "locations": [
+      {
+       "locationId": "53100502",
+       "available": 6,
+       "stockLevel": "HIGH"
+      }
+     ],
+     "effective": {
+      "total": 0,
+      "available": 0
+     }
+    },
+    "item": {
+     "alcoholFlag": false,
+     "assortments": [
+      {
+       "assortmentKey": "f914db25-4beb-41ce-b30d-9bc58253783a",
+       "modalityEnabled": true,
+       "modalityType": "PICKUP"
+      }
+     ],
+     "bounceFlag": false,
+     "brand": {
+      "name": "Temptations",
+      "code": "6144"
+     },
+     "categories": [
+      {
+       "code": "34",
+       "name": "Pet Care"
+      },
+      {
+       "code": "34",
+       "name": "Pet Care"
+      }
+     ],
+     "clickListItem": true,
+     "countriesOfOrigin": "UNITED STATES",
+     "customerFacingSize": "N/A",
+     "description": "Tmpt Tn 3 Oz",
+     "dimensions": {
+      "height": "7.27 [in_i]",
+      "width": "4.61 [in_i]",
+      "length": "1.5 [in_i]"
+     },
+     "familyCode": [
+      "642"
+     ],
+     "familyTree": {
+      "commodity": {
+       "code": "351",
+       "name": "CAT TREATS"
+      },
+      "department": {
+       "code": "52",
+       "name": "PET"
+      },
+      "subCommodity": {
+       "code": "07210",
+       "name": "WET CAT FOOD - TREATS"
+      }
+     },
+     "glutenFreeClaimName": "NO",
+     "gtin14": "00023100327846",
+     "hazmatFlag": false,
+     "homeDeliveryItem": false,
+     "images": [
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/xlarge/front/0002310032784",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/large/front/0002310032784",
+       "size": "large"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/medium/front/0002310032784",
+       "size": "medium"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/small/front/0002310032784",
+       "size": "small"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/thumbnail/front/0002310032784",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/xlarge/right/0002310032784",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/large/right/0002310032784",
+       "size": "large"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/medium/right/0002310032784",
+       "size": "medium"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/small/right/0002310032784",
+       "size": "small"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/thumbnail/right/0002310032784",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/xlarge/back/0002310032784",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/large/back/0002310032784",
+       "size": "large"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/medium/back/0002310032784",
+       "size": "medium"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/small/back/0002310032784",
+       "size": "small"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/thumbnail/back/0002310032784",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/xlarge/left/0002310032784",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/large/left/0002310032784",
+       "size": "large"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/medium/left/0002310032784",
+       "size": "medium"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/small/left/0002310032784",
+       "size": "small"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/thumbnail/left/0002310032784",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/xlarge/top/0002310032784",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/large/top/0002310032784",
+       "size": "large"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/medium/top/0002310032784",
+       "size": "medium"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/small/top/0002310032784",
+       "size": "small"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/thumbnail/top/0002310032784",
+       "size": "thumbnail"
+      }
+     ],
+     "itemTypeCode": "0",
+     "krogerDeliveryItem": false,
+     "liveNaturallyEligible": false,
+     "mainImagePerspective": "front",
+     "nonGmo": false,
+     "nutritionalClaims": [
+      "No Artificial Ingredients"
+     ],
+     "omniChannelBrandName": "Temptations",
+     "organicClaimName": "NO",
+     "pidSizeQuantity": 3,
+     "pidSizeUnitOfMeasureName": "OUNCES",
+     "privacyRestricted": false,
+     "privacyRestrictedStates": [],
+     "prop65": {
+      "required": false
+     },
+     "prop65Info": {
+      "required": false
+     },
+     "ratingsAndReviewsAggregate": {
+      "averageRating": 4.73,
+      "numOfFiveStarRating": 4741,
+      "numOfFourStarRating": 864,
+      "numOfOneStarRating": 36,
+      "numOfThreeStarRating": 235,
+      "numOfTwoStarRating": 39,
+      "numberOfReviews": 5915
+     },
+     "receiptDescription": "TMTS CAT TREAT",
+     "romanceDescription": "<p>N/A.</p><ul><li>Paw- sitively Perfect Stocking Stuffer: Your cat can’t wait to get their paws on these scrumptious cat Christmas treats….just shake the bag, and they’ll come running for these cat snacks</li><li>Under 2 Calories Per Cat Treat: Our cat Christmas treats will have your favorite feline feeling merry and bright because each crunchy cat treat is under 2 calories and can be used as a cat snack, meal, or cat food topper</li><li>We’re paw-sitive your feline will enjoy these scrumptious cat treats with the classic crunchy on the outside, soft on the inside Temptations texture</li></ul>",
+     "salesChannelCode": "MP; STORE",
+     "salesChannelName": "Marketplace; Store",
+     "seoDescription": "tmpt-tn-3-oz",
+     "shareLink": "https://www.marianos.com/p/tmpt-tn-3-oz/0002310032784",
+     "snapEligible": false,
+     "soldInStore": false,
+     "tareValue": 0,
+     "taxGroupCode": "PP051195",
+     "taxonomies": [
+      {
+       "commodity": {
+        "code": "022",
+        "name": "Cat Treats"
+       },
+       "department": {
+        "code": "27",
+        "name": "Pet"
+       },
+       "subCommodity": {
+        "code": "00001",
+        "name": "Crunchy"
+       }
+      },
+      {
+       "commodity": {
+        "code": "022",
+        "name": "Cat Treats"
+       },
+       "department": {
+        "code": "27",
+        "name": "Pet"
+       },
+       "subCommodity": {
+        "code": "00002",
+        "name": "Soft & Chewy"
+       }
+      }
+     ],
+     "temperatureIndicator": "55688103654",
+     "temperatureIndicatorName": "Ambient",
+     "upc": "0002310032784",
+     "verified": true,
+     "weight": "0.18 [lb_av]"
+    },
+    "location": {
+     "locations": [
+      {
+       "aisle": {
+        "description": "AISLE 17",
+        "number": "17",
+        "side": "R"
+       },
+       "bayInAisle": "4",
+       "numOfFacings": "2",
+       "physicalShelfNumber": "5",
+       "shelfPositionInBay": "2"
+      }
+     ]
+    },
+    "price": {
+     "displayTemplate": "PriceDrop",
+     "orderBy": "Unit",
+     "sellBy": "Unit",
+     "storePrices": {
+      "promo": {
+       "defaultDescription": "$2.99",
+       "expirationDate": {
+        "value": "9999-12-31T00:00:00Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 2.99",
+       "unitPrice": "USD 2.99",
+       "price": "USD 2.99",
+       "equivalizedUnitPrice": {
+        "amount": "99.67",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$1.00/oz"
+      },
+      "regular": {
+       "defaultDescription": "$3.29",
+       "expirationDate": {
+        "value": "9999-12-31T00:00:00Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 3.29",
+       "unitPrice": "USD 3.29",
+       "price": "USD 3.29",
+       "equivalizedUnitPrice": {
+        "amount": "3.29",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.03/oz"
+      },
+      "sourceLocationId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger",
+      "twoTierEligibleFlag": "Y",
+      "referencePriceAmt": "USD 3.29",
+      "referenceNForCnt": 1,
+      "calculatedReferenceUnitPriceAmt": "USD 3.29"
+     }
+    },
+    "id": "0002310032784",
+    "sourceLocations": [
+     {
+      "id": "53100502",
+      "itemLocations": [
+       {
+        "aisleDescription": "AISLE 17",
+        "aisleNumber": "17",
+        "aisleSide": "R",
+        "areaId": "017",
+        "areaTypeCode": "AL",
+        "areaTypeDescription": "Aisle",
+        "bayNumber": "004",
+        "bayNumberInAisle": "4",
+        "dataSource": "JDA_TRUE_FLOOR_PLAN",
+        "departmentCode": "HH",
+        "departmentDescription": "Household",
+        "fixtureNumber": "5",
+        "itemDepth": "1.50000",
+        "itemHeight": "7.27",
+        "itemWidth": "4.53",
+        "numberOfDepthFacings": "3",
+        "numberOfFacings": "2",
+        "numberOfVerticalFacings": "1",
+        "orientationCode": "R",
+        "orientationDescription": "Right",
+        "pogName": "D531_L00000_D03_C351_V303_F004_MX",
+        "position": "2",
+        "shelfNumber": "5",
+        "shelfPositionInBay": "2",
+        "subAreaId": "XXX",
+        "subAreaTypeCode": "XX",
+        "subAreaTypeDescription": "XX"
+       }
+      ],
+      "modalityAvailabilities": [
+       {
+        "availability": true,
+        "modalityType": "DELIVERY"
+       },
+       {
+        "availability": true,
+        "modalityType": "IN_STORE"
+       },
+       {
+        "availability": true,
+        "modalityType": "PICKUP"
+       },
+       {
+        "availability": false,
+        "modalityType": "SHIP"
+       }
+      ],
+      "prices": [
+       {
+        "calculatedReferenceUnitPriceAmt": "USD 3.29",
+        "displayTemplate": "PriceCut",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2026-10-19T08:20:48.371Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "9999-12-31T00:00:00Z"
+        },
+        "orderBy": "UNIT",
+        "referenceNForCnt": 1,
+        "referencePriceAmt": "USD 3.29",
+        "regular": {
+         "defaultDescription": "$2.99",
+         "equivalizedUnitPrice": {
+          "amount": "99.67",
+          "denomination": "CENT",
+          "unit": "PER OUNCE"
+         },
+         "nFor": {
+          "count": 1,
+          "price": "USD 2.99"
+         },
+         "price": "USD 2.99"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "twoTierEligibleFlag": "Y",
+        "womenInfantChildFlg": "N"
+       }
+      ],
+      "restrictions": {
+       "shippable": false
+      },
+      "inventory": [
+       {
+        "availableToSell": 6,
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "stockLevel": "HIGH",
+        "included": {
+         "projections": []
+        }
+       }
+      ],
+      "laf": [
+       {
+        "modality": {
+         "type": "PICKUP",
+         "handoffLocation": {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         },
+         "handoffAddress": {
+          "address": {
+           "addressLines": [
+            "1720 N Milwaukee Ave"
+           ],
+           "cityTown": "Vernon Hills",
+           "name": "Marianos Vernon Hills",
+           "postalCode": "60061",
+           "stateProvince": "IL",
+           "residential": false,
+           "countryCode": "US"
+          },
+          "location": {
+           "lat": 42.2568706,
+           "lng": -87.9508553
+          }
+         }
+        },
+        "sources": [
+         {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         }
+        ],
+        "assortmentKeys": [
+         "f914db25-4beb-41ce-b30d-9bc58253783a"
+        ],
+        "listingKeys": [
+         "53100502"
+        ]
+       }
+      ],
+      "sourceId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    ],
+    "itemsV1": {
+     "product": {
+      "familyTree": {
+       "commodity": {
+        "code": "351",
+        "name": "CAT TREATS"
+       },
+       "primaryDepartment": {
+        "code": "03",
+        "name": "DRUG/GM",
+        "recapDepartment": {
+         "code": "03",
+         "department": {
+          "code": "52",
+          "name": "PET"
+         },
+         "name": "HBC"
+        }
+       },
+       "subCommodity": {
+        "code": "07210",
+        "name": "WET CAT FOOD - TREATS"
+       }
+      },
+      "id": "2001139584",
+      "variantGroupId": "6000000000061352"
+     }
+    },
+    "postalCodes": [
+     {
+      "postalCode": "60061",
+      "prices": [
+       {
+        "displayTemplate": "WhiteTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2026-10-19T00:00:00Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "9999-12-31T00:00:00Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$2.99",
+         "nFor": {
+          "count": 1,
+          "price": "USD 2.99"
+         },
+         "price": "USD 2.99"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "KROGER"
+       }
+      ]
+     }
+    ],
+    "laf": [
+     {
+      "assortmentKeys": [
+       "f914db25-4beb-41ce-b30d-9bc58253783a"
+      ],
+      "listingKeys": [
+       "53100502"
+      ],
+      "modality": {
+       "handoffAddress": {
+        "address": {
+         "addressLines": [
+          "1720 N Milwaukee Ave"
+         ],
+         "cityTown": "Vernon Hills",
+         "countryCode": "US",
+         "postalCode": "60061",
+         "stateProvince": "IL"
+        }
+       },
+       "handoffLocation": {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       },
+       "type": "PICKUP"
+      },
+      "priceAvailabilities": [
+       {
+        "id": "53100502",
+        "lookup": "LISTING_KEY",
+        "storeId": "53100502"
+       }
+      ],
+      "sources": [
+       {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       }
+      ]
+     }
+    ],
+    "inventorySummaries": [
+     {
+      "modalityType": "PICKUP",
+      "details": [
+       {
+        "sourceId": "53100502",
+        "availableToSell": 6,
+        "stockLevel": "HIGH"
+       }
+      ],
+      "availableToSell": 6,
+      "stockLevel": "HIGH"
+     }
+    ],
+    "fulfillmentOptions": [
+     "PICKUP"
+    ],
+    "fulfillmentSummaries": [
+     {
+      "type": "PICKUP",
+      "regular": {
+       "price": "USD 3.29",
+       "displayTemplate": "PriceDrop",
+       "priceString": "$2.99",
+       "pricePerUnitString": "N/A",
+       "equivalizedUnitPrice": {
+        "amount": "3.29",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.03/oz"
+      },
+      "availability": {
+       "sellable": true,
+       "inventoryLevel": "HIGH"
+      },
+      "sale": {
+       "price": "USD 2.99",
+       "priceString": "$2.99",
+       "pricePerUnitString": "N/A",
+       "expirationDate": {
+        "value": "9999-12-31T00:00:00Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "99.67",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$1.00/oz"
+      },
+      "maxOrderQuantity": 6
+     },
+     {
+      "type": "DELIVERY",
+      "regular": {
+       "price": "USD 3.29",
+       "displayTemplate": "PriceDrop",
+       "priceString": "$2.99",
+       "pricePerUnitString": "N/A",
+       "equivalizedUnitPrice": {
+        "amount": "3.29",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.03/oz"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      },
+      "sale": {
+       "price": "USD 2.99",
+       "priceString": "$2.99",
+       "pricePerUnitString": "N/A",
+       "expirationDate": {
+        "value": "9999-12-31T00:00:00Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "99.67",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$1.00/oz"
+      }
+     },
+     {
+      "type": "IN_STORE",
+      "regular": {
+       "price": "USD 3.29",
+       "displayTemplate": "PriceDrop",
+       "priceString": "$2.99",
+       "pricePerUnitString": "N/A",
+       "equivalizedUnitPrice": {
+        "amount": "3.29",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$0.03/oz"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      },
+      "sale": {
+       "price": "USD 2.99",
+       "priceString": "$2.99",
+       "pricePerUnitString": "N/A",
+       "expirationDate": {
+        "value": "9999-12-31T00:00:00Z",
+        "timezone": "UTC"
+       },
+       "equivalizedUnitPrice": {
+        "amount": "99.67",
+        "denomination": "CENT",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$1.00/oz"
+      }
+     }
+    ]
+   },
+   {
+    "inventory": {
+     "locations": [
+      {
+       "locationId": "53100502",
+       "available": 3,
+       "stockLevel": "HIGH"
+      }
+     ],
+     "effective": {
+      "total": 0,
+      "available": 0
+     }
+    },
+    "item": {
+     "alcoholFlag": false,
+     "assortments": [
+      {
+       "assortmentKey": "f914db25-4beb-41ce-b30d-9bc58253783a",
+       "modalityEnabled": true,
+       "modalityType": "PICKUP"
+      }
+     ],
+     "bounceFlag": false,
+     "brand": {
+      "name": "Yankee Candle",
+      "code": "5439"
+     },
+     "categories": [
+      {
+       "code": "24",
+       "name": "Home Decor"
+      }
+     ],
+     "clickListItem": true,
+     "countriesOfOrigin": "UNITED STATES",
+     "customerFacingSize": "Count",
+     "description": "Yankee Candle® Sugared Cinnamon Apple, Holiday Scented",
+     "dimensions": {
+      "height": "3.63 [in_i]",
+      "width": "4.0 [in_i]",
+      "length": "4.0 [in_i]"
+     },
+     "familyTree": {
+      "commodity": {
+       "code": "850",
+       "name": "CANDLES AND GIFTWARE"
+      },
+      "department": {
+       "code": "86",
+       "name": "FURN/HOME DEC"
+      },
+      "subCommodity": {
+       "code": "85002",
+       "name": "JAR CANDLES"
+      }
+     },
+     "gtin14": "00192833306647",
+     "hazmatFlag": false,
+     "homeDeliveryItem": false,
+     "images": [
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/xlarge/back/0019283330664",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/large/back/0019283330664",
+       "size": "large"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/medium/back/0019283330664",
+       "size": "medium"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/small/back/0019283330664",
+       "size": "small"
+      },
+      {
+       "perspective": "back",
+       "url": "https://www.kroger.com/product/images/thumbnail/back/0019283330664",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/xlarge/right/0019283330664",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/large/right/0019283330664",
+       "size": "large"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/medium/right/0019283330664",
+       "size": "medium"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/small/right/0019283330664",
+       "size": "small"
+      },
+      {
+       "perspective": "right",
+       "url": "https://www.kroger.com/product/images/thumbnail/right/0019283330664",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/xlarge/front/0019283330664",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/large/front/0019283330664",
+       "size": "large"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/medium/front/0019283330664",
+       "size": "medium"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/small/front/0019283330664",
+       "size": "small"
+      },
+      {
+       "perspective": "front",
+       "url": "https://www.kroger.com/product/images/thumbnail/front/0019283330664",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/xlarge/bottom/0019283330664",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/large/bottom/0019283330664",
+       "size": "large"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/medium/bottom/0019283330664",
+       "size": "medium"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/small/bottom/0019283330664",
+       "size": "small"
+      },
+      {
+       "perspective": "bottom",
+       "url": "https://www.kroger.com/product/images/thumbnail/bottom/0019283330664",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/xlarge/top/0019283330664",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/large/top/0019283330664",
+       "size": "large"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/medium/top/0019283330664",
+       "size": "medium"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/small/top/0019283330664",
+       "size": "small"
+      },
+      {
+       "perspective": "top",
+       "url": "https://www.kroger.com/product/images/thumbnail/top/0019283330664",
+       "size": "thumbnail"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/xlarge/left/0019283330664",
+       "size": "xlarge"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/large/left/0019283330664",
+       "size": "large"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/medium/left/0019283330664",
+       "size": "medium"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/small/left/0019283330664",
+       "size": "small"
+      },
+      {
+       "perspective": "left",
+       "url": "https://www.kroger.com/product/images/thumbnail/left/0019283330664",
+       "size": "thumbnail"
+      }
+     ],
+     "itemTypeCode": "0",
+     "krogerDeliveryItem": false,
+     "liveNaturallyEligible": false,
+     "mainImagePerspective": "front",
+     "omniChannelBrandName": "Yankee Candle",
+     "pidSizeQuantity": 14.5,
+     "pidSizeUnitOfMeasureName": "OUNCES",
+     "privacyRestricted": false,
+     "privacyRestrictedStates": [],
+     "prop65": {
+      "required": false
+     },
+     "prop65Info": {
+      "required": false
+     },
+     "ratingsAndReviewsAggregate": {
+      "averageRating": 4.67,
+      "numOfFiveStarRating": 37,
+      "numOfFourStarRating": 5,
+      "numOfOneStarRating": 2,
+      "numOfThreeStarRating": 1,
+      "numOfTwoStarRating": 0,
+      "numberOfReviews": 45
+     },
+     "receiptDescription": "3WICK CANDLE",
+     "romanceDescription": "<p>Our 3-Wick Candles are made with a premium plant wax blend and three natural fiber wicks for enhanced throw, optimal fragrance performance, and ultimate ambiance. At 14.5 oz, they're the perfect size for gifting and still provide up to 40 hours of room-filling fragrance.</p><ul><li>Sugared Cinnamon Apple: The delicious aroma of crunchy apple slices sugared with cinnamon and vanilla. This sweet and spicy fragrance will make you crave the fruits of autumn — or a big mug of cider.</li><li>Made with a premium plant wax blend and three natural-fiber wicks for optimal fragrance performance</li><li>Consistent, long-lasting fragrance from first to last burn</li><li>Long burning candle with up to 40 hours of room-filling fragrance</li><li>Decorative metal lid protects wax from dust and debris between burns</li><li>Made in the USA with globally sourced materials</li></ul>",
+     "salesChannelCode": "STORE",
+     "salesChannelName": "Store",
+     "seoDescription": "yankee-candle-sugared-cinnamon-apple-holiday-scented",
+     "shareLink": "https://www.marianos.com/p/yankee-candle-sugared-cinnamon-apple-holiday-scented/0019283330664",
+     "snapEligible": false,
+     "soldInStore": false,
+     "tareValue": 0,
+     "taxGroupCode": "PH060754 ",
+     "taxonomies": [
+      {
+       "commodity": {
+        "code": "001",
+        "name": "Candles & Home Fragrances"
+       },
+       "department": {
+        "code": "32",
+        "name": "Home Decor"
+       },
+       "subCommodity": {
+        "code": "00007",
+        "name": "Jar Candles"
+       }
+      }
+     ],
+     "temperatureIndicator": "55688103654",
+     "temperatureIndicatorName": "Ambient",
+     "upc": "0019283330664",
+     "verified": true,
+     "weight": "1.59 [lb_av]"
+    },
+    "location": {
+     "locations": [
+      {
+       "aisle": {
+        "description": "DRUG/GM",
+        "number": "0"
+       }
+      }
+     ]
+    },
+    "price": {
+     "displayTemplate": "WhiteTag",
+     "orderBy": "Unit",
+     "sellBy": "Unit",
+     "storePrices": {
+      "regular": {
+       "defaultDescription": "$16.99",
+       "expirationDate": {
+        "value": "9999-12-31T00:00:00Z",
+        "timezone": "UTC"
+       },
+       "nfor": 1,
+       "nforPrice": "USD 16.99",
+       "unitPrice": "USD 16.99",
+       "price": "USD 16.99",
+       "equivalizedUnitPrice": {
+        "amount": "1.17",
+        "denomination": "DOLLAR",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$1.17/oz"
+      },
+      "sourceLocationId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    },
+    "id": "0019283330664",
+    "sourceLocations": [
+     {
+      "id": "53100502",
+      "itemLocations": [
+       {
+        "aisleDescription": "DRUG/GM",
+        "aisleNumber": "0",
+        "dataSource": "NON_PLANOGRAM",
+        "departmentDescription": "DRUG/GM",
+        "pogName": "Non-Planogram Item"
+       }
+      ],
+      "modalityAvailabilities": [
+       {
+        "availability": true,
+        "modalityType": "DELIVERY"
+       },
+       {
+        "availability": true,
+        "modalityType": "IN_STORE"
+       },
+       {
+        "availability": true,
+        "modalityType": "PICKUP"
+       },
+       {
+        "availability": false,
+        "modalityType": "SHIP"
+       }
+      ],
+      "prices": [
+       {
+        "displayTemplate": "WhiteTag",
+        "effectiveDate": {
+         "timezone": "Z",
+         "value": "2026-11-02T09:46:58.252Z"
+        },
+        "expirationDate": {
+         "timezone": "Z",
+         "value": "9999-12-31T00:00:00Z"
+        },
+        "orderBy": "UNIT",
+        "regular": {
+         "defaultDescription": "$16.99",
+         "equivalizedUnitPrice": {
+          "amount": "1.17",
+          "denomination": "DOLLAR",
+          "unit": "PER OUNCE"
+         },
+         "nFor": {
+          "count": 1,
+          "price": "USD 16.99"
+         },
+         "price": "USD 16.99"
+        },
+        "sellBy": "UNIT",
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "womenInfantChildFlg": "N"
+       }
+      ],
+      "restrictions": {
+       "shippable": false
+      },
+      "inventory": [
+       {
+        "availableToSell": 3,
+        "sellerId": "KR001",
+        "sellerName": "Kroger",
+        "stockLevel": "HIGH",
+        "included": {
+         "projections": []
+        }
+       }
+      ],
+      "laf": [
+       {
+        "modality": {
+         "type": "PICKUP",
+         "handoffLocation": {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         },
+         "handoffAddress": {
+          "address": {
+           "addressLines": [
+            "1720 N Milwaukee Ave"
+           ],
+           "cityTown": "Vernon Hills",
+           "name": "Marianos Vernon Hills",
+           "postalCode": "60061",
+           "stateProvince": "IL",
+           "residential": false,
+           "countryCode": "US"
+          },
+          "location": {
+           "lat": 42.2568706,
+           "lng": -87.9508553
+          }
+         }
+        },
+        "sources": [
+         {
+          "storeId": "53100502",
+          "facilityId": "15092"
+         }
+        ],
+        "assortmentKeys": [
+         "f914db25-4beb-41ce-b30d-9bc58253783a"
+        ],
+        "listingKeys": [
+         "53100502"
+        ]
+       }
+      ],
+      "sourceId": "53100502",
+      "sellerId": "KR001",
+      "sellerName": "Kroger"
+     }
+    ],
+    "itemsV1": {
+     "product": {
+      "familyTree": {
+       "commodity": {
+        "code": "850",
+        "name": "CANDLES AND GIFTWARE"
+       },
+       "primaryDepartment": {
+        "code": "03",
+        "name": "DRUG/GM",
+        "recapDepartment": {
+         "code": "87",
+         "department": {
+          "code": "86",
+          "name": "FURN/HOME DEC"
+         },
+         "name": "GM"
+        }
+       },
+       "subCommodity": {
+        "code": "85002",
+        "name": "JAR CANDLES"
+       }
+      },
+      "id": "2005040499",
+      "variantGroupId": "6000000000062538"
+     }
+    },
+    "laf": [
+     {
+      "assortmentKeys": [
+       "f914db25-4beb-41ce-b30d-9bc58253783a"
+      ],
+      "listingKeys": [
+       "53100502"
+      ],
+      "modality": {
+       "handoffAddress": {
+        "address": {
+         "addressLines": [
+          "1720 N Milwaukee Ave"
+         ],
+         "cityTown": "Vernon Hills",
+         "countryCode": "US",
+         "postalCode": "60061",
+         "stateProvince": "IL"
+        }
+       },
+       "handoffLocation": {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       },
+       "type": "PICKUP"
+      },
+      "priceAvailabilities": [
+       {
+        "id": "53100502",
+        "lookup": "LISTING_KEY",
+        "storeId": "53100502"
+       }
+      ],
+      "sources": [
+       {
+        "facilityId": "15092",
+        "storeId": "53100502"
+       }
+      ]
+     }
+    ],
+    "inventorySummaries": [
+     {
+      "modalityType": "PICKUP",
+      "details": [
+       {
+        "sourceId": "53100502",
+        "availableToSell": 3,
+        "stockLevel": "HIGH"
+       }
+      ],
+      "availableToSell": 3,
+      "stockLevel": "HIGH"
+     }
+    ],
+    "fulfillmentOptions": [
+     "PICKUP"
+    ],
+    "fulfillmentSummaries": [
+     {
+      "type": "PICKUP",
+      "regular": {
+       "price": "USD 16.99",
+       "displayTemplate": "WhiteTag",
+       "pricePerUnitString": "Count",
+       "equivalizedUnitPrice": {
+        "amount": "1.17",
+        "denomination": "DOLLAR",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$1.17/oz"
+      },
+      "availability": {
+       "sellable": true,
+       "inventoryLevel": "HIGH"
+      },
+      "maxOrderQuantity": 3
+     },
+     {
+      "type": "DELIVERY",
+      "regular": {
+       "price": "USD 16.99",
+       "displayTemplate": "WhiteTag",
+       "pricePerUnitString": "Count",
+       "equivalizedUnitPrice": {
+        "amount": "1.17",
+        "denomination": "DOLLAR",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$1.17/oz"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      }
+     },
+     {
+      "type": "IN_STORE",
+      "regular": {
+       "price": "USD 16.99",
+       "displayTemplate": "WhiteTag",
+       "pricePerUnitString": "Count",
+       "equivalizedUnitPrice": {
+        "amount": "1.17",
+        "denomination": "DOLLAR",
+        "unit": "PER OUNCE"
+       },
+       "equivalizedUnitPriceString": "$1.17/oz"
+      },
+      "availability": {
+       "sellable": false,
+       "unavailabilityMessage": "Unavailable"
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

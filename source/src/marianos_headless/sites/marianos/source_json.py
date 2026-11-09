@@ -41,6 +41,9 @@ from marianos_headless.sites.marianos.search_state import taxonomy_ids
 
 PRODUCTS = "products_v2"
 COUPONS = "coupons"
+PDP_SAVINGS = (
+    "pdp_savings"  # release 1.9.0: a product page's Savings section (``sites.marianos.pdp_savings``)
+)
 
 
 @dataclass(frozen=True)
@@ -181,9 +184,20 @@ class CouponFacts:
     upcs: tuple[str, ...]
     quantity: int | None
     special: tuple[str, ...]
+    # Release 1.9.0 (M4): a coupon read from a product's own rendered page (``pdp_savings``). Its expiry is
+    # the text the page displays ("Exp. Nov. 10": no year is invented), its action the clipping instruction
+    # displayed ("Sign In To Clip"), its tag the savings tag ("Coupon", "Cash Back"), and ``relation`` why it
+    # applies to its UPCs: shown in the product's own Savings section, and listed among its "Qualifying
+    # Products".
+    expiry_display: str = ""
+    action: str = ""
+    tag: str = ""
+    relation: str = ""
+    days_left_text: str = ""
+    locators: tuple[tuple[str, str], ...] = ()
 
     def as_dict(self) -> dict[str, Any]:
-        return {
+        out: dict[str, Any] = {
             "coupon_id": self.coupon_id,
             "response": self.ref.as_dict(),
             "text": self.text,
@@ -193,6 +207,39 @@ class CouponFacts:
             "type": self.coupon_type,
             "quantity": self.quantity,
             "special": list(self.special),
+        }
+        if self.ref.kind == PDP_SAVINGS:
+            out.update(
+                upcs=list(self.upcs),
+                tag=self.tag,
+                expiry_display=self.expiry_display,
+                days_left_text=self.days_left_text,
+                action=self.action,
+                relation=self.relation,
+                locators=dict(self.locators),
+            )
+        return out
+
+
+@dataclass(frozen=True)
+class TermsRead:
+    """What one read of a product's own page established about its coupons (release 1.9.0, M4)."""
+
+    upc: str
+    ref: ResponseRef
+    rendered: bool | None  # the provider's own statement that it ran the page's scripts
+    section: bool  # the page shows a Savings section
+    coupon_ids: tuple[str, ...]
+    other_rows: tuple[str, ...]  # offers of the section that are not coupons (a sale), by headline
+
+    def as_dict(self) -> dict[str, Any]:
+        return {
+            "upc": self.upc,
+            "response": self.ref.as_dict(),
+            "rendered": self.rendered,
+            "section": self.section,
+            "coupon_ids": list(self.coupon_ids),
+            "other_rows": list(self.other_rows),
         }
 
 
@@ -355,15 +402,25 @@ class SourceIndex:
         self.products: dict[str, ProductFacts] = {}
         self.coupons: dict[str, CouponFacts] = {}
         self._coupons_by_upc: dict[str, list[str]] = {}
+        self.terms: dict[str, TermsRead] = {}  # UPC -> the read of its own page (release 1.9.0)
+
+    def _link(self, coupon: CouponFacts) -> None:
+        self.coupons[coupon.coupon_id] = coupon
+        for upc in coupon.upcs:
+            ids = self._coupons_by_upc.setdefault(upc, [])
+            if coupon.coupon_id not in ids:
+                ids.append(coupon.coupon_id)
 
     def add(self, kind: str, body: bytes | str, ref: ResponseRef) -> int:
         """Index one captured response. Returns how many products or coupons it held (0 if unreadable)."""
-        if kind not in (PRODUCTS, COUPONS):
+        if kind not in (PRODUCTS, COUPONS, PDP_SAVINGS):
             return 0
         try:
             doc = json.loads(body)
         except (ValueError, TypeError):
             return 0
+        if kind == PDP_SAVINGS:
+            return self._add_page(doc.get("data") if isinstance(doc, Mapping) else None, ref)
         data = doc.get("data") if isinstance(doc, Mapping) else None
         items = (
             (data or {}).get("products" if kind == PRODUCTS else "coupons")
@@ -384,13 +441,84 @@ class SourceIndex:
             else:
                 coupon = parse_coupon(item, ref)
                 if coupon is not None:
-                    self.coupons[coupon.coupon_id] = coupon
-                    for upc in coupon.upcs:
-                        ids = self._coupons_by_upc.setdefault(upc, [])
-                        if coupon.coupon_id not in ids:
-                            ids.append(coupon.coupon_id)
+                    self._link(coupon)
                     n += 1
         return n
+
+    def _add_page(self, data: Any, ref: ResponseRef) -> int:
+        """A product page's Savings section. Its coupons apply to the page's product (the site shows them in
+        that product's own Savings section) and to the "Qualifying Products" the coupon lists; a coupon is
+        never extended to other products of the brand. Only a rendered page is read: without the provider's
+        statement that it ran the page's scripts, the page's coupons were not loaded and nothing is learnt."""
+        if not isinstance(data, Mapping):
+            return 0
+        upc = _text(data.get("upc"))
+        rows = [r for r in data.get("rows") or [] if isinstance(r, Mapping)]
+        rendered = data.get("rendered")
+        rendered = rendered if isinstance(rendered, bool) else None
+        coupons: list[CouponFacts] = []
+        others: list[str] = []
+        for r in rows:
+            cid = _text(r.get("coupon_id"))
+            headline = _text(r.get("headline"))
+            row_kind = _text(r.get("row_kind"))
+            tag = _text(r.get("tag"))
+            is_coupon = bool(cid) and (
+                row_kind in {"other-coupon", "cash-back", "digital-coupon", "coupon"}
+                or tag.casefold() in {"coupon", "cash back"}
+            )
+            if not is_coupon or not headline:
+                if headline:
+                    others.append(headline)
+                continue
+            qualifying = tuple(_text(u) for u in r.get("qualifying_upcs") or [] if _text(u))
+            terms = collapse_ws(
+                " ".join(x for x in (_text(r.get("description")), _text(r.get("legal"))) if x)
+            )
+            coupons.append(
+                CouponFacts(
+                    coupon_id=cid,
+                    ref=ref,
+                    text=headline,
+                    terms=terms,
+                    expires_at=None,
+                    modalities=(),
+                    coupon_type="CASH_BACK"
+                    if row_kind == "cash-back" or tag.casefold() == "cash back"
+                    else "STANDARD",
+                    upcs=tuple(dict.fromkeys(u for u in (upc, *qualifying) if u)),
+                    quantity=None,
+                    special=(),
+                    expiry_display=_text(r.get("expiry_text")),
+                    action=_text(r.get("action")),
+                    tag=tag,
+                    relation=(
+                        "shown in the product's own Savings section"
+                        + ("; listed among its Qualifying Products" if upc in qualifying else "")
+                    ),
+                    days_left_text=_text(r.get("days_left_text")),
+                    locators=tuple(
+                        (str(k), str(v)) for k, v in (r.get("locators") or {}).items() if isinstance(v, str)
+                    ),
+                )
+            )
+        if upc:
+            self.terms[upc] = TermsRead(
+                upc=upc,
+                ref=ref,
+                rendered=rendered,
+                section=bool(data.get("section")),
+                coupon_ids=tuple(c.coupon_id for c in coupons) if rendered else (),
+                other_rows=tuple(others),
+            )
+        if not rendered:
+            return 0
+        for c in coupons:
+            self._link(c)
+        return len(coupons)
+
+    def terms_read(self, upc: str | None) -> TermsRead | None:
+        return self.terms.get(upc or "")
 
     def product(self, upc: str | None) -> ProductFacts | None:
         return self.products.get(upc or "")
@@ -413,13 +541,16 @@ def expiry_text(when: str | None, tz: str) -> str:
 
 
 def coupon_offer(c: CouponFacts, *, tz: str, order: int) -> OfferObservation:
+    page = c.ref.kind == PDP_SAVINGS
     return OfferObservation(
-        source=OfferSource.JSON_COUPONS,
+        source=OfferSource.PDP if page else OfferSource.JSON_COUPONS,
         text=c.text,
         display_order=order,
+        tag=c.tag,
+        ctas=(c.action,) if c.action else (),
         coupon_type=c.coupon_type or None,
         modalities=c.modalities or None,
-        expiry_text=expiry_text(c.expires_at, tz),
+        expiry_text=expiry_text(c.expires_at, tz) or c.expiry_display,
         coupon_id=c.coupon_id,
         terms=c.terms,
         quantity=c.quantity,

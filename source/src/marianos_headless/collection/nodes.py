@@ -43,6 +43,9 @@ class Node:
     parent: str = ""
     partition_name: str = ""
     partition_count: int | None = None
+    # Release 1.9.0 (M1): a filtered reading's full identity, as canonical JSON
+    # (``pagination.partition_descriptor``); "" for a listing itself and for readings planned before 1.9.0.
+    partition_filter: str = ""
 
     def as_dict(self) -> dict[str, Any]:
         return asdict(self)

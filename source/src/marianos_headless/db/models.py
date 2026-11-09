@@ -490,7 +490,14 @@ class ListingPage(Base):
     csv_row_index: Mapped[int] = mapped_column(Integer)
     taxonomy_id: Mapped[str] = mapped_column(String(64))
     parent_taxonomy_id: Mapped[str] = mapped_column(String(64), default="")
+    # Release 1.9.0 (M1): the full SHA-256 digest of a filtered reading's identity ("" for a listing itself),
+    # and the identity itself (pagination.partition_descriptor; {} for a listing itself).
     partition_key: Mapped[str] = mapped_column(String(200), default="")
+    requested_filter: Mapped[dict[str, Any]] = mapped_column(
+        JSONB, default=dict, server_default=text("'{}'::jsonb")
+    )
+    # Release 1.9.0 (M2): what the response states about the search it answers (pagination.filter_binding).
+    binding: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default=text("'{}'::jsonb"))
     url: Mapped[str] = mapped_column(Text)
     route: Mapped[str] = mapped_column(String(16))
     requested_page: Mapped[int] = mapped_column(Integer)
