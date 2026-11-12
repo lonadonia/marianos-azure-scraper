@@ -1,0 +1,495 @@
+{
+ "case": "case3 c1 brand reading other_brand",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport",
+ "live_request_sent": false,
+ "collector_version": "1.10.0rc3",
+ "source_revision": {
+  "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+  "source": "git",
+  "uncommitted_changes": false
+ },
+ "c1_in_this_build": true,
+ "asked": [
+  [
+   "03001",
+   1
+  ],
+  [
+   "03001",
+   1
+  ],
+  [
+   "03001~Acme Foods",
+   1
+  ],
+  [
+   "03001~Acme Foods",
+   2
+  ],
+  [
+   "03001~Bravo",
+   1
+  ]
+ ],
+ "observed": {
+  "collector_version": "1.10.0rc3",
+  "source_revision": {
+   "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+   "source": "git",
+   "uncommitted_changes": false
+  },
+  "c1_in_this_build": true,
+  "run_status": "rejected",
+  "stop_code": null,
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "FAIL",
+   "G4": "PASS",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "FAIL"
+  },
+  "pages": [
+   {
+    "listing": "03001",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "1d0e99f1e900a3bfe48d341a92a573191d2af5404f3419f9ad69f5dbaf3de7d9",
+    "request_id": "req-2",
+    "stored_page": true,
+    "id": "01M76D72DRKXFEXMKKMCYA3902"
+   },
+   {
+    "listing": "03001",
+    "page": 1,
+    "attempt": 2,
+    "state": "reasked",
+    "verdict": "new",
+    "new": 0,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "049cdf64b472a8e54826696afb8660b941eeb82f269488d26895fd8c85842b09",
+    "request_id": "req-4",
+    "stored_page": true,
+    "id": "01M76D734WD3TE1KXG8C1CRBFX"
+   },
+   {
+    "listing": "03001~22de6db37fdb9e659cc82337",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "88d38c5c7f087b35ac43cedcfa90ec55144bb738a5a31249b990abafd99e9a36",
+    "request_id": "req-5",
+    "stored_page": true,
+    "id": "01M76D73C486E2QHD2H53E2JHB"
+   },
+   {
+    "listing": "03001~22de6db37fdb9e659cc82337",
+    "page": 2,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 6,
+    "duplicates": 0,
+    "identities": 6,
+    "sha256": "cac9ead43488ddb0a0b3c77fba0ea0f3737fe36ce618a0f5bdfe2e1e1a310530",
+    "request_id": "req-6",
+    "stored_page": true,
+    "id": "01M76D73HJVF30YGHMJ23AP2ZR"
+   },
+   {
+    "listing": "03001~fd9421f725a96841d492a3c3",
+    "page": 1,
+    "attempt": 1,
+    "state": "refused",
+    "verdict": "wrong_filter",
+    "new": 0,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "b0fbc222a6eb72a913e69b41a24f317acfe712bf3bf4ffa1c2be38981d8c1c64",
+    "request_id": "req-7",
+    "stored_page": true,
+    "id": "01M76D73NZ975FP8YQQWSNC49N"
+   }
+  ],
+  "records": 30,
+  "distinct_records": 30,
+  "records_by_status": {
+   "valid": 30
+  },
+  "coverage": {
+   "status": "PARTITIONED",
+   "seen": 24,
+   "total": 60,
+   "reason": "the site's search lets the page reach 48 of the 60 results; the listing is read through 2 subdivisions the page itself names (Acme Foods, Bravo) and is complete only when they cover its results"
+  },
+  "listing_tasks": {
+   "03001~22de6db37fdb9e659cc82337": "succeeded",
+   "03001~fd9421f725a96841d492a3c3": "succeeded",
+   "03001": "succeeded"
+  },
+  "deferred_requests": [
+   {
+    "taxonomy_id": "03001",
+    "requested_page": 1,
+    "kind": "missing_facets",
+    "state": "recovered",
+    "reasks_dispatched": 1,
+    "max_reasks": 2,
+    "min_wait_s": 300,
+    "original_verdict": "new",
+    "original_reason": "the first page names no child listing and no brand: the listing (60 results, 48 reachable) cannot be subdivided",
+    "original_listing_page_id": "01M76D72DRKXFEXMKKMCYA3902",
+    "outcome": "the listing is subdivided by the 2 subdivision(s) this answer names; the answer itself counts no product",
+    "attempts": [
+     {
+      "new": 24,
+      "role": "first answer",
+      "detail": "the listing's first page, counted; it names no child listing and no brand",
+      "capture": {
+       "sha256": "1d0e99f1e900a3bfe48d341a92a573191d2af5404f3419f9ad69f5dbaf3de7d9",
+       "page_fetch_id": "01M76D71V4K7ZRG0R6EGBX7PGR",
+       "listing_page_id": "01M76D72DRKXFEXMKKMCYA3902",
+       "listing_page_attempt": 1
+      },
+      "counted": true,
+      "ordinal": 0,
+      "outcome": "set aside; asked again not before 2026-11-09T16:05:00Z",
+      "overlap": 0,
+      "verdict": "new",
+      "answered": true,
+      "returned": {
+       "page": 1,
+       "cards": 24,
+       "total": 60,
+       "offset": 0,
+       "filters": {
+        "fulfillment": "all"
+       },
+       "listing": "03001",
+       "store_id": "53100502",
+       "available": 48,
+       "search_id": "syn-03001-1",
+       "sponsored": [],
+       "identities": [
+        "0003803000001",
+        "0003803000002",
+        "0003803000003",
+        "0003803000004",
+        "0003803000005",
+        "0003803000006",
+        "0003803000007",
+        "0003803000008",
+        "0003803000009",
+        "0003803000010",
+        "0003803000011",
+        "0003803000012",
+        "0003803000013",
+        "0003803000014",
+        "0003803000015",
+        "0003803000016",
+        "0003803000017",
+        "0003803000018",
+        "0003803000019",
+        "0003803000020",
+        "0003803000021",
+        "0003803000022",
+        "0003803000023",
+        "0003803000024"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        1
+       ],
+       "subdivisions": []
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/listing-03001/03001",
+       "page": 1,
+       "filter": {},
+       "offset": 0,
+       "listing": "03001",
+       "reading": "03001",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:56:17.252710Z",
+      "recorded_at": "2026-11-09T16:00:00Z",
+      "store_check": "PASS",
+      "unique_after": 24,
+      "unique_before": 0,
+      "provider_request_id": "req-2"
+     },
+     {
+      "new": 0,
+      "role": "re-ask",
+      "detail": "asked again for the listing's filters: the answer names 2 subdivision(s) (brands)",
+      "capture": {
+       "sha256": "049cdf64b472a8e54826696afb8660b941eeb82f269488d26895fd8c85842b09",
+       "page_fetch_id": "01M76D732AS2SP4BJ7HTTBMSGR",
+       "listing_page_id": "01M76D734WD3TE1KXG8C1CRBFX",
+       "listing_page_attempt": 2
+      },
+      "counted": false,
+      "ordinal": 1,
+      "outcome": "the listing is subdivided by the 2 subdivision(s) this answer names; the answer itself counts no product",
+      "overlap": 24,
+      "verdict": "new",
+      "answered": true,
+      "returned": {
+       "page": 1,
+       "cards": 24,
+       "total": 60,
+       "offset": 0,
+       "filters": {
+        "brandName": [],
+        "fulfillment": "all"
+       },
+       "listing": "03001",
+       "store_id": "53100502",
+       "available": 48,
+       "search_id": "syn-03001-1",
+       "sponsored": [],
+       "identities": [
+        "0003803000001",
+        "0003803000002",
+        "0003803000003",
+        "0003803000004",
+        "0003803000005",
+        "0003803000006",
+        "0003803000007",
+        "0003803000008",
+        "0003803000009",
+        "0003803000010",
+        "0003803000011",
+        "0003803000012",
+        "0003803000013",
+        "0003803000014",
+        "0003803000015",
+        "0003803000016",
+        "0003803000017",
+        "0003803000018",
+        "0003803000019",
+        "0003803000020",
+        "0003803000021",
+        "0003803000022",
+        "0003803000023",
+        "0003803000024"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        1
+       ],
+       "subdivisions": [
+        {
+         "id": "03001~22de6db37fdb9e659cc82337",
+         "name": "Acme Foods",
+         "count": 30,
+         "filter": "brandName"
+        },
+        {
+         "id": "03001~fd9421f725a96841d492a3c3",
+         "name": "Bravo",
+         "count": 30,
+         "filter": "brandName"
+        }
+       ]
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/listing-03001/03001",
+       "page": 1,
+       "filter": {},
+       "offset": 0,
+       "listing": "03001",
+       "reading": "03001",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:56:18.506416Z",
+      "recorded_at": "2026-11-09T16:05:00Z",
+      "store_check": "PASS",
+      "unique_after": 24,
+      "dispatched_at": "2026-11-09T16:05:00Z",
+      "unique_before": 24,
+      "provider_request_id": "req-4",
+      "rendered_by_provider": null
+     }
+    ],
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "requested_filter": {},
+    "store_context": {
+     "store_id": "53100502",
+     "store_key": "marianos-53100502-pickup",
+     "fulfillment": "PICKUP"
+    }
+   }
+  ],
+  "ledger_rows": 7,
+  "ledger": [
+   [
+    "https://www.marianos.com/robots.txt",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/savings/cl/coupons/",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?brandName=Acme%20Foods",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?brandName=Acme%20Foods&page=2",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?brandName=Bravo",
+    "settled",
+    "rule",
+    "ok"
+   ]
+  ],
+  "published_pointer": null
+ },
+ "reconciliation": {
+  "03001": {
+   "csv_row": 12,
+   "category": "Breakfast",
+   "sub_category": "Listing 03001",
+   "listing_id": "03001",
+   "parent_listing": "",
+   "listing_kind": "listing",
+   "source_url": "https://www.marianos.com/pl/listing-03001/03001",
+   "location_id": "53100502",
+   "fulfillment": "PICKUP",
+   "route": "listing",
+   "reported_total": 60,
+   "totals_seen": [
+    60
+   ],
+   "source_window": 48,
+   "pages_reachable": 2,
+   "pages_attempted": 1,
+   "pages_completed": 1,
+   "responses_not_counted": 1,
+   "unique_identities": 30,
+   "sponsored_placements": 0,
+   "duplicates": 24,
+   "approx_weight_exclusions": 0,
+   "other_exclusions": 0,
+   "price_conflicts": 0,
+   "variant_groups": 0,
+   "unavailable": 0,
+   "unresolved_gap": 30,
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 48 of the 60 results; the listing is read through 2 subdivisions the page itself names (Acme Foods, Bravo) and is complete only when they cover its results",
+   "partition_identity": "",
+   "pages_filter_refused": 0
+  },
+  "03001~22de6db37fdb9e659cc82337": {
+   "csv_row": 12,
+   "category": "Breakfast",
+   "sub_category": "Acme Foods",
+   "listing_id": "03001~22de6db37fdb9e659cc82337",
+   "parent_listing": "03001",
+   "listing_kind": "partition",
+   "source_url": "https://www.marianos.com/pl/listing-03001/03001?brandName=Acme%20Foods",
+   "location_id": "53100502",
+   "fulfillment": "PICKUP",
+   "route": "listing",
+   "reported_total": 30,
+   "totals_seen": [
+    30
+   ],
+   "source_window": 30,
+   "pages_reachable": 2,
+   "pages_attempted": 2,
+   "pages_completed": 2,
+   "responses_not_counted": 0,
+   "unique_identities": 30,
+   "sponsored_placements": 0,
+   "duplicates": 24,
+   "approx_weight_exclusions": 0,
+   "other_exclusions": 0,
+   "price_conflicts": 0,
+   "variant_groups": 0,
+   "unavailable": 0,
+   "unresolved_gap": 0,
+   "status": "DONE",
+   "completion_reason": "30 distinct products of 30 reported, on 2 page(s)",
+   "partition_identity": "{\"filter\":\"brandName\",\"listing\":\"03001\",\"modality\":\"PICKUP\",\"retailer\":\"marianos\",\"scheme\":2,\"store_id\":\"53100502\",\"value\":\"Acme Foods\"}",
+   "pages_filter_refused": 0
+  },
+  "03001~fd9421f725a96841d492a3c3": {
+   "csv_row": 12,
+   "category": "Breakfast",
+   "sub_category": "Bravo",
+   "listing_id": "03001~fd9421f725a96841d492a3c3",
+   "parent_listing": "03001",
+   "listing_kind": "partition",
+   "source_url": "https://www.marianos.com/pl/listing-03001/03001?brandName=Bravo",
+   "location_id": "53100502",
+   "fulfillment": "PICKUP",
+   "route": "listing",
+   "reported_total": 30,
+   "totals_seen": [
+    30
+   ],
+   "source_window": 30,
+   "pages_reachable": 2,
+   "pages_attempted": 1,
+   "pages_completed": 0,
+   "responses_not_counted": 1,
+   "unique_identities": 0,
+   "sponsored_placements": 0,
+   "duplicates": 0,
+   "approx_weight_exclusions": 0,
+   "other_exclusions": 0,
+   "price_conflicts": 0,
+   "variant_groups": 0,
+   "unavailable": 0,
+   "unresolved_gap": 30,
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 1: the response states other filters: brandName ['Someone Else'] (asked ['Bravo'])",
+   "partition_identity": "{\"filter\":\"brandName\",\"listing\":\"03001\",\"modality\":\"PICKUP\",\"retailer\":\"marianos\",\"scheme\":2,\"store_id\":\"53100502\",\"value\":\"Bravo\"}",
+   "pages_filter_refused": 1
+  }
+ }
+}

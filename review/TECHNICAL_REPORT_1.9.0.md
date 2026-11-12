@@ -1,5 +1,11 @@
 # Mariano's collector 1.9.0rc4: corrections, the site's changes, the live stages of 2026-11-09, and what is still open (2026-11-09)
 
+> **Note of 2026-11-12: current state in [`TECHNICAL_REPORT_1.10.0.md`](TECHNICAL_REPORT_1.10.0.md)**
+> (release 1.10.0rc3). This report is the 1.9.0rc4 report as published on 2026-11-09, unchanged below this
+> note. The 1.10.0 report's §8 corrects two of its statements: stage O1's saved answers state `run_js` true for
+> **3 of 14** product pages, not 1 of 14 (§6 and §10 here), and 0002310014848's first product page was rendered
+> and shows no Savings section.
+
 Target store: **Mariano's Vernon Hills, store 53100502, 1720 N Milwaukee Ave, Vernon Hills, IL 60061, PICKUP**.
 Lakeshore East (53100503, In Store) appears only as earlier development evidence; its product counts are not used
 as proof for this store. Every live request of this task was sent on 2026-11-06 and 2026-11-09 from Hamza's

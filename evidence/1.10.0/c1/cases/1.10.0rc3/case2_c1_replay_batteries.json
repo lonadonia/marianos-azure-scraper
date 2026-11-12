@@ -1,0 +1,557 @@
+{
+ "case": "case2 c1 replay batteries",
+ "evidence_type": "OFFLINE REPLAY of answers saved by the live stages of 2026-11-09, behind a local mock transport",
+ "live_request_sent": false,
+ "collector_version": "1.10.0rc3",
+ "source_revision": {
+  "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+  "source": "git",
+  "uncommitted_changes": false
+ },
+ "c1_in_this_build": true,
+ "served": [
+  [
+   "https://www.marianos.com/pl/batteries/26003",
+   "2026-11-09 16:00:00+00:00",
+   "s4_batteries_p1.html.gz"
+  ],
+  [
+   "https://www.marianos.com/pl/batteries/26003?page=2",
+   "2026-11-09 16:00:00+00:00",
+   "s4_batteries_p2_repeats_p1.html.gz"
+  ],
+  [
+   "https://www.marianos.com/pl/batteries/26003?page=2",
+   "2026-11-09 16:05:00+00:00",
+   "s5a_batteries_p2.html.gz"
+  ],
+  [
+   "https://www.marianos.com/pl/batteries/26003?page=3",
+   "2026-11-09 16:05:00+00:00",
+   "s5a_batteries_p3.html.gz"
+  ],
+  [
+   "https://www.marianos.com/pl/batteries/26003?page=4",
+   "2026-11-09 16:05:00+00:00",
+   "s5a_batteries_p4.html.gz"
+  ]
+ ],
+ "sources": {
+  "s4_batteries_p1.html.gz": {
+   "what": "Batteries page 1: 24 products of 96; the page state names no brand and no child listing",
+   "stage": "S4",
+   "collector_revision": "1.9.0rc3",
+   "run_id": "01M70BG79WGW9EC5ZTW2M4V4XS",
+   "fetch_id": "01M70BST59B3RNS8910R96FWBQ",
+   "url": "https://www.marianos.com/pl/batteries/26003",
+   "listing": "26003",
+   "page_asked": 1,
+   "asked_utc": "2026-11-09T14:36:08Z",
+   "provider_request_id": "7525566901422935041",
+   "requested_run_js": "False",
+   "rendered_by_provider": "False",
+   "census_class": "page 1",
+   "brand_facet_in_state": "no",
+   "file_sha256": "04a04570376218c4612184593f87870751769910c29f0189d920f3b0c1ded40a",
+   "bytes": 120976,
+   "origin": "runs/marianos-53100502-pickup/01M70BG79WGW9EC5ZTW2M4V4XS/live/dom/01M70BST59B3RNS8910R96FWBQ.html.gz (byte copy of the collector's own stored page)"
+  },
+  "s4_batteries_p2_repeats_p1.html.gz": {
+   "what": "Batteries, page 2 asked: the answer states page 2 and ranks 25 to 48, and lists page 1's 24 products",
+   "stage": "S4",
+   "collector_revision": "1.9.0rc3",
+   "run_id": "01M70BG79WGW9EC5ZTW2M4V4XS",
+   "fetch_id": "01M70BT5M0DNZ90KVDRE16FVT6",
+   "url": "https://www.marianos.com/pl/batteries/26003?page=2",
+   "listing": "26003",
+   "page_asked": 2,
+   "asked_utc": "2026-11-09T14:36:19Z",
+   "provider_request_id": "7525566950651502593",
+   "requested_run_js": "False",
+   "rendered_by_provider": "False",
+   "census_class": "repeats page 1",
+   "brand_facet_in_state": "no",
+   "file_sha256": "a54938583553b8746fc9de3473fdf490222fd6f1d057c9eb0fc748611afaabb1",
+   "bytes": 120178,
+   "origin": "runs/marianos-53100502-pickup/01M70BG79WGW9EC5ZTW2M4V4XS/live/dom/01M70BT5M0DNZ90KVDRE16FVT6.html.gz (byte copy of the collector's own stored page)"
+  },
+  "s5a_batteries_p2.html.gz": {
+   "what": "Batteries page 2, asked 6 min 33 s after the repeated answer: 24 other products (and 4 sponsored)",
+   "stage": "S5a",
+   "collector_revision": "1.9.0rc3",
+   "run_id": "01M70C404FTCMYSY621EKJ015X",
+   "fetch_id": "01M70C64QS1MWNS9MDSS8Z0VZE",
+   "url": "https://www.marianos.com/pl/batteries/26003?page=2",
+   "listing": "26003",
+   "page_asked": 2,
+   "asked_utc": "2026-11-09T14:42:52Z",
+   "provider_request_id": "7525568596169241601",
+   "requested_run_js": "False",
+   "rendered_by_provider": "False",
+   "census_class": "distinct page",
+   "brand_facet_in_state": "yes",
+   "file_sha256": "3bb0047c874b0467f4492bec3f269c5cbc472d59a764807d5b777f7d63e9d520",
+   "bytes": 127178,
+   "origin": "runs/marianos-53100502-pickup/01M70C404FTCMYSY621EKJ015X/live/dom/01M70C64QS1MWNS9MDSS8Z0VZE.html.gz (byte copy of the collector's own stored page)"
+  },
+  "s5a_batteries_p3.html.gz": {
+   "what": "Batteries page 3: 24 other products (and 3 sponsored)",
+   "stage": "S5a",
+   "collector_revision": "1.9.0rc3",
+   "run_id": "01M70C404FTCMYSY621EKJ015X",
+   "fetch_id": "01M70C6D6WS53S7S3DQ9K1X8JE",
+   "url": "https://www.marianos.com/pl/batteries/26003?page=3",
+   "listing": "26003",
+   "page_asked": 3,
+   "asked_utc": "2026-11-09T14:43:00Z",
+   "provider_request_id": "7525568632470908929",
+   "requested_run_js": "False",
+   "rendered_by_provider": "False",
+   "census_class": "distinct page",
+   "brand_facet_in_state": "yes",
+   "file_sha256": "c3580956debf3f0cf9fb6f63af0b371f4d4be2ccebb215a2c32328f703122462",
+   "bytes": 129092,
+   "origin": "runs/marianos-53100502-pickup/01M70C404FTCMYSY621EKJ015X/live/dom/01M70C6D6WS53S7S3DQ9K1X8JE.html.gz (byte copy of the collector's own stored page)"
+  },
+  "s5a_batteries_p4.html.gz": {
+   "what": "Batteries page 4: the last 24 of 96 (and 5 sponsored)",
+   "stage": "S5a",
+   "collector_revision": "1.9.0rc3",
+   "run_id": "01M70C404FTCMYSY621EKJ015X",
+   "fetch_id": "01M70C6PEPXZHTN3953Q7BBE6W",
+   "url": "https://www.marianos.com/pl/batteries/26003?page=4",
+   "listing": "26003",
+   "page_asked": 4,
+   "asked_utc": "2026-11-09T14:43:10Z",
+   "provider_request_id": "7525568672161600513",
+   "requested_run_js": "False",
+   "rendered_by_provider": "False",
+   "census_class": "distinct page",
+   "brand_facet_in_state": "yes",
+   "file_sha256": "da6dfc3ea108b66a88a3598fb5c2b63d4a0aa9d6f49ed3665823dd964d3608c3",
+   "bytes": 132809,
+   "origin": "runs/marianos-53100502-pickup/01M70C404FTCMYSY621EKJ015X/live/dom/01M70C6PEPXZHTN3953Q7BBE6W.html.gz (byte copy of the collector's own stored page)"
+  },
+  "s3b_frozen_p1_no_filters.html.gz": {
+   "what": "Frozen page 1: 273 results, 250 reachable; the page state names no brand and no child listing",
+   "stage": "S3b",
+   "collector_revision": "1.9.0rc4",
+   "run_id": "01M70H9RB4Q736926MP3W5117A",
+   "fetch_id": "01M70H9V5KVP0NJ7TKDW81VYSF",
+   "url": "https://www.marianos.com/pl/frozen/18010",
+   "listing": "18010",
+   "page_asked": 1,
+   "asked_utc": "2026-11-09T16:12:16Z",
+   "provider_request_id": "7525591094550102017",
+   "requested_run_js": "False",
+   "rendered_by_provider": "False",
+   "census_class": "page 1",
+   "brand_facet_in_state": "no",
+   "file_sha256": "41790063a6419fa5467f2b387a3932e019b2a2f38f8800da7a7cde5573c945a5",
+   "bytes": 154931,
+   "origin": "runs/marianos-53100502-pickup/01M70H9RB4Q736926MP3W5117A/live/dom/01M70H9V5KVP0NJ7TKDW81VYSF.html.gz (byte copy of the collector's own stored page)"
+  },
+  "s3b_frozen_p2_repeats_p1.html.gz": {
+   "what": "Frozen, page 2 asked: the answer states page 2 and lists page 1's 24 products",
+   "stage": "S3b",
+   "collector_revision": "1.9.0rc4",
+   "run_id": "01M70H9RB4Q736926MP3W5117A",
+   "fetch_id": "01M70HCSAHP6TZDHVDHVK8GCHM",
+   "url": "https://www.marianos.com/pl/frozen/18010?page=2",
+   "listing": "18010",
+   "page_asked": 2,
+   "asked_utc": "2026-11-09T16:13:52Z",
+   "provider_request_id": "7525591499015206913",
+   "requested_run_js": "False",
+   "rendered_by_provider": "False",
+   "census_class": "repeats page 1",
+   "brand_facet_in_state": "no",
+   "file_sha256": "98a8f6705faa3681d3b9efc1bdf0a745efaa6d24b46b4df910aa4bdb8741729a",
+   "bytes": 155770,
+   "origin": "runs/marianos-53100502-pickup/01M70H9RB4Q736926MP3W5117A/live/dom/01M70HCSAHP6TZDHVDHVK8GCHM.html.gz (byte copy of the collector's own stored page)"
+  }
+ },
+ "run_status": "validated",
+ "observed": {
+  "collector_version": "1.10.0rc3",
+  "source_revision": {
+   "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+   "source": "git",
+   "uncommitted_changes": false
+  },
+  "c1_in_this_build": true,
+  "run_status": "validated",
+  "stop_code": null,
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "PASS",
+   "G4": "PASS",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "FAIL"
+  },
+  "pages": [
+   {
+    "listing": "26003",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "04a04570376218c4612184593f87870751769910c29f0189d920f3b0c1ded40a",
+    "request_id": "replay-2",
+    "stored_page": true,
+    "id": "01M76D6DBEV0867D18WCPZ2WNP"
+   },
+   {
+    "listing": "26003",
+    "page": 2,
+    "attempt": 1,
+    "state": "stopped",
+    "verdict": "repeated",
+    "new": 0,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "a54938583553b8746fc9de3473fdf490222fd6f1d057c9eb0fc748611afaabb1",
+    "request_id": "replay-6",
+    "stored_page": true,
+    "id": "01M76D6EJBHDF188NPHN03JYWA"
+   },
+   {
+    "listing": "26003",
+    "page": 2,
+    "attempt": 2,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 4,
+    "identities": 24,
+    "sha256": "3bb0047c874b0467f4492bec3f269c5cbc472d59a764807d5b777f7d63e9d520",
+    "request_id": "replay-7",
+    "stored_page": true,
+    "id": "01M76D6GK6C16SKHME94B6SAZ2"
+   },
+   {
+    "listing": "26003",
+    "page": 3,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 3,
+    "identities": 24,
+    "sha256": "c3580956debf3f0cf9fb6f63af0b371f4d4be2ccebb215a2c32328f703122462",
+    "request_id": "replay-8",
+    "stored_page": true,
+    "id": "01M76D6J0EK8XYAH7N146AHPBT"
+   },
+   {
+    "listing": "26003",
+    "page": 4,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 5,
+    "identities": 24,
+    "sha256": "da6dfc3ea108b66a88a3598fb5c2b63d4a0aa9d6f49ed3665823dd964d3608c3",
+    "request_id": "replay-9",
+    "stored_page": true,
+    "id": "01M76D6KE1HA5M594EPJWT35Q8"
+   }
+  ],
+  "records": 96,
+  "distinct_records": 96,
+  "records_by_status": {
+   "price_conflict": 6,
+   "valid": 90
+  },
+  "coverage": {
+   "status": "DONE",
+   "seen": 96,
+   "total": 96,
+   "reason": ""
+  },
+  "listing_tasks": {
+   "26003": "succeeded"
+  },
+  "deferred_requests": [
+   {
+    "taxonomy_id": "26003",
+    "requested_page": 2,
+    "kind": "repeated_page",
+    "state": "recovered",
+    "reasks_dispatched": 1,
+    "max_reasks": 2,
+    "min_wait_s": 300,
+    "original_verdict": "repeated",
+    "original_reason": "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly",
+    "original_listing_page_id": "01M76D6EJBHDF188NPHN03JYWA",
+    "outcome": "counted: 24 products new to the listing; the listing goes on from page 3",
+    "attempts": [
+     {
+      "new": 0,
+      "role": "first answer",
+      "detail": "page 2 repeats an earlier page exactly",
+      "capture": {
+       "sha256": "a54938583553b8746fc9de3473fdf490222fd6f1d057c9eb0fc748611afaabb1",
+       "page_fetch_id": "01M76D6DEDTJYH7QXETJDSV6N4",
+       "listing_page_id": "01M76D6EJBHDF188NPHN03JYWA",
+       "listing_page_attempt": 1
+      },
+      "counted": false,
+      "ordinal": 0,
+      "outcome": "set aside; asked again not before 2026-11-09T16:05:00Z",
+      "overlap": 24,
+      "verdict": "repeated",
+      "answered": true,
+      "returned": {
+       "page": 2,
+       "cards": 24,
+       "total": 96,
+       "offset": 24,
+       "filters": {
+        "rts": [],
+        "color": [],
+        "price": "",
+        "scent": [],
+        "flavor": [],
+        "savings": [],
+        "brandName": [],
+        "nutrition": [],
+        "fulfillment": "all",
+        "moreOptions": [],
+        "availability": [],
+        "priceBuckets": [],
+        "specialBenefits": []
+       },
+       "listing": "26003",
+       "store_id": "53100502",
+       "available": 96,
+       "search_id": "e45bcb67-6136-4ddf-ad70-aa7339fc4a7a",
+       "sponsored": [],
+       "identities": [
+        "0003980014519",
+        "0003980014515",
+        "0003980014518",
+        "0003980014514",
+        "0003980014981",
+        "0003980014520",
+        "0004133382501",
+        "0003980014523",
+        "0004133384401",
+        "0003980014982",
+        "0003980014516",
+        "0004122600009",
+        "0004122600010",
+        "0004133327035",
+        "0003980014529",
+        "0003980014526",
+        "0003980014522",
+        "0003980014983",
+        "0003980014521",
+        "0004133370464",
+        "0004133343001",
+        "0003980011009",
+        "0003980013744",
+        "0004122600016"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        2
+       ]
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/batteries/26003?page=2",
+       "page": 2,
+       "filter": {},
+       "offset": 24,
+       "listing": "26003",
+       "reading": "26003",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:55:56.365150Z",
+      "recorded_at": "2026-11-09T16:00:00Z",
+      "store_check": "PASS",
+      "unique_after": 24,
+      "unique_before": 24,
+      "provider_request_id": "replay-6",
+      "rendered_by_provider": false
+     },
+     {
+      "new": 24,
+      "role": "re-ask",
+      "detail": "24 products new to the listing",
+      "capture": {
+       "sha256": "3bb0047c874b0467f4492bec3f269c5cbc472d59a764807d5b777f7d63e9d520",
+       "page_fetch_id": "01M76D6F7VF6NYTM8MMCXZKAEG",
+       "listing_page_id": "01M76D6GK6C16SKHME94B6SAZ2",
+       "listing_page_attempt": 2
+      },
+      "counted": true,
+      "ordinal": 1,
+      "outcome": "counted: 24 products new to the listing; the listing goes on from page 3",
+      "overlap": 0,
+      "verdict": "new",
+      "answered": true,
+      "returned": {
+       "page": 2,
+       "cards": 28,
+       "total": 96,
+       "offset": 24,
+       "filters": {
+        "rts": [],
+        "color": [],
+        "price": "",
+        "scent": [],
+        "flavor": [],
+        "savings": [],
+        "brandName": [],
+        "nutrition": [],
+        "fulfillment": "all",
+        "moreOptions": [],
+        "availability": [],
+        "priceBuckets": [],
+        "specialBenefits": []
+       },
+       "listing": "26003",
+       "store_id": "53100502",
+       "available": 96,
+       "search_id": "4f918249-1e34-4d95-a087-bcac790154fd",
+       "sponsored": [
+        "0003980011009",
+        "0004133327035",
+        "0004133370464",
+        "0004133384401"
+       ],
+       "identities": [
+        "0001280054008",
+        "0003980014517",
+        "0003980014984",
+        "0004133374064",
+        "0003980014524",
+        "0003980011099",
+        "0003980014979",
+        "0003980014532",
+        "0003980014977",
+        "0004122600003",
+        "0001280054011",
+        "0004133300213",
+        "0004122600018",
+        "0003980004158",
+        "0003980014528",
+        "0001280054007",
+        "0003980008513",
+        "0003980014525",
+        "0003980002297",
+        "0003980008272",
+        "0003980014533",
+        "0003980013067",
+        "0003980014530",
+        "0004122600006"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        2
+       ]
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/batteries/26003?page=2",
+       "page": 2,
+       "filter": {},
+       "offset": 24,
+       "listing": "26003",
+       "reading": "26003",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:55:58.203388Z",
+      "recorded_at": "2026-11-09T16:05:00Z",
+      "store_check": "PASS",
+      "unique_after": 48,
+      "dispatched_at": "2026-11-09T16:05:00Z",
+      "unique_before": 24,
+      "provider_request_id": "replay-7",
+      "rendered_by_provider": false
+     }
+    ],
+    "url": "https://www.marianos.com/pl/batteries/26003?page=2",
+    "requested_filter": {},
+    "store_context": {
+     "store_id": "53100502",
+     "store_key": "marianos-53100502-pickup",
+     "fulfillment": "PICKUP"
+    }
+   }
+  ],
+  "ledger_rows": 9,
+  "ledger": [
+   [
+    "https://www.marianos.com/robots.txt",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/batteries/26003",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/savings/cl/coupons/",
+    "settled",
+    "rule",
+    "provider_failed_free"
+   ],
+   [
+    "https://www.marianos.com/savings/cl/coupons/",
+    "settled",
+    "rule",
+    "provider_failed_free"
+   ],
+   [
+    "https://www.marianos.com/savings/cl/coupons/",
+    "settled",
+    "rule",
+    "provider_failed_free"
+   ],
+   [
+    "https://www.marianos.com/pl/batteries/26003?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/batteries/26003?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/batteries/26003?page=3",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/batteries/26003?page=4",
+    "settled",
+    "rule",
+    "ok"
+   ]
+  ],
+  "published_pointer": null
+ }
+}

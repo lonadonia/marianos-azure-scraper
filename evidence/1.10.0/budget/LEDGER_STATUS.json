@@ -1,0 +1,52 @@
+{
+ "what": "a read of the shared trial ledger at publication time; this task made no request and no reservation",
+ "read_at": "2026-11-11T23:45:39.970134Z",
+ "verify_chain": "{\"chain_ok\": true, \"events\": 5560}",
+ "campaign": {
+  "campaign_id": "oxylabs-trial-20261103",
+  "cap_usd": "5.000000",
+  "headroom_usd": "0.500000",
+  "allocatable_usd": "4.500000",
+  "envelopes_total_usd": "4.500000",
+  "committed_usd": "2.656500",
+  "settled_usd": "2.622000",
+  "held_usd": "0.034500",
+  "unknown_usd": "0.034500",
+  "spendable_campaign_usd": "1.843500",
+  "reservations_by_state": {
+   "settled": 1766,
+   "unknown": 23
+  },
+  "projects": {
+   "marianos": {
+    "envelope_usd": "2.250000",
+    "rows": "276",
+    "held_usd": "0.010500",
+    "held_results": "7",
+    "unknown_usd": "0.010500",
+    "unknown_rows": "7",
+    "settled_usd": "0.399000",
+    "settled_results": "266",
+    "committed_usd": "0.409500",
+    "spendable_in_envelope_usd": "1.840500"
+   },
+   "walmart": {
+    "envelope_usd": "2.250000",
+    "rows": "1513",
+    "held_usd": "0.024000",
+    "held_results": "16",
+    "unknown_usd": "0.024000",
+    "unknown_rows": "16",
+    "settled_usd": "2.223000",
+    "settled_results": "1482",
+    "committed_usd": "2.247000",
+    "spendable_in_envelope_usd": "0.003000"
+   }
+  },
+  "active_lease": null,
+  "controller_sha256": "bf90e2a323a749863d97aa6c57bc558e0fd9cd82b0c3e2169fbd70952b8873f2",
+  "read_at": "2026-11-11T23:45:39.970134Z"
+ },
+ "marianos_stages": 13,
+ "last_marianos_stage_closed": "2026-11-09T16:26:37.740519Z"
+}

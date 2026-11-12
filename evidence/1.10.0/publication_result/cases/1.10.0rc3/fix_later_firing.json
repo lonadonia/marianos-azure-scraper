@@ -1,0 +1,149 @@
+{
+ "case": "fix_later_firing",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the refusal is injected",
+ "live_request_sent": false,
+ "collector_version": "1.10.0rc3",
+ "source_revision": {
+  "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+  "source": "git",
+  "uncommitted_changes": false
+ },
+ "first_execution": {
+  "exit_code": 6,
+  "run_status": "validated",
+  "log": [
+   {
+    "level": "ERROR",
+    "event": "PUBLICATION_REFUSED",
+    "exit_code": null,
+    "message": "the complete validated run was not published: integrity check failed: products.csv hash mismatch; the last published dataset stays published",
+    "publication": null,
+    "version": null
+   },
+   {
+    "level": "WARN",
+    "event": "RUN_FINISHED",
+    "exit_code": 6,
+    "message": null,
+    "publication": {
+     "automatic": true,
+     "published": false,
+     "refused": "integrity check failed: products.csv hash mismatch"
+    },
+    "version": null
+   }
+  ],
+  "run_finished": {
+   "ts": "2026-11-11T22:58:38.714Z",
+   "level": "WARN",
+   "event": "RUN_FINISHED",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "exit_code": 6,
+   "run_id": "01M76DB9CYR4X718KV0PX72MJC",
+   "status": "validated",
+   "trigger": "schedule",
+   "dataset": "complete",
+   "pilot": false,
+   "occurrence": "2026-11-09",
+   "stop_code": null,
+   "stop_detail": null,
+   "created_at": "2026-11-11T22:58:36.057732Z",
+   "started_at": "2026-11-11T22:58:36.172535Z",
+   "finished_at": "2026-11-11T22:58:38.533572Z",
+   "outcome": "validated",
+   "records_by_status": {
+    "valid": 60
+   },
+   "collection_complete": true,
+   "canary": {
+    "at": "2026-11-09T16:00:00Z",
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "page": "01M76DB9T89J3TAWVA4H747Y78",
+    "valid": 24,
+    "status": "passed",
+    "records": 24,
+    "problems": [],
+    "valid_ratio": 1.0,
+    "source_check": {
+     "records": 24,
+     "mismatch": 0,
+     "verified": 24,
+     "unverified": 0
+    }
+   },
+   "historical": {
+    "too_old": 0,
+    "carried_forward": 0
+   },
+   "publication": {
+    "automatic": true,
+    "published": false,
+    "refused": "integrity check failed: products.csv hash mismatch"
+   },
+   "failed_checks": []
+  },
+  "events": [
+   {
+    "level": "ERROR",
+    "code": "PUBLICATION_REFUSED",
+    "message": "the complete validated run was not published: integrity check failed: products.csv hash mismatch; the last published dataset stays published"
+   }
+  ]
+ },
+ "later_firing_exit_code": 6,
+ "later_firing_log": [
+  {
+   "ts": "2026-11-11T22:58:38.767Z",
+   "level": "WARN",
+   "event": "OCCURRENCE_DONE",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "occurrence": "2026-11-09",
+   "run": {
+    "run_id": "01M76DB9CYR4X718KV0PX72MJC",
+    "status": "validated",
+    "trigger": "schedule",
+    "dataset": "complete",
+    "pilot": false,
+    "occurrence": "2026-11-09",
+    "stop_code": null,
+    "stop_detail": null,
+    "created_at": "2026-11-11T22:58:36.057732Z",
+    "started_at": "2026-11-11T22:58:36.172535Z",
+    "finished_at": "2026-11-11T22:58:38.533572Z",
+    "outcome": "validated",
+    "records_by_status": {
+     "valid": 60
+    },
+    "collection_complete": true,
+    "canary": {
+     "at": "2026-11-09T16:00:00Z",
+     "url": "https://www.marianos.com/pl/listing-03001/03001",
+     "page": "01M76DB9T89J3TAWVA4H747Y78",
+     "valid": 24,
+     "status": "passed",
+     "records": 24,
+     "problems": [],
+     "valid_ratio": 1.0,
+     "source_check": {
+      "records": 24,
+      "mismatch": 0,
+      "verified": 24,
+      "unverified": 0
+     }
+    },
+    "historical": {
+     "too_old": 0,
+     "carried_forward": 0
+    }
+   },
+   "exit_code": 6,
+   "publication": {
+    "automatic": true,
+    "published": false,
+    "refused": "integrity check failed: products.csv hash mismatch"
+   }
+  }
+ ]
+}

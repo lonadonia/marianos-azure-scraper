@@ -113,6 +113,12 @@ estimated at 48.4 to 77.3 active hours with one lane (an estimate, not a measure
 delivery's COST_AND_RUNTIME_REPORT has the measured rates and the proposed configuration). The schedule
 stays off until the client authorizes one.
 
+### Release 1.10.0: a request set aside and asked again (C1)
+
+`limits.max_reasks_per_request` (empty or 0: never; at most 2) and `limits.reask_min_wait_seconds` (empty: 300, the least allowed). A later page that lists only products of the listing's earlier pages, and the first page of a listing above the site's window that names no child listing and no brand, are set aside and asked again later in the same run, exactly as first asked. The listing's task waits meanwhile (event `TASK_DEFERRED`) and the run's other listings are read first; when only waiting tasks are left the execution keeps the store lock and waits for the earliest one, as it does for a retry's backoff. The wait counts as the execution's time: the segment and run duration limits, the daily window and the operator's stop are checked before every re-ask, and a run stopped while a request waits keeps the request and its history for the resume.
+
+Events: `REQUEST_SET_ASIDE`, `REQUEST_ASKED_AGAIN`, `REQUEST_RECOVERED`, `REQUEST_NOT_ANSWERED`, and `PAGE_ASKED_AGAIN` for a first page answered again for its filters. A run that set a request aside exports `deferred_requests.json` (each request, each answer). A request still `waiting` in a finished run was not answered properly before the run ended. Cost: at most 2 more submissions for each request set aside; none when nothing repeats. Shipped on for `marianos-53100502-pickup` only; tested offline only.
+
 ## Monitoring
 
 * **Exit codes** of each execution (Azure shows them per execution; CLI.md lists them). Anything but 0 needs

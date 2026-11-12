@@ -59,8 +59,8 @@ _PDP_UPC = re.compile(r"/p/[^?#]*/(\d{13})(?:[?#]|$)")
 
 def rendered_by_provider(result_metadata: Any) -> bool | None:
     """The provider's own statement that it ran the page's scripts (``results[0].metadata.run_js``): a page
-    requested with ``run_js`` can come back without it (stage O1, 2026-11-06: 13 of 14 product pages). None
-    when the answer does not say."""
+    requested with ``run_js`` can come back without it (stage O1, 2026-11-06: 11 of 14 product pages; notes
+    before 1.10.0 said 13, which the saved answers do not bear out). None when the answer does not say."""
     value = result_metadata.get("run_js") if isinstance(result_metadata, dict) else None
     return value if isinstance(value, bool) else None
 

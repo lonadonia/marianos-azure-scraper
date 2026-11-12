@@ -1,0 +1,356 @@
+{
+ "case": "case2 c1 partial overlap on re-ask",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport",
+ "live_request_sent": false,
+ "collector_version": "1.10.0rc3",
+ "source_revision": {
+  "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+  "source": "git",
+  "uncommitted_changes": false
+ },
+ "c1_in_this_build": true,
+ "asked_at": [
+  [
+   "03001",
+   1,
+   "2026-11-09 16:00:00+00:00"
+  ],
+  [
+   "03001",
+   2,
+   "2026-11-09 16:00:00+00:00"
+  ],
+  [
+   "03001",
+   2,
+   "2026-11-09 16:05:00+00:00"
+  ],
+  [
+   "03001",
+   3,
+   "2026-11-09 16:05:00+00:00"
+  ]
+ ],
+ "observed": {
+  "collector_version": "1.10.0rc3",
+  "source_revision": {
+   "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+   "source": "git",
+   "uncommitted_changes": false
+  },
+  "c1_in_this_build": true,
+  "run_status": "rejected",
+  "stop_code": null,
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "FAIL",
+   "G4": "PASS",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "FAIL"
+  },
+  "pages": [
+   {
+    "listing": "03001",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "da32fb0a0e4c061ae6b10fdd9dc430b054c7a46d6d46a35362a16e7892d1ddd8",
+    "request_id": "req-2",
+    "stored_page": true,
+    "id": "01M76D66DH38BYEEKYX4MJV9SD"
+   },
+   {
+    "listing": "03001",
+    "page": 2,
+    "attempt": 1,
+    "state": "stopped",
+    "verdict": "repeated",
+    "new": 0,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "804b6695851c8937c11e31524456c956e6aa89d52b44eb4bdc25533f1a26d019",
+    "request_id": "req-4",
+    "stored_page": true,
+    "id": "01M76D66J69W6RDY0T9NGE2786"
+   },
+   {
+    "listing": "03001",
+    "page": 2,
+    "attempt": 2,
+    "state": "completed",
+    "verdict": "partial_overlap",
+    "new": 12,
+    "duplicates": 12,
+    "identities": 24,
+    "sha256": "90ed7139bc04941fe1e11c4518a44b6dae059ccab9d98407544a332af43df1b4",
+    "request_id": "req-5",
+    "stored_page": true,
+    "id": "01M76D67BASZWMW9FHMRFSRPJP"
+   },
+   {
+    "listing": "03001",
+    "page": 3,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 12,
+    "duplicates": 0,
+    "identities": 12,
+    "sha256": "58b25331f63b83f00625be232a140cb57203965f961b10b75e85822fab7bc8f0",
+    "request_id": "req-6",
+    "stored_page": true,
+    "id": "01M76D67J87JT184414ZZK809N"
+   }
+  ],
+  "records": 48,
+  "distinct_records": 48,
+  "records_by_status": {
+   "valid": 48
+  },
+  "coverage": {
+   "status": "INCOMPLETE",
+   "seen": 48,
+   "total": 60,
+   "reason": "accessible pages exhausted; coverage incomplete: 3 page(s) read, 48 distinct products of 60 reported"
+  },
+  "listing_tasks": {
+   "03001": "succeeded"
+  },
+  "deferred_requests": [
+   {
+    "taxonomy_id": "03001",
+    "requested_page": 2,
+    "kind": "repeated_page",
+    "state": "recovered",
+    "reasks_dispatched": 1,
+    "max_reasks": 2,
+    "min_wait_s": 300,
+    "original_verdict": "repeated",
+    "original_reason": "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly",
+    "original_listing_page_id": "01M76D66J69W6RDY0T9NGE2786",
+    "outcome": "counted: 12 products new to the listing; the listing goes on from page 3",
+    "attempts": [
+     {
+      "new": 0,
+      "role": "first answer",
+      "detail": "page 2 repeats an earlier page exactly",
+      "capture": {
+       "sha256": "804b6695851c8937c11e31524456c956e6aa89d52b44eb4bdc25533f1a26d019",
+       "page_fetch_id": "01M76D66FS16YC86WRJ4ZA365J",
+       "listing_page_id": "01M76D66J69W6RDY0T9NGE2786",
+       "listing_page_attempt": 1
+      },
+      "counted": false,
+      "ordinal": 0,
+      "outcome": "set aside; asked again not before 2026-11-09T16:05:00Z",
+      "overlap": 24,
+      "verdict": "repeated",
+      "answered": true,
+      "returned": {
+       "page": 2,
+       "cards": 24,
+       "total": 60,
+       "offset": 24,
+       "filters": {
+        "brandName": [],
+        "fulfillment": "all"
+       },
+       "listing": "03001",
+       "store_id": "53100502",
+       "available": 60,
+       "search_id": "syn-03001-2",
+       "sponsored": [],
+       "identities": [
+        "0003800000001",
+        "0003800000002",
+        "0003800000003",
+        "0003800000004",
+        "0003800000005",
+        "0003800000006",
+        "0003800000007",
+        "0003800000008",
+        "0003800000009",
+        "0003800000010",
+        "0003800000011",
+        "0003800000012",
+        "0003800000013",
+        "0003800000014",
+        "0003800000015",
+        "0003800000016",
+        "0003800000017",
+        "0003800000018",
+        "0003800000019",
+        "0003800000020",
+        "0003800000021",
+        "0003800000022",
+        "0003800000023",
+        "0003800000024"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        2
+       ]
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/listing-03001/03001?page=2",
+       "page": 2,
+       "filter": {},
+       "offset": 24,
+       "listing": "03001",
+       "reading": "03001",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:55:49.241728Z",
+      "recorded_at": "2026-11-09T16:00:00Z",
+      "store_check": "PASS",
+      "unique_after": 24,
+      "unique_before": 24,
+      "provider_request_id": "req-4",
+      "rendered_by_provider": null
+     },
+     {
+      "new": 12,
+      "role": "re-ask",
+      "detail": "12 products of earlier pages again",
+      "capture": {
+       "sha256": "90ed7139bc04941fe1e11c4518a44b6dae059ccab9d98407544a332af43df1b4",
+       "page_fetch_id": "01M76D674YQJGDD99SBNC25PJ6",
+       "listing_page_id": "01M76D67BASZWMW9FHMRFSRPJP",
+       "listing_page_attempt": 2
+      },
+      "counted": true,
+      "ordinal": 1,
+      "outcome": "counted: 12 products new to the listing; the listing goes on from page 3",
+      "overlap": 12,
+      "verdict": "partial_overlap",
+      "answered": true,
+      "returned": {
+       "page": 2,
+       "cards": 24,
+       "total": 60,
+       "offset": 24,
+       "filters": {
+        "brandName": [],
+        "fulfillment": "all"
+       },
+       "listing": "03001",
+       "store_id": "53100502",
+       "available": 60,
+       "search_id": "syn-03001-2",
+       "sponsored": [],
+       "identities": [
+        "0003800000001",
+        "0003800000002",
+        "0003800000003",
+        "0003800000004",
+        "0003800000005",
+        "0003800000006",
+        "0003800000007",
+        "0003800000008",
+        "0003800000009",
+        "0003800000010",
+        "0003800000011",
+        "0003800000012",
+        "0003800000025",
+        "0003800000026",
+        "0003800000027",
+        "0003800000028",
+        "0003800000029",
+        "0003800000030",
+        "0003800000031",
+        "0003800000032",
+        "0003800000033",
+        "0003800000034",
+        "0003800000035",
+        "0003800000036"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        2
+       ]
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/listing-03001/03001?page=2",
+       "page": 2,
+       "filter": {},
+       "offset": 24,
+       "listing": "03001",
+       "reading": "03001",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:55:49.918733Z",
+      "recorded_at": "2026-11-09T16:05:00Z",
+      "store_check": "PASS",
+      "unique_after": 36,
+      "dispatched_at": "2026-11-09T16:05:00Z",
+      "unique_before": 24,
+      "provider_request_id": "req-5",
+      "rendered_by_provider": null
+     }
+    ],
+    "url": "https://www.marianos.com/pl/listing-03001/03001?page=2",
+    "requested_filter": {},
+    "store_context": {
+     "store_id": "53100502",
+     "store_key": "marianos-53100502-pickup",
+     "fulfillment": "PICKUP"
+    }
+   }
+  ],
+  "ledger_rows": 6,
+  "ledger": [
+   [
+    "https://www.marianos.com/robots.txt",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/savings/cl/coupons/",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?page=3",
+    "settled",
+    "rule",
+    "ok"
+   ]
+  ],
+  "published_pointer": null
+ }
+}

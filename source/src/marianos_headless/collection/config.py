@@ -49,6 +49,15 @@ class Limits(_Model):
     # whose terms were not read is still recorded, flagged DIGITAL_TERMS_UNREAD with the reason.
     # Release 1.9.0rc3: on the tile served since 2026-11-06 (no coupon shown) every product is a candidate.
     max_product_term_reads: int | None = Field(None, ge=0)
+    # Release 1.10.0 (C1): how many times one listing request is asked again later in the same run when a
+    # later page answers with an earlier page's products, or when the first page of a listing above the
+    # source's window carries no filter to subdivide it by (``collection.reask``). Empty or 0 (the default,
+    # and the behaviour of every earlier release): never; at most 2. Each re-ask is one more submission, sent
+    # once, reserved and checked against every limit like any other. Not a scope limit.
+    max_reasks_per_request: int | None = Field(None, ge=0, le=2)
+    # The shortest wait before a request is asked again, counted from its previous answer or attempt, in
+    # seconds; empty: 300, which is also the least a configuration may set.
+    reask_min_wait_seconds: int | None = Field(None, ge=300, le=3600)
 
     def bounded(self) -> bool:
         """True when a limit narrows the scope (the run is then a pilot, never a complete catalogue)."""

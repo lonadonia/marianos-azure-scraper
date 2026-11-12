@@ -1,0 +1,29 @@
+ README.md                                                            |  27 ++++
+ config/collector.yaml                                                |   6 +
+ docs/OPERATIONS.md                                                   |   6 +
+ pyproject.toml                                                       |   2 +-
+ src/marianos_headless/__init__.py                                    |   2 +-
+ src/marianos_headless/collection/config.py                           |   9 ++
+ src/marianos_headless/collection/oxylabs_live.py                     | 831 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
+ src/marianos_headless/collection/reask.py                            | 527 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ src/marianos_headless/collection/reconciliation.py                   |  13 +-
+ src/marianos_headless/db/models.py                                   |  65 +++++++-
+ src/marianos_headless/db/queue.py                                    |  14 ++
+ src/marianos_headless/migrations/versions/0006_deferred_requests.py  |  87 +++++++++++
+ src/marianos_headless/worker/pipeline.py                             |  30 ++--
+ src/marianos_headless/worker/runner.py                               |  62 +++++++-
+ tests/c1_site.py                                                     | 475 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ tests/fixtures/oxylabs_2026-11-09/README.md                          |  21 +++
+ tests/fixtures/oxylabs_2026-11-09/SOURCES.json                       | 135 +++++++++++++++++
+ tests/fixtures/oxylabs_2026-11-09/s3b_frozen_p1_no_filters.html.gz   | Bin 0 -> 154931 bytes
+ tests/fixtures/oxylabs_2026-11-09/s3b_frozen_p2_repeats_p1.html.gz   | Bin 0 -> 155770 bytes
+ tests/fixtures/oxylabs_2026-11-09/s4_batteries_p1.html.gz            | Bin 0 -> 120976 bytes
+ tests/fixtures/oxylabs_2026-11-09/s4_batteries_p2_repeats_p1.html.gz | Bin 0 -> 120178 bytes
+ tests/fixtures/oxylabs_2026-11-09/s5a_batteries_p2.html.gz           | Bin 0 -> 127178 bytes
+ tests/fixtures/oxylabs_2026-11-09/s5a_batteries_p3.html.gz           | Bin 0 -> 129092 bytes
+ tests/fixtures/oxylabs_2026-11-09/s5a_batteries_p4.html.gz           | Bin 0 -> 132809 bytes
+ tests/integration/test_migrations.py                                 |  41 +++++-
+ tests/integration/test_reask_c1.py                                   | 993 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ tests/unit/test_reask.py                                             | 163 +++++++++++++++++++++
+ uv.lock                                                              |   2 +-
+ 28 files changed, 3459 insertions(+), 52 deletions(-)

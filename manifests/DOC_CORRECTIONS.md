@@ -1,5 +1,25 @@
 # Documentation corrections for this publication
 
+## Release 1.10.0rc3 (2026-11-12, tag `review-1.10.0rc3-20261112`)
+
+1.10.0rc3 is an offline candidate. Its report is
+[`review/TECHNICAL_REPORT_1.10.0.md`](../review/TECHNICAL_REPORT_1.10.0.md), with
+[`review/OUTSTANDING_REQUIREMENTS_1.10.0.csv`](../review/OUTSTANDING_REQUIREMENTS_1.10.0.csv); the 1.9.0rc4 and
+1.8.0rc5 documents stay as published at their tags, and the shared ones change as listed here. No earlier result,
+run version or count is rewritten.
+
+| Change | Where | Basis |
+|---|---|---|
+| The front page, the runbook and the probe reference describe 1.10.0rc3; the runbook's commands use the 1.10 tag and its tests; their 1.9.0rc4 texts stay at `review-1.9.0rc4-20261109` | `README.md`, `review/ACCEPTANCE_RUNBOOK.md`, `review/SHARED_CLASSIC_PROBE.md` | this delivery |
+| The acceptance matrix has two new columns, `status_1.10.0rc3` and `evidence_1.10.0rc3`; every earlier column is unchanged. No row gains live evidence from 1.10.0rc3 | `review/ACCEPTANCE_MATRIX.csv` | report 1.10.0 §7 |
+| The 29-item audit has five new columns for 1.10.0rc3 (state, evidence, what remains, next owner, condition) beside the unchanged 1.9.0rc4 ones | `review/AUDIT_29_RECONCILIATION.csv` | report 1.10.0 §7 |
+| **The audit file's row G7 of 1.9.0rc4 had 11 fields where the header has 8**: its state text was put in after the file was written, and three commas in it were not quoted, so a CSV reader split it into four cells and shifted the evidence, what remains, owner and condition. The row is re-quoted; its text is unchanged. No other published CSV (392 files) has an uneven row | `review/AUDIT_29_RECONCILIATION.csv` row G7 | a CSV read of every published `.csv` file before this publication |
+| **85 files of `evidence/1.9.0/` were published with LF line ends where their originals have Windows line ends (CRLF), without a record.** Nothing else in them differs. 1.9 listed none of them in `REDACTIONS.csv`, and `FILE_MAP.csv` gave each one's published SHA-256 as its original's. 50 of them are export files of the live runs: each run's own `exports/manifest.json`, written by the collector, names the CRLF original's hash and size, so the published export does not match it byte for byte. The 85 are now listed in `REDACTIONS.csv` with the original's SHA-256, and `FILE_MAP.csv` gives that hash; the files themselves are unchanged. For 81 of them, writing each LF back as CRLF gives the original (for the 50 exports, the hash their manifest names); the other 4, logs of the T06, T07 and two-lane reproductions, also hold bare LFs. The 23 excerpts of 1.9 (each live stage's `run.jsonl` and `stage.json`, and `tests/RUNS.jsonl`) are lines or records taken from files written with CRLF and are published with LF; their origin names the selection. The 1.8 evidence was checked the same way: each of its 596 archive files matches the original hash `FILE_MAP.csv` gives | `manifests/REDACTIONS.csv` and `manifests/FILE_MAP.csv` (the 85 rows) | `evidence/1.10.0/corrections/LINE_ENDS_190.json`, made by `evidence/1.10.0/tools/line_ends_190_1100.py` from the private originals |
+| **Stage O1's rendered product pages: 3 of 14, not 1 of 14.** The saved raw answers of 2026-11-06 state `run_js` true for 0001780014939, 0002310014848 and 0087786900820. The statements that said 1 of 14 are left as published, and the current figure is in the 1.10.0 report: report 1.9.0 §6 and §10, the cost report's section 0, the evidence index of 1.9 (stage O1's row), this file's 1.9.0rc4 row on B29, and the 1.9 columns of matrix row B29 and audit group G4. A note under the titles of the 1.9.0 report and the cost report points to the correction | `review/TECHNICAL_REPORT_1.9.0.md` and `review/COST_AND_RUNTIME_REPORT.md` (a note under the title only) | report 1.10.0 §8; `evidence/1.10.0/coupons/COUPON_EVIDENCE_CHECK.json` |
+| **0002310014848** was described as a page brought unrendered. Its first saved product page was rendered and has no Savings section; its state is "unread, and not shown on its rendered page" | matrix `M26` (1.10 column), report 1.10.0 §7, §8 | the same check |
+| The 1.8.0rc5 report's note names the 1.10.0 report as the current state | `review/TECHNICAL_REPORT.md` (its note only) | this delivery |
+| In the collector: two docstrings, its README and a fixture note said 1 of 14 or that all seven answers of a fixture stated `run_js` false; corrected in development commit `8158b49` (no code change) | `source/` | `evidence/1.10.0/diffs/NOTES_O1_COUNT_8158b49.diff` |
+
 ## Release 1.9.0rc4 (2026-11-09, tag `review-1.9.0rc4-20261109`)
 
 The 1.8.0rc5 documents stay as they were published on 2026-11-02 (tag `review-1.8.0rc5-20261102`); 1.9 adds its own

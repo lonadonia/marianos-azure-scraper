@@ -1,0 +1,437 @@
+{
+ "case": "case3 c1 facets never come",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport",
+ "live_request_sent": false,
+ "collector_version": "1.10.0rc3",
+ "source_revision": {
+  "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+  "source": "git",
+  "uncommitted_changes": false
+ },
+ "c1_in_this_build": true,
+ "asked_at": [
+  [
+   "03001",
+   1,
+   "2026-11-09 16:00:00+00:00"
+  ],
+  [
+   "03001",
+   1,
+   "2026-11-09 16:05:00+00:00"
+  ],
+  [
+   "03001",
+   1,
+   "2026-11-09 16:10:00+00:00"
+  ],
+  [
+   "03001",
+   2,
+   "2026-11-09 16:10:00+00:00"
+  ]
+ ],
+ "observed": {
+  "collector_version": "1.10.0rc3",
+  "source_revision": {
+   "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+   "source": "git",
+   "uncommitted_changes": false
+  },
+  "c1_in_this_build": true,
+  "run_status": "rejected",
+  "stop_code": null,
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "FAIL",
+   "G4": "PASS",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "FAIL"
+  },
+  "pages": [
+   {
+    "listing": "03001",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "1d0e99f1e900a3bfe48d341a92a573191d2af5404f3419f9ad69f5dbaf3de7d9",
+    "request_id": "req-2",
+    "stored_page": true,
+    "id": "01M76D7A8XCGWMVQKJTTW8YJP2"
+   },
+   {
+    "listing": "03001",
+    "page": 1,
+    "attempt": 2,
+    "state": "reasked",
+    "verdict": "new",
+    "new": 0,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "1d0e99f1e900a3bfe48d341a92a573191d2af5404f3419f9ad69f5dbaf3de7d9",
+    "request_id": "req-4",
+    "stored_page": true,
+    "id": "01M76D7AZCZQ1FJYMH6F9MR5VT"
+   },
+   {
+    "listing": "03001",
+    "page": 1,
+    "attempt": 3,
+    "state": "reasked",
+    "verdict": "new",
+    "new": 0,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "1d0e99f1e900a3bfe48d341a92a573191d2af5404f3419f9ad69f5dbaf3de7d9",
+    "request_id": "req-5",
+    "stored_page": true,
+    "id": "01M76D7BKNK2GXKHGPMJMRWPZQ"
+   },
+   {
+    "listing": "03001",
+    "page": 2,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "29a4f04b03a6499fa60332af910b8d29d87a3b51016d3107dfce6eec0cabf0b9",
+    "request_id": "req-6",
+    "stored_page": true,
+    "id": "01M76D7BX5KXWQS5PBP64F5F7Y"
+   }
+  ],
+  "records": 48,
+  "distinct_records": 48,
+  "records_by_status": {
+   "valid": 48
+  },
+  "coverage": {
+   "status": "INCOMPLETE",
+   "seen": 48,
+   "total": 60,
+   "reason": "accessible pages exhausted; coverage incomplete: 2 page(s) read, 48 distinct products of 60 reported; the source lets a reader reach 48 of 60 results (availableCount); the first page names no child listing and no brand: the listing (60 results, 48 reachable) cannot be subdivided; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: new (asked again for the listing's filters: the answer names no child listing and no brand); re-ask 2: new (asked again for the listing's filters: the answer names no child listing and no brand); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  "listing_tasks": {
+   "03001": "succeeded"
+  },
+  "deferred_requests": [
+   {
+    "taxonomy_id": "03001",
+    "requested_page": 1,
+    "kind": "missing_facets",
+    "state": "exhausted",
+    "reasks_dispatched": 2,
+    "max_reasks": 2,
+    "min_wait_s": 300,
+    "original_verdict": "new",
+    "original_reason": "the first page names no child listing and no brand: the listing (60 results, 48 reachable) cannot be subdivided",
+    "original_listing_page_id": "01M76D7A8XCGWMVQKJTTW8YJP2",
+    "outcome": "the first page names no child listing and no brand: the listing (60 results, 48 reachable) cannot be subdivided; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: new (asked again for the listing's filters: the answer names no child listing and no brand); re-ask 2: new (asked again for the listing's filters: the answer names no child listing and no brand); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read",
+    "attempts": [
+     {
+      "new": 24,
+      "role": "first answer",
+      "detail": "the listing's first page, counted; it names no child listing and no brand",
+      "capture": {
+       "sha256": "1d0e99f1e900a3bfe48d341a92a573191d2af5404f3419f9ad69f5dbaf3de7d9",
+       "page_fetch_id": "01M76D79NWV9WTE5X8TJYPFFK3",
+       "listing_page_id": "01M76D7A8XCGWMVQKJTTW8YJP2",
+       "listing_page_attempt": 1
+      },
+      "counted": true,
+      "ordinal": 0,
+      "outcome": "set aside; asked again not before 2026-11-09T16:05:00Z",
+      "overlap": 0,
+      "verdict": "new",
+      "answered": true,
+      "returned": {
+       "page": 1,
+       "cards": 24,
+       "total": 60,
+       "offset": 0,
+       "filters": {
+        "fulfillment": "all"
+       },
+       "listing": "03001",
+       "store_id": "53100502",
+       "available": 48,
+       "search_id": "syn-03001-1",
+       "sponsored": [],
+       "identities": [
+        "0003803000001",
+        "0003803000002",
+        "0003803000003",
+        "0003803000004",
+        "0003803000005",
+        "0003803000006",
+        "0003803000007",
+        "0003803000008",
+        "0003803000009",
+        "0003803000010",
+        "0003803000011",
+        "0003803000012",
+        "0003803000013",
+        "0003803000014",
+        "0003803000015",
+        "0003803000016",
+        "0003803000017",
+        "0003803000018",
+        "0003803000019",
+        "0003803000020",
+        "0003803000021",
+        "0003803000022",
+        "0003803000023",
+        "0003803000024"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        1
+       ],
+       "subdivisions": []
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/listing-03001/03001",
+       "page": 1,
+       "filter": {},
+       "offset": 0,
+       "listing": "03001",
+       "reading": "03001",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:56:25.276751Z",
+      "recorded_at": "2026-11-09T16:00:00Z",
+      "store_check": "PASS",
+      "unique_after": 24,
+      "unique_before": 0,
+      "provider_request_id": "req-2"
+     },
+     {
+      "new": 0,
+      "role": "re-ask",
+      "detail": "asked again for the listing's filters: the answer names no child listing and no brand",
+      "capture": {
+       "sha256": "1d0e99f1e900a3bfe48d341a92a573191d2af5404f3419f9ad69f5dbaf3de7d9",
+       "page_fetch_id": "01M76D7AWYBW4G82JYPFMHWVPJ",
+       "listing_page_id": "01M76D7AZCZQ1FJYMH6F9MR5VT",
+       "listing_page_attempt": 2
+      },
+      "counted": false,
+      "ordinal": 1,
+      "outcome": "not counted; asked again not before 2026-11-09T16:10:00Z",
+      "overlap": 24,
+      "verdict": "new",
+      "answered": true,
+      "returned": {
+       "page": 1,
+       "cards": 24,
+       "total": 60,
+       "offset": 0,
+       "filters": {
+        "brandName": [],
+        "fulfillment": "all"
+       },
+       "listing": "03001",
+       "store_id": "53100502",
+       "available": 48,
+       "search_id": "syn-03001-1",
+       "sponsored": [],
+       "identities": [
+        "0003803000001",
+        "0003803000002",
+        "0003803000003",
+        "0003803000004",
+        "0003803000005",
+        "0003803000006",
+        "0003803000007",
+        "0003803000008",
+        "0003803000009",
+        "0003803000010",
+        "0003803000011",
+        "0003803000012",
+        "0003803000013",
+        "0003803000014",
+        "0003803000015",
+        "0003803000016",
+        "0003803000017",
+        "0003803000018",
+        "0003803000019",
+        "0003803000020",
+        "0003803000021",
+        "0003803000022",
+        "0003803000023",
+        "0003803000024"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        1
+       ],
+       "subdivisions": []
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/listing-03001/03001",
+       "page": 1,
+       "filter": {},
+       "offset": 0,
+       "listing": "03001",
+       "reading": "03001",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:56:26.526130Z",
+      "recorded_at": "2026-11-09T16:05:00Z",
+      "store_check": "PASS",
+      "unique_after": 24,
+      "dispatched_at": "2026-11-09T16:05:00Z",
+      "unique_before": 24,
+      "provider_request_id": "req-4",
+      "rendered_by_provider": null
+     },
+     {
+      "new": 0,
+      "role": "re-ask",
+      "detail": "asked again for the listing's filters: the answer names no child listing and no brand",
+      "capture": {
+       "sha256": "1d0e99f1e900a3bfe48d341a92a573191d2af5404f3419f9ad69f5dbaf3de7d9",
+       "page_fetch_id": "01M76D7BHE2GYRD9TSE1T9B7VP",
+       "listing_page_id": "01M76D7BKNK2GXKHGPMJMRWPZQ",
+       "listing_page_attempt": 3
+      },
+      "counted": false,
+      "ordinal": 2,
+      "outcome": "",
+      "overlap": 24,
+      "verdict": "new",
+      "answered": true,
+      "returned": {
+       "page": 1,
+       "cards": 24,
+       "total": 60,
+       "offset": 0,
+       "filters": {
+        "brandName": [],
+        "fulfillment": "all"
+       },
+       "listing": "03001",
+       "store_id": "53100502",
+       "available": 48,
+       "search_id": "syn-03001-1",
+       "sponsored": [],
+       "identities": [
+        "0003803000001",
+        "0003803000002",
+        "0003803000003",
+        "0003803000004",
+        "0003803000005",
+        "0003803000006",
+        "0003803000007",
+        "0003803000008",
+        "0003803000009",
+        "0003803000010",
+        "0003803000011",
+        "0003803000012",
+        "0003803000013",
+        "0003803000014",
+        "0003803000015",
+        "0003803000016",
+        "0003803000017",
+        "0003803000018",
+        "0003803000019",
+        "0003803000020",
+        "0003803000021",
+        "0003803000022",
+        "0003803000023",
+        "0003803000024"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        1
+       ],
+       "subdivisions": []
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/listing-03001/03001",
+       "page": 1,
+       "filter": {},
+       "offset": 0,
+       "listing": "03001",
+       "reading": "03001",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:56:27.182145Z",
+      "recorded_at": "2026-11-09T16:10:00Z",
+      "store_check": "PASS",
+      "unique_after": 24,
+      "dispatched_at": "2026-11-09T16:10:00Z",
+      "unique_before": 24,
+      "provider_request_id": "req-5",
+      "rendered_by_provider": null
+     }
+    ],
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "requested_filter": {},
+    "store_context": {
+     "store_id": "53100502",
+     "store_key": "marianos-53100502-pickup",
+     "fulfillment": "PICKUP"
+    }
+   }
+  ],
+  "ledger_rows": 6,
+  "ledger": [
+   [
+    "https://www.marianos.com/robots.txt",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/savings/cl/coupons/",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ]
+  ],
+  "published_pointer": null
+ }
+}

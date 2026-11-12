@@ -1,0 +1,23 @@
+........................................................................ [ 14%]
+........................................................................ [ 29%]
+...........................F............................................ [ 43%]
+........................................................................ [ 58%]
+........................................................................ [ 72%]
+........................................................................ [ 87%]
+..............................................................           [100%]
+================================== FAILURES ===================================
+______________ test_the_parser_version_names_the_release_series _______________
+
+    def test_the_parser_version_names_the_release_series() -> None:
+        # Q1c's manifest said {"collector": "1.7.0"} for a 1.8.0rc3 run.
+        m = re.match(r"\d+\.\d+\.\d+", __version__)
+>       assert m is not None and m.group(0) == PARSER_VERSION
+E       AssertionError: assert (<re.Match object; span=(0, 6), match='1.10.0'> is not None and '1.10.0' == '1.9.0'
+E         
+E         - 1.9.0
+E         + 1.10.0)
+
+tests\unit\test_export_manifest_180.py:81: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_export_manifest_180.py::test_the_parser_version_names_the_release_series
+1 failed, 493 passed in 17.24s

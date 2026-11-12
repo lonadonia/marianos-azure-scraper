@@ -194,8 +194,10 @@ def savings_document(html: str, *, upc: str, rendered: bool | None, requested_ru
     """The capture artifact of one product page's Savings section (kind ``pdp_savings``), indexed like the
     site's other responses. ``rendered`` is the provider's own statement that it ran the page's scripts
     (``results[0].metadata.run_js``): the coupon rows load only then, so a page brought without them proves
-    nothing about the product's coupons (stage O1, 2026-11-06: 1 of 14 product pages requested with
-    ``run_js`` came back rendered; the 13 others had no coupon row, including the three coupon products)."""
+    nothing about the product's coupons (stage O1, 2026-11-06: of 14 product pages requested with ``run_js``
+    the answers of 3 state it; one of the 3, 0001780014939, shows coupon rows and the other 2 show no Savings
+    section; the 11 brought without it show no coupon row. Notes before 1.10.0 said 1 of 14 came back
+    rendered)."""
     s = parse_pdp_savings(html)
     return {
         "data": {

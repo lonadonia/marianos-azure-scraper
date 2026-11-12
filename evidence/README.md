@@ -10,6 +10,13 @@ maps every original path to its path here; older documents and logs write archiv
 References written `D170:` or `D150:` name files of the earlier 1.7.0rc2 and 1.5.0 deliveries, which are not
 republished here. Logs keep the workstation's working-folder paths (such as `C:\m6\...`) as they were written.
 
+## Release 1.10 (2026-11-12): the offline C1 candidate
+
+[`1.10.0/`](1.10.0/README.md): the C1 cases and the publication-result cases on 1.9.0rc4 and on 1.10.0rc3 (each
+test's outcome and observation on both), the diffs since 1.9.0rc4, the test sessions of the candidate, the coupon
+examples checked in the saved sources, the proposed stages S6 and S6b (not approved) and what the later live
+evidence must contain. Nothing in it is live.
+
 ## Release 1.9 (2026-11-06 to 2026-11-09)
 
 [`1.9.0/`](1.9.0/README.md): the live stages of 2026-11-06 (O1, S1, O2) and of 2026-11-09 on 1.9.0rc3 (S1b, S4,

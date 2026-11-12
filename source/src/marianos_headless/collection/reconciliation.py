@@ -19,7 +19,7 @@ from typing import Any
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from marianos_headless.collection import pagination
+from marianos_headless.collection import pagination, reask
 from marianos_headless.core.findings import RecordFlag
 from marianos_headless.db.models import (
     CategorySource,
@@ -395,11 +395,18 @@ PAGE_FIELDS = (
 
 
 def coverage_files(s: Session, run_id: str) -> dict[str, bytes]:
-    """The supporting files of an export."""
+    """The supporting files of an export. Release 1.10.0 (C1): ``deferred_requests.json`` when the run set
+    a request aside to ask it again (every answer of each, the first one included); absent otherwise."""
     report = reconciliation(s, run_id)
-    return {
+    files = {
         "coverage_reconciliation.json": json.dumps(report, indent=2, ensure_ascii=False).encode("utf-8"),
         "coverage_reconciliation.csv": to_csv(report["listings"], LISTING_FIELDS),
         "coverage_by_csv_row.csv": to_csv(report["rows"], ROW_FIELDS),
         "listing_pages.csv": to_csv(page_rows(s, run_id), PAGE_FIELDS),
     }
+    deferred = reask.export(s, run_id)
+    if deferred:
+        files["deferred_requests.json"] = json.dumps(
+            {"run_id": run_id, "requests": deferred}, indent=2, ensure_ascii=False
+        ).encode("utf-8")
+    return files

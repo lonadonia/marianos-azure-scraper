@@ -1,0 +1,39 @@
+{
+ "label": "rc4_publication_result",
+ "command": [
+  "C:/m8/qwt/headless/marianos-azure-headless/.venv/Scripts/python.exe",
+  "-m",
+  "pytest",
+  "tests/integration/test_publication_result.py",
+  "-p",
+  "no:cacheprovider",
+  "-q",
+  "-rfEs",
+  "--junitxml=C:/m8/evidence/c1100/publication_cases/rc4_publication_result.junit.xml"
+ ],
+ "cwd": ".",
+ "revision": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+ "worktree_modified_tracked_files": [],
+ "env": {
+  "PSYCOPG_IMPL": "python",
+  "PYTHONUTF8": "1"
+ },
+ "host": {
+  "os": "Windows-11-10.0.26200-SP0",
+  "python_of_runner": "3.12.10"
+ },
+ "utc_start": "2026-11-11T22:52:15+00:00",
+ "utc_end": "2026-11-11T22:52:59+00:00",
+ "seconds": 44.1,
+ "exit_code": 1,
+ "pytest_counts": {
+  "failed": 3,
+  "passed": 3
+ },
+ "skip_reasons": {},
+ "verdict": "FAIL (exit 1)",
+ "log": "evidence/1.10.0/tests/rc4_publication_result.log",
+ "log_bytes": 6345,
+ "log_sha256_private": "9991e5750b626fd553ec46c21d1c02414704c5ef379969a324bcfe9fd7c18b09",
+ "log_sha256_published": "028e9c9d5403c8b205cc681ec5088d7afcb4f0af997950e7871c70db4ba2ec88"
+}

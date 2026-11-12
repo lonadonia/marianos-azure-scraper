@@ -29,13 +29,13 @@ indented instead of that line. A key value is never written: keys appear only as
 
 | Code | Meaning | Typical next step |
 |---|---|---|
-| 0 | Done: the run validated (or published), a bounded pilot collected what its limits allowed, or there was nothing due | none |
+| 0 | Done: the run validated (a complete run with automatic publication on: and was published), a bounded pilot collected what its limits allowed, or there was nothing due | none |
 | 1 | Unexpected error (logged as `UNEXPECTED` with its type) | read the log; resume if a run was interrupted |
 | 2 | Configuration: invalid file, missing database URL, schema not current, unknown store or run | fix the configuration; `db-upgrade` |
 | 3 | Credentials: no key for the configured provider, or the provider refused it (Scrapfly: or reports the account suspended) | set or replace the key (OPERATIONS.md) |
 | 4 | Credits: the account's credits, the credit reserve or a credit budget ran out; for Oxylabs, no ceiling is set or the ceiling is reached (`SPENDING_CEILING`, resumable) | add credits, raise the budget or `set-ceiling`; the partial run is kept |
 | 5 | Site refusal: Mariano's refused access (HTTP 403/429, an Akamai "Access Denied" or challenge page) | the store is held; investigate, then `release-hold` |
-| 6 | Rejected: the run's checks rejected it, or an export did not verify | read `status --run`; nothing was published |
+| 6 | Rejected: the run's checks rejected it, or an export did not verify; from 1.10.0rc2 also a complete validated run whose automatic publication was refused (`PUBLICATION_REFUSED` at ERROR, with the reason; a later firing of the same occurrence ends with 6 again) | read `status --run`; nothing was published and the last published dataset stays; fix the cause, then `publish --run` |
 | 7 | Store or source checks failed: the store picker could not select the store, a page was not for the run's store and fulfillment (the client's: 53100502, Pickup), or the canary's records differ from the site's product data | the store is held; investigate, then `release-hold` |
 | 8 | Held: the store's collection is held after an earlier stop | `status` shows why; `release-hold` |
 | 9 | Busy: another execution holds the store, or an unfinished run must be resumed or finalized first | wait, or `resume` / `finalize` |

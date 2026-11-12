@@ -1,6 +1,6 @@
 # Mariano's collector: pagination, client corrections and live qualification, release 1.8.0rc5 (2026-11-02)
 
-> **Current state: [`TECHNICAL_REPORT_1.9.0.md`](TECHNICAL_REPORT_1.9.0.md)** (release 1.9.0rc4, 2026-11-09). This report is the 1.8.0rc5 report as published on 2026-11-02, unchanged below this note; the 1.9.0 report's §13 lists the statements of this report that it corrects.
+> **Current state: [`TECHNICAL_REPORT_1.10.0.md`](TECHNICAL_REPORT_1.10.0.md)** (release 1.10.0rc3, 2026-11-12; release 1.9.0rc4: [`TECHNICAL_REPORT_1.9.0.md`](TECHNICAL_REPORT_1.9.0.md)). This report is the 1.8.0rc5 report as published on 2026-11-02, unchanged below this note; the 1.9.0 report's §13 lists the statements of this report that it corrects.
 
 Governing brief: "Mariano's: complete client corrections, verify the collector, and build the next reviewable
 delivery" (task 1.8.0). Target store: **Mariano's Vernon Hills, store 53100502, 1720 N Milwaukee Ave, Vernon Hills,

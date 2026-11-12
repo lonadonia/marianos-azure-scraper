@@ -1,6 +1,6 @@
 [project]
 name = "marianos-azure-headless"
-version = "1.9.0rc4"
+version = "1.10.0rc3"
 description = "Headless Mariano's store-price collector: Scrapfly Cloud Browser, PostgreSQL, Azure Container Apps jobs"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"

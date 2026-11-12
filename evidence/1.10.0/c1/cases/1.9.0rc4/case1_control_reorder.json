@@ -1,0 +1,192 @@
+{
+ "case": "case1 control reorder",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport",
+ "live_request_sent": false,
+ "collector_version": "1.9.0rc4",
+ "source_revision": {
+  "commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+  "source": "git",
+  "uncommitted_changes": true
+ },
+ "c1_in_this_build": false,
+ "asked": [
+  [
+   "03001",
+   1
+  ],
+  [
+   "03001",
+   2
+  ],
+  [
+   "03002",
+   1
+  ],
+  [
+   "03002",
+   2
+  ]
+ ],
+ "observed": {
+  "collector_version": "1.9.0rc4",
+  "source_revision": {
+   "commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+   "source": "git",
+   "uncommitted_changes": true
+  },
+  "c1_in_this_build": false,
+  "run_status": "rejected",
+  "stop_code": null,
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "FAIL",
+   "G4": "WARN",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "FAIL"
+  },
+  "pages": [
+   {
+    "listing": "03001",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "da32fb0a0e4c061ae6b10fdd9dc430b054c7a46d6d46a35362a16e7892d1ddd8",
+    "request_id": "req-2",
+    "stored_page": true,
+    "id": "01M76CWQ5AHJ2Y85SKCXNTFVCF"
+   },
+   {
+    "listing": "03001",
+    "page": 2,
+    "attempt": 1,
+    "state": "stopped",
+    "verdict": "reordered_repeat",
+    "new": 0,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "fda349da93e55d2eba01893e736b1545933ce0f66a880f2b483d23ca1be584e9",
+    "request_id": "req-4",
+    "stored_page": true,
+    "id": "01M76CWQ9NCR0P31B11SSFDHFR"
+   },
+   {
+    "listing": "03002",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "e81d6b8c0fa32ab3ee8f76bf513a78cdc8abcefa2c45953cd1149afbda6c684d",
+    "request_id": "req-5",
+    "stored_page": true,
+    "id": "01M76CWQKRXXWKJR1HP6AFQ0E3"
+   },
+   {
+    "listing": "03002",
+    "page": 2,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 6,
+    "duplicates": 0,
+    "identities": 6,
+    "sha256": "8de6fc3b002ed1615cdd3f17cb8b1fe3ee96a5e95afe5932c7bc5df4945268e9",
+    "request_id": "req-6",
+    "stored_page": true,
+    "id": "01M76CWQRFBKBGYFZ3BAVNVBBT"
+   }
+  ],
+  "records": 90,
+  "distinct_records": 90,
+  "records_by_status": {
+   "historical": 36,
+   "valid": 54
+  },
+  "coverage": {
+   "status": "INCOMPLETE",
+   "seen": 24,
+   "total": 60,
+   "reason": "accessible pages exhausted; coverage incomplete: page 2: page 2 shows only products of earlier pages, in another order"
+  },
+  "listing_tasks": {
+   "03002": "succeeded",
+   "03001": "succeeded"
+  },
+  "deferred_requests": [],
+  "ledger_rows": 6,
+  "ledger": [
+   [
+    "https://www.marianos.com/robots.txt",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/savings/cl/coupons/",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03002/03002",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03002/03002?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ]
+  ],
+  "published_pointer": {
+   "publication_id": "01M76CWPFWAHTJ336W2NEJCHS3",
+   "version": 1
+  }
+ },
+ "publish": "refused: run status is 'rejected', not 'validated'",
+ "published_before": {
+  "publication_id": "01M76CWPFWAHTJ336W2NEJCHS3",
+  "version": 1,
+  "published_run": "01M76CWK9065GG2HTRS17TDM4V",
+  "latest_json_sha256": "666fc74dfa7a5487116f4abd056bc6e25ed57881c57043d70b7163a09d2152c8",
+  "manifest_sha256": "afb239d4611a1e4d467f746476dde70ac596c6bbc909b512d7c216d88b12e7ad",
+  "products_sha256": "afbf38a1f9547fc7956939bbbc0c45ce5efaace6961fb315543a6dcaf6eb5d23"
+ },
+ "published_after": {
+  "publication_id": "01M76CWPFWAHTJ336W2NEJCHS3",
+  "version": 1,
+  "published_run": "01M76CWK9065GG2HTRS17TDM4V",
+  "latest_json_sha256": "666fc74dfa7a5487116f4abd056bc6e25ed57881c57043d70b7163a09d2152c8",
+  "manifest_sha256": "afb239d4611a1e4d467f746476dde70ac596c6bbc909b512d7c216d88b12e7ad",
+  "products_sha256": "afbf38a1f9547fc7956939bbbc0c45ce5efaace6961fb315543a6dcaf6eb5d23"
+ }
+}

@@ -1,0 +1,8 @@
+ README.md                                    |   7 ++++
+ docs/CLI.md                                  |   4 +--
+ pyproject.toml                               |   2 +-
+ src/marianos_headless/__init__.py            |   2 +-
+ src/marianos_headless/operations.py          |  60 +++++++++++++++++++++++++++++---
+ tests/integration/test_publication_result.py | 276 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ uv.lock                                      |   2 +-
+ 7 files changed, 344 insertions(+), 9 deletions(-)

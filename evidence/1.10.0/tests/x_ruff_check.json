@@ -1,0 +1,35 @@
+{
+ "label": "x_ruff_check",
+ "command": [
+  "C:/m8/x1100/source/.venv/Scripts/python.exe",
+  "-m",
+  "ruff",
+  "check",
+  "."
+ ],
+ "cwd": "C:\\m8\\x1100\\source",
+ "revision": "",
+ "worktree_modified_tracked_files": [],
+ "env": {
+  "PSYCOPG_IMPL": "python",
+  "PYTHONUTF8": "1"
+ },
+ "host": {
+  "os": "Windows-11-10.0.26200-SP0",
+  "python_of_runner": "3.12.10"
+ },
+ "utc_start": "2026-11-11T23:36:07+00:00",
+ "utc_end": "2026-11-11T23:36:07+00:00",
+ "seconds": 0.4,
+ "exit_code": 0,
+ "pytest_counts": {},
+ "skip_reasons": {},
+ "verdict": "UNVERIFIED (exit 0 but no pytest summary line was found)",
+ "log": "evidence/1.10.0/tests/x_ruff_check.log",
+ "log_bytes": 19,
+ "log_sha256_private": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+ "log_sha256_published": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+ "verdict_of_the_check": "PASS: the output says 'All checks passed!' (exit 0)",
+ "tool_version": "ruff 0.17.1",
+ "verdict_note": "runlog.py reads pytest's summary line only, so its own verdict above says UNVERIFIED for this check; the check's verdict is read from the tool's own line in its output"
+}

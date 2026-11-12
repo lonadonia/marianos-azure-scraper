@@ -2,7 +2,8 @@
 
 Added on 2026-11-04 for the shared probe 1.7.0 (tag `review-1.8.0rc5-probe170-20261104`), changed on 2026-11-05 for
 1.7.1 (tag `review-1.8.0rc5-probe171-20261105`), and on 2026-11-09 for **1.7.3**, with the collector 1.9.0rc4 (tag
-`review-1.9.0rc4-20261109`). The earlier texts stay at their tags. [`classic-probe/`](../classic-probe/) stays the frozen probe 1.6.0
+`review-1.9.0rc4-20261109`). On 2026-11-12, with the collector 1.10.0rc3 (tag `review-1.10.0rc3-20261112`), the pin stays at
+1.7.3 and Walmart's probe 1.7.4 is linked below. The earlier texts stay at their tags. [`classic-probe/`](../classic-probe/) stays the frozen probe 1.6.0
 of 1.8.0rc5.
 
 **Where it is.** Release 1.7.3 is published in this repository, in [`classic-probe-1.7.3/`](../classic-probe-1.7.3/):
@@ -22,8 +23,23 @@ of 1.8.0rc5.
 are not real Classic responses. It plans search page 1, product and category-URL steps and no Mariano's page 2:
 no documented Classic page parameter for Mariano's was found, so full Classic pagination is not proved.
 
-**The Walmart repository** still pins 1.7.2 (its delivery 1.6.8). The T05 change is in the shared CLI only; giving
-that repository the same pinned reference to 1.7.3 is a separate publication there, not made with this one.
+**Walmart's probe 1.7.4 (published by the Walmart project; its proof is Walmart's).** On 2026-11-11 the Walmart
+repository published the shared probe **1.7.4** at its tag [`review-1.6.8-probe174-20261111`](https://github.com/lonadonia/walmart-azure-scraper/tree/review-1.6.8-probe174-20261111) (commit
+`00a18947668feb7d54bf5c019654d89bf0ad56a0`). It is 1.7.3 with the session's process supervision on Windows
+corrected (C2, the client's review of 1.7.2 there): a session runs only once a verified job object holds it, a
+failure refuses it with no fallback, and a cleanup that cannot be verified stays unknown. Nothing was run for it
+here and no Walmart file was changed for this publication:
 
-A Classic run for Mariano's, if the client chooses Classic and approves it, would use 1.7.3 or a later corrected
-revision, never the 1.6.0 copy in `classic-probe/`.
+| | |
+|---|---|
+| Corrected source | [`classic-probe-1.7.4/`](https://github.com/lonadonia/walmart-azure-scraper/tree/review-1.6.8-probe174-20261111/classic-probe-1.7.4): the probe's tree `07477cc61b2c1aa0871fb17965b132c131314fc6` (`oxylabs-classic-probe/`), development commit `a1def53747dfabcb2ad9ca97efc421c1e70f0ac6`, on 1.7.3 (`95f96a0`), so it keeps T05 |
+| Windows regression | [`evidence/offline-tests/1.7.4-classic-probe/`](https://github.com/lonadonia/walmart-azure-scraper/tree/review-1.6.8-probe174-20261111/evidence/offline-tests/1.7.4-classic-probe): [`REPRODUCE.md`](https://github.com/lonadonia/walmart-azure-scraper/blob/review-1.6.8-probe174-20261111/evidence/offline-tests/1.7.4-classic-probe/REPRODUCE.md), [`REPRODUCTION_ON_1.7.2_WINDOWS.log`](https://github.com/lonadonia/walmart-azure-scraper/blob/review-1.6.8-probe174-20261111/evidence/offline-tests/1.7.4-classic-probe/REPRODUCTION_ON_1.7.2_WINDOWS.log) (the review tests failing on 1.7.2 by their output), [`CANDIDATE_1.7.4_WINDOWS.log`](https://github.com/lonadonia/walmart-azure-scraper/blob/review-1.6.8-probe174-20261111/evidence/offline-tests/1.7.4-classic-probe/CANDIDATE_1.7.4_WINDOWS.log) (passing on 1.7.4) |
+| What changed and why | [`review/CLASSIC_PROBE_CORRECTIONS.md`](https://github.com/lonadonia/walmart-azure-scraper/blob/review-1.6.8-probe174-20261111/review/CLASSIC_PROBE_CORRECTIONS.md) in the Walmart repository |
+| The Mariano's adapter | `src/classic_probe/marianos.py`, blob `9de6510bddbb0cae7fd86e09dac5ed32fc3487a4`: unchanged, the same as here |
+
+**Mariano's keeps the pin at 1.7.3** in this publication: 1.7.4's correction is the process supervision of a
+probe session on Windows, live Classic stays disabled for Mariano's, and moving the pin is the owner's decision (a
+separate publication, with the probe's offline suite run on the pinned tree).
+
+A Classic run for Mariano's, if the client chooses Classic and approves it, would use 1.7.4 or a later corrected
+revision (1.7.3's Windows supervision is the one 1.7.4 corrects), never the 1.6.0 copy in `classic-probe/`.

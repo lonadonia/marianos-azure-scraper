@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="21" skipped="0" tests="28" time="110.295" timestamp="2026-11-11T22:50:21.242019+00:00" hostname="<workstation>"><testcase classname="tests.integration.test_reask_c1" name="test_control_a_page_that_keeps_repeating_counts_nothing_and_the_last_good_dataset_stays[repeat]" time="11.607" /><testcase classname="tests.integration.test_reask_c1" name="test_control_a_page_that_keeps_repeating_counts_nothing_and_the_last_good_dataset_stays[reorder]" time="6.546" /><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_repeated_page_is_asked_again_twice_five_minutes_apart_and_never_more[repeat]" time="2.596"><failure message="AssertionError: assert (1 == 3)&#10; +  where 1 = times('03001', 2)&#10; +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D681F1730&gt;.times">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+what = 'repeat', verdict = 'repeated'
+reason = 'accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly'
+
+    @pytest.mark.parametrize(("what", "verdict", "reason"), REPEATS)
+    def test_c1_a_repeated_page_is_asked_again_twice_five_minutes_apart_and_never_more(
+        env: dict[str, Any], settings: Settings, what: str, verdict: str, reason: str
+    ) -&gt; None:
+        clock = Clock()
+        site = C1Site({"03001": products(60)}, clock)
+        site.on("03001", 2, what, what, what, what)  # a fourth answer is there to be asked: it never is
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        with env["factory"]() as s:
+            files = reconciliation.coverage_files(s, run_id)
+        c1.evidence(
+            f"case1 c1 {what} through both re-asks",
+            SYNTHETIC,
+            {"asked_at": site.asked_at, "gaps_s": site.gaps("03001", 2), "observed": obs,
+             "export_files": sorted(files)},
+        )  # fmt: skip
+&gt;       assert site.times("03001", 2) == 3 and site.times("03001", 1) == 1 and site.times("03001", 3) == 0
+E       AssertionError: assert (1 == 3)
+E        +  where 1 = times('03001', 2)
+E        +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D681F1730&gt;.times
+
+tests\integration\test_reask_c1.py:188: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_repeated_page_is_asked_again_twice_five_minutes_apart_and_never_more[reorder]" time="2.948"><failure message="AssertionError: assert (1 == 3)&#10; +  where 1 = times('03001', 2)&#10; +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D6960F6B0&gt;.times">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+what = 'reorder', verdict = 'reordered_repeat'
+reason = 'accessible pages exhausted; coverage incomplete: page 2: page 2 shows only products of earlier pages, in another order'
+
+    @pytest.mark.parametrize(("what", "verdict", "reason"), REPEATS)
+    def test_c1_a_repeated_page_is_asked_again_twice_five_minutes_apart_and_never_more(
+        env: dict[str, Any], settings: Settings, what: str, verdict: str, reason: str
+    ) -&gt; None:
+        clock = Clock()
+        site = C1Site({"03001": products(60)}, clock)
+        site.on("03001", 2, what, what, what, what)  # a fourth answer is there to be asked: it never is
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        with env["factory"]() as s:
+            files = reconciliation.coverage_files(s, run_id)
+        c1.evidence(
+            f"case1 c1 {what} through both re-asks",
+            SYNTHETIC,
+            {"asked_at": site.asked_at, "gaps_s": site.gaps("03001", 2), "observed": obs,
+             "export_files": sorted(files)},
+        )  # fmt: skip
+&gt;       assert site.times("03001", 2) == 3 and site.times("03001", 1) == 1 and site.times("03001", 3) == 0
+E       AssertionError: assert (1 == 3)
+E        +  where 1 = times('03001', 2)
+E        +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D6960F6B0&gt;.times
+
+tests\integration\test_reask_c1.py:188: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_reask_that_brings_the_next_page_counts_only_new_products_and_the_listing_goes_on" time="2.588"><failure message="AssertionError: assert [('03001', 1), ('03001', 2)] == [('03001', 1)... ('03001', 3)]&#10;  &#10;  Right contains 2 more items, first extra item: ('03001', 2)&#10;  Use -v to get more diff">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_a_reask_that_brings_the_next_page_counts_only_new_products_and_the_listing_goes_on(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        clock = Clock()
+        site = C1Site({"03001": products(60)}, clock)
+        site.on("03001", 2, "repeat")
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        c1.evidence("case2 c1 next page on re-ask", SYNTHETIC, {"asked_at": site.asked_at, "observed": obs})
+&gt;       assert site.asked == [("03001", 1), ("03001", 2), ("03001", 2), ("03001", 3)]
+E       AssertionError: assert [('03001', 1), ('03001', 2)] == [('03001', 1)... ('03001', 3)]
+E         
+E         Right contains 2 more items, first extra item: ('03001', 2)
+E         Use -v to get more diff
+
+tests\integration\test_reask_c1.py:242: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_reask_with_partial_overlap_counts_each_new_product_once_and_the_usual_end_applies" time="2.862"><failure message="AssertionError: assert [('03001', 1), ('03001', 2)] == [('03001', 1)... ('03001', 3)]&#10;  &#10;  Right contains 2 more items, first extra item: ('03001', 2)&#10;  Use -v to get more diff">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_a_reask_with_partial_overlap_counts_each_new_product_once_and_the_usual_end_applies(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        clock = Clock()
+        site = C1Site({"03001": products(60)}, clock)
+        site.on("03001", 2, "repeat", "overlap")  # the re-ask: 12 products of page 1 again, 12 new ones
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        c1.evidence("case2 c1 partial overlap on re-ask", SYNTHETIC, {"asked_at": site.asked_at, "observed": obs})
+&gt;       assert site.asked == [("03001", 1), ("03001", 2), ("03001", 2), ("03001", 3)]  # later pages are read
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert [('03001', 1), ('03001', 2)] == [('03001', 1)... ('03001', 3)]
+E         
+E         Right contains 2 more items, first extra item: ('03001', 2)
+E         Use -v to get more diff
+
+tests\integration\test_reask_c1.py:275: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_control_replay_the_saved_batteries_answers_page_2_repeated_page_1_and_later_did_not" time="1.147" /><testcase classname="tests.integration.test_reask_c1" name="test_c1_replay_batteries_page_2_repeated_then_answered_six_minutes_later_is_read_to_its_end" time="5.002"><failure message="AssertionError: assert ['s4_batterie...s_p1.html.gz'] == ['s4_batterie...s_p4.html.gz']&#10;  &#10;  Right contains 3 more items, first extra item: 's5a_batteries_p2.html.gz'&#10;  Use -v to get more diff">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_replay_batteries_page_2_repeated_then_answered_six_minutes_later_is_read_to_its_end(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        """REPLAY of saved answers: Batteries (26003) as stage S4 met it at 14:36Z on 2026-11-09 (page 1, then a
+        page 2 that repeated it), and the page 2, 3 and 4 that stage S5a was given from 14:42:52Z. The order the
+        answers are served in is the order they were saved in; the wait between the two page-2 answers is the
+        collector's own five minutes on a fake clock (6 min 33 s passed between the real ones)."""
+        clock = Clock()
+        replay = Replay(
+            {
+                BATTERIES: [FIX / "s4_batteries_p1.html.gz"],
+                BATTERIES + "?page=2": [
+                    FIX / "s4_batteries_p2_repeats_p1.html.gz",
+                    FIX / "s5a_batteries_p2.html.gz",
+                ],
+                BATTERIES + "?page=3": [FIX / "s5a_batteries_p3.html.gz"],
+                BATTERIES + "?page=4": [FIX / "s5a_batteries_p4.html.gz"],
+            },
+            clock,
+        )
+        run_id, status = c1.run(env, settings, replay, clock, nodes=_batteries(env))
+        obs = c1.observe(env, run_id, "26003")
+        c1.evidence(
+            "case2 c1 replay batteries",
+            REPLAY,
+            {"served": replay.asked_at, "sources": json.loads((FIX / "SOURCES.json").read_text("utf-8")),
+             "run_status": status, "observed": obs},
+        )  # fmt: skip
+&gt;       assert [name for _, _, name in replay.asked_at] == [
+            "s4_batteries_p1.html.gz",
+            "s4_batteries_p2_repeats_p1.html.gz",
+            "s5a_batteries_p2.html.gz",
+            "s5a_batteries_p3.html.gz",
+            "s5a_batteries_p4.html.gz",
+        ]
+E       AssertionError: assert ['s4_batterie...s_p1.html.gz'] == ['s4_batterie...s_p4.html.gz']
+E         
+E         Right contains 3 more items, first extra item: 's5a_batteries_p2.html.gz'
+E         Use -v to get more diff
+
+tests\integration\test_reask_c1.py:360: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_control_a_listing_above_the_window_whose_page_names_its_brands_is_read_through_them" time="3.881" /><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_first_page_without_filters_is_asked_again_and_the_listing_is_read_through_its_brands" time="2.906"><failure message="AssertionError: assert (1 == 2)&#10; +  where 1 = times('03001', 1)&#10; +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D680B4E90&gt;.times">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_a_first_page_without_filters_is_asked_again_and_the_listing_is_read_through_its_brands(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        clock = Clock()
+        site = _above_window(clock)
+        site.on("03001", 1, "no_facets")
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        with env["factory"]() as s:
+            report = reconciliation.reconciliation(s, run_id)
+        lines = {x["listing_id"]: x for x in report["listings"]}
+        c1.evidence(
+            "case3 c1 facets on re-ask",
+            SYNTHETIC,
+            {"asked_at": site.asked_at, "observed": obs, "reconciliation": lines},
+        )
+&gt;       assert site.times("03001", 1) == 2 and site.gaps("03001", 1) == [float(WAIT_S)]
+E       AssertionError: assert (1 == 2)
+E        +  where 1 = times('03001', 1)
+E        +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D680B4E90&gt;.times
+
+tests\integration\test_reask_c1.py:442: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_filters_recovered_on_a_reask_still_bind_every_brand_reading_to_its_own_filter[unfiltered-wrong_filter]" time="3.031"><failure message="AssertionError: one request set aside for 03001 page 1: []&#10;assert 0 == 1&#10; +  where 0 = len([])">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+what = 'unfiltered', verdict = 'wrong_filter'
+
+    @pytest.mark.parametrize(("what", "verdict"), UNPROVED)
+    def test_c1_filters_recovered_on_a_reask_still_bind_every_brand_reading_to_its_own_filter(
+        env: dict[str, Any], settings: Settings, what: str, verdict: str
+    ) -&gt; None:
+        """The filters come on the re-ask; one brand's reading is then answered unfiltered, for another brand, or
+        without stating a filter. That reading counts nothing and the listing cannot be complete."""
+        clock = Clock()
+        site = _above_window(clock)
+        site.on("03001", 1, "no_facets")
+        site.on("03001~Bravo", 1, what)
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        with env["factory"]() as s:
+            report = reconciliation.reconciliation(s, run_id)
+            upcs = set(s.scalars(select(RecordRow.upc).where(RecordRow.run_id == run_id)))
+        lines = {x["listing_id"]: x for x in report["listings"]}
+        c1.evidence(f"case3 c1 brand reading {what}", SYNTHETIC, {"asked": site.asked, "observed": obs,
+                                                                  "reconciliation": lines})  # fmt: skip
+&gt;       assert _request(obs, page=1)["state"] == "recovered"
+               ^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_reask_c1.py:485: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+obs = {'collector_version': '1.9.0rc4', 'source_revision': {'commit': '8abc2c1297b8005d162721b6ddbf66bf8684d548', 'source': 'git', 'uncommitted_changes': True}, 'c1_in_this_build': False, 'run_status': 'rejected', ...}
+listing = '03001', page = 1
+
+    def _request(obs: dict[str, Any], listing: str = "03001", page: int = 2) -&gt; dict[str, Any]:
+        found = [
+            d for d in obs["deferred_requests"] if (d["taxonomy_id"], d["requested_page"]) == (listing, page)
+        ]
+&gt;       assert len(found) == 1, f"one request set aside for {listing} page {page}: {obs['deferred_requests']}"
+E       AssertionError: one request set aside for 03001 page 1: []
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\integration\test_reask_c1.py:88: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_filters_recovered_on_a_reask_still_bind_every_brand_reading_to_its_own_filter[other_brand-wrong_filter]" time="3.008"><failure message="AssertionError: one request set aside for 03001 page 1: []&#10;assert 0 == 1&#10; +  where 0 = len([])">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+what = 'other_brand', verdict = 'wrong_filter'
+
+    @pytest.mark.parametrize(("what", "verdict"), UNPROVED)
+    def test_c1_filters_recovered_on_a_reask_still_bind_every_brand_reading_to_its_own_filter(
+        env: dict[str, Any], settings: Settings, what: str, verdict: str
+    ) -&gt; None:
+        """The filters come on the re-ask; one brand's reading is then answered unfiltered, for another brand, or
+        without stating a filter. That reading counts nothing and the listing cannot be complete."""
+        clock = Clock()
+        site = _above_window(clock)
+        site.on("03001", 1, "no_facets")
+        site.on("03001~Bravo", 1, what)
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        with env["factory"]() as s:
+            report = reconciliation.reconciliation(s, run_id)
+            upcs = set(s.scalars(select(RecordRow.upc).where(RecordRow.run_id == run_id)))
+        lines = {x["listing_id"]: x for x in report["listings"]}
+        c1.evidence(f"case3 c1 brand reading {what}", SYNTHETIC, {"asked": site.asked, "observed": obs,
+                                                                  "reconciliation": lines})  # fmt: skip
+&gt;       assert _request(obs, page=1)["state"] == "recovered"
+               ^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_reask_c1.py:485: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+obs = {'collector_version': '1.9.0rc4', 'source_revision': {'commit': '8abc2c1297b8005d162721b6ddbf66bf8684d548', 'source': 'git', 'uncommitted_changes': True}, 'c1_in_this_build': False, 'run_status': 'rejected', ...}
+listing = '03001', page = 1
+
+    def _request(obs: dict[str, Any], listing: str = "03001", page: int = 2) -&gt; dict[str, Any]:
+        found = [
+            d for d in obs["deferred_requests"] if (d["taxonomy_id"], d["requested_page"]) == (listing, page)
+        ]
+&gt;       assert len(found) == 1, f"one request set aside for {listing} page {page}: {obs['deferred_requests']}"
+E       AssertionError: one request set aside for 03001 page 1: []
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\integration\test_reask_c1.py:88: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_filters_recovered_on_a_reask_still_bind_every_brand_reading_to_its_own_filter[no_filter_state-unbound]" time="3.014"><failure message="AssertionError: one request set aside for 03001 page 1: []&#10;assert 0 == 1&#10; +  where 0 = len([])">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+what = 'no_filter_state', verdict = 'unbound'
+
+    @pytest.mark.parametrize(("what", "verdict"), UNPROVED)
+    def test_c1_filters_recovered_on_a_reask_still_bind_every_brand_reading_to_its_own_filter(
+        env: dict[str, Any], settings: Settings, what: str, verdict: str
+    ) -&gt; None:
+        """The filters come on the re-ask; one brand's reading is then answered unfiltered, for another brand, or
+        without stating a filter. That reading counts nothing and the listing cannot be complete."""
+        clock = Clock()
+        site = _above_window(clock)
+        site.on("03001", 1, "no_facets")
+        site.on("03001~Bravo", 1, what)
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        with env["factory"]() as s:
+            report = reconciliation.reconciliation(s, run_id)
+            upcs = set(s.scalars(select(RecordRow.upc).where(RecordRow.run_id == run_id)))
+        lines = {x["listing_id"]: x for x in report["listings"]}
+        c1.evidence(f"case3 c1 brand reading {what}", SYNTHETIC, {"asked": site.asked, "observed": obs,
+                                                                  "reconciliation": lines})  # fmt: skip
+&gt;       assert _request(obs, page=1)["state"] == "recovered"
+               ^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_reask_c1.py:485: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+obs = {'collector_version': '1.9.0rc4', 'source_revision': {'commit': '8abc2c1297b8005d162721b6ddbf66bf8684d548', 'source': 'git', 'uncommitted_changes': True}, 'c1_in_this_build': False, 'run_status': 'rejected', ...}
+listing = '03001', page = 1
+
+    def _request(obs: dict[str, Any], listing: str = "03001", page: int = 2) -&gt; dict[str, Any]:
+        found = [
+            d for d in obs["deferred_requests"] if (d["taxonomy_id"], d["requested_page"]) == (listing, page)
+        ]
+&gt;       assert len(found) == 1, f"one request set aside for {listing} page {page}: {obs['deferred_requests']}"
+E       AssertionError: one request set aside for 03001 page 1: []
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\integration\test_reask_c1.py:88: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_filters_missing_through_both_reasks_leave_the_listing_incomplete_beyond_the_window" time="3.034"><failure message="AssertionError: assert (1 == 3)&#10; +  where 1 = times('03001', 1)&#10; +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D698C7D70&gt;.times">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_filters_missing_through_both_reasks_leave_the_listing_incomplete_beyond_the_window(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        clock = Clock()
+        site = _above_window(clock)
+        site.on("03001", 1, "no_facets", "no_facets", "no_facets", "no_facets")
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        c1.evidence("case3 c1 facets never come", SYNTHETIC, {"asked_at": site.asked_at, "observed": obs})
+&gt;       assert site.times("03001", 1) == 3 and all(g &gt;= WAIT_S for g in site.gaps("03001", 1))
+E       AssertionError: assert (1 == 3)
+E        +  where 1 = times('03001', 1)
+E        +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D698C7D70&gt;.times
+
+tests\integration\test_reask_c1.py:503: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_reask_for_filters_answered_for_another_store_stops_the_run_and_closes_nothing" time="2.979"><failure message="AssertionError: assert ('rejected' == 'rejected'&#10;  &#10;    rejected and None == 'STORE_NOT_VERIFIED')">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_a_reask_for_filters_answered_for_another_store_stops_the_run_and_closes_nothing(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        clock = Clock()
+        site = _above_window(clock)
+        site.on("03001", 1, "no_facets", "wrong_store")
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        c1.evidence("case3 c1 wrong store on re-ask", SYNTHETIC, {"asked": site.asked, "observed": obs})
+&gt;       assert status == "rejected" and obs["stop_code"] == "STORE_NOT_VERIFIED"
+E       AssertionError: assert ('rejected' == 'rejected'
+E         
+E           rejected and None == 'STORE_NOT_VERIFIED')
+
+tests\integration\test_reask_c1.py:526: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_reask_for_filters_answered_with_another_page_does_not_count_and_the_next_one_may" time="3.005"><failure message="AssertionError: assert 1 == 3&#10; +  where 1 = times('03001', 1)&#10; +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D6997EB10&gt;.times">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_a_reask_for_filters_answered_with_another_page_does_not_count_and_the_next_one_may(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        clock = Clock()
+        site = _above_window(clock)
+        site.on("03001", 1, "no_facets", "page_2_instead")
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        c1.evidence("case3 c1 wrong page on re-ask", SYNTHETIC, {"asked_at": site.asked_at, "observed": obs})
+&gt;       assert site.times("03001", 1) == 3
+E       AssertionError: assert 1 == 3
+E        +  where 1 = times('03001', 1)
+E        +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D6997EB10&gt;.times
+
+tests\integration\test_reask_c1.py:544: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_control_replay_the_saved_frozen_first_page_names_nothing_to_subdivide_it_by" time="0.640" /><testcase classname="tests.integration.test_reask_c1" name="test_c1_replay_frozen_answered_without_filters_and_with_a_repeated_page_2_stays_incomplete" time="7.133"><failure message="AssertionError: assert (1 == 3)&#10; +  where 1 = times('https://www.marianos.com/pl/frozen/18010')&#10; +    where times = &lt;tests.c1_site.Replay object at 0x0000022D67C700B0&gt;.times">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_replay_frozen_answered_without_filters_and_with_a_repeated_page_2_stays_incomplete(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        """REPLAY of saved answers: Frozen (18010) as stage S3b met it on 2026-11-09 (16:12-16:14Z): a first page
+        of 273 results without filters, and a page 2 that repeated page 1. No other answer for Frozen was saved
+        that day, so each re-ask is served the same saved answer again: this shows what the collector does when
+        the answers do not change (4 more submissions, nothing counted, nothing claimed), not what the site would
+        have answered."""
+        with env["factory"]() as s:
+            ids = {c.csv_row_index: c.id for c in s.scalars(select(CategorySource))}
+        nodes = [Node(10, "Natural Organic", ids[10], "Frozen", "18010", FROZEN + "?pzn=relevance")]
+        clock = Clock()
+        replay = Replay(
+            {
+                FROZEN: [FIX / "s3b_frozen_p1_no_filters.html.gz"] * 3,
+                FROZEN + "?page=2": [FIX / "s3b_frozen_p2_repeats_p1.html.gz"] * 3,
+            },
+            clock,
+        )
+        run_id, status = c1.run(env, settings, replay, clock, nodes=nodes)
+        obs = c1.observe(env, run_id, "18010")
+        c1.evidence(
+            "case3 c1 replay frozen",
+            REPLAY,
+            {"served": replay.asked_at, "sources": json.loads((FIX / "SOURCES.json").read_text("utf-8")),
+             "run_status": status, "observed": obs},
+        )  # fmt: skip
+&gt;       assert replay.times(FROZEN) == 3 and replay.times(FROZEN + "?page=2") == 3
+E       AssertionError: assert (1 == 3)
+E        +  where 1 = times('https://www.marianos.com/pl/frozen/18010')
+E        +    where times = &lt;tests.c1_site.Replay object at 0x0000022D67C700B0&gt;.times
+
+tests\integration\test_reask_c1.py:599: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_the_other_listings_are_read_before_a_request_set_aside_is_asked_again" time="4.419"><failure message="AssertionError: assert [('03001', 1)... ('03003', 2)] == [('03001', 1)...003', 2), ...]&#10;  &#10;  Right contains 2 more items, first extra item: ('03001', 2)&#10;  Use -v to get more diff">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_the_other_listings_are_read_before_a_request_set_aside_is_asked_again(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        clock = Clock()
+        site = C1Site(
+            {"03001": products(60), "03002": products(30, "0003805"), "03003": products(30, "0003806")}, clock
+        )
+        site.on("03001", 2, "repeat")
+        run_id, status = c1.run(env, settings, site, clock, listings=("03001", "03002", "03003"))
+        obs = c1.observe(env, run_id)
+        c1.evidence("case4 c1 other listings first", SYNTHETIC, {"asked_at": site.asked_at, "observed": obs})
+&gt;       assert site.asked == [
+            ("03001", 1),
+            ("03001", 2),  # repeats page 1: set aside
+            ("03002", 1),
+            ("03002", 2),
+            ("03003", 1),
+            ("03003", 2),
+            ("03001", 2),  # asked again, five minutes after its first answer
+            ("03001", 3),
+        ]
+E       AssertionError: assert [('03001', 1)... ('03003', 2)] == [('03001', 1)...003', 2), ...]
+E         
+E         Right contains 2 more items, first extra item: ('03001', 2)
+E         Use -v to get more diff
+
+tests\integration\test_reask_c1.py:634: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_two_lanes_ask_each_request_set_aside_once_more_and_save_no_page_before_its_answer" time="3.880"><failure message="AssertionError: assert (1 == 2)&#10; +  where 1 = times('03001', 2)&#10; +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D69C09E20&gt;.times">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_two_lanes_ask_each_request_set_aside_once_more_and_save_no_page_before_its_answer(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        clock = Clock()
+        site = C1Site({"03001": products(60), "03002": products(60, "0003805")}, clock)
+        site.on("03001", 2, "repeat")
+        site.on("03002", 2, "repeat")
+        slow = Slow(site)
+        run_id, status = c1.run(env, settings, slow, clock, listings=("03001", "03002"), lanes=2)
+        obs = c1.observe(env, run_id)
+        c1.evidence(
+            "case4 c1 two lanes",
+            SYNTHETIC,
+            {"asked_at": site.asked_at, "max_in_flight": slow.max_inflight, "observed": obs},
+        )
+        assert slow.max_inflight == 2
+&gt;       assert site.times("03001", 2) == 2 and site.times("03002", 2) == 2
+E       AssertionError: assert (1 == 2)
+E        +  where 1 = times('03001', 2)
+E        +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D69C09E20&gt;.times
+
+tests\integration\test_reask_c1.py:684: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_reask_the_provider_fails_is_one_submission_and_counts_among_the_two[fail-then-ok]" time="2.654"><failure message="AssertionError: assert 1 == 3&#10; +  where 1 = times('03001', 2)&#10; +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D69DB9820&gt;.times">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+answers = ('fail', 'ok')
+
+    @pytest.mark.parametrize("answers", [("fail", "ok"), ("fail", "fail")], ids=["fail-then-ok", "fail-twice"])
+    def test_c1_a_reask_the_provider_fails_is_one_submission_and_counts_among_the_two(
+        env: dict[str, Any], settings: Settings, answers: tuple[str, str]
+    ) -&gt; None:
+        """The transport's own retries (three attempts on a failure) do not apply to a re-ask: it is sent once."""
+        clock = Clock()
+        site = C1Site({"03001": products(60)}, clock)
+        site.on(
+            "03001",
+            2,
+            "repeat",
+            *[a for a in answers if a != "ok"],
+            *(["repeat"] * 6 if "ok" not in answers else []),
+        )
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        c1.evidence(
+            f"case4 c1 failed re-ask {'-'.join(answers)}", SYNTHETIC, {"asked_at": site.asked_at, "observed": obs}
+        )
+&gt;       assert site.times("03001", 2) == 3  # the first answer and two re-asks: never 1 + 3 + 3
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert 1 == 3
+E        +  where 1 = times('03001', 2)
+E        +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D69DB9820&gt;.times
+
+tests\integration\test_reask_c1.py:714: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_reask_the_provider_fails_is_one_submission_and_counts_among_the_two[fail-twice]" time="2.794"><failure message="AssertionError: assert 1 == 3&#10; +  where 1 = times('03001', 2)&#10; +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D696B52E0&gt;.times">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+answers = ('fail', 'fail')
+
+    @pytest.mark.parametrize("answers", [("fail", "ok"), ("fail", "fail")], ids=["fail-then-ok", "fail-twice"])
+    def test_c1_a_reask_the_provider_fails_is_one_submission_and_counts_among_the_two(
+        env: dict[str, Any], settings: Settings, answers: tuple[str, str]
+    ) -&gt; None:
+        """The transport's own retries (three attempts on a failure) do not apply to a re-ask: it is sent once."""
+        clock = Clock()
+        site = C1Site({"03001": products(60)}, clock)
+        site.on(
+            "03001",
+            2,
+            "repeat",
+            *[a for a in answers if a != "ok"],
+            *(["repeat"] * 6 if "ok" not in answers else []),
+        )
+        run_id, status = c1.run(env, settings, site, clock)
+        obs = c1.observe(env, run_id)
+        c1.evidence(
+            f"case4 c1 failed re-ask {'-'.join(answers)}", SYNTHETIC, {"asked_at": site.asked_at, "observed": obs}
+        )
+&gt;       assert site.times("03001", 2) == 3  # the first answer and two re-asks: never 1 + 3 + 3
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert 1 == 3
+E        +  where 1 = times('03001', 2)
+E        +    where times = &lt;tests.c1_site.C1Site object at 0x0000022D696B52E0&gt;.times
+
+tests\integration\test_reask_c1.py:714: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_worker_killed_while_a_reask_is_out_leaves_it_counted_and_the_ceiling_holds[ok]" time="2.624"><failure message="AssertionError: assert ('rejected' == 'interrupted'&#10;  &#10;  - interrupted&#10;  + rejected)">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+last = 'ok'
+
+    @pytest.mark.parametrize("last", ["ok", "repeat"])
+    def test_c1_a_worker_killed_while_a_reask_is_out_leaves_it_counted_and_the_ceiling_holds(
+        env: dict[str, Any], settings: Settings, last: str
+    ) -&gt; None:
+        """Paused while waiting; resumed by a worker that is killed with re-ask 1 out; resumed again. The killed
+        re-ask stays counted (its answer is marked unavailable, its reservation kept as possibly charged), so one
+        re-ask is left, five minutes later, and no page already completed is asked again."""
+        clock = Clock()
+        site = C1Site({"03001": products(60)}, clock)
+        site.on("03001", 2, "repeat")
+        pipe = c1.pipe_of(env, settings)
+        run_id = c1.plan(env, pipe, c1.nodes_of(env, ("03001",)))
+        _pause_at_first_wait(env, clock, [run_id])
+        _, status = c1.run(env, settings, site, clock, run_id=run_id)
+        paused = c1.observe(env, run_id)
+        name = f"case4 c1 killed during re-ask then {last}"
+        c1.evidence(
+            name, SYNTHETIC, {"reached": "the first execution only", "asked": site.asked, "observed": paused}
+        )
+&gt;       assert status == "interrupted" and site.asked == [("03001", 1), ("03001", 2)]
+E       AssertionError: assert ('rejected' == 'interrupted'
+E         
+E         - interrupted
+E         + rejected)
+
+tests\integration\test_reask_c1.py:795: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_worker_killed_while_a_reask_is_out_leaves_it_counted_and_the_ceiling_holds[repeat]" time="2.588"><failure message="AssertionError: assert ('rejected' == 'interrupted'&#10;  &#10;  - interrupted&#10;  + rejected)">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+last = 'repeat'
+
+    @pytest.mark.parametrize("last", ["ok", "repeat"])
+    def test_c1_a_worker_killed_while_a_reask_is_out_leaves_it_counted_and_the_ceiling_holds(
+        env: dict[str, Any], settings: Settings, last: str
+    ) -&gt; None:
+        """Paused while waiting; resumed by a worker that is killed with re-ask 1 out; resumed again. The killed
+        re-ask stays counted (its answer is marked unavailable, its reservation kept as possibly charged), so one
+        re-ask is left, five minutes later, and no page already completed is asked again."""
+        clock = Clock()
+        site = C1Site({"03001": products(60)}, clock)
+        site.on("03001", 2, "repeat")
+        pipe = c1.pipe_of(env, settings)
+        run_id = c1.plan(env, pipe, c1.nodes_of(env, ("03001",)))
+        _pause_at_first_wait(env, clock, [run_id])
+        _, status = c1.run(env, settings, site, clock, run_id=run_id)
+        paused = c1.observe(env, run_id)
+        name = f"case4 c1 killed during re-ask then {last}"
+        c1.evidence(
+            name, SYNTHETIC, {"reached": "the first execution only", "asked": site.asked, "observed": paused}
+        )
+&gt;       assert status == "interrupted" and site.asked == [("03001", 1), ("03001", 2)]
+E       AssertionError: assert ('rejected' == 'interrupted'
+E         
+E         - interrupted
+E         + rejected)
+
+tests\integration\test_reask_c1.py:795: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_reask_the_spending_ceiling_refuses_is_not_sent_and_not_counted_and_is_asked_once_there_is_room" time="3.000"><failure message="AssertionError: assert ('rejected' == 'interrupted'&#10;  &#10;  - interrupted&#10;  + rejected)">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_a_reask_the_spending_ceiling_refuses_is_not_sent_and_not_counted_and_is_asked_once_there_is_room(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        clock = Clock()
+        site = C1Site({"03001": products(60)}, clock)
+        site.on("03001", 2, "repeat")
+        done = False
+    
+        def close_the_ceiling() -&gt; None:
+            nonlocal done
+            if done:
+                return
+            done = True
+            with env["factory"]() as s:  # the allowance is used up while the request waits
+                used = oxylabs.usage_since(s, None)["submissions"]
+                oxylabs.set_ceiling(
+                    s, submissions=used, usd=10, actor="test", reason="test", since=START - timedelta(days=400)
+                )
+                s.commit()
+    
+        clock.on_sleep = close_the_ceiling
+        run_id, status = c1.run(env, settings, site, clock)
+        stopped = c1.observe(env, run_id)
+        with env["factory"]() as s:
+            rows_before = oxylabs.usage_since(s, None)["submissions"]
+        c1.evidence(
+            "case4 c1 spending ceiling",
+            SYNTHETIC,
+            {"reached": "the first execution only", "asked": site.asked, "stopped": stopped},
+        )
+&gt;       assert status == "interrupted" and stopped["stop_code"] == "SPENDING_CEILING"
+E       AssertionError: assert ('rejected' == 'interrupted'
+E         
+E         - interrupted
+E         + rejected)
+
+tests\integration\test_reask_c1.py:878: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_c1_a_request_whose_wait_outlasts_the_daily_window_is_not_asked_after_it_and_keeps_its_history" time="2.839"><failure message="AssertionError: assert ('rejected' == 'interrupted'&#10;  &#10;  - interrupted&#10;  + rejected)">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:60789/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_c1_a_request_whose_wait_outlasts_the_daily_window_is_not_asked_after_it_and_keeps_its_history(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        """The deadline: a scheduled run whose daily window ends while a request waits. Nothing is sent after
+        the window's end; the run pauses as for any window end; the next day's execution asks the request."""
+        from zoneinfo import ZoneInfo
+    
+        tz = ZoneInfo("America/Chicago")
+        clock = Clock()
+        end = (START + timedelta(seconds=200)).astimezone(tz)
+        occurrence = {
+            "day": START.astimezone(tz).date().isoformat(),
+            "start": (START - timedelta(hours=3)).astimezone(tz).isoformat(),
+            "window_start": (START - timedelta(hours=3)).astimezone(tz).isoformat(),
+            "window_end": end.isoformat(),
+        }
+        site = C1Site({"03001": products(60)}, clock)
+        site.on("03001", 2, "repeat")
+        pipe = c1.pipe_of(env, settings)
+        run_id = c1.plan(env, pipe, c1.nodes_of(env, ("03001",)), trigger="schedule", occurrence=occurrence)
+        _, status = c1.run(env, settings, site, clock, run_id=run_id, trigger="schedule")
+        stopped = c1.observe(env, run_id)
+        c1.evidence(
+            "case4 c1 deadline",
+            SYNTHETIC,
+            {"reached": "the first execution only", "asked": site.asked, "stopped": stopped},
+        )
+&gt;       assert status == "interrupted" and stopped["stop_code"] == "SCHEDULE_WINDOW_END"
+E       AssertionError: assert ('rejected' == 'interrupted'
+E         
+E         - interrupted
+E         + rejected)
+
+tests\integration\test_reask_c1.py:929: AssertionError</failure></testcase><testcase classname="tests.integration.test_reask_c1" name="test_control_ordinary_pages_are_read_once_each_and_nothing_is_set_aside" time="4.405" /><testcase classname="tests.integration.test_reask_c1" name="test_control_products_carried_from_an_earlier_run_keep_their_own_dates_when_a_page_repeats" time="10.188" /></testsuite></testsuites>

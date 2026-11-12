@@ -1,0 +1,158 @@
+{
+ "case": "case3 c1 brand reading no_filter_state",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport",
+ "live_request_sent": false,
+ "collector_version": "1.9.0rc4",
+ "source_revision": {
+  "commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+  "source": "git",
+  "uncommitted_changes": true
+ },
+ "c1_in_this_build": false,
+ "asked": [
+  [
+   "03001",
+   1
+  ],
+  [
+   "03001",
+   2
+  ]
+ ],
+ "observed": {
+  "collector_version": "1.9.0rc4",
+  "source_revision": {
+   "commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+   "source": "git",
+   "uncommitted_changes": true
+  },
+  "c1_in_this_build": false,
+  "run_status": "rejected",
+  "stop_code": null,
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "FAIL",
+   "G4": "PASS",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "FAIL"
+  },
+  "pages": [
+   {
+    "listing": "03001",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "1d0e99f1e900a3bfe48d341a92a573191d2af5404f3419f9ad69f5dbaf3de7d9",
+    "request_id": "req-2",
+    "stored_page": true,
+    "id": "01M76CXRW0XT0TM5AQWE1ZVAYZ"
+   },
+   {
+    "listing": "03001",
+    "page": 2,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "29a4f04b03a6499fa60332af910b8d29d87a3b51016d3107dfce6eec0cabf0b9",
+    "request_id": "req-4",
+    "stored_page": true,
+    "id": "01M76CXS6FC008NS5R6RYY2QMH"
+   }
+  ],
+  "records": 48,
+  "distinct_records": 48,
+  "records_by_status": {
+   "valid": 48
+  },
+  "coverage": {
+   "status": "INCOMPLETE",
+   "seen": 48,
+   "total": 60,
+   "reason": "accessible pages exhausted; coverage incomplete: 2 page(s) read, 48 distinct products of 60 reported; the source lets a reader reach 48 of 60 results (availableCount)"
+  },
+  "listing_tasks": {
+   "03001": "succeeded"
+  },
+  "deferred_requests": [],
+  "ledger_rows": 4,
+  "ledger": [
+   [
+    "https://www.marianos.com/robots.txt",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/savings/cl/coupons/",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ]
+  ],
+  "published_pointer": null
+ },
+ "reconciliation": {
+  "03001": {
+   "csv_row": 12,
+   "category": "Breakfast",
+   "sub_category": "Listing 03001",
+   "listing_id": "03001",
+   "parent_listing": "",
+   "listing_kind": "listing",
+   "source_url": "https://www.marianos.com/pl/listing-03001/03001",
+   "location_id": "53100502",
+   "fulfillment": "PICKUP",
+   "route": "listing",
+   "reported_total": 60,
+   "totals_seen": [
+    60
+   ],
+   "source_window": 48,
+   "pages_reachable": 2,
+   "pages_attempted": 2,
+   "pages_completed": 2,
+   "responses_not_counted": 0,
+   "unique_identities": 48,
+   "sponsored_placements": 0,
+   "duplicates": 0,
+   "approx_weight_exclusions": 0,
+   "other_exclusions": 0,
+   "price_conflicts": 0,
+   "variant_groups": 0,
+   "unavailable": 0,
+   "unresolved_gap": 12,
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: 2 page(s) read, 48 distinct products of 60 reported; the source lets a reader reach 48 of 60 results (availableCount)",
+   "partition_identity": "",
+   "pages_filter_refused": 0
+  }
+ }
+}

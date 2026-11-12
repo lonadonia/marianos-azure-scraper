@@ -22,7 +22,7 @@ from marianos_headless.core.findings import DataMode
 from marianos_headless.core.paths import PARSER_VERSION
 from marianos_headless.core.schema import ordered_record
 from marianos_headless.core.settings import PrivateLabelConfig, Settings, StoreConfig
-from marianos_headless.core.timeutil import iso, utcnow
+from marianos_headless.core.timeutil import iso
 from marianos_headless.core.version import source_version
 from marianos_headless.db import queue
 from marianos_headless.db.locks import StoreRunLock
@@ -42,7 +42,7 @@ from marianos_headless.db.models import (
 from marianos_headless.publishing.exports import record_sha256, sort_records, write_exports
 from marianos_headless.publishing.supporting_log import EXPORTED_STATUSES, supporting_log
 from marianos_headless.storage.base import StorageAdapter
-from marianos_headless.worker.runner import Worker
+from marianos_headless.worker.runner import Timer, Worker
 from marianos_headless.worker.runs import create_run, event, register_exports, transition
 
 STAGES = ("preflight", "listing_node", "assemble", "validate", "export")
@@ -171,13 +171,24 @@ class Pipeline:
                         getattr(getattr(collector, "cfg", None), "limits", None), "max_concurrent_listings", 1
                     )
                 )
+                # 1.10.0: one timer for the queue's decisions and the wait below (the real clock unless
+                # the collector was given another: tests of the re-ask wait).
+                timer: Timer = getattr(collector, "timer", None) or Timer()
                 worker = Worker(
-                    self.factory, run_id, owner, handlers, self.settings, self.storage, lanes=lanes
+                    self.factory,
+                    run_id,
+                    owner,
+                    handlers,
+                    self.settings,
+                    self.storage,
+                    lanes=lanes,
+                    timer=timer,
                 )
                 result = await worker.run()
-                # A task waits for its retry time (backoff or a 429 pause): keep the store lock and wait,
-                # so an unattended run continues on its own instead of stopping half-way.
-                while result.outcome == "waiting" and await self._wait_for_retry(run_id):
+                # A task waits for its time (a retry's backoff, a 429 pause, or a request set aside to be
+                # asked again later): keep the store lock and wait, so an unattended run continues on its own
+                # instead of stopping half-way.
+                while result.outcome == "waiting" and await self._wait_for_retry(run_id, timer):
                     result = await worker.run()
             except asyncio.CancelledError:
                 detail = "the collector received a termination signal during the run"
@@ -231,17 +242,18 @@ class Pipeline:
             event(s, run_id, "WARN", "RUN_INTERRUPTED", detail, {"stop_code": code})
             s.commit()
 
-    async def _wait_for_retry(self, run_id: str) -> bool:
+    async def _wait_for_retry(self, run_id: str, timer: Timer | None = None) -> bool:
         """Sleep until the run's earliest ``retry_wait`` task is due; wake early for a stop request.
 
         Returns False when no task is waiting for a retry (nothing to wait for)."""
+        timer = timer or Timer()
         with self.factory() as s:
             due = s.scalar(
                 select(func.min(Task.not_before)).where(Task.run_id == run_id, Task.state == "retry_wait")
             )
         if due is None:
             return False
-        remaining = (due - utcnow()).total_seconds()
+        remaining = (due - timer.now()).total_seconds()
         while remaining > 0:
             with self.factory() as s:
                 stop = s.execute(
@@ -249,7 +261,7 @@ class Pipeline:
                 ).one()
             if stop[0] or stop[1]:
                 break  # the worker applies the stop at its loop head
-            await asyncio.sleep(min(1.0, remaining))
+            await timer.sleep(min(1.0, remaining))
             remaining -= 1.0
         return True
 

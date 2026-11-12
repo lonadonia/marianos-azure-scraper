@@ -92,6 +92,40 @@ validated run is also published:
   Azure), with the results, for the releases up to 1.2.1; the verification of each later release is in that
   release's delivery (TECHNICAL_REPORT).
 
+## Release 1.10.0 (candidate 1.10.0rc3, not a final release): a request set aside and asked again (C1)
+
+On 2026-11-09 some answers to a listing's page N listed page 1's products, and some first pages of a
+listing above the site's 250-result window named no child listing and no brand to subdivide it by; minutes
+later the same address was answered properly. Why is not established. With
+`limits.max_reasks_per_request` above 0 (shipped: 2 for `marianos-53100502-pickup`; empty or 0 elsewhere,
+as in every earlier release) such a request is set aside: its listing waits, the run's other listings are
+read first, and the very same request (address, page, listing, filter, store, fulfillment) is asked again
+once `limits.reask_min_wait_seconds` (300, the least allowed) have passed since its previous answer or
+attempt, at most twice in the run.
+
+* An answer is judged by its products' identities and its verified store, never by its page number, ranks,
+  search ID or request ID. A repeat counts no product. When the re-asks are spent the listing is incomplete
+  with the reason it had before, and nothing says the listing was read to its end.
+* The ceiling is kept in the database (table `deferred_requests`, migration 0006): the count is raised and
+  committed before a re-ask is sent, so it holds across listing lanes, restarts and a worker killed while
+  the request is out; a re-ask is sent once (the transport's own retries do not apply to it); each one is
+  reserved in the spending ledger and checked against every limit like any other submission.
+* A first page asked again for its filters counts no product of its own (page state `reasked`): the
+  subdivisions it names are read and checked against their own filter as before.
+* Every answer is kept, the first one included: what was asked, what the answer states, its stored page's
+  hash, the provider's request ID, the distinct products before and after, the overlap, the verdict and
+  what followed. A run that set a request aside exports them as `deferred_requests.json`.
+
+Tested offline only (a mock transport and a fake clock; saved answers of 2026-11-09 replayed where they
+exist): no live run has used it.
+
+**A refused publication is not a success (1.10.0rc2).** When a complete validated run's automatic
+publication is refused (an export that no longer matches its manifest, a WARN finding without a recorded
+reason, a lineage problem), the refusal is recorded on the run and logged at ERROR (`PUBLICATION_REFUSED`),
+the run's summary says so (`publication`), and the execution ends with exit code 6; a later firing of the
+same occurrence ends with 6 again. Releases to 1.10.0rc1 logged it at WARN and ended with 0. The last
+published dataset stayed published in every release.
+
 ## Release 1.9.0 (candidate 1.9.0rc4, not a final release)
 
 What 1.9.0 changes, each with its regression tests (the delivery's review documents give the evidence):
@@ -125,7 +159,9 @@ What 1.9.0 changes, each with its regression tests (the delivery's review docume
   shows two (Purina ONE, stages O1 and O2), so an empty coupon on a tile is not an absence: unless the
   product's page was read rendered, the digital fields' reason says the coupon is unknown (missing kind
   `not_attempted`, flag `DIGITAL_COUPONS_UNOBSERVED`), and with the read on every tile's product is a
-  candidate. The provider brought 1 of 14 product pages requested with rendering rendered (stage O1), so
+  candidate. The provider's answers state `run_js` true for 3 of 14 product pages requested with rendering
+  (stage O1: one of the three shows coupons, two show no Savings section; corrected in 1.10.0, this said 1
+  of 14), so
   this read is costly and mostly inconclusive: off by default, bounded when on.
 * **Displayed price per measure (M3).** Never computed; a displayed value that equals the item price on a
   multi-unit pack (`PPM_EQUALS_ITEM_PRICE`) or whose unit family disagrees with the product's own pack data

@@ -205,6 +205,20 @@ def fail(
     return "retry_wait"
 
 
+def defer(session: Session, lease: Lease, *, not_before: datetime) -> None:
+    """Set a leased task aside until ``not_before`` (cursor kept): other tasks of the run are leased first
+    and this one again once its time has come (release 1.10.0, C1). This is not a failure: the lease that
+    ends here does not count among the task's attempts, and no error is recorded."""
+    _finish(
+        session,
+        lease,
+        state="retry_wait",
+        not_before=not_before,
+        attempts=func.greatest(Task.attempts - 1, 0),
+        last_error=None,
+    )
+
+
 def reclaim_orphans(session: Session, run_id: str) -> int:
     """Return every in-flight task of the run to ``pending`` (cursor kept).
 

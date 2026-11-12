@@ -60,6 +60,7 @@ from marianos_headless.db.models import (
     Artifact,
     AuditLog,
     CapturedResponse,
+    Event,
     ExportRow,
     PageFetch,
     Publication,
@@ -689,7 +690,13 @@ async def continue_scheduled(
 
 def after_run(ctx: Context, store_key: str, run_id: str) -> Exit:
     """Hold the store after a refusal or a failed source check; keep a stopped run's records as a partial
-    export; publish a complete validated run."""
+    export; publish a complete validated run.
+
+    Release 1.10.0rc2: a complete validated run whose automatic publication is refused is not a success. The
+    refusal is recorded on the run and logged at ERROR (``PUBLICATION_REFUSED``), the run's summary says so
+    (``publication``), and the execution ends with exit code 6 (rejected: nothing was published), so an alert
+    on an ERROR line or on a non-zero exit code fires. The last published dataset stays published, as before.
+    Earlier releases logged the refusal at WARN and ended with exit code 0."""
     pipe = ctx.pipeline(store_key)
     with ctx.factory() as s:
         run = s.get(Run, run_id)
@@ -731,6 +738,7 @@ def after_run(ctx: Context, store_key: str, run_id: str) -> Exit:
             assert run is not None
         label = pipe.dataset_label(run)
         status = run.status
+    publication: dict[str, Any] | None = None
     if status == "validated" and label == "complete" and ctx.config.collector.publish.auto:
         try:
             pub = publish_run(
@@ -740,19 +748,49 @@ def after_run(ctx: Context, store_key: str, run_id: str) -> Exit:
                 "collector",
                 warn_override_reason=ctx.config.collector.publish.accept_warnings_reason,
             )
+            publication = {"automatic": True, "published": True, "version": pub.version}
             logs.log("INFO", "RUN_PUBLISHED", run_id=run_id, store=store_key, version=pub.version)
         except PublicationRefused as exc:
-            logs.log("WARN", "PUBLICATION_REFUSED", run_id=run_id, store=store_key, message=str(exc))
+            publication = {"automatic": True, "published": False, "refused": str(exc)}
+            with ctx.factory() as s:
+                event(
+                    s,
+                    run_id,
+                    "ERROR",
+                    "PUBLICATION_REFUSED",
+                    f"the complete validated run was not published: {exc}; the last published dataset stays "
+                    "published"[:1000],
+                    {"store": store_key, "reason": str(exc)},
+                )
+                s.commit()
     with ctx.factory() as s:
         run = s.get(Run, run_id)
         assert run is not None
         summary = run_summary(pipe, run)
         code = exit_for(s, run)
+        if publication is not None:
+            summary["publication"] = publication
+            if not publication["published"] and code is Exit.OK:
+                code = Exit.REJECTED  # nothing was published: the execution does not end as a success
         summary["failed_checks"] = failed_gates(s, run.id)
     logs.log(
         "INFO" if code is Exit.OK else "WARN", "RUN_FINISHED", store=store_key, exit_code=int(code), **summary
     )
     return code
+
+
+def auto_publication_refused(s: Session, run: Run) -> str | None:
+    """Why the run's automatic publication was refused (release 1.10.0rc2), while the run is still validated
+    and unpublished: the reason of the last ``PUBLICATION_REFUSED`` event recorded on it. None when there is
+    none, or when the run was published since."""
+    if run.status != "validated":
+        return None
+    found = s.scalars(
+        select(Event)
+        .where(Event.run_id == run.id, Event.code == "PUBLICATION_REFUSED")
+        .order_by(Event.ts.desc(), Event.id.desc())
+    ).first()
+    return None if found is None else str((found.data or {}).get("reason") or found.message)
 
 
 def _overrides(coll: StoreCollection, overrides: dict[str, Any]) -> StoreCollection:
@@ -888,10 +926,24 @@ async def scheduled_run(ctx: Context, store_key: str, now: datetime | None = Non
         ).first()
         if mine is not None:
             if mine.status in FINISHED_STATES:
+                code = exit_for(s, mine)
+                refused = auto_publication_refused(s, mine)
+                extra: dict[str, Any] = {}
+                if refused is not None:
+                    # 1.10.0rc2: a later firing of the occurrence says again that nothing was published.
+                    extra["publication"] = {"automatic": True, "published": False, "refused": refused}
+                    if code is Exit.OK:
+                        code = Exit.REJECTED
                 logs.log(
-                    "INFO", "OCCURRENCE_DONE", store=store_key, occurrence=day, run=run_summary(pipe, mine)
+                    "INFO" if code is Exit.OK else "WARN",
+                    "OCCURRENCE_DONE",
+                    store=store_key,
+                    occurrence=day,
+                    run=run_summary(pipe, mine),
+                    exit_code=int(code),
+                    **extra,
                 )
-                return exit_for(s, mine)
+                return code
             if mine.status in control.ACTIVE and worker_alive(s, row.id, mine.id):
                 logs.log("WARN", "STORE_BUSY", store=store_key, run_id=mine.id)
                 return Exit.BUSY

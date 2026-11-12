@@ -537,8 +537,11 @@ class ListingPage(Base):
             "attempt",
             name="uq_listing_pages_key",
         ),
+        # Release 1.10.0 (C1): "reasked" is an answer to a first page asked again only for the listing's
+        # filters; it counts no product and is never the listing's page 1.
         CheckConstraint(
-            "state IN ('completed', 'failed', 'refused', 'capped', 'stopped')", name="ck_listing_pages_state"
+            "state IN ('completed', 'failed', 'refused', 'capped', 'stopped', 'reasked')",
+            name="ck_listing_pages_state",
         ),
         Index(
             "uq_listing_pages_completed",
@@ -550,6 +553,66 @@ class ListingPage(Base):
             unique=True,
             postgresql_where=text("state = 'completed'"),
         ),
+    )
+
+
+DEFERRED_KINDS = ("repeated_page", "missing_facets")
+DEFERRED_STATES = ("waiting", "recovered", "exhausted")
+
+
+class DeferredRequest(Base):
+    """One listing request set aside to be asked again later in the same logical run (release 1.10.0, C1;
+    ``collection.reask``): a later page answered with an earlier page's products (``repeated_page``), or the
+    first page of a listing above the source's window answered without the filters needed to subdivide it
+    (``missing_facets``).
+
+    One row per logical request (run, listing or filtered reading, page). ``reasks_dispatched`` is raised and
+    committed before each re-ask is sent, so the ceiling (``max_reasks``) holds across lanes, restarts and a
+    worker killed while the request is out. ``attempts`` keeps every answer, the first one included, with what
+    was asked and what the answer states about itself; nothing in it is removed when a later answer counts."""
+
+    __tablename__ = "deferred_requests"
+    id: Mapped[str] = _id()
+    run_id: Mapped[str] = mapped_column(ForeignKey("runs.id"), index=True)
+    category_source_id: Mapped[str] = mapped_column(ForeignKey("category_sources.id"))
+    csv_row_index: Mapped[int] = mapped_column(Integer)
+    taxonomy_id: Mapped[str] = mapped_column(String(64))
+    partition_key: Mapped[str] = mapped_column(String(200), default="")
+    requested_page: Mapped[int] = mapped_column(Integer)
+    kind: Mapped[str] = mapped_column(String(24))
+    # The request, asked again exactly: address, filter (``pagination.partition_descriptor``; {} for a
+    # listing itself), store and fulfillment.
+    url: Mapped[str] = mapped_column(Text)
+    requested_filter: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict)
+    store_context: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict)
+    # The first answer: its row in ``listing_pages``, its verdict, and the reason the listing ended with
+    # before this release (kept word for word when the re-asks bring nothing).
+    original_listing_page_id: Mapped[str | None] = mapped_column(String(26))
+    original_verdict: Mapped[str] = mapped_column(String(24))
+    original_reason: Mapped[str] = mapped_column(Text, default="")
+    max_reasks: Mapped[int] = mapped_column(Integer)
+    min_wait_s: Mapped[int] = mapped_column(Integer)
+    reasks_dispatched: Mapped[int] = mapped_column(Integer, default=0)
+    not_before: Mapped[datetime] = mapped_column(DateTime(timezone=True))
+    state: Mapped[str] = mapped_column(String(16), default="waiting")
+    outcome: Mapped[str] = mapped_column(Text, default="")
+    attempts: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, default=list)
+    created_at: Mapped[datetime] = _created()
+    updated_at: Mapped[datetime] = _updated()
+    resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    __table_args__ = (
+        UniqueConstraint(
+            "run_id",
+            "category_source_id",
+            "taxonomy_id",
+            "partition_key",
+            "requested_page",
+            name="uq_deferred_requests_key",
+        ),
+        CheckConstraint(_in("kind", DEFERRED_KINDS), name="kind"),
+        CheckConstraint(_in("state", DEFERRED_STATES), name="state"),
+        CheckConstraint("reasks_dispatched >= 0 AND reasks_dispatched <= max_reasks", name="ceiling"),
+        CheckConstraint("max_reasks >= 0 AND max_reasks <= 2", name="max_reasks"),
     )
 
 

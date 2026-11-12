@@ -1,0 +1,37 @@
+{
+ "label": "x_unit",
+ "command": [
+  "C:/m8/x1100/source/.venv/Scripts/python.exe",
+  "-m",
+  "pytest",
+  "tests/unit",
+  "-q",
+  "-p",
+  "no:cacheprovider",
+  "-rfEs"
+ ],
+ "cwd": "C:\\m8\\x1100\\source",
+ "revision": "",
+ "worktree_modified_tracked_files": [],
+ "env": {
+  "PSYCOPG_IMPL": "python",
+  "PYTHONUTF8": "1"
+ },
+ "host": {
+  "os": "Windows-11-10.0.26200-SP0",
+  "python_of_runner": "3.12.10"
+ },
+ "utc_start": "2026-11-11T23:35:39+00:00",
+ "utc_end": "2026-11-11T23:36:06+00:00",
+ "seconds": 27.4,
+ "exit_code": 0,
+ "pytest_counts": {
+  "passed": 494
+ },
+ "skip_reasons": {},
+ "verdict": "PASS",
+ "log": "evidence/1.10.0/tests/x_unit.log",
+ "log_bytes": 589,
+ "log_sha256_private": "d3c7ac6a8158fcad3ac9585861b6c5a7833376d5f435ed614de5ab39e1b4d19d",
+ "log_sha256_published": "07f7f13582f63d98c9734dabce2a95217c277b9775ff2ea60b6c24f6b07432cc"
+}

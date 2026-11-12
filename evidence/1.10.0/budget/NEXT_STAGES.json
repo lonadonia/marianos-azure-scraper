@@ -1,0 +1,64 @@
+{
+ "about": "PROPOSALS ONLY, written on 2026-11-12 with the offline candidate 1.10.0rc3. Nothing here was run and nothing here is approved: live work for Mariano's is on hold, and each stage needs Hamza's explicit decision on its ceiling before anything is sent. They are the smallest live stages that would show whether change C1 (a request answered with a repeat, or without its filters, is set aside and asked again later in the run) recovers answers on the live site at Vernon Hills 53100502 PICKUP. Each would be opened as a stage of the shared trial ledger (campaign oxylabs-trial-20261103, project marianos) with every submission reserved at its worst case before it is sent. No client account, no top-up, no other provider.",
+ "status": "NOT RUN; NOT APPROVED; ON HOLD",
+ "revision": {
+  "collector": "1.10.0rc3",
+  "development_commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+  "tree": "22ebcf96cdb2021347f0e0e4d7506ad4c36d2c10",
+  "published_at": "source/ at tag review-1.10.0rc3-20261112",
+  "c1_evidence_so_far": "offline only (a mock transport and a fake clock; saved answers of 2026-11-09 replayed where they exist): review/TECHNICAL_REPORT_1.10.0.md sections 3 and 4"
+ },
+ "rate": "USD 0.0015 per result, Oxylabs' published list price for 'Custom domain, JS' (pricing page read 2026-11-03), used as the worst case; not a confirmed account rate",
+ "prerequisites": [
+  "Hamza's explicit decision to lift the hold and to approve each stage's ceiling (this file is not that decision)",
+  "the shared ledger read again just before the stage and its chain verified; the stage's worst case reserved inside Mariano's envelope",
+  "the stage database started again (it is stopped) and the store's hold released with a recorded reason",
+  "the candidate's tree checked against the tag (manifests/check_frozen_trees.py) on the machine that runs the stage"
+ ],
+ "common": {
+  "store": "marianos-53100502-pickup",
+  "config": "the shipped configuration: listing_run_js false, one listing lane, product-terms reads off, limits.max_reasks_per_request 2, limits.reask_min_wait_seconds 300; publish.auto false for the stage (a trial stage is never published)",
+  "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt, each reserved at its worst case",
+  "stop_conditions": [
+   "the stage's submission ceiling (the collector's own ceiling and the account-wide gate)",
+   "store or fulfillment not verified on a page (STORE_NOT_VERIFIED)",
+   "ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR)",
+   "a ledger refusal, or more than 2 outcomes left unknown",
+   "the stage deadline",
+   "by the operator: once 10 re-asks have been answered and none recovered its request, the stage is stopped and reported as it stands (no allowance is spent repeating one outcome)"
+  ],
+  "what_each_stage_records": "the run's deferred_requests.json (every request set aside, every answer, with request IDs and stored-page hashes), its paging census, exports, coverage reconciliation and validation report, its stage record and its ledger rows"
+ },
+ "stages": [
+  {
+   "stage": "S6",
+   "name": "later-page recovery",
+   "command": "run --store marianos-53100502-pickup --categories 22,23,24,25,26,27 --max-credits 130",
+   "objective": "whether C1 recovers later pages on the live site: rows 22-27 (17 listings; 1,190 products stated on 2026-11-09) in one logical run, one lane. Measured: how many requests are set aside, how many a re-ask recovers and after how long, the submissions spent on re-asks, and whether the run completes its scope (G3) with at least 500 distinct fresh valid products (G14)",
+   "max_submissions": 130,
+   "worst_case_usd": "0.1950",
+   "deadline_minutes": 150,
+   "passes_when": "every listing of rows 22-27 ends DONE or EMPTY by the source's own count, each product recorded once, G3 and G13 pass",
+   "also_a_result": "no request recovered while the site keeps answering with repeats: C1 then costs at most 2 submissions per request set aside and changes no count; the contingency C2 of the 1.9.0 report is the next question"
+  },
+  {
+   "stage": "S6b",
+   "name": "brand union above the 250-result window",
+   "command": "run --store marianos-53100502-pickup --categories 10 --subcategory 10:18010 --max-credits 86",
+   "objective": "the above-window union on the candidate: Natural Organic > Frozen (18010; 273 results, 250 reachable on 2026-11-09), read through the brands a first page names when one is obtained (asked again at most twice if the first answer names none), each brand reading bound to its own filter, the distinct products of all readings reconciled with the listing's total",
+   "max_submissions": 86,
+   "worst_case_usd": "0.1290",
+   "deadline_minutes": 120,
+   "passes_when": "the listing ends DONE: every brand reading DONE or EMPTY under its own filter and the distinct products of the listing and its readings reach the total the source reports",
+   "also_a_result": "no first page names a brand in three answers: the listing stays incomplete beyond the window with that reason, and nothing is guessed in the brands' place"
+  }
+ ],
+ "total_if_both_were_approved": {"max_submissions": 216, "worst_case_usd": "0.3240"},
+ "marianos_spendable_in_envelope_usd": "1.840500 (shared ledger read at 2026-11-11 23:45:39Z; a read, no reservation was made for this publication)",
+ "deferred": {
+  "S7": "progressive coverage of rows 0-21 from the exact queue (evidence/1.9.0/live/INCOMPLETE_QUEUE_190.csv), in runs of at most 200 submissions (USD 0.30 each): deferred until S6 has shown requests recovered and Hamza approves it",
+  "full_collection": "every CSV row with brand partitions (the 1.8 estimate, scenario B: 3,928 to 6,277 submissions a run, USD 5.89 to 9.41 at the list rate; with C1 at most 2 more submissions for each request set aside): deferred until S6 and S6b, the client's account and the client's authorization. It does not fit the trial credit",
+  "client_vm": "the client's Azure checks: the owner's decision on a short window, then the client's restart and key installation; nothing was attempted"
+ },
+ "earlier_proposal": "evidence/1.9.0/budget/NEXT_STAGES.json (2026-11-09) proposed S6, S6b and S7 for 'the candidate after 1.9.0rc4 that implements C1'. That candidate is 1.10.0rc3; the ceilings are unchanged; S7 is now explicitly deferred. The 47 submissions left of the approval of 2026-11-09 were not carried over"
+}

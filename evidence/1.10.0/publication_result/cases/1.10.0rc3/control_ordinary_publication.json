@@ -1,0 +1,94 @@
+{
+ "case": "control_ordinary_publication",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the refusal is injected",
+ "live_request_sent": false,
+ "collector_version": "1.10.0rc3",
+ "source_revision": {
+  "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+  "source": "git",
+  "uncommitted_changes": false
+ },
+ "result": {
+  "exit_code": 0,
+  "run_status": "published",
+  "log": [
+   {
+    "level": "INFO",
+    "event": "RUN_PUBLISHED",
+    "exit_code": null,
+    "message": null,
+    "publication": null,
+    "version": 1
+   },
+   {
+    "level": "INFO",
+    "event": "RUN_FINISHED",
+    "exit_code": 0,
+    "message": null,
+    "publication": {
+     "automatic": true,
+     "published": true,
+     "version": 1
+    },
+    "version": null
+   }
+  ],
+  "run_finished": {
+   "ts": "2026-11-11T22:58:09.130Z",
+   "level": "INFO",
+   "event": "RUN_FINISHED",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "exit_code": 0,
+   "run_id": "01M76DAC42QTBBPWQQNSB01W7F",
+   "status": "published",
+   "trigger": "console",
+   "dataset": "complete",
+   "pilot": false,
+   "occurrence": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "created_at": "2026-11-11T22:58:06.080067Z",
+   "started_at": "2026-11-11T22:58:06.201386Z",
+   "finished_at": "2026-11-11T22:58:08.920189Z",
+   "outcome": "validated",
+   "records_by_status": {
+    "valid": 60
+   },
+   "collection_complete": true,
+   "canary": {
+    "at": "2026-11-09T16:00:00Z",
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "page": "01M76DACKCCHZR5HKDPYKYBZ57",
+    "valid": 24,
+    "status": "passed",
+    "records": 24,
+    "problems": [],
+    "valid_ratio": 1.0,
+    "source_check": {
+     "records": 24,
+     "mismatch": 0,
+     "verified": 24,
+     "unverified": 0
+    }
+   },
+   "historical": {
+    "too_old": 0,
+    "carried_forward": 0
+   },
+   "publication": {
+    "automatic": true,
+    "published": true,
+    "version": 1
+   },
+   "failed_checks": []
+  },
+  "events": []
+ },
+ "published": {
+  "publication_id": "01M76DAF2BKBNJ1DJ7Q641F552",
+  "version": 1,
+  "published_run": "01M76DAC42QTBBPWQQNSB01W7F",
+  "latest_json_sha256": "67ab9c0cc09e408c4c49034ed422d76c398dff5a83b10f7ace1f6c6fc3fd390c"
+ }
+}

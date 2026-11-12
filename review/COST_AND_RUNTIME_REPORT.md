@@ -1,5 +1,11 @@
 # Cost and runtime: Mariano's collector 1.8.0rc5 (task 1.8.0, 2026-11-02), with release 1.9 (section 0, 2026-11-09)
 
+> **Note of 2026-11-12 (release 1.10.0rc3).** Section 0 says the provider rendered 1 of 14 product pages on
+> 2026-11-06; the saved answers state **3 of 14** ([`TECHNICAL_REPORT_1.10.0.md`](TECHNICAL_REPORT_1.10.0.md)
+> §8), so 5 of 22 over 2026-11-06 and 2026-11-09. No other figure here changes. C1 adds at most 2 submissions
+> for each request set aside; the proposed stages S6 and S6b and their ceilings are in
+> [`evidence/1.10.0/budget/NEXT_STAGES.json`](../evidence/1.10.0/budget/NEXT_STAGES.json).
+
 All amounts are in USD. Each figure says what kind of number it is:
 
 - **measured usage:** a count from a ledger (submissions, outcomes, times);

@@ -1,0 +1,104 @@
+The candidate 1.10.0rc3 is 1.9.0rc4 (8abc2c1297b8005d162721b6ddbf66bf8684d548, collector tree 7a4dfa05e526bddefdfeab9777b9616890e129ea) and the commits below, in order.
+Candidate: a1040f79919b8e876e0b69cd909cecf9363780b4, collector tree 22ebcf96cdb2021347f0e0e4d7506ad4c36d2c10.
+
+commit 454b79d8520e6a2f730ea3be5187ab646579e850
+tree of the collector folder: 51efeab75719a958e0d4b569acdb036e922566b7
+Date: 2026-11-11T22:28:51Z
+
+marianos-azure-headless 1.10.0rc1: a listing request answered with a repeat, or without its filters, is set aside and asked again later in the run (C1)
+
+What was seen (stages of 2026-11-09, store 53100502, Pickup): some answers to a listing's page N listed its
+page 1's products, and some first pages of a listing above the 250-result window named no child listing and no
+brand; minutes later the same address was answered properly. Why is not established, and nothing here depends
+on a cause.
+
+With limits.max_reasks_per_request above 0 (shipped: 2 for marianos-53100502-pickup; empty or 0 elsewhere, as
+before), such a request is set aside. Its listing's task waits, the run's other listings go first, and the very
+same request (address, page, listing, filter, store, fulfillment) is asked again once
+limits.reask_min_wait_seconds (300, the least allowed) have passed since its previous answer or attempt, at
+most twice in the run.
+
+- An answer is judged as any other: by its products' identities and its verified store, never by its page
+  number, ranks, search ID or request ID. A repeat counts no product. When the re-asks are spent the listing is
+  incomplete with the reason it had, and nothing says it was read to its end. A later page that does answer
+  counts only products new to the listing, and the listing goes on as usual.
+- A first page asked again for its filters counts no product of its own (page state "reasked"); the
+  subdivisions it names are planned and each is checked against its own filter as before.
+- The ceiling is in the database (table deferred_requests, migration 0006): the count is raised and committed
+  before a re-ask is sent, the table's constraints refuse more than two, and a re-ask is sent once (the
+  transport's own retries do not apply). So it holds across listing lanes, restarts and a worker killed while
+  the request is out, whose re-ask stays counted and whose reservation stays held as possibly charged.
+- Each re-ask is reserved in the spending ledger and checked against every limit, the daily window and the
+  operator's stop before it is counted; one the ceiling refuses is not sent and not counted.
+- Every answer is kept, the first one included: what was asked, what the answer states about itself, its stored
+  page's hash, the request ID, the distinct products before and after, the overlap, the verdict and what
+  followed; what is not available is said so. A run that set a request aside exports deferred_requests.json.
+- The task queue takes its clock from one timer (the real clock unless a test supplies another); a task set
+  aside is not a failed attempt.
+
+Tests: tests/integration/test_reask_c1.py (28 cases through Pipeline.execute on PostgreSQL, a mock transport
+and a fake clock; synthetic pages, and the answers saved on 2026-11-09 for Batteries and Frozen replayed:
+tests/fixtures/oxylabs_2026-11-09). The file also loads on 1.9.0rc4: its 7 controls pass there and its 21 C1
+cases fail. tests/unit/test_reask.py; the migration tests cover 0006. No live request was sent.
+
+------------------------------------------------------------------------------
+commit 8158b492765e5712b14351d91b0b6d1fce40926b
+tree of the collector folder: 406ac39a958e2ab93c97211a23e81bc5c971a171
+Date: 2026-11-11T22:35:59Z
+
+marianos-azure-headless 1.10.0rc1 (notes only): stage O1's product pages, the answers of 3 of 14 state run_js true, not 1
+
+Found on 2026-11-11 while checking the saved answers for the client's coupon examples: of the 14 product pages
+stage O1 saved on 2026-11-06, the provider's own answers state run_js true for three (requests
+7524540530412231682 for 0001780014939, 7524541411266425857 for 0002310014848 and 7524541856273716225 for
+0087786900820), not one. 0001780014939's shows the Savings section with its coupons; the other two show no
+Savings section. Two docstrings, the README's coupon-terms note and one fixture note said 1 of 14 (or 13 of 14
+unrendered, or that all seven M6 answers stated false): corrected. No code, test or fixture data changes.
+
+------------------------------------------------------------------------------
+commit cf3b8ebb323e8a5e9548db7c1015bd0000ade918
+tree of the collector folder: f48427122b38a5cc6b90058dc31517241eef6808
+Date: 2026-11-11T22:45:28Z
+
+marianos-azure-headless 1.10.0rc2: a complete validated run whose automatic publication is refused no longer ends as a success
+
+Reproduced on 1.9.0rc4 and 1.10.0rc1 (operations.after_run): when publish_run refused a complete validated run
+(an export that no longer matches its manifest, a WARN finding without a recorded reason, a lineage problem), the
+refusal was logged at WARN and the execution still ended with exit code 0 and RUN_FINISHED at INFO; a later
+firing of the same scheduled occurrence reported the occurrence done with exit code 0 as well. The last
+published dataset was never replaced: that was and is so.
+
+Now the refusal is recorded on the run and logged at ERROR (PUBLICATION_REFUSED, with the reason), the run's
+summary says so (publication: published false, refused: the reason), and the execution ends with exit code 6
+(rejected: nothing was published). A later firing of the same occurrence says so again, with exit code 6, while
+the run is still validated and unpublished. An ordinary publication is unchanged (exit code 0, RUN_PUBLISHED).
+
+Tests: tests/integration/test_publication_result.py (synthetic pages, the refusal injected): 3 controls (an
+ordinary publication ends OK and moves the pointer; a refused publication leaves the last good dataset
+published, for two causes) pass before and after; 3 cases of the new result fail on 1.9.0rc4 and 1.10.0rc1 and
+pass here. Version 1.10.0rc2; CLI.md and README state the rule.
+
+------------------------------------------------------------------------------
+commit 87086c14839170380711f98a03199548ab712c64
+tree of the collector folder: 52e96018a79162f67e94b6421bbe47c7216171fa
+Date: 2026-11-11T22:50:03Z
+
+marianos-azure-headless 1.10.0rc2 (tests only): three C1 cases write what they observed before their first check
+
+The cases that run in stages (a worker killed during a re-ask, the spending ceiling, the daily window) wrote
+their evidence file after their first checks, so on 1.9.0rc4, where they fail at the first check, they left no
+record. They now write the first execution's observation first. No source file changes: src/ is the tree of
+cf3b8eb.
+
+------------------------------------------------------------------------------
+commit a1040f79919b8e876e0b69cd909cecf9363780b4
+tree of the collector folder: 22ebcf96cdb2021347f0e0e4d7506ad4c36d2c10
+Date: 2026-11-11T22:54:35Z
+
+marianos-azure-headless 1.10.0rc3: the parser version names the release series (1.10.0)
+
+The unit suite run on 1.10.0rc2 (87086c1) failed one test, test_the_parser_version_names_the_release_series:
+the release had moved to 1.10.0 and the parser version, which every run, observation and export records, still
+said 1.9.0 (in 1.10.0rc1 and rc2). It is 1.10.0. No other code changes; unit 494 passed.
+
+------------------------------------------------------------------------------

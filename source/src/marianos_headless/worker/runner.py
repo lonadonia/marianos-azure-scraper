@@ -11,6 +11,7 @@ from __future__ import annotations
 import asyncio
 from collections.abc import Awaitable, Callable, Mapping
 from dataclasses import dataclass, field
+from datetime import datetime
 from typing import Any
 
 from sqlalchemy import select, update
@@ -18,6 +19,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session, sessionmaker
 
 from marianos_headless.core.settings import Settings
+from marianos_headless.core.timeutil import utcnow
 from marianos_headless.db import queue
 from marianos_headless.db.models import Run, Task
 from marianos_headless.storage.base import StorageAdapter
@@ -52,8 +54,29 @@ def pause_event(code: str) -> str:
     return "RUN_PAUSED_ON_FAILURE"
 
 
+@dataclass(frozen=True)
+class Timer:
+    """The time the task queue goes by, and how a run waits for it (release 1.10.0): the real clock and
+    ``asyncio.sleep`` unless a test supplies a clock of its own. One timer serves every queue decision of
+    a run (leases, heartbeats, retry and re-ask times), so they never disagree."""
+
+    now: Callable[[], datetime] = utcnow
+    sleep: Callable[[float], Awaitable[None]] = asyncio.sleep
+
+
 class CancelledByOperator(Exception):
     pass
+
+
+class TaskDeferred(Exception):
+    """A handler sets its task aside until ``not_before`` (release 1.10.0, C1): the task keeps its
+    checkpoint, the run's other tasks go first, and the task is leased again once the time has come. Not
+    a failure and not a stop."""
+
+    def __init__(self, not_before: datetime, detail: str):
+        super().__init__(detail)
+        self.not_before = not_before
+        self.detail = detail
 
 
 class RunStop(Exception):
@@ -80,6 +103,8 @@ class TaskContext:
     # 1.9.0 (M8): set by the worker when another lane stopped the run (a lane then stops at its next
     # check, as for an operator's pause, and hands its task back).
     halt: asyncio.Event | None = None
+    # 1.10.0: the queue's clock (the worker's timer).
+    clock: Callable[[], datetime] = utcnow
 
     @property
     def cursor(self) -> dict[str, Any]:
@@ -87,14 +112,15 @@ class TaskContext:
 
     def checkpoint(self, cursor: Mapping[str, Any]) -> None:
         with self.factory() as s:
-            queue.checkpoint(s, self.lease, dict(cursor))
-            queue.heartbeat(s, self.lease, lease_s=self.lease_s)
+            now = self.clock()
+            queue.checkpoint(s, self.lease, dict(cursor), now=now)
+            queue.heartbeat(s, self.lease, lease_s=self.lease_s, now=now)
             s.commit()
         self.lease = queue.Lease(**{**self.lease.__dict__, "cursor": dict(cursor)})
 
     def heartbeat(self) -> None:
         with self.factory() as s:
-            queue.heartbeat(s, self.lease, lease_s=self.lease_s)
+            queue.heartbeat(s, self.lease, lease_s=self.lease_s, now=self.clock())
             s.commit()
 
     def cancelled(self) -> bool:
@@ -134,6 +160,7 @@ class Worker:
         *,
         lease_s: float = 120,
         lanes: int = 1,
+        timer: Timer | None = None,
     ):
         self.factory = factory
         self.run_id = run_id
@@ -142,6 +169,7 @@ class Worker:
         self.settings = settings
         self.storage = storage
         self.lease_s = lease_s
+        self.timer = timer or Timer()
         self.breaker = CircuitBreaker(settings.circuit_breaker)
         self._rate_limited: set[str] = set()
         # 1.9.0 (M8): listing tasks read at once (each with at most one provider request in flight). Other
@@ -198,7 +226,9 @@ class Worker:
 
     def _lease(self, kinds: tuple[str, ...] | None = None) -> queue.Lease | None:
         with self.factory() as s:
-            lease = queue.lease_next(s, self.run_id, self.owner, lease_s=self.lease_s, kinds=kinds)
+            lease = queue.lease_next(
+                s, self.run_id, self.owner, lease_s=self.lease_s, kinds=kinds, now=self.timer.now()
+            )
             if lease is not None:
                 queue.mark_running(s, lease)
                 if lease.reclaimed:
@@ -292,7 +322,14 @@ class Worker:
                 s.commit()
             return False
         ctx = TaskContext(
-            lease, self.run_id, self.factory, self.settings, self.storage, self.lease_s, halt=self.halt
+            lease,
+            self.run_id,
+            self.factory,
+            self.settings,
+            self.storage,
+            self.lease_s,
+            halt=self.halt,
+            clock=self.timer.now,
         )
         try:
             final_cursor = await handler(ctx)
@@ -310,6 +347,20 @@ class Worker:
             return False
         except RunStop as stop:
             return self._stop(ctx, stop)
+        except TaskDeferred as deferred:
+            # Set aside, not failed: the task waits with its checkpoint and the run's other tasks go first.
+            with self.factory() as s:
+                queue.defer(s, ctx.lease, not_before=deferred.not_before)
+                event(
+                    s,
+                    self.run_id,
+                    "INFO",
+                    "TASK_DEFERRED",
+                    deferred.detail[:500],
+                    {"task": ctx.lease.idem_key, "not_before": deferred.not_before.isoformat()},
+                )
+                s.commit()
+            return False
         except TaskFailure as failure:
             return self._handle_failure(ctx, category, failure)
         except SQLAlchemyError:
@@ -369,6 +420,7 @@ class Worker:
                     ctx.lease,
                     f"{failure.kind}: {failure}",
                     retry_after_s=decision.delay_s if decision.action == "retry" else None,
+                    now=self.timer.now(),
                 )
             if failure.kind is FailureKind.CHALLENGE:
                 code = "TASK_BLOCKED"

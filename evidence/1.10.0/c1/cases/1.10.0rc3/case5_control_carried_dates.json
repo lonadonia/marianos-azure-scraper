@@ -1,0 +1,467 @@
+{
+ "case": "case5 control carried dates",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the earlier run's dates set back by hand to 2026-11-02",
+ "live_request_sent": false,
+ "collector_version": "1.10.0rc3",
+ "source_revision": {
+  "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+  "source": "git",
+  "uncommitted_changes": false
+ },
+ "c1_in_this_build": true,
+ "fresh": 54,
+ "carried": 36,
+ "carried_dates": [
+  "2026-11-02"
+ ],
+ "fresh_dates": [
+  "2026-11-11"
+ ],
+ "observed": {
+  "collector_version": "1.10.0rc3",
+  "source_revision": {
+   "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+   "source": "git",
+   "uncommitted_changes": false
+  },
+  "c1_in_this_build": true,
+  "run_status": "rejected",
+  "stop_code": null,
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "FAIL",
+   "G4": "WARN",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "FAIL"
+  },
+  "pages": [
+   {
+    "listing": "03001",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "da32fb0a0e4c061ae6b10fdd9dc430b054c7a46d6d46a35362a16e7892d1ddd8",
+    "request_id": "req-2",
+    "stored_page": true,
+    "id": "01M76D9RH2MW49SSWWKMGHYM6K"
+   },
+   {
+    "listing": "03001",
+    "page": 2,
+    "attempt": 1,
+    "state": "stopped",
+    "verdict": "repeated",
+    "new": 0,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "804b6695851c8937c11e31524456c956e6aa89d52b44eb4bdc25533f1a26d019",
+    "request_id": "req-4",
+    "stored_page": true,
+    "id": "01M76D9RP6ZWK73N43EWQP71TQ"
+   },
+   {
+    "listing": "03001",
+    "page": 2,
+    "attempt": 2,
+    "state": "stopped",
+    "verdict": "repeated",
+    "new": 0,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "804b6695851c8937c11e31524456c956e6aa89d52b44eb4bdc25533f1a26d019",
+    "request_id": "req-7",
+    "stored_page": true,
+    "id": "01M76D9T2D8WK3XZWYJ7350BK7"
+   },
+   {
+    "listing": "03001",
+    "page": 2,
+    "attempt": 3,
+    "state": "stopped",
+    "verdict": "repeated",
+    "new": 0,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "804b6695851c8937c11e31524456c956e6aa89d52b44eb4bdc25533f1a26d019",
+    "request_id": "req-8",
+    "stored_page": true,
+    "id": "01M76D9TTXGN2VCWM1T8E8BRW3"
+   },
+   {
+    "listing": "03002",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "e81d6b8c0fa32ab3ee8f76bf513a78cdc8abcefa2c45953cd1149afbda6c684d",
+    "request_id": "req-5",
+    "stored_page": true,
+    "id": "01M76D9S3XSP7MVZE5QMXG979S"
+   },
+   {
+    "listing": "03002",
+    "page": 2,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 6,
+    "duplicates": 0,
+    "identities": 6,
+    "sha256": "8de6fc3b002ed1615cdd3f17cb8b1fe3ee96a5e95afe5932c7bc5df4945268e9",
+    "request_id": "req-6",
+    "stored_page": true,
+    "id": "01M76D9SA0R03Z9ECFY0ZVSVK6"
+   }
+  ],
+  "records": 90,
+  "distinct_records": 90,
+  "records_by_status": {
+   "historical": 36,
+   "valid": 54
+  },
+  "coverage": {
+   "status": "INCOMPLETE",
+   "seen": 24,
+   "total": 60,
+   "reason": "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 2 repeats an earlier page exactly); re-ask 2: repeated (page 2 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  "listing_tasks": {
+   "03002": "succeeded",
+   "03001": "succeeded"
+  },
+  "deferred_requests": [
+   {
+    "taxonomy_id": "03001",
+    "requested_page": 2,
+    "kind": "repeated_page",
+    "state": "exhausted",
+    "reasks_dispatched": 2,
+    "max_reasks": 2,
+    "min_wait_s": 300,
+    "original_verdict": "repeated",
+    "original_reason": "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly",
+    "original_listing_page_id": "01M76D9RP6ZWK73N43EWQP71TQ",
+    "outcome": "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 2 repeats an earlier page exactly); re-ask 2: repeated (page 2 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read",
+    "attempts": [
+     {
+      "new": 0,
+      "role": "first answer",
+      "detail": "page 2 repeats an earlier page exactly",
+      "capture": {
+       "sha256": "804b6695851c8937c11e31524456c956e6aa89d52b44eb4bdc25533f1a26d019",
+       "page_fetch_id": "01M76D9RKHW3RA4YRGMREDKXZ7",
+       "listing_page_id": "01M76D9RP6ZWK73N43EWQP71TQ",
+       "listing_page_attempt": 1
+      },
+      "counted": false,
+      "ordinal": 0,
+      "outcome": "set aside; asked again not before 2026-11-10T16:05:00Z",
+      "overlap": 24,
+      "verdict": "repeated",
+      "answered": true,
+      "returned": {
+       "page": 2,
+       "cards": 24,
+       "total": 60,
+       "offset": 24,
+       "filters": {
+        "brandName": [],
+        "fulfillment": "all"
+       },
+       "listing": "03001",
+       "store_id": "53100502",
+       "available": 60,
+       "search_id": "syn-03001-2",
+       "sponsored": [],
+       "identities": [
+        "0003800000001",
+        "0003800000002",
+        "0003800000003",
+        "0003800000004",
+        "0003800000005",
+        "0003800000006",
+        "0003800000007",
+        "0003800000008",
+        "0003800000009",
+        "0003800000010",
+        "0003800000011",
+        "0003800000012",
+        "0003800000013",
+        "0003800000014",
+        "0003800000015",
+        "0003800000016",
+        "0003800000017",
+        "0003800000018",
+        "0003800000019",
+        "0003800000020",
+        "0003800000021",
+        "0003800000022",
+        "0003800000023",
+        "0003800000024"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        2
+       ]
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/listing-03001/03001?page=2",
+       "page": 2,
+       "filter": {},
+       "offset": 24,
+       "listing": "03001",
+       "reading": "03001",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:57:46.097950Z",
+      "recorded_at": "2026-11-10T16:00:00Z",
+      "store_check": "PASS",
+      "unique_after": 24,
+      "unique_before": 24,
+      "provider_request_id": "req-4",
+      "rendered_by_provider": null
+     },
+     {
+      "new": 0,
+      "role": "re-ask",
+      "detail": "page 2 repeats an earlier page exactly",
+      "capture": {
+       "sha256": "804b6695851c8937c11e31524456c956e6aa89d52b44eb4bdc25533f1a26d019",
+       "page_fetch_id": "01M76D9SZNRE3WSE876WDGX6R2",
+       "listing_page_id": "01M76D9T2D8WK3XZWYJ7350BK7",
+       "listing_page_attempt": 2
+      },
+      "counted": false,
+      "ordinal": 1,
+      "outcome": "not counted; asked again not before 2026-11-10T16:10:00Z",
+      "overlap": 24,
+      "verdict": "repeated",
+      "answered": true,
+      "returned": {
+       "page": 2,
+       "cards": 24,
+       "total": 60,
+       "offset": 24,
+       "filters": {
+        "brandName": [],
+        "fulfillment": "all"
+       },
+       "listing": "03001",
+       "store_id": "53100502",
+       "available": 60,
+       "search_id": "syn-03001-2",
+       "sponsored": [],
+       "identities": [
+        "0003800000001",
+        "0003800000002",
+        "0003800000003",
+        "0003800000004",
+        "0003800000005",
+        "0003800000006",
+        "0003800000007",
+        "0003800000008",
+        "0003800000009",
+        "0003800000010",
+        "0003800000011",
+        "0003800000012",
+        "0003800000013",
+        "0003800000014",
+        "0003800000015",
+        "0003800000016",
+        "0003800000017",
+        "0003800000018",
+        "0003800000019",
+        "0003800000020",
+        "0003800000021",
+        "0003800000022",
+        "0003800000023",
+        "0003800000024"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        2
+       ]
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/listing-03001/03001?page=2",
+       "page": 2,
+       "filter": {},
+       "offset": 24,
+       "listing": "03001",
+       "reading": "03001",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:57:47.509427Z",
+      "recorded_at": "2026-11-10T16:05:00Z",
+      "store_check": "PASS",
+      "unique_after": 24,
+      "dispatched_at": "2026-11-10T16:05:00Z",
+      "unique_before": 24,
+      "provider_request_id": "req-7",
+      "rendered_by_provider": null
+     },
+     {
+      "new": 0,
+      "role": "re-ask",
+      "detail": "page 2 repeats an earlier page exactly",
+      "capture": {
+       "sha256": "804b6695851c8937c11e31524456c956e6aa89d52b44eb4bdc25533f1a26d019",
+       "page_fetch_id": "01M76D9TR471A6C0YN0742ZY3Z",
+       "listing_page_id": "01M76D9TTXGN2VCWM1T8E8BRW3",
+       "listing_page_attempt": 3
+      },
+      "counted": false,
+      "ordinal": 2,
+      "outcome": "",
+      "overlap": 24,
+      "verdict": "repeated",
+      "answered": true,
+      "returned": {
+       "page": 2,
+       "cards": 24,
+       "total": 60,
+       "offset": 24,
+       "filters": {
+        "brandName": [],
+        "fulfillment": "all"
+       },
+       "listing": "03001",
+       "store_id": "53100502",
+       "available": 60,
+       "search_id": "syn-03001-2",
+       "sponsored": [],
+       "identities": [
+        "0003800000001",
+        "0003800000002",
+        "0003800000003",
+        "0003800000004",
+        "0003800000005",
+        "0003800000006",
+        "0003800000007",
+        "0003800000008",
+        "0003800000009",
+        "0003800000010",
+        "0003800000011",
+        "0003800000012",
+        "0003800000013",
+        "0003800000014",
+        "0003800000015",
+        "0003800000016",
+        "0003800000017",
+        "0003800000018",
+        "0003800000019",
+        "0003800000020",
+        "0003800000021",
+        "0003800000022",
+        "0003800000023",
+        "0003800000024"
+       ],
+       "fulfillment": "PICKUP",
+       "loaded_pages": [
+        2
+       ]
+      },
+      "requested": {
+       "url": "https://www.marianos.com/pl/listing-03001/03001?page=2",
+       "page": 2,
+       "filter": {},
+       "offset": 24,
+       "listing": "03001",
+       "reading": "03001",
+       "store_id": "53100502",
+       "fulfillment": "PICKUP"
+      },
+      "observed_at": "2026-11-11T22:57:48.292711Z",
+      "recorded_at": "2026-11-10T16:10:00Z",
+      "store_check": "PASS",
+      "unique_after": 24,
+      "dispatched_at": "2026-11-10T16:10:00Z",
+      "unique_before": 24,
+      "provider_request_id": "req-8",
+      "rendered_by_provider": null
+     }
+    ],
+    "url": "https://www.marianos.com/pl/listing-03001/03001?page=2",
+    "requested_filter": {},
+    "store_context": {
+     "store_id": "53100502",
+     "store_key": "marianos-53100502-pickup",
+     "fulfillment": "PICKUP"
+    }
+   }
+  ],
+  "ledger_rows": 8,
+  "ledger": [
+   [
+    "https://www.marianos.com/robots.txt",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/savings/cl/coupons/",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03002/03002",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03002/03002?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?page=2",
+    "settled",
+    "rule",
+    "ok"
+   ]
+  ],
+  "published_pointer": {
+   "publication_id": "01M76D9QPDAQY15YWB5KXXV1N7",
+   "version": 1
+  }
+ }
+}

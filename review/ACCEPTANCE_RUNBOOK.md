@@ -1,17 +1,19 @@
-# Acceptance runbook: Mariano's collector 1.9.0rc4
+# Acceptance runbook: Mariano's collector 1.10.0rc3
 
 This runbook lets the client check what this delivery claims, on any machine with Python 3.12, `uv` and Git, and on
 the client's own Azure VM. Steps 1 to 4 are **offline**: they send no request to Mariano's or to any provider.
 Steps 5 and 6 are **live and paid**. They need an approved route, account and allowance, and none has been
 approved for the client's VM. Steps marked **client** are the client's own.
 
-None of these steps has been done with the client yet. For 1.9.0rc4, Hamza ran steps 1, 3 and 4 on the delivered
-trees ([`evidence/1.9.0/tests/`](../evidence/1.9.0/tests/)) and checked the published repository from a fresh clone
-after the push. Step 2, the checks on the client's VM, **has not been executed**: the VM is deallocated, and at the
-client's request no SSH attempt has been made ([`TECHNICAL_REPORT_1.9.0.md`](TECHNICAL_REPORT_1.9.0.md) §12). The
-1.8.0rc5 runbook stays at the tag `review-1.8.0rc5-20261102`.
+None of these steps has been done with the client yet. For 1.10.0rc3, an offline candidate, Hamza ran step 1 on
+the delivered tree ([`evidence/1.10.0/tests/`](../evidence/1.10.0/tests/)) and checked the published repository
+from a fresh clone after the push, with step 3's record check; the probe of step 4 is unchanged since 1.9.0rc4.
+Step 2, the checks on the client's VM, **has not been executed**: the VM is deallocated, and no restart, SSH
+connection, key installation or Azure test was part of this task
+([`TECHNICAL_REPORT_1.10.0.md`](TECHNICAL_REPORT_1.10.0.md) §11). The 1.9.0rc4 runbook stays at the tag
+`review-1.9.0rc4-20261109` and the 1.8.0rc5 runbook at `review-1.8.0rc5-20261102`.
 
-Paths below are relative to the repository root. `source/` is collector 1.9.0rc4 and `classic-probe-1.7.3/` the
+Paths below are relative to the repository root. `source/` is collector 1.10.0rc3 and `classic-probe-1.7.3/` the
 shared Classic probe 1.7.3, each the exact Git tree of its development commit; `classic-probe/` stays the frozen
 probe 1.6.0 of 1.8.0rc5 ([`manifests/PUBLICATION.json`](../manifests/PUBLICATION.json)).
 
@@ -29,14 +31,14 @@ probe 1.6.0 of 1.8.0rc5 ([`manifests/PUBLICATION.json`](../manifests/PUBLICATION
 
 ```
 git clone https://github.com/lonadonia/marianos-azure-scraper.git && cd marianos-azure-scraper
-git checkout review-1.9.0rc4-20261109                      # this delivery's review tag
+git checkout review-1.10.0rc3-20261112                     # this delivery's review tag
 sha256sum -c manifests/SHA256SUMS.txt                         # every line "OK"
 python3 manifests/check_frozen_trees.py                       # source/, classic-probe-1.7.3/, classic-probe/
 git rev-parse HEAD:source HEAD:classic-probe-1.7.3            # the development trees (manifests/PUBLICATION.json)
-git diff --stat review-1.8.0rc5-probe171-20261105 HEAD -- source   # the correction diff since 1.8.0rc5
+git diff --stat review-1.9.0rc4-20261109 HEAD -- source   # the change since 1.9.0rc4 (C1, the publication result)
 cd source
 uv sync --frozen --offline || uv sync --frozen                # the exact locked versions
-uv run marianos-collector --version                           # marianos-azure-headless 1.9.0rc4
+uv run marianos-collector --version                           # marianos-azure-headless 1.10.0rc3
 uv run ruff check && uv run ruff format --check && uv run mypy
 uv run pytest -q tests/unit                                   # no database needed
 uv run pytest -q -p no:randomly                               # the whole suite (needs the test database)
@@ -45,13 +47,16 @@ uv run pytest -q -p no:randomly                               # the whole suite 
 **Expected:**
 - Every checksum is OK, and the frozen-tree check reports every listed file identical, none missing, different or
   extra, and the two tree ids equal to the development trees.
-- The version is 1.9.0rc4, and lint, format and types are clean
-  ([`wt_rc4_lint.json`](../evidence/1.9.0/tests/wt_rc4_lint.json)).
-- The suites pass. On the delivered tree (development commit `8abc2c1`, clean): unit 488 passed
-  ([`wt_rc4_unit.log`](../evidence/1.9.0/tests/wt_rc4_unit.log)); integration, with PostgreSQL started by
-  `pgserver`, 183 passed (the full suite against PostgreSQL, 32 min 41 s) ([`wt_rc4_integration.log`](../evidence/1.9.0/tests/wt_rc4_integration.log)). 1.8.0rc5's
-  576 passed in 26:02 stays its own historical result
-  ([`evidence/rc5-offline/t_full_rc5_x19b.log`](../evidence/rc5-offline/t_full_rc5_x19b.log)).
+- The version is 1.10.0rc3, and lint, format and types are clean
+  ([`cand_ruff_check.log`](../evidence/1.10.0/tests/cand_ruff_check.log),
+  [`cand_ruff_format.log`](../evidence/1.10.0/tests/cand_ruff_format.log),
+  [`cand_mypy.log`](../evidence/1.10.0/tests/cand_mypy.log)).
+- The suites pass. On the delivered tree (development commit `a1040f7`, clean): unit 494 passed
+  ([`cand_unit.log`](../evidence/1.10.0/tests/cand_unit.log)); integration, with PostgreSQL started by
+  `pgserver`, 218 passed ([`cand_integration.log`](../evidence/1.10.0/tests/cand_integration.log)).
+  1.9.0rc4's 488 and 183 passed ([`evidence/1.9.0/tests/`](../evidence/1.9.0/tests/)) and 1.8.0rc5's 576 passed
+  in 26:02 ([`evidence/rc5-offline/t_full_rc5_x19b.log`](../evidence/rc5-offline/t_full_rc5_x19b.log)) stay
+  their own historical results.
 
 The client's findings each have their own regressions:
 
@@ -69,7 +74,14 @@ uv run pytest -q tests/unit/test_tile_coupons.py              # 1.9.0rc3: a tile
 uv run pytest -q tests/integration/test_tiles_listing.py      # S1's real answers through the collector
 uv run pytest -q tests/integration/test_segment_end_t06.py    # 1.9 T06: each segment's end in the export
 uv run pytest -q tests/unit/test_schedule_capacity.py         # 1.9 M8: the schedule's real capacity
+uv run pytest -q tests/unit/test_reask.py                     # 1.10 C1: the re-ask rules
+uv run pytest -q tests/integration/test_reask_c1.py           # 1.10 C1: requests set aside and asked again (28)
+uv run pytest -q tests/integration/test_publication_result.py # 1.10: a refused publication ends unsuccessful (6)
 ```
+
+The last two files were also run on an unchanged checkout of 1.9.0rc4: there their controls pass and the cases of
+what 1.10 adds fail ([`evidence/1.10.0/REPRODUCE.md`](../evidence/1.10.0/REPRODUCE.md) has the commands,
+[`TECHNICAL_REPORT_1.10.0.md`](TECHNICAL_REPORT_1.10.0.md) §4 and §5 the results).
 
 `test_page_regressions.py` has the same tests that failed on 1.7.0rc2's source: 6 failed there
 ([`evidence/tests/regress/old_4815ed4.log`](../evidence/tests/regress/old_4815ed4.log)) and 6 passed on 1.8.0 ([`evidence/tests/regress/new_worktree.log`](../evidence/tests/regress/new_worktree.log)).
@@ -82,27 +94,27 @@ Mariano's or a provider. Use a disposable database and directory for this task o
 
 ```
 ssh -o StrictHostKeyChecking=yes <vm-user>@<vm-host>          # first connection: compare the host-key fingerprint
-mkdir -p ~/marianos-190 && cd ~/marianos-190                  # this task's own folder
-git clone --branch review-1.9.0rc4-20261109 https://github.com/lonadonia/marianos-azure-scraper.git && cd marianos-azure-scraper
+mkdir -p ~/marianos-1100 && cd ~/marianos-1100                # this task's own folder
+git clone --branch review-1.10.0rc3-20261112 https://github.com/lonadonia/marianos-azure-scraper.git && cd marianos-azure-scraper
 sha256sum -c manifests/SHA256SUMS.txt && python3 manifests/check_frozen_trees.py
 cd source && uv sync --frozen && uv run marianos-collector --version
 uv run marianos-collector validate-config                     # configuration only; no key is read
 export MARIANOS_COLLECTOR_TEST_DATABASE_URL=postgresql+psycopg://<disposable test database>
 uv run pytest -q -p no:randomly                               # unit + integration, replay of saved pages
 uv run ruff check && uv run ruff format --check && uv run mypy
-docker build -t marianos-collector:1.9.0rc4 . && docker image inspect marianos-collector:1.9.0rc4 --format '{{.Id}}'
-docker run --rm --network none marianos-collector:1.9.0rc4 --version
-docker run --rm --network none marianos-collector:1.9.0rc4 validate-config
+docker build -t marianos-collector:1.10.0rc3 . && docker image inspect marianos-collector:1.10.0rc3 --format '{{.Id}}'
+docker run --rm --network none marianos-collector:1.10.0rc3 --version
+docker run --rm --network none marianos-collector:1.10.0rc3 validate-config
 ```
 
 **Expected:** the same results as step 1. Record the commands, versions, image ID, exit codes and logs. The
 container started with `--network none` shows that the offline checks need no network. Keep the database and
 folder until the results are reviewed, then remove only what this step created.
 
-**Status in this delivery: not executed.** The VM is deallocated. At the client's request no SSH attempt has been
-made, no rule or key was changed and the VM was not started; the previously attached private key is not used. The
-checks wait for the client to confirm a restart window and to install `scraper_client_test_v2.pub` with the old
-key revoked. (1.8.0rc5: the SSH key was not loaded before the VM's automatic shutdown on 2026-11-02 15:57 UTC; the
+**Status in this delivery: not executed.** The VM is deallocated. No restart, SSH connection, key installation or
+Azure test was part of this task; no rule or key was changed and the previously attached private key is not used.
+When to ask for the short window is the owner's decision; the checks then wait for the client to restart the VM
+and to install `scraper_client_test_v2.pub` with the old key revoked. (1.8.0rc5: the SSH key was not loaded before the VM's automatic shutdown on 2026-11-02 15:57 UTC; the
 only contact was a scan of its SSH host key at 04:47 UTC that day, no login, which matched the client's
 fingerprint.)
 
@@ -194,7 +206,9 @@ Q1c and Q2 showed this live on 2026-11-02 with 1.8.0rc3 and rc4 ([`evidence/acco
 (parts 1 and 2). 1.9 names a pause by its cause (`RUN_PAUSE_REQUESTED`, `RUN_PAUSED_ON_FAILURE`; `RUN_LIMIT_REACHED`
 only for a limit). On 1.9.0rc4 a graceful stop, a refused second start, a hard kill and two resumes ran live in
 stage S5b2 on 2026-11-09, with no completed page asked again
-([`TECHNICAL_REPORT_1.9.0.md`](TECHNICAL_REPORT_1.9.0.md) §10).
+([`TECHNICAL_REPORT_1.9.0.md`](TECHNICAL_REPORT_1.9.0.md) §10). 1.10.0rc3 has not run live; how it resumes a
+request it had set aside, including one cut while it was out, is shown offline
+([`TECHNICAL_REPORT_1.10.0.md`](TECHNICAL_REPORT_1.10.0.md) §4, case 4).
 
 ## 7. Close the session
 
@@ -220,12 +234,14 @@ page. The "site's picker" in OPERATIONS.md's *Adding a store* applies to the Scr
 
 ## 9. What remains open
 
-[`TECHNICAL_REPORT_1.9.0.md`](TECHNICAL_REPORT_1.9.0.md) §15 separates the developer's remaining work from the access
-and decisions needed from the client, with dated milestones. In short:
+[`TECHNICAL_REPORT_1.10.0.md`](TECHNICAL_REPORT_1.10.0.md) §11 and
+[`OUTSTANDING_REQUIREMENTS_1.10.0.csv`](OUTSTANDING_REQUIREMENTS_1.10.0.csv) give every open item with its owner,
+blocker, the evidence that would close it and the next action. In short:
 
 - **A run that completes its scope.** On 2026-11-09 the site answered most later pages in form B (page 1's
-  products), so every 1.9 run stopped incomplete. The proposed change C1 and the stages S6, S6b and S7 are in
-  [`TECHNICAL_REPORT_1.9.0.md`](TECHNICAL_REPORT_1.9.0.md) §15.
+  products), so every 1.9 run stopped incomplete. 1.10.0rc3 implements C1 (such a request is set aside and
+  asked again, at most twice, at least five minutes later), proved offline only; the live stages S6 and S6b are
+  proposed, not approved ([`TECHNICAL_REPORT_1.10.0.md`](TECHNICAL_REPORT_1.10.0.md) §9).
 - **Full coverage at Vernon Hills Pickup.** Q2 collected CSV rows 22 to 27 as a qualification scope, and the
   stages of 2026-11-09 read parts of rows 1 to 27 (the exact queue:
   [`INCOMPLETE_QUEUE_190.csv`](../evidence/1.9.0/live/INCOMPLETE_QUEUE_190.csv)), not the client's whole category

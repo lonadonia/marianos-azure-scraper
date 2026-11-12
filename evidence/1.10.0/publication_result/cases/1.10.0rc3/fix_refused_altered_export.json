@@ -1,0 +1,101 @@
+{
+ "case": "fix_refused_altered_export",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the refusal is injected",
+ "live_request_sent": false,
+ "collector_version": "1.10.0rc3",
+ "source_revision": {
+  "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+  "source": "git",
+  "uncommitted_changes": false
+ },
+ "injected": "runs/marianos-53100502-pickup/01M76DAZQWYPC06XJV6EKH5DKZ/exports/products.csv",
+ "result": {
+  "exit_code": 6,
+  "run_status": "validated",
+  "log": [
+   {
+    "level": "ERROR",
+    "event": "PUBLICATION_REFUSED",
+    "exit_code": null,
+    "message": "the complete validated run was not published: integrity check failed: products.csv hash mismatch; the last published dataset stays published",
+    "publication": null,
+    "version": null
+   },
+   {
+    "level": "WARN",
+    "event": "RUN_FINISHED",
+    "exit_code": 6,
+    "message": null,
+    "publication": {
+     "automatic": true,
+     "published": false,
+     "refused": "integrity check failed: products.csv hash mismatch"
+    },
+    "version": null
+   }
+  ],
+  "run_finished": {
+   "ts": "2026-11-11T22:58:28.683Z",
+   "level": "WARN",
+   "event": "RUN_FINISHED",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "exit_code": 6,
+   "run_id": "01M76DAZQWYPC06XJV6EKH5DKZ",
+   "status": "validated",
+   "trigger": "console",
+   "dataset": "complete",
+   "pilot": false,
+   "occurrence": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "created_at": "2026-11-11T22:58:26.170093Z",
+   "started_at": "2026-11-11T22:58:26.214802Z",
+   "finished_at": "2026-11-11T22:58:28.576492Z",
+   "outcome": "validated",
+   "records_by_status": {
+    "valid": 61
+   },
+   "collection_complete": true,
+   "canary": {
+    "at": "2026-11-09T16:00:00Z",
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "page": "01M76DB02AD3T953PJRPPQ1JXZ",
+    "valid": 24,
+    "status": "passed",
+    "records": 24,
+    "problems": [],
+    "valid_ratio": 1.0,
+    "source_check": {
+     "records": 24,
+     "mismatch": 0,
+     "verified": 24,
+     "unverified": 0
+    }
+   },
+   "historical": {
+    "too_old": 0,
+    "carried_forward": 0
+   },
+   "publication": {
+    "automatic": true,
+    "published": false,
+    "refused": "integrity check failed: products.csv hash mismatch"
+   },
+   "failed_checks": []
+  },
+  "events": [
+   {
+    "level": "ERROR",
+    "code": "PUBLICATION_REFUSED",
+    "message": "the complete validated run was not published: integrity check failed: products.csv hash mismatch; the last published dataset stays published"
+   }
+  ]
+ },
+ "published": {
+  "publication_id": "01M76DAZP6Z59S2BFQ0VVGFWY7",
+  "version": 1,
+  "published_run": "01M76DAWQPS97SZE7J77DBV1VX",
+  "latest_json_sha256": "a06381f8bdf061719b43d62b93d5c5d846d6d5f2b5ca1dc3dc90e6e6a6cc59fb"
+ }
+}

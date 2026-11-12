@@ -1,0 +1,92 @@
+{
+ "case": "control_last_good_altered_export",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the refusal is injected",
+ "live_request_sent": false,
+ "collector_version": "1.9.0rc4",
+ "source_revision": {
+  "commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+  "source": "git",
+  "uncommitted_changes": true
+ },
+ "injected": "runs/marianos-53100502-pickup/01M76D067NK7N5TKQFR2TBR8NT/exports/products.csv",
+ "result": {
+  "exit_code": 0,
+  "run_status": "validated",
+  "log": [
+   {
+    "level": "WARN",
+    "event": "PUBLICATION_REFUSED",
+    "exit_code": null,
+    "message": "integrity check failed: products.csv hash mismatch",
+    "publication": null,
+    "version": null
+   },
+   {
+    "level": "INFO",
+    "event": "RUN_FINISHED",
+    "exit_code": 0,
+    "message": null,
+    "publication": null,
+    "version": null
+   }
+  ],
+  "run_finished": {
+   "ts": "2026-11-11T22:52:34.732Z",
+   "level": "INFO",
+   "event": "RUN_FINISHED",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "exit_code": 0,
+   "run_id": "01M76D067NK7N5TKQFR2TBR8NT",
+   "status": "validated",
+   "trigger": "console",
+   "dataset": "complete",
+   "pilot": false,
+   "occurrence": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "created_at": "2026-11-11T22:52:32.370921Z",
+   "started_at": "2026-11-11T22:52:32.419222Z",
+   "finished_at": "2026-11-11T22:52:34.618811Z",
+   "outcome": "validated",
+   "records_by_status": {
+    "valid": 61
+   },
+   "collection_complete": true,
+   "canary": {
+    "at": "2026-11-09T16:00:00Z",
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "page": "01M76D06J28YYEPK5FWXKJHF01",
+    "valid": 24,
+    "status": "passed",
+    "records": 24,
+    "problems": [],
+    "valid_ratio": 1.0,
+    "source_check": {
+     "records": 24,
+     "mismatch": 0,
+     "verified": 24,
+     "unverified": 0
+    }
+   },
+   "historical": {
+    "too_old": 0,
+    "carried_forward": 0
+   },
+   "failed_checks": []
+  },
+  "events": []
+ },
+ "before": {
+  "publication_id": "01M76D0661P883NZ1EFAET1J5F",
+  "version": 1,
+  "published_run": "01M76D03CFMKREFB0TEBHMKFVB",
+  "latest_json_sha256": "40857a9daf80e30140c4bc3dfe30e579d11df33df5edb0abf75864a5e2d753d7"
+ },
+ "after": {
+  "publication_id": "01M76D0661P883NZ1EFAET1J5F",
+  "version": 1,
+  "published_run": "01M76D03CFMKREFB0TEBHMKFVB",
+  "latest_json_sha256": "40857a9daf80e30140c4bc3dfe30e579d11df33df5edb0abf75864a5e2d753d7"
+ }
+}

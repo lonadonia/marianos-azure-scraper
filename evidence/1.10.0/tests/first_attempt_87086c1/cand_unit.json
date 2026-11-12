@@ -1,0 +1,37 @@
+{
+ "label": "cand_unit",
+ "command": [
+  "C:/m8/wt/headless/marianos-azure-headless/.venv/Scripts/python.exe",
+  "-m",
+  "pytest",
+  "tests/unit",
+  "-q",
+  "-p",
+  "no:cacheprovider",
+  "-rfEs"
+ ],
+ "cwd": ".",
+ "revision": "87086c14839170380711f98a03199548ab712c64",
+ "worktree_modified_tracked_files": [],
+ "env": {
+  "PSYCOPG_IMPL": "python",
+  "PYTHONUTF8": "1"
+ },
+ "host": {
+  "os": "Windows-11-10.0.26200-SP0",
+  "python_of_runner": "3.12.10"
+ },
+ "utc_start": "2026-11-11T22:53:11+00:00",
+ "utc_end": "2026-11-11T22:53:30+00:00",
+ "seconds": 19.2,
+ "exit_code": 1,
+ "pytest_counts": {
+  "failed": 1,
+  "passed": 493
+ },
+ "skip_reasons": {},
+ "verdict": "FAIL (exit 1)",
+ "log": "C:\\m8\\logs\\tests1100\\cand_unit.log",
+ "log_bytes": 1429,
+ "log_sha256": "9706d0aae0bd80b56829082a3021db63afe04d245a2c7faf201f31e4d006d9f4"
+}

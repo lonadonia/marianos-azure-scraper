@@ -1,0 +1,38 @@
+{
+ "label": "cand_c1_cases",
+ "command": [
+  "C:/m8/wt/headless/marianos-azure-headless/.venv/Scripts/python.exe",
+  "-m",
+  "pytest",
+  "tests/integration/test_reask_c1.py",
+  "-p",
+  "no:cacheprovider",
+  "-q",
+  "-rfEs",
+  "--junitxml=C:/m8/evidence/c1100/c1_cases/cand_c1_cases.junit.xml"
+ ],
+ "cwd": ".",
+ "revision": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+ "worktree_modified_tracked_files": [],
+ "env": {
+  "PSYCOPG_IMPL": "python",
+  "PYTHONUTF8": "1"
+ },
+ "host": {
+  "os": "Windows-11-10.0.26200-SP0",
+  "python_of_runner": "3.12.10"
+ },
+ "utc_start": "2026-11-11T22:55:11+00:00",
+ "utc_end": "2026-11-11T22:57:56+00:00",
+ "seconds": 164.4,
+ "exit_code": 0,
+ "pytest_counts": {
+  "passed": 28
+ },
+ "skip_reasons": {},
+ "verdict": "PASS",
+ "log": "evidence/1.10.0/tests/cand_c1_cases.log",
+ "log_bytes": 113,
+ "log_sha256_private": "0dca0e3896b68c6f9cbd8d53fc6aa71c3f9cc890cd5731b10056f2a5ae864578",
+ "log_sha256_published": "a021e63f0375d06f9208ef4e7f8e0712f3774b583e3510da985d0ed297e2e194"
+}

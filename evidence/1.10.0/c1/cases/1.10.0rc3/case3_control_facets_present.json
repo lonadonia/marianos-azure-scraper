@@ -1,0 +1,196 @@
+{
+ "case": "case3 control facets present",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport",
+ "live_request_sent": false,
+ "collector_version": "1.10.0rc3",
+ "source_revision": {
+  "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+  "source": "git",
+  "uncommitted_changes": false
+ },
+ "c1_in_this_build": true,
+ "asked": [
+  [
+   "03001",
+   1
+  ],
+  [
+   "03001~Acme Foods",
+   1
+  ],
+  [
+   "03001~Acme Foods",
+   2
+  ],
+  [
+   "03001~Bravo",
+   1
+  ],
+  [
+   "03001~Bravo",
+   2
+  ]
+ ],
+ "observed": {
+  "collector_version": "1.10.0rc3",
+  "source_revision": {
+   "commit": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+   "source": "git",
+   "uncommitted_changes": false
+  },
+  "c1_in_this_build": true,
+  "run_status": "validated",
+  "stop_code": null,
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "PASS",
+   "G4": "PASS",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "FAIL"
+  },
+  "pages": [
+   {
+    "listing": "03001",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "049cdf64b472a8e54826696afb8660b941eeb82f269488d26895fd8c85842b09",
+    "request_id": "req-2",
+    "stored_page": true,
+    "id": "01M76D6PA2HC8VXRGRX0QWKZEX"
+   },
+   {
+    "listing": "03001~22de6db37fdb9e659cc82337",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 24,
+    "identities": 24,
+    "sha256": "88d38c5c7f087b35ac43cedcfa90ec55144bb738a5a31249b990abafd99e9a36",
+    "request_id": "req-4",
+    "stored_page": true,
+    "id": "01M76D6PJKCFXV5X426A3RMFWT"
+   },
+   {
+    "listing": "03001~22de6db37fdb9e659cc82337",
+    "page": 2,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 6,
+    "duplicates": 0,
+    "identities": 6,
+    "sha256": "cac9ead43488ddb0a0b3c77fba0ea0f3737fe36ce618a0f5bdfe2e1e1a310530",
+    "request_id": "req-5",
+    "stored_page": true,
+    "id": "01M76D6PR6HTTQ7B4M04J29QYK"
+   },
+   {
+    "listing": "03001~fd9421f725a96841d492a3c3",
+    "page": 1,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 24,
+    "duplicates": 0,
+    "identities": 24,
+    "sha256": "51806bf3da7898ad3519015812bfb799eb485819f24d0a704544e66591db0d3a",
+    "request_id": "req-6",
+    "stored_page": true,
+    "id": "01M76D6Q3EZH1JKEG9FW6MMVGK"
+   },
+   {
+    "listing": "03001~fd9421f725a96841d492a3c3",
+    "page": 2,
+    "attempt": 1,
+    "state": "completed",
+    "verdict": "new",
+    "new": 6,
+    "duplicates": 0,
+    "identities": 6,
+    "sha256": "efe1008f637c633388226b203ea823bf38db9f8329da335c548f7508ffad2389",
+    "request_id": "req-7",
+    "stored_page": true,
+    "id": "01M76D6Q8AXD642H571S7CK5A3"
+   }
+  ],
+  "records": 60,
+  "distinct_records": 60,
+  "records_by_status": {
+   "valid": 60
+  },
+  "coverage": {
+   "status": "PARTITIONED",
+   "seen": 24,
+   "total": 60,
+   "reason": "the site's search lets the page reach 48 of the 60 results; the listing is read through 2 subdivisions the page itself names (Acme Foods, Bravo) and is complete only when they cover its results"
+  },
+  "listing_tasks": {
+   "03001": "succeeded",
+   "03001~22de6db37fdb9e659cc82337": "succeeded",
+   "03001~fd9421f725a96841d492a3c3": "succeeded"
+  },
+  "deferred_requests": [],
+  "ledger_rows": 7,
+  "ledger": [
+   [
+    "https://www.marianos.com/robots.txt",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/savings/cl/coupons/",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?brandName=Acme%20Foods",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?brandName=Acme%20Foods&page=2",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?brandName=Bravo",
+    "settled",
+    "rule",
+    "ok"
+   ],
+   [
+    "https://www.marianos.com/pl/listing-03001/03001?brandName=Bravo&page=2",
+    "settled",
+    "rule",
+    "ok"
+   ]
+  ],
+  "published_pointer": null
+ }
+}

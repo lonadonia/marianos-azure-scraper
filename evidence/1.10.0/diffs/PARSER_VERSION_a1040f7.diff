@@ -1,0 +1,62 @@
+diff --git a/README.md b/README.md
+index b8cb155..09666ee 100644
+--- a/README.md
++++ b/README.md
+@@ -92,7 +92,7 @@ validated run is also published:
+   Azure), with the results, for the releases up to 1.2.1; the verification of each later release is in that
+   release's delivery (TECHNICAL_REPORT).
+ 
+-## Release 1.10.0 (candidate, not a final release): a request set aside and asked again (C1)
++## Release 1.10.0 (candidate 1.10.0rc3, not a final release): a request set aside and asked again (C1)
+ 
+ On 2026-11-09 some answers to a listing's page N listed page 1's products, and some first pages of a
+ listing above the site's 250-result window named no child listing and no brand to subdivide it by; minutes
+diff --git a/pyproject.toml b/pyproject.toml
+index a3da14a..bed8a32 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -1,6 +1,6 @@
+ [project]
+ name = "marianos-azure-headless"
+-version = "1.10.0rc2"
++version = "1.10.0rc3"
+ description = "Headless Mariano's store-price collector: Scrapfly Cloud Browser, PostgreSQL, Azure Container Apps jobs"
+ readme = "README.md"
+ requires-python = ">=3.12,<3.13"
+diff --git a/src/marianos_headless/__init__.py b/src/marianos_headless/__init__.py
+index ca11572..6b5d1c0 100644
+--- a/src/marianos_headless/__init__.py
++++ b/src/marianos_headless/__init__.py
+@@ -1,3 +1,3 @@
+ """Mariano's store-price collector (headless): Scrapfly Cloud Browser, PostgreSQL, Azure jobs."""
+ 
+-__version__ = "1.10.0rc2"
++__version__ = "1.10.0rc3"
+diff --git a/src/marianos_headless/core/paths.py b/src/marianos_headless/core/paths.py
+index b405dca..bf2c188 100644
+--- a/src/marianos_headless/core/paths.py
++++ b/src/marianos_headless/core/paths.py
+@@ -24,7 +24,8 @@ def data_dir() -> Path:
+ # The version of this collector's parser and record rules: the release series without its candidate
+ # suffix (1.8.0 for 1.8.0rc4). Every run, observation and export records it, next to the release and the
+ # source commit. Release 1.8.0rc4: it had stayed at 1.7.0 through 1.8.0rc1-rc3 although their parser and
+-# record rules changed.
+-PARSER_VERSION = "1.9.0"
++# record rules changed. Release 1.10.0rc3: 1.10.0rc1 and rc2 still said 1.9.0 (the unit suite's own check of
++# this rule failed on them).
++PARSER_VERSION = "1.10.0"
+ # The verified application release this standalone collector was derived from.
+ DERIVED_FROM = "mscraper 1.2.6 (f9c03085aee2156cfdb21751db233e521b5a2d4c)"
+diff --git a/uv.lock b/uv.lock
+index 83185c7..8a7bf28 100644
+--- a/uv.lock
++++ b/uv.lock
+@@ -440,7 +440,7 @@ wheels = [
+ 
+ [[package]]
+ name = "marianos-azure-headless"
+-version = "1.10.0rc2"
++version = "1.10.0rc3"
+ source = { editable = "." }
+ dependencies = [
+     { name = "alembic" },

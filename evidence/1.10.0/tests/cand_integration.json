@@ -1,0 +1,37 @@
+{
+ "label": "cand_integration",
+ "command": [
+  "C:/m8/wt/headless/marianos-azure-headless/.venv/Scripts/python.exe",
+  "-m",
+  "pytest",
+  "tests/integration",
+  "-p",
+  "no:cacheprovider",
+  "-rfEs",
+  "--junitxml=C:/m8/evidence/c1100/cand_integration.junit.xml"
+ ],
+ "cwd": ".",
+ "revision": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+ "worktree_modified_tracked_files": [],
+ "env": {
+  "PSYCOPG_IMPL": "python",
+  "PYTHONUTF8": "1"
+ },
+ "host": {
+  "os": "Windows-11-10.0.26200-SP0",
+  "python_of_runner": "3.12.10"
+ },
+ "utc_start": "2026-11-11T22:58:48+00:00",
+ "utc_end": "2026-11-11T23:35:10+00:00",
+ "seconds": 2181.5,
+ "exit_code": 0,
+ "pytest_counts": {
+  "passed": 218
+ },
+ "skip_reasons": {},
+ "verdict": "PASS",
+ "log": "evidence/1.10.0/tests/cand_integration.log",
+ "log_bytes": 2580,
+ "log_sha256_private": "0eec4bed831345087fb5af1862ce0d6058ae479e4fb6ff5387a9f868a3aa9581",
+ "log_sha256_published": "28a441c212365097cd1e03136fad05d376a6052ed8a9d6f4042ca53e9ac8f0f9"
+}

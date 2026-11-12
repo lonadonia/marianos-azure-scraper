@@ -1,0 +1,36 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.7.0
+rootdir: C:\m8\wt\headless\marianos-azure-headless
+configfile: pyproject.toml
+plugins: anyio-4.15.1, hypothesis-6.170.5, platformdirs-4.13.5
+collected 218 items
+
+tests\integration\test_account_gate.py ......                            [  2%]
+tests\integration\test_availability_retention.py .                       [  3%]
+tests\integration\test_backlog_policy.py ..                              [  4%]
+tests\integration\test_daily_credit_units.py ...                         [  5%]
+tests\integration\test_last_good_survives.py .........................   [ 16%]
+tests\integration\test_listing_pages.py .............................    [ 30%]
+tests\integration\test_live_collector.py .................               [ 38%]
+tests\integration\test_migrations.py ....                                [ 39%]
+tests\integration\test_operations.py ......                              [ 42%]
+tests\integration\test_oxylabs_cli.py ..                                 [ 43%]
+tests\integration\test_oxylabs_collector.py ...........                  [ 48%]
+tests\integration\test_oxylabs_replay.py ..                              [ 49%]
+tests\integration\test_page_regressions.py ......                        [ 52%]
+tests\integration\test_partitions_190.py .............                   [ 58%]
+tests\integration\test_product_terms_collector.py ....                   [ 60%]
+tests\integration\test_publication_result.py ......                      [ 62%]
+tests\integration\test_publication_safety.py ......                      [ 65%]
+tests\integration\test_publish.py .....                                  [ 67%]
+tests\integration\test_queue_locks.py ..........                         [ 72%]
+tests\integration\test_reask_c1.py ............................          [ 85%]
+tests\integration\test_recovery_and_rollback.py ....                     [ 87%]
+tests\integration\test_reprocess.py ...                                  [ 88%]
+tests\integration\test_runner.py .......                                 [ 91%]
+tests\integration\test_segment_end_t06.py ....                           [ 93%]
+tests\integration\test_tiles_listing.py ...                              [ 94%]
+tests\integration\test_vernon_hills_replay.py ...........                [100%]
+
+----- generated xml file: C:\m8\evidence\c1100\cand_integration.junit.xml -----
+====================== 218 passed in 2173.17s (0:36:13) =======================

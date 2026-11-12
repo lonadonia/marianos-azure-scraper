@@ -1,0 +1,387 @@
+{
+ "what": "saved source evidence only; no request was made for this check",
+ "stage_o1_product_pages": {
+  "saved": 14,
+  "answers_stating_run_js_true": 3,
+  "of_those_showing_savings_rows": 1,
+  "rendered": [
+   {
+    "capture": "03_c3_pdp_js.raw.gz",
+    "upc": "0001780014939",
+    "asked_utc": "2026-11-06T18:37:39+00:00",
+    "provider_request_id": "7524540530412231682",
+    "raw_answer_sha256": "4c76091e75c6d17451a4abd6284d7a269642c2c03c911539a44e5820035d254b",
+    "seconds": 90.45,
+    "provider_states_run_js": true,
+    "savings_rows": 2
+   },
+   {
+    "capture": "05_c5_pdp_0002310014848.raw.gz",
+    "upc": "0002310014848",
+    "asked_utc": "2026-11-06T18:41:10+00:00",
+    "provider_request_id": "7524541411266425857",
+    "raw_answer_sha256": "a808496cb8edeb846f2ba9f565283ba0e84c8babe1cbdfe4084e2fbc17b505c8",
+    "seconds": 22.55,
+    "provider_states_run_js": true,
+    "savings_rows": 0
+   },
+   {
+    "capture": "13_s3_pdp_0087786900820.raw.gz",
+    "upc": "0087786900820",
+    "asked_utc": "2026-11-06T18:42:56+00:00",
+    "provider_request_id": "7524541856273716225",
+    "raw_answer_sha256": "0b88c374e337f0ad82d1f0aa19a1a224862bea40510d4a55996c0b0a528ad29f",
+    "seconds": 16.58,
+    "provider_states_run_js": true,
+    "savings_rows": 0
+   }
+  ],
+  "correction": "the 1.9.0 documents say the provider rendered 1 of 14 product pages on 2026-11-06; the saved answers state run_js true for the number given here",
+  "pages": [
+   {
+    "capture": "03_c3_pdp_js.raw.gz",
+    "upc": "0001780014939",
+    "asked_utc": "2026-11-06T18:37:39+00:00",
+    "provider_request_id": "7524540530412231682",
+    "raw_answer_sha256": "4c76091e75c6d17451a4abd6284d7a269642c2c03c911539a44e5820035d254b",
+    "seconds": 90.45,
+    "provider_states_run_js": true,
+    "savings_rows": 2
+   },
+   {
+    "capture": "04_c4_pdp_0001780014941.raw.gz",
+    "upc": "0001780014941",
+    "asked_utc": "2026-11-06T18:41:05+00:00",
+    "provider_request_id": "7524541391263784961",
+    "raw_answer_sha256": "deadea281cc9959747f76834d7f4f593d0ba66590faa1b6dc25c3c9642380292",
+    "seconds": 4.95,
+    "provider_states_run_js": false,
+    "savings_rows": 0
+   },
+   {
+    "capture": "05_c5_pdp_0002310014848.raw.gz",
+    "upc": "0002310014848",
+    "asked_utc": "2026-11-06T18:41:10+00:00",
+    "provider_request_id": "7524541411266425857",
+    "raw_answer_sha256": "a808496cb8edeb846f2ba9f565283ba0e84c8babe1cbdfe4084e2fbc17b505c8",
+    "seconds": 22.55,
+    "provider_states_run_js": true,
+    "savings_rows": 0
+   },
+   {
+    "capture": "06_c6_pdp_0003980014995.raw.gz",
+    "upc": "0003980014995",
+    "asked_utc": "2026-11-06T18:41:33+00:00",
+    "provider_request_id": "7524541506707811329",
+    "raw_answer_sha256": "7731f230096704939a1ec7362a2a4f0dbdd52a71b9f23a7906875e23ae00df86",
+    "seconds": 7.27,
+    "provider_states_run_js": false,
+    "savings_rows": 0
+   },
+   {
+    "capture": "07_m6a_pdp_0081675102373.raw.gz",
+    "upc": "0081675102373",
+    "asked_utc": "2026-11-06T18:41:40+00:00",
+    "provider_request_id": "7524541538731342849",
+    "raw_answer_sha256": "9ebb38257de92f3cf30380604f09cd28815729f7a9ea7c52029bffe5139030ee",
+    "seconds": 14.45,
+    "provider_states_run_js": false,
+    "savings_rows": 0
+   },
+   {
+    "capture": "08_m6b_pdp_0086001079386.raw.gz",
+    "upc": "0086001079386",
+    "asked_utc": "2026-11-06T18:41:55+00:00",
+    "provider_request_id": "7524541598739257345",
+    "raw_answer_sha256": "8761fa9cfe448736ade53a6c9d9ae5f56f5140115d8dc8d89ec5e87b98de5773",
+    "seconds": 5.58,
+    "provider_states_run_js": false,
+    "savings_rows": 0
+   },
+   {
+    "capture": "09_m6c_pdp_0001820020352.raw.gz",
+    "upc": "0001820020352",
+    "asked_utc": "2026-11-06T18:42:00+00:00",
+    "provider_request_id": "7524541623041038337",
+    "raw_answer_sha256": "d41dca996396cc21933bd6f2fe70fd2c2a28858e8ab277379f974e292c887a78",
+    "seconds": 20.75,
+    "provider_states_run_js": false,
+    "savings_rows": 1
+   },
+   {
+    "capture": "10_m6d_pdp_0073679800140.raw.gz",
+    "upc": "0073679800140",
+    "asked_utc": "2026-11-06T18:42:21+00:00",
+    "provider_request_id": "7524541711507271681",
+    "raw_answer_sha256": "10edaa36164585fa4af8ae54f49729a235ff8a4070d42810e461aaf8fb9fe84a",
+    "seconds": 5.81,
+    "provider_states_run_js": false,
+    "savings_rows": 0
+   },
+   {
+    "capture": "11_s1_pdp_0001780010048.raw.gz",
+    "upc": "0001780010048",
+    "asked_utc": "2026-11-06T18:42:27+00:00",
+    "provider_request_id": "7524541736475973633",
+    "raw_answer_sha256": "e47472a67f23db1aed8e2f43918d1a3b31d5de54181d41b7aac468562ca76f17",
+    "seconds": 23.06,
+    "provider_states_run_js": false,
+    "savings_rows": 0
+   },
+   {
+    "capture": "12_s2_pdp_0065922318120.raw.gz",
+    "upc": "0065922318120",
+    "asked_utc": "2026-11-06T18:42:50+00:00",
+    "provider_request_id": "7524541833913881601",
+    "raw_answer_sha256": "eb9ec0dbed7e6a36c24f353a7132e69cd7610810e00061e716ab1dc5a0e61520",
+    "seconds": 5.06,
+    "provider_states_run_js": false,
+    "savings_rows": 0
+   },
+   {
+    "capture": "13_s3_pdp_0087786900820.raw.gz",
+    "upc": "0087786900820",
+    "asked_utc": "2026-11-06T18:42:56+00:00",
+    "provider_request_id": "7524541856273716225",
+    "raw_answer_sha256": "0b88c374e337f0ad82d1f0aa19a1a224862bea40510d4a55996c0b0a528ad29f",
+    "seconds": 16.58,
+    "provider_states_run_js": true,
+    "savings_rows": 0
+   },
+   {
+    "capture": "15_r4_pdp_0001780014941.raw.gz",
+    "upc": "0001780014941",
+    "asked_utc": "2026-11-06T18:49:40+00:00",
+    "provider_request_id": "7524543550592137217",
+    "raw_answer_sha256": "8eb5f0c5f9c71aa467c400bd580a4fe2169b8716c00662f97ef2a6fe707db216",
+    "seconds": 23.36,
+    "provider_states_run_js": false,
+    "savings_rows": "unavailable: not in the published page summary (a second sample)"
+   },
+   {
+    "capture": "16_r5_pdp_0002310014848.raw.gz",
+    "upc": "0002310014848",
+    "asked_utc": "2026-11-06T18:50:03+00:00",
+    "provider_request_id": "7524543649003086849",
+    "raw_answer_sha256": "72c3878aaf8f5c42f5481fcd070e6d4e930eff85c52ee926c964469c8cd4de5e",
+    "seconds": 5.0,
+    "provider_states_run_js": false,
+    "savings_rows": "unavailable: not in the published page summary (a second sample)"
+   },
+   {
+    "capture": "17_r6_pdp_0003980014995.raw.gz",
+    "upc": "0003980014995",
+    "asked_utc": "2026-11-06T18:50:08+00:00",
+    "provider_request_id": "7524543669802648577",
+    "raw_answer_sha256": "3c90602d367bfa0157057158c3f3c842c5afc6bd7de9cdd4cc0301f056128fd3",
+    "seconds": 23.5,
+    "provider_states_run_js": false,
+    "savings_rows": "unavailable: not in the published page summary (a second sample)"
+   }
+  ]
+ },
+ "required_for_a_complete_product_bound_coupon": [
+  "coupon_id",
+  "headline",
+  "complete terms (quantity, eligibility, redemption limits)",
+  "displayed expiry (validity)",
+  "clipping instruction",
+  "qualifying products naming this UPC's product (product-bound)"
+ ],
+ "products": {
+  "0001780014939": {
+   "brand": "Purina ONE",
+   "q2_card_headline_2026-11-02": "Coupon: Save $10.00 on 2 Purina ONE",
+   "product_pages": [
+    {
+     "stage": "O1 (2026-11-06)",
+     "capture": "03_c3_pdp_js.raw.gz",
+     "provider_request_id": "7524540530412231682",
+     "requested_run_js": true,
+     "raw_answer_sha256": "4c76091e75c6d17451a4abd6284d7a269642c2c03c911539a44e5820035d254b",
+     "seconds": 90.45,
+     "provider_states_run_js": true,
+     "savings_rows": 2,
+     "coupons_on_page": [
+      {
+       "coupon_id": "4257015",
+       "headline": "Save $10.00 on 2 Purina ONE",
+       "expiry_text": "Exp. Nov. 10"
+      },
+      {
+       "coupon_id": "4257014",
+       "headline": "$10.00 Cash Back on 2 Purina ONE",
+       "expiry_text": "Exp. Nov. 10"
+      }
+     ],
+     "customer_facing_size": "31.1 lb."
+    }
+   ],
+   "state": "COMPLETE in the saved source: a rendered product page shows the coupon with its terms"
+  },
+  "0001780014941": {
+   "brand": "Purina ONE",
+   "q2_card_headline_2026-11-02": "Coupon: Save $10.00 on 2 Purina ONE",
+   "product_pages": [
+    {
+     "stage": "O1 (2026-11-06)",
+     "capture": "04_c4_pdp_0001780014941.raw.gz",
+     "provider_request_id": "7524541391263784961",
+     "requested_run_js": true,
+     "raw_answer_sha256": "deadea281cc9959747f76834d7f4f593d0ba66590faa1b6dc25c3c9642380292",
+     "seconds": 4.95,
+     "provider_states_run_js": false,
+     "savings_rows": 0,
+     "coupons_on_page": [],
+     "customer_facing_size": "31.1 lb."
+    }
+   ],
+   "state": "UNREAD: no saved product page of this product was rendered (each answer states run_js false), which says nothing about its coupons; the card headline of 2026-11-02 is kept as a headline and flagged, its price is not exported"
+  },
+  "0002310014848": {
+   "brand": "Temptations",
+   "q2_card_headline_2026-11-02": "Coupon: $6.99 Temptations Cat Treats",
+   "product_pages": [
+    {
+     "stage": "O1 (2026-11-06)",
+     "capture": "05_c5_pdp_0002310014848.raw.gz",
+     "provider_request_id": "7524541411266425857",
+     "requested_run_js": true,
+     "raw_answer_sha256": "a808496cb8edeb846f2ba9f565283ba0e84c8babe1cbdfe4084e2fbc17b505c8",
+     "seconds": 22.55,
+     "provider_states_run_js": true,
+     "savings_rows": 0,
+     "coupons_on_page": [],
+     "customer_facing_size": "16 oz"
+    }
+   ],
+   "state": "UNREAD, AND NOT SHOWN ON ITS RENDERED PAGE: a saved product page whose answer states run_js true shows no Savings section, so the coupon the card showed on 2026-11-02 is not confirmed by the product's own page of 2026-11-06 (expired, withdrawn or not loaded: not established); no terms were read; the headline is kept as a headline and flagged, its price is not exported"
+  },
+  "0003980014995": {
+   "brand": "Energizer",
+   "q2_card_headline_2026-11-02": "Coupon: Save $1.00 on Energizer",
+   "product_pages": [
+    {
+     "stage": "O1 (2026-11-06)",
+     "capture": "06_c6_pdp_0003980014995.raw.gz",
+     "provider_request_id": "7524541506707811329",
+     "requested_run_js": true,
+     "raw_answer_sha256": "7731f230096704939a1ec7362a2a4f0dbdd52a71b9f23a7906875e23ae00df86",
+     "seconds": 7.27,
+     "provider_states_run_js": false,
+     "savings_rows": 0,
+     "coupons_on_page": [],
+     "customer_facing_size": "10 Count"
+    }
+   ],
+   "state": "UNREAD: no saved product page of this product was rendered (each answer states run_js false), which says nothing about its coupons; the card headline of 2026-11-02 is kept as a headline and flagged, its price is not exported"
+  }
+ },
+ "coupons_page_reads_2026-11-09": [
+  {
+   "stage": "S1b",
+   "run": "01M704YFEYRM4ZD5WNW3S7WVH8",
+   "status": "READ",
+   "coupon_cards": 0,
+   "store_check": "PASS",
+   "cards_naming_one_of_the_three_brands": [],
+   "products_listed_by_the_page": false
+  },
+  {
+   "stage": "S3",
+   "run": "01M70CYWNRZNS4NCZVDX2X13XK",
+   "status": "READ",
+   "coupon_cards": 0,
+   "store_check": "PASS",
+   "cards_naming_one_of_the_three_brands": [],
+   "products_listed_by_the_page": false
+  },
+  {
+   "stage": "S3b",
+   "run": "01M70H9RB4Q736926MP3W5117A",
+   "status": "READ",
+   "coupon_cards": 24,
+   "store_check": "PASS",
+   "cards_naming_one_of_the_three_brands": [],
+   "products_listed_by_the_page": false
+  },
+  {
+   "stage": "S4",
+   "run": "01M70BG79WGW9EC5ZTW2M4V4XS",
+   "status": "READ",
+   "coupon_cards": 0,
+   "store_check": "PASS",
+   "cards_naming_one_of_the_three_brands": [],
+   "products_listed_by_the_page": false
+  },
+  {
+   "stage": "S4b",
+   "run": "01M70G5ZEPFG1GVT2H5QWPVQKJ",
+   "status": "READ",
+   "coupon_cards": 24,
+   "store_check": "PASS",
+   "cards_naming_one_of_the_three_brands": [],
+   "products_listed_by_the_page": false
+  },
+  {
+   "stage": "S4c",
+   "run": "01M70GKE2KJF0D6CKSY04VD8YK",
+   "status": "READ",
+   "coupon_cards": 24,
+   "store_check": "PASS",
+   "cards_naming_one_of_the_three_brands": [],
+   "products_listed_by_the_page": false
+  },
+  {
+   "stage": "S4d",
+   "run": "01M70HRZQX1KXHZQVNMS1KDCPK",
+   "status": "READ",
+   "coupon_cards": 24,
+   "store_check": "PASS",
+   "cards_naming_one_of_the_three_brands": [],
+   "products_listed_by_the_page": false
+  },
+  {
+   "stage": "S5a",
+   "run": "01M70C404FTCMYSY621EKJ015X",
+   "status": "READ",
+   "coupon_cards": 24,
+   "store_check": "PASS",
+   "cards_naming_one_of_the_three_brands": [],
+   "products_listed_by_the_page": false
+  },
+  {
+   "stage": "S5b",
+   "run": "01M70CD8PJQS3QDMWR5AXPS39P",
+   "status": "READ",
+   "coupon_cards": 0,
+   "store_check": "PASS",
+   "cards_naming_one_of_the_three_brands": [],
+   "products_listed_by_the_page": false
+  },
+  {
+   "stage": "S5b2",
+   "run": "01M70E1GNA85H05HDM45F5XQRS",
+   "status": "READ",
+   "coupon_cards": 0,
+   "store_check": "PASS",
+   "cards_naming_one_of_the_three_brands": [],
+   "products_listed_by_the_page": false
+  }
+ ],
+ "coupons_page_note": "the Coupons page lists offers, not the products each applies to: a card there is never attached to a product",
+ "conclusion": {
+  "complete": [
+   "0001780014939"
+  ],
+  "unread": [
+   "0001780014941",
+   "0002310014848",
+   "0003980014995"
+  ],
+  "unread_and_not_shown_on_a_rendered_page": [
+   "0002310014848"
+  ],
+  "next_evidence": "a rendered product page of each unread UPC (the provider's answer stating run_js true) at store 53100502, Pickup, saved with its request ID and hash: a live request, not made here"
+ }
+}

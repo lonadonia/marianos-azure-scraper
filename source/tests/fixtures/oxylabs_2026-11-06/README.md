@@ -16,7 +16,7 @@ M6 (built by `make_fixtures_190_m6.py` (a release tool, published with the deliv
 | File | What it is |
 |---|---|
 | `q2_cards_m6_sizes.html`, `q2_state_products_m6_sizes.json` | The grid cards and page-state data of the three sizes Q2 left unresolved (0001780010048 "4 lb." against 4.4 POUNDS, 0065922318120 "16.2 oz" against 18 OUNCES, 0087786900820 "1.3 oz" against 1.2 OUNCES), as Q2 saved them. |
-| `o1_state_products_m6.json` | The product data in the page state of the seven M6 product pages saved by stage O1 on 2026-11-06: 0081675102373, 0086001079386 and 0001820020352 (the "Buy 1 Save" examples), 0073679800140 (the dip) and the three sizes above. All seven answers state `run_js: false`; the product data is part of the server-rendered page. |
+| `o1_state_products_m6.json` | The product data in the page state of the seven M6 product pages saved by stage O1 on 2026-11-06: 0081675102373, 0086001079386 and 0001820020352 (the "Buy 1 Save" examples), 0073679800140 (the dip) and the three sizes above. Six of the seven answers state `run_js: false` and one, 0087786900820's (request 7524541856273716225), `run_js: true` (corrected in 1.10.0: this note said all seven stated false); the product data is in the page state either way. |
 
 Release 1.9.0rc2, the tile served since 2026-11-06 (built by `make_fixtures_190rc2.py` (a release tool, published with the delivery's evidence tools); origins, request
 IDs, the provider's `run_js` statement and hashes in `SOURCES_TILES.json`). Whole pages, not trimmed: the S1 files

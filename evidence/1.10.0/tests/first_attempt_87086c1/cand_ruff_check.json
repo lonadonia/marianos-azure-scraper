@@ -1,0 +1,31 @@
+{
+ "label": "cand_ruff_check",
+ "command": [
+  "C:/m8/wt/headless/marianos-azure-headless/.venv/Scripts/python.exe",
+  "-m",
+  "ruff",
+  "check",
+  "."
+ ],
+ "cwd": ".",
+ "revision": "87086c14839170380711f98a03199548ab712c64",
+ "worktree_modified_tracked_files": [],
+ "env": {
+  "PSYCOPG_IMPL": "python",
+  "PYTHONUTF8": "1"
+ },
+ "host": {
+  "os": "Windows-11-10.0.26200-SP0",
+  "python_of_runner": "3.12.10"
+ },
+ "utc_start": "2026-11-11T22:53:30+00:00",
+ "utc_end": "2026-11-11T22:53:31+00:00",
+ "seconds": 0.2,
+ "exit_code": 0,
+ "pytest_counts": {},
+ "skip_reasons": {},
+ "verdict": "UNVERIFIED (exit 0 but no pytest summary line was found)",
+ "log": "C:\\m8\\logs\\tests1100\\cand_ruff_check.log",
+ "log_bytes": 19,
+ "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+}

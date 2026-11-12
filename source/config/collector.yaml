@@ -22,6 +22,12 @@ collections:
       max_credits_per_run: null
       max_credits_per_day: null
       min_credit_reserve: 0
+      # Release 1.10.0 (C1): a later page that repeats an earlier page, or the first page of a listing above
+      # the site's 250-result window that names no child listing and no brand, is set aside; the same request
+      # is asked again later in the run, at most this many times (never more than 2; 0 = never, as before),
+      # each at least reask_min_wait_seconds after its previous answer. Each re-ask is one more submission.
+      max_reasks_per_request: 2
+      reask_min_wait_seconds: 300
     schedule:
       enabled: false               # OFF until the client approves
       weekdays: [0, 3]             # 0 = Monday ... 6 = Sunday: twice a week, Monday and Thursday

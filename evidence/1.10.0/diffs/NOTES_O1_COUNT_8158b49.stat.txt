@@ -1,0 +1,5 @@
+ README.md                                            | 4 +++-
+ src/marianos_headless/acquisition/oxylabs_session.py | 4 ++--
+ src/marianos_headless/sites/marianos/pdp_savings.py  | 6 ++++--
+ tests/fixtures/oxylabs_2026-11-06/README.md          | 2 +-
+ 4 files changed, 10 insertions(+), 6 deletions(-)

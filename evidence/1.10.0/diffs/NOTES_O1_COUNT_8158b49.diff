@@ -1,0 +1,60 @@
+diff --git a/README.md b/README.md
+index 305c191..37314ef 100644
+--- a/README.md
++++ b/README.md
+@@ -152,7 +152,9 @@ What 1.9.0 changes, each with its regression tests (the delivery's review docume
+   shows two (Purina ONE, stages O1 and O2), so an empty coupon on a tile is not an absence: unless the
+   product's page was read rendered, the digital fields' reason says the coupon is unknown (missing kind
+   `not_attempted`, flag `DIGITAL_COUPONS_UNOBSERVED`), and with the read on every tile's product is a
+-  candidate. The provider brought 1 of 14 product pages requested with rendering rendered (stage O1), so
++  candidate. The provider's answers state `run_js` true for 3 of 14 product pages requested with rendering
++  (stage O1: one of the three shows coupons, two show no Savings section; corrected in 1.10.0, this said 1
++  of 14), so
+   this read is costly and mostly inconclusive: off by default, bounded when on.
+ * **Displayed price per measure (M3).** Never computed; a displayed value that equals the item price on a
+   multi-unit pack (`PPM_EQUALS_ITEM_PRICE`) or whose unit family disagrees with the product's own pack data
+diff --git a/src/marianos_headless/acquisition/oxylabs_session.py b/src/marianos_headless/acquisition/oxylabs_session.py
+index 03dd7df..f0c3929 100644
+--- a/src/marianos_headless/acquisition/oxylabs_session.py
++++ b/src/marianos_headless/acquisition/oxylabs_session.py
+@@ -59,8 +59,8 @@ _PDP_UPC = re.compile(r"/p/[^?#]*/(\d{13})(?:[?#]|$)")
+ 
+ def rendered_by_provider(result_metadata: Any) -> bool | None:
+     """The provider's own statement that it ran the page's scripts (``results[0].metadata.run_js``): a page
+-    requested with ``run_js`` can come back without it (stage O1, 2026-11-06: 13 of 14 product pages). None
+-    when the answer does not say."""
++    requested with ``run_js`` can come back without it (stage O1, 2026-11-06: 11 of 14 product pages; notes
++    before 1.10.0 said 13, which the saved answers do not bear out). None when the answer does not say."""
+     value = result_metadata.get("run_js") if isinstance(result_metadata, dict) else None
+     return value if isinstance(value, bool) else None
+ 
+diff --git a/src/marianos_headless/sites/marianos/pdp_savings.py b/src/marianos_headless/sites/marianos/pdp_savings.py
+index fef79aa..605dd06 100644
+--- a/src/marianos_headless/sites/marianos/pdp_savings.py
++++ b/src/marianos_headless/sites/marianos/pdp_savings.py
+@@ -194,8 +194,10 @@ def savings_document(html: str, *, upc: str, rendered: bool | None, requested_ru
+     """The capture artifact of one product page's Savings section (kind ``pdp_savings``), indexed like the
+     site's other responses. ``rendered`` is the provider's own statement that it ran the page's scripts
+     (``results[0].metadata.run_js``): the coupon rows load only then, so a page brought without them proves
+-    nothing about the product's coupons (stage O1, 2026-11-06: 1 of 14 product pages requested with
+-    ``run_js`` came back rendered; the 13 others had no coupon row, including the three coupon products)."""
++    nothing about the product's coupons (stage O1, 2026-11-06: of 14 product pages requested with ``run_js``
++    the answers of 3 state it; one of the 3, 0001780014939, shows coupon rows and the other 2 show no Savings
++    section; the 11 brought without it show no coupon row. Notes before 1.10.0 said 1 of 14 came back
++    rendered)."""
+     s = parse_pdp_savings(html)
+     return {
+         "data": {
+diff --git a/tests/fixtures/oxylabs_2026-11-06/README.md b/tests/fixtures/oxylabs_2026-11-06/README.md
+index ffd6381..de214ee 100644
+--- a/tests/fixtures/oxylabs_2026-11-06/README.md
++++ b/tests/fixtures/oxylabs_2026-11-06/README.md
+@@ -16,7 +16,7 @@ M6 (built by `make_fixtures_190_m6.py` (a release tool, published with the deliv
+ | File | What it is |
+ |---|---|
+ | `q2_cards_m6_sizes.html`, `q2_state_products_m6_sizes.json` | The grid cards and page-state data of the three sizes Q2 left unresolved (0001780010048 "4 lb." against 4.4 POUNDS, 0065922318120 "16.2 oz" against 18 OUNCES, 0087786900820 "1.3 oz" against 1.2 OUNCES), as Q2 saved them. |
+-| `o1_state_products_m6.json` | The product data in the page state of the seven M6 product pages saved by stage O1 on 2026-11-06: 0081675102373, 0086001079386 and 0001820020352 (the "Buy 1 Save" examples), 0073679800140 (the dip) and the three sizes above. All seven answers state `run_js: false`; the product data is part of the server-rendered page. |
++| `o1_state_products_m6.json` | The product data in the page state of the seven M6 product pages saved by stage O1 on 2026-11-06: 0081675102373, 0086001079386 and 0001820020352 (the "Buy 1 Save" examples), 0073679800140 (the dip) and the three sizes above. Six of the seven answers state `run_js: false` and one, 0087786900820's (request 7524541856273716225), `run_js: true` (corrected in 1.10.0: this note said all seven stated false); the product data is in the page state either way. |
+ 
+ Release 1.9.0rc2, the tile served since 2026-11-06 (built by `make_fixtures_190rc2.py` (a release tool, published with the delivery's evidence tools); origins, request
+ IDs, the provider's `run_js` statement and hashes in `SOURCES_TILES.json`). Whole pages, not trimmed: the S1 files

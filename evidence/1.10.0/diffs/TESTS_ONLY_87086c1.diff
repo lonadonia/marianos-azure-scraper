@@ -1,0 +1,48 @@
+diff --git a/tests/integration/test_reask_c1.py b/tests/integration/test_reask_c1.py
+index 19f4f2c..49cdeac 100644
+--- a/tests/integration/test_reask_c1.py
++++ b/tests/integration/test_reask_c1.py
+@@ -788,6 +788,10 @@ def test_c1_a_worker_killed_while_a_reask_is_out_leaves_it_counted_and_the_ceili
+     _pause_at_first_wait(env, clock, [run_id])
+     _, status = c1.run(env, settings, site, clock, run_id=run_id)
+     paused = c1.observe(env, run_id)
++    name = f"case4 c1 killed during re-ask then {last}"
++    c1.evidence(
++        name, SYNTHETIC, {"reached": "the first execution only", "asked": site.asked, "observed": paused}
++    )
+     assert status == "interrupted" and site.asked == [("03001", 1), ("03001", 2)]
+     waiting = _request(paused)
+     assert (waiting["state"], waiting["reasks_dispatched"]) == ("waiting", 0)
+@@ -808,7 +812,7 @@ def test_c1_a_worker_killed_while_a_reask_is_out_leaves_it_counted_and_the_ceili
+     _, status = c1.run(env, settings, after, clock, run_id=run_id)
+     obs = c1.observe(env, run_id)
+     c1.evidence(
+-        f"case4 c1 killed during re-ask then {last}",
++        name,
+         SYNTHETIC,
+         {"before_kill": paused, "after_kill": killed, "asked_after_at": after.asked_at, "observed": obs},
+     )
+@@ -866,6 +870,11 @@ def test_c1_a_reask_the_spending_ceiling_refuses_is_not_sent_and_not_counted_and
+     stopped = c1.observe(env, run_id)
+     with env["factory"]() as s:
+         rows_before = oxylabs.usage_since(s, None)["submissions"]
++    c1.evidence(
++        "case4 c1 spending ceiling",
++        SYNTHETIC,
++        {"reached": "the first execution only", "asked": site.asked, "stopped": stopped},
++    )
+     assert status == "interrupted" and stopped["stop_code"] == "SPENDING_CEILING"
+     assert site.times("03001", 2) == 1  # nothing was sent
+     req = _request(stopped)
+@@ -912,6 +921,11 @@ def test_c1_a_request_whose_wait_outlasts_the_daily_window_is_not_asked_after_it
+     run_id = c1.plan(env, pipe, c1.nodes_of(env, ("03001",)), trigger="schedule", occurrence=occurrence)
+     _, status = c1.run(env, settings, site, clock, run_id=run_id, trigger="schedule")
+     stopped = c1.observe(env, run_id)
++    c1.evidence(
++        "case4 c1 deadline",
++        SYNTHETIC,
++        {"reached": "the first execution only", "asked": site.asked, "stopped": stopped},
++    )
+     assert status == "interrupted" and stopped["stop_code"] == "SCHEDULE_WINDOW_END"
+     assert site.times("03001", 2) == 1  # not asked after the window's end
+     req = _request(stopped)

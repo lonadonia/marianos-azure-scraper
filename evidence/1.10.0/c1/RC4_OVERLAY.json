@@ -1,0 +1,23 @@
+{
+ "baseline": "1.9.0rc4",
+ "revision": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+ "tracked_files_modified": [],
+ "untracked_test_files_copied_from_the_candidate": {
+  "tests/c1_site.py": "2eab7d259b4f16d9c5c2c45c7e9e8119754ce255a6442d38539d4436e31f20f4",
+  "tests/fixtures/oxylabs_2026-11-09/README.md": "a53fb8ef92ca1d789bb6be866b3110cc538623de61821cfe2dc9461b06d1b45a",
+  "tests/fixtures/oxylabs_2026-11-09/s3b_frozen_p1_no_filters.html.gz": "41790063a6419fa5467f2b387a3932e019b2a2f38f8800da7a7cde5573c945a5",
+  "tests/fixtures/oxylabs_2026-11-09/s3b_frozen_p2_repeats_p1.html.gz": "98a8f6705faa3681d3b9efc1bdf0a745efaa6d24b46b4df910aa4bdb8741729a",
+  "tests/fixtures/oxylabs_2026-11-09/s4_batteries_p1.html.gz": "04a04570376218c4612184593f87870751769910c29f0189d920f3b0c1ded40a",
+  "tests/fixtures/oxylabs_2026-11-09/s4_batteries_p2_repeats_p1.html.gz": "a54938583553b8746fc9de3473fdf490222fd6f1d057c9eb0fc748611afaabb1",
+  "tests/fixtures/oxylabs_2026-11-09/s5a_batteries_p2.html.gz": "3bb0047c874b0467f4492bec3f269c5cbc472d59a764807d5b777f7d63e9d520",
+  "tests/fixtures/oxylabs_2026-11-09/s5a_batteries_p3.html.gz": "c3580956debf3f0cf9fb6f63af0b371f4d4be2ccebb215a2c32328f703122462",
+  "tests/fixtures/oxylabs_2026-11-09/s5a_batteries_p4.html.gz": "da6dfc3ea108b66a88a3598fb5c2b63d4a0aa9d6f49ed3665823dd964d3608c3",
+  "tests/fixtures/oxylabs_2026-11-09/SOURCES.json": "7128e31ce9c98af2d5a8ece8f9958a4f4789fc185a10472e721ccd6c8f971c51",
+  "tests/integration/test_publication_result.py": "1f10c6cf861e2562c96ba0566d2c8c038779683036f141a12fc68f37715d90be",
+  "tests/integration/test_reask_c1.py": "bbf821ad4da3b02abd734c8cf324abc9e4903ae5185a6c94f06315a1a1903cbe"
+ },
+ "note": "the baseline checkout is unchanged; these test files, copied from the candidate, are the only additions",
+ "copied_from_revision": "87086c14839170380711f98a03199548ab712c64",
+ "verified_against_the_delivered_candidate": "a1040f79919b8e876e0b69cd909cecf9363780b4",
+ "verified": "each of the 12 files is byte for byte the file of the delivered candidate a1040f7 (git show); they were copied from 87086c1, whose test files a1040f7 leaves unchanged"
+}

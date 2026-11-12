@@ -1,0 +1,6 @@
+ README.md                           | 2 +-
+ pyproject.toml                      | 2 +-
+ src/marianos_headless/__init__.py   | 2 +-
+ src/marianos_headless/core/paths.py | 5 +++--
+ uv.lock                             | 2 +-
+ 5 files changed, 7 insertions(+), 6 deletions(-)

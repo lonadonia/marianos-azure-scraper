@@ -1,0 +1,128 @@
+{
+ "case": "fix_later_firing",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the refusal is injected",
+ "live_request_sent": false,
+ "collector_version": "1.9.0rc4",
+ "source_revision": {
+  "commit": "8abc2c1297b8005d162721b6ddbf66bf8684d548",
+  "source": "git",
+  "uncommitted_changes": true
+ },
+ "first_execution": {
+  "exit_code": 0,
+  "run_status": "validated",
+  "log": [
+   {
+    "level": "WARN",
+    "event": "PUBLICATION_REFUSED",
+    "exit_code": null,
+    "message": "integrity check failed: products.csv hash mismatch",
+    "publication": null,
+    "version": null
+   },
+   {
+    "level": "INFO",
+    "event": "RUN_FINISHED",
+    "exit_code": 0,
+    "message": null,
+    "publication": null,
+    "version": null
+   }
+  ],
+  "run_finished": {
+   "ts": "2026-11-11T22:52:56.122Z",
+   "level": "INFO",
+   "event": "RUN_FINISHED",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "exit_code": 0,
+   "run_id": "01M76D0V2TV947VA0RH9AV49AF",
+   "status": "validated",
+   "trigger": "schedule",
+   "dataset": "complete",
+   "pilot": false,
+   "occurrence": "2026-11-09",
+   "stop_code": null,
+   "stop_detail": null,
+   "created_at": "2026-11-11T22:52:53.719339Z",
+   "started_at": "2026-11-11T22:52:53.819277Z",
+   "finished_at": "2026-11-11T22:52:55.964965Z",
+   "outcome": "validated",
+   "records_by_status": {
+    "valid": 60
+   },
+   "collection_complete": true,
+   "canary": {
+    "at": "2026-11-09T16:00:00Z",
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "page": "01M76D0VEZBC5ZV9HE2NRR6BGA",
+    "valid": 24,
+    "status": "passed",
+    "records": 24,
+    "problems": [],
+    "valid_ratio": 1.0,
+    "source_check": {
+     "records": 24,
+     "mismatch": 0,
+     "verified": 24,
+     "unverified": 0
+    }
+   },
+   "historical": {
+    "too_old": 0,
+    "carried_forward": 0
+   },
+   "failed_checks": []
+  },
+  "events": []
+ },
+ "later_firing_exit_code": 0,
+ "later_firing_log": [
+  {
+   "ts": "2026-11-11T22:52:56.160Z",
+   "level": "INFO",
+   "event": "OCCURRENCE_DONE",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "occurrence": "2026-11-09",
+   "run": {
+    "run_id": "01M76D0V2TV947VA0RH9AV49AF",
+    "status": "validated",
+    "trigger": "schedule",
+    "dataset": "complete",
+    "pilot": false,
+    "occurrence": "2026-11-09",
+    "stop_code": null,
+    "stop_detail": null,
+    "created_at": "2026-11-11T22:52:53.719339Z",
+    "started_at": "2026-11-11T22:52:53.819277Z",
+    "finished_at": "2026-11-11T22:52:55.964965Z",
+    "outcome": "validated",
+    "records_by_status": {
+     "valid": 60
+    },
+    "collection_complete": true,
+    "canary": {
+     "at": "2026-11-09T16:00:00Z",
+     "url": "https://www.marianos.com/pl/listing-03001/03001",
+     "page": "01M76D0VEZBC5ZV9HE2NRR6BGA",
+     "valid": 24,
+     "status": "passed",
+     "records": 24,
+     "problems": [],
+     "valid_ratio": 1.0,
+     "source_check": {
+      "records": 24,
+      "mismatch": 0,
+      "verified": 24,
+      "unverified": 0
+     }
+    },
+    "historical": {
+     "too_old": 0,
+     "carried_forward": 0
+    }
+   }
+  }
+ ]
+}

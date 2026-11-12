@@ -1,6 +1,6 @@
 """Checks the three source trees of this repository, file for file, against their checksum lists in manifests/original/:
 
-- source/               collector 1.9.0rc4 (MARIANOS_SOURCE_1.9.0rc4.SHA256SUMS.txt);
+- source/               collector 1.10.0rc3 (MARIANOS_SOURCE_1.10.0rc3.SHA256SUMS.txt);
 - classic-probe-1.7.3/  the shared Classic probe 1.7.3 (CLASSIC_PROBE_1.7.3.SHA256SUMS.txt);
 - classic-probe/        the frozen probe 1.6.0, against the 1.8.0rc5 source archive's own list
                         (MARIANOS_SOURCE_1.8.0rc5.SHA256SUMS.txt, its classic_probe/ entries).
@@ -22,13 +22,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ORIG = ROOT / "manifests" / "original"
 LISTS = [
-    ("source/", ORIG / "MARIANOS_SOURCE_1.9.0rc4.SHA256SUMS.txt", "source/"),
+    ("source/", ORIG / "MARIANOS_SOURCE_1.10.0rc3.SHA256SUMS.txt", "source/"),
     ("classic-probe-1.7.3/", ORIG / "CLASSIC_PROBE_1.7.3.SHA256SUMS.txt", "classic-probe-1.7.3/"),
     ("classic-probe/", ORIG / "MARIANOS_SOURCE_1.8.0rc5.SHA256SUMS.txt", "classic_probe/"),
 ]
 ADDED = {"classic-probe/CLASSIC_PROBE.md"}
 TREES = {
-    "source": "7a4dfa05e526bddefdfeab9777b9616890e129ea",
+    "source": "22ebcf96cdb2021347f0e0e4d7506ad4c36d2c10",
     "classic-probe-1.7.3": "912801d038092bc84906f6e0c5507388980fb9d8",
 }
 

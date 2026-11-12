@@ -1,0 +1,38 @@
+{
+ "label": "x_c1_cases",
+ "command": [
+  "C:/m8/x1100/source/.venv/Scripts/python.exe",
+  "-m",
+  "pytest",
+  "tests/integration/test_reask_c1.py",
+  "-p",
+  "no:cacheprovider",
+  "-q",
+  "-rfEs",
+  "--junitxml=C:/m8/logs/tests1100/x_c1_cases.junit.xml"
+ ],
+ "cwd": "C:\\m8\\x1100\\source",
+ "revision": "",
+ "worktree_modified_tracked_files": [],
+ "env": {
+  "PSYCOPG_IMPL": "python",
+  "PYTHONUTF8": "1"
+ },
+ "host": {
+  "os": "Windows-11-10.0.26200-SP0",
+  "python_of_runner": "3.12.10"
+ },
+ "utc_start": "2026-11-11T23:36:33+00:00",
+ "utc_end": "2026-11-11T23:39:06+00:00",
+ "seconds": 153.0,
+ "exit_code": 0,
+ "pytest_counts": {
+  "passed": 28
+ },
+ "skip_reasons": {},
+ "verdict": "PASS",
+ "log": "evidence/1.10.0/tests/x_c1_cases.log",
+ "log_bytes": 113,
+ "log_sha256_private": "8a91ec018961f038eb6c40c5b5b2a70ad23efe3872c1dc4fa4a601a7c30fc020",
+ "log_sha256_published": "0cb386bb55ed72f1fe010623b5ca066eaee8332aebcc2cb50a3b8500e6459e7b"
+}

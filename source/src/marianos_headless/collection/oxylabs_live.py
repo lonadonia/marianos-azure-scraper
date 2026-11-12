@@ -32,7 +32,7 @@ from __future__ import annotations
 
 import asyncio
 from collections import Counter
-from collections.abc import Awaitable, Mapping, Sequence
+from collections.abc import Awaitable, Callable, Mapping, Sequence
 from dataclasses import dataclass
 from datetime import datetime
 from hashlib import sha256
@@ -48,7 +48,7 @@ from marianos_headless.acquisition import oxylabs
 from marianos_headless.acquisition.browser import BrowserSession, ChallengeDetected, PageFetch
 from marianos_headless.acquisition.oxylabs_session import PRODUCT_TERMS, OxylabsPageSession, search_url
 from marianos_headless.assembly.offers import text_key
-from marianos_headless.collection import pagination
+from marianos_headless.collection import pagination, reask
 from marianos_headless.collection.limits import StopCode, credit_room, first_stop
 from marianos_headless.collection.live import (
     AbnormalPage,
@@ -65,7 +65,8 @@ from marianos_headless.collection.pagination import Judgement, PageFacts, PageVe
 from marianos_headless.collection.reconciliation import FINISHED_NODE
 from marianos_headless.core.ids import new_id
 from marianos_headless.core.settings import BrowserProvider
-from marianos_headless.db.models import CategorySource, ListingPage, Run
+from marianos_headless.core.timeutil import iso
+from marianos_headless.db.models import CategorySource, DeferredRequest, ListingPage, Run
 from marianos_headless.sites.marianos.dom_parsers import CardObservation, parse_page
 from marianos_headless.sites.marianos.initial_state import InitialStateNotFound, parse_initial_state
 from marianos_headless.sites.marianos.search_state import (
@@ -78,7 +79,7 @@ from marianos_headless.sites.marianos.search_state import (
     taxonomy_ids,
 )
 from marianos_headless.worker.retry import FailureKind, TaskFailure
-from marianos_headless.worker.runner import CancelledByOperator, RunStop, TaskContext
+from marianos_headless.worker.runner import CancelledByOperator, RunStop, TaskContext, TaskDeferred, Timer
 from marianos_headless.worker.runs import event
 from marianos_headless.worker.store_selection import StoreCheck, StoreVerification, verify_store
 
@@ -114,6 +115,23 @@ class PageContext:
     children: tuple[dict[str, Any], ...] = ()
 
 
+@dataclass(frozen=True)
+class Reasked:
+    """A request being asked again (release 1.10.0, C1): its record, which re-ask this is, the request as
+    it was set aside, and the listing's distinct products before the answer."""
+
+    row_id: str
+    ordinal: int
+    asked: Mapping[str, Any]
+    kind: str
+    unique_before: int
+
+
+# What a listing-page row's transaction also writes for C1: (session, the row's id, its attempt number) ->
+# the request's record after it.
+PageHook = Callable[[Session, str, int], DeferredRequest]
+
+
 def query_of(node: Node) -> str:
     """The search a planned listing is read through: the site menu's title for it, else the client's
     category name (a CSV row that is itself a listing)."""
@@ -132,9 +150,18 @@ class OxylabsCollector(LiveCollector):
         api_key: SecretStr | None,
         transport: httpx.AsyncBaseTransport | None = None,
         sleep: Any = asyncio.sleep,
+        timer: Timer | None = None,
         **kwargs: Any,
     ):
         super().__init__(pipe, run_id, api_key=None, **kwargs)
+        # Release 1.10.0 (C1): the task queue's clock and wait (the real ones unless a test supplies its own),
+        # and how often a request set aside is asked again (``limits.max_reasks_per_request``; 0: never).
+        self.timer = timer or Timer()
+        self.reask = reask.Policy(
+            self.cfg.limits.max_reasks_per_request or 0,
+            self.cfg.limits.reask_min_wait_seconds or reask.MIN_WAIT_S,
+        )
+        self._reasked: Reasked | None = None
         acq = pipe.settings.acquisition.model_copy(update={"browser_provider": BrowserProvider.OXYLABS})
         self.settings = pipe.settings.model_copy(update={"acquisition": acq})
         self.ox_key = api_key
@@ -310,14 +337,19 @@ class OxylabsCollector(LiveCollector):
         assert self.ox is not None and self.ox.robots is not None
         return self.ox.robots.allowed(self.query_url(node))
 
-    async def _page(self, ctx: TaskContext, node: Node, purpose: str, page: int = 1) -> PageFetch:
+    async def _page(
+        self, ctx: TaskContext, node: Node, purpose: str, page: int = 1, *, attempts: int | None = None
+    ) -> PageFetch:
         assert self.ox is not None
         self.check(ctx)
         if self.route == "search":
             fetch = await self.ox.navigate(self.query_url(node), purpose, query=query_of(node))
         else:
             fetch = await self.ox.navigate(
-                self.query_url(node, page), purpose, run_js=self.settings.acquisition.oxylabs.listing_run_js
+                self.query_url(node, page),
+                purpose,
+                run_js=self.settings.acquisition.oxylabs.listing_run_js,
+                attempts=attempts,
             )
         self.steps += 1
         return fetch
@@ -833,16 +865,17 @@ class OxylabsCollector(LiveCollector):
         duplicates: int = 0,
         children: Sequence[Mapping[str, Any]] = (),
         binding: Mapping[str, Any] | None = None,
-    ) -> None:
+    ) -> str:
         provider = (fetch.notes.get("provider") or {}) if fetch is not None else {}
         observed = (
             datetime.fromisoformat(fetch.started_at.replace("Z", "+00:00"))
             if fetch is not None
             else self.clock()
         )
+        row_id = new_id()
         s.add(
             ListingPage(
-                id=new_id(),
+                id=row_id,
                 run_id=self.run_id,
                 category_source_id=node.category_source_id,
                 csv_row_index=node.row_index,
@@ -885,14 +918,19 @@ class OxylabsCollector(LiveCollector):
                 observed_at=observed,
             )
         )
+        return row_id
 
     def page_recorded(self, s: Session, node: Node, fetch: PageFetch, res: StepResult) -> None:
         """The page's row, in the transaction of its products. A page the product limit cut short is not
-        completed: its remaining cards wait for a resume, which reads it again."""
+        completed: its remaining cards wait for a resume, which reads it again.
+
+        Release 1.10.0 (C1): when the page is a request asked again, its record is closed in this same
+        transaction (``recovered`` with the page completed; a page the product limit cut short is not
+        completed, so the request stays unanswered and its re-ask stays counted)."""
         r = self._reading
         if r is None:
             return
-        self._page_row(
+        row_id = self._page_row(
             s,
             node,
             fetch,
@@ -908,6 +946,28 @@ class OxylabsCollector(LiveCollector):
             children=r.children,
             binding=r.judgement.binding,
         )
+        again = self._reasked
+        if again is not None:
+            done = res.capped is None
+            new = len(r.judgement.new)
+            hook = self._settles(
+                again,
+                node,
+                fetch,
+                facts=r.facts,
+                judgement=r.judgement,
+                verdict=r.judgement.verdict.value,
+                detail=r.judgement.detail or f"{new} products new to the listing",
+                store_check=r.store_check,
+                new=new,
+                counted=done,
+                recovered=done,
+                outcome=f"counted: {new} products new to the listing; the listing goes on from page "
+                f"{r.page + 1}"
+                if done
+                else "answered properly, but the run's product limit cut the page short: not completed",
+            )
+            hook(s, row_id, r.attempt)
 
     def _page_refused(
         self,
@@ -924,15 +984,21 @@ class OxylabsCollector(LiveCollector):
         store_check: str = "N/A",
         duplicates: int = 0,
         binding: Mapping[str, Any] | None = None,
-    ) -> None:
-        """A response that does not count: its row, its event, nothing else."""
+        children: Sequence[Mapping[str, Any]] = (),
+        hook: PageHook | None = None,
+        code: str = "PAGE_NOT_COUNTED",
+    ) -> DeferredRequest | None:
+        """A response that does not count: its row, its event, nothing else. Release 1.10.0 (C1): ``hook``
+        writes the request's record (set aside, or a re-ask's answer) in the row's own transaction, so
+        neither exists without the other; the record is returned as it stands after it."""
+        held: DeferredRequest | None = None
         with self.factory() as s:
             self.persist(s, ctx)
             s.flush()
             attempt = pagination.next_attempt(
                 s, self.run_id, node.category_source_id, node.taxonomy_id, page, self._pkey(node)
             )
-            self._page_row(
+            row_id = self._page_row(
                 s,
                 node,
                 fetch,
@@ -946,12 +1012,15 @@ class OxylabsCollector(LiveCollector):
                 store_check=store_check,
                 duplicates=duplicates,
                 binding=binding,
+                children=children,
             )
+            if hook is not None:
+                held = hook(s, row_id, attempt)
             event(
                 s,
                 self.run_id,
-                "WARN",
-                "PAGE_NOT_COUNTED",
+                "WARN" if code == "PAGE_NOT_COUNTED" else "INFO",
+                code,
                 f"{node.category} › {node.sub_category}: page {page} {verdict.value}: {detail}"[:500],
                 {
                     "node": node.taxonomy_id,
@@ -959,9 +1028,20 @@ class OxylabsCollector(LiveCollector):
                     "verdict": verdict.value,
                     "attempt": attempt,
                     "rendered": fetch.notes.get("rendered") if fetch is not None else None,
+                    **(
+                        {
+                            "deferred_request": held.id,
+                            "request_state": held.state,
+                            "reasks_sent": held.reasks_dispatched,
+                            "not_before": iso(held.not_before),
+                        }
+                        if held is not None
+                        else {}
+                    ),
                 },
             )
             s.commit()
+        return held
 
     def _unread(self, ctx: TaskContext, node: Node, page: int, why: str) -> NoReturn:
         """The page stays unread and the listing unfinished. The task waits and comes back (the run's bounded
@@ -979,9 +1059,574 @@ class OxylabsCollector(LiveCollector):
             raise RunStop(StopCode.PROVIDER_ERROR, text, resumable=True)
         raise TaskFailure(FailureKind.TRANSIENT, text)
 
+    # -- requests set aside and asked again (release 1.10.0, C1; collection.reask) -------------------------
+
+    def _key(self, node: Node, page: int) -> reask.Key:
+        return reask.Key(self.run_id, node.category_source_id, node.taxonomy_id, self._pkey(node), page)
+
+    def _entry(
+        self,
+        ordinal: int,
+        asked: Mapping[str, Any],
+        fetch: PageFetch | None,
+        *,
+        facts: PageFacts | None,
+        judgement: Judgement | None,
+        verdict: str,
+        detail: str,
+        store_check: str,
+        unique_before: int,
+        new: int,
+        counted: bool,
+        listing_page_id: str | None,
+        attempt: int | None,
+        subdivisions: Sequence[Mapping[str, Any]] | None = None,
+        overlap: int | None = None,
+        outcome: str = "",
+    ) -> dict[str, Any]:
+        """One answer of a request set aside, as its record keeps it."""
+        provider = (fetch.notes.get("provider") or {}) if fetch is not None else {}
+        return {
+            **reask.answer_entry(
+                ordinal=ordinal,
+                asked=asked,
+                facts=facts,
+                judgement=judgement,
+                verdict=verdict,
+                detail=detail,
+                store_check=store_check,
+                unique_before=unique_before,
+                new=new,
+                counted=counted,
+                observed_at=datetime.fromisoformat(fetch.started_at.replace("Z", "+00:00"))
+                if fetch is not None
+                else None,
+                response_sha256=sha256(self._read(fetch.dom_key)).hexdigest()
+                if fetch is not None and fetch.dom_key
+                else None,
+                page_fetch_id=fetch.fetch_id
+                if fetch is not None and fetch.fetch_id in self.persisted
+                else None,
+                listing_page_id=listing_page_id or None,
+                listing_page_attempt=attempt or None,
+                provider_request_id=provider.get("request_id"),
+                subdivisions=subdivisions,
+                overlap=overlap,
+                outcome=outcome,
+            ),
+            "recorded_at": iso(self.timer.now()),
+            "rendered_by_provider": fetch.notes.get("rendered")
+            if fetch is not None
+            else reask.unavailable("no page was brought"),
+        }
+
+    def _sets_aside(
+        self,
+        node: Node,
+        page: int,
+        url: str,
+        fetch: PageFetch,
+        *,
+        facts: PageFacts,
+        judgement: Judgement,
+        store_check: str,
+        unique_before: int,
+        reason: str,
+    ) -> PageHook:
+        """A later page answered with products of earlier pages: its request's record, created with the
+        answer's own row."""
+        asked = reask.requested(node, page, url, self.store)
+
+        def hook(s: Session, listing_page_id: str, attempt: int) -> DeferredRequest:
+            first = self._entry(
+                0,
+                asked,
+                fetch,
+                facts=facts,
+                judgement=judgement,
+                verdict=judgement.verdict.value,
+                detail=judgement.detail,
+                store_check=store_check,
+                unique_before=unique_before,
+                new=0,
+                counted=False,
+                listing_page_id=listing_page_id,
+                attempt=attempt,
+            )
+            row = reask.set_aside(
+                s,
+                key=self._key(node, page),
+                node=node,
+                url=url,
+                kind=reask.REPEATED_PAGE,
+                store=self.store,
+                policy=self.reask,
+                now=self.timer.now(),
+                original_verdict=judgement.verdict.value,
+                original_reason=reason,
+                original_listing_page_id=listing_page_id,
+                first=first,
+            )
+            self._request_event(s, node, row, "REQUEST_SET_ASIDE")
+            return row
+
+        return hook
+
+    def _settles(
+        self,
+        again: Reasked,
+        node: Node,
+        fetch: PageFetch | None,
+        *,
+        facts: PageFacts | None,
+        judgement: Judgement | None,
+        verdict: str,
+        detail: str,
+        store_check: str,
+        new: int,
+        counted: bool,
+        recovered: bool,
+        outcome: str = "",
+        subdivisions: Sequence[Mapping[str, Any]] | None = None,
+        overlap: int | None = None,
+    ) -> PageHook:
+        """A re-ask's answer, kept with the answer's own row; the request's record then stands recovered,
+        waiting for its next re-ask, or exhausted."""
+
+        def hook(s: Session, listing_page_id: str, attempt: int) -> DeferredRequest:
+            entry = self._entry(
+                again.ordinal,
+                again.asked,
+                fetch,
+                facts=facts,
+                judgement=judgement,
+                verdict=verdict,
+                detail=detail,
+                store_check=store_check,
+                unique_before=again.unique_before,
+                new=new,
+                counted=counted,
+                listing_page_id=listing_page_id,
+                attempt=attempt,
+                subdivisions=subdivisions,
+                overlap=overlap,
+                outcome=outcome,
+            )
+            row = reask.settle(
+                s,
+                again.row_id,
+                again.ordinal,
+                entry,
+                recovered=recovered,
+                now=self.timer.now(),
+                outcome=outcome,
+            )
+            self._request_event(
+                s,
+                node,
+                row,
+                "REQUEST_RECOVERED"
+                if row.state == reask.RECOVERED
+                else "REQUEST_NOT_ANSWERED"
+                if row.state == reask.EXHAUSTED
+                else "REQUEST_SET_ASIDE",
+            )
+            return row
+
+        return hook
+
+    def _request_event(self, s: Session, node: Node, row: DeferredRequest, code: str) -> None:
+        text = {
+            "REQUEST_SET_ASIDE": f"asked again not before {iso(row.not_before)}",
+            "REQUEST_RECOVERED": row.outcome,
+            "REQUEST_NOT_ANSWERED": row.outcome,
+        }[code]
+        event(
+            s,
+            self.run_id,
+            "INFO" if code == "REQUEST_RECOVERED" else "WARN",
+            code,
+            f"{node.category} › {node.sub_category}: page {row.requested_page} ({row.kind}): {text}"[:500],
+            {
+                "node": node.taxonomy_id,
+                "page": row.requested_page,
+                "kind": row.kind,
+                "deferred_request": row.id,
+                "state": row.state,
+                "reasks_sent": row.reasks_dispatched,
+                "max_reasks": row.max_reasks,
+                "not_before": iso(row.not_before),
+            },
+        )
+
+    def _settle_alone(self, again: Reasked, node: Node, *, verdict: str, detail: str) -> None:
+        """A re-ask that ends without a page row of its own (a failure that stops the run, or one met after
+        its answer came): kept, counted, never recovered. Nothing is written when its answer is already
+        recorded."""
+        with self.factory() as s:
+            if reask.pending(s, again.row_id, again.ordinal):
+                hook = self._settles(
+                    again,
+                    node,
+                    None,
+                    facts=None,
+                    judgement=None,
+                    verdict=verdict,
+                    detail=detail[:400],
+                    store_check="N/A",
+                    new=0,
+                    counted=False,
+                    recovered=False,
+                )
+                hook(s, "", 0)
+            s.commit()
+
+    def _not_sent(self, again: Reasked, why: str) -> None:
+        """The spending ceiling (or the account gate) refused the re-ask before anything was sent: it is not
+        counted."""
+        with self.factory() as s:
+            reask.release(s, again.row_id, again.ordinal, why, self.timer.now())
+            s.commit()
+
+    def _wait(self, ctx: TaskContext, node: Node, state: NodeState, held: DeferredRequest) -> NoReturn:
+        """The listing's task waits for the request's time: its progress is kept, the run's other listings
+        go first, and the task comes back once the time has come."""
+        text = (
+            f"{node.category} › {node.sub_category}: page {held.requested_page} set aside "
+            f"({held.kind}); asked again not before {iso(held.not_before)} ({held.reasks_dispatched} of "
+            f"{held.max_reasks} re-asks sent)"
+        )
+        state.status = "IN_PROGRESS"
+        state.reason = f"{held.original_reason}; set aside: asked again not before {iso(held.not_before)}"
+        state.extra = {
+            **state.extra,
+            "set_aside": {
+                "deferred_request": held.id,
+                "page": held.requested_page,
+                "kind": held.kind,
+                "not_before": iso(held.not_before),
+                "reasks_sent": held.reasks_dispatched,
+                "max_reasks": held.max_reasks,
+            },
+        }
+        with self.factory() as s:
+            self.persist(s, ctx)
+            self.coverage(s, node, state)
+            s.commit()
+        ctx.checkpoint(state.cursor(node))
+        raise TaskDeferred(held.not_before, text)
+
+    def _again(
+        self, ctx: TaskContext, node: Node, state: NodeState, page: int, url: str, unique_before: int
+    ) -> Reasked | str | None:
+        """Before a later page is asked: was this very request set aside? ``None``: no, it is asked as
+        usual. A text: its re-asks are spent (or it cannot be asked again), and the listing ends incomplete
+        with that reason. Otherwise the re-ask to send now, already counted in the database. While the
+        request's wait runs the task is set aside again (:class:`TaskDeferred`); a limit or the operator's
+        stop is met before a re-ask is counted."""
+        asked = reask.requested(node, page, url, self.store)
+        with self.factory() as s:
+            row = reask.find(s, self._key(node, page), lock=True)
+            if row is None:
+                return None
+            now = self.timer.now()
+            reask.close_unanswered(row, now)
+            decision = reask.gate(row, now)
+            s.commit()
+        if decision == reask.EXHAUSTED:
+            return row.outcome or reask.final_reason(row)
+        if decision == reask.RECOVERED:
+            # Its page was completed in the same transaction; a page still to read here is a contradiction.
+            return (
+                f"{row.original_reason}; the request is recorded as answered on a re-ask but the page is "
+                f"not among the listing's completed pages: not asked again; {reask.NOT_EXHAUSTED}"
+            )
+        if decision == "wait":
+            self._wait(ctx, node, state, row)
+        self.check(ctx)  # the operator's stop and every limit, before the re-ask is counted
+        with self.factory() as s:
+            ordinal = reask.reserve(s, row.id, asked=asked, now=self.timer.now())
+            event(
+                s,
+                self.run_id,
+                "INFO",
+                "REQUEST_ASKED_AGAIN",
+                f"{node.category} › {node.sub_category}: page {page} ({row.kind}): re-ask {ordinal} of "
+                f"{row.max_reasks}"[:500],
+                {"node": node.taxonomy_id, "page": page, "deferred_request": row.id, "reask": ordinal},
+            )
+            s.commit()
+        return Reasked(row.id, ordinal, asked, row.kind, unique_before)
+
+    def _provider_failed_again(self, url: str, page: int, why: str) -> None:
+        """A re-ask the provider brought no page for counts among the pages not read in a row (the run stops
+        resumably when the provider keeps failing), but it is never retried on its own."""
+        self.failed_in_a_row += 1
+        if self.failed_in_a_row >= MAX_FAILED_LISTINGS_IN_A_ROW:
+            raise RunStop(
+                StopCode.PROVIDER_ERROR,
+                f"{self.failed_in_a_row} pages in a row not read; last: {url}: page {page} asked again, "
+                f"not read: {why}"[:600],
+                resumable=True,
+            )
+
+    async def _facets_again(
+        self, ctx: TaskContext, node: Node, state: NodeState, first_page: Sequence[str]
+    ) -> list[dict[str, Any]]:
+        """The first page of a listing above the source's window named no child listing and no brand, so
+        the listing cannot be subdivided. Its products are kept (the page is the listing's page 1, counted
+        as before). The same first page is asked again later for its filters, as any request set aside.
+        Returns the subdivisions an answer named, each to be read and checked against its own filter as
+        usual; or nothing when no answer named any, and the listing is then read page by page to the
+        window and stays incomplete, as before.
+
+        An answer asked again for its filters counts no product, whatever it lists: the subdivisions read
+        every product through their own pages."""
+        url = self.query_url(node, 1)
+        asked = reask.requested(node, 1, url, self.store)
+        requested = pagination.node_filter(node.partition_filter)
+        seen = set(first_page)
+        with self.factory() as s:
+            row = reask.find(s, self._key(node, 1), lock=True)
+            now = self.timer.now()
+            if row is None:
+                done = pagination.completed_pages(
+                    pagination.rows_of(
+                        s, self.run_id, node.category_source_id, node.taxonomy_id, self._pkey(node)
+                    )
+                )
+                first = done[0]
+                entry = {
+                    **reask.answer_entry(
+                        ordinal=0,
+                        asked=asked,
+                        facts=reask.facts_of(first),
+                        judgement=None,
+                        verdict=first.verdict,
+                        detail="the listing's first page, counted; it names no child listing and no brand",
+                        store_check=first.store_check,
+                        unique_before=0,
+                        new=len(first.identities or []),
+                        counted=True,
+                        observed_at=first.observed_at,
+                        response_sha256=first.response_sha256,
+                        page_fetch_id=first.page_fetch_id,
+                        listing_page_id=first.id,
+                        listing_page_attempt=first.attempt,
+                        provider_request_id=first.provider_request_id,
+                        subdivisions=[],
+                    ),
+                    "recorded_at": iso(now),
+                }
+                row = reask.set_aside(
+                    s,
+                    key=self._key(node, 1),
+                    node=node,
+                    url=url,
+                    kind=reask.MISSING_FACETS,
+                    store=self.store,
+                    policy=self.reask,
+                    now=now,
+                    original_verdict=first.verdict,
+                    original_reason=reask.NO_FACETS.format(total=state.total, available=state.available),
+                    original_listing_page_id=first.id,
+                    first=entry,
+                )
+                self._request_event(s, node, row, "REQUEST_SET_ASIDE")
+            else:
+                reask.close_unanswered(row, now)
+            decision = reask.gate(row, now)
+            named = reask.recovered_children(s, row) if decision == reask.RECOVERED else []
+            s.commit()
+        if decision == reask.RECOVERED:
+            return named
+        if decision == reask.EXHAUSTED:
+            state.extra = {**state.extra, "not_subdivided": row.outcome or reask.final_reason(row)}
+            return []
+        if decision == "wait":
+            self._wait(ctx, node, state, row)
+        self.check(ctx)  # the operator's stop and every limit, before the re-ask is counted
+        with self.factory() as s:
+            ordinal = reask.reserve(s, row.id, asked=asked, now=self.timer.now())
+            event(
+                s,
+                self.run_id,
+                "INFO",
+                "REQUEST_ASKED_AGAIN",
+                f"{node.category} › {node.sub_category}: page 1 ({row.kind}): re-ask {ordinal} of "
+                f"{row.max_reasks}"[:500],
+                {"node": node.taxonomy_id, "page": 1, "deferred_request": row.id, "reask": ordinal},
+            )
+            s.commit()
+        again = Reasked(row.id, ordinal, asked, row.kind, len(seen))
+        held: DeferredRequest | None
+        try:
+            fetch = await self._page(ctx, node, "listing", 1, attempts=1)
+        except ChallengeDetected as exc:
+            self._page_refused(
+                ctx,
+                node,
+                exc.fetch,
+                page=1,
+                url=url,
+                facts=None,
+                verdict=PageVerdict.BLOCKED,
+                detail=str(exc),
+                state_name="refused",
+                hook=self._settles(
+                    again,
+                    node,
+                    exc.fetch,
+                    facts=None,
+                    judgement=None,
+                    verdict=PageVerdict.BLOCKED.value,
+                    detail=str(exc)[:400],
+                    store_check="N/A",
+                    new=0,
+                    counted=False,
+                    recovered=False,
+                ),
+            )
+            raise
+        except oxylabs.CeilingReached as exc:
+            self._not_sent(again, oxylabs.redact(str(exc), self.ox_key))
+            raise
+        except oxylabs.OxylabsError as exc:
+            text = oxylabs.redact(str(exc), self.ox_key)
+            if exc.kind not in LISTING_FAILURES:
+                self._settle_alone(again, node, verdict=PageVerdict.FAILED.value, detail=text)
+                raise
+            held = self._page_refused(
+                ctx,
+                node,
+                None,
+                page=1,
+                url=url,
+                facts=None,
+                verdict=PageVerdict.FAILED,
+                detail=text,
+                state_name="failed",
+                hook=self._settles(
+                    again,
+                    node,
+                    None,
+                    facts=None,
+                    judgement=None,
+                    verdict=PageVerdict.FAILED.value,
+                    detail=text[:400],
+                    store_check="N/A",
+                    new=0,
+                    counted=False,
+                    recovered=False,
+                ),
+            )
+            self._provider_failed_again(url, 1, f"the provider brought no page ({exc.kind})")
+            return self._facets_after(ctx, node, state, held)
+        v = self.verify(fetch)
+        view = self._view(fetch)
+        facts = pagination.page_facts(1, self._summary, len(view.cards))
+        store_problem = "; ".join(v.failures())
+        # Judged as a first page in its own right: store, page, listing and filters as asked, and products.
+        j = pagination.judge(
+            facts,
+            taxonomy=pagination.listing_id(node.taxonomy_id),
+            earlier=[],
+            store_verified=v.passed,
+            store_problem=store_problem,
+            requested_filter=requested,
+        )
+        named = []
+        if j.accepted:
+            named = view.children or pagination.brand_partitions(
+                node.url,
+                node.taxonomy_id,
+                self._brands,
+                store_id=self.store.location_id,
+                modality=self.store.modality.value,
+            )
+        organic = set(facts.organic)
+        detail = (
+            (j.detail + "; " if j.detail else "")
+            + "asked again for the listing's filters: "
+            + (
+                f"the answer names {len(named)} subdivision(s) ("
+                + ("child listings" if view.children else "brands")
+                + ")"
+                if named
+                else "the answer names no child listing and no brand"
+                if j.accepted
+                else "the answer does not count as the listing's first page"
+            )
+        )
+        held = self._page_refused(
+            ctx,
+            node,
+            fetch,
+            page=1,
+            url=url,
+            facts=facts,
+            verdict=j.verdict,
+            detail=detail,
+            state_name="reasked" if j.accepted else "refused",
+            store_check="PASS" if v.passed else "FAIL",
+            duplicates=len(organic & seen),
+            binding=j.binding,
+            children=named,
+            code="PAGE_ASKED_AGAIN" if j.accepted else "PAGE_NOT_COUNTED",
+            hook=self._settles(
+                again,
+                node,
+                fetch,
+                facts=facts,
+                judgement=j,
+                verdict=j.verdict.value,
+                detail=detail,
+                store_check="PASS" if v.passed else "FAIL",
+                new=len(organic - seen),
+                counted=False,
+                recovered=bool(named),
+                subdivisions=named,
+                overlap=len(organic & seen),
+                outcome=f"the listing is subdivided by the {len(named)} subdivision(s) this answer names; "
+                "the answer itself counts no product"
+                if named
+                else "",
+            ),
+        )
+        if j.verdict is PageVerdict.WRONG_CONTEXT:
+            raise RunStop(
+                StopCode.STORE_NOT_VERIFIED,
+                f"{url}: {store_problem or 'store context incomplete'}",
+                resumable=False,
+            )
+        if named:
+            self.failed_in_a_row = 0
+            self.abnormal_in_a_row = 0
+            return named
+        if j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED):
+            self.abnormal_in_a_row += 1
+            if self.abnormal_in_a_row >= MAX_ABNORMAL_LISTINGS_IN_A_ROW:
+                raise AbnormalPage(f"{url}: {j.detail}")
+        return self._facets_after(ctx, node, state, held)
+
+    def _facets_after(
+        self, ctx: TaskContext, node: Node, state: NodeState, held: DeferredRequest | None
+    ) -> list[dict[str, Any]]:
+        """After a re-ask for a listing's filters that named none: wait for the next one, or go on without
+        subdivisions (the listing then stays incomplete beyond the window, with the reason)."""
+        assert held is not None
+        if held.state == reask.WAITING:
+            self._wait(ctx, node, state, held)
+        state.extra = {**state.extra, "not_subdivided": held.outcome or reask.final_reason(held)}
+        return []
+
     async def read_listing(self, ctx: TaskContext, node: Node, state: NodeState) -> dict[str, Any]:
         """Every page of one listing, from the first page not completed, until the source's own count says the
-        reachable pages were read, or a page stops the read."""
+        reachable pages were read, or a page stops the read.
+
+        Release 1.10.0 (C1, ``limits.max_reasks_per_request`` above 0): a later page that lists only products
+        of earlier pages, and the first page of a listing above the window that names no subdivision, are set
+        aside and asked again later in the run (:mod:`marianos_headless.collection.reask`)."""
         if pagination.legacy_partition(node.taxonomy_id, node.partition_filter):
             # Release 1.9.0 (M1): such a reading's ID was "<listing>~<brand>" cut at 64 characters, so two
             # brands could share one ID, one task and one set of page rows. It is never resumed or merged.
@@ -1000,6 +1645,22 @@ class OxylabsCollector(LiveCollector):
         children = list(done[0].children or []) if done else []
         while True:
             page = len(earlier) + 1
+            above_window = (
+                self.settings.coverage.partition_large_listings
+                and state.total is not None
+                and state.available is not None
+                and state.total > state.available
+            )
+            if (
+                page == 2
+                and not children
+                and above_window
+                and self.reask.enabled
+                and pagination.FILTER_MARK not in node.taxonomy_id
+            ):
+                # 1.10.0 (C1): the first page named nothing to subdivide the listing by: it is asked again
+                # later for its filters (the task waits meanwhile); with none, the pages go on as before.
+                children = await self._facets_again(ctx, node, state, earlier[0])
             if (
                 page == 2
                 and children
@@ -1030,12 +1691,24 @@ class OxylabsCollector(LiveCollector):
                 break
             url = self.query_url(node, page)
             ready = self.ready if page == 1 and self.ready is not None and self.ready[0] == node.url else None
+            unique_before = len({u for rows in earlier for u in rows})
+            again: Reasked | None = None
+            if self.reask.enabled and page > 1:
+                # 1.10.0 (C1): this very request may have been set aside earlier in the run.
+                due = self._again(ctx, node, state, page, url, unique_before)
+                if isinstance(due, str):
+                    state.status, state.reason = "INCOMPLETE", due
+                    break
+                again = due
             if ready is not None:
                 _, fetch, v = ready
                 self.ready = None
             else:
                 try:
-                    fetch = await self._page(ctx, node, "listing", page)
+                    # A re-ask is sent once: no transport retry of its own beyond the two re-asks.
+                    fetch = await self._page(
+                        ctx, node, "listing", page, attempts=1 if again is not None else None
+                    )
                 except ChallengeDetected as exc:
                     self._page_refused(
                         ctx,
@@ -1047,12 +1720,34 @@ class OxylabsCollector(LiveCollector):
                         verdict=PageVerdict.BLOCKED,
                         detail=str(exc),
                         state_name="refused",
+                        hook=self._settles(
+                            again,
+                            node,
+                            exc.fetch,
+                            facts=None,
+                            judgement=None,
+                            verdict=PageVerdict.BLOCKED.value,
+                            detail=str(exc)[:400],
+                            store_check="N/A",
+                            new=0,
+                            counted=False,
+                            recovered=False,
+                        )
+                        if again is not None
+                        else None,
                     )
                     raise
+                except oxylabs.CeilingReached as exc:
+                    if again is not None:
+                        self._not_sent(again, oxylabs.redact(str(exc), self.ox_key))
+                    raise
                 except oxylabs.OxylabsError as exc:
+                    text = oxylabs.redact(str(exc), self.ox_key)
                     if exc.kind not in LISTING_FAILURES:
+                        if again is not None:
+                            self._settle_alone(again, node, verdict=PageVerdict.FAILED.value, detail=text)
                         raise
-                    self._page_refused(
+                    held = self._page_refused(
                         ctx,
                         node,
                         None,
@@ -1060,10 +1755,31 @@ class OxylabsCollector(LiveCollector):
                         url=url,
                         facts=None,
                         verdict=PageVerdict.FAILED,
-                        detail=oxylabs.redact(str(exc), self.ox_key),
+                        detail=text,
                         state_name="failed",
+                        hook=self._settles(
+                            again,
+                            node,
+                            None,
+                            facts=None,
+                            judgement=None,
+                            verdict=PageVerdict.FAILED.value,
+                            detail=text[:400],
+                            store_check="N/A",
+                            new=0,
+                            counted=False,
+                            recovered=False,
+                        )
+                        if again is not None
+                        else None,
                     )
-                    self._unread(ctx, node, page, f"the provider brought no page ({exc.kind})")
+                    if again is None or held is None:
+                        self._unread(ctx, node, page, f"the provider brought no page ({exc.kind})")
+                    self._provider_failed_again(url, page, f"the provider brought no page ({exc.kind})")
+                    if held.state == reask.WAITING:
+                        self._wait(ctx, node, state, held)
+                    state.status, state.reason = "INCOMPLETE", held.outcome
+                    break
                 v = self.verify(fetch)
             view = self._view(fetch)
             facts = pagination.page_facts(page, self._summary, len(view.cards))
@@ -1100,7 +1816,37 @@ class OxylabsCollector(LiveCollector):
                 state.total = 0
                 return self._finish_node(node, state)
             if not j.accepted:
-                self._page_refused(
+                hook: PageHook | None = None
+                if again is not None:
+                    # A re-ask's answer that does not count either: kept; another re-ask, or none is left.
+                    hook = self._settles(
+                        again,
+                        node,
+                        fetch,
+                        facts=facts,
+                        judgement=j,
+                        verdict=j.verdict.value,
+                        detail=detail,
+                        store_check=check,
+                        new=0,
+                        counted=False,
+                        recovered=False,
+                    )
+                elif self.reask.enabled and page > 1 and j.verdict in pagination.REPEATS:
+                    # 1.10.0 (C1): nothing new, whatever page number, ranks and search ID the answer states:
+                    # the request is set aside and asked again later, exactly.
+                    hook = self._sets_aside(
+                        node,
+                        page,
+                        url,
+                        fetch,
+                        facts=facts,
+                        judgement=j,
+                        store_check=check,
+                        unique_before=unique_before,
+                        reason=f"{pagination.GAP}: page {page}: {j.detail}"[:1000],
+                    )
+                held = self._page_refused(
                     ctx,
                     node,
                     fetch,
@@ -1113,6 +1859,7 @@ class OxylabsCollector(LiveCollector):
                     store_check=check,
                     duplicates=len(j.duplicates),
                     binding=j.binding,
+                    hook=hook,
                 )
                 if j.verdict is PageVerdict.WRONG_CONTEXT:
                     raise RunStop(
@@ -1120,6 +1867,17 @@ class OxylabsCollector(LiveCollector):
                         f"{url}: {store_problem or 'store context incomplete'}",
                         resumable=False,
                     )
+                if held is not None:
+                    if again is not None and j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED):
+                        self.abnormal_in_a_row += 1
+                        if self.abnormal_in_a_row >= MAX_ABNORMAL_LISTINGS_IN_A_ROW:
+                            raise AbnormalPage(f"{url}: {j.detail}")
+                    if held.state == reask.WAITING:
+                        self._wait(ctx, node, state, held)
+                    # The re-asks are spent. The listing is incomplete for the reason it had; nothing says
+                    # its pages were exhausted.
+                    state.status, state.reason = "INCOMPLETE", held.outcome
+                    break
                 if rendered_without_tiles:
                     self._unread(ctx, node, page, detail)
                 if j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED) or (
@@ -1151,13 +1909,28 @@ class OxylabsCollector(LiveCollector):
                         modality=self.store.modality.value,
                     )
                 )
-            await self.read_terms(ctx, view)
-            self._reading = PageContext(page, url, facts, j, attempt, check, tuple(subdivisions))
-            state.last_offset = -1 if page == 1 else (page - 2) * pagination.PAGE_SIZE
             try:
-                self._step(ctx, node, fetch, v, view, state, page - 1, replay=False, first=page == 1)
-            finally:
-                self._reading = None
+                await self.read_terms(ctx, view)
+                self._reading = PageContext(page, url, facts, j, attempt, check, tuple(subdivisions))
+                self._reasked = again  # its record is closed in the page's own transaction (page_recorded)
+                state.last_offset = -1 if page == 1 else (page - 2) * pagination.PAGE_SIZE
+                try:
+                    self._step(ctx, node, fetch, v, view, state, page - 1, replay=False, first=page == 1)
+                finally:
+                    self._reading = None
+                    self._reasked = None
+            except BaseException as exc:
+                if again is not None:
+                    # The answer came and counted for nothing yet: kept as it is, its re-ask stays counted.
+                    self._settle_alone(
+                        again,
+                        node,
+                        verdict=j.verdict.value,
+                        detail=f"answered properly; not recorded: {type(exc).__name__}",
+                    )
+                raise
+            if again is not None:
+                state.extra = {k: x for k, x in state.extra.items() if k != "set_aside"}
             earlier.append(facts.organic)
             state.steps_done = page
             if facts.total is not None:
@@ -1169,6 +1942,10 @@ class OxylabsCollector(LiveCollector):
             if page == 1:
                 children = subdivisions
             ctx.checkpoint(state.cursor(node))
+        state.extra = {k: x for k, x in state.extra.items() if k != "set_aside"}
+        note = state.extra.get("not_subdivided")
+        if note and state.status == "INCOMPLETE" and str(note) not in state.reason:
+            state.reason = f"{state.reason}; {note}"[:1900]
         return self._finish_node(node, state)
 
     async def read_search(self, ctx: TaskContext, node: Node, state: NodeState) -> dict[str, Any]:

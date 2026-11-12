@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="6" time="40.016" timestamp="2026-11-11T22:52:18.180833+00:00" hostname="<workstation>"><testcase classname="tests.integration.test_publication_result" name="test_control_an_ordinary_complete_run_is_published_and_the_execution_ends_ok" time="9.551" /><testcase classname="tests.integration.test_publication_result" name="test_control_a_refused_publication_leaves_the_last_good_dataset_published[altered_export]" time="6.244" /><testcase classname="tests.integration.test_publication_result" name="test_control_a_refused_publication_leaves_the_last_good_dataset_published[warn_without_reason]" time="5.520" /><testcase classname="tests.integration.test_publication_result" name="test_fix_a_refused_automatic_publication_is_reported_as_unsuccessful[altered_export]" time="5.726"><failure message="AssertionError: {'exit_code': 0, 'run_status': 'validated', 'log': [{'level': 'WARN', 'event': 'PUBLICATION_REFUSED', 'exit_code': Non...2026-11-11T22:52:45.985Z', 'level': 'INFO', 'event': 'RUN_FINISHED', 'collector': 'marianos-azure-headless', ...}, ...}&#10;assert 0 == 6">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:54161/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+why = 'altered_export'
+
+    @pytest.mark.parametrize("why", sorted(REFUSALS))
+    def test_fix_a_refused_automatic_publication_is_reported_as_unsuccessful(
+        env: dict[str, Any], settings: Settings, why: str
+    ) -&gt; None:
+        ctx = _context(env)
+        first = _complete_run(env, settings)
+        assert _finish(env, ctx, first)["exit_code"] == 0
+        second = _complete_run(env, settings, n=61)
+        injected = REFUSALS[why](env, second)
+        out = _finish(env, ctx, second)
+        _evidence(f"fix_refused_{why}", {"injected": injected, "result": out, "published": _published(env)})
+&gt;       assert out["exit_code"] == 6, out  # rejected: nothing was published (it was 0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: {'exit_code': 0, 'run_status': 'validated', 'log': [{'level': 'WARN', 'event': 'PUBLICATION_REFUSED', 'exit_code': Non...2026-11-11T22:52:45.985Z', 'level': 'INFO', 'event': 'RUN_FINISHED', 'collector': 'marianos-azure-headless', ...}, ...}
+E       assert 0 == 6
+
+tests\integration\test_publication_result.py:241: AssertionError</failure></testcase><testcase classname="tests.integration.test_publication_result" name="test_fix_a_refused_automatic_publication_is_reported_as_unsuccessful[warn_without_reason]" time="6.101"><failure message="AssertionError: {'exit_code': 0, 'run_status': 'validated', 'log': [{'level': 'WARN', 'event': 'PUBLICATION_REFUSED', 'exit_code': Non...2026-11-11T22:52:52.812Z', 'level': 'INFO', 'event': 'RUN_FINISHED', 'collector': 'marianos-azure-headless', ...}, ...}&#10;assert 0 == 6">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:54161/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+why = 'warn_without_reason'
+
+    @pytest.mark.parametrize("why", sorted(REFUSALS))
+    def test_fix_a_refused_automatic_publication_is_reported_as_unsuccessful(
+        env: dict[str, Any], settings: Settings, why: str
+    ) -&gt; None:
+        ctx = _context(env)
+        first = _complete_run(env, settings)
+        assert _finish(env, ctx, first)["exit_code"] == 0
+        second = _complete_run(env, settings, n=61)
+        injected = REFUSALS[why](env, second)
+        out = _finish(env, ctx, second)
+        _evidence(f"fix_refused_{why}", {"injected": injected, "result": out, "published": _published(env)})
+&gt;       assert out["exit_code"] == 6, out  # rejected: nothing was published (it was 0)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: {'exit_code': 0, 'run_status': 'validated', 'log': [{'level': 'WARN', 'event': 'PUBLICATION_REFUSED', 'exit_code': Non...2026-11-11T22:52:52.812Z', 'level': 'INFO', 'event': 'RUN_FINISHED', 'collector': 'marianos-azure-headless', ...}, ...}
+E       assert 0 == 6
+
+tests\integration\test_publication_result.py:241: AssertionError</failure></testcase><testcase classname="tests.integration.test_publication_result" name="test_fix_a_later_firing_of_the_same_occurrence_says_again_that_nothing_was_published" time="5.187"><failure message="assert (0 == 6)&#10; +  where 0 = int(&lt;Exit.OK: 0&gt;)">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:54161/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_fix_a_later_firing_of_the_same_occurrence_says_again_that_nothing_was_published(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        """A scheduled occurrence whose run was validated and not published: Azure's retry of the firing (or the
+        second UTC firing) finds the occurrence done. It must not report it as a success either."""
+        ctx = _context(env, schedule=True)
+        tz = ZoneInfo("America/Chicago")
+        coll = ctx.config.collection(TARGET)
+        occ = occurrence_on(coll.schedule, datetime(2026, 11, 9, tzinfo=tz).date(), tz)  # a Monday
+        assert occ is not None
+        ctx.clock = lambda: occ.start.astimezone(UTC)
+        run_id = _complete_run(env, settings, trigger="schedule", occurrence=occ.as_dict())
+        _alter_an_export(env, run_id)
+        first = _finish(env, ctx, run_id)
+        logs.configure()
+        env["capsys"].readouterr()
+        code = asyncio.run(operations.scheduled_run(ctx, TARGET))
+        lines = [json.loads(x) for x in env["capsys"].readouterr().out.splitlines() if x.startswith("{")]
+        done = [x for x in lines if x.get("event") == "OCCURRENCE_DONE"]
+        _evidence(
+            "fix_later_firing",
+            {"first_execution": first, "later_firing_exit_code": int(code), "later_firing_log": done},
+        )
+        assert len(done) == 1  # the occurrence already has its run: nothing is collected again
+&gt;       assert int(code) == 6 and done[0]["level"] == "WARN"
+E       assert (0 == 6)
+E        +  where 0 = int(&lt;Exit.OK: 0&gt;)
+
+tests\integration\test_publication_result.py:275: AssertionError</failure></testcase></testsuite></testsuites>
