@@ -1,0 +1,8 @@
+path_removed_from_main,files,complete_at_tag,git_tree_id,link
+classic-probe/,52,review-1.10.0rc3-20261112,33c2d786fa793e2e588746f219eb9118cc789c38,https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.10.0rc3-20261112/classic-probe
+classic-probe-1.7.3/,68,review-1.10.0rc3-20261112,912801d038092bc84906f6e0c5507388980fb9d8,https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.10.0rc3-20261112/classic-probe-1.7.3
+data/,13,review-1.10.0rc3-20261112,12bcfcd274e3afc6b1af6f646749e82b8fdef1a8,https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.10.0rc3-20261112/data
+evidence/,1217,review-1.10.0rc3-20261112,d6eef4c80ffd918931466a670bae638f39b80363,https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.10.0rc3-20261112/evidence
+walkthrough/,4,review-1.10.0rc3-20261112,536bfd23d621e4a437c85c8cb683531c001e3bd3,https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.10.0rc3-20261112/walkthrough
+review/,12,review-1.10.0rc3-20261112,1622c3d092813598e85465102403d684a7306087,https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.10.0rc3-20261112/review
+manifests/,16,review-1.10.0rc3-20261112,b7147277581e14dc59278327111c004e638f0ba8,https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.10.0rc3-20261112/manifests
