@@ -1,0 +1,37 @@
+== 2026-11-16T17:51:27.143Z kill_recover start: unit=marianos-stage-f2c then marianos-stage-f2c-2, stage=M-F2c-full-run-110rc5-20261116, kill after 40 pages
+== 2026-11-16T17:54:02.422Z 40 pages collected; in flight just before the kill:
+785095c7a506445f987d68db94bc7c7f | dispatched | 76 | listing (attempt 1) | 2026-11-16T17:54:00.149427Z | 2026-11-16T17:54:00.178281Z
+== 2026-11-16T17:54:02.448Z SIGKILL to every process of marianos-stage-f2c
+== 2026-11-16T17:54:02.574Z unit after the kill:
+Result=signal
+ExecMainCode=2
+ExecMainStatus=9
+ActiveState=failed
+SubState=failed
+== 2026-11-16T17:54:02.579Z the run as the dead worker left it (id | status | stop_code)
+01M7JNB2HDFCNR3GHQVX8FYXX6 | running | -
+== open segments (id | started_at | ended_at | end_state)
+01M7JNB2R3TJEAQND0WK1E7TAY | 2026-11-16 17:09:11.042249+00 | 2026-11-16 17:22:58.01823+00 | ended
+01M7JPXCW0K5JNHJMH5G1Z55BG | 2026-11-16 17:36:39.805907+00 | 2026-11-16 17:38:56.323088+00 | ended
+01M7JQ3CX9FQXVGWXSTXWJV9XT | 2026-11-16 17:39:56.457345+00 | 2026-11-16 17:49:48.190093+00 | ended
+01M7JQRAS20VSE08T4DV842NAE | 2026-11-16 17:51:22.401334+00 | - | -
+== tasks held by a lease (id | state | lease_owner | lease_expires_at)
+01M7JNB2K61Y2D8FRTWJB6BTK1 | running | [redacted:vm-hostname]:8362 | 2026-11-16 17:55:56.445106+00
+01M7JNB2KGRKM0X30KX0BCNHEM | running | [redacted:vm-hostname]:8362 | 2026-11-16 17:56:00.138965+00
+== run_locks
+01M7JN611WMAGDJW7Y9YVFQRZE | 01M7JNB2HDFCNR3GHQVX8FYXX6 | [redacted:vm-hostname]:8362 | 2026-11-16 17:51:22.364223+00 | 2026-11-16 17:56:22.364223+00
+== ledger rows of the stage in flight or unknown (id | state | lease | purpose | created | updated)
+785095c7a506445f987d68db94bc7c7f | dispatched | 76 | listing (attempt 1) | 2026-11-16T17:54:00.149427Z | 2026-11-16T17:54:00.178281Z
+== latest ledger lease (id | holder | acquired | expires | released | reason)
+76 | live111:M-F2c-full-run-110rc5-20261116:8362 | 2026-11-16T17:51:22.094749Z | 2026-11-16T17:55:52.275596Z | None | None
+== 2026-11-16T17:54:02.829Z waiting until the dead lease expires at 2026-11-16T17:55:52.275596Z
+== 2026-11-16T17:55:58.004Z resuming run 01M7JNB2HDFCNR3GHQVX8FYXX6 in the same stage as marianos-stage-f2c-2
+active
+== 2026-11-16T17:56:03.033Z watcher: active
+== 2026-11-16T17:56:03.050Z slice stopper for marianos-stage-f2c-2 at 190 reservations: active
+== latest ledger lease after the resume (the dead one expired, a new one acquired)
+77 | live111:M-F2c-full-run-110rc5-20261116:10958 | 2026-11-16T17:55:58.360916Z | 2026-11-16T17:57:58.360916Z | None | None
+76 | live111:M-F2c-full-run-110rc5-20261116:8362 | 2026-11-16T17:51:22.094749Z | 2026-11-16T17:55:52.275596Z | 2026-11-16T17:55:58.362673Z | expired before a new acquisition
+== ledger rows of the stage now unknown or released unsent (id | state | lease | purpose | created | updated)
+785095c7a506445f987d68db94bc7c7f | unknown | 76 | listing (attempt 1) | 2026-11-16T17:54:00.149427Z | 2026-11-16T17:55:58.362439Z
+== 2026-11-16T17:56:03.143Z kill_recover done

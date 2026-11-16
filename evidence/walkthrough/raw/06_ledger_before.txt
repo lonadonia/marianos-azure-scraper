@@ -1,0 +1,5 @@
+# command: bash -c mstage ledger-status | python3 -I -c 'import json,sys; d=json.load(sys.stdin); m=d["projects"]["marianos"]; print("chain", d["chain"], "| lease", d["active_lease"], "| Mariano\x27s committed", m["committed_usd"], "| spendable", m["spendable_in_envelope_usd"], "| held unknown", m["unknown_rows"], "rows")'
+# started: 2026-11-16T18:54:31Z
+chain [True, 8615] | lease None | Mariano's committed 1.902000 | spendable 0.348000 | held unknown 14 rows
+# exit: 0
+# ended: 2026-11-16T18:54:31Z

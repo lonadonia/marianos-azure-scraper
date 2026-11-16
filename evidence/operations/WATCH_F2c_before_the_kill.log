@@ -1,0 +1,9 @@
+2026-11-16T17:51:24Z watch start unit=marianos-stage-f2c stage=M-F2c-full-run-110rc5-20261116 db=marianos_rc5
+2026-11-16T17:51:25Z unit=active run=01M7JNB2HDFCNR3GHQVX8FYXX6 status=running|-  pages=[374 pages, 276 completed ] distinct_upcs=5403  deferred(all|wait|rec|exh|answered_reasks)=63|12|44|7|67  ledger={"dispatched": 1}
+2026-11-16T17:51:55Z unit=active run=01M7JNB2HDFCNR3GHQVX8FYXX6 status=running|-  pages=[383 pages, 284 completed ] distinct_upcs=5541  deferred(all|wait|rec|exh|answered_reasks)=63|10|46|7|69  ledger={"dispatched": 2, "settled": 10}
+2026-11-16T17:52:25Z unit=active run=01M7JNB2HDFCNR3GHQVX8FYXX6 status=running|-  pages=[390 pages, 291 completed ] distinct_upcs=5685  deferred(all|wait|rec|exh|answered_reasks)=63|9|47|7|70  ledger={"dispatched": 2, "settled": 17}
+2026-11-16T17:52:55Z unit=active run=01M7JNB2HDFCNR3GHQVX8FYXX6 status=running|-  pages=[400 pages, 301 completed ] distinct_upcs=5863  deferred(all|wait|rec|exh|answered_reasks)=63|6|50|7|73  ledger={"dispatched": 2, "settled": 27}
+2026-11-16T17:53:26Z unit=active run=01M7JNB2HDFCNR3GHQVX8FYXX6 status=running|-  pages=[409 pages, 308 completed ] distinct_upcs=5978  deferred(all|wait|rec|exh|answered_reasks)=64|5|52|7|76  ledger={"dispatched": 2, "settled": 36}
+2026-11-16T17:53:56Z unit=active run=01M7JNB2HDFCNR3GHQVX8FYXX6 status=running|-  pages=[416 pages, 314 completed ] distinct_upcs=6119  deferred(all|wait|rec|exh|answered_reasks)=64|4|53|7|78  ledger={"dispatched": 1, "settled": 43}
+2026-11-16T17:54:26Z unit=failed run=01M7JNB2HDFCNR3GHQVX8FYXX6 status=running|-  pages=[418 pages, 316 completed ] distinct_upcs=6167  deferred(all|wait|rec|exh|answered_reasks)=64|3|54|7|79  ledger={"dispatched": 1, "settled": 45}
+2026-11-16T17:54:26Z unit not active (failed): watch ends

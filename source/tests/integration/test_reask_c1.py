@@ -374,10 +374,15 @@ def test_c1_replay_batteries_page_2_repeated_then_answered_six_minutes_later_is_
     ]
     req = _request(obs, "26003")
     assert (req["state"], req["reasks_dispatched"]) == ("recovered", 1)
+    import gzip
+
+    from marianos_headless.acquisition.capture import gzip_bytes
+
+    saved_body = gzip.decompress((FIX / "s4_batteries_p2_repeats_p1.html.gz").read_bytes())
     assert (
-        req["attempts"][0]["capture"]["sha256"]
-        == hashlib.sha256((FIX / "s4_batteries_p2_repeats_p1.html.gz").read_bytes()).hexdigest()
-    )  # the stored page of the first answer is the saved answer, byte for byte
+        req["attempts"][0]["capture"]["sha256"] == hashlib.sha256(gzip_bytes(saved_body)).hexdigest()
+    )  # the stored page of the first answer is the saved answer's body, byte for byte, in this platform's
+    # gzip wrapper (zlib writes its own platform's OS byte in the header: 3 on Linux, 10 on Windows)
     assert obs["coverage"]["status"] == "DONE" and (obs["coverage"]["seen"], obs["coverage"]["total"]) == (
         96,
         96,

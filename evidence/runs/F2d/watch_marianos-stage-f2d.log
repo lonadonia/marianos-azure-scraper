@@ -1,0 +1,5 @@
+2026-11-16T18:54:32Z watch start unit=marianos-stage-f2d stage=M-F2d-full-run-110rc5-20261116 db=marianos_rc5
+2026-11-16T18:54:32Z unit=active run=01M7JNB2HDFCNR3GHQVX8FYXX6 status=interrupted|TERMINATED  pages=[555 pages, 410 completed ] distinct_upcs=8029  deferred(all|wait|rec|exh|answered_reasks)=96|22|63|11|97  ledger={}
+2026-11-16T18:55:03Z unit=active run=01M7JNB2HDFCNR3GHQVX8FYXX6 status=running|-  pages=[563 pages, 413 completed ] distinct_upcs=8062  deferred(all|wait|rec|exh|answered_reasks)=97|20|64|13|102  ledger={"dispatched": 2, "settled": 9}
+2026-11-16T18:55:33Z unit=inactive run=01M7JNB2HDFCNR3GHQVX8FYXX6 status=running|-  pages=[570 pages, 416 completed ] distinct_upcs=8118  deferred(all|wait|rec|exh|answered_reasks)=98|20|65|13|105  ledger={"dispatched": 2, "settled": 16, "unknown": 2}
+2026-11-16T18:55:33Z unit not active (inactive): watch ends

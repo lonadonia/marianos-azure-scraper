@@ -1,0 +1,106 @@
+{
+ "inputs": {
+  "f2_slices": [
+   "F2a",
+   "F2b",
+   "F2c",
+   "F2d"
+  ],
+  "f2_submissions": 595,
+  "f2_settled": 586,
+  "f2_unknown_charged": 9,
+  "f2_listing_pages_completed": 416,
+  "f2_listing_pages_completed_distinct": 413,
+  "f2_listing_page_answers": 576,
+  "coverage_file_sum_of_pages_completed": 438,
+  "coverage_file_listings_counted_twice": [
+   "0100600006",
+   "0100600007",
+   "0400300001",
+   "0400300002",
+   "0400300003",
+   "0400300004",
+   "0400300005",
+   "0400300006",
+   "0400300007",
+   "0400300009",
+   "0400300010",
+   "05017",
+   "1800100003"
+  ],
+  "f2_execution_seconds": 2504.2,
+  "f2_collection_segment_seconds": 2429.7,
+  "lanes": 2,
+  "historical_pages_per_run": [
+   3019,
+   4826
+  ],
+  "historical_submissions_per_run": [
+   3928,
+   6277
+  ],
+  "historical_usd_per_run": [
+   5.89,
+   9.41
+  ],
+  "historical_hours_one_worker": [
+   48.4,
+   77.3
+  ],
+  "historical_usd_a_month": [
+   51.1,
+   81.6
+  ],
+  "submissions_outside_listing_pages_per_run": 3,
+  "runs_a_month_twice_weekly": 8.67,
+  "rate_usd_per_submission": 0.0015,
+  "marianos_spendable_usd_at_the_end": 0.312
+ },
+ "measured": {
+  "submissions_per_completed_page": 1.43,
+  "execution_seconds_per_completed_page": 6.02,
+  "segment_seconds_per_completed_page": 5.84
+ },
+ "estimate": {
+  "submissions_per_run": [
+   4321,
+   6906
+  ],
+  "usd_per_run": [
+   6.48,
+   10.36
+  ],
+  "hours_per_run_two_lanes": [
+   5.0,
+   8.1
+  ],
+  "usd_a_month_twice_weekly": [
+   56.2,
+   89.8
+  ],
+  "remaining_submissions_to_complete_one_run": [
+   3726,
+   6311
+  ],
+  "remaining_usd_to_complete_one_run": [
+   5.59,
+   9.47
+  ],
+  "shortfall_usd_against_marianos_spendable": [
+   5.28,
+   9.15
+  ]
+ },
+ "formulas": {
+  "submissions_per_completed_page": "F2's ledger rows (all four slices, unknown outcomes included) / completed answers of F2's listing-page log (a page completed twice counts twice)",
+  "submissions_per_run": "historical listing pages x submissions_per_completed_page + 3",
+  "hours_per_run_two_lanes": "historical listing pages x execution_seconds_per_completed_page / 3600",
+  "remaining": "submissions_per_run - F2's submissions (F2's completed pages are part of a full run's pages)"
+ },
+ "caveats": [
+  "F2 read the rows in order and was stopped by the collector while it read row 15: its ratio of repeated, malformed and re-asked answers is that of rows 1 to 15, applied to every row.",
+  "The coverage file sums to more completed pages than the listing-page log holds: it counts a listing that is both a listing of its own and a partition of a parent once for each, and a listing of two CSV rows once per row. The estimate uses the log.",
+  "The historical page range is the census of 2026-11-02 (rows 7, 9, 11, 13 and 17 unmeasured then, as a range); ROWS_F2_VS_CENSUS.csv compares it with what F2 read.",
+  "USD at the reservation rate (a list price read 2026-11-03), not an invoice."
+ ]
+}

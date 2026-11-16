@@ -1,0 +1,50 @@
+How 1.10.0rc5 read the page that stopped the full run F2 (STORE_NOT_VERIFIED, 2026-11-16 18:56:02Z), beside
+pages of the same shape that it read differently. Read on Hamza's VM from the stored pages with the installed
+collector's own functions by ../tools/store_stop_check.py (no network), on 2026-11-16 after the stop:
+
+    /opt/marianos-collector/current/venv/bin/python -I store_stop_check.py LABEL=STORED_PAGE ...
+
+The rule it shows is 1.10.0rc5's price check (collection/oxylabs_live.py, StoreVerifier.verify):
+    shows = bool(products in the page state or product cards drawn in its grid)
+    price_locations = (stated price stores == {53100502}) if any price is stated
+                      else (False if shows and no product data else not applicable)
+A failed required store check stops the run, not resumable (STORE_NOT_VERIFIED).
+
+=== F2: the page that stopped the run, Coffee > Espresso Coffee (0400300007) page 2, re-ask 1 (attempt 2), answered 2026-11-16T18:56:02Z
+stored page: 01M7JVDMXFPAVVHW9347CDTBTN.html.gz  sha256 3b6ea7ac6b52a05214607577bab50ed6bdc649b3c8ae9aa1c61476c6560a28b1  (75869 bytes)
+its search: page 2, store 53100502, fulfillment PICKUP, results 45 (reachable 45), result UPCs 25, loaded True, loading False, request variables present
+products in the page state: 0; their stated price stores: none
+product grid: present; cards drawn: 3; displayed results: 44
+  card default-product-card-14: 0007447110052 'Café Bustelo Espresso Ground Coffee, Dark Roast'
+  card default-product-card-18: 0007447120782 'Café Bustelo Unsweetened Espresso Style Iced Coffee'
+  card default-product-card-22: 0004195300352 'LavAzza Espresso Italiano Medium Roast Ground Coffee'
+price check of 1.10.0rc5: shows=True, products=0 -> FAIL (required): the run stops, STORE_NOT_VERIFIED, not resumable
+
+=== F2: the same request first answered at 18:00:25Z (attempt 1, the repeated page: page 1 again)
+stored page: 01M7JR8X6PG1K84232CFSH4VCB.html.gz  sha256 d554d1796f38a8f320ffe2f4a83db2176c3d53afaa6342c06dd08c892f3aa8e4  (150290 bytes)
+its search: page 2, store 53100502, fulfillment PICKUP, results 45 (reachable 45), result UPCs 24, loaded True, loading False, request variables present
+products in the page state: 24; their stated price stores: ['53100502']
+product grid: present; cards drawn: 24; displayed results: 45
+  card horizontal-product-card-0: 0003663207807 'SToK Espresso Blend Black Unsweetened Cold Brew Coffee Bottle'
+  card horizontal-product-card-1: 0004850020131 'Starbucks Vanilla Latte Iced Espresso Bottled Coffee Drink'
+  card horizontal-product-card-2: 0007447101720 'Café Bustelo 10 Ounce Brick Each'
+  card horizontal-product-card-3: 0004850020129 'Starbucks Iced Espresso Beverage Caramel Macchiato Bottled Coffee Drink'
+price check of 1.10.0rc5: shows=True, products=24 -> PASS
+
+=== F2: page 1 of the same listing, completed at 18:00:21Z
+stored page: 01M7JR8RRY9J4E41J8DP1FTKBQ.html.gz  sha256 e0fa5780daf6de056aeec62f319aba9ec65805ec5ea41e1fed582d8adc09b684  (168074 bytes)
+its search: page 1, store 53100502, fulfillment PICKUP, results 45 (reachable 45), result UPCs 28, loaded True, loading False, request variables present
+products in the page state: 28; their stated price stores: ['53100502']
+product grid: present; cards drawn: 28; displayed results: 45
+  card horizontal-product-card-0: 0003663207807 'SToK Espresso Blend Black Unsweetened Cold Brew Coffee Bottle'
+  card horizontal-product-card-1: 0004850020131 'Starbucks Vanilla Latte Iced Espresso Bottled Coffee Drink'
+  card horizontal-product-card-2: 0007447101896 'Café Bustelo® Espresso Style Dark Roast K-Cup® Coffee Pods'
+  card horizontal-product-card-3: 0007447101720 'Café Bustelo 10 Ounce Brick Each'
+price check of 1.10.0rc5: shows=True, products=28 -> PASS
+
+=== P6 (1.10.0rc5, isolated target): Hardware Home Improvement (27) page 3, attempt 1, verdict malformed, asked again and completed
+stored page: 01M7JTY2EBXZ45TK8E41M6F59Q.html.gz  sha256 fa7b998f5ab2067067e3298f070f783d5aec255e698f0fe9b44ae0550d3dc1a4  (69837 bytes)
+its search: page 3, store 53100502, fulfillment PICKUP, results 65 (reachable 65), result UPCs 19, loaded True, loading False, request variables present
+products in the page state: 0; their stated price stores: none
+product grid: absent; cards drawn: 0; displayed results: 65
+price check of 1.10.0rc5: shows=False, products=0 -> not applicable: the listing step judges the page (not counted, asked again)

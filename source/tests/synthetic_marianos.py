@@ -392,12 +392,15 @@ def search_page(
     loaded: bool = True,
     loading: bool = False,
     has_error: bool = False,
+    search_made: bool = True,
 ) -> str:
     """A search result page, or (with ``taxonomy_id`` and ``ranks``) a listing's page: the grid's cards and
     the page state (``products``: (product, taxonomy)). ``show_cards=False`` is a page brought without its
     page state (``products``: (product, taxonomy)). ``show_cards=False`` is a page brought without its grid (a
     later page without rendering, probe L9 of 2026-11-02). ``store_*`` name the selected store the page
-    shows."""
+    shows. ``search_made=False`` is a page brought before its search was made, its ``searchAll`` as in the
+    answer of 2026-11-16 (run F1, page 3 of ``frozen-meat-alternatives``): no request, still loading, no
+    response; the page's own store context is there."""
     cards = "".join(grid_card(i, p, base) for i, (p, _) in enumerate(products)) if show_cards else ""
     grid = f'<div data-testid="paginate-items">{cards}</div>'
     data = {
@@ -405,9 +408,23 @@ def search_page(
         or state_product(p, taxonomy=tax, location_id=(price_location or {}).get(p.upc, location_id))
         for p, tax in products
     }
+    not_made = {
+        "requestVars": {},
+        "loading": True,
+        "loaded": False,
+        "hasError": False,
+        "isQuickFacetsRequest": False,
+        "error": None,
+        "requestId": None,
+        "response": None,
+        "clearedOnRequestUpcs": None,
+        "latestResponseSearchId": None,
+    }
     extra = {
         "calypso": {"domains": {"products": {u: {"data": d} for u, d in data.items()}}},
-        "search": {
+        "search": {"searchAll": not_made}
+        if not search_made
+        else {
             "searchAll": {
                 "requestVars": {
                     "query": query,

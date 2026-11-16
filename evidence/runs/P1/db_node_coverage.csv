@@ -1,0 +1,2 @@
+id,run_id,category_source_id,taxonomy_id,total_count,organic_upcs,coverage_ratio,status,partition
+01M7JH5ZSB62M40C5Y5ZA8CA9V,01M7JH4G03W52YEZMES5QSWVC4,01M7JH4D9GS7M65ECPM6GYF4MR,33,65,65,1,DONE,"{""url"": ""https://www.marianos.com/pl/hardware-home-improvement/33?pzn=relevance"", ""read"": {""route"": ""listing"", ""pages_read"": 3}, ""steps"": 3, ""parent"": null, ""reason"": """", ""available"": 65, ""partitions"": []}"

@@ -1,0 +1,2362 @@
+[
+  {
+    "upc": "0003338321000",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $6.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "6.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003338324000",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $6.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "6.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0000000004593",
+    "source": "zone",
+    "tag": "",
+    "text": "4 For $5.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0000000004688",
+    "source": "zone",
+    "tag": "",
+    "text": "4 For $5.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0085706200415",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $12.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "12.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022304185",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022304151",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022304074",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022304150",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022304156",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022306099",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111063034",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022304225",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0089520300101",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022304218",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111062698",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111061376",
+    "source": "zone",
+    "tag": "",
+    "text": "$4.99 Kroger Red or Black Grapes",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022304152",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022304109",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0082486200630",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0089520300109",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0082486200631",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0061611286670",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0061611286671",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0061611235356",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0004082234650",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $10.00 (Exp. 12/01/2026)",
+    "expiry_text": "Exp. 12/01/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001895914003",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0004082234653",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $10.00 (Exp. 12/01/2026)",
+    "expiry_text": "Exp. 12/01/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001895914000",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0073231300224",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0000000004312",
+    "source": "zone",
+    "tag": "",
+    "text": "4 For $5.00",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0000000004961",
+    "source": "zone",
+    "tag": "",
+    "text": "10 For $10.00",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007020085723",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007766117073",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 01/03/2027)",
+    "expiry_text": "Exp. 01/03/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0004175607006",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 01/03/2027)",
+    "expiry_text": "Exp. 01/03/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007766117064",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 01/03/2027)",
+    "expiry_text": "Exp. 01/03/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111068842",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 12/06/2026)",
+    "expiry_text": "Exp. 12/06/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007020053928",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0073231300204",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 12/06/2026)",
+    "expiry_text": "Exp. 12/06/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0073231300245",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $4.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "4.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111097205",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 12/06/2026)",
+    "expiry_text": "Exp. 12/06/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007778200276",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0005190080104",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0002265570186",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 01/24/2027)",
+    "expiry_text": "Exp. 01/24/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007778268588",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001895975076",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001895914005",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001895975554",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0061611286672",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001895975555",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0004175609006",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 01/03/2027)",
+    "expiry_text": "Exp. 01/03/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001895975560",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001895975557",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0089520300177",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0073231300197",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 12/06/2026)",
+    "expiry_text": "Exp. 12/06/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0073231300212",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 12/06/2026)",
+    "expiry_text": "Exp. 12/06/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0008259266015",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0008259272015",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0008259219415",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0008259272715",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0082415022312",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $3.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "3.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0081861702185",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0082415022612",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $3.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "3.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0085650200647",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $6.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "6.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0085921300565",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0081861702359",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007274506369",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111064758",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004470006662",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 01/03/2027)",
+    "expiry_text": "Exp. 01/03/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0004470006647",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 01/03/2027)",
+    "expiry_text": "Exp. 01/03/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007778200221",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007778200393",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111097258",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 12/06/2026)",
+    "expiry_text": "Exp. 12/06/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0005190080109",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0007456200509",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $5.00 (Exp. 12/06/2026)",
+    "expiry_text": "Exp. 12/06/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007456200508",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $5.00 (Exp. 12/06/2026)",
+    "expiry_text": "Exp. 12/06/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0074747930004",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111020019",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0003760047371",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0003760015491",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081011406080",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111062686",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004470000674",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/24/2026)",
+    "expiry_text": "Exp. 11/24/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0004470010155",
+    "source": "zone",
+    "tag": "",
+    "text": "5/$5 when you buy 5 or more with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004470036113",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/24/2026)",
+    "expiry_text": "Exp. 11/24/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002700044193",
+    "source": "zone",
+    "tag": "",
+    "text": "99¢ each when you buy 5 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0002700044205",
+    "source": "zone",
+    "tag": "",
+    "text": "99¢ each when you buy 5 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0002898997110",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0081669702114",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0002898997500",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0081669702100",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0002898910092",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898910064",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898910104",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898910088",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898910084",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898910094",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898910110",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898910419",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898997195",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0081669702304",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081669702061",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0002898910102",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0083373500012",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004440015650",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0004440015630",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111098022",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111062926",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004800000245",
+    "source": "zone",
+    "tag": "",
+    "text": "4 For $5.00 (Exp. 01/05/2027)",
+    "expiry_text": "Exp. 01/05/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0075579525412",
+    "source": "zone",
+    "tag": "",
+    "text": "4 For $5.00 (Exp. 12/13/2026)",
+    "expiry_text": "Exp. 12/13/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002100005238",
+    "source": "zone",
+    "tag": "",
+    "text": "99¢ each when you buy 5 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001115078651",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $4 on 1 Coke Mini 10-Pack when you purchase 1 Fresh Roast or 8-Piece Chicken with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004157300250",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $4 on 1 Coke Mini 10-Pack when you purchase 1 Fresh Roast or 8-Piece Chicken with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004157300973",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $4 on 1 Coke Mini 10-Pack when you purchase 1 Fresh Roast or 8-Piece Chicken with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004157300274",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $4 on 1 Coke Mini 10-Pack when you purchase 1 Fresh Roast or 8-Piece Chicken with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004157300316",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $4 on 1 Coke Mini 10-Pack when you purchase 1 Fresh Roast or 8-Piece Chicken with Card (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0007321400675",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/24/2026)",
+    "expiry_text": "Exp. 11/24/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0087744800751",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111009641",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0003498610199",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002100005228",
+    "source": "zone",
+    "tag": "",
+    "text": "99¢ each when you buy 5 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0003022302433",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022304217",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0082486200632",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111062699",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022306248",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022306119",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111069919",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $11.00 (Exp. 01/31/2027)",
+    "expiry_text": "Exp. 01/31/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0089520300115",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $7.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "7.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022306161",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111099231",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111099837",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111062687",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111099836",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111062685",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0005190080746",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111062644",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0005190080747",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111063064",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111063061",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0060491300490",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 12/15/2026)",
+    "expiry_text": "Exp. 12/15/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111063059",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003022306242",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/22/2026)",
+    "expiry_text": "Exp. 11/22/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111063065",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111063060",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111063066",
+    "source": "zone",
+    "tag": "",
+    "text": "3 For $11.00 (Exp. 12/08/2026)",
+    "expiry_text": "Exp. 12/08/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "11.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0081363602451",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0007203095992",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007203096010",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111097170",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111097300",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111097337",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111022134",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0020228000000",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0022234000000",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0022234040000",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 1, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001111064612",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0007778200396",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007024792137",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0007024792135",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0085916500243",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0007778201357",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0085916500226",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0085916500232",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0085916500241",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0085916500236",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $8.00 (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "8.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0005190080745",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111065742",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004450000434",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004450000432",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0004450000431",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0087668101362",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0087668100751",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0087668100750",
+    "source": "zone",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 11/29/2026)",
+    "expiry_text": "Exp. 11/29/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0081669702039",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081669702062",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081669702116",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0002898910068",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898910621",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898957799",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002898910108",
+    "source": "zone",
+    "tag": "",
+    "text": "Buy 2, Get 1 Free (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0081006593514",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081006593519",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081006593515",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081006593520",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081006593516",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0081006593518",
+    "source": "zone",
+    "tag": "",
+    "text": "2/$25 when you buy 2 or more with Card. (Exp. 02/02/2027)",
+    "expiry_text": "Exp. 02/02/2027",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "25.00",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  }
+]

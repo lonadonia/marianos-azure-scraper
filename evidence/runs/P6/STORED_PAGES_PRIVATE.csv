@@ -1,0 +1,16 @@
+path_in_the_private_evidence,sha256,bytes,published
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/dom/01M7JTAHBTQ5ZJ0JDHKM26PXMJ.html.gz,fc70435f396c542b148973541c44011e7d44fd5cd74bd76bb2dc75709cb5e9e2,117310,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/dom/01M7JTANPPAJHV1J5DQP6YJTSD.html.gz,b9afa90ecd4c78faa6c25aae8f98f3ef21e44cfc7f8738101e71d988fd2e88f1,19484,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/dom/01M7JTB2DF1KGZRTBK95PPHFDT.html.gz,e987f2c94d7fd1dfef321c33736564fa968c97e90dd47e4151d818b3d56cc117,119276,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/dom/01M7JTMBXFEBER0KG5ACS5XHQ7.html.gz,7fd1c3891381570e0c2e60e1339569ca881530912de3f467b26c8ed38f80d966,118763,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/dom/01M7JTXNSWAT5K3V4SM0J97JQJ.html.gz,0a2bd4f08fbedb16918309abfa38930e68705676c28f25b9a29d1145af0ab9b1,121423,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/dom/01M7JTY2EBXZ45TK8E41M6F59Q.html.gz,fa7b998f5ab2067067e3298f070f783d5aec255e698f0fe9b44ae0550d3dc1a4,69837,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/dom/01M7JTYGRCW0PVX39PG918GP9S.html.gz,c07bc1cc30f6eb310b2b56b69bf3eb8719b8204a94d3adc10cf7a7086bee27f3,118657,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/dom/01M7JV7XPDNAP0P4FFMGB79PKR.html.gz,62009656ff7c92ea8a84175fdf926c2a2af40a735aafd4aca9da9fc8492bb7e0,109733,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/raw/01M7JTAHBTQ5ZJ0JDHKM26PXMJ.0001.products_v2.json.gz,4c0a62e948768c9fe1782d16cbf31e73425d1bff2a11c2bf88b42946e8ccf60a,24303,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/raw/01M7JTB2DF1KGZRTBK95PPHFDT.0002.products_v2.json.gz,44ac854d3936cf2511ff834f4822d919ea1d627cb889bb8c9e47bc1aa9746812,25497,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/raw/01M7JTMBXFEBER0KG5ACS5XHQ7.0003.products_v2.json.gz,0e1ed34639d7bfadf6a5bdac3ecf2a4799228c9a97fe817562ba8be3e1d4bcaf,25497,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/raw/01M7JTXNSWAT5K3V4SM0J97JQJ.0004.products_v2.json.gz,2adae9398ada92444cd106e4b5bcf8f32e2b9ae1354f8a570db795b981a9339f,24316,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/raw/01M7JTYGRCW0PVX39PG918GP9S.0005.products_v2.json.gz,0e1ed34639d7bfadf6a5bdac3ecf2a4799228c9a97fe817562ba8be3e1d4bcaf,25497,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/raw/01M7JV7XPDNAP0P4FFMGB79PKR.0006.products_v2.json.gz,26748b902e08513a102fa167351a2f59527aa787c6eb6c41ed16be6718d8471e,19449,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JTAC3J8TYR7RV93F2W7PG3/live/robots/01M7JTAC7PQ45E0NE4YREQZ7QM.status200.txt,3a13742a69135f1d03e0acbf34145d307651fe4d59ff5997324392f952700dfb,2231,no: a stored page stays private; its SHA-256 identifies it

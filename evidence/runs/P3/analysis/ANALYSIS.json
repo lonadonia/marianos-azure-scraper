@@ -1,0 +1,46 @@
+{
+ "evidence": "ev\\P3",
+ "listing_answers": 3,
+ "listings_and_partitions": 1,
+ "deferred_requests": 0,
+ "deferred_by_state": {},
+ "reasks_answered": 0,
+ "distinct_new_products_from_counted_reasks": 0,
+ "min_seconds_between_answers_of_a_request": null,
+ "distinct_identities_all_counted_pages": 65,
+ "validation_report": {
+  "status": "validated",
+  "dataset": "complete",
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "PASS",
+   "G4": "PASS",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "FAIL"
+  },
+  "nodes": {
+   "DONE": 1
+  }
+ },
+ "cat_food_27021": [],
+ "upc_0002310014492_pages": [],
+ "listings_with_duplicate_slots": [],
+ "store_checks": [
+  "PASS"
+ ],
+ "locations": [
+  "53100502"
+ ],
+ "modalities": [
+  "PICKUP"
+ ]
+}

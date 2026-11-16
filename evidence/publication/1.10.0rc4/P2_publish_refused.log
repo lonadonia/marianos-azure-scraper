@@ -1,0 +1,2 @@
+{"ts": "2026-11-16T16:05:36.905Z", "level": "ERROR", "event": "COMMAND_REFUSED", "collector": "marianos-azure-headless", "command": "publish", "exit_code": 6, "message": "run 01M7JHJNGQJ67ABVGR9X8MPEGP is a partial dataset: only complete runs are published"}
+exit 6

@@ -1,0 +1,122 @@
+{
+ "stage": [
+  {
+   "stage_id": "M-P4-pubtarget-first-publication-110rc5-20261116",
+   "project": "marianos",
+   "opened_at": "2026-11-16T18:11:36.767868Z",
+   "objective": "ISOLATED PUBLICATION TARGET (its own database marianos_pubtest5 and data folder; the production target is not touched). Its configuration is the shipped one with the store's categories set to [27] (Hardware Home Improvement: one listing, 65 products on 2026-11-16), so a run of it is not a pilot and can be published when it completes and validates. It proves the publication mechanism on the final candidate; it is not the client's full scope and its dataset is not a catalogue. P4: the first complete run of that scope, validated, then published explicitly (publish).",
+   "command": "run --store marianos-53100502-pickup",
+   "config": "{\"config_dir\": \"/var/lib/marianos-collector/ops111/stages/M-P4-pubtarget-first-publication-110rc5-20261116/config\", \"config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"eb8d257e649a86fcb718b4a2daacdd7ae1e4f248d5ff463738236db2b82107b5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}, \"differs_from_shipped_in\": [\"collector.yaml: publish.auto false\", \"collector.yaml: categories [27] (the isolated publication target's configured scope)\"], \"environment\": \"the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel\", \"lanes\": 1, \"shipped_config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}}",
+   "source_revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+   "max_requests": 12,
+   "max_results": 12,
+   "max_usd": "0.018000",
+   "deadline_utc": "2026-11-16T18:51:32Z",
+   "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt, each reserved at its worst case",
+   "stop_conditions": "the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator: once 10 re-asks have been answered and none recovered its request, the stage is stopped and reported as it stands (no allowance is spent repeating one outcome)",
+   "closed_at": null,
+   "outcome": null
+  }
+ ],
+ "events_naming_the_stage": [
+  {
+   "seq": 8540,
+   "at": "2026-11-16T18:11:36.767978Z",
+   "kind": "stage_opened",
+   "ref": "M-P4-pubtarget-first-publication-110rc5-20261116",
+   "detail": "{\"deadline_utc\":\"2026-11-16T18:51:32Z\",\"max_requests\":12,\"max_results\":12,\"max_usd\":\"0.018000\",\"project\":\"marianos\",\"source_revision\":\"bc19afe60c1016cf5d08d055abd96bc69c9d3dd1\"}",
+   "prev_hash": "03d6b4dc5e86fe47b4074bfeedeb79c1c8faaa0672c3dc99da5a49aea068db76",
+   "hash": "d821e78cc802ae941d4d70c8fcc44d99e6e077145d66b93e5f37acec83095350"
+  },
+  {
+   "seq": 8541,
+   "at": "2026-11-16T18:11:37.155855Z",
+   "kind": "lease_acquired",
+   "ref": "78",
+   "detail": "{\"holder\":\"live111:M-P4-pubtarget-first-publication-110rc5-20261116:19628\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "d821e78cc802ae941d4d70c8fcc44d99e6e077145d66b93e5f37acec83095350",
+   "hash": "99f49f5c7965af2b9d1ff484ea43b274d11bbd94e65376a206d112207b2be6ff"
+  },
+  {
+   "seq": 8542,
+   "at": "2026-11-16T18:11:37.544202Z",
+   "kind": "reserved",
+   "ref": "569d6a321571479cbd82178568bcf7b3",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-P4-pubtarget-first-publication-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "99f49f5c7965af2b9d1ff484ea43b274d11bbd94e65376a206d112207b2be6ff",
+   "hash": "ab2701151a069e3538f8c107b2221ce9394ed6ce955c0566d996fb94c2b42df3"
+  },
+  {
+   "seq": 8545,
+   "at": "2026-11-16T18:11:41.820465Z",
+   "kind": "reserved",
+   "ref": "071d0be14fd24ef4a2d49cb7c894fa0b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P4-pubtarget-first-publication-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b848a465d1e026a3e248764781eca86611da411569796e0a2c04da431947badf",
+   "hash": "fbdf239c33c5185de67694d640a7856c7724a1518caaa2567a0ca599237cca90"
+  },
+  {
+   "seq": 8548,
+   "at": "2026-11-16T18:11:46.126232Z",
+   "kind": "reserved",
+   "ref": "48af8b9b248f48898f00948377d9579c",
+   "detail": "{\"purpose\":\"coupons (attempt 1)\",\"stage\":\"M-P4-pubtarget-first-publication-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a20e497187c402784b174c0b182b284ca3b160a9a330dd054dc48e273d8d599d",
+   "hash": "b5cc8dcd740e495d819f2e9ee336899269867850a328c8f5eb868eb53552ae77"
+  },
+  {
+   "seq": 8551,
+   "at": "2026-11-16T18:12:02.990114Z",
+   "kind": "reserved",
+   "ref": "cc9aa48cd0e84ce5b125aa8d5f340ed5",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P4-pubtarget-first-publication-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "cb585c4483bb2bf9ca3840e308468ea378e26c6872f704d2b55ea13627058423",
+   "hash": "6b539fe721e96ec85ba2c1afb69cf7853532494d0684ab7411ebe09ae6e08476"
+  },
+  {
+   "seq": 8554,
+   "at": "2026-11-16T18:17:08.788354Z",
+   "kind": "reserved",
+   "ref": "b141f3699e7e47a39445424e7941100b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P4-pubtarget-first-publication-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2167b354bdc5ebdc92e0a20922e4145f34ffc643adb5c4ba0e63d18a63ba82cf",
+   "hash": "6df392a95d9ff19b06c27472926d63bf5ce6ab83da07e3658dcb260fc9f2a1ca"
+  },
+  {
+   "seq": 8557,
+   "at": "2026-11-16T18:17:14.701140Z",
+   "kind": "reserved",
+   "ref": "49a75bc024ae44d3be50ccc6a54e6810",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P4-pubtarget-first-publication-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "bd19c6ce0272cefe4c4b3659934dab8ca5db9923402a6dc2472c0a8faf32c306",
+   "hash": "dd17c97aa70a4db3a1ab887df33dc722e54711aac7d889dd015837fafaa6c79b"
+  },
+  {
+   "seq": 8560,
+   "at": "2026-11-16T18:22:21.467849Z",
+   "kind": "reserved",
+   "ref": "d3bc0ad587a945358df4cc2a4fa5f9d1",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P4-pubtarget-first-publication-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a255d9a22c2670c6a99b59b36bdda6b4b46994e562cf9f0303478c2245ecf1d3",
+   "hash": "6fc5164eff506c4adb3e0cf9c78d621ee2a9020b06879c8de3fdd716c4ec4888"
+  },
+  {
+   "seq": 8563,
+   "at": "2026-11-16T18:27:31.830031Z",
+   "kind": "reserved",
+   "ref": "6d559bf68ecb43ac879fbcdf5391264c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P4-pubtarget-first-publication-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "620e3a650fb789c7af517c2083becaa27aa842d59f8808893186a5e1a5771bdb",
+   "hash": "5c85d21bcc1d6eac841bc9220e8cc1565c7acb97aa8165b52a1ee21ce15ba6a7"
+  },
+  {
+   "seq": 8566,
+   "at": "2026-11-16T18:27:36.614058Z",
+   "kind": "lease_released",
+   "ref": "78",
+   "detail": "{\"reason\":\"live111 M-P4-pubtarget-first-publication-110rc5-20261116 ended (exit 0)\"}",
+   "prev_hash": "253f726db6f213ce8f48260439ff4a82964f6f4649c09bfc7fecea45eb22581f",
+   "hash": "4ca4a650d628d581937cdced6319f81649c1a3732d64ec1c8fa4272881d4308f"
+  }
+ ]
+}

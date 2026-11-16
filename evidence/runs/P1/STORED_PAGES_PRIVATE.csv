@@ -1,0 +1,11 @@
+path_in_the_private_evidence,sha256,bytes,published
+stored/01M7JH4G03W52YEZMES5QSWVC4/live/dom/01M7JH4RSNQZCE2K7Y5RA5XY4G.html.gz,8e5e5c938e944092c56c68d2954a4578a27cd3f966a90d8231398e27996327ef,125333,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JH4G03W52YEZMES5QSWVC4/live/dom/01M7JH5PF0FAFV8WYXNAZBWJE9.html.gz,0ce14d16dde76ffb91889d8eab6b54ef21de797cdf2990849dee775e55e22abe,19435,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JH4G03W52YEZMES5QSWVC4/live/dom/01M7JH5ZTE6GCVS6HVFE9CK4J9.html.gz,706b3210091162343a3109fe53b77bc712b5817cac8b6095c4b1c68cbdebacee,112697,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JH4G03W52YEZMES5QSWVC4/live/dom/01M7JHG17VY5AZWYV42YGY9J41.html.gz,5f66e39a0b4b06dc6044ffa6ef05ed588bb2f786798f5ea5ebfdb0f658a940f3,120980,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JH4G03W52YEZMES5QSWVC4/live/dom/01M7JHG97PT3FEBQJV00F1BZ8W.html.gz,585a1a2c7842404db97a846d38b3adedcbd9389003b5539fc04c6f3b02dd6f09,114768,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JH4G03W52YEZMES5QSWVC4/live/raw/01M7JH4RSNQZCE2K7Y5RA5XY4G.0001.products_v2.json.gz,863d8dc292a9745e4bec3e6785e99ce297262a40bc1a5cfddae9317f7761c02d,27146,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JH4G03W52YEZMES5QSWVC4/live/raw/01M7JH5ZTE6GCVS6HVFE9CK4J9.0002.products_v2.json.gz,ec5b5787bace103cb5175e7d01ba90e29693ee7daa375c38ca5ae2fa4c682d3b,24304,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JH4G03W52YEZMES5QSWVC4/live/raw/01M7JHG17VY5AZWYV42YGY9J41.0003.products_v2.json.gz,d141b94bdcb20d94040f09baf1b5bf3ba627e8ba13e475d672efc271348448b7,23960,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JH4G03W52YEZMES5QSWVC4/live/raw/01M7JHG97PT3FEBQJV00F1BZ8W.0004.products_v2.json.gz,1203a02fc9085b0409aa321053e57c31b5fa59f9804f503c874f626370fa9160,21193,no: a stored page stays private; its SHA-256 identifies it
+stored/01M7JH4G03W52YEZMES5QSWVC4/live/robots/01M7JH4G4XAWDMBV40T1PGW2BQ.status200.txt,3a13742a69135f1d03e0acbf34145d307651fe4d59ff5997324392f952700dfb,2231,no: a stored page stays private; its SHA-256 identifies it

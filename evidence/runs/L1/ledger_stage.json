@@ -1,0 +1,707 @@
+{
+ "stage": [
+  {
+   "stage_id": "M-L1-rows22-27-one-lane-110rc4-20261116",
+   "project": "marianos",
+   "opened_at": "2026-11-16T15:09:31.272684Z",
+   "objective": "the final candidate 1.10.0rc4 on the live site, one lane: rows 22-27 (17 listings; the scope of S6 on 1.10.0rc3: 1,190 products stated on 2026-11-09) in one uninterrupted run. Measured: Q1 (at least 500 distinct fresh valid products, G13 and G14), Q2 (store 53100502 PICKUP on every page), and the one-lane half of Q5 (submissions, active seconds, re-asks and waits, settled cost from the ledger)",
+   "command": "run --store marianos-53100502-pickup --categories 22,23,24,25,26,27 --max-credits 130",
+   "config": "{\"config_dir\": \"/var/lib/marianos-collector/ops111/stages/M-L1-rows22-27-one-lane-110rc4-20261116/config\", \"config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"d4d96195af013f3ea7acb401a373e4e6ae8e72952674f7cf4c1f36d22c78d416\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}, \"differs_from_shipped_in\": [\"collector.yaml: publish.auto false\"], \"environment\": \"the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel\", \"lanes\": 1, \"shipped_config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}}",
+   "source_revision": "570ff7cce9d45a913963d495593f0f9d89c3c41e",
+   "max_requests": 130,
+   "max_results": 130,
+   "max_usd": "0.195000",
+   "deadline_utc": "2026-11-16T17:09:29Z",
+   "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt, each reserved at its worst case",
+   "stop_conditions": "the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator: once 10 re-asks have been answered and none recovered its request, the stage is stopped and reported as it stands (no allowance is spent repeating one outcome)",
+   "closed_at": null,
+   "outcome": null
+  }
+ ],
+ "events_naming_the_stage": [
+  {
+   "seq": 5835,
+   "at": "2026-11-16T15:09:31.272797Z",
+   "kind": "stage_opened",
+   "ref": "M-L1-rows22-27-one-lane-110rc4-20261116",
+   "detail": "{\"deadline_utc\":\"2026-11-16T17:09:29Z\",\"max_requests\":130,\"max_results\":130,\"max_usd\":\"0.195000\",\"project\":\"marianos\",\"source_revision\":\"570ff7cce9d45a913963d495593f0f9d89c3c41e\"}",
+   "prev_hash": "01047fb399969e4950ebb1c2aa8c3a0b4f31d0f92a9b94d486e2465a7ebf2259",
+   "hash": "20747f5880378419bf75b6cff7a9e3b1e2f12a96bbb7fd8ac3bcfc9259574ee9"
+  },
+  {
+   "seq": 5836,
+   "at": "2026-11-16T15:09:31.664658Z",
+   "kind": "lease_acquired",
+   "ref": "68",
+   "detail": "{\"holder\":\"live111:M-L1-rows22-27-one-lane-110rc4-20261116:520642\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "20747f5880378419bf75b6cff7a9e3b1e2f12a96bbb7fd8ac3bcfc9259574ee9",
+   "hash": "373700cc15a5fe56404d99d884bc88e4a3bccda18a89cad7cdfc3ab46542380f"
+  },
+  {
+   "seq": 5837,
+   "at": "2026-11-16T15:09:32.079628Z",
+   "kind": "reserved",
+   "ref": "da59b37309e9412494611ffbe6ede05c",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "373700cc15a5fe56404d99d884bc88e4a3bccda18a89cad7cdfc3ab46542380f",
+   "hash": "417b893ceb45b545469fdd4380ce463ecbf5021ccfd5b7be0b34654ff3a98c3a"
+  },
+  {
+   "seq": 5840,
+   "at": "2026-11-16T15:09:36.691871Z",
+   "kind": "reserved",
+   "ref": "f64be8b96e4e4bfd97d6c8cd42c53889",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "af6aec4eced039fd6fed9308433d0c9042131297d76a41b90f7a7201ad31dcf0",
+   "hash": "6dffc23282effa64f7112f7cdbfa89a008c346f4a59cdd4b7678e67c2147d07a"
+  },
+  {
+   "seq": 5843,
+   "at": "2026-11-16T15:10:10.220321Z",
+   "kind": "reserved",
+   "ref": "21e2f6b2c1b640e69601e0183960401b",
+   "detail": "{\"purpose\":\"coupons (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b68d7e9a71b54b2ad5efde4681cf749625386bb9dd4fca459ba02a322540ef5b",
+   "hash": "a9c26bb1f24d0a96ea14f1d063ecef61646db44bef1d63c6e660c4dfa2631b68"
+  },
+  {
+   "seq": 5846,
+   "at": "2026-11-16T15:10:23.193236Z",
+   "kind": "reserved",
+   "ref": "182f1b063dc94bc19d445459d9fa0158",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "6654b92297f6b72cc68865e15baeb8850bcf84ccaf4da5a4a71b2175f8840905",
+   "hash": "b2e21b239448f9973f4b8728d63966369f78385e0495f4f645f93d37add5f9ce"
+  },
+  {
+   "seq": 5849,
+   "at": "2026-11-16T15:10:28.226061Z",
+   "kind": "reserved",
+   "ref": "34ee40adda5d4f6e8d3fc3e5d7becb5b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "eff80a4f67fbada18afd1dfa2046df4d90faaac6d7bb991feb82897bb59a2087",
+   "hash": "a202b74c01a976721f63a7a963e4a5d7c9e80bed4befcaf13c546b89f823b79e"
+  },
+  {
+   "seq": 5852,
+   "at": "2026-11-16T15:10:34.034454Z",
+   "kind": "reserved",
+   "ref": "9966d9c867d64a19ae8becf9cab90009",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "15dd4a553d47ff8ba3030a884f850c8b2ef92fdc3267a71d4c8a0b42c6b3593c",
+   "hash": "26e108cd40264a0eafe12ce8c03d1463236d0bb801d0a6dc84171c0e65c2e9c5"
+  },
+  {
+   "seq": 5855,
+   "at": "2026-11-16T15:11:05.305311Z",
+   "kind": "reserved",
+   "ref": "978b993ba28544bf973021897b276578",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "330317296261a2987b65bce2f83ef3e7e0d3994c5e9c05e2a6d05f04ce0d5e66",
+   "hash": "bd50445bac57d318f99dace82d852cf7c2685fe34796d1d76b5d62c9289c004a"
+  },
+  {
+   "seq": 5858,
+   "at": "2026-11-16T15:11:09.807994Z",
+   "kind": "reserved",
+   "ref": "d37e73efb6de4bf1928b646a83f3c3e8",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b59e547bd54c28f94f6cc68177a8e7625283a42862cf77e7211d462347cabdf7",
+   "hash": "efacac2e22892c5390cb22180661008a0226cff44361920f6a624b2bba125ddd"
+  },
+  {
+   "seq": 5861,
+   "at": "2026-11-16T15:11:14.202492Z",
+   "kind": "reserved",
+   "ref": "4b3e50ccab1a48258fbf8bddf292ba42",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "487b81097931c723a61d486da0bfb30a8542d0616733963f1724ecf49540f232",
+   "hash": "2efb2398a8c4f39ddd214deee5657be6b19314d79bab8dce8cc061070a292b5b"
+  },
+  {
+   "seq": 5864,
+   "at": "2026-11-16T15:11:21.974608Z",
+   "kind": "reserved",
+   "ref": "df2189959996452c9e610ebf67720ef1",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "ce7f54eac3a14390c6ec3f3719427d23569177adf519b00181af23ea99929f46",
+   "hash": "bbe6814ab2fcdfde22c08c18e087b1b87b086c38c55d846cb1bb9fe7b0f49715"
+  },
+  {
+   "seq": 5867,
+   "at": "2026-11-16T15:11:27.949022Z",
+   "kind": "reserved",
+   "ref": "12e60eaf8b064c7188fd55f8ffbc4931",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "1f0e05e68e86d80c3d18b4f0205198eb0bb042fe27f88315d4de6ceb99a290ab",
+   "hash": "a42bfa6101b7d8475c1f4554bd386cc6b62efb0ae59289bea026d4cd725a831a"
+  },
+  {
+   "seq": 5870,
+   "at": "2026-11-16T15:11:33.323502Z",
+   "kind": "reserved",
+   "ref": "88beaf0405ae4b969f7a4b01a3d6d585",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "96d9746739d7c635bfc007c344424f28dceaf557ea86494662b755ae3e778336",
+   "hash": "4bf497c5d7359d97c93e5e9cde1ba90ba8a1bfe819017c97477a54f0387ea619"
+  },
+  {
+   "seq": 5873,
+   "at": "2026-11-16T15:11:53.317385Z",
+   "kind": "reserved",
+   "ref": "3c0f80e8ec7341909c418e860a07aa9a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "1b542c6434f1480c951d173ce28518a9cbb5d67062d8c5d3d93040a3c9c7fa68",
+   "hash": "1cd50e7641a12452ef5e3d4c429f6bdb61cff0a35a85d9771776579929eace3b"
+  },
+  {
+   "seq": 5876,
+   "at": "2026-11-16T15:11:58.382714Z",
+   "kind": "reserved",
+   "ref": "daf0a9d4d0e847f58d7de7798587ff98",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "dcfa572b3d9a1c9442e15f5cccbb97b76c5f37123a0a4f10c76447cdb8969b95",
+   "hash": "594150f3c6d2cc82046631f2b8a32708f958b9732f81f2e700effa04ed1bc27a"
+  },
+  {
+   "seq": 5879,
+   "at": "2026-11-16T15:12:02.239410Z",
+   "kind": "reserved",
+   "ref": "7d24eefe72db4207854ec4cc1ef3c507",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "dca74930fb338023d605eb951f4d3d72fe891880f0009ba0373525dda6e8ac58",
+   "hash": "21988ca0d9d19b22b8c01e47e828693c2c1e214896c806fe2ec3902b50d4f9f7"
+  },
+  {
+   "seq": 5882,
+   "at": "2026-11-16T15:12:09.930186Z",
+   "kind": "reserved",
+   "ref": "26b79b5d182344e3a7ffa1f331954beb",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "44246e8414a6635dbf78040dfa7b7d7c595d985ec03857073cee5dcbe72f9a33",
+   "hash": "36a31cb1e4c45d964d3c74712a86ae1b3fa7fcf357443d8bc4282fceaefb5a7e"
+  },
+  {
+   "seq": 5885,
+   "at": "2026-11-16T15:12:13.652122Z",
+   "kind": "reserved",
+   "ref": "336d0d8a79a94d4585cea6388a0b532a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "74337bce6ce92f6aa59f1c7cb718f85b29bb43f4e4e61e50f7ff6d391e582fa5",
+   "hash": "e671f51337013a8421ba4058f34bbcde1b4ffc000122289c8712d67f5858320d"
+  },
+  {
+   "seq": 5888,
+   "at": "2026-11-16T15:12:18.043851Z",
+   "kind": "reserved",
+   "ref": "c305f41883684b23a0654e5c8c2b1009",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5f71feb00555815f187d9ca4ab695d5f1a132182d30c51f82d571f8de86d17f6",
+   "hash": "2291b71052b5a081740b0889e784221ea5d18263564c2767f2cd1ccb4f65502b"
+  },
+  {
+   "seq": 5891,
+   "at": "2026-11-16T15:12:22.685918Z",
+   "kind": "reserved",
+   "ref": "db31f9e643614ff0b03bb03cd139e256",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "4cc0ec524601b64b505d658170f1122a65c2f2541613663f53b8856a8ac74b8d",
+   "hash": "a9ffd26dd5b9287c5fca63e868143977802722c96e6f4252810ac084d433fd7e"
+  },
+  {
+   "seq": 5894,
+   "at": "2026-11-16T15:12:38.085990Z",
+   "kind": "reserved",
+   "ref": "86fdd99c99364f2f83fde34c91f65ecc",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "141ddec1205a2aab1b327984ca5f24b37b8046088a90c9c136977e3889f7598b",
+   "hash": "949e8aab61931a15ac4ac21945a565fac289bbff36a850eeb8919d22c9baa5c6"
+  },
+  {
+   "seq": 5897,
+   "at": "2026-11-16T15:12:48.430698Z",
+   "kind": "reserved",
+   "ref": "8988e5a725844f68b991af1a01262ece",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "edd07f4e63022e1cc92f94dbf281d7bc2c89a06ec3b5a571a777e389fe62e761",
+   "hash": "70591e9999676e2cc6955ef44d1526cbb366b6ef2588d94d3a7493b85dd1f59b"
+  },
+  {
+   "seq": 5900,
+   "at": "2026-11-16T15:12:52.413613Z",
+   "kind": "reserved",
+   "ref": "a6304631a0a342cf8ca7cb8eb3a0ccd0",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "04aff0bce03ace97df85ea2712a909d864db96e9bc70d1afacfaaebd6dc25fd8",
+   "hash": "f0448402a60a01687d24b3adf522f72329b10d1b3de996012f6381f79bdf699e"
+  },
+  {
+   "seq": 5903,
+   "at": "2026-11-16T15:12:56.577188Z",
+   "kind": "reserved",
+   "ref": "eac75421e6904482a33375d7c3a4a39c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "088c89f5cb0924fe979c691d98ed69bcd59eec0c68f840c414fa1c270979ab7b",
+   "hash": "9023033dd6ed68194e5928043aabd6c45eae91a238b96ac04e92527421e57487"
+  },
+  {
+   "seq": 5906,
+   "at": "2026-11-16T15:13:00.319221Z",
+   "kind": "reserved",
+   "ref": "add92aab6564405bb363d6b101bd512b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "1c0607a53effefd997d71d7aa9d15b6d6fc0cdee680c80ba2a5bd33effe41106",
+   "hash": "300d24cd24813d0f917da46651ce470f00140e28885272ae6644a37591f22d89"
+  },
+  {
+   "seq": 5909,
+   "at": "2026-11-16T15:13:14.147066Z",
+   "kind": "reserved",
+   "ref": "054053cbc1a24775b645db2a3789f19c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "77b02265417019f2b07e5f6381af0e21ccdb4e574d7e1a4a142b4c2c650f740a",
+   "hash": "1ce19525a2cd10ad40d968d57aad68d613bb69c7c8f0f56daf1d297be5e8456d"
+  },
+  {
+   "seq": 5912,
+   "at": "2026-11-16T15:13:19.183886Z",
+   "kind": "reserved",
+   "ref": "8176e83f1f6f44fdbc01c930a49e30fc",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b439f2fe9de32af8123fb6abb5ff4223df527a03d3bc5b0b6eab2a44f080c392",
+   "hash": "a41480da5f18748642e379087761216c7d894e1ee043f6abf9f531249ae10595"
+  },
+  {
+   "seq": 5915,
+   "at": "2026-11-16T15:13:23.908707Z",
+   "kind": "reserved",
+   "ref": "8e7009da5ade456281105b4cbad2cbca",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2ca2c438bd865a9fb6946e8c463c82023c3c4f1f61dd2b88468cfbf640643a4a",
+   "hash": "fdc3a683624974d4e476851f50ab91c7a91ce409b8ae0e2012744bf6849a6740"
+  },
+  {
+   "seq": 5918,
+   "at": "2026-11-16T15:13:39.159261Z",
+   "kind": "reserved",
+   "ref": "797179cc9a7f481da9c2e1052e6dfc8d",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "890451a0af3cfc8f15e32588fdfebb595df5bc7460ac7b11cfd1b0117ad30acf",
+   "hash": "9b24e73b5d3b7e9b8914c464e55d8dcc4e94fd82fba4b996b119b0a2974a0659"
+  },
+  {
+   "seq": 5921,
+   "at": "2026-11-16T15:13:43.697458Z",
+   "kind": "reserved",
+   "ref": "1fce178af5fe4643a69daf5f75f12b81",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0b96e42281991b011422a91ecf056c327f0dad8026e681e0a73adb8d5e19da17",
+   "hash": "cad4c4deecd768667e437fb4a3057ce8878af81a51abcc398213210be0579ff4"
+  },
+  {
+   "seq": 5924,
+   "at": "2026-11-16T15:13:51.010162Z",
+   "kind": "reserved",
+   "ref": "9cc038b4fa174ebcbd3c8f6ec56e235b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a2c34b53c8c9350e10723e7dfa4b21b177806c58834f865d105362d4c8dd2d64",
+   "hash": "3008af670c413901cb4d8d70507f058de91b873693f29c7c3d867f01b1fa062d"
+  },
+  {
+   "seq": 5927,
+   "at": "2026-11-16T15:13:55.398611Z",
+   "kind": "reserved",
+   "ref": "70118f58f9a245d896aeac2db0fbf8d0",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "67d9ec0f6ed4d24be0cf8386e6d833b39dd5407d5c07bc86d2949052f7b726d7",
+   "hash": "d9deea4143f463a28acc9f176c15037552d2015209255266876958f73139d8a1"
+  },
+  {
+   "seq": 5930,
+   "at": "2026-11-16T15:13:59.163841Z",
+   "kind": "reserved",
+   "ref": "35749b68e47f460ea9ed782b7c430cae",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "596fccbca05a158afeb66964c094eedb1ce3a3a3f11c1d83c98f99d31442a936",
+   "hash": "b4dccb205892bb714efa8f64c4c5a9035cab10e3cae131e6e61b68f6138ea851"
+  },
+  {
+   "seq": 5933,
+   "at": "2026-11-16T15:14:03.669661Z",
+   "kind": "reserved",
+   "ref": "28883994640d419fb5cad11d6d3722b4",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "877e30784e8cbc494dc0263454661fa581a8c5fb995cf0116e781266b3ea06a7",
+   "hash": "ef058e231f48a7dc9c620c7d8c3f17fc39c9b7f24960be667a9cd75f24813387"
+  },
+  {
+   "seq": 5936,
+   "at": "2026-11-16T15:14:12.255575Z",
+   "kind": "reserved",
+   "ref": "4740f02483574fc1a3398dae98016eea",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "7921a282fefa2d865133526992d5b81bc8ba210cb04010c29d3f60ab0680af58",
+   "hash": "a5dd8a6f76d48bfc20694e85191cc0a9f2d4d8641d1f825c1c8748503e1ecef4"
+  },
+  {
+   "seq": 5939,
+   "at": "2026-11-16T15:14:17.585233Z",
+   "kind": "reserved",
+   "ref": "7301da19bb1748a59c5e5346b508058b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b1a543992d7dc4cb45d9b6f0a9f0e24f77df32890d9aff9900c03c065a762128",
+   "hash": "12ea435f7b6374c6779dccb2f3b5d7d8c5268e45eaee4d275437f9b3b0f38ce5"
+  },
+  {
+   "seq": 5942,
+   "at": "2026-11-16T15:14:22.448685Z",
+   "kind": "reserved",
+   "ref": "34593579bf804686a1fe3d6762db054f",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a5f6c4eb4f30ed9a32575d4c5f6698ea3f522b75c8c862c7ebeff1dd0116fbb2",
+   "hash": "fb9288f4c9c1d06e57371c502227faec3c5e9a2057ddb677a1e167e09f648a0d"
+  },
+  {
+   "seq": 5945,
+   "at": "2026-11-16T15:14:38.656485Z",
+   "kind": "reserved",
+   "ref": "1d15c159255247cfbdd10265f0ea7598",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9613bb753310c1ed5c15a8d72d48b1ecee518ac89121f7b042526c983dd35bc3",
+   "hash": "0887e2ef726cfeffaf37ea166d3308232aca9c3d9315f9dfb6bcf818eb69412e"
+  },
+  {
+   "seq": 5948,
+   "at": "2026-11-16T15:14:42.399138Z",
+   "kind": "reserved",
+   "ref": "32e8c1931c804cf2a6b3943b12623217",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "4bc1ff3b1d9d34bad70a9f2dcba2ebd12455d14e0e329ef0611b69fcc23ebbaf",
+   "hash": "5e66987a6f3f9d481caac59734592f41aec66bc0e3c0c9b418dfb463abb7c1e0"
+  },
+  {
+   "seq": 5951,
+   "at": "2026-11-16T15:14:48.340503Z",
+   "kind": "reserved",
+   "ref": "858bbb055629466eb66dda2c53e21bf4",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9c9f79eed54498e4fca6cd9a6ac17fe8df866e70383c2ad98235500c15416e48",
+   "hash": "bc0bbdfeb8e2f009ecef4e98f5fe5c9b059c0dd855679a25b6dbf5f9cc4428e0"
+  },
+  {
+   "seq": 5954,
+   "at": "2026-11-16T15:14:52.282037Z",
+   "kind": "reserved",
+   "ref": "21d8ad169d4a44659873afa1f571fc0e",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d59ad8caae4d946514b2a25825c62bc75583c341cea89866a84b289188b4c352",
+   "hash": "a7df261222cd17415b4267daccf15c0e7c7d6c88aa0c7665c83b1309ae0f8748"
+  },
+  {
+   "seq": 5957,
+   "at": "2026-11-16T15:14:57.584266Z",
+   "kind": "reserved",
+   "ref": "80c7dc4312674fd7b067b6eff7c0faba",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "046447f54695c4ed1ebb7fbe6f6f8b9aed8f7d1a729ab04820ee27b1892b44b8",
+   "hash": "f46d1045a33f99b6b0dcf8c05fd726ffeacaed8c9746151d542a7b00ba9e7b62"
+  },
+  {
+   "seq": 5960,
+   "at": "2026-11-16T15:15:02.100404Z",
+   "kind": "reserved",
+   "ref": "e03c98e00c1a49bfbf0be8122bff555c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "7a995af315f8186188fc9a4cdf8d18d92821b2eeb7e213dbcc16c347e84538cc",
+   "hash": "147e65f733c3ac7460e4dd51c93892341d25c92d09b724acad55406acba93f02"
+  },
+  {
+   "seq": 5963,
+   "at": "2026-11-16T15:16:05.462109Z",
+   "kind": "reserved",
+   "ref": "aecb29ac56374821a77e4f6b8aa77cd3",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "ee3c08f32ebfff5d7c27dcef6b235f48d7b00ca676440db709adfe8fbede3ffb",
+   "hash": "d8e9b79c5dabbcf12142b896d2b09571409bbc47500d0431b15ca65149a4b5e0"
+  },
+  {
+   "seq": 5966,
+   "at": "2026-11-16T15:17:48.693241Z",
+   "kind": "reserved",
+   "ref": "163a38ec413d434ea6b98e14d7f27063",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "49e419af81fdc957275602e2164458a320c1815aa818ac736773afeaee6d65b8",
+   "hash": "9ba16d29ea6f1f3d1198ca29903a8679f77b4c48e1761317d922b6ec87218440"
+  },
+  {
+   "seq": 5969,
+   "at": "2026-11-16T15:19:38.932455Z",
+   "kind": "reserved",
+   "ref": "1d2f5bfc1b684a6fa408bd7b7200d8ec",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9ded5329eb9d654b0c768e2f0cb2ad9b7bd3bb0a6699fd0f93390d4b42d0e3f0",
+   "hash": "4759ad70fe3aaa55930bbd1996ce8b5b7cc16cd934af695e208a550ba93bfe32"
+  },
+  {
+   "seq": 5972,
+   "at": "2026-11-16T15:19:48.032048Z",
+   "kind": "reserved",
+   "ref": "ba62affdffe5465fa6f75f42ed515ef1",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d15be2cf19fa640f838586a14cf60cafc11d691ae456ff7d4c5fd7fa70342b2b",
+   "hash": "59ee1b38dee75015a539ea77fd78ca9886f314a5d02670716884863086180100"
+  },
+  {
+   "seq": 5975,
+   "at": "2026-11-16T15:19:52.957255Z",
+   "kind": "reserved",
+   "ref": "1786801faf6f4023807c5a3a30a93e21",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "c203cf9286af3a626ce8b312e7fbafde4e57ce04d3aceb646b836a66ba60d38f",
+   "hash": "6fb5e263ead8d227c46f7389f17e456db50826631cdae95dff46f2c70d95b4ea"
+  },
+  {
+   "seq": 5978,
+   "at": "2026-11-16T15:19:57.560367Z",
+   "kind": "reserved",
+   "ref": "2419a491a2494ed1bb02ace0fbb5a99e",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "1cc89b75b1afa3559a69c16d54d553e66df5f21ff0876b89c10e655dd38fffdc",
+   "hash": "c2bf2e0b35ab81df7065c4155e387b20384af3b13085b1d9c4be6258a26b4c72"
+  },
+  {
+   "seq": 5981,
+   "at": "2026-11-16T15:20:06.550906Z",
+   "kind": "reserved",
+   "ref": "6001d586ce7a47b4bc78a8085e4e3b9e",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "849bb40340fed5ad079bbba07a47b5356616e17a3161c37707781e0b923a854f",
+   "hash": "46c9d908c58633a7545b12f2fd2e96d48d85e4ef97b4c8eb1cea8ad3acf60372"
+  },
+  {
+   "seq": 5984,
+   "at": "2026-11-16T15:20:11.061307Z",
+   "kind": "reserved",
+   "ref": "87a6a499bcfa4ef68e0c6e3cc2da551c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "896d9ad2187c22d48454219aa62f9678e189a58137a761345b778eafeba5c732",
+   "hash": "0fa9c4aeaa7914beb54b26d06fd8a36ecb78a7dd23ee6516d6acda4fc5b7ad89"
+  },
+  {
+   "seq": 5987,
+   "at": "2026-11-16T15:20:19.090291Z",
+   "kind": "reserved",
+   "ref": "ae9bba1b5f8b4816ad422b135f96e13b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "1c576bbce6e15e8c405084b121c46bd63680bedcc366fc1cb8bc879968bd119b",
+   "hash": "e20535278ef9c072fba4f263c346ce681496eda48cd636589aaba0c55a4cf381"
+  },
+  {
+   "seq": 5990,
+   "at": "2026-11-16T15:20:23.318403Z",
+   "kind": "reserved",
+   "ref": "68f83bf6323247dd8d892b76709f0880",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "c1849c5f8b66ca29493f28d73ed687074d7dac6915a80551d2a2d07e2df6d19a",
+   "hash": "a63091b3323ace1e3ed46c8cfb55e96bcc27dbf4884e4af5939976df57c29cf0"
+  },
+  {
+   "seq": 5993,
+   "at": "2026-11-16T15:20:27.448214Z",
+   "kind": "reserved",
+   "ref": "806520a7e5fb4067a1934f4b8a0b78dd",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "3d4e1845a49ba0d76927f0d5504002525634630f5c3daec70e67b99e6ba8a2b7",
+   "hash": "4853e83c243810ecedff177bf011540b02811c32aa1addcb4e3a61ad0a7d8d22"
+  },
+  {
+   "seq": 5996,
+   "at": "2026-11-16T15:21:11.101997Z",
+   "kind": "reserved",
+   "ref": "7ba526b76dd14a7c8b3e27aa544e5921",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "57a3ddb7dccf1255b01bf2fff24c6541dc80b48ab5a7793caf5a351f7457bb9a",
+   "hash": "3e19b4a901fd1080f2e009badd281d8996eaba7c486550cf8b7931c69e1ef28f"
+  },
+  {
+   "seq": 5999,
+   "at": "2026-11-16T15:21:16.419714Z",
+   "kind": "reserved",
+   "ref": "519fdaf36e7e407eb326bfb4627ee18c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a048ac202187794ff114a5f0e78671a3f04675b5bbd3e19a9b864aad0f03c7cf",
+   "hash": "bf2ba4ce43b42f78270b8e2fb33a8731c1d0bc48ae1e90a0cd68c5c2444454f2"
+  },
+  {
+   "seq": 6002,
+   "at": "2026-11-16T15:21:24.773284Z",
+   "kind": "reserved",
+   "ref": "1b988f0273574539b5c4cde987c0e028",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "99f5c9cc2b2d0661381ac5ed8882c1824f8e00c1e9fbc7b200dd27e333906a60",
+   "hash": "655c3012ba15f80479b25f17bf8fcf160d589276e413a9ff565d93256e3e0bcb"
+  },
+  {
+   "seq": 6005,
+   "at": "2026-11-16T15:21:29.736994Z",
+   "kind": "reserved",
+   "ref": "7a53c3cb63dc4813bccced1ca1074008",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f8e9d89bc22f0f26ab35680bccce160b4fa7b0b1cf304b24ae54337a81daaee5",
+   "hash": "6927b9389b9efa1de2d55825a193a905164d5b2de36622809c3dc84551db7761"
+  },
+  {
+   "seq": 6008,
+   "at": "2026-11-16T15:23:06.879164Z",
+   "kind": "reserved",
+   "ref": "2161e38c566844f6874b979906f1e117",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "637c5b258b2f79c20a9d472a0beb8a782244bac21561875b4d78d026aa1c2f05",
+   "hash": "ea3e2aa4a9af3e7629d4a57b56f78d17cde046097674ce5d12b9e458095cb819"
+  },
+  {
+   "seq": 6011,
+   "at": "2026-11-16T15:23:12.445818Z",
+   "kind": "reserved",
+   "ref": "68671bc3b26c4e97ae6164f2b06ee208",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "da83360b3ee91d6216138f5e7ed92b14acbea5db4b8d2e5bca566fae94395a26",
+   "hash": "151146ff3fdbe953ca8ccce0214e73cbac11a3e2654d833150d5bcf4dbd02f07"
+  },
+  {
+   "seq": 6014,
+   "at": "2026-11-16T15:23:17.640281Z",
+   "kind": "reserved",
+   "ref": "623f9d2083954b62ba440a79493eaba3",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b8e44ae3562609dfcd24a8f201718fafd55330137b4563b880ce7c7ef19308d6",
+   "hash": "28bcde2b79bf835db2d633b56e7280938997ee1fd08883ea208805c7acaa8795"
+  },
+  {
+   "seq": 6017,
+   "at": "2026-11-16T15:23:26.865794Z",
+   "kind": "reserved",
+   "ref": "bd008c72908b46529594eb60c67c0f9c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2a569876e2db8c44c376b32ecd226cbf862d78a9992f156ca133b49aa559b2b4",
+   "hash": "e8bfe807a490b7bca95efd8b307d6ae717bb686e79cc0ba2913c0ccbf2b851bb"
+  },
+  {
+   "seq": 6020,
+   "at": "2026-11-16T15:23:44.602227Z",
+   "kind": "reserved",
+   "ref": "8b80556cdd164285be1d24947d4c7f3f",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0ce0f7bf9525dd6365826c9e5599815169b090569e645cc81e4401795a5d598c",
+   "hash": "e43ecd2b8a811e05e8fc50f7762f17c92e637b15ddf9e528d51d1512d9006d63"
+  },
+  {
+   "seq": 6023,
+   "at": "2026-11-16T15:23:49.639875Z",
+   "kind": "reserved",
+   "ref": "387c7cf6377948a3b493d5cda6d464d5",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "ed53efb3c3da76c15431791743abd5de4ece826edf545c3cd3acc6c8d9c7e95d",
+   "hash": "7fc706c3f3e21603838d32f9e41971e21adf09b3e3e93b2514b205b4dce02b66"
+  },
+  {
+   "seq": 6026,
+   "at": "2026-11-16T15:24:44.228904Z",
+   "kind": "reserved",
+   "ref": "ecfd708448c34f87b89f80718e302b96",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "12aabaf4d4958bc969b492b76e739ecb6902fb11ca4bcb01c7dc81ea2d9bbf33",
+   "hash": "f9bca2a9af6373c9b2bddf01f9e7f08ec61e2c1a1e351c45d3ae4bf85bddb447"
+  },
+  {
+   "seq": 6029,
+   "at": "2026-11-16T15:24:50.061400Z",
+   "kind": "reserved",
+   "ref": "4d0ccb3ea8fd4c8bb78dbecdf7c357ec",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "76090621e450a5e5d3c8c12a152d6452de48297ebc0e68e356f62a770949f410",
+   "hash": "c0260a6666ac54c5feab55cc49ae28e150bc64a5fba1db6a8a93ec193cb5bcd0"
+  },
+  {
+   "seq": 6032,
+   "at": "2026-11-16T15:24:56.163436Z",
+   "kind": "reserved",
+   "ref": "b93a40449494498ba238647f0c13b470",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "131021296340e0b8fd5b79b305acfa67c98b3a0eac7b14b4469da13d1a2c0dbc",
+   "hash": "4d82e233140bfb85c6dff6917746ee9648f5d421363995865867c5beeb0e12f9"
+  },
+  {
+   "seq": 6035,
+   "at": "2026-11-16T15:25:02.125171Z",
+   "kind": "reserved",
+   "ref": "270331b019c142e6af59c000c7cf6bac",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "835e3016166bd74138349c60a510f5bc77acb85ef3bb7470cea59443f5bf9b88",
+   "hash": "b0266042e3c38bcb731f4c5a5fd00af68d300d32faa96c06c16bcd84a5127a49"
+  },
+  {
+   "seq": 6038,
+   "at": "2026-11-16T15:25:07.533423Z",
+   "kind": "reserved",
+   "ref": "d20744bf5a214820a556824958ff7fec",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "372c64b9b606a42b9852186418144e4ff67293d9eed82bfc61b45f1aeb84ea25",
+   "hash": "48e28e662b69fc11d94b8a067241103059c0625b0c6f333f3c739017f2b67069"
+  },
+  {
+   "seq": 6041,
+   "at": "2026-11-16T15:25:12.189740Z",
+   "kind": "reserved",
+   "ref": "35710640139543e5b48d5fb83c8e60c4",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "04aa734f5726df07032634b8bb82d0604a78796f7781c6e9e2d460033a27635a",
+   "hash": "914a99a326a7a821874c878446e14380e75a9c1093ff4b5631927660ce9d28b3"
+  },
+  {
+   "seq": 6044,
+   "at": "2026-11-16T15:28:07.305047Z",
+   "kind": "reserved",
+   "ref": "82d9b0dd0e4d40a4af4360d677ad1fe4",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "eefd6caa8b806a56eb4c3a13ef426733ffa76dbb657bd7ea5f32f30747f13506",
+   "hash": "ed84c450c27c4fbca803a86dbc2f893a8ddf8b5c9cc84bed17482a7c516d593f"
+  },
+  {
+   "seq": 6047,
+   "at": "2026-11-16T15:28:13.763269Z",
+   "kind": "reserved",
+   "ref": "93829149ff994045a3d6757fa396b68e",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b5fb9acb3a760d28df0e863c5e4ea1694acd749fef45d993195da9297a8db639",
+   "hash": "5d6afb543f47f8e6f07f473df77970837f2f119af181c60cf4d50889ff8174a6"
+  },
+  {
+   "seq": 6050,
+   "at": "2026-11-16T15:28:19.571638Z",
+   "kind": "reserved",
+   "ref": "224c1d129c1243b488eae439f2f59f73",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "42301c61860ab7564730f629715d8381ba6b2921cf80ec73be9b31be88e74b9c",
+   "hash": "c7c65e1fe3478970283b1991e3eebe219dab13b639fc5bd0c09cdcb12a983f1a"
+  },
+  {
+   "seq": 6053,
+   "at": "2026-11-16T15:28:25.101789Z",
+   "kind": "reserved",
+   "ref": "49f2af4637a040e9a58fd88b53d7841e",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L1-rows22-27-one-lane-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "283287bfa4ad2f96c94d2d490af004521b6601d3c77495e5a6233976aa976388",
+   "hash": "73252ba8feac2e8506cb066767b535eadb32623d24612d2bfc1532008b211f9a"
+  },
+  {
+   "seq": 6056,
+   "at": "2026-11-16T15:28:31.632784Z",
+   "kind": "lease_released",
+   "ref": "68",
+   "detail": "{\"reason\":\"live111 M-L1-rows22-27-one-lane-110rc4-20261116 ended (exit 0)\"}",
+   "prev_hash": "ebec1b0207f0aebae61e26050743cd1fca1c7808998e63fa254acb6650ef8ae1",
+   "hash": "6bf23ee692a42898670caafe3d15f900c3c74f25b5089aa097e9197bc2772a49"
+  }
+ ]
+}

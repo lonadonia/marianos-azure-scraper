@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.7.0 -- [redacted:vm-home]/m10r5/src/.venv/bin/python
+hypothesis profile 'default'
+rootdir: [redacted:vm-home]/m10r5/src
+configfile: pyproject.toml
+plugins: platformdirs-4.13.5, hypothesis-6.170.5, anyio-4.15.1
+collecting ... collected 33 items / 29 deselected / 4 selected
+
+tests/integration/test_listing_pages.py::test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on[1] PASSED [ 25%]
+tests/integration/test_listing_pages.py::test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on[2] PASSED [ 50%]
+tests/integration/test_listing_pages.py::test_a_page_without_its_search_that_shows_products_or_another_store_still_stops_the_run[search_not_made_with_products] PASSED [ 75%]
+tests/integration/test_listing_pages.py::test_a_page_without_its_search_that_shows_products_or_another_store_still_stops_the_run[search_not_made_wrong_store] PASSED [100%]
+
+---- generated xml file: [redacted:vm-home]/m10r5/logs/rc5fix/after.junit.xml -----
+====================== 4 passed, 29 deselected in 31.89s =======================

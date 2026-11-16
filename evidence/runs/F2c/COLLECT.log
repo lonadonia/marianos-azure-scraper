@@ -1,0 +1,22 @@
+stage=M-F2c-full-run-110rc5-20261116 run=01M7JNB2HDFCNR3GHQVX8FYXX6 collected_at=2026-11-16T18:09:35Z
+status exit 0
+export exit 2
+validate-export exit 2
+runs 0
+listing_pages 0
+deferred 0
+events 0
+provider_usage 0
+node_coverage 0
+page_fetches 0
+tasks 0
+audit_log 0
+collection_segments 0
+store_attestations 0
+validation_findings 0
+exports 0
+publications 0
+publication_pointer 0
+ledger rows 190 {"settled": 187, "unknown": 3}
+chain 0
+stored not copied (SKIP_STORED); listing of 1104 files

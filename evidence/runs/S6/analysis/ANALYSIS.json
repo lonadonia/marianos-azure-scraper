@@ -1,0 +1,99 @@
+{
+ "evidence": "ev\\S6",
+ "listing_answers": 63,
+ "listings_and_partitions": 15,
+ "deferred_requests": 3,
+ "deferred_by_state": {
+  "recovered": 3
+ },
+ "reasks_answered": 4,
+ "distinct_new_products_from_counted_reasks": 72,
+ "min_seconds_between_answers_of_a_request": 304.5,
+ "distinct_identities_all_counted_pages": 1168,
+ "validation_report": {
+  "status": "rejected",
+  "dataset": "pilot",
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "FAIL",
+   "G4": "PASS",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "PASS"
+  },
+  "nodes": {
+   "DONE": 14,
+   "EMPTY": 2,
+   "INCOMPLETE": 1
+  }
+ },
+ "cat_food_27021": [
+  {
+   "csv_row": "22",
+   "taxonomy_id": "27021",
+   "partition": "",
+   "stated_total_last": 234,
+   "stated_totals_seen": [
+    234
+   ],
+   "answers": 10,
+   "pages_counted": 10,
+   "states": {
+    "completed": 10
+   },
+   "verdicts": {
+    "new": 10
+   },
+   "slots_counted": 234,
+   "distinct_counted": 234,
+   "duplicates_across_counted_pages": {},
+   "store_checks": [
+    "PASS"
+   ],
+   "locations": [
+    "53100502"
+   ],
+   "modalities": [
+    "PICKUP"
+   ],
+   "first_observed": "2026-11-16 03:47:19.099346+00",
+   "last_observed": "2026-11-16 03:48:02.741978+00"
+  }
+ ],
+ "upc_0002310014492_pages": [
+  7
+ ],
+ "listings_with_duplicate_slots": [
+  {
+   "csv_row": "23",
+   "taxonomy_id": "32001",
+   "partition": "",
+   "stated_total_last": 58,
+   "slots_counted": 58,
+   "distinct_counted": 57,
+   "duplicates_across_counted_pages": {
+    "0088877723704": [
+     2,
+     3
+    ]
+   }
+  }
+ ],
+ "store_checks": [
+  "PASS"
+ ],
+ "locations": [
+  "53100502"
+ ],
+ "modalities": [
+  "PICKUP"
+ ]
+}

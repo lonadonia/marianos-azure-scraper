@@ -78,5 +78,7 @@ class CapturedResponse:
 
 
 def gzip_bytes(data: bytes) -> bytes:
-    # mtime=0 keeps the gzip wrapper deterministic, so identical bodies give identical artifacts.
+    # mtime=0 fixes the header's timestamp, so identical bodies give identical artifacts on one platform.
+    # Since Python 3.11 such a call is delegated to zlib, which writes its own platform's OS byte (header
+    # byte 9: 3 on Linux, 10 on Windows): across platforms, compare the decompressed bodies, not the .gz.
     return gzip.compress(data, mtime=0)

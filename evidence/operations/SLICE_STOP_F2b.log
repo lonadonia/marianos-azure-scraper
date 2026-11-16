@@ -1,0 +1,4 @@
+== 2026-11-16T17:36:44.346Z slice_stop start: unit=marianos-stage-f2b stage=M-F2b-full-run-110rc5-20261116 target=190 reservations
+== 2026-11-16T17:49:47.411Z 190 reservations {"dispatched": 1, "settled": 189}: SIGTERM (systemctl stop marianos-stage-f2b)
+== 2026-11-16T17:49:48.486Z unit after the stop: exit-code 75 failed 
+== 2026-11-16T17:49:50.492Z the stage's ledger rows now: 191 {"settled": 189, "unknown": 2}

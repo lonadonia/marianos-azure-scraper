@@ -92,7 +92,7 @@ validated run is also published:
   Azure), with the results, for the releases up to 1.2.1; the verification of each later release is in that
   release's delivery (TECHNICAL_REPORT).
 
-## Release 1.10.0 (candidate 1.10.0rc3, not a final release): a request set aside and asked again (C1)
+## Release 1.10.0 (candidate 1.10.0rc5, not a final release): a request set aside and asked again (C1)
 
 On 2026-11-09 some answers to a listing's page N listed page 1's products, and some first pages of a
 listing above the site's 250-result window named no child listing and no brand to subdivide it by; minutes
@@ -116,8 +116,29 @@ attempt, at most twice in the run.
   hash, the provider's request ID, the distinct products before and after, the overlap, the verdict and
   what followed. A run that set a request aside exports them as `deferred_requests.json`.
 
-Tested offline only (a mock transport and a fake clock; saved answers of 2026-11-09 replayed where they
-exist): no live run has used it.
+Tested offline (a mock transport and a fake clock; saved answers of 2026-11-09 replayed where they exist),
+then live with 1.10.0rc3 on 2026-11-16 on the operator's own Azure VM: in stages S6 (rows 22 to 27) and S6b
+(Natural Organic > Frozen) 4 requests were set aside and all 4 were recovered by re-asks, one of them on its
+second re-ask, giving 93 products the first answers had not given; each re-ask came at least 300 s after the
+previous answer. A listing whose last page repeats one product of the page before it (a ranking shift between
+two requests) still ends incomplete: C1 does not ask such a page again.
+
+**1.10.0rc5: a page brought before its search was made is asked again.** Live on 2026-11-16 (run F1 with
+1.10.0rc4 on the operator's own Azure VM, a full-scope run), page 3 of a listing came back before the page's
+search was made: no request, still loading, no response, no product and no card, while the page's own store
+context and the provider request named the configured store. 1.10.0rc4 read the search request's store as
+absent, judged the page a page of another store and stopped the run (`STORE_NOT_VERIFIED`, not resumable)
+after 158 submissions. Such a page prices nothing: the search request check no longer applies to it, as the
+price check does not apply to a page without products; every other store check of the page still has to pass,
+the page is not counted (no page number, no result count) and it is asked again within the task's bounded
+retries. A search request that names another store or fulfillment, a page without its search that shows
+products, and an empty page in another store's context still stop the run.
+
+**1.10.0rc4 changes no behaviour.** One C1 case compared the stored page's `.gz` bytes with a fixture made on
+Windows. `gzip.compress(..., mtime=0)` lets zlib write the header, and zlib writes its own platform's OS byte
+(header byte 9: 10 on Windows, 3 on Linux), so the case failed on Linux although the stored body was the saved
+one. It now compares the saved body as this platform's `gzip_bytes()` wraps it; the comment in
+`acquisition/capture.py` no longer claims that the artifacts are identical across platforms.
 
 **A refused publication is not a success (1.10.0rc2).** When a complete validated run's automatic
 publication is refused (an export that no longer matches its manifest, a WARN finding without a recorded

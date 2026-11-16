@@ -138,6 +138,14 @@ class Site:
             kw["latest_search_id"] = "syn-a-later-search"
         elif what == "loading":
             kw.update(loaded=False, loading=True)
+        elif what == "search_not_made":  # 1.10.0rc5: brought before its search was made (live 2026-11-16)
+            rows = []
+            kw["search_made"] = False
+        elif what == "search_not_made_with_products":  # the same, yet products and their cards on the page
+            kw["search_made"] = False
+        elif what == "search_not_made_wrong_store":  # the same empty page, in another store's context
+            rows = []
+            kw.update(search_made=False, location_id="53100511")
         elif what == "total_up":
             self.totals[key] = total = total + 3
         ranks = {p.upc: start + i + 1 for i, p in enumerate(rows)}

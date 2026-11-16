@@ -1,0 +1,2 @@
+{"ts": "2026-11-16T18:53:19.973Z", "level": "INFO", "event": "RESULT", "collector": "marianos-azure-headless", "command": "rollback-publication", "exit_code": 0, "result": {"store": "marianos-53100502-pickup", "publication_id": "01M7JSWRSZD7E7Z2T4YA62TA8J", "version": 3, "rolled_back_from": "01M7JV9KD0QCH4B1AGKE9MNC59"}}
+exit 0

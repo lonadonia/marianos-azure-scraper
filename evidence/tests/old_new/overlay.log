@@ -1,0 +1,11 @@
+added: tests/c1_site.py
+2eab7d259b4f16d9c5c2c45c7e9e8119754ce255a6442d38539d4436e31f20f4  tests/c1_site.py
+2eab7d259b4f16d9c5c2c45c7e9e8119754ce255a6442d38539d4436e31f20f4  [redacted:vm-home]/m10r5/src/tests/c1_site.py
+added: tests/integration/test_reask_c1.py
+a1ffc69bde3c8eca8edd5c0f52ea710def601f7113c914ee36c71ef9b15166f7  tests/integration/test_reask_c1.py
+a1ffc69bde3c8eca8edd5c0f52ea710def601f7113c914ee36c71ef9b15166f7  [redacted:vm-home]/m10r5/src/tests/integration/test_reask_c1.py
+added: tests/integration/test_publication_result.py
+1f10c6cf861e2562c96ba0566d2c8c038779683036f141a12fc68f37715d90be  tests/integration/test_publication_result.py
+1f10c6cf861e2562c96ba0566d2c8c038779683036f141a12fc68f37715d90be  [redacted:vm-home]/m10r5/src/tests/integration/test_publication_result.py
+added: tests/fixtures/oxylabs_2026-11-09/
+fixtures identical to the candidate's

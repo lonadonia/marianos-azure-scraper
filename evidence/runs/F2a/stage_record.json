@@ -1,0 +1,46 @@
+{
+ "stage_id": "M-F2a-full-run-110rc5-20261116",
+ "project": "marianos",
+ "objective": "one logical full-scope run of the final candidate 1.10.0rc5 (no command-line narrowing or limit: every CSV row 0-27 as configured, so the run is not a pilot), two lanes, read in slices of at most 200 submissions (USD 0.30), each one ledger stage whose ceiling is also set in the collector (set-ceiling). In 1.10.0rc5 a stop at a spending ceiling finalizes the run (observed in P2 on 2026-11-16), so every slice but the last is ended by the operator with SIGTERM (systemctl stop, by slice_stop.sh) once the stage has 190 reservations in the ledger: a resumable stop (exit 75); the requests in flight at that moment are held as unknown outcomes, charged against the ceiling; the ceiling, 10 above, is the backstop. The last slice runs to its ceiling, where the collector finalizes the run as a partial dataset, which is never published. The trial credit cannot complete the scope: the result is the run's coverage (listings DONE, EMPTY, INCOMPLETE, not reached), its measured submissions and cost per listing, and the census of listings not measured before. This slice starts the run. Operator check during it: a second start for the store is refused (exit 9) before any request (the harness gives it a gate that refuses every submission and takes no lease). This run is on 1.10.0rc5: 1.10.0rc4's full run F1 was stopped by the collector after 158 submissions (STORE_NOT_VERIFIED on a page brought before its search was made); rc5 asks such a page again.",
+ "command": "run --store marianos-53100502-pickup",
+ "config": {
+  "config_dir": "/var/lib/marianos-collector/ops111/stages/M-F2a-full-run-110rc5-20261116/config",
+  "config_sha256": {
+   "Marianos_Category_URLs.csv": "606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4",
+   "collector.yaml": "b22c3c676712e6b6cceaf6d5cf7d08b700dbe7a23f806bf63901fedd4e6ea0b5",
+   "private_label_brands.yaml": "75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1",
+   "settings.yaml": "7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd",
+   "stores.yaml": "3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6",
+   "taxonomy_seed.snapshot_2026-10-17.json": "32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c"
+  },
+  "shipped_config_sha256": {
+   "Marianos_Category_URLs.csv": "606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4",
+   "collector.yaml": "43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5",
+   "private_label_brands.yaml": "75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1",
+   "settings.yaml": "7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd",
+   "stores.yaml": "3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6",
+   "taxonomy_seed.snapshot_2026-10-17.json": "32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c"
+  },
+  "differs_from_shipped_in": [
+   "collector.yaml: publish.auto false",
+   "collector.yaml: limits.max_concurrent_listings 2"
+  ],
+  "lanes": 2,
+  "environment": "the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel"
+ },
+ "source_revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+ "version": "1.10.0rc5",
+ "release": "1.10.0rc5",
+ "release_sources_sha256": "29113bf3456394cb43aa1a019472393d594142e942d8b9d12adcdae7533e252c",
+ "max_requests": 200,
+ "max_results": 200,
+ "max_usd": "0.300000",
+ "deadline_utc": "2026-11-16T19:09:07Z",
+ "deadline_minutes": 120,
+ "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt, each reserved at its worst case",
+ "stop_conditions": "the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator: once 10 re-asks have been answered and none recovered its request, the stage is stopped and reported as it stands (no allowance is spent repeating one outcome)",
+ "passes_when": "the slice ends with the operator's SIGTERM at 190 reservations (exit 75, the run interrupted and resumable); every page verified for 53100502 PICKUP; at most 2 unknown outcomes; the second start exits 9 with no ledger row",
+ "approval": "Hamza's update of 16 November 2026 (recorded in the trial ledger as the event 'authorization_update'): live Mariano's collection with Hamza's Oxylabs Web API credit, tests on Hamza's Azure VM and scheduling on that VM are authorized, within the Mariano's envelope of the shared trial ledger; the client's VM, the client's billing and Oxylabs Classic stay outside it",
+ "target": {},
+ "prepared_at": "2026-11-16T17:09:07+00:00"
+}

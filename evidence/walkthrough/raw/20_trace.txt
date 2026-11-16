@@ -1,0 +1,52 @@
+# command: sudo -u marianos /opt/marianos-collector/current/venv/bin/python -I /var/lib/marianos-collector/ops111/tools/trace_record.py /var/lib/marianos-collector/rc5/data/runs/marianos-53100502-pickup/01M7JNB2HDFCNR3GHQVX8FYXX6/exports /var/lib/marianos-collector/rc5/data 0000000004593 0001111003931 0000930000080
+# started: 2026-11-16T18:56:25Z
+=== UPC 0000000004593
+    export   product_title  'English Cucumber'
+    export   weight         '1 ct'
+    export   regular_price  '1.79'
+    export   sale_price     '1.25'
+    export   ppm            ''
+    export   category       'Produce'
+    export   sub_category   'Fresh Vegetables'
+    export   url            'https://www.marianos.com/p/english-cucumber/0000000004593'
+    export   crawl_date     '2026-11-16'
+    page     https://www.marianos.com/pl/fresh-vegetables/06112  fetched 2026-11-16T17:09:45.756076Z  fetch 01M7JNC4MWHP31HTCFFC7Y1YXR
+    tile     position 25 of listing 06112; status valid; flags SIZE_FROM_PRODUCT_DATA,PPM_NOT_DISPLAYED,PLU_CODE,DIGITAL_COUPONS_UNOBSERVED
+    stored   runs/marianos-53100502-pickup/01M7JNB2HDFCNR3GHQVX8FYXX6/live/dom/01M7JNC4MWHP31HTCFFC7Y1YXR.html.gz  sha256 MATCHES (f276b5924632ca4a5f8056dc4dcd7ca022fda92f0893063e533e70e6981362f9)
+    source   description    'English Cucumber'
+    source   price element  '$1.25$1.79Sale: $1.25 discounted from $1.79'
+    source   per measure    ''
+=== UPC 0001111003931
+    export   product_title  'Private Selection® Fresh Colossal Blueberries'
+    export   weight         '9.8 oz'
+    export   regular_price  '6.99'
+    export   sale_price     '3.99'
+    export   ppm            ''
+    export   category       'Produce'
+    export   sub_category   'Fresh Fruit'
+    export   url            'https://www.marianos.com/p/private-selection-fresh-colossal-blueberries/0001111003931'
+    export   crawl_date     '2026-11-16'
+    page     https://www.marianos.com/pl/fresh-fruit/06111  fetched 2026-11-16T17:10:04.297469Z  fetch 01M7JNCPR98S8SA2GKCQFKG8YE
+    tile     position 15 of listing 06111; status valid; flags SIZE_FROM_PRODUCT_DATA,PPM_NOT_DISPLAYED,DIGITAL_COUPONS_UNOBSERVED
+    stored   runs/marianos-53100502-pickup/01M7JNB2HDFCNR3GHQVX8FYXX6/live/dom/01M7JNCPR98S8SA2GKCQFKG8YE.html.gz  sha256 MATCHES (dfd68127dd707347fab3eba7db4497952d563c39cf188d2d62953e910be0aac0)
+    source   description    'Private Selection® Fresh Colossal Blueberries'
+    source   price element  '$3.99$6.99Sale: $3.99 discounted from $6.99'
+    source   per measure    ''
+=== UPC 0000930000080
+    export   product_title  'Mt. Olive Kosher Dill Pickle Spears'
+    export   weight         '24 fl oz'
+    export   regular_price  '4.19'
+    export   sale_price     '3.00'
+    export   ppm            '$0.13/fl oz'
+    export   category       'Grocery'
+    export   sub_category   'Kosher'
+    export   url            'https://www.marianos.com/p/mt-olive-kosher-dill-pickle-spears/0000930000080'
+    export   crawl_date     '2026-11-16'
+    page     https://www.marianos.com/pl/kosher-foods/0101300004  fetched 2026-11-16T17:40:24.613352Z  fetch 01M7JQ48D5Q4CFYQCJYD6238AE
+    tile     position 0 of listing 0101300004; status valid; flags SIZE_FROM_PRODUCT_DATA,DIGITAL_COUPONS_UNOBSERVED
+    stored   runs/marianos-53100502-pickup/01M7JNB2HDFCNR3GHQVX8FYXX6/live/dom/01M7JQ48D5Q4CFYQCJYD6238AE.html.gz  sha256 MATCHES (cdb4f9646dd65fea5006fba11d35ffd9a116409845dcca983942f7a01f42266e)
+    source   description    'Mt. Olive Kosher Dill Pickle Spears'
+    source   price element  '$3.00$4.19Sale: $3.00 discounted from $4.19'
+    source   per measure    '$0.13/fl oz'
+# exit: 0
+# ended: 2026-11-16T18:56:25Z

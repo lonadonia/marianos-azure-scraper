@@ -1,0 +1,24 @@
+Requests in flight at once, from each stage's ledger rows (dispatched_at -> updated_at). Rows marked unknown were
+in flight when their process stopped; their interval ends when the ledger marked them unknown (an upper bound).
+
+== L1: 73 rows, states {'settled': 73}
+   lease 68: 73 rows, peak in flight 1 (first reached 2026-11-16T15:09:32.102673Z); unknown at the end 0
+
+== L2: 72 rows, states {'settled': 72}
+   lease 69: 72 rows, peak in flight 2 (first reached 2026-11-16T15:33:15.592371Z); unknown at the end 0
+
+== F2a: 190 rows, states {'settled': 188, 'unknown': 2}
+   lease 74: 190 rows, peak in flight 2 (first reached 2026-11-16T17:09:45.866559Z); unknown at the end 2: listing (attempt 1) dispatched 17:22:33.547, listing (attempt 1) dispatched 17:22:57.670
+
+== F2b: 191 rows, states {'settled': 189, 'unknown': 2}
+   lease 75: 191 rows, peak in flight 2 (first reached 2026-11-16T17:36:45.651246Z); unknown at the end 2: listing (attempt 1) dispatched 17:49:47.198, listing (attempt 1) dispatched 17:49:48.152
+
+== F2c: 190 rows, states {'settled': 187, 'unknown': 3}
+   lease 76: 46 rows, peak in flight 2 (first reached 2026-11-16T17:51:25.778444Z); unknown at the end 1: listing (attempt 1) dispatched 17:54:00.178
+   lease 77: 144 rows, peak in flight 2 (first reached 2026-11-16T17:56:01.650649Z); unknown at the end 2: listing (attempt 1) dispatched 18:08:39.679, listing (attempt 1) dispatched 18:09:03.896
+
+== F2d: 24 rows, states {'settled': 22, 'unknown': 2}
+   lease 81: 16 rows, peak in flight 2 (first reached 2026-11-16T18:54:36.804717Z); unknown at the end 2: listing (attempt 1) dispatched 18:55:14.664, listing (attempt 1) dispatched 18:55:17.395
+   lease 82: 8 rows, peak in flight 2 (first reached 2026-11-16T18:55:26.677260Z); unknown at the end 0
+
+highest peak over all stages: 2

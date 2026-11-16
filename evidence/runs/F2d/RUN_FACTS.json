@@ -1,0 +1,5008 @@
+{
+ "run_id": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "stages": [
+  "M-F2a-full-run-110rc5-20261116",
+  "M-F2b-full-run-110rc5-20261116",
+  "M-F2c-full-run-110rc5-20261116",
+  "M-F2d-full-run-110rc5-20261116"
+ ],
+ "revisions": [
+  {
+   "version": "1.10.0rc5",
+   "commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1"
+  }
+ ],
+ "segments": [
+  {
+   "id": "01M7JNB2R3TJEAQND0WK1E7TAY",
+   "started_at": "2026-11-16 17:09:11.042249+00",
+   "ended_at": "2026-11-16 17:22:58.01823+00",
+   "active_s": "826.9672633931041",
+   "end_state": "ended",
+   "stop_code": "TERMINATED",
+   "trigger": "manual",
+   "code": {
+    "commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+    "source": "environment",
+    "version": "1.10.0rc5",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7JPXCW0K5JNHJMH5G1Z55BG",
+   "started_at": "2026-11-16 17:36:39.805907+00",
+   "ended_at": "2026-11-16 17:38:56.323088+00",
+   "active_s": "136.22210422700002",
+   "end_state": "ended",
+   "stop_code": "PROVIDER_ERROR",
+   "trigger": "resume",
+   "code": {
+    "commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+    "source": "environment",
+    "version": "1.10.0rc5",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7JQ3CX9FQXVGWXSTXWJV9XT",
+   "started_at": "2026-11-16 17:39:56.457345+00",
+   "ended_at": "2026-11-16 17:49:48.190093+00",
+   "active_s": "591.706768599",
+   "end_state": "ended",
+   "stop_code": "TERMINATED",
+   "trigger": "auto",
+   "code": {
+    "commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+    "source": "environment",
+    "version": "1.10.0rc5",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7JQRAS20VSE08T4DV842NAE",
+   "started_at": "2026-11-16 17:51:22.401334+00",
+   "ended_at": "",
+   "active_s": "159.85534952700004",
+   "end_state": "abandoned",
+   "stop_code": "TERMINATED",
+   "trigger": "resume",
+   "code": {
+    "commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+    "source": "environment",
+    "version": "1.10.0rc5",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7JR0RJS3K79H9EM732NZHJ0",
+   "started_at": "2026-11-16 17:55:58.680286+00",
+   "ended_at": "2026-11-16 18:09:04.299964+00",
+   "active_s": "785.5682460620001",
+   "end_state": "ended",
+   "stop_code": "TERMINATED",
+   "trigger": "resume",
+   "code": {
+    "commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+    "source": "environment",
+    "version": "1.10.0rc5",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7JVC0T14G569KJVYSNKHWY7",
+   "started_at": "2026-11-16 18:54:33.28066+00",
+   "ended_at": "2026-11-16 18:55:17.604416+00",
+   "active_s": "44.25675220899939",
+   "end_state": "ended",
+   "stop_code": "TERMINATED",
+   "trigger": "resume",
+   "code": {
+    "commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+    "source": "environment",
+    "version": "1.10.0rc5",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7JVDHZ62KK70J8R653656JA",
+   "started_at": "2026-11-16 18:55:23.621664+00",
+   "ended_at": "2026-11-16 18:56:08.113059+00",
+   "active_s": "44.42423568200047",
+   "end_state": "ended",
+   "stop_code": "STORE_NOT_VERIFIED",
+   "trigger": "resume",
+   "code": {
+    "commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+    "source": "environment",
+    "version": "1.10.0rc5",
+    "parser_version": "1.10.0"
+   }
+  }
+ ],
+ "ledger": {
+  "rows": 595,
+  "by_state": {
+   "settled": 586,
+   "unknown": 9
+  },
+  "results_charged": 583,
+  "usd_settled": 0.8745
+ },
+ "executions": [
+  {
+   "stage": "M-F2a-full-run-110rc5-20261116",
+   "utc_start": "2026-11-16T17:10:18+00:00",
+   "utc_end": "2026-11-16T17:10:18+00:00",
+   "args": [
+    "run",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 9,
+   "seconds": 0.2,
+   "revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+   "gate_counts": null
+  },
+  {
+   "stage": "M-F2a-full-run-110rc5-20261116",
+   "utc_start": "2026-11-16T17:09:10+00:00",
+   "utc_end": "2026-11-16T17:22:58+00:00",
+   "args": [
+    "run",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 75,
+   "seconds": 827.6,
+   "revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+   "gate_counts": {
+    "reserved": 190,
+    "dispatched": 190,
+    "unsent": 0,
+    "settled": 188,
+    "settled_free": 0,
+    "unknown": 2
+   }
+  },
+  {
+   "stage": "M-F2b-full-run-110rc5-20261116",
+   "utc_start": "2026-11-16T17:36:39+00:00",
+   "utc_end": "2026-11-16T17:49:48+00:00",
+   "args": [
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 75,
+   "seconds": 788.9,
+   "revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+   "gate_counts": {
+    "reserved": 191,
+    "dispatched": 191,
+    "unsent": 0,
+    "settled": 189,
+    "settled_free": 0,
+    "unknown": 1
+   }
+  },
+  {
+   "stage": "M-F2c-full-run-110rc5-20261116",
+   "utc_start": "2026-11-16T17:55:58+00:00",
+   "utc_end": "2026-11-16T18:09:04+00:00",
+   "args": [
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 75,
+   "seconds": 786.2,
+   "revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+   "gate_counts": {
+    "reserved": 144,
+    "dispatched": 144,
+    "unsent": 0,
+    "settled": 139,
+    "settled_free": 3,
+    "unknown": 2
+   }
+  },
+  {
+   "stage": "M-F2d-full-run-110rc5-20261116",
+   "utc_start": "2026-11-16T18:54:32+00:00",
+   "utc_end": "2026-11-16T18:55:17+00:00",
+   "args": [
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 75,
+   "seconds": 44.8,
+   "revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+   "gate_counts": {
+    "reserved": 16,
+    "dispatched": 16,
+    "unsent": 0,
+    "settled": 14,
+    "settled_free": 0,
+    "unknown": 2
+   }
+  },
+  {
+   "stage": "M-F2d-full-run-110rc5-20261116",
+   "utc_start": "2026-11-16T18:55:21+00:00",
+   "utc_end": "2026-11-16T18:55:21+00:00",
+   "args": [
+    "run",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 9,
+   "seconds": 0.2,
+   "revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+   "gate_counts": null
+  },
+  {
+   "stage": "M-F2d-full-run-110rc5-20261116",
+   "utc_start": "2026-11-16T18:55:23+00:00",
+   "utc_end": "2026-11-16T18:56:20+00:00",
+   "args": [
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 7,
+   "seconds": 56.7,
+   "revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+   "gate_counts": {
+    "reserved": 8,
+    "dispatched": 8,
+    "unsent": 0,
+    "settled": 8,
+    "settled_free": 0,
+    "unknown": 0
+   }
+  }
+ ],
+ "pages": {
+  "answers": 576,
+  "by_state": {
+   "refused": 18,
+   "completed": 416,
+   "stopped": 127,
+   "failed": 3,
+   "reasked": 12
+  },
+  "by_verdict": {
+   "malformed": 17,
+   "new": 425,
+   "repeated": 127,
+   "failed": 3,
+   "partial_overlap": 3,
+   "wrong_context": 1
+  },
+  "store_checks": [
+   "FAIL",
+   "N/A",
+   "PASS"
+  ],
+  "locations": [
+   "53100502"
+  ],
+  "modalities": [
+   "PICKUP"
+  ]
+ },
+ "set_aside": {
+  "requests": 98,
+  "by_state": {
+   "exhausted": 13,
+   "recovered": 66,
+   "waiting": 19
+  },
+  "reasks_answered": 111,
+  "new_products_from_reasks": 1204,
+  "min_seconds_between_answers": 303.8
+ },
+ "products": {
+  "retained_records": 8104,
+  "fresh_records": 7678,
+  "distinct_fresh_upcs": 7678,
+  "fresh_categories": 15,
+  "verified": null,
+  "historical": null,
+  "identities": {
+   "record_rows": 8118,
+   "fresh_valid": 7678,
+   "fresh_not_valid": 426,
+   "carried_forward": 0,
+   "excluded": 14,
+   "excluded_rows": 14,
+   "exported_rows": 8104,
+   "retained_unique": 8104,
+   "duplicates": 0,
+   "overlaps": {
+    "fresh_valid & fresh_not_valid": 0,
+    "fresh_valid & carried_forward": 0,
+    "fresh_valid & excluded": 0,
+    "fresh_not_valid & carried_forward": 0,
+    "fresh_not_valid & excluded": 0,
+    "carried_forward & excluded": 0
+   },
+   "relations": {
+    "no identity is in two classes": true,
+    "retained = fresh valid + fresh not valid + carried forward": true,
+    "no exported identity twice": true
+   },
+   "holds": true
+  }
+ },
+ "gates": null,
+ "nodes": null,
+ "status": "rejected",
+ "outcome": null,
+ "pilot": false,
+ "store": {
+  "key": "marianos-53100502-pickup",
+  "name": "Marianos Vernon Hills",
+  "modality": "PICKUP",
+  "retailer": "marianos",
+  "location_id": "53100502"
+ },
+ "csv_rows": {
+  "NOT_ATTEMPTED": 1,
+  "INCOMPLETE": 26,
+  "COMPLETE": 1
+ },
+ "listings_not_complete": [
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Fresh Fruit",
+   "listing_id": "06111",
+   "reported_total": "198",
+   "unique_identities": "97",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 5: page 5 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 5 repeats an earlier page exactly); re-ask 2: repeated (page 5 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Fresh Vegetables",
+   "listing_id": "06112",
+   "reported_total": "370",
+   "unique_identities": "32",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 370 results; the listing is read through 19 subdivisions the page itself names (Lettuce & Leafy Greens, Potatoes, Onions & Garlic, Peppers, Mushrooms, Tomatoes, Root Vegetables, Carrots, Squash, Broccoli & Cauliflower, Cucumbers, Beans & Peas, Cabbage, Corn, Artichokes, Brussels Sprouts, Celery, Asparagus, Eggplant) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Artichokes",
+   "listing_id": "0611200001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Beans & Peas",
+   "listing_id": "0611200002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Brussels Sprouts",
+   "listing_id": "0611200003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Cabbage",
+   "listing_id": "0611200004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Eggplant",
+   "listing_id": "0611200005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Root Vegetables",
+   "listing_id": "0611200006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Asparagus",
+   "listing_id": "0611200681",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Carrots",
+   "listing_id": "0611200682",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Corn",
+   "listing_id": "0611200683",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Celery",
+   "listing_id": "0611200684",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Broccoli & Cauliflower",
+   "listing_id": "0611200685",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Mushrooms",
+   "listing_id": "0611200686",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Cucumbers",
+   "listing_id": "0611200688",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Peppers",
+   "listing_id": "0611200689",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Tomatoes",
+   "listing_id": "0611200690",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Potatoes",
+   "listing_id": "0611200691",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Onions & Garlic",
+   "listing_id": "0611200692",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Lettuce & Leafy Greens",
+   "listing_id": "0611200694",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Squash",
+   "listing_id": "0611200695",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "1",
+   "category": "Produce",
+   "sub_category": "Organic Produce",
+   "listing_id": "18003",
+   "reported_total": "128",
+   "unique_identities": "127",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: 6 page(s) read, 127 distinct products of 128 reported"
+  },
+  {
+   "csv_row": "2",
+   "category": "Meat",
+   "sub_category": "Pork & Ham",
+   "listing_id": "05006",
+   "reported_total": "85",
+   "unique_identities": "84",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: 4 page(s) read, 84 distinct products of 85 reported (the source's total changed during the read: [84, 85])"
+  },
+  {
+   "csv_row": "2",
+   "category": "Meat",
+   "sub_category": "Bacon & Breakfast Sausage",
+   "listing_id": "05017",
+   "reported_total": "100",
+   "unique_identities": "100",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 4: page 4 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 4 repeats an earlier page exactly); re-ask 2: repeated (page 4 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "3",
+   "category": "Seafood",
+   "sub_category": "Canned Seafood",
+   "listing_id": "0100600007",
+   "reported_total": "157",
+   "unique_identities": "51",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 3: page 3 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 3 repeats an earlier page exactly); re-ask 2: repeated (page 3 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "3",
+   "category": "Seafood",
+   "sub_category": "Sauce & Breading",
+   "listing_id": "05009",
+   "reported_total": "221",
+   "unique_identities": "219",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: 10 page(s) read, 219 distinct products of 221 reported"
+  },
+  {
+   "csv_row": "4",
+   "category": "Deli",
+   "sub_category": "Fresh Deli Meats",
+   "listing_id": "13001",
+   "reported_total": "43",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: failed (no page from Oxylabs for https://www.marianos.com/pl/fresh-deli-meats/13001?page=2: transport (HTTP 0)); re-ask 2: repeated (page 2 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "4",
+   "category": "Deli",
+   "sub_category": "Ready-to-heat Meals & Soups",
+   "listing_id": "13006",
+   "reported_total": "128",
+   "unique_identities": "72",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 4: page 4 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 4 repeats an earlier page exactly); re-ask 2: repeated (page 4 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "5",
+   "category": "Bakery",
+   "sub_category": "Pies",
+   "listing_id": "14169",
+   "reported_total": "31",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 2 repeats an earlier page exactly); re-ask 2: repeated (page 2 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Crackers",
+   "listing_id": "01026",
+   "reported_total": "305",
+   "unique_identities": "27",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 266 results; the listing is read through 17 subdivisions the page itself names (Cheese Crackers, Artisan & Charcuterie Crackers, Wheat Crackers, Crisps Crackers, Butter Crackers, Multipack & Variety Pack Crackers, Vegetable Crackers, Grain Free & Gluten Free Crackers, Oyster, Soda & Saltine Crackers, Rice Crackers, Sandwich Crackers, Multigrain & Whole Grain Crackers, Protein, Keto & Low Carb Crackers, Flatbread & Pita Crackers, Low Sodium & Unsalted Crackers, Vegan Crackers,) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Cheese Crackers",
+   "listing_id": "0102600001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Butter Crackers",
+   "listing_id": "0102600002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Artisan & Charcuterie Crackers",
+   "listing_id": "0102600003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Crisps Crackers",
+   "listing_id": "0102600004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Grain Free & Gluten Free Crackers",
+   "listing_id": "0102600005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Flatbread & Pita Crackers",
+   "listing_id": "0102600006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Rice Crackers",
+   "listing_id": "0102600007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Oyster, Soda & Saltine Crackers",
+   "listing_id": "0102600008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Sandwich Crackers",
+   "listing_id": "0102600009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Wheat Crackers",
+   "listing_id": "0102600010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Multigrain & Whole Grain Crackers",
+   "listing_id": "0102600011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Multipack & Variety Pack Crackers",
+   "listing_id": "0102600012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Low Sodium & Unsalted Crackers",
+   "listing_id": "0102600013",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Protein, Keto & Low Carb Crackers",
+   "listing_id": "0102600014",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Vegetable Crackers",
+   "listing_id": "0102600015",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Vegan Crackers",
+   "listing_id": "0102600016",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Water Crackers",
+   "listing_id": "0102600017",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Packaged Breads",
+   "listing_id": "01016",
+   "reported_total": "273",
+   "unique_identities": "26",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 273 results; the listing is read through 15 subdivisions the page itself names (Tortillas & Taco Shells, Sandwich White Bread, Sandwich Wheat Bread, Sandwich Whole Grain Bread, Sandwich Multigrain Bread, Sandwich Rye Bread, Sourdough Bread, Pizza Crust, Brioche Bread, Pita Bread, Italian Bread, Oat Bread, Flatbread, Potato Bread, Garlic Bread) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Italian Bread",
+   "listing_id": "0101600001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Sandwich White Bread",
+   "listing_id": "0101600003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Sandwich Wheat Bread",
+   "listing_id": "0101600004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Sandwich Rye Bread",
+   "listing_id": "0101600005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pita Bread",
+   "listing_id": "0101600006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pizza Crust",
+   "listing_id": "0101600007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Tortillas & Taco Shells",
+   "listing_id": "0101600008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Garlic Bread",
+   "listing_id": "0101600009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Sandwich Whole Grain Bread",
+   "listing_id": "0101600010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Sandwich Multigrain Bread",
+   "listing_id": "0101600011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Sourdough Bread",
+   "listing_id": "0101600012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Potato Bread",
+   "listing_id": "0101600013",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Oat Bread",
+   "listing_id": "0101600014",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Flatbread",
+   "listing_id": "0101600015",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Brioche Bread",
+   "listing_id": "0101600019",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Canned Foods",
+   "listing_id": "01006",
+   "reported_total": "717",
+   "unique_identities": "32",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 717 results; the listing is read through 7 subdivisions the page itself names (Canned Beans, Canned Seafood, Canned Tomatoes, Pickles & Relish, Olives & Capers, Canned Meat, Canned Pasta) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Canned Pasta",
+   "listing_id": "0100600001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Canned Meat",
+   "listing_id": "0100600006",
+   "reported_total": "43",
+   "unique_identities": "43",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Canned Seafood",
+   "listing_id": "0100600007",
+   "reported_total": "157",
+   "unique_identities": "48",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Canned Tomatoes",
+   "listing_id": "0100600008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Canned Beans",
+   "listing_id": "0100600010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Olives & Capers",
+   "listing_id": "0100600011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pickles & Relish",
+   "listing_id": "0100600012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Baking & Cooking",
+   "listing_id": "01012",
+   "reported_total": "1016",
+   "unique_identities": "264",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: 11 page(s) read, 264 distinct products of 1016 reported; the source lets a reader reach 250 of 1016 results (availableCount); the first page names no child listing and no brand: the listing (1016 results, 250 reachable) cannot be subdivided; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: new (asked again for the listing's filters: the answer names no child listing and no brand); re-ask 2: new (asked again for the listing's filters: the answer names no child listing and no brand); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Condiments & Salad Dressings",
+   "listing_id": "01008",
+   "reported_total": "921",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 921 results; the listing is read through 12 subdivisions the page itself names (Salad Dressings, Marinades & Cooking Sauces, BBQ, Meat & Steak Sauce, Hot Sauce, Mayo & Aioli, Specialty & Wing Sauce, Mustard & Horseradish, Gravy, Salad Toppings, Ketchup, Soy Sauce, Seafood, Cocktail & Tartar Sauce) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Salad Dressings",
+   "listing_id": "0100800001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Salad Toppings",
+   "listing_id": "0100800002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Hot Sauce",
+   "listing_id": "0100800003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Ketchup",
+   "listing_id": "0100800004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Mayo & Aioli",
+   "listing_id": "0100800006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Mustard & Horseradish",
+   "listing_id": "0100800007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "BBQ, Meat & Steak Sauce",
+   "listing_id": "0100800010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Seafood, Cocktail & Tartar Sauce",
+   "listing_id": "0100800011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Marinades & Cooking Sauces",
+   "listing_id": "0100800012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Gravy",
+   "listing_id": "0100800015",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Specialty & Wing Sauce",
+   "listing_id": "0100800017",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Soy Sauce",
+   "listing_id": "0100800018",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pasta & Pasta Sauces",
+   "listing_id": "01010",
+   "reported_total": "578",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 578 results; the listing is read through 3 subdivisions the page itself names (Pasta, Pasta Sauces, Parmesan Cheese) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pasta",
+   "listing_id": "0101000001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pasta Sauces",
+   "listing_id": "0101000002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Parmesan Cheese",
+   "listing_id": "0101000003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Grains, Beans & Rice",
+   "listing_id": "01007",
+   "reported_total": "254",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 254 results; the listing is read through 6 subdivisions the page itself names (Rice, Dried Beans, Quinoa, Couscous, Lentils, Barley, Farro & More Grains) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Rice",
+   "listing_id": "0100700001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Lentils",
+   "listing_id": "0100700002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Dried Beans",
+   "listing_id": "0100700003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Quinoa",
+   "listing_id": "0100700004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Couscous",
+   "listing_id": "0100700005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Barley, Farro & More Grains",
+   "listing_id": "0100700006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Easy Meals, Sides, Mac & Cheese",
+   "listing_id": "01011",
+   "reported_total": "555",
+   "unique_identities": "27",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 555 results; the listing is read through 6 subdivisions the page itself names (Rice Sides, Pasta Sides, Mac & Cheese, Instant Potatoes, Packaged Meals, Stuffing Mixes) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Mac & Cheese",
+   "listing_id": "0101100001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pasta Sides",
+   "listing_id": "0101100002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Instant Potatoes",
+   "listing_id": "0101100003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Stuffing Mixes",
+   "listing_id": "0101100004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Packaged Meals",
+   "listing_id": "0101100005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Rice Sides",
+   "listing_id": "0101100006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Spreads, Jelly & Honey",
+   "listing_id": "01014",
+   "reported_total": "256",
+   "unique_identities": "27",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 256 results; the listing is read through 4 subdivisions the page itself names (Jellies & Jams, Peanut Butter, Nut & Seed Butters, Honey) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Honey",
+   "listing_id": "0101400001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Jellies & Jams",
+   "listing_id": "0101400002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Nut & Seed Butters",
+   "listing_id": "0101400003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Peanut Butter",
+   "listing_id": "0101400004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Spices & Seasonings",
+   "listing_id": "01015",
+   "reported_total": "739",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 739 results; the listing is read through 6 subdivisions the page itself names (Rubs & Seasoning Mixes, Herbs & Spices, Pepper & Pepper Blends, Salt & Salt Alternatives, Bread Crumbs, Coating Mix & Batters) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Herbs & Spices",
+   "listing_id": "0101500001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Rubs & Seasoning Mixes",
+   "listing_id": "0101500002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Salt & Salt Alternatives",
+   "listing_id": "0101500003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pepper & Pepper Blends",
+   "listing_id": "0101500004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Bread Crumbs",
+   "listing_id": "0101500005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Coating Mix & Batters",
+   "listing_id": "0101500006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Nuts, Trail Mix & Seeds",
+   "listing_id": "01022",
+   "reported_total": "256",
+   "unique_identities": "32",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 256 results; the listing is read through 21 subdivisions the page itself names (Almond Nuts, Cashew Nuts, Trail Mix, Pistachio Nuts, Peanuts, Mixed Nuts, Pecan Nuts, Sunflower Seeds, Walnuts, Pumpkin Seeds & Pepitas, Chia Seeds, Macadamia Nuts, Pine Nuts, Corn Nuts, Other Nuts, Other Seeds, Sesame Seeds, Brazil Nuts, Chestnuts, Flaxseed, Hazelnuts) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Peanuts",
+   "listing_id": "0102200001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Almond Nuts",
+   "listing_id": "0102200002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Cashew Nuts",
+   "listing_id": "0102200003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Mixed Nuts",
+   "listing_id": "0102200004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pistachio Nuts",
+   "listing_id": "0102200005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pecan Nuts",
+   "listing_id": "0102200006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Walnuts",
+   "listing_id": "0102200007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Macadamia Nuts",
+   "listing_id": "0102200008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Brazil Nuts",
+   "listing_id": "0102200009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Hazelnuts",
+   "listing_id": "0102200010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Chestnuts",
+   "listing_id": "0102200011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pine Nuts",
+   "listing_id": "0102200012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Corn Nuts",
+   "listing_id": "0102200013",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Trail Mix",
+   "listing_id": "0102200014",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Sunflower Seeds",
+   "listing_id": "0102200015",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Pumpkin Seeds & Pepitas",
+   "listing_id": "0102200016",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Other Seeds",
+   "listing_id": "0102200017",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Chia Seeds",
+   "listing_id": "0102200018",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Flaxseed",
+   "listing_id": "0102200019",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Other Nuts",
+   "listing_id": "0102200021",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "7",
+   "category": "Grocery",
+   "sub_category": "Sesame Seeds",
+   "listing_id": "0102200022",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Cheese",
+   "listing_id": "02002",
+   "reported_total": "379",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 379 results; the listing is read through 9 subdivisions the page itself names (Shredded Cheese, Sliced Cheese, Block Cheese, Cottage & Ricotta Cheese, String Cheese and Cheese Sticks, Cheese Kits & Snack Cheese, Crumbled, Grated, & Parmesan Cheese, Dairy Free Cheese, Cream Cheese) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Sliced Cheese",
+   "listing_id": "0200200001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Shredded Cheese",
+   "listing_id": "0200200002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Block Cheese",
+   "listing_id": "0200200003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Cream Cheese",
+   "listing_id": "0200200004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Cottage & Ricotta Cheese",
+   "listing_id": "0200200005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Crumbled, Grated, & Parmesan Cheese",
+   "listing_id": "0200200006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Dairy Free Cheese",
+   "listing_id": "0200200007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "String Cheese and Cheese Sticks",
+   "listing_id": "0200200008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Cheese Kits & Snack Cheese",
+   "listing_id": "0200200009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Yogurt",
+   "listing_id": "02009",
+   "reported_total": "396",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 396 results; the listing is read through 6 subdivisions the page itself names (Greek Yogurt, Traditional Yogurt, Yogurt Drinks, Kids Yogurt, Icelandic Skyr & Specialty Yogurt, Dairy Free Yogurt) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Traditional Yogurt",
+   "listing_id": "0200900001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Greek Yogurt",
+   "listing_id": "0200900003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Yogurt Drinks",
+   "listing_id": "0200900005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Kids Yogurt",
+   "listing_id": "0200900006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Dairy Free Yogurt",
+   "listing_id": "0200900009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "8",
+   "category": "Dairy",
+   "sub_category": "Icelandic Skyr & Specialty Yogurt",
+   "listing_id": "0200900012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Frozen Individual Meals",
+   "listing_id": "19016",
+   "reported_total": "342",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 342 results; the listing is read through 7 subdivisions the page itself names (Frozen Classic Individual Meals, Frozen Low-Calorie Individual Meals, Frozen Pot Pies, Frozen Kids' Meals, Frozen International Individual Meals, Frozen Vegetarian & Plant-Based Meals, Frozen High-Protein Individual Meals) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Frozen Classic Individual Meals",
+   "listing_id": "1901600001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Frozen High-Protein Individual Meals",
+   "listing_id": "1901600002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Frozen Low-Calorie Individual Meals",
+   "listing_id": "1901600003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Frozen Pot Pies",
+   "listing_id": "1901600004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Frozen International Individual Meals",
+   "listing_id": "1901600005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Frozen Kids' Meals",
+   "listing_id": "1901600006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Frozen Vegetarian & Plant-Based Meals",
+   "listing_id": "1901600007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Ice Cream & Ice Pops",
+   "listing_id": "19002",
+   "reported_total": "679",
+   "unique_identities": "33",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 679 results; the listing is read through 9 subdivisions the page itself names (Pints, Tubs, Bars, Popsicles & Fruit Bars, Cones, Sandwiches, Toppings, Snackable & Bites, Cups) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Toppings",
+   "listing_id": "1900200001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Popsicles & Fruit Bars",
+   "listing_id": "1900200006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Sandwiches",
+   "listing_id": "1900200007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Tubs",
+   "listing_id": "1900200008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Pints",
+   "listing_id": "1900200010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Bars",
+   "listing_id": "1900200011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Cones",
+   "listing_id": "1900200012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Cups",
+   "listing_id": "1900200013",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "9",
+   "category": "Frozen",
+   "sub_category": "Snackable & Bites",
+   "listing_id": "1900200014",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Meat & Seafood",
+   "listing_id": "18004",
+   "reported_total": "190",
+   "unique_identities": "83",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Dairy & Eggs",
+   "listing_id": "18007",
+   "reported_total": "357",
+   "unique_identities": "31",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 357 results; the listing is read through 13 subdivisions the page itself names (Dairy Free Milk, Yogurt, Cream & Creamers, Milk, Eggs, Dairy Free Cheese, Cheese, Meat Alternatives, Sour Cream, Cottage Cheese & Ricotta, Butter & Spreads, Refrigerated Pasta & Sauce, Refrigerated Doughs, Cream Cheese) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Refrigerated Doughs",
+   "listing_id": "1800700001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Refrigerated Pasta & Sauce",
+   "listing_id": "1800700002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Milk",
+   "listing_id": "1800700003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Dairy Free Milk",
+   "listing_id": "1800700004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Butter & Spreads",
+   "listing_id": "1800700005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Cheese",
+   "listing_id": "1800700006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Eggs",
+   "listing_id": "1800700007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Sour Cream, Cottage Cheese & Ricotta",
+   "listing_id": "1800700008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Yogurt",
+   "listing_id": "1800700009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Cream Cheese",
+   "listing_id": "1800700010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Dairy Free Cheese",
+   "listing_id": "1800700011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Meat Alternatives",
+   "listing_id": "1800700012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Cream & Creamers",
+   "listing_id": "1800700013",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Bakery & Bread",
+   "listing_id": "18009",
+   "reported_total": "53",
+   "unique_identities": "48",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 3: page 3 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 3 repeats an earlier page exactly); re-ask 2: repeated (page 3 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Pantry",
+   "listing_id": "18012",
+   "reported_total": "1044",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 2 repeats an earlier page exactly); re-ask 2: repeated (page 2 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read; the first page names no child listing and no brand: the listing (1044 results, 250 reachable) cannot be subdivided; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: malformed (the page state lists 24 products and the grid shows 0 cards; asked again for the listing's filters: the answer does not count as the listing's first page); re-ask 2: new (asked again for the listing's filters: the answer names no child listing and no brand); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Frozen",
+   "listing_id": "18010",
+   "reported_total": "280",
+   "unique_identities": "31",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 280 results; the listing is read through 12 subdivisions the page itself names (Ice Cream & Dessert, Meals & Entrees, Fruit, Pizza, Vegetables, Breakfast, Meat Alternatives, Bread, Snacks & Appetizers, Fries, Tots, Onion Rings & Potato Sides, Meat & Seafood, Juices & Mixes) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Ice Cream & Dessert",
+   "listing_id": "1801000001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Fries, Tots, Onion Rings & Potato Sides",
+   "listing_id": "1801000002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Vegetables",
+   "listing_id": "1801000003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Pizza",
+   "listing_id": "1801000004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Snacks & Appetizers",
+   "listing_id": "1801000005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Bread",
+   "listing_id": "1801000006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Fruit",
+   "listing_id": "1801000007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Meat & Seafood",
+   "listing_id": "1801000008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Breakfast",
+   "listing_id": "1801000009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Meals & Entrees",
+   "listing_id": "1801000010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Juices & Mixes",
+   "listing_id": "1801000011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Meat Alternatives",
+   "listing_id": "1801000012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Beauty & Personal Care",
+   "listing_id": "18001",
+   "reported_total": "290",
+   "unique_identities": "30",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 290 results; the listing is read through 10 subdivisions the page itself names (Vitamins & Supplements, Bath & Body, Skin Care, Deodorants, Hair Care, Feminine Care, Oral Care, Makeup, Medicines & Ointments, Sun Care) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Bath & Body",
+   "listing_id": "1800100001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Hair Care",
+   "listing_id": "1800100002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Vitamins & Supplements",
+   "listing_id": "1800100003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Deodorants",
+   "listing_id": "1800100004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Oral Care",
+   "listing_id": "1800100005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Skin Care",
+   "listing_id": "1800100006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Medicines & Ointments",
+   "listing_id": "1800100009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Sun Care",
+   "listing_id": "1800100010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Makeup",
+   "listing_id": "1800100011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "10",
+   "category": "Natural Organic",
+   "sub_category": "Feminine Care",
+   "listing_id": "1800100012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Soda & Pop",
+   "listing_id": "04001",
+   "reported_total": "436",
+   "unique_identities": "25",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 436 results; the listing is read through 10 subdivisions the page itself names (Cola Sodas, Specialty Sodas, Lemon-Lime & Citrus Sodas, Zero Sugar Sodas, Prebiotic Soda, Caffeine-Free Sodas, Root Beer & Cream Sodas, Diet Sodas, Ginger Ale & Ginger Beer, Grape Sodas) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Cola Sodas",
+   "listing_id": "0400100001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Ginger Ale & Ginger Beer",
+   "listing_id": "0400100002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Lemon-Lime & Citrus Sodas",
+   "listing_id": "0400100003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Root Beer & Cream Sodas",
+   "listing_id": "0400100004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Grape Sodas",
+   "listing_id": "0400100005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Diet Sodas",
+   "listing_id": "0400100006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Caffeine-Free Sodas",
+   "listing_id": "0400100007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Specialty Sodas",
+   "listing_id": "0400100008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Zero Sugar Sodas",
+   "listing_id": "0400100009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Prebiotic Soda",
+   "listing_id": "0400100010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Juice & Lemonade",
+   "listing_id": "04004",
+   "reported_total": "469",
+   "unique_identities": "27",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 469 results; the listing is read through 34 subdivisions the page itself names (Lemonade & Limeade, Juice Blends, Apple, Orange, Organic, Cranberry, Cold Pressed, Tomato & Vegetable, Grape, Strawberry, Pineapple, Fruit Punch, Juice Boxes & Pouches, Mango, Pomegranate, Lemon & Lime, Juice Smoothie, Cherry, Sparkling, Apple Cider, Peach, Raspberry, Berry, Grapefruit, Prune, Banana, Kiwi Strawberry, Nectars, Tropical, Watermelon, Wellness Shots, Blueberry, Guava, Plant Juices) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Apple",
+   "listing_id": "0400400001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Apple Cider",
+   "listing_id": "0400400002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Cranberry",
+   "listing_id": "0400400003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Fruit Punch",
+   "listing_id": "0400400004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Grape",
+   "listing_id": "0400400005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Grapefruit",
+   "listing_id": "0400400006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Lemonade & Limeade",
+   "listing_id": "0400400007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Orange",
+   "listing_id": "0400400008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Pineapple",
+   "listing_id": "0400400009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Pomegranate",
+   "listing_id": "0400400010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Tomato & Vegetable",
+   "listing_id": "0400400011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Juice Blends",
+   "listing_id": "0400400012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Sparkling",
+   "listing_id": "0400400013",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Lemon & Lime",
+   "listing_id": "0400400014",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Banana",
+   "listing_id": "0400400015",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Berry",
+   "listing_id": "0400400016",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Blueberry",
+   "listing_id": "0400400017",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Cherry",
+   "listing_id": "0400400018",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Guava",
+   "listing_id": "0400400019",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Kiwi Strawberry",
+   "listing_id": "0400400020",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Mango",
+   "listing_id": "0400400021",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Peach",
+   "listing_id": "0400400022",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Prune",
+   "listing_id": "0400400023",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Raspberry",
+   "listing_id": "0400400024",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Strawberry",
+   "listing_id": "0400400025",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Tropical",
+   "listing_id": "0400400026",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Watermelon",
+   "listing_id": "0400400027",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Cold Pressed",
+   "listing_id": "0400400029",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Juice Smoothie",
+   "listing_id": "0400400030",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Nectars",
+   "listing_id": "0400400031",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Organic",
+   "listing_id": "0400400032",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Plant Juices",
+   "listing_id": "0400400033",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Wellness Shots",
+   "listing_id": "0400400034",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Juice Boxes & Pouches",
+   "listing_id": "0400400035",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Energy Drinks",
+   "listing_id": "04011",
+   "reported_total": "165",
+   "unique_identities": "96",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 5: page 5 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 5 repeats an earlier page exactly); re-ask 2: repeated (page 5 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Sports Drinks",
+   "listing_id": "04005",
+   "reported_total": "171",
+   "unique_identities": "30",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 2 repeats an earlier page exactly); re-ask 2: repeated (page 2 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Sparkling Water",
+   "listing_id": "04002",
+   "reported_total": "241",
+   "unique_identities": "144",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Coffee",
+   "listing_id": "04003",
+   "reported_total": "823",
+   "unique_identities": "28",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 823 results; the listing is read through 12 subdivisions the page itself names (K-Cups & Coffee Pods, Ground Coffee, Cold Brew, Iced & Bottled Coffee, Liquid Coffee Creamers, Whole Coffee Beans, Espresso Coffee, Instant Coffee, Decaffeinated Coffee, Seasonal & Holiday Flavored Coffee & Creamer, Powdered & Single Coffee Creamers, Nespresso Pods & Capsules, Flavored Syrups) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "K-Cups & Coffee Pods",
+   "listing_id": "0400300001",
+   "reported_total": "226",
+   "unique_identities": "96",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Whole Coffee Beans",
+   "listing_id": "0400300002",
+   "reported_total": "73",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Ground Coffee",
+   "listing_id": "0400300003",
+   "reported_total": "217",
+   "unique_identities": "120",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Nespresso Pods & Capsules",
+   "listing_id": "0400300004",
+   "reported_total": "19",
+   "unique_identities": "19",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Seasonal & Holiday Flavored Coffee & Creamer",
+   "listing_id": "0400300005",
+   "reported_total": "29",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Decaffeinated Coffee",
+   "listing_id": "0400300006",
+   "reported_total": "31",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Espresso Coffee",
+   "listing_id": "0400300007",
+   "reported_total": "45",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Cold Brew, Iced & Bottled Coffee",
+   "listing_id": "0400300009",
+   "reported_total": "100",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Instant Coffee",
+   "listing_id": "0400300010",
+   "reported_total": "37",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Powdered & Single Coffee Creamers",
+   "listing_id": "0400300017",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Liquid Coffee Creamers",
+   "listing_id": "0400300019",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Flavored Syrups",
+   "listing_id": "0400300020",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Tea & Kombucha",
+   "listing_id": "04007",
+   "reported_total": "370",
+   "unique_identities": "29",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 370 results; the listing is read through 7 subdivisions the page itself names (Herbal & Fruit Tea, Iced Tea, Black Tea, Green Tea, Cocoa Mixes, Decaffeinated Tea, K-Cups & Tea Pods) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Iced Tea",
+   "listing_id": "0400700001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Herbal & Fruit Tea",
+   "listing_id": "0400700003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Black Tea",
+   "listing_id": "0400700004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Green Tea",
+   "listing_id": "0400700005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "K-Cups & Tea Pods",
+   "listing_id": "0400700006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Decaffeinated Tea",
+   "listing_id": "0400700007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "11",
+   "category": "Beverages",
+   "sub_category": "Cocoa Mixes",
+   "listing_id": "0400700011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "12",
+   "category": "Breakfast",
+   "sub_category": "Cereal & Granola",
+   "listing_id": "03001",
+   "reported_total": "391",
+   "unique_identities": "28",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 391 results; the listing is read through 4 subdivisions the page itself names (Cold Cereal, Granola, Bag Cereal, On the Go Cereal) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "12",
+   "category": "Breakfast",
+   "sub_category": "Cold Cereal",
+   "listing_id": "0300100001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "12",
+   "category": "Breakfast",
+   "sub_category": "Granola",
+   "listing_id": "0300100003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "12",
+   "category": "Breakfast",
+   "sub_category": "Bag Cereal",
+   "listing_id": "0300100006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "12",
+   "category": "Breakfast",
+   "sub_category": "On the Go Cereal",
+   "listing_id": "0300100007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "12",
+   "category": "Breakfast",
+   "sub_category": "Bars & Toaster Pastries",
+   "listing_id": "03002",
+   "reported_total": "119",
+   "unique_identities": "48",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "12",
+   "category": "Breakfast",
+   "sub_category": "Donuts & Pastries",
+   "listing_id": "03005",
+   "reported_total": "60",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 2 repeats an earlier page exactly); re-ask 2: repeated (page 2 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  },
+  {
+   "csv_row": "12",
+   "category": "Breakfast",
+   "sub_category": "Juice & Breakfast Drinks",
+   "listing_id": "03007",
+   "reported_total": "36",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "13",
+   "category": "Coffee",
+   "sub_category": "Ground Coffee",
+   "listing_id": "0400300003",
+   "reported_total": "217",
+   "unique_identities": "120",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "13",
+   "category": "Coffee",
+   "sub_category": "K-Cups & Coffee Pods",
+   "listing_id": "0400300001",
+   "reported_total": "226",
+   "unique_identities": "97",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "13",
+   "category": "Coffee",
+   "sub_category": "Whole Coffee Beans",
+   "listing_id": "0400300002",
+   "reported_total": "73",
+   "unique_identities": "28",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "13",
+   "category": "Coffee",
+   "sub_category": "Espresso Coffee",
+   "listing_id": "0400300007",
+   "reported_total": "45",
+   "unique_identities": "28",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "13",
+   "category": "Coffee",
+   "sub_category": "Cold Brew, Iced & Bottled Coffee",
+   "listing_id": "0400300009",
+   "reported_total": "100",
+   "unique_identities": "29",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "13",
+   "category": "Coffee",
+   "sub_category": "Decaffeinated Coffee",
+   "listing_id": "0400300006",
+   "reported_total": "31",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "13",
+   "category": "Coffee",
+   "sub_category": "Instant Coffee",
+   "listing_id": "0400300010",
+   "reported_total": "37",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "13",
+   "category": "Coffee",
+   "sub_category": "Seasonal & Holiday Flavored Coffee & Creamer",
+   "listing_id": "0400300005",
+   "reported_total": "29",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Chocolate",
+   "listing_id": "23001",
+   "reported_total": "590",
+   "unique_identities": "24",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 590 results; the listing is read through 8 subdivisions the page itself names (Milk Chocolate, Candy Bars & Multipacks, Assorted & Variety Bags, Candy Bags, Dark Chocolate, Chocolate Covered Snacks, White Chocolate, Theater Box) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Theater Box",
+   "listing_id": "2300100004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Assorted & Variety Bags",
+   "listing_id": "2300100005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Milk Chocolate",
+   "listing_id": "2300100006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Dark Chocolate",
+   "listing_id": "2300100007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "White Chocolate",
+   "listing_id": "2300100008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Chocolate Covered Snacks",
+   "listing_id": "2300100009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Candy Bars & Multipacks",
+   "listing_id": "2300100010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Candy Bags",
+   "listing_id": "2300100011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Premium Chocolate",
+   "listing_id": "23008",
+   "reported_total": "66",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Gummy & Chewy",
+   "listing_id": "23003",
+   "reported_total": "218",
+   "unique_identities": "72",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Gums & Mints",
+   "listing_id": "23002",
+   "reported_total": "73",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Healthier Options",
+   "listing_id": "23009",
+   "reported_total": "77",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Seasonal",
+   "listing_id": "23007",
+   "reported_total": "419",
+   "unique_identities": "28",
+   "status": "INCOMPLETE",
+   "completion_reason": "the site's search lets the page reach 250 of the 419 results; the listing is read through 3 subdivisions the page itself names (Holiday, Halloween, Easter) and is complete only when they cover its results"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Easter",
+   "listing_id": "2300700001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Halloween",
+   "listing_id": "2300700002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "14",
+   "category": "Candy",
+   "sub_category": "Holiday",
+   "listing_id": "2300700003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Craft Beer",
+   "listing_id": "08145",
+   "reported_total": "143",
+   "unique_identities": "48",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "American Lager",
+   "listing_id": "08119",
+   "reported_total": "90",
+   "unique_identities": "48",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Import Beer",
+   "listing_id": "08190",
+   "reported_total": "84",
+   "unique_identities": "24",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Hard Cider",
+   "listing_id": "08194",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Red Wine",
+   "listing_id": "08120",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "White Wine",
+   "listing_id": "08122",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Rose & Blush Wine",
+   "listing_id": "08181",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Champagne & Sparkling Wine",
+   "listing_id": "08180",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Box Wine",
+   "listing_id": "08182",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Dessert & Vermouth Wine",
+   "listing_id": "08185",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Hard Seltzers",
+   "listing_id": "08183",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Ready to Drink Cocktails",
+   "listing_id": "08193",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Hard Teas & Lemonades",
+   "listing_id": "08191",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Flavored Malt Beverages",
+   "listing_id": "08192",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Shop Liquor",
+   "listing_id": "08121",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "15",
+   "category": "Beer Wine Liquor",
+   "sub_category": "Shop All",
+   "listing_id": "08184",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Pickup & Delivery Cold Medicine",
+   "listing_id": "22011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Allergy & Sinus",
+   "listing_id": "22012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Pain & Fever",
+   "listing_id": "22005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Children's Medicine",
+   "listing_id": "22014",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Energy & Stimulants",
+   "listing_id": "22008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Sports & Adult Nutrition",
+   "listing_id": "22010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Digestive Health & Nausea",
+   "listing_id": "22001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Immune Support",
+   "listing_id": "2201100003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Sleep Aids",
+   "listing_id": "22006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Multivitamins",
+   "listing_id": "2201300005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Letter Vitamins",
+   "listing_id": "2201300001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Children's Vitamins",
+   "listing_id": "2201300002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Minerals",
+   "listing_id": "2201300004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Herbal Supplements",
+   "listing_id": "2201300003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Diet & Nutrition",
+   "listing_id": "2201300008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Natural & Organic",
+   "listing_id": "1800100003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Prenatal & Postnatal Vitamins",
+   "listing_id": "2201300010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Joint Health",
+   "listing_id": "2201300007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Fish Oils & Omegas",
+   "listing_id": "2201300006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Hair, Skin & Nails",
+   "listing_id": "2201300011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "CoQ-10",
+   "listing_id": "2201300012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "First Aid",
+   "listing_id": "22004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Foot Care",
+   "listing_id": "22007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Eye Care",
+   "listing_id": "22002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Home Healthcare Solutions",
+   "listing_id": "22009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "16",
+   "category": "Health",
+   "sub_category": "Sexual Health",
+   "listing_id": "22015",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "17",
+   "category": "Personal Care",
+   "sub_category": "Hair Care",
+   "listing_id": "21002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "17",
+   "category": "Personal Care",
+   "sub_category": "Oral Care",
+   "listing_id": "21003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "17",
+   "category": "Personal Care",
+   "sub_category": "Body Lotion",
+   "listing_id": "21006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "17",
+   "category": "Personal Care",
+   "sub_category": "Bath & Shower",
+   "listing_id": "21013",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "17",
+   "category": "Personal Care",
+   "sub_category": "Feminine Care",
+   "listing_id": "21009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "17",
+   "category": "Personal Care",
+   "sub_category": "Hand Soap & Sanitizers",
+   "listing_id": "21007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "17",
+   "category": "Personal Care",
+   "sub_category": "Deodorants",
+   "listing_id": "21001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "17",
+   "category": "Personal Care",
+   "sub_category": "Incontinence",
+   "listing_id": "21008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "17",
+   "category": "Personal Care",
+   "sub_category": "Shaving & Grooming",
+   "listing_id": "21004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Shampoo",
+   "listing_id": "2000400001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Conditioner",
+   "listing_id": "2100200016",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Hair Color",
+   "listing_id": "2100200019",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Hair Styling Tools & Appliances",
+   "listing_id": "2000400008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Hair Brushes & Accessories",
+   "listing_id": "2100200001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Facial Treatments",
+   "listing_id": "2000200004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Facial Moisturizers",
+   "listing_id": "2000200001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Face Masks",
+   "listing_id": "2000200005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Makeup Remover",
+   "listing_id": "2000100005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Bath & Shower",
+   "listing_id": "20005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Sun & Tanning",
+   "listing_id": "20006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Korean Skincare",
+   "listing_id": "2000200012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Eyes",
+   "listing_id": "2000100002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Face",
+   "listing_id": "2000100007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Lips",
+   "listing_id": "2000100006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Nails",
+   "listing_id": "2000100003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Makeup Tools & Brushes",
+   "listing_id": "2000100001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "18",
+   "category": "Beauty",
+   "sub_category": "Shop All",
+   "listing_id": "20003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "19",
+   "category": "Baby",
+   "sub_category": "Baby Food & Snacks",
+   "listing_id": "10001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "19",
+   "category": "Baby",
+   "sub_category": "Baby Formula",
+   "listing_id": "10093",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "19",
+   "category": "Baby",
+   "sub_category": "Baby & Toddler Beverages",
+   "listing_id": "10098",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "19",
+   "category": "Baby",
+   "sub_category": "Diapers & Training Pants",
+   "listing_id": "10003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "19",
+   "category": "Baby",
+   "sub_category": "Baby Wipes",
+   "listing_id": "10099",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "19",
+   "category": "Baby",
+   "sub_category": "Baby Bath & Skincare",
+   "listing_id": "10005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "19",
+   "category": "Baby",
+   "sub_category": "Baby Essentials",
+   "listing_id": "10006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Laundry Detergent Pods",
+   "listing_id": "2602500007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Liquid Laundry Detergent",
+   "listing_id": "2602500001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Powder Laundry Detergent",
+   "listing_id": "2602500010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Fabric Softener",
+   "listing_id": "2602500005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Dryer Sheets",
+   "listing_id": "2602500003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Scent Boosters",
+   "listing_id": "2602500011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Bleach",
+   "listing_id": "2602500002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Stain Remover",
+   "listing_id": "2602500012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Laundry Sanitizer",
+   "listing_id": "2602500008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Fabric Refreshers",
+   "listing_id": "2602500004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Free & Clear Laundry",
+   "listing_id": "2602500014",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Laundry Supplies",
+   "listing_id": "2602500009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Paper Towels",
+   "listing_id": "2602400003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Toilet Paper",
+   "listing_id": "2602400001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Flushable Wipes",
+   "listing_id": "2602400002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Facial Tissue",
+   "listing_id": "2602400004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Bulk Paper Products",
+   "listing_id": "2602400006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Hand Wipes",
+   "listing_id": "2602400007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Natural & Organic",
+   "listing_id": "2602400008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Napkins",
+   "listing_id": "2602400005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Dishwashing Needs",
+   "listing_id": "26005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Food Storage",
+   "listing_id": "26006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Disposable Tableware",
+   "listing_id": "26018",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Baking Paper & Foils",
+   "listing_id": "26019",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Water Filtration",
+   "listing_id": "26011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Wipes & Cleaning Supplies",
+   "listing_id": "2600400006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Cleaning Tools",
+   "listing_id": "2600400005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Kitchen Cleaners",
+   "listing_id": "2600400007",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "All-Purpose Cleaners",
+   "listing_id": "2600400008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Bathroom Cleaners",
+   "listing_id": "2600400009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Carpet & Floor Cleaners",
+   "listing_id": "2600400010",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Glass Cleaners",
+   "listing_id": "2600400004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Dusters",
+   "listing_id": "2600400011",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Mops",
+   "listing_id": "2600400012",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Furniture Cleaner",
+   "listing_id": "2600400013",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Brooms & Dust Pans",
+   "listing_id": "2600400014",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Drain Cleaners",
+   "listing_id": "2600400015",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Natural Cleaners",
+   "listing_id": "2600400016",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Bulk Cleaning Supplies",
+   "listing_id": "2600400017",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "20",
+   "category": "Household",
+   "sub_category": "Pet Cleaning Supplies",
+   "listing_id": "2600400018",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Kitchen Appliances",
+   "listing_id": "28005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Kitchen Gadgets",
+   "listing_id": "28001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Coffee & Tea Supplies",
+   "listing_id": "28004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Cookware",
+   "listing_id": "28003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Bakeware",
+   "listing_id": "28009",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Kitchen Linens",
+   "listing_id": "28006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Kitchen Maintenance",
+   "listing_id": "28016",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Reusable Bags & Totes",
+   "listing_id": "28015",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Kitchen Organization",
+   "listing_id": "28002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Glassware & Drinkware",
+   "listing_id": "40003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Thermal & Water Bottles",
+   "listing_id": "40004",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Dinnerware",
+   "listing_id": "40001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Serveware",
+   "listing_id": "40006",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Wine & Bar Essentials",
+   "listing_id": "40008",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Cutlery & Knives",
+   "listing_id": "40002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "21",
+   "category": "Kitchen Dining",
+   "sub_category": "Flatware",
+   "listing_id": "40005",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Dog Food",
+   "listing_id": "27017",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Dog Treats",
+   "listing_id": "27018",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Dog Toys",
+   "listing_id": "27019",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Dog Supplies",
+   "listing_id": "27020",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Cat Food",
+   "listing_id": "27021",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Cat Treats",
+   "listing_id": "27022",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Cat Litter & Accessories",
+   "listing_id": "27023",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Cat Toys",
+   "listing_id": "27024",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Cat Supplies",
+   "listing_id": "27025",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Bird Supplies",
+   "listing_id": "27026",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Fish Supplies",
+   "listing_id": "27027",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "22",
+   "category": "Pet Supplies",
+   "sub_category": "Small Animal Supplies",
+   "listing_id": "27029",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "23",
+   "category": "Candles Home Fragrances",
+   "sub_category": "",
+   "listing_id": "32001",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "24",
+   "category": "Batteries",
+   "sub_category": "",
+   "listing_id": "26003",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "25",
+   "category": "Light Bulbs",
+   "sub_category": "",
+   "listing_id": "26002",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "26",
+   "category": "School Office",
+   "sub_category": "",
+   "listing_id": "35",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  },
+  {
+   "csv_row": "27",
+   "category": "Hardware Home Improvement",
+   "sub_category": "",
+   "listing_id": "33",
+   "reported_total": "",
+   "unique_identities": "0",
+   "status": "NOT_COLLECTED",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run"
+  }
+ ]
+}

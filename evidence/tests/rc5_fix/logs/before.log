@@ -1,0 +1,103 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.7.0 -- [redacted:vm-home]/m10r5b/src/.venv/bin/python
+hypothesis profile 'default'
+rootdir: [redacted:vm-home]/m10r5b/src
+configfile: pyproject.toml
+plugins: platformdirs-4.13.5, hypothesis-6.170.5, anyio-4.15.1
+collecting ... collected 33 items / 29 deselected / 4 selected
+
+tests/integration/test_listing_pages.py::test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on[1] FAILED [ 25%]
+tests/integration/test_listing_pages.py::test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on[2] FAILED [ 50%]
+tests/integration/test_listing_pages.py::test_a_page_without_its_search_that_shows_products_or_another_store_still_stops_the_run[search_not_made_with_products] PASSED [ 75%]
+tests/integration/test_listing_pages.py::test_a_page_without_its_search_that_shows_products_or_another_store_still_stops_the_run[search_not_made_wrong_store] PASSED [100%]
+
+=================================== FAILURES ===================================
+_ test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on[1] _
+
+env = {'engine': Engine(postgresql+psycopg://postgres:***@/walmart_collector_test?host=%2Ftmp%2Fwalmart-headless-pg-n6v3t6wf...', is_contest_store=False, notes='Marianos Lakeshore East, 333 E Benton Pl, Chicago, IL 60601; In Store prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=<AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'>, browser_provider=<BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+page = 1
+
+    @pytest.mark.parametrize("page", [1, 2])
+    def test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on(
+        env: dict[str, Any], settings: Settings, page: int
+    ) -> None:
+        """Release 1.10.0rc5. Live 2026-11-16 (run F1, 1.10.0rc4): page 3 of a listing came back before the page's
+        search was made (no request, still loading, no response, no product, no card) in the store's own context;
+        the search request's store was read as absent, the page taken for another store's, and the run stopped
+        (STORE_NOT_VERIFIED). Such a page prices nothing: it is not counted and is asked again, and every other
+        store check of it still has to pass."""
+        site = _complete(60)
+        site.on("03001", page, "search_not_made")
+        run_id, status = _run(env, settings, site)
+        assert status != "interrupted", status
+>       assert site.asked.count(("03001", page)) == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = <built-in method count of list object at 0x78ed06d5ce80>(('03001', 1))
+E        +    where <built-in method count of list object at 0x78ed06d5ce80> = [('03001', 1)].count
+E        +      where [('03001', 1)] = <tests.listing_site.Site object at 0x78ed086a1e80>.asked
+
+tests/integration/test_listing_pages.py:398: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T16:32:47.469Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "console"}}
+{"ts": "2026-11-16T16:32:47.494Z", "level": "INFO", "event": "RUN_PREFLIGHT", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "queued -> preflight", "data": {}}
+{"ts": "2026-11-16T16:32:47.514Z", "level": "INFO", "event": "SEGMENT_STARTED", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "collection segment 01M7JK8ECNZW7JHKQMWE675F04 started (manual)", "data": {"segment": "01M7JK8ECNZW7JHKQMWE675F04", "code": {"version": "1.10.0rc4", "parser_version": "1.10.0", "commit": "unknown", "source": "none"}, "account_remaining": 400, "verified_so_far": 0, "abandoned_segments_recovered": []}}
+{"ts": "2026-11-16T16:32:47.575Z", "level": "INFO", "event": "PROVIDER_SESSION_OPENED", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "Oxylabs Web API: robots.txt read through the provider", "data": {"session": 1, "robots_sha256": "bf586a08f1467be241465599f2dbef508e5f1062a2e7cf44e225496f711a5cab", "provider": "oxylabs"}}
+{"ts": "2026-11-16T16:32:47.624Z", "level": "WARN", "event": "RUN_STOPPED", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "the page Oxylabs served is not priced for the store and fulfillment: search_request: observed {'locationId': None, 'activeModalityType': None}, expected {'locationId': '53100503', 'activeModalityType': 'IN_STORE'}", "data": {"stop_code": "STORE_NOT_VERIFIED", "task": "01M7JK8EBCVX4N07P81NHTW4M1/preflight", "resumable": false}}
+{"ts": "2026-11-16T16:32:47.632Z", "level": "INFO", "event": "SESSION_PROVIDER_SESSION_STARTED", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "Oxylabs Web API (no browser)", "data": {"provider": "oxylabs", "session_id": "01M7JK8EDZADWBVAT4RVQ5WJ1B", "api_base": "https://webapi.oxylabs.io", "store_id": "53100503", "fulfillment_type": "in_store", "at": "2026-11-16T16:32:47.551373Z"}}
+{"ts": "2026-11-16T16:32:47.632Z", "level": "INFO", "event": "SESSION_ROBOTS_FETCHED", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "https://www.marianos.com/robots.txt", "data": {"status": 200, "sha256": "bf586a08f1467be241465599f2dbef508e5f1062a2e7cf44e225496f711a5cab", "disallow": ["/checkout$", "/locations*"], "via": "oxylabs", "at": "2026-11-16T16:32:47.569963Z"}}
+{"ts": "2026-11-16T16:32:47.632Z", "level": "INFO", "event": "SESSION_PAGE_CAPTURED", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "https://www.marianos.com/pl/listing-03001/03001", "data": {"fetch_id": "01M7JK8EF0TRQE5KZP09AC4PM7", "status": 200, "ms": 10, "captured": 0, "reasons": [], "request_id": "req-2", "run_js_requested": false, "rendered": null, "at": "2026-11-16T16:32:47.612878Z"}}
+{"ts": "2026-11-16T16:32:47.632Z", "level": "INFO", "event": "SESSION_PROVIDER_SESSION_CLOSED", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "oxylabs", "data": {"session_id": "01M7JK8EDZADWBVAT4RVQ5WJ1B", "submissions": 2, "at": "2026-11-16T16:32:47.632335Z"}}
+{"ts": "2026-11-16T16:32:47.632Z", "level": "INFO", "event": "PROVIDER_SESSION_CLOSED", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "Oxylabs Web API session closed", "data": {"submissions": 2, "pages": 2}}
+{"ts": "2026-11-16T16:32:47.645Z", "level": "INFO", "event": "RUN_REJECTED", "collector": "marianos-azure-headless", "run_id": "01M7JK8EBCVX4N07P81NHTW4M1", "message": "preflight -> rejected", "data": {}}
+_ test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on[2] _
+
+env = {'engine': Engine(postgresql+psycopg://postgres:***@/walmart_collector_test?host=%2Ftmp%2Fwalmart-headless-pg-n6v3t6wf...', is_contest_store=False, notes='Marianos Lakeshore East, 333 E Benton Pl, Chicago, IL 60601; In Store prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=<AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'>, browser_provider=<BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+page = 2
+
+    @pytest.mark.parametrize("page", [1, 2])
+    def test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on(
+        env: dict[str, Any], settings: Settings, page: int
+    ) -> None:
+        """Release 1.10.0rc5. Live 2026-11-16 (run F1, 1.10.0rc4): page 3 of a listing came back before the page's
+        search was made (no request, still loading, no response, no product, no card) in the store's own context;
+        the search request's store was read as absent, the page taken for another store's, and the run stopped
+        (STORE_NOT_VERIFIED). Such a page prices nothing: it is not counted and is asked again, and every other
+        store check of it still has to pass."""
+        site = _complete(60)
+        site.on("03001", page, "search_not_made")
+        run_id, status = _run(env, settings, site)
+        assert status != "interrupted", status
+>       assert site.asked.count(("03001", page)) == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = <built-in method count of list object at 0x78ed061856c0>(('03001', 2))
+E        +    where <built-in method count of list object at 0x78ed061856c0> = [('03001', 1), ('03001', 2)].count
+E        +      where [('03001', 1), ('03001', 2)] = <tests.listing_site.Site object at 0x78ed06161700>.asked
+
+tests/integration/test_listing_pages.py:398: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T16:32:48.322Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "console"}}
+{"ts": "2026-11-16T16:32:48.345Z", "level": "INFO", "event": "RUN_PREFLIGHT", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "queued -> preflight", "data": {}}
+{"ts": "2026-11-16T16:32:48.362Z", "level": "INFO", "event": "SEGMENT_STARTED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "collection segment 01M7JK8F77R2448RRZBDD2QMTQ started (manual)", "data": {"segment": "01M7JK8F77R2448RRZBDD2QMTQ", "code": {"version": "1.10.0rc4", "parser_version": "1.10.0", "commit": "unknown", "source": "none"}, "account_remaining": 400, "verified_so_far": 0, "abandoned_segments_recovered": []}}
+{"ts": "2026-11-16T16:32:48.462Z", "level": "INFO", "event": "PROVIDER_SESSION_OPENED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "Oxylabs Web API: robots.txt read through the provider", "data": {"session": 1, "robots_sha256": "bf586a08f1467be241465599f2dbef508e5f1062a2e7cf44e225496f711a5cab", "provider": "oxylabs"}}
+{"ts": "2026-11-16T16:32:48.511Z", "level": "INFO", "event": "STORE_VERIFIED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "Marianos Lakeshore East requested from Oxylabs with its store_id and fulfillment_type and verified on the page", "data": {"url": "https://www.marianos.com/pl/listing-03001/03001"}}
+{"ts": "2026-11-16T16:32:48.513Z", "level": "INFO", "event": "RUN_RUNNING", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "preflight -> running", "data": {}}
+{"ts": "2026-11-16T16:32:48.543Z", "level": "INFO", "event": "COUPONS_ROUTE", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "Coupons page: READ; 1 coupon cards", "data": {"url": "https://www.marianos.com/savings/cl/coupons/", "provider": "oxylabs", "run_js": true, "status": "READ", "fetch_id": "01M7JK8FCDH2R4XTJYBFQQYFDM", "store_check": "PASS", "coupon_cards": 1, "products_listed": false}}
+{"ts": "2026-11-16T16:32:48.645Z", "level": "INFO", "event": "PAGE_COLLECTED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "Breakfast › Listing 03001: page step 0", "data": {"node": "03001", "step": 0, "cards": 24, "new_cards": 24, "new_records": 24, "new_verified": 24, "duplicates": 0, "sponsored": 0, "sponsored_elsewhere": 0, "other_listing": 0, "off_plan": 0, "total": 60, "seen": 24, "replay": false}}
+{"ts": "2026-11-16T16:32:48.653Z", "level": "INFO", "event": "CANARY_PASSED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "first recorded page step passed the automated checks: collection continues", "data": {"page": "01M7JK8FAR8GDPA76MT2AHA4M7", "url": "https://www.marianos.com/pl/listing-03001/03001", "records": 24, "valid": 24, "valid_ratio": 1.0, "source_check": {"records": 24, "verified": 24, "mismatch": 0, "unverified": 0}, "problems": []}}
+{"ts": "2026-11-16T16:32:48.687Z", "level": "WARN", "event": "PAGE_NOT_COUNTED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "Breakfast › Listing 03001: page 2 wrong_context: search_request: observed {'locationId': None, 'activeModalityType': None}, expected {'locationId': '53100503', 'activeModalityType': 'IN_STORE'}", "data": {"node": "03001", "page": 2, "verdict": "wrong_context", "attempt": 1, "rendered": null}}
+{"ts": "2026-11-16T16:32:48.693Z", "level": "WARN", "event": "RUN_STOPPED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "https://www.marianos.com/pl/listing-03001/03001?page=2: search_request: observed {'locationId': None, 'activeModalityType': None}, expected {'locationId': '53100503', 'activeModalityType': 'IN_STORE'}", "data": {"stop_code": "STORE_NOT_VERIFIED", "task": "01M7JK8F616XMGFEYXEZF0KBMR/node/0000-03001", "resumable": false}}
+{"ts": "2026-11-16T16:32:48.700Z", "level": "INFO", "event": "SESSION_PROVIDER_SESSION_STARTED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "Oxylabs Web API (no browser)", "data": {"provider": "oxylabs", "session_id": "01M7JK8F9RTDWKY4HEFGV6V5EH", "api_base": "https://webapi.oxylabs.io", "store_id": "53100503", "fulfillment_type": "in_store", "at": "2026-11-16T16:32:48.440217Z"}}
+{"ts": "2026-11-16T16:32:48.700Z", "level": "INFO", "event": "SESSION_ROBOTS_FETCHED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "https://www.marianos.com/robots.txt", "data": {"status": 200, "sha256": "bf586a08f1467be241465599f2dbef508e5f1062a2e7cf44e225496f711a5cab", "disallow": ["/checkout$", "/locations*"], "via": "oxylabs", "at": "2026-11-16T16:32:48.457625Z"}}
+{"ts": "2026-11-16T16:32:48.700Z", "level": "INFO", "event": "SESSION_PAGE_CAPTURED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "https://www.marianos.com/pl/listing-03001/03001", "data": {"fetch_id": "01M7JK8FAR8GDPA76MT2AHA4M7", "status": 200, "ms": 10, "captured": 1, "reasons": [], "request_id": "req-2", "run_js_requested": false, "rendered": null, "at": "2026-11-16T16:32:48.497260Z"}}
+{"ts": "2026-11-16T16:32:48.701Z", "level": "INFO", "event": "SESSION_PAGE_CAPTURED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "https://www.marianos.com/savings/cl/coupons/", "data": {"fetch_id": "01M7JK8FCDH2R4XTJYBFQQYFDM", "status": 200, "ms": 10, "captured": 0, "reasons": [], "request_id": "req-3", "run_js_requested": true, "rendered": null, "at": "2026-11-16T16:32:48.539859Z"}}
+{"ts": "2026-11-16T16:32:48.701Z", "level": "INFO", "event": "SESSION_PAGE_CAPTURED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "https://www.marianos.com/pl/listing-03001/03001?page=2", "data": {"fetch_id": "01M7JK8FGWJN8W2TCRB0770V0P", "status": 200, "ms": 10, "captured": 0, "reasons": [], "request_id": "req-4", "run_js_requested": false, "rendered": null, "at": "2026-11-16T16:32:48.683158Z"}}
+{"ts": "2026-11-16T16:32:48.701Z", "level": "INFO", "event": "SESSION_PROVIDER_SESSION_CLOSED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "oxylabs", "data": {"session_id": "01M7JK8F9RTDWKY4HEFGV6V5EH", "submissions": 4, "at": "2026-11-16T16:32:48.700846Z"}}
+{"ts": "2026-11-16T16:32:48.701Z", "level": "INFO", "event": "PROVIDER_SESSION_CLOSED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "Oxylabs Web API session closed", "data": {"submissions": 4, "pages": 4}}
+{"ts": "2026-11-16T16:32:48.714Z", "level": "INFO", "event": "RUN_REJECTED", "collector": "marianos-azure-headless", "run_id": "01M7JK8F616XMGFEYXEZF0KBMR", "message": "running -> rejected", "data": {}}
+---- generated xml file: [redacted:vm-home]/m10r5/logs/rc5fix/before.junit.xml ----
+=========================== short test summary info ============================
+FAILED tests/integration/test_listing_pages.py::test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on[1]
+FAILED tests/integration/test_listing_pages.py::test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on[2]
+================= 2 failed, 2 passed, 29 deselected in 10.75s ==================

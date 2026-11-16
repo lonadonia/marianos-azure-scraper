@@ -1,0 +1,166 @@
+FFF.FF
+=================================== FAILURES ===================================
+_ test_a_live_run_selects_the_store_pages_with_load_more_and_verifies_every_step _
+
+site = ('http://127.0.0.1:38487', <class 'tests.integration.test_live_collector.make_handler.<locals>.H'>)
+cloud_browser = 'http://127.0.0.1:53731'
+env = {'engine': Engine(postgresql+psycopg://postgres:***@/walmart_collector_test?host=%2Ftmp%2Fwalmart-headless-pg-1s4cgzgq...', is_contest_store=False, notes='Marianos Lakeshore East, 333 E Benton Pl, Chicago, IL 60601; In Store prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=<AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'>, browser_provider=<BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    @requires_chromium
+    def test_a_live_run_selects_the_store_pages_with_load_more_and_verifies_every_step(
+        site: tuple[str, type], cloud_browser: str, env: dict[str, Any], settings: Settings
+    ) -> None:
+        base, handler = site
+        run_id, status, account = _run(env, base, cloud_browser, settings)
+>       assert status == "validated", status
+E       AssertionError: interrupted
+E       assert 'interrupted' == 'validated'
+E         
+E         - validated
+E         + interrupted
+
+tests/integration/test_live_collector.py:538: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T04:29:10.520Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7H9VEZQ03TAPNJPE3NDJE8S", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "console"}}
+{"ts": "2026-11-16T04:29:10.544Z", "level": "INFO", "event": "RUN_PREFLIGHT", "collector": "marianos-azure-headless", "run_id": "01M7H9VEZQ03TAPNJPE3NDJE8S", "message": "queued -> preflight", "data": {}}
+{"ts": "2026-11-16T04:29:10.567Z", "level": "INFO", "event": "SEGMENT_STARTED", "collector": "marianos-azure-headless", "run_id": "01M7H9VEZQ03TAPNJPE3NDJE8S", "message": "collection segment 01M7H9VF13F5PDASP0F0CDQYZS started (manual)", "data": {"segment": "01M7H9VF13F5PDASP0F0CDQYZS", "code": {"version": "1.10.0rc4", "parser_version": "1.10.0", "commit": "unknown", "source": "none"}, "account_remaining": 5000, "verified_so_far": 0, "abandoned_segments_recovered": []}}
+{"ts": "2026-11-16T04:29:10.860Z", "level": "WARN", "event": "RUN_PAUSED_ON_FAILURE", "collector": "marianos-azure-headless", "run_id": "01M7H9VEZQ03TAPNJPE3NDJE8S", "message": "network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:53731 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:53731?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A38487%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true", "data": {"stop_code": "PROVIDER_ERROR", "task": "01M7H9VEZQ03TAPNJPE3NDJE8S/preflight", "resumable": true}}
+{"ts": "2026-11-16T04:29:10.866Z", "level": "INFO", "event": "RUN_INTERRUPTED", "collector": "marianos-azure-headless", "run_id": "01M7H9VEZQ03TAPNJPE3NDJE8S", "message": "preflight -> interrupted", "data": {}}
+{"ts": "2026-11-16T04:29:10.866Z", "level": "INFO", "event": "RUN_PAUSED", "collector": "marianos-azure-headless", "run_id": "01M7H9VEZQ03TAPNJPE3NDJE8S", "message": "paused at a checkpoint; resume continues from it (PROVIDER_ERROR: network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:53731 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:53731?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A38487%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true)", "data": {"stop_code": "PROVIDER_ERROR", "stop_detail": "network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:53731 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:53731?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A38487%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true"}}
+_ test_a_product_limit_stops_inside_a_page_and_a_resume_continues_without_counting_twice _
+
+site = ('http://127.0.0.1:40709', <class 'tests.integration.test_live_collector.make_handler.<locals>.H'>)
+cloud_browser = 'http://127.0.0.1:47455'
+env = {'engine': Engine(postgresql+psycopg://postgres:***@/walmart_collector_test?host=%2Ftmp%2Fwalmart-headless-pg-1s4cgzgq...', is_contest_store=False, notes='Marianos Lakeshore East, 333 E Benton Pl, Chicago, IL 60601; In Store prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=<AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'>, browser_provider=<BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    @requires_chromium
+    def test_a_product_limit_stops_inside_a_page_and_a_resume_continues_without_counting_twice(
+        site: tuple[str, type], cloud_browser: str, env: dict[str, Any], settings: Settings
+    ) -> None:
+        base, _ = site
+        run_id, status, _ = _run(env, base, cloud_browser, settings, limits=Limits(max_products_per_run=30))
+        assert status == "interrupted"
+        with env["factory"]() as s:
+            run = s.get(Run, run_id)
+>           assert (
+                run is not None
+                and run.stop_code == "RUN_PRODUCT_LIMIT"
+                and "30 verified" in (run.stop_detail or "")
+            )
+E           AssertionError: assert (<marianos_headless.db.models.Run object at 0x764e0580a6c0> is not None and 'PROVIDER_ERROR' == 'RUN_PRODUCT_LIMIT'
+E             
+E             - RUN_PRODUCT_LIMIT
+E             + PROVIDER_ERROR)
+
+tests/integration/test_live_collector.py:637: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T04:29:21.495Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7H9VSPPT9KPCG8HAJXRBZ2E", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "console"}}
+{"ts": "2026-11-16T04:29:21.519Z", "level": "INFO", "event": "RUN_PREFLIGHT", "collector": "marianos-azure-headless", "run_id": "01M7H9VSPPT9KPCG8HAJXRBZ2E", "message": "queued -> preflight", "data": {}}
+{"ts": "2026-11-16T04:29:21.538Z", "level": "INFO", "event": "SEGMENT_STARTED", "collector": "marianos-azure-headless", "run_id": "01M7H9VSPPT9KPCG8HAJXRBZ2E", "message": "collection segment 01M7H9VSQZ4V3SVC43R8NF6Y8M started (manual)", "data": {"segment": "01M7H9VSQZ4V3SVC43R8NF6Y8M", "code": {"version": "1.10.0rc4", "parser_version": "1.10.0", "commit": "unknown", "source": "none"}, "account_remaining": 5000, "verified_so_far": 0, "abandoned_segments_recovered": []}}
+{"ts": "2026-11-16T04:29:21.821Z", "level": "WARN", "event": "RUN_PAUSED_ON_FAILURE", "collector": "marianos-azure-headless", "run_id": "01M7H9VSPPT9KPCG8HAJXRBZ2E", "message": "network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:47455 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:47455?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A40709%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true", "data": {"stop_code": "PROVIDER_ERROR", "task": "01M7H9VSPPT9KPCG8HAJXRBZ2E/preflight", "resumable": true}}
+{"ts": "2026-11-16T04:29:21.832Z", "level": "INFO", "event": "RUN_INTERRUPTED", "collector": "marianos-azure-headless", "run_id": "01M7H9VSPPT9KPCG8HAJXRBZ2E", "message": "preflight -> interrupted", "data": {}}
+{"ts": "2026-11-16T04:29:21.832Z", "level": "INFO", "event": "RUN_PAUSED", "collector": "marianos-azure-headless", "run_id": "01M7H9VSPPT9KPCG8HAJXRBZ2E", "message": "paused at a checkpoint; resume continues from it (PROVIDER_ERROR: network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:47455 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:47455?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A40709%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true)", "data": {"stop_code": "PROVIDER_ERROR", "stop_detail": "network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:47455 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:47455?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A40709%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true"}}
+_________ test_the_credit_budget_stops_the_run_and_closes_the_browser __________
+
+site = ('http://127.0.0.1:37247', <class 'tests.integration.test_live_collector.make_handler.<locals>.H'>)
+cloud_browser = 'http://127.0.0.1:41725'
+env = {'engine': Engine(postgresql+psycopg://postgres:***@/walmart_collector_test?host=%2Ftmp%2Fwalmart-headless-pg-1s4cgzgq...', is_contest_store=False, notes='Marianos Lakeshore East, 333 E Benton Pl, Chicago, IL 60601; In Store prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=<AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'>, browser_provider=<BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    @requires_chromium
+    def test_the_credit_budget_stops_the_run_and_closes_the_browser(
+        site: tuple[str, type], cloud_browser: str, env: dict[str, Any], settings: Settings
+    ) -> None:
+        base, _ = site
+        # An inflated bandwidth rate makes the first responses cost more than the run's budget.
+        run_id, status, _ = _run(
+            env,
+            base,
+            cloud_browser,
+            settings,
+            limits=Limits(max_credits_per_run=100),
+            credits_per_mb_residential=10_000_000,
+        )
+        assert status == "interrupted"
+        with env["factory"]() as s:
+            run = s.get(Run, run_id)
+>           assert run is not None and run.stop_code == "RUN_CREDIT_LIMIT"
+E           AssertionError: assert (<marianos_headless.db.models.Run object at 0x764e085da900> is not None and 'PROVIDER_ERROR' == 'RUN_CREDIT_LIMIT'
+E             
+E             - RUN_CREDIT_LIMIT
+E             + PROVIDER_ERROR)
+
+tests/integration/test_live_collector.py:699: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T04:29:32.866Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7H9W4T1F216G9664R0H3TNB", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "console"}}
+{"ts": "2026-11-16T04:29:32.889Z", "level": "INFO", "event": "RUN_PREFLIGHT", "collector": "marianos-azure-headless", "run_id": "01M7H9W4T1F216G9664R0H3TNB", "message": "queued -> preflight", "data": {}}
+{"ts": "2026-11-16T04:29:32.908Z", "level": "INFO", "event": "SEGMENT_STARTED", "collector": "marianos-azure-headless", "run_id": "01M7H9W4T1F216G9664R0H3TNB", "message": "collection segment 01M7H9W4V971W22PRHVRRXT6TV started (manual)", "data": {"segment": "01M7H9W4V971W22PRHVRRXT6TV", "code": {"version": "1.10.0rc4", "parser_version": "1.10.0", "commit": "unknown", "source": "none"}, "account_remaining": 5000, "verified_so_far": 0, "abandoned_segments_recovered": []}}
+{"ts": "2026-11-16T04:29:33.194Z", "level": "WARN", "event": "RUN_PAUSED_ON_FAILURE", "collector": "marianos-azure-headless", "run_id": "01M7H9W4T1F216G9664R0H3TNB", "message": "network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:41725 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:41725?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A37247%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true", "data": {"stop_code": "PROVIDER_ERROR", "task": "01M7H9W4T1F216G9664R0H3TNB/preflight", "resumable": true}}
+{"ts": "2026-11-16T04:29:33.201Z", "level": "INFO", "event": "RUN_INTERRUPTED", "collector": "marianos-azure-headless", "run_id": "01M7H9W4T1F216G9664R0H3TNB", "message": "preflight -> interrupted", "data": {}}
+{"ts": "2026-11-16T04:29:33.201Z", "level": "INFO", "event": "RUN_PAUSED", "collector": "marianos-azure-headless", "run_id": "01M7H9W4T1F216G9664R0H3TNB", "message": "paused at a checkpoint; resume continues from it (PROVIDER_ERROR: network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:41725 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:41725?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A37247%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true)", "data": {"stop_code": "PROVIDER_ERROR", "stop_detail": "network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:41725 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:41725?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A37247%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true"}}
+_ test_a_refusal_stops_the_run_keeps_what_was_verified_and_closes_the_browser[refuse_second] _
+
+site = ('http://127.0.0.1:41699', <class 'tests.integration.test_live_collector.make_handler.<locals>.H'>)
+cloud_browser = 'http://127.0.0.1:55959'
+env = {'engine': Engine(postgresql+psycopg://postgres:***@/walmart_collector_test?host=%2Ftmp%2Fwalmart-headless-pg-1s4cgzgq...', is_contest_store=False, notes='Marianos Lakeshore East, 333 E Benton Pl, Chicago, IL 60601; In Store prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=<AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'>, browser_provider=<BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    @requires_chromium
+    @pytest.mark.parametrize("site", ["refuse_second"], indirect=True)
+    def test_a_refusal_stops_the_run_keeps_what_was_verified_and_closes_the_browser(
+        site: tuple[str, type], cloud_browser: str, env: dict[str, Any], settings: Settings
+    ) -> None:
+        base, handler = site
+        run_id, status, _ = _run(env, base, cloud_browser, settings)
+>       assert status == "rejected"
+E       AssertionError: assert 'interrupted' == 'rejected'
+E         
+E         - rejected
+E         + interrupted
+
+tests/integration/test_live_collector.py:731: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T04:29:55.036Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7H9WTEV0ZSEXDGFMEPX96BQ", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "console"}}
+{"ts": "2026-11-16T04:29:55.059Z", "level": "INFO", "event": "RUN_PREFLIGHT", "collector": "marianos-azure-headless", "run_id": "01M7H9WTEV0ZSEXDGFMEPX96BQ", "message": "queued -> preflight", "data": {}}
+{"ts": "2026-11-16T04:29:55.079Z", "level": "INFO", "event": "SEGMENT_STARTED", "collector": "marianos-azure-headless", "run_id": "01M7H9WTEV0ZSEXDGFMEPX96BQ", "message": "collection segment 01M7H9WTG3J494GR92EGW909C1 started (manual)", "data": {"segment": "01M7H9WTG3J494GR92EGW909C1", "code": {"version": "1.10.0rc4", "parser_version": "1.10.0", "commit": "unknown", "source": "none"}, "account_remaining": 5000, "verified_so_far": 0, "abandoned_segments_recovered": []}}
+{"ts": "2026-11-16T04:29:55.356Z", "level": "WARN", "event": "RUN_PAUSED_ON_FAILURE", "collector": "marianos-azure-headless", "run_id": "01M7H9WTEV0ZSEXDGFMEPX96BQ", "message": "network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:55959 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:55959?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A41699%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true", "data": {"stop_code": "PROVIDER_ERROR", "task": "01M7H9WTEV0ZSEXDGFMEPX96BQ/preflight", "resumable": true}}
+{"ts": "2026-11-16T04:29:55.363Z", "level": "INFO", "event": "RUN_INTERRUPTED", "collector": "marianos-azure-headless", "run_id": "01M7H9WTEV0ZSEXDGFMEPX96BQ", "message": "preflight -> interrupted", "data": {}}
+{"ts": "2026-11-16T04:29:55.363Z", "level": "INFO", "event": "RUN_PAUSED", "collector": "marianos-azure-headless", "run_id": "01M7H9WTEV0ZSEXDGFMEPX96BQ", "message": "paused at a checkpoint; resume continues from it (PROVIDER_ERROR: network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:55959 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:55959?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A41699%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true)", "data": {"stop_code": "PROVIDER_ERROR", "stop_detail": "network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:55959 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:55959?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A41699%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true"}}
+_ test_a_store_the_picker_cannot_select_stops_before_any_product[store_not_listed] _
+
+site = ('http://127.0.0.1:41799', <class 'tests.integration.test_live_collector.make_handler.<locals>.H'>)
+cloud_browser = 'http://127.0.0.1:50035'
+env = {'engine': Engine(postgresql+psycopg://postgres:***@/walmart_collector_test?host=%2Ftmp%2Fwalmart-headless-pg-1s4cgzgq...', is_contest_store=False, notes='Marianos Lakeshore East, 333 E Benton Pl, Chicago, IL 60601; In Store prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=<AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'>, browser_provider=<BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    @requires_chromium
+    @pytest.mark.parametrize("site", ["store_not_listed"], indirect=True)
+    def test_a_store_the_picker_cannot_select_stops_before_any_product(
+        site: tuple[str, type], cloud_browser: str, env: dict[str, Any], settings: Settings
+    ) -> None:
+        base, _ = site
+        run_id, status, _ = _run(env, base, cloud_browser, settings)
+>       assert status == "rejected"
+E       AssertionError: assert 'interrupted' == 'rejected'
+E         
+E         - rejected
+E         + interrupted
+
+tests/integration/test_live_collector.py:748: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T04:30:06.075Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7H9X57TDATYNHA8BPWDVCRJ", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "console"}}
+{"ts": "2026-11-16T04:30:06.098Z", "level": "INFO", "event": "RUN_PREFLIGHT", "collector": "marianos-azure-headless", "run_id": "01M7H9X57TDATYNHA8BPWDVCRJ", "message": "queued -> preflight", "data": {}}
+{"ts": "2026-11-16T04:30:06.119Z", "level": "INFO", "event": "SEGMENT_STARTED", "collector": "marianos-azure-headless", "run_id": "01M7H9X57TDATYNHA8BPWDVCRJ", "message": "collection segment 01M7H9X5931VME5FTBZGR062W1 started (manual)", "data": {"segment": "01M7H9X5931VME5FTBZGR062W1", "code": {"version": "1.10.0rc4", "parser_version": "1.10.0", "commit": "unknown", "source": "none"}, "account_remaining": 5000, "verified_so_far": 0, "abandoned_segments_recovered": []}}
+{"ts": "2026-11-16T04:30:06.405Z", "level": "WARN", "event": "RUN_PAUSED_ON_FAILURE", "collector": "marianos-azure-headless", "run_id": "01M7H9X57TDATYNHA8BPWDVCRJ", "message": "network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:50035 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:50035?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A41799%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true", "data": {"stop_code": "PROVIDER_ERROR", "task": "01M7H9X57TDATYNHA8BPWDVCRJ/preflight", "resumable": true}}
+{"ts": "2026-11-16T04:30:06.412Z", "level": "INFO", "event": "RUN_INTERRUPTED", "collector": "marianos-azure-headless", "run_id": "01M7H9X57TDATYNHA8BPWDVCRJ", "message": "preflight -> interrupted", "data": {}}
+{"ts": "2026-11-16T04:30:06.412Z", "level": "INFO", "event": "RUN_PAUSED", "collector": "marianos-azure-headless", "run_id": "01M7H9X57TDATYNHA8BPWDVCRJ", "message": "paused at a checkpoint; resume continues from it (PROVIDER_ERROR: network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:50035 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:50035?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A41799%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true)", "data": {"stop_code": "PROVIDER_ERROR", "stop_detail": "network: BrowserType.connect_over_cdp: connect ECONNREFUSED 127.0.0.1:50035 Call log: - <ws preparing> retrieving websocket url from http://127.0.0.1:50035?api_key=[REDACTED]&proxy_pool=residential&country=us&target_url=http%3A%2F%2F127.0.0.1%3A41799%2F&auto_close=true&timeout=900&block_images=true&block_fonts=true&block_media=true&block_styles=false&blacklist=true&cache=true"}}
+=========================== short test summary info ============================
+FAILED tests/integration/test_live_collector.py::test_a_live_run_selects_the_store_pages_with_load_more_and_verifies_every_step
+FAILED tests/integration/test_live_collector.py::test_a_product_limit_stops_inside_a_page_and_a_resume_continues_without_counting_twice
+FAILED tests/integration/test_live_collector.py::test_the_credit_budget_stops_the_run_and_closes_the_browser
+FAILED tests/integration/test_live_collector.py::test_a_refusal_stops_the_run_keeps_what_was_verified_and_closes_the_browser[refuse_second]
+FAILED tests/integration/test_live_collector.py::test_a_store_the_picker_cannot_select_stops_before_any_product[store_not_listed]
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 5 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+5 failed, 1 passed in 70.17s (0:01:10)

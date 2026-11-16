@@ -1,0 +1,95 @@
+{
+  "mode": "LIVE",
+  "run_id": "01M7JH4G03W52YEZMES5QSWVC4",
+  "status": "validated",
+  "dataset": "complete",
+  "counts": {
+    "gates": {
+      "G1": "PASS",
+      "G2": "PASS",
+      "G3": "PASS",
+      "G4": "PASS",
+      "G5": "PASS",
+      "G6": "PASS",
+      "G7": "PASS",
+      "G8": "PASS",
+      "G9": "PASS",
+      "G10": "PASS",
+      "G11": "PASS",
+      "G12": "PASS",
+      "G13": "PASS",
+      "G14": "FAIL"
+    },
+    "nodes": {
+      "DONE": 1
+    },
+    "canary": {
+      "at": "2026-11-16T15:56:29.883369Z",
+      "url": "https://www.marianos.com/pl/hardware-home-improvement/33",
+      "page": "01M7JH4RSNQZCE2K7Y5RA5XY4G",
+      "valid": 24,
+      "status": "passed",
+      "records": 26,
+      "problems": [],
+      "valid_ratio": 0.923,
+      "source_check": {
+        "records": 24,
+        "mismatch": 0,
+        "verified": 24,
+        "unverified": 0
+      }
+    },
+    "outcome": "validated",
+    "contract": {
+      "pages": 3,
+      "problems": []
+    },
+    "verified": 62,
+    "historical": {
+      "too_old": 0,
+      "carried_forward": 0
+    },
+    "completeness": {
+      "ppm": 1.0,
+      "upc": 1.0,
+      "url": 1.0,
+      "gupc": 0.0,
+      "weight": 1.0,
+      "zipcode": 1.0,
+      "category": 1.0,
+      "image_url": 1.0,
+      "crawl_date": 1.0,
+      "sale_price": 0.27692307692307694,
+      "store_logo": 1.0,
+      "store_name": 1.0,
+      "unit_price": 0.0,
+      "store_brand": 1.0,
+      "sub_category": 0.0,
+      "product_title": 1.0,
+      "regular_price": 1.0,
+      "store_location": 1.0,
+      "volume_deals_price": 0.0,
+      "digital_deals_price": 0.0,
+      "volume_deals_description": 0.0,
+      "digital_deals_description": 0.0
+    },
+    "coupons_route": {
+      "url": "https://www.marianos.com/savings/cl/coupons/",
+      "run_js": true,
+      "status": "READ",
+      "coupons": [],
+      "fetch_id": "01M7JH5PF0FAFV8WYXNAZBWJE9",
+      "provider": "oxylabs",
+      "store_check": "PASS",
+      "coupon_cards": 0,
+      "products_listed": false
+    },
+    "records_by_status": {
+      "valid": 62,
+      "price_conflict": 3
+    },
+    "collection_complete": true
+  },
+  "excluded_by_reason": {},
+  "duplicates": 0
+}

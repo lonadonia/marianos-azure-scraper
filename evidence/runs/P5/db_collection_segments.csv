@@ -1,0 +1,2 @@
+id,run_id,store_id,trigger,day,started_at,heartbeat_at,ended_at,active_s,credits_estimated,browser_sessions,browsers_closed,steps,products_verified,account_remaining_start,account_remaining_end,stop_code,stop_detail,end_state,recovered_at
+01M7JSXE3ARMJ6TV5Y8M0HFDD1,01M7JSXE192AD3KH2SV0178F4A,01M7JRXAKQEYA7A18HCEVXFT6X,manual,2026-11-16,2026-11-16 18:29:06.793815+00,2026-11-16 18:34:33.607481+00,2026-11-16 18:34:33.607481+00,326.8072582509999,4,1,1,3,22,4,0,SPENDING_CEILING,"the Oxylabs ceiling leaves no submission (4 left when the segment started, 4 sent since)",ended,

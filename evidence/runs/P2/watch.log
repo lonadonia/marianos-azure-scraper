@@ -1,0 +1,5 @@
+2026-11-16T16:03:27Z watch start unit=marianos-stage-p2 stage=M-P2-pubtarget-partial-refused-110rc4-20261116 db=marianos_pubtest
+2026-11-16T16:03:28Z unit=active run=01M7JHJNGQJ67ABVGR9X8MPEGP status=preflight|-  pages=[0 pages, 0 completed ] distinct_upcs=0  deferred(all|wait|rec|exh|answered_reasks)=0|0|0|0|0  ledger={"dispatched": 1}
+2026-11-16T16:03:58Z unit=active run=01M7JHJNGQJ67ABVGR9X8MPEGP status=running|-  pages=[0 pages, 0 completed ] distinct_upcs=0  deferred(all|wait|rec|exh|answered_reasks)=0|0|0|0|0  ledger={"dispatched": 1, "settled": 2}
+2026-11-16T16:04:28Z unit=failed run=01M7JHJNGQJ67ABVGR9X8MPEGP status=rejected|SPENDING_CEILING  pages=[2 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=0|0|0|0|0  ledger={"settled": 4}
+2026-11-16T16:04:28Z unit not active (failed): watch ends

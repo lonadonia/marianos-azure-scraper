@@ -1,0 +1,35 @@
+2026-11-16T18:11:39Z watch start unit=marianos-stage-p4 stage=M-P4-pubtarget-first-publication-110rc5-20261116 db=marianos_pubtest5
+2026-11-16T18:11:40Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=preflight|-  pages=[0 pages, 0 completed ] distinct_upcs=0  deferred(all|wait|rec|exh|answered_reasks)=0|0|0|0|0  ledger={"dispatched": 1}
+2026-11-16T18:12:10Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"settled": 4}
+2026-11-16T18:12:40Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"settled": 4}
+2026-11-16T18:13:10Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"settled": 4}
+2026-11-16T18:13:41Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"settled": 4}
+2026-11-16T18:14:11Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"settled": 4}
+2026-11-16T18:14:41Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"settled": 4}
+2026-11-16T18:15:11Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"settled": 4}
+2026-11-16T18:15:42Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"settled": 4}
+2026-11-16T18:16:12Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"settled": 4}
+2026-11-16T18:16:42Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"settled": 4}
+2026-11-16T18:17:12Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[2 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=1|1|0|0|0  ledger={"dispatched": 1, "settled": 4}
+2026-11-16T18:17:43Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[4 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|1  ledger={"settled": 6}
+2026-11-16T18:18:13Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[4 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|1  ledger={"settled": 6}
+2026-11-16T18:18:43Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[4 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|1  ledger={"settled": 6}
+2026-11-16T18:19:13Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[4 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|1  ledger={"settled": 6}
+2026-11-16T18:19:43Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[4 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|1  ledger={"settled": 6}
+2026-11-16T18:20:14Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[4 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|1  ledger={"settled": 6}
+2026-11-16T18:20:44Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[4 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|1  ledger={"settled": 6}
+2026-11-16T18:21:14Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[4 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|1  ledger={"settled": 6}
+2026-11-16T18:21:44Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[4 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|1  ledger={"settled": 6}
+2026-11-16T18:22:15Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[4 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|1  ledger={"settled": 6}
+2026-11-16T18:22:45Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[5 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|2  ledger={"settled": 7}
+2026-11-16T18:23:15Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[5 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|2  ledger={"settled": 7}
+2026-11-16T18:23:45Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[5 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|2  ledger={"settled": 7}
+2026-11-16T18:24:16Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[5 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|2  ledger={"settled": 7}
+2026-11-16T18:24:46Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[5 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|2  ledger={"settled": 7}
+2026-11-16T18:25:16Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[5 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|2  ledger={"settled": 7}
+2026-11-16T18:25:46Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[5 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|2  ledger={"settled": 7}
+2026-11-16T18:26:17Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[5 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|2  ledger={"settled": 7}
+2026-11-16T18:26:47Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[5 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|2  ledger={"settled": 7}
+2026-11-16T18:27:17Z unit=active run=01M7JRXD9P93HPNBRY3J0BVMSX status=running|-  pages=[5 pages, 2 completed ] distinct_upcs=49  deferred(all|wait|rec|exh|answered_reasks)=2|1|1|0|2  ledger={"settled": 7}
+2026-11-16T18:27:47Z unit=inactive run=01M7JRXD9P93HPNBRY3J0BVMSX status=validated|-  pages=[6 pages, 3 completed ] distinct_upcs=65  deferred(all|wait|rec|exh|answered_reasks)=2|0|2|0|3  ledger={"settled": 8}
+2026-11-16T18:27:47Z unit not active (inactive): watch ends

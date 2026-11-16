@@ -1,0 +1,86 @@
+[
+  {
+    "upc": "0087145900217",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0087145900216",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0002531731411",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111016165",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0083373500012",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  },
+  {
+    "upc": "0001111015502",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $2 each when you buy 3 or more (Exp. 11/17/2026)",
+    "expiry_text": "Exp. 11/17/2026",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "",
+    "modalities": [
+      "PICKUP"
+    ],
+    "flags": []
+  }
+]

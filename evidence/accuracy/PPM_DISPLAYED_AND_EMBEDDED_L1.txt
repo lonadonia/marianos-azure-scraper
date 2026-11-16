@@ -1,0 +1,21 @@
+=== 0084024314377  'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Cuts in Gravy Salmon & Tuna'
+    page      https://www.marianos.com/pl/cat-food/27021?page=10  fetched 2026-11-16T15:23:49.625143Z  fetch 01M7JFA5FSG6NZ5FYAYXSVZ3A6
+    provenance dom_sha256 4f805809b2de1448557f7691e17d47e83e4ecbac9e3b601d42059d689e7112af (the stored .html.gz as kept)
+    html      stored file sha256 4f805809b2de1448557f7691e17d47e83e4ecbac9e3b601d42059d689e7112af (MATCHES the provenance)
+    displayed per-measure element: '$19.99/oz'
+    exported  ppm '$19.99/oz'  regular_price '19.99'  sale_price ''  weight '12 ct / 2.6 oz'
+    product data 01M7JFA5FSG6NZ5FYAYXSVZ3A6.0059.products_v2.json.gz: sha256 f03930d38b58ab5f35dd73d038745f41267a0e9f4b6d829148013466cc553b4f (uncompressed)
+      customerFacingSize '12 ct / 2.6 oz'; sourceLocationId 53100502
+      regular: '$19.99', equivalized {"amount": "19.99", "denomination": "DOLLAR", "unit": "PER OUNCE"}, string '$19.99/oz', expires 9999-12-31T00:00:00Z
+    flags     ['SIZE_FROM_PRODUCT_DATA', 'PPM_EQUALS_ITEM_PRICE', 'DIGITAL_COUPONS_UNOBSERVED']
+=== 0001280052496  'Rayovac 100 Lumens Workhorse LED Headlight'
+    page      https://www.marianos.com/pl/hardware-home-improvement/33?page=3  fetched 2026-11-16T15:20:27.432755Z  fetch 01M7JF4018W4XWHK1A63FMGD7X
+    provenance dom_sha256 6ac3fb420ec665cb51ead35667d3b31db6297283ee8db57ec479d8285a006c2a (the stored .html.gz as kept)
+    html      stored file sha256 6ac3fb420ec665cb51ead35667d3b31db6297283ee8db57ec479d8285a006c2a (MATCHES the provenance)
+    displayed per-measure element: '$7.99/oz'
+    exported  ppm '$7.99/oz'  regular_price '10.49'  sale_price '7.99'  weight '1 Count'
+    product data 01M7JF4018W4XWHK1A63FMGD7X.0049.products_v2.json.gz: sha256 7a9a6675e6fe77a3a3d2e6cf5ed54950a592bc51fc0fd6f18b7ed4398d26d14d (uncompressed)
+      customerFacingSize '1 Count'; sourceLocationId 53100502
+      regular: '$10.49', equivalized {"amount": "10.49", "denomination": "DOLLAR", "unit": "PER OUNCE"}, string '$10.49/oz', expires 2026-12-07T04:59:59.999Z
+      promo: '$7.99', equivalized {"amount": "7.99", "denomination": "DOLLAR", "unit": "PER OUNCE"}, string '$7.99/oz', expires 2026-12-07T04:59:59.999Z
+    flags     ['SIZE_FROM_PRODUCT_DATA', 'PPM_UNIT_FAMILY_MISMATCH', 'DIGITAL_COUPONS_UNOBSERVED']

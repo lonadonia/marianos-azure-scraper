@@ -1,0 +1,9 @@
+expected: equal every section; different none named
+EQUAL     every file under published/
+EQUAL     exports of the published run
+EQUAL     latest.json
+EQUAL     pointer
+EQUAL     publications
+EQUAL     latest.json dataset fields ['publication_id', 'run_id', 'manifest_key', 'manifest_sha256', 'mode']
+    version 1 -> 1; written_at 2026-11-16T18:28:44.999478Z -> 2026-11-16T18:28:44.999478Z
+RESULT as expected

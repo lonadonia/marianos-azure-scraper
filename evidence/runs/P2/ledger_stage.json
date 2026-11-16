@@ -1,0 +1,86 @@
+{
+ "stage": [
+  {
+   "stage_id": "M-P2-pubtarget-partial-refused-110rc4-20261116",
+   "project": "marianos",
+   "opened_at": "2026-11-16T16:03:24.695922Z",
+   "objective": "ISOLATED PUBLICATION TARGET (its own database marianos_pubtest and data folder; the production target is not touched). Its configuration is the shipped one with the store's categories set to [27] (Hardware Home Improvement: one listing, 65 products on 2026-11-16), so a run of it is not a pilot and can be published when it completes and validates. It proves the publication mechanism on the final candidate; it is not the client's full scope and its dataset is not a catalogue. P2: a run stopped by a 4-submission ceiling (robots, store, Coupons route and at most one listing page: incomplete, with products), finalized, then offered for publication: the publication must be refused (exit 6) and P1's published files stay byte-identical.",
+   "command": "run --store marianos-53100502-pickup",
+   "config": "{\"config_dir\": \"/var/lib/marianos-collector/ops111/stages/M-P2-pubtarget-partial-refused-110rc4-20261116/config\", \"config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"eb8d257e649a86fcb718b4a2daacdd7ae1e4f248d5ff463738236db2b82107b5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}, \"differs_from_shipped_in\": [\"collector.yaml: publish.auto false\", \"collector.yaml: categories [27] (the isolated publication target's configured scope)\"], \"environment\": \"the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel\", \"lanes\": 1, \"shipped_config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}}",
+   "source_revision": "570ff7cce9d45a913963d495593f0f9d89c3c41e",
+   "max_requests": 4,
+   "max_results": 4,
+   "max_usd": "0.006000",
+   "deadline_utc": "2026-11-16T16:33:22Z",
+   "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt, each reserved at its worst case",
+   "stop_conditions": "the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator: once 10 re-asks have been answered and none recovered its request, the stage is stopped and reported as it stands (no allowance is spent repeating one outcome)",
+   "closed_at": null,
+   "outcome": null
+  }
+ ],
+ "events_naming_the_stage": [
+  {
+   "seq": 6300,
+   "at": "2026-11-16T16:03:24.696033Z",
+   "kind": "stage_opened",
+   "ref": "M-P2-pubtarget-partial-refused-110rc4-20261116",
+   "detail": "{\"deadline_utc\":\"2026-11-16T16:33:22Z\",\"max_requests\":4,\"max_results\":4,\"max_usd\":\"0.006000\",\"project\":\"marianos\",\"source_revision\":\"570ff7cce9d45a913963d495593f0f9d89c3c41e\"}",
+   "prev_hash": "8dae9b4cbd94f391a428a8fff18ea138712e34bdbdeba260e24f5a5ba46ff8e8",
+   "hash": "7ae2ec8d0de9781e9832dceabd60a17e5d42605542f9cf51a4cf3e961e90c196"
+  },
+  {
+   "seq": 6301,
+   "at": "2026-11-16T16:03:25.087971Z",
+   "kind": "lease_acquired",
+   "ref": "71",
+   "detail": "{\"holder\":\"live111:M-P2-pubtarget-partial-refused-110rc4-20261116:540425\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "7ae2ec8d0de9781e9832dceabd60a17e5d42605542f9cf51a4cf3e961e90c196",
+   "hash": "24d3ab52252665840daa533da030258ba4724cca852375e6cb4bc9faf15d96f2"
+  },
+  {
+   "seq": 6302,
+   "at": "2026-11-16T16:03:25.478656Z",
+   "kind": "reserved",
+   "ref": "1758c30e841a48a4925551991dcadbfe",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-P2-pubtarget-partial-refused-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "24d3ab52252665840daa533da030258ba4724cca852375e6cb4bc9faf15d96f2",
+   "hash": "763b11d24023fca84450ddb942472b1d1ef4daeecadc49a9a5df75a809ac76ef"
+  },
+  {
+   "seq": 6305,
+   "at": "2026-11-16T16:03:29.587502Z",
+   "kind": "reserved",
+   "ref": "1e46596523164131beb75efcaa1b7736",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P2-pubtarget-partial-refused-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b7fc2083eff6f7cdff4ac0d34ebce2d0dd9f025734d52aaa73a725ccdffc14fd",
+   "hash": "5eec27f7e892cd7b93869058b930a55744bd125375f41277fc29f1be909fbecc"
+  },
+  {
+   "seq": 6308,
+   "at": "2026-11-16T16:03:35.175185Z",
+   "kind": "reserved",
+   "ref": "8021c2e1a7c74281b7a196fbba02f697",
+   "detail": "{\"purpose\":\"coupons (attempt 1)\",\"stage\":\"M-P2-pubtarget-partial-refused-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "1cd3773c7c76ac63cfe257cbe183fdee7bcb6d3e11e54591efc6c6de0308bf20",
+   "hash": "3a52f9ffde63730787fb062dcf4d337982f230d44393e81925c8eccecbbac2cd"
+  },
+  {
+   "seq": 6311,
+   "at": "2026-11-16T16:04:12.329257Z",
+   "kind": "reserved",
+   "ref": "7a8009210b184f079ca8a32ccfaf857f",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P2-pubtarget-partial-refused-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "aef0f240500ad9c6dbdea5a7ea3e3157d4298ff4cfc60af4bc22204f0f150b7b",
+   "hash": "6e3e7dd9ef16243d50155513f02eb7f22b3dea839716f8c0bd6fb3f01c9063a6"
+  },
+  {
+   "seq": 6314,
+   "at": "2026-11-16T16:04:17.552527Z",
+   "kind": "lease_released",
+   "ref": "71",
+   "detail": "{\"reason\":\"live111 M-P2-pubtarget-partial-refused-110rc4-20261116 ended (exit 4)\"}",
+   "prev_hash": "d7bdf785ff09b93a4fc1f83ee0ed3a1083dc747b034169cb07cf13a9334dc4c3",
+   "hash": "aaea720221b488ab19476146688e306a3e2457371dc734c9d1645e73b1e0db2f"
+  }
+ ]
+}

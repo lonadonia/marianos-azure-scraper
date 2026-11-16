@@ -1,0 +1,20 @@
+csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
+10,18010,https://www.marianos.com/pl/frozen/18010,listing,1,1,1,completed,new,,281,250,24,12,31,0,0,1,f239ba81d271afc3d33509122eb11ac05ac5054fcf22fdff042473b817115173,7527944146900751361
+10,1801000001,https://www.marianos.com/pl/ice-cream-dessert/1801000001,listing,1,1,1,completed,new,,81,81,24,19,32,2,0,0,420a44e341e11ed619507c385cf17e156ea3b5dbfc4caf707c9ecae769e049a4,7527944214638812161
+10,1801000001,https://www.marianos.com/pl/ice-cream-dessert/1801000001?page=2,listing,2,2,1,completed,new,,81,81,24,0,20,8,0,0,19f0bc427a8499f21c35e511eb9603c6803db0181535218ddd937623d9effd7f,7527944236658907137
+10,1801000001,https://www.marianos.com/pl/ice-cream-dessert/1801000001?page=3,listing,3,3,1,completed,new,,81,81,24,0,22,10,0,0,dd2b58d6b96755c5aa0751629c2398aea8df346b486ef673b2a9838d401330c9,7527944257672320003
+10,1801000001,https://www.marianos.com/pl/ice-cream-dessert/1801000001?page=4,listing,4,4,1,completed,new,,81,81,9,0,7,9,0,0,74c398e73c749a3c01b7584de86e75d3e8a26d567fd571755c5d81afbdeeed49,7527944276571889665
+10,1801000002,https://www.marianos.com/pl/fries-tots-onion-rings-potato-sides/1801000002,listing,1,1,1,completed,new,,12,12,12,6,12,4,0,0,abb324a402787a2a1b327b1695625a49fc85bc908b2ac063880c00582e10e291,7527944509351536641
+10,1801000003,https://www.marianos.com/pl/vegetables/1801000003,listing,1,1,1,completed,new,,21,21,21,4,21,4,0,0,7175fb48b28356c947132d05e6ea2fad45eec0667c2a010581bb96966e3ec583,7527944407828402177
+10,1801000004,https://www.marianos.com/pl/pizza/1801000004,listing,1,1,1,completed,new,,21,21,21,9,21,2,0,0,7efb72a499652358e185e7ed978b8a94eea0142a8b582d1582c05d2ee69aa042,7527944367349198849
+10,1801000005,https://www.marianos.com/pl/snacks-appetizers/1801000005,listing,1,1,1,completed,new,,15,15,15,6,15,2,0,0,6fb267cae83fdd41e9d72431edb7a63ad5db4c155c9624668c53915b3e1f6932,7527944481031592961
+10,1801000006,https://www.marianos.com/pl/bread/1801000006,listing,1,1,1,completed,new,,17,17,17,9,17,1,0,0,24fb12861ff38668c09f636a2885e4932216f042984eec3cb3f666e145560d06,7527944460773136385
+10,1801000007,https://www.marianos.com/pl/fruit/1801000007,listing,1,1,1,completed,new,,29,29,24,8,24,5,0,0,d8f719ef2fa24fd88f8e6a371d53532af1e21160493287431d1a067431dfea84,7527944331202662401
+10,1801000007,https://www.marianos.com/pl/fruit/1801000007?page=2,listing,2,2,1,completed,new,,29,29,5,0,5,3,0,0,f563bb66a6dd50b4f1cafe3820cfd9d2a04d8f1275f30b84c6672d1b3e46ac68,7527944352593619969
+10,1801000008,https://www.marianos.com/pl/meat-seafood/1801000008,listing,1,1,1,completed,new,,10,10,10,5,10,3,0,0,11a188cbb37503438b6910e1ae352fa1f774424edd28850afbd71e49e126fbcd,7527944524870508545
+10,1801000009,https://www.marianos.com/pl/breakfast/1801000009,listing,1,1,1,completed,new,,18,18,18,7,18,5,0,0,edfcaca934d22d299cddd8da5024c6827bdb0ee536fa9436c19e0497e01ea306,7527944426006518785
+10,1801000010,https://www.marianos.com/pl/meals-entrees/1801000010,listing,1,1,1,completed,new,,45,45,24,11,27,2,0,0,44e588c17f1fb0cc4fd384d3af1b97280ed7c733e0bc5eb111d62973eca2f739,7527944293332323329
+10,1801000010,https://www.marianos.com/pl/meals-entrees/1801000010?page=2,listing,2,2,1,stopped,repeated,page 2 repeats an earlier page exactly,45,45,24,0,0,24,0,0,f3883e71daf7db67bfd8613bb47f00301aecfe48c16e50502b983230341c1dc2,7527944311774649345
+10,1801000010,https://www.marianos.com/pl/meals-entrees/1801000010?page=2,listing,2,2,2,completed,new,,45,45,21,0,18,7,0,0,622f95598a3139a9359384cd17485433c9eebd798a33c5281d5c1b10893e70e1,7527945594342528001
+10,1801000011,https://www.marianos.com/pl/juices-mixes/1801000011,listing,1,1,1,completed,new,,1,1,1,1,1,0,0,0,8143f02b76fbb1a451993faf13d59ccd27becd9d4dabd132e355e32e7d8b02ef,7527944542922793985
+10,1801000012,https://www.marianos.com/pl/meat-alternatives/1801000012,listing,1,1,1,completed,new,,18,18,18,9,18,4,0,0,baf3bc62a5d166fe3ed5aebba9dc727058a0818e8b16f27ef6614af35292a69d,7527944444633422849

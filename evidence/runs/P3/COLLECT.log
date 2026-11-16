@@ -1,0 +1,22 @@
+stage=M-P3-pubtarget-second-publication-rollback-110rc4-20261116 run=01M7JHR4GE1PZMY8D8J2DA6R4P collected_at=2026-11-16T16:07:47Z
+status exit 0
+export exit 0
+validate-export exit 0
+runs 0
+listing_pages 0
+deferred 0
+events 0
+provider_usage 0
+node_coverage 0
+page_fetches 0
+tasks 0
+audit_log 0
+collection_segments 0
+store_attestations 0
+validation_findings 0
+exports 0
+publications 0
+publication_pointer 0
+ledger rows 5 {"settled": 5}
+chain 0
+stored copied

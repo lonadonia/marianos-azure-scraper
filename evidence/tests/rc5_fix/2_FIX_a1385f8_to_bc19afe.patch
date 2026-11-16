@@ -1,0 +1,122 @@
+diff --git a/headless/marianos-azure-headless/README.md b/headless/marianos-azure-headless/README.md
+index e1b94a7..d69b960 100644
+--- a/headless/marianos-azure-headless/README.md
++++ b/headless/marianos-azure-headless/README.md
+@@ -92,7 +92,7 @@ validated run is also published:
+   Azure), with the results, for the releases up to 1.2.1; the verification of each later release is in that
+   release's delivery (TECHNICAL_REPORT).
+ 
+-## Release 1.10.0 (candidate 1.10.0rc4, not a final release): a request set aside and asked again (C1)
++## Release 1.10.0 (candidate 1.10.0rc5, not a final release): a request set aside and asked again (C1)
+ 
+ On 2026-11-09 some answers to a listing's page N listed page 1's products, and some first pages of a
+ listing above the site's 250-result window named no child listing and no brand to subdivide it by; minutes
+@@ -123,6 +123,17 @@ second re-ask, giving 93 products the first answers had not given; each re-ask c
+ previous answer. A listing whose last page repeats one product of the page before it (a ranking shift between
+ two requests) still ends incomplete: C1 does not ask such a page again.
+ 
++**1.10.0rc5: a page brought before its search was made is asked again.** Live on 2026-11-16 (run F1 with
++1.10.0rc4 on the operator's own Azure VM, a full-scope run), page 3 of a listing came back before the page's
++search was made: no request, still loading, no response, no product and no card, while the page's own store
++context and the provider request named the configured store. 1.10.0rc4 read the search request's store as
++absent, judged the page a page of another store and stopped the run (`STORE_NOT_VERIFIED`, not resumable)
++after 158 submissions. Such a page prices nothing: the search request check no longer applies to it, as the
++price check does not apply to a page without products; every other store check of the page still has to pass,
++the page is not counted (no page number, no result count) and it is asked again within the task's bounded
++retries. A search request that names another store or fulfillment, a page without its search that shows
++products, and an empty page in another store's context still stop the run.
++
+ **1.10.0rc4 changes no behaviour.** One C1 case compared the stored page's `.gz` bytes with a fixture made on
+ Windows. `gzip.compress(..., mtime=0)` lets zlib write the header, and zlib writes its own platform's OS byte
+ (header byte 9: 10 on Windows, 3 on Linux), so the case failed on Linux although the stored body was the saved
+diff --git a/headless/marianos-azure-headless/pyproject.toml b/headless/marianos-azure-headless/pyproject.toml
+index 15d2b31..2dd93b4 100644
+--- a/headless/marianos-azure-headless/pyproject.toml
++++ b/headless/marianos-azure-headless/pyproject.toml
+@@ -1,6 +1,6 @@
+ [project]
+ name = "marianos-azure-headless"
+-version = "1.10.0rc4"
++version = "1.10.0rc5"
+ description = "Headless Mariano's store-price collector: Scrapfly Cloud Browser, PostgreSQL, Azure Container Apps jobs"
+ readme = "README.md"
+ requires-python = ">=3.12,<3.13"
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/__init__.py b/headless/marianos-azure-headless/src/marianos_headless/__init__.py
+index a979617..39ba375 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/__init__.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/__init__.py
+@@ -1,3 +1,3 @@
+ """Mariano's store-price collector (headless): Scrapfly Cloud Browser, PostgreSQL, Azure jobs."""
+ 
+-__version__ = "1.10.0rc4"
++__version__ = "1.10.0rc5"
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+index a6a4995..6c609b4 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+@@ -398,17 +398,40 @@ class OxylabsCollector(LiveCollector):
+         except (InitialStateNotFound, ValueError):
+             state = {}
+         summary = search_summary(state)
++        products = state_products(state)
++        shows = fetch.purpose != "coupons" and bool(products or grid_cards(html)[1])
+         if summary is not None:
++            # Release 1.10.0rc5: a page brought before its search was made (live 2026-11-16, run F1: no
++            # request, still loading, no response, no product, no card) states no store for its search
++            # because it has none. Nothing on it is priced, so this check does not apply to it, as
++            # price_locations does not apply to a page that shows no product; every other check of the page
++            # still has to pass, and the listing step judges the page (no page number, no result count: not
++            # counted, asked for again). 1.10.0rc4 took it for a page of another store and stopped the run.
++            # A search that names another store or fulfillment, and any page that shows a product, are
++            # checked as before.
++            not_made = (
++                summary.filters is None  # no request at all (requestVars empty or missing)
++                and summary.loaded is not True
++                and summary.total is None
++                and not shows
++            )
++            observed: dict[str, Any] = {
++                "locationId": summary.location_id,
++                "activeModalityType": summary.modality,
++            }
++            if not_made:
++                observed.update(loaded=summary.loaded, loading=summary.loading)
+             v.checks.append(
+                 StoreCheck(
+                     "search_request",
+-                    summary.location_id == loc and summary.modality == modality,
+-                    {"locationId": summary.location_id, "activeModalityType": summary.modality},
++                    None if not_made else summary.location_id == loc and summary.modality == modality,
++                    observed,
+                     {"locationId": loc, "activeModalityType": modality},
+-                    note="the page's own search request (search.searchAll.requestVars)",
++                    required=not not_made,
++                    note="the page's own search request (search.searchAll.requestVars)"
++                    + ("; not made when the page was brought: not applicable" if not_made else ""),
+                 )
+             )
+-        products = state_products(state)
+         locs = Counter(price_location(p) for p in products)
+         stated = set(locs) - {None}
+         # Every price a page states must be the store's. A product whose data states no price (``price``
+@@ -418,7 +441,6 @@ class OxylabsCollector(LiveCollector):
+         # nothing, the Coupons page) has none either; its store and fulfillment are still checked above,
+         # and the listing step tells an empty search from an abnormal page. A page that shows cards
+         # without their product data cannot be checked: it fails.
+-        shows = fetch.purpose != "coupons" and bool(products or grid_cards(html)[1])
+         ok = (stated == {loc}) if stated else (False if shows and not products else None)
+         v.checks.append(
+             StoreCheck(
+diff --git a/headless/marianos-azure-headless/uv.lock b/headless/marianos-azure-headless/uv.lock
+index 1bb8d8b..ea9debf 100644
+--- a/headless/marianos-azure-headless/uv.lock
++++ b/headless/marianos-azure-headless/uv.lock
+@@ -440,7 +440,7 @@ wheels = [
+ 
+ [[package]]
+ name = "marianos-azure-headless"
+-version = "1.10.0rc4"
++version = "1.10.0rc5"
+ source = { editable = "." }
+ dependencies = [
+     { name = "alembic" },

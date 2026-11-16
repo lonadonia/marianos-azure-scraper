@@ -1,0 +1,3 @@
+id,at,project,envelope_usd,reason,actor
+1,2026-11-03T16:14:35.635568Z,walmart,2.250000,opening envelope (brief: at most USD 2.50 per retailer; 0.50 campaign headroom kept inside the cap),walmart-session
+2,2026-11-03T16:14:35.645451Z,marianos,2.250000,opening envelope reserved for Mariano's (brief: at most USD 2.50 per retailer),walmart-session

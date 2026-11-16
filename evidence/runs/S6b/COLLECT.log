@@ -1,0 +1,22 @@
+stage=M-S6b-frozen-brand-union-110rc3-20261116 run=01M7H8ABYFGRJPHK2YJ5MSAJQC collected_at=2026-11-16T04:08:45Z
+status exit 0
+export exit 0
+validate-export exit 0
+runs 0
+ERROR:  column "created_at" does not exist
+LINE 1: ...ERE run_id= '01M7H8ABYFGRJPHK2YJ5MSAJQC' ORDER BY created_at...
+                                                             ^
+listing_pages 0
+deferred 0
+events 0
+ERROR:  column "at" does not exist
+LINE 1: ...ERE run_id= '01M7H8ABYFGRJPHK2YJ5MSAJQC' ORDER BY at ) TO ST...
+                                                             ^
+provider_usage 0
+node_coverage 0
+page_fetches 0
+tasks 0
+audit_log 0
+ledger rows 21 {"settled": 21}
+chain 0
+stored copied

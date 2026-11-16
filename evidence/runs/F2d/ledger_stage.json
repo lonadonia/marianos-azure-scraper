@@ -1,0 +1,284 @@
+{
+ "stage": [
+  {
+   "stage_id": "M-F2d-full-run-110rc5-20261116",
+   "project": "marianos",
+   "opened_at": "2026-11-16T18:54:13.580751Z",
+   "objective": "one logical full-scope run of the final candidate 1.10.0rc5 (no command-line narrowing or limit: every CSV row 0-27 as configured, so the run is not a pilot), two lanes, read in slices of at most 200 submissions (USD 0.30), each one ledger stage whose ceiling is also set in the collector (set-ceiling). In 1.10.0rc5 a stop at a spending ceiling finalizes the run (observed in P2 on 2026-11-16), so every slice but the last is ended by the operator with SIGTERM (systemctl stop, by slice_stop.sh) once the stage has 190 reservations in the ledger: a resumable stop (exit 75); the requests in flight at that moment are held as unknown outcomes, charged against the ceiling; the ceiling, 10 above, is the backstop. The last slice runs to its ceiling, where the collector finalizes the run as a partial dataset, which is never published. The trial credit cannot complete the scope: the result is the run's coverage (listings DONE, EMPTY, INCOMPLETE, not reached), its measured submissions and cost per listing, and the census of listings not measured before. This slice is the last one (its ceiling: what the trial credit leaves after P4 to P6) and the recorded walkthrough: it resumes the run, stops it with SIGTERM after a few pages (exit 75), shows that a second start is refused (exit 9), resumes it again up to the slice's ceiling, where the collector finalizes the run as a partial dataset (exit 4), and shows that its publication is refused (exit 6). This run is on 1.10.0rc5: 1.10.0rc4's full run F1 was stopped by the collector after 158 submissions (STORE_NOT_VERIFIED on a page brought before its search was made); rc5 asks such a page again.",
+   "command": "resume --store marianos-53100502-pickup",
+   "config": "{\"config_dir\": \"/var/lib/marianos-collector/ops111/stages/M-F2d-full-run-110rc5-20261116/config\", \"config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"b22c3c676712e6b6cceaf6d5cf7d08b700dbe7a23f806bf63901fedd4e6ea0b5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}, \"differs_from_shipped_in\": [\"collector.yaml: publish.auto false\", \"collector.yaml: limits.max_concurrent_listings 2\"], \"environment\": \"the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel\", \"lanes\": 2, \"shipped_config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}}",
+   "source_revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+   "max_requests": 200,
+   "max_results": 200,
+   "max_usd": "0.300000",
+   "deadline_utc": "2026-11-16T20:54:11Z",
+   "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt, each reserved at its worst case",
+   "stop_conditions": "the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator: once 10 re-asks have been answered and none recovered its request, the stage is stopped and reported as it stands (no allowance is spent repeating one outcome)",
+   "closed_at": null,
+   "outcome": null
+  }
+ ],
+ "events_naming_the_stage": [
+  {
+   "seq": 8615,
+   "at": "2026-11-16T18:54:13.580875Z",
+   "kind": "stage_opened",
+   "ref": "M-F2d-full-run-110rc5-20261116",
+   "detail": "{\"deadline_utc\":\"2026-11-16T20:54:11Z\",\"max_requests\":200,\"max_results\":200,\"max_usd\":\"0.300000\",\"project\":\"marianos\",\"source_revision\":\"bc19afe60c1016cf5d08d055abd96bc69c9d3dd1\"}",
+   "prev_hash": "95cf13a37923ffc6c3c8b205a4fcce32790af41884a0eafc839dc3088064a706",
+   "hash": "72386f63a169137bcfd8465297660499fa3223783a5ca016947a23a58489eb97"
+  },
+  {
+   "seq": 8616,
+   "at": "2026-11-16T18:54:32.971824Z",
+   "kind": "lease_acquired",
+   "ref": "81",
+   "detail": "{\"holder\":\"live111:M-F2d-full-run-110rc5-20261116:41130\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "72386f63a169137bcfd8465297660499fa3223783a5ca016947a23a58489eb97",
+   "hash": "021605e3eb36794b16645afa7accff57d621522f8cb90ab6f2bae25166887b9f"
+  },
+  {
+   "seq": 8617,
+   "at": "2026-11-16T18:54:33.772829Z",
+   "kind": "reserved",
+   "ref": "b5ddc9365a95405888ee89d201fc4f02",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "021605e3eb36794b16645afa7accff57d621522f8cb90ab6f2bae25166887b9f",
+   "hash": "a107335715fc1dfdde6d0cc752aa7a9177aab5cef0f1cffbc986935590ecefe8"
+  },
+  {
+   "seq": 8620,
+   "at": "2026-11-16T18:54:36.475487Z",
+   "kind": "reserved",
+   "ref": "4f95afe375474ef58ed548bf5b53df93",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a26bf2a3724a629ea43027a9333e03383b5dfd4d1b68780e80478980734a7610",
+   "hash": "80ce1fa8069b0d0de98f58124150af1fc0d8c73e89845aa5d46978d5485de13b"
+  },
+  {
+   "seq": 8622,
+   "at": "2026-11-16T18:54:36.787233Z",
+   "kind": "reserved",
+   "ref": "c2d97046cc5449a9a3a275a18003ebed",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "23b42875a04441d40ad5396abc401f0233b120e72b7e890e554724ffe664c5a5",
+   "hash": "1607c36f9dea1b6698c05e6e9fef9b88c5ef8b0f5f6d60da935b3506712e492d"
+  },
+  {
+   "seq": 8625,
+   "at": "2026-11-16T18:54:43.373226Z",
+   "kind": "reserved",
+   "ref": "34da5467316846dc920e824efa15fa0a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "378521cf06be0bbef36ef52c1d0ca0caef003730e6759d13ec438ddb0e59a7c7",
+   "hash": "d60f29aa7040133496f841ffa122ec24cd5ca9fcc821d489dab36dffca06661c"
+  },
+  {
+   "seq": 8628,
+   "at": "2026-11-16T18:54:44.401667Z",
+   "kind": "reserved",
+   "ref": "1638f45fddb94d1ba87210d55a798179",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d8ff57212fe915b2b0b2f4e6d3bc98c4a9f83b8af7115c6db6549d236c33d55b",
+   "hash": "22e66962e09fc6c8636f0510cdcc2c6f49d15d53aa868bf4a28bdb00747f2a9f"
+  },
+  {
+   "seq": 8631,
+   "at": "2026-11-16T18:54:48.895870Z",
+   "kind": "reserved",
+   "ref": "76a9181bc5ee4423a217b747eacb0a0f",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "8708f92eba4b0e90a328e0e0579cc0fcc8b28c86a62e35315b143a11e8beae98",
+   "hash": "c26dec5043f0dc038a56a419f0a775cc61772a6a926e2e8cb99239de63162638"
+  },
+  {
+   "seq": 8634,
+   "at": "2026-11-16T18:54:50.880172Z",
+   "kind": "reserved",
+   "ref": "3aba6bb6184d4f11a2d8ee1e0a07a7b7",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "20023fe6811682a3be010355eda9d8b76c113c1299f0c15d101f9d367c889ace",
+   "hash": "4377723a5ea9430b6168960ce440be969e5cbb49520d01b1d6ced9f67bfd7c99"
+  },
+  {
+   "seq": 8637,
+   "at": "2026-11-16T18:54:54.227102Z",
+   "kind": "reserved",
+   "ref": "38e3651294c94b9cb29511ee9c26c521",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "e491d8b3bef02d0d79059426275658506ced0f266a6b503dddeff17b51fd5e11",
+   "hash": "ee8b81d48fdd75aaf5907aa06da0b14f639e870976f70961cd75f1a00dadb142"
+  },
+  {
+   "seq": 8640,
+   "at": "2026-11-16T18:54:55.233054Z",
+   "kind": "reserved",
+   "ref": "f9f975cf2d134586b6258d633dd4d0a3",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9d93cbe7eeccbe4ffb1f062a083bc7eec794cfdbba6879e7289f5fe9f2d5fd29",
+   "hash": "662512ec5181df81c86649446e0c499974273d54039bfcc3809f05758e638615"
+  },
+  {
+   "seq": 8643,
+   "at": "2026-11-16T18:55:00.406599Z",
+   "kind": "reserved",
+   "ref": "a3128800b86f4beca9ef7190ef149912",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a7c9e97e75abf31d124ff44ebde90c94898e2c742b695b65ed75611408d7e89c",
+   "hash": "4364205d5b19a08d7fae9db3f7e072d8e47c26e90d204410ef7ef414b616f5a6"
+  },
+  {
+   "seq": 8646,
+   "at": "2026-11-16T18:55:02.685608Z",
+   "kind": "reserved",
+   "ref": "558a98a1d0d84536a9792d5ea31100d4",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "ba076a491d8bc673c4aad291eae6d9259ccc8c72e20ff82c7f480d43dff53c98",
+   "hash": "a1d8b386a1e01ff2aa736dcd6c0892d1fea31b525aac613c871081aabf032a69"
+  },
+  {
+   "seq": 8649,
+   "at": "2026-11-16T18:55:07.278736Z",
+   "kind": "reserved",
+   "ref": "3bcdd3ec78d749fc97fcf2f7eaac0aa5",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "c2ed0fd2225255cb7add6c82cbc34eb263291d448e89ad7f5a6a4a021ad2e6b6",
+   "hash": "f230e18603f83e654dfb52d2b04da6e318432582d719d76cad42cecfa094236f"
+  },
+  {
+   "seq": 8652,
+   "at": "2026-11-16T18:55:08.110427Z",
+   "kind": "reserved",
+   "ref": "3e5ce637f0ac41e6bef098acbf84a0bb",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2442ce4974fa700513d0658404a247691b073c5b40cb1d7bfda45c8dc0d0f5cc",
+   "hash": "3d534fd3c169769f05e16a2cc290c132e70107be4148a37097ada54bf7c61d5c"
+  },
+  {
+   "seq": 8655,
+   "at": "2026-11-16T18:55:12.206276Z",
+   "kind": "reserved",
+   "ref": "be92463f03d449f699572ef48cf85ad8",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "3b8957c4f05bc7f71b3ea681d7caa9fac032529617a5fe5267f2c7bf50ba57dd",
+   "hash": "f1a3a5c1c5321448872415e834c360acf80cb8371129c9a6a03ba0c99cffd989"
+  },
+  {
+   "seq": 8658,
+   "at": "2026-11-16T18:55:14.647322Z",
+   "kind": "reserved",
+   "ref": "d4c3061df29a4a559c72af8bad670566",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d3b7bb76be84dc6de2d55ccb5fa63fab689aee63123c512042d7f2e29dc8055f",
+   "hash": "ba1ac2e05e6b9e61510fb514b31911f3b63f8367a3b1c5a234f43c8dd70a813d"
+  },
+  {
+   "seq": 8661,
+   "at": "2026-11-16T18:55:17.379867Z",
+   "kind": "reserved",
+   "ref": "7fd0fe3cc82b42ddb161f6964ea09a8a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5bde1d60952d478d2e4529985716be02653d6f2b64011da96ae9f8d9954df429",
+   "hash": "9c1f132c506bdba42232eaf4069e0f3634484978ff8b2ff00f544369c9f0e763"
+  },
+  {
+   "seq": 8665,
+   "at": "2026-11-16T18:55:17.740418Z",
+   "kind": "lease_released",
+   "ref": "81",
+   "detail": "{\"reason\":\"live111 M-F2d-full-run-110rc5-20261116 ended (exit 75)\"}",
+   "prev_hash": "ee0199487004519e251c7d98e647afb85da90c8e48df6ef063fff79bdfd46ddc",
+   "hash": "41c188f4773bb84a3a60f8cf7a5adfdd8de4d2b34921df260b18d81515073346"
+  },
+  {
+   "seq": 8666,
+   "at": "2026-11-16T18:55:23.317128Z",
+   "kind": "lease_acquired",
+   "ref": "82",
+   "detail": "{\"holder\":\"live111:M-F2d-full-run-110rc5-20261116:41438\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "41c188f4773bb84a3a60f8cf7a5adfdd8de4d2b34921df260b18d81515073346",
+   "hash": "b41f3c31832240c99a8208e0ba49097d2e2950fae706c3fc3d349dbbb0835843"
+  },
+  {
+   "seq": 8667,
+   "at": "2026-11-16T18:55:24.113791Z",
+   "kind": "reserved",
+   "ref": "ea83a38ace284b4a8ea6d39ef56586f7",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b41f3c31832240c99a8208e0ba49097d2e2950fae706c3fc3d349dbbb0835843",
+   "hash": "5209a0de1d3b3542ebb8555a1b3e99a2edbdabcc7f4c4993ef8c35c6d548651d"
+  },
+  {
+   "seq": 8670,
+   "at": "2026-11-16T18:55:26.205918Z",
+   "kind": "reserved",
+   "ref": "6d7005470020433a8dac684ccb0b1028",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5f7f21e25d6fbba5a2e55f44fe213b840e98ae4a9ba8b1c51e0acfb048078fc5",
+   "hash": "d519a1a3f72c7c61f377e986946d50a6b049c505e5e7dd4872355c184e7d1671"
+  },
+  {
+   "seq": 8672,
+   "at": "2026-11-16T18:55:26.659721Z",
+   "kind": "reserved",
+   "ref": "a8fa7dfafde24c8da8266c35ddbf1fa7",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "bebd59471425ba536e07689e59eca2632fdb535c5472fe861c89470a85809017",
+   "hash": "f4ceea994bf8bb01a5efde5814df79a054c12d2cc26824ad89a11f7c145a569b"
+  },
+  {
+   "seq": 8675,
+   "at": "2026-11-16T18:55:33.169364Z",
+   "kind": "reserved",
+   "ref": "9d4385d79fe84b88a32b4d7bf3de1bb5",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0f654b7df82bae3a567db25e03a3d397c1ea4b572578e2b597952a75de851e8f",
+   "hash": "8de541702e2a50b59591efb2bec44864d74e5efbd2c286c16c14e1bd48c2cf73"
+  },
+  {
+   "seq": 8678,
+   "at": "2026-11-16T18:55:39.375343Z",
+   "kind": "reserved",
+   "ref": "f81bb5648d1a434ab6227c9dc6e4383a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "032e6aeb25d6773a924bbfebbc501815e28858c5a004ef4951965694cea259bf",
+   "hash": "dfba53d99067c635216186d9e212ef970c45c232af06b29356bab1e18551a63e"
+  },
+  {
+   "seq": 8681,
+   "at": "2026-11-16T18:55:46.619434Z",
+   "kind": "reserved",
+   "ref": "12bb744a64364a818bbdb3671294868f",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b617e4686db17f1537850d014d63e43f3f3b33adea4b77a2b513b140660dd664",
+   "hash": "a42e5aa8d01dc2477f359c45b7a484885c386e8703d68b63bdacfa209ca69a76"
+  },
+  {
+   "seq": 8684,
+   "at": "2026-11-16T18:55:54.755320Z",
+   "kind": "reserved",
+   "ref": "1a8801852a2c4c40867d5f27231ae1d8",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "301bb059c765d14290f656bd18b4b13c081b264ac91db2be6be55ed6bc1d7bea",
+   "hash": "741f7567056cf45bb0285452464cfac824769ad34d6b5619bd11b7d69e20ac0a"
+  },
+  {
+   "seq": 8687,
+   "at": "2026-11-16T18:56:00.798122Z",
+   "kind": "reserved",
+   "ref": "92bd8d9640c643588d1f0f91cef235fe",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-F2d-full-run-110rc5-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "4e174c7ad17db82aabb8c17c521a6c9b734291491b5f1bd59fa471d6851ab986",
+   "hash": "939fe06812bb15aaf978b1e6c95b6fa2ce75ab7aa45ae92a3644f1c2457014f0"
+  },
+  {
+   "seq": 8691,
+   "at": "2026-11-16T18:56:19.974141Z",
+   "kind": "lease_released",
+   "ref": "82",
+   "detail": "{\"reason\":\"live111 M-F2d-full-run-110rc5-20261116 ended (exit 7)\"}",
+   "prev_hash": "78be87052fcf27bb6ecc9a965576d3a515e3de1d95e7f0c5936ce9cd9fd70c22",
+   "hash": "643892e4fa1984954fc419494e7a393421dbb1b7cebc1ca754f899fef7460aab"
+  }
+ ]
+}

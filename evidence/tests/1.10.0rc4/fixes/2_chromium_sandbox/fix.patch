@@ -1,0 +1,25 @@
+diff --git a/headless/marianos-azure-headless/tests/integration/test_live_collector.py b/headless/marianos-azure-headless/tests/integration/test_live_collector.py
+index 68b9438..6537f7c 100644
+--- a/headless/marianos-azure-headless/tests/integration/test_live_collector.py
++++ b/headless/marianos-azure-headless/tests/integration/test_live_collector.py
+@@ -386,6 +386,11 @@ def cloud_browser() -> Iterator[str]:
+         [
+             CHROMIUM,
+             "--headless=new",
++            # Started directly, Chromium aborts ("No usable sandbox!") where unprivileged user
++            # namespaces are restricted (Ubuntu 23.10 and later, AppArmor), so every browser test
++            # failed there. Playwright's own launch runs it without the sandbox by default; so does
++            # this stand-in, which can reach 127.0.0.1 only.
++            "--no-sandbox",
+             f"--remote-debugging-port={port}",
+             f"--user-data-dir={tempfile.mkdtemp()}",
+             "--host-resolver-rules=MAP * ~NOTFOUND , EXCLUDE 127.0.0.1",
+@@ -396,6 +401,8 @@ def cloud_browser() -> Iterator[str]:
+     )
+     try:
+         for _ in range(100):
++            if proc.poll() is not None:
++                raise RuntimeError(f"the test Chromium exited at start (code {proc.returncode})")
+             try:
+                 urllib.request.urlopen(f"http://127.0.0.1:{port}/json/version", timeout=1).read()
+                 break

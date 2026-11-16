@@ -1,0 +1,10 @@
+chromium: .cache/ms-playwright/chromium-1243/chrome-linux64/chrome
+kernel.apparmor_restrict_unprivileged_userns = 1
+--- started directly as the tests start it (no --no-sandbox):
+[496248:496248:1116/042847.865302:FATAL:content/browser/zygote_host/zygote_host_impl_linux.cc:129] No usable sandbox! If you are running on Ubuntu 23.10+ or another Linux distro that has disabled unprivileged user namespaces with AppArmor, see https://chromium
+Received signal 6
+#0 0x5a85f7fd7bc3 ([redacted:vm-home]/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome+0x6a9abc2)
+exit 141
+--- the same with --no-sandbox (124 = still running when timeout stopped it):
+DevTools listening on ws://127.0.0.1:9336/devtools/browser/9a6f518d-6875-4255-9beb-1d15baec376c
+exit 124

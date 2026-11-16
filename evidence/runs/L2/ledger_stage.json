@@ -1,0 +1,698 @@
+{
+ "stage": [
+  {
+   "stage_id": "M-L2-rows22-27-two-lanes-110rc4-20261116",
+   "project": "marianos",
+   "opened_at": "2026-11-16T15:32:45.848492Z",
+   "objective": "the two-lane half of Q5: the same scope as L1 (rows 22-27 (17 listings; the scope of S6 on 1.10.0rc3: 1,190 products stated on 2026-11-09)) read by the same candidate with limits.max_concurrent_listings 2, uninterrupted: submissions, active seconds, re-asks and waits, settled cost from the ledger, compared with L1",
+   "command": "run --store marianos-53100502-pickup --categories 22,23,24,25,26,27 --max-credits 130",
+   "config": "{\"config_dir\": \"/var/lib/marianos-collector/ops111/stages/M-L2-rows22-27-two-lanes-110rc4-20261116/config\", \"config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"b22c3c676712e6b6cceaf6d5cf7d08b700dbe7a23f806bf63901fedd4e6ea0b5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}, \"differs_from_shipped_in\": [\"collector.yaml: publish.auto false\", \"collector.yaml: limits.max_concurrent_listings 2\"], \"environment\": \"the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel\", \"lanes\": 2, \"shipped_config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}}",
+   "source_revision": "570ff7cce9d45a913963d495593f0f9d89c3c41e",
+   "max_requests": 130,
+   "max_results": 130,
+   "max_usd": "0.195000",
+   "deadline_utc": "2026-11-16T17:32:42Z",
+   "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt, each reserved at its worst case",
+   "stop_conditions": "the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator: once 10 re-asks have been answered and none recovered its request, the stage is stopped and reported as it stands (no allowance is spent repeating one outcome)",
+   "closed_at": null,
+   "outcome": null
+  }
+ ],
+ "events_naming_the_stage": [
+  {
+   "seq": 6058,
+   "at": "2026-11-16T15:32:45.848601Z",
+   "kind": "stage_opened",
+   "ref": "M-L2-rows22-27-two-lanes-110rc4-20261116",
+   "detail": "{\"deadline_utc\":\"2026-11-16T17:32:42Z\",\"max_requests\":130,\"max_results\":130,\"max_usd\":\"0.195000\",\"project\":\"marianos\",\"source_revision\":\"570ff7cce9d45a913963d495593f0f9d89c3c41e\"}",
+   "prev_hash": "fd1bc76b9ae9e331b9e5860616ebf1e4d3b2ec95f86dba3329cd36a232dce700",
+   "hash": "70e81ca5c871f12205d66a7594003b8067d7d4fafd02c3afd6ce19f762f4b25e"
+  },
+  {
+   "seq": 6059,
+   "at": "2026-11-16T15:32:46.241221Z",
+   "kind": "lease_acquired",
+   "ref": "69",
+   "detail": "{\"holder\":\"live111:M-L2-rows22-27-two-lanes-110rc4-20261116:528147\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "70e81ca5c871f12205d66a7594003b8067d7d4fafd02c3afd6ce19f762f4b25e",
+   "hash": "730ddc417ca4004dc94ad88ab0d33fdedb6e0db0c57c023fa2dc43b6c6518ca7"
+  },
+  {
+   "seq": 6060,
+   "at": "2026-11-16T15:32:46.705717Z",
+   "kind": "reserved",
+   "ref": "fa94efc344a6487594cc05a9f60e652f",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "730ddc417ca4004dc94ad88ab0d33fdedb6e0db0c57c023fa2dc43b6c6518ca7",
+   "hash": "7b1a8decd5cbd20181e770076ffc74f65c099404b2c1768b2048f277c614d6a2"
+  },
+  {
+   "seq": 6063,
+   "at": "2026-11-16T15:32:53.723410Z",
+   "kind": "reserved",
+   "ref": "d4703091b2db4a539b690c2b27acbfcd",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "92a871c7afb9e082e062cfd64878b5e3e991bffdc25972651966974cd91d38fb",
+   "hash": "e64e38a97d9f7ba9f28d368f2da778f6041d838ab8ffff3a5f1133349e1baa8e"
+  },
+  {
+   "seq": 6066,
+   "at": "2026-11-16T15:32:58.506085Z",
+   "kind": "reserved",
+   "ref": "b92186c0c5c6431f8ba8bb3af4ea5042",
+   "detail": "{\"purpose\":\"coupons (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "4c9518c9eab0b7482b7e646859bc5d5bb3c0c0f2b9c87bc0563564ebecaccad5",
+   "hash": "65f9aa0f9000dcd5d8ec911efd9395d67a19755fa320ea499ac213ff635734ac"
+  },
+  {
+   "seq": 6069,
+   "at": "2026-11-16T15:33:15.476280Z",
+   "kind": "reserved",
+   "ref": "3ff1951d9af5471e8ee3c129056c241a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "197242f60fc6517c6c03c8051c3039b2fec4f6a7f23d0b1eadfa7a2277044882",
+   "hash": "c4d4b659ae6788347b383f68b973dd950604d92124f241f041a9852d9c8563d8"
+  },
+  {
+   "seq": 6071,
+   "at": "2026-11-16T15:33:15.575763Z",
+   "kind": "reserved",
+   "ref": "1c9c817ac71c4e3caf8dac4df53c4535",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "68b8505d5b306f090b15721c6d583bd80b0bc8f52c9ced32d3ec7f10975d10dc",
+   "hash": "1ee8606f7ff4f2e2e3a654b28e392f696b3eb438d8f89c71d0fbd727f95d2b2e"
+  },
+  {
+   "seq": 6074,
+   "at": "2026-11-16T15:33:23.590963Z",
+   "kind": "reserved",
+   "ref": "a35e23eba8784fdba3a85c7ca3c8e9a2",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a88d5abb6675bc6ab31f168507e7498689e57ff80ddaeb7ad105ee769fd5310e",
+   "hash": "077f93f3452832162ea58ecbdce9f20fa5c9069eee35f7ed3c1601ef103b6039"
+  },
+  {
+   "seq": 6077,
+   "at": "2026-11-16T15:33:28.991813Z",
+   "kind": "reserved",
+   "ref": "074c6419ee6448f99e99af5a2d8b9293",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0952935839d5f2c0ffee051f944a11d4377ebb4601fdf8fbd326f90c30617304",
+   "hash": "3ac372aa47c529b0f8850d67381e064f281f71d8f9c1d80779df3c37ae8a61e5"
+  },
+  {
+   "seq": 6080,
+   "at": "2026-11-16T15:33:33.776737Z",
+   "kind": "reserved",
+   "ref": "a1e83cf396204afba341950f60776142",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "df935c353d28f04f9bc4be82ebe4e464d33007941cb372053b7a9fdfb2f481e4",
+   "hash": "4e638f36002b55d3ff207a6aee45b3e877b41bb1eb3293713ada42ae5b5e2191"
+  },
+  {
+   "seq": 6083,
+   "at": "2026-11-16T15:33:38.593175Z",
+   "kind": "reserved",
+   "ref": "2cb3c46b7ddc4d9c816eb4f400d879ae",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "8e530b4e6287b0cffc9c7a2e30626fa3ab47096cc4ba2fe73a9daebfa343d538",
+   "hash": "e5c1cb984e1b55f35cc2ef8b5e9a0887620058b4a8e3e7ce792f10b09137594d"
+  },
+  {
+   "seq": 6086,
+   "at": "2026-11-16T15:33:44.842916Z",
+   "kind": "reserved",
+   "ref": "fa23337464e04bedb84a61551e61a6df",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "26077195f33f8ccb7937af1913535f2ee1ecd19ea939cfb3113d8be69a8f7659",
+   "hash": "a7f91ce2ecabc15d87eeca34f9392b66415b6f4c888b93e2da05ea7e8b69126b"
+  },
+  {
+   "seq": 6089,
+   "at": "2026-11-16T15:33:50.671682Z",
+   "kind": "reserved",
+   "ref": "be9d2086cb624dc88101eeec1c122b83",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0e255c4d96551d1aeea6cf39773977a89790d47cfb37eb268176f34a9c3d4cf3",
+   "hash": "0bc7a18e6d6523a1ce79d3c435cc26e6bf84ba40b3d5aa326bc94df439d91a16"
+  },
+  {
+   "seq": 6092,
+   "at": "2026-11-16T15:33:56.314068Z",
+   "kind": "reserved",
+   "ref": "88939dd52b7040b2ac6257a124bb7d5c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "e220a95583b9a3b9c9819ce4c047b297a3f969303bf7e0cff4c0c08e0d2d84c8",
+   "hash": "a27d646749a40f4fa7a082033c53cb675d5e62f3d08f8d8b4a90d577128884c3"
+  },
+  {
+   "seq": 6095,
+   "at": "2026-11-16T15:33:56.776587Z",
+   "kind": "reserved",
+   "ref": "f6c61be28a8b442e93bb4b6ba17d3ca3",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2978b402e2eb061cf0f259b067579c2347d8395fce407d62b1fba9c19d069522",
+   "hash": "7c5f6151c4ba108461f1243036d125e4d75cd0b5e6e39ef0d736e089bb1b1fca"
+  },
+  {
+   "seq": 6098,
+   "at": "2026-11-16T15:34:00.354567Z",
+   "kind": "reserved",
+   "ref": "d814bb867cfa4274a7f2311d4c287527",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "7e4609ff1410420560eef643c4390962ef7895e4656bf7c943a9b3ceaec7a87a",
+   "hash": "567c0ea5522ceb93378718f1f32dea783a7f4ce3bb1a9a38773bd830d816cffa"
+  },
+  {
+   "seq": 6101,
+   "at": "2026-11-16T15:34:03.187944Z",
+   "kind": "reserved",
+   "ref": "9421d25bdc0044b3af042d93f26399df",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0de9d32c258d31f0a130eeefe2b278f4633ae52cb34e2371e1910a9d53c99ea3",
+   "hash": "28caf0d75a889ea8f45502ca313055d499e10399dac41763f624f709b33006d8"
+  },
+  {
+   "seq": 6104,
+   "at": "2026-11-16T15:34:03.587689Z",
+   "kind": "reserved",
+   "ref": "66bb7949805c4e8ea86a6820cb2d8d7c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a73824c6a4f57ae957fb2d369674b02fddb244b3bf2fd86aa7188f19401415cf",
+   "hash": "5928c5cb9a02510ad29839c01c417fd5d4c33ab382a4f423a34c6e9a35872104"
+  },
+  {
+   "seq": 6107,
+   "at": "2026-11-16T15:34:07.731972Z",
+   "kind": "reserved",
+   "ref": "2b1ac54adab64bf9939562b1b5ecc7f1",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b6acd04b16c6f1c8015440f90f692eb7576ecc5fb232355a0b4ff0a9c4527857",
+   "hash": "b166022c266ae9480236dc92cbbf0a6fe995c9bda2056842c21aace02a782c56"
+  },
+  {
+   "seq": 6110,
+   "at": "2026-11-16T15:34:10.208030Z",
+   "kind": "reserved",
+   "ref": "6bf90d9209914f3496ea634bfad4e5a7",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "ccff56ae5fc932add1bbaffbe5153ddcab149809dc5bc9215cdb2b3ae35896a5",
+   "hash": "2a76cd503d8feb1780f90ab1fa1300607cc9bff321a87c19d397cd313efbe36f"
+  },
+  {
+   "seq": 6113,
+   "at": "2026-11-16T15:34:17.585335Z",
+   "kind": "reserved",
+   "ref": "8a30faf6f72a41deb263f03969f354a1",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "8924e0c762cde701546f3ea52f940a692135c165b09ab659d22de03ef0f45e72",
+   "hash": "de24c900416f84d84218befcfb5951fa39f0bd7b16f134fd8ecf3f0697695e4a"
+  },
+  {
+   "seq": 6116,
+   "at": "2026-11-16T15:34:23.570814Z",
+   "kind": "reserved",
+   "ref": "b0d062d438c549a982fe670d828621c5",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "1b1cc1ccfcfa90c2cbc1cdc6663fc3c026a5c47ba69c534eb8e71d0fd35b5923",
+   "hash": "fa2b12cef709b1e60187d1d10f9cff7f00b1a5a737495cacaddd1be105625b68"
+  },
+  {
+   "seq": 6119,
+   "at": "2026-11-16T15:34:27.522444Z",
+   "kind": "reserved",
+   "ref": "482d7ba1c1fd415fb67b7ad3f4345c3d",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "01acf8d720cba66aae29fd3fbf300db7975aec448631ea78d47973731bb24671",
+   "hash": "78acba24a0ccccad1e5134bc66014caf460d654bfa696b42e8fb50b99f285b65"
+  },
+  {
+   "seq": 6122,
+   "at": "2026-11-16T15:34:44.117947Z",
+   "kind": "reserved",
+   "ref": "b2e7482d42b54862b0e7e6b3c7d3ebdc",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "ec5d8277775003249b3de27af89117ce7d02c57013083500ffd81b49aeed985d",
+   "hash": "0e48e161f1a144bffdc28decf65701aa8244538e91db44d6db557b43ab576a8e"
+  },
+  {
+   "seq": 6125,
+   "at": "2026-11-16T15:34:48.341284Z",
+   "kind": "reserved",
+   "ref": "40fd6b6837b04bee9b759f52481b7583",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "6b803b81f51023b4d188a6caef68f56ab057ad48f4f6bbc0c54cf00e07836109",
+   "hash": "3557c2afc35b0043cac9c75ef706bcb79b4024a85dbd3057d39444bcc5f02383"
+  },
+  {
+   "seq": 6128,
+   "at": "2026-11-16T15:34:49.008443Z",
+   "kind": "reserved",
+   "ref": "6db610f58cc647e49d989b4b58dbeb9a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "dacf344236ae7bbcb9d27adb2517a5d8a899cbe867b53988b70fd020b4689c30",
+   "hash": "306f5f87a59789ed3183c6507e1124f4398c1b73cb6ac8c54e4f3064628600d2"
+  },
+  {
+   "seq": 6131,
+   "at": "2026-11-16T15:34:52.806272Z",
+   "kind": "reserved",
+   "ref": "b0e8989e92654278bb74bedbee902074",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "da03fae0c6ae3cdbbb11367893e9abafafa0e850bedec70f9cc8948d8f38d738",
+   "hash": "32a6c181f730b0b30de21983de873bfd4d5071af6a109d89dbb4e820361f4772"
+  },
+  {
+   "seq": 6134,
+   "at": "2026-11-16T15:34:53.592563Z",
+   "kind": "reserved",
+   "ref": "3642be87f9c34ae48dac8cd848979e06",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "97c235843d4aae2c93d7a87d0a5e7dfff5ac07687ea2090c0fec7c3b4d4dc8dd",
+   "hash": "14afe08a77e6c9f65acf087049bda8d6318cc4ae341f1cace9b5c5569908f06b"
+  },
+  {
+   "seq": 6137,
+   "at": "2026-11-16T15:34:55.646568Z",
+   "kind": "reserved",
+   "ref": "c658e948f97e46e881a4758f8a0b3e46",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "26c43880c4ba372e42be3d61e5a4bb5b20bf19c6cfd684c24f87c6ae85e8a644",
+   "hash": "4d7b489b2ce1aeaf996e2f9ad51d42f162ed921160c987c95ecdf2b193f608d2"
+  },
+  {
+   "seq": 6140,
+   "at": "2026-11-16T15:34:58.914797Z",
+   "kind": "reserved",
+   "ref": "993fc7139a9146d480d0588ba1fbc194",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "6d57070443437bca96852f1a13605f9eb7da67da53a9afeec7b75b4818c3d3ca",
+   "hash": "682a541f28a64b5b61ded986b0e67872a49ac8738f74465c049ddc843c430e86"
+  },
+  {
+   "seq": 6143,
+   "at": "2026-11-16T15:35:02.873016Z",
+   "kind": "reserved",
+   "ref": "b0977cae32664a12bbd82c748fee2544",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "4b73983b6a981e35e14cd7063f1ce85cf683ea1c64e48e750e7f5ed71402c9cc",
+   "hash": "601406f572d80f1add377a8491780f4ab051564a171e025b82d5031eedcdf958"
+  },
+  {
+   "seq": 6146,
+   "at": "2026-11-16T15:35:03.806084Z",
+   "kind": "reserved",
+   "ref": "7c54e372361e4894858840c93e35f849",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "3c721142695e4012eef906504eb6a0ca8153ccc8b8267973fd6db4a1bb419be0",
+   "hash": "750cb9b4ba8ca648f2e1d5e7dbceb69879cc042f95bdd1a14fcd845502257bdd"
+  },
+  {
+   "seq": 6149,
+   "at": "2026-11-16T15:35:05.629281Z",
+   "kind": "reserved",
+   "ref": "0acacfa89a624d358162f4d5abfaf33f",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a418a7d65ce0a4ca8a0583a1bf61885a6d23d15c1024a6b9ff432fff67ea66d6",
+   "hash": "7e2ff8270f6580781b1bfa160da65d2b586d1ce3f8c804d29d9ee9a1e3205db3"
+  },
+  {
+   "seq": 6152,
+   "at": "2026-11-16T15:35:11.987807Z",
+   "kind": "reserved",
+   "ref": "c04ba6e55ddb4dc9a3dde2d51963370c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "ed5bcbcf764d27a2fdf003494c8cddb3195107c5ba68a7e61fe3923b16503978",
+   "hash": "9d9754852daf45e7b8a89d4b0c9b1456e51fc075bff4645c53cee1e27882e9c1"
+  },
+  {
+   "seq": 6155,
+   "at": "2026-11-16T15:35:17.958994Z",
+   "kind": "reserved",
+   "ref": "fa4c9168a8a44c29bee3a22775387d73",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "ede4eb73560a05b7ccb11bb82974131d9ddbb8c647d953790796cf8d49d8b066",
+   "hash": "5db6d6ea91b5d9d67d873206b1ebee91612486c4eda3479498ad3b790543facf"
+  },
+  {
+   "seq": 6158,
+   "at": "2026-11-16T15:35:27.833144Z",
+   "kind": "reserved",
+   "ref": "21cb5a0c3802414eab4bf23ff496c046",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5e6430214a0d29d96075d0a16396d5a82162412e8308ea11029c624b7a4ce31e",
+   "hash": "619b6147bff1a557e29f7537314be8d6b6e90a4e13ac3a65b88c84b6ec16ad79"
+  },
+  {
+   "seq": 6161,
+   "at": "2026-11-16T15:35:30.488246Z",
+   "kind": "reserved",
+   "ref": "b7f977125f0947db9f0a26a3f2f25abc",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d0affb5e2f91df07bdcdbd4b95fd476a1b118a573e034288aa754883b383f4bb",
+   "hash": "63ca108dfb357b16b2b49477147623d594215508c673c5e0772b045b279c21b2"
+  },
+  {
+   "seq": 6164,
+   "at": "2026-11-16T15:35:34.161768Z",
+   "kind": "reserved",
+   "ref": "9eb5505871484d02a8fad643f52bf66a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0e3ccc8b0be8b844d9a8c9b391a569c415e38854b5c17a41a75e41f5238dec59",
+   "hash": "9e80b48752ee31a46047c3d727f2c9c843207a1ffe0c482230abeed1355cd447"
+  },
+  {
+   "seq": 6167,
+   "at": "2026-11-16T15:35:40.852882Z",
+   "kind": "reserved",
+   "ref": "8e9952f2abd643d7a20a610ac52b414c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "55e8b862535360a84f0c690426e1dae8172893f14e50bb0e21eca634611face3",
+   "hash": "7fc8f02ea855a50d58be052fb0df18f7c535e38049a8ddc6d905cd894b0727ac"
+  },
+  {
+   "seq": 6170,
+   "at": "2026-11-16T15:35:42.892816Z",
+   "kind": "reserved",
+   "ref": "4d181b95e1c649b2932dece3bb6b23c5",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "eb56cd2d8aff6271dc826dece62b1ed5a5e51fe10b99e6003ecfc01ea63169b4",
+   "hash": "b26831039a30fb43500b78297cd8db6b70812381c9023edbe146eed3331932d4"
+  },
+  {
+   "seq": 6173,
+   "at": "2026-11-16T15:35:49.034517Z",
+   "kind": "reserved",
+   "ref": "25c5ddbb9166478fa4a99e7faa7aadcd",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5da0d8f31f8c14cb27a2dc6d8baea674d27a5dce36c607e6cee08e8edc1c916c",
+   "hash": "1e0d5f9f8e3214cdb8961f10fd5d23013daff4a1f1e3d081696dc95426890b85"
+  },
+  {
+   "seq": 6176,
+   "at": "2026-11-16T15:35:56.182137Z",
+   "kind": "reserved",
+   "ref": "2fdfa759346547328738cdc19e2af812",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d1174f3c848159249cb80e58df573f32ef339c3dad6d6c04045cd87d1056fbd0",
+   "hash": "7089a9de34b363aa1656ad81a21b68d62cc20ad50441d9b05a6ec18c64ecd323"
+  },
+  {
+   "seq": 6179,
+   "at": "2026-11-16T15:36:01.093378Z",
+   "kind": "reserved",
+   "ref": "5dbcad1769fe445eb5fb06b794d96bd6",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "15cf1988da6f8206520b0a6b02786734c53b3db6f31b8cf54ce74533e79517b4",
+   "hash": "afac822ffe8643593a7dcacf802f0410a75dad015d00d2b2a7b4a2bd67a4d387"
+  },
+  {
+   "seq": 6182,
+   "at": "2026-11-16T15:36:05.672883Z",
+   "kind": "reserved",
+   "ref": "ea98053b20124ed497636a90b3923611",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5cdfddeee0acfeb29bc776decd3776fdda40e9393d0da015de7e706b0e174568",
+   "hash": "dea135eba3746aca8f273025504e288888368cd61e80b132eec30eb5430c6d8f"
+  },
+  {
+   "seq": 6185,
+   "at": "2026-11-16T15:36:10.125341Z",
+   "kind": "reserved",
+   "ref": "d8c427dc3a0d4645bda3d05b4b04c731",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "63e2a46590389adae9134b7b8ad00be92c7ff0ac1cea2dc13406cfb7fee1daf3",
+   "hash": "20f5574785a347dbf036ab70ac3409ecd04d1e0b006f81e3ff7d19955a64eaab"
+  },
+  {
+   "seq": 6188,
+   "at": "2026-11-16T15:36:15.408732Z",
+   "kind": "reserved",
+   "ref": "aa9005065ee14502892cfce53b536305",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "daca139d60734228469ef284314f64493ae8ef836a98e4240520cf752b2cf535",
+   "hash": "07d5e1adc6575ae2e4d15e07bf5aa9580c041aaa5508d43c59fed9c5eb7d1fed"
+  },
+  {
+   "seq": 6191,
+   "at": "2026-11-16T15:36:20.539093Z",
+   "kind": "reserved",
+   "ref": "ee094ae5a8314776a9849d0171323795",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "47cd137a8bbdb8d415dac24f4333d57b468845793a27c61381019fe6932cab22",
+   "hash": "229db98507238c5d63a334254755c3bc6de28fab772270a4b7d9917a784e0670"
+  },
+  {
+   "seq": 6194,
+   "at": "2026-11-16T15:36:24.342332Z",
+   "kind": "reserved",
+   "ref": "6389d534f63d4a74aec92692d93b83da",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f9afa5667c58f4f8784be0dde88886a2f19d013724a5ebe298301426f84d4861",
+   "hash": "b08187077648a0ed58586441c3d80ba0e3a5dd5c508f2e925a90f0093e5dec8b"
+  },
+  {
+   "seq": 6197,
+   "at": "2026-11-16T15:36:24.761655Z",
+   "kind": "reserved",
+   "ref": "165f5feddb3341ef9ee9bdb520a93c39",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "42a0bb781c2c3c6bb9fb42ab0cfd748559152b1d8bf4426e082068443e2d9a2a",
+   "hash": "55b52ce28e89bff0c09b87641b53bb893682bcb29d01dd96762e7a82f4760e25"
+  },
+  {
+   "seq": 6200,
+   "at": "2026-11-16T15:36:28.772193Z",
+   "kind": "reserved",
+   "ref": "bf188e0059234b5d8d42ea7375e8d2cf",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f598d192ab9591090bfa8b89cf73d10432b8579b20b4f9f6f9f910d3fd0f4cd8",
+   "hash": "2fe8476104b7ef12e48c95d7ca67f9785926760267ee0805e4822131198c1949"
+  },
+  {
+   "seq": 6203,
+   "at": "2026-11-16T15:36:29.430366Z",
+   "kind": "reserved",
+   "ref": "8301ffa10441480781548c730d654699",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "8cd1cf431f7ec88147af4960c379927e8a99b721357cd6bec145385a03725dba",
+   "hash": "a9d5c26e6db51da7a59071ab716dcde5f1d672f20d94028bfbaf6d64adad4902"
+  },
+  {
+   "seq": 6206,
+   "at": "2026-11-16T15:36:33.959936Z",
+   "kind": "reserved",
+   "ref": "2f0729e27259443d8b5d5c9be4b122bd",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2bb137d6996bccce6dd26fba33ef4ea715592cff00b5882c43855203096bfc13",
+   "hash": "31bdffe6456576408cdf08182a96d309c829624038273b5b0c3945f4d4194e47"
+  },
+  {
+   "seq": 6210,
+   "at": "2026-11-16T15:39:27.960873Z",
+   "kind": "reserved",
+   "ref": "4b1f19a2ca8b4b9bb8b7379ad13fa0cb",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "e0f537ef3fb689b567de57f5a96e47cdc578d059115248818739e4f6413c46b8",
+   "hash": "a09b74f2b781beb63dc94f57a19114ebd95b6ff923bbd7a71218ae42d1a0c951"
+  },
+  {
+   "seq": 6213,
+   "at": "2026-11-16T15:39:33.932013Z",
+   "kind": "reserved",
+   "ref": "7a834aa003594a6b998db8e32f296cdf",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "71ab0f2b35ed80380614c38a2f82de3f4c82b676646c8e2d2c4247e841e36f64",
+   "hash": "afc06f2bc0ceba5249657d602bf4513d439f243da678ec53b9469db03c377ae4"
+  },
+  {
+   "seq": 6216,
+   "at": "2026-11-16T15:39:38.802346Z",
+   "kind": "reserved",
+   "ref": "7aef3faf90224d95ae51738091565e90",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "726bc8f06a2c637f3e689e1e55a2b987debca2e18a5c1bb316fde4383597bf3a",
+   "hash": "3377b18aa4676a0eedbde11560697af9a842bff77475010a707cbb0c0accd921"
+  },
+  {
+   "seq": 6219,
+   "at": "2026-11-16T15:39:52.847862Z",
+   "kind": "reserved",
+   "ref": "c45de6cf399846acac9db0a584fe3966",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "85a7ca0bfbdfbcba9dfc62205c307275df0b5db1ac2dab1df516f1dd42a433c1",
+   "hash": "336db7a92b82c25fe45cd7f258de6d711f2e9f6c71f10f151dd00e930fb59ccf"
+  },
+  {
+   "seq": 6222,
+   "at": "2026-11-16T15:40:02.898757Z",
+   "kind": "reserved",
+   "ref": "a74f857c22d14a72ac2c830db5169a0e",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "00f03c58649f21b30590c3a99cf9fef203e0eae68b47a21e47ffde44b0c6e9d9",
+   "hash": "666cc815c2d13d5e6a4f1fd53bbe6134f9521803b0d7441d0fa4c794190d0c53"
+  },
+  {
+   "seq": 6225,
+   "at": "2026-11-16T15:40:27.895757Z",
+   "kind": "reserved",
+   "ref": "88c4644335324cc7b2344a266ad174ca",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "6f4be4e65fe166baa33bc728580a7537ef2e745250f43395d484ee23d6400d4d",
+   "hash": "e40a629cd9c9d7d7325a6b0d0bbf16920ecf866049cfd1e67dc4ce593a2d38f0"
+  },
+  {
+   "seq": 6228,
+   "at": "2026-11-16T15:40:33.465056Z",
+   "kind": "reserved",
+   "ref": "ff5342ed4b7c4760845e8fa20a7a5d8b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "96240d4deadef82421c80a062a522674bed8300071b8be07ce613025c28ffefc",
+   "hash": "bbfee349e0517136ed4503cd458497ec46588a740a977796abdf102130f2feea"
+  },
+  {
+   "seq": 6231,
+   "at": "2026-11-16T15:41:20.933895Z",
+   "kind": "reserved",
+   "ref": "97b3e7eb2d3447b090ac65ca39e44f8a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "04b9120d5f8c213dcb89fc51e2dc0507096c13889a3d293fa60ba0f64d666fb3",
+   "hash": "9cb6ad091c0a6987e98da41884e28bf44bdf1d387687a9b2455632e12bfbeebe"
+  },
+  {
+   "seq": 6234,
+   "at": "2026-11-16T15:41:26.155448Z",
+   "kind": "reserved",
+   "ref": "a9d9fcc64c8e4012b6670c4547876f90",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0b77a74f2f39fd81a217d68ec32611bb6d3ca4e41d7712b5ca09b56860564bb3",
+   "hash": "8bc25799a62b3aa490fad514e5741236259bd91caf391e0d8b5881a0f1d4f2c5"
+  },
+  {
+   "seq": 6237,
+   "at": "2026-11-16T15:41:34.427861Z",
+   "kind": "reserved",
+   "ref": "0d3f279870a84ac188608356628758f3",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "c6780801225a66dc7d0789f9d428278af355aca9049625c2c1f4dc7504a8f13c",
+   "hash": "f71b78daa31a3c209b26098a7e135c33982ea1aa5a2ab61f693c0d8656ac16c3"
+  },
+  {
+   "seq": 6240,
+   "at": "2026-11-16T15:41:39.239527Z",
+   "kind": "reserved",
+   "ref": "252d517ae00141cf8fdf135a34e509c4",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2104a5e05c4271bb862610e123eba9f672154239de1672c40003eddc2cabb95f",
+   "hash": "f8c30353d8a5bb6ea4e0ae9c965f718f3822172809b0ffd310cfc94ea85099b9"
+  },
+  {
+   "seq": 6243,
+   "at": "2026-11-16T15:41:47.542111Z",
+   "kind": "reserved",
+   "ref": "4dd8767d7a824352b4104f901569e560",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "7341e28d3501992cbf90ff2234264514fa19fe36f245071932242efb94d08455",
+   "hash": "8544133a2a735e6b26a872c536acef2a64f86c07f4a802f22f5173285548faef"
+  },
+  {
+   "seq": 6246,
+   "at": "2026-11-16T15:44:43.686456Z",
+   "kind": "reserved",
+   "ref": "798f31c1906644e9b711838cb476d279",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d140dbd84fa183b02e4924140eab5dc0234380ecd56e6b568268b8c4279981eb",
+   "hash": "c37617317dd15fd84fae26f72545b360b8851667366d80cf871d17d4a0d529a9"
+  },
+  {
+   "seq": 6249,
+   "at": "2026-11-16T15:44:51.218002Z",
+   "kind": "reserved",
+   "ref": "6d8092926673425f89b6fea9c44fb18c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d5c143d7a1bee611e1715b0baa66e4d4de1dddc9ae40e8923087ad165bdd5029",
+   "hash": "073f180e3ce9f0a08ff3e4c3b228f24da9afe886b522361f33ff4f5e474b895f"
+  },
+  {
+   "seq": 6252,
+   "at": "2026-11-16T15:44:58.453224Z",
+   "kind": "reserved",
+   "ref": "deced8bc7ddd473b912835e3266ce687",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "30360e70649301ccd4d7b8923d21c9317015e49b06620821c2328caaedf613f6",
+   "hash": "f2a127e66ca6c4fb5074f1c54123e600fba3ea74d1549c092ba13180b12bfb5e"
+  },
+  {
+   "seq": 6254,
+   "at": "2026-11-16T15:44:59.746947Z",
+   "kind": "reserved",
+   "ref": "003cb028125647ce91fc0bf698753690",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9addbdc0fe3cea53bd94a214423810a25c3482cfe2514967fcdff157b0a5c925",
+   "hash": "ecfb2f24598a64953a80eba0b1f89dde0f7a0e222ec6de253603ffe32dd4fc46"
+  },
+  {
+   "seq": 6257,
+   "at": "2026-11-16T15:45:08.507067Z",
+   "kind": "reserved",
+   "ref": "c47781c840404430880781ed076ec503",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "06f045ba73ea509b22e4e818d9b43d13fcf873425a61ada673040adf3fa1778d",
+   "hash": "be0439c879999161df102158dc3587c03c0fc22b948d6e01522c3d34c811f8f2"
+  },
+  {
+   "seq": 6260,
+   "at": "2026-11-16T15:45:18.544396Z",
+   "kind": "reserved",
+   "ref": "065ea196f5524b6e9343bf18ab619689",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f6423edb283fa006a2dd71f4b8f8fffd9afd45631cd7cb1f91a9be93da9ee852",
+   "hash": "9bacf5f7c9553d53c225368ca03755bc46fd55c596c1eebf0ac448edaf93732c"
+  },
+  {
+   "seq": 6264,
+   "at": "2026-11-16T15:46:06.282848Z",
+   "kind": "reserved",
+   "ref": "1f40182ace9c4acd94e9fe3c1513fef6",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "15800d6f6a9f83f110d19d786815844bed8eb47a619be17bbac819bda1b38076",
+   "hash": "d4ae1e01102e8e30db24dd984ff2d62fdc1840473ca5235b6124bce07260dd3d"
+  },
+  {
+   "seq": 6267,
+   "at": "2026-11-16T15:46:52.340563Z",
+   "kind": "reserved",
+   "ref": "bd91f67bea4442f58282e0d498fec95e",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "fad381c03862fbca685c49037a3ed4a6439bee46c2afd545941e06be1829cc04",
+   "hash": "5730c13ffd924c783717908d4dff4f2c00b3a8d194cbcec57fe5617399b12f27"
+  },
+  {
+   "seq": 6270,
+   "at": "2026-11-16T15:51:11.249705Z",
+   "kind": "reserved",
+   "ref": "69e65375ee0a4ffcb8cef81283c97941",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f612b91200d2b9b46e47a257c901a497cfbe6b61d5304064d7596039d3b03782",
+   "hash": "d526279251addb1ec1ad20919b5299ec6beff0128ebf350f628b1957980ca3c2"
+  },
+  {
+   "seq": 6273,
+   "at": "2026-11-16T15:51:57.741958Z",
+   "kind": "reserved",
+   "ref": "b2afb11e581b40caa55990bc576b5cf6",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-L2-rows22-27-two-lanes-110rc4-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "571c851b4bff95455c54750951a77c0f68edd70bf1b441a7d64193bd1e668541",
+   "hash": "e6904eeadf822203bc6ce288e6c747fdf3bee2cff1a5a2317e57ce49127f017f"
+  },
+  {
+   "seq": 6276,
+   "at": "2026-11-16T15:52:12.747860Z",
+   "kind": "lease_released",
+   "ref": "69",
+   "detail": "{\"reason\":\"live111 M-L2-rows22-27-two-lanes-110rc4-20261116 ended (exit 0)\"}",
+   "prev_hash": "b93e94debcfdd6f268255f9d16a55a3a5c1f419bd38c036d8406ab53aa5e4f0a",
+   "hash": "abdf41baff2b8911dccd53511711e28f7af3a9f8b4ce6dbcfcdf05d03834f261"
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+{
+ "repository": "https://github.com/lonadonia/marianos-azure-scraper",
+ "review_tag": "review-1.10.0rc5-20261116",
+ "packaging_commit": "the commit named by the review tag (a file cannot hold the id of the commit that adds it)",
+ "parent_commit": "b510b1e16baaccd8402ada3cb03561434aea758c (the latest-only cleanup), child of e43cce2d7e0e898a2dd13b33d65d528995afd2c5 (review-1.10.0rc3-20261112)",
+ "status": "NOT FINAL: a checkpoint for the client's review, not an accepted delivery. 1.10.0rc5 is qualified on Hamza's VM and its one logical full run F2 holds 7,678 fresh valid UPCs, but the collector stopped it, not resumable, before the full scope and before validation (STORE_NOT_VERIFIED on a re-asked page whose product data had not loaded: a defect found in this review), so its gates G3, G13 and G14 were never evaluated; the trial credit could not have paid for the rest in any case (94 of the 302 listings of the 1.9 queue complete), so no full-scope run exists to publish; the three defects found in this review, the schedule, the walkthrough on the client's VM, the client's acceptance and the other items under What remains stay open",
+ "prepared_by": "Hamza",
+ "prepared_on": "2026-11-16",
+ "authorization": "Hamza's update of 16 November 2026 (after speaking with the client): live Mariano's collection with Hamza's Oxylabs Web API credit, tests on Hamza's Azure VM and scheduling on that VM authorized; the client's Azure VM and Oxylabs Classic outside it. Recorded in the shared trial ledger as the event 'authorization_update'; the earlier hold entries keep what was authorized when they were written.",
+ "collector": {
+  "name": "marianos-azure-headless",
+  "version": "1.10.0rc5",
+  "development_commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+  "development_tree": "3f4567038890db47e83e73880e934620fdca6024",
+  "development_branch": "marianos-1.10 (local; its history is not published; the commits since 1.10.0rc3 are listed in evidence/tests/COMMITS_SINCE_1.10.0rc3.txt)",
+  "published_at": "source/ (git rev-parse review-1.10.0rc5-20261116:source prints 8fe051cd015381265d1002e9381e885822fcb68d: the development tree with the test VM's host masked in docs/AZURE_VM.md, see manifests/REDACTIONS.csv)",
+  "published_tree": "8fe051cd015381265d1002e9381e885822fcb68d",
+  "change_since_1.10.0rc3": "git diff review-1.10.0rc3-20261112 review-1.10.0rc5-20261116 -- source (1.10.0rc4: three test corrections and one comment, no collector logic changed; 1.10.0rc5: one collector fix, a page brought before its search was made is asked again instead of stopping the run as a page of another store, with its tests; the tags' diff also shows the host masked in docs/AZURE_VM.md)",
+  "parser_version": "1.10.0"
+ },
+ "where_it_ran": "Hamza's own Azure test VM (Ubuntu 24.04, PostgreSQL 16, Docker), not the client's VM; store Mariano's Vernon Hills 53100502, PICKUP; provider Oxylabs Web API (Hamza's trial credit)",
+ "live_runs": "15 live stages on Hamza's VM on 2026-11-16 (S6, S6b, L1, L2, P1, P2, P3, F1, F2a, F2b, F2c, F2d, P4, P5, P6), 1,022 submissions in all (USD 1.5285 with unknown outcomes charged); the full run F2 (01M7JNB2HDFCNR3GHQVX8FYXX6, 1.10.0rc5, one logical run in four slices): 7,678 distinct fresh valid UPCs, gates not evaluated (the collector stopped the run before validation), stopped by the collector at 18:56:02Z, not resumable (`STORE_NOT_VERIFIED`, exit 7), on a re-asked page whose product data had not loaded: a defect of 1.10.0rc5 found in this review, its records a partial export whose publication was refused; publication, refusal and rollback on an isolated target (P4 to P6)",
+ "checks_before_commit": "source/ equal to the development tree of 1.10.0rc5 (Git tree checked); unit 494 passed, ruff and mypy clean, the whole integration suite 222 passed on Hamza's VM; the fix failing before and passing after; every staged file scanned for credentials and private identifiers, archive members included; SHA256SUMS.txt over every file",
+ "not_done": ["full coverage of the configured scope (G3): the collector stopped the full run F2 (a defect found in this review), and the trial credit cannot pay for the full scope", "the store check's verdict on a page whose product data has not loaded (a defect found in F2)", "F2's gates (G1 to G14, so G13 and G14): never evaluated, the collector stopped the run before validation", "the collector's check of F2's records against its stored pages (validate-export): killed for lack of memory on the VM (a defect found in F2's validation)", "a protected full-scope publication, and so the schedule and two weeks of observations", "the Coupons row's verdict on a page whose list has not loaded (a defect found in this review)", "coupon terms from rendered product pages for the four digital examples", "anything on the client's VM (install, suites, release, walkthrough, acceptance): outside the authorization", "any Oxylabs Classic request: outside the authorization"],
+ "earlier_deliveries": "EARLIER_DELIVERIES.md (each at its own review tag, unchanged)"
+}

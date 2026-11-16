@@ -1,0 +1,135 @@
+[
+ {
+  "evidence": "L1",
+  "stage_id": "M-L1-rows22-27-one-lane-110rc4-20261116",
+  "run_id": "01M7JEFZW4PY88RKT5FBMJMZWT",
+  "version": "1.10.0rc4",
+  "source_revision": "570ff7cce9d45a913963d495593f0f9d89c3c41e",
+  "lanes": 1,
+  "pilot": true,
+  "status": "validated",
+  "stop_code": "",
+  "submissions": 73,
+  "ledger_states": {
+   "settled": 73
+  },
+  "results_settled": 73,
+  "usd_settled": 0.1095,
+  "unknown_rows": 0,
+  "usd_unknown_held": 0,
+  "wall_seconds": 1139.630975,
+  "seconds_with_a_request_in_flight": 575.1,
+  "seconds_with_none_in_flight": 564.5,
+  "peak_requests_in_flight": 1,
+  "pages_answered": 69,
+  "pages_counted": 58,
+  "requests_set_aside": 8,
+  "set_aside_by_state": {
+   "recovered": 8
+  },
+  "reasks": 11,
+  "reask_wait_seconds": [
+   331.4,
+   305.6,
+   310.6,
+   318.2,
+   316.5,
+   305.3,
+   305.6,
+   305.3,
+   321.2,
+   309.2,
+   397.6
+  ],
+  "nodes": {
+   "DONE": 15,
+   "EMPTY": 2
+  },
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "PASS",
+   "G4": "PASS",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "PASS"
+  },
+  "verified_records": 1138,
+  "submissions_per_wall_minute": 3.84
+ },
+ {
+  "evidence": "L2",
+  "stage_id": "M-L2-rows22-27-two-lanes-110rc4-20261116",
+  "run_id": "01M7JFTHRTJ1ZKPZ9C7Y0Y301S",
+  "version": "1.10.0rc4",
+  "source_revision": "570ff7cce9d45a913963d495593f0f9d89c3c41e",
+  "lanes": 2,
+  "pilot": true,
+  "status": "rejected",
+  "stop_code": "",
+  "submissions": 72,
+  "ledger_states": {
+   "settled": 72
+  },
+  "results_settled": 72,
+  "usd_settled": 0.108,
+  "unknown_rows": 0,
+  "usd_unknown_held": 0,
+  "wall_seconds": 1166.164813,
+  "seconds_with_a_request_in_flight": 390.8,
+  "seconds_with_none_in_flight": 775.4,
+  "peak_requests_in_flight": 2,
+  "pages_answered": 68,
+  "pages_counted": 52,
+  "requests_set_aside": 9,
+  "set_aside_by_state": {
+   "exhausted": 2,
+   "recovered": 7
+  },
+  "reasks": 12,
+  "reask_wait_seconds": [
+   304.4,
+   304.5,
+   306.9,
+   309.3,
+   309.9,
+   340.1,
+   305.0,
+   304.9,
+   332.8,
+   305.0,
+   304.8,
+   305.4
+  ],
+  "nodes": {
+   "DONE": 13,
+   "EMPTY": 2,
+   "INCOMPLETE": 2
+  },
+  "gates": {
+   "G1": "PASS",
+   "G2": "PASS",
+   "G3": "FAIL",
+   "G4": "PASS",
+   "G5": "PASS",
+   "G6": "PASS",
+   "G7": "PASS",
+   "G8": "PASS",
+   "G9": "PASS",
+   "G10": "PASS",
+   "G11": "PASS",
+   "G12": "PASS",
+   "G13": "PASS",
+   "G14": "PASS"
+  },
+  "verified_records": 1018,
+  "submissions_per_wall_minute": 3.7
+ }
+]

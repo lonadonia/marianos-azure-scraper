@@ -1,0 +1,31 @@
+== before-reboot at 2026-11-16T17:32:58Z; booted 2026-10-28 18:15:23 (local clock UTC)
+== services
+postgresql: active
+docker: active
+collector units active: 0
+collector timers: 0
+current release: /opt/marianos-collector/releases/1.10.0rc5
+== run (id | status | stop_code | started_at)
+01M7JNB2HDFCNR3GHQVX8FYXX6 | interrupted | TERMINATED | 2026-11-16 17:09:11.018429+00
+== tasks by state
+pending | 279
+retry_wait | 15
+succeeded | 50
+== tasks still leased
+0
+== listing pages by state
+completed | 136
+failed | 1
+refused | 13
+stopped | 37
+== requests set aside by state
+recovered | 14
+waiting | 15
+== distinct UPCs observed
+2613
+== segments (started_at | ended_at | end_state | stop_code)
+2026-11-16 17:09:11.042249+00 | 2026-11-16 17:22:58.01823+00 | ended | TERMINATED
+== run lock rows
+0
+== ledger
+{"active_lease": null, "chain": [true, 7386], "committed_usd": "3.550500", "marianos": {"committed_usd": "1.303500", "settled_results": "860", "spendable_in_envelope_usd": "0.946500", "unknown_rows": "9"}}

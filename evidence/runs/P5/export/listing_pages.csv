@@ -1,0 +1,3 @@
+csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
+27,33,https://www.marianos.com/pl/hardware-home-improvement/33,listing,1,1,1,completed,new,,65,65,24,7,24,0,0,2,7a897de148e703ca84a3838582da6eb440aac1d622bc5bd26de2124910316e2b,7528162274591122433
+27,33,https://www.marianos.com/pl/hardware-home-improvement/33?page=2,listing,2,2,1,stopped,repeated,page 2 repeats an earlier page exactly,65,65,24,0,0,24,0,0,49f995c4bc801b721b5af6ed4bd31f12b968f3866a1c03528c8c9cccea112c6d,7528162342798917633

@@ -1,0 +1,5 @@
+# command: marianos --version
+# started: 2026-11-16T18:54:29Z
+marianos-azure-headless 1.10.0rc5
+# exit: 0
+# ended: 2026-11-16T18:54:30Z

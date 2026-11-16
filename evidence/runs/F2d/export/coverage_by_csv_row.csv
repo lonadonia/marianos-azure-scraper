@@ -1,0 +1,29 @@
+csv_row,category,source_url,listings_planned,listings_complete,listings_incomplete,listings_not_read,pages_completed,unique_identities,approx_weight_exclusions,unresolved_gap,status,completion_reason
+0,Coupons,https://www.marianos.com/savings/cl/coupons/,0,0,0,0,0,0,0,,NOT_ATTEMPTED,not in this run's scope
+1,Produce,https://www.marianos.com/d/produce,10,7,3,0,34,762,2,440,INCOMPLETE,accessible pages exhausted; coverage incomplete
+2,Meat,https://www.marianos.com/d/meat,16,14,2,0,53,1071,10,1,INCOMPLETE,accessible pages exhausted; coverage incomplete
+3,Seafood,https://www.marianos.com/d/seafood,6,4,2,0,20,410,0,108,INCOMPLETE,accessible pages exhausted; coverage incomplete
+4,Deli,https://www.marianos.com/d/deli,10,8,2,0,22,457,0,75,INCOMPLETE,accessible pages exhausted; coverage incomplete
+5,Bakery,https://www.marianos.com/d/bakery,15,14,1,0,21,314,0,7,INCOMPLETE,accessible pages exhausted; coverage incomplete
+6,Floral,https://www.marianos.com/d/floral,6,6,0,0,6,47,0,0,COMPLETE,every listing of the row reached the source's reported total
+7,Grocery,https://www.marianos.com/d/grocery,14,3,11,0,27,642,0,5339,INCOMPLETE,accessible pages exhausted; coverage incomplete
+8,Dairy,https://www.marianos.com/d/dairy,10,8,2,0,38,805,0,727,INCOMPLETE,accessible pages exhausted; coverage incomplete
+9,Frozen,https://www.marianos.com/d/frozen,16,14,2,0,74,1595,0,964,INCOMPLETE,accessible pages exhausted; coverage incomplete
+10,Natural Organic,https://www.marianos.com/d/natural-organic,11,5,5,1,32,766,0,1967,INCOMPLETE,accessible pages exhausted; coverage incomplete
+11,Beverages,https://www.marianos.com/d/beverages,10,3,6,1,37,858,2,2296,INCOMPLETE,accessible pages exhausted; coverage incomplete
+12,Breakfast,https://www.marianos.com/d/breakfast,8,4,2,2,21,449,0,482,INCOMPLETE,accessible pages exhausted; coverage incomplete
+13,Coffee,https://www.marianos.com/d/coffee,10,2,0,8,16,393,0,384,INCOMPLETE,accessible pages exhausted; coverage incomplete
+14,Candy,https://www.marianos.com/d/candy,8,2,2,4,12,275,0,1247,INCOMPLETE,accessible pages exhausted; coverage incomplete
+15,Beer Wine Liquor,https://www.marianos.com/d/beer-wine-liquor,16,0,0,16,5,120,0,197,INCOMPLETE,accessible pages exhausted; coverage incomplete
+16,Health,https://www.marianos.com/d/health,26,0,0,26,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+17,Personal Care,https://www.marianos.com/d/personal-care,9,0,0,9,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+18,Beauty,https://www.marianos.com/d/beauty,18,0,0,18,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+19,Baby,https://www.marianos.com/d/baby,7,0,0,7,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+20,Household,https://www.marianos.com/d/household,40,0,0,40,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+21,Kitchen Dining,https://www.marianos.com/d/kitchen-dining,16,0,0,16,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+22,Pet Supplies,https://www.marianos.com/d/pet-supplies,12,0,0,12,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+23,Candles Home Fragrances,https://www.marianos.com/pl/candles-home-fragrances/32001?pzn=relevance,1,0,0,1,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+24,Batteries,https://www.marianos.com/pl/batteries/26003?pzn=relevance,1,0,0,1,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+25,Light Bulbs,https://www.marianos.com/pl/Light-Bulbs/26002?pzn=relevance,1,0,0,1,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+26,School Office,https://www.marianos.com/pl/school-office/35?pzn=relevance,1,0,0,1,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete
+27,Hardware Home Improvement,https://www.marianos.com/pl/hardware-home-improvement/33?pzn=relevance,1,0,0,1,0,0,0,0,INCOMPLETE,accessible pages exhausted; coverage incomplete

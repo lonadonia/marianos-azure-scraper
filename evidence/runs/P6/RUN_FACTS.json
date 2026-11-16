@@ -1,0 +1,161 @@
+{
+ "run_id": "01M7JTAC3J8TYR7RV93F2W7PG3",
+ "stages": [
+  "M-P6-pubtarget-second-publication-rollback-110rc5-20261116"
+ ],
+ "revisions": [
+  {
+   "version": "1.10.0rc5",
+   "commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1"
+  }
+ ],
+ "segments": [
+  {
+   "id": "01M7JTAC5QQ65XV5NPSAREV04W",
+   "started_at": "2026-11-16 18:36:10.806871+00",
+   "ended_at": "2026-11-16 18:52:23.711851+00",
+   "active_s": "972.8975981400004",
+   "end_state": "ended",
+   "stop_code": "",
+   "trigger": "manual",
+   "code": {
+    "commit": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+    "source": "environment",
+    "version": "1.10.0rc5",
+    "parser_version": "1.10.0"
+   }
+  }
+ ],
+ "ledger": {
+  "rows": 9,
+  "by_state": {
+   "settled": 9
+  },
+  "results_charged": 9,
+  "usd_settled": 0.0135
+ },
+ "executions": [
+  {
+   "stage": "M-P6-pubtarget-second-publication-rollback-110rc5-20261116",
+   "utc_start": "2026-11-16T18:36:10+00:00",
+   "utc_end": "2026-11-16T18:52:24+00:00",
+   "args": [
+    "run",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 0,
+   "seconds": 973.5,
+   "revision": "bc19afe60c1016cf5d08d055abd96bc69c9d3dd1",
+   "gate_counts": {
+    "reserved": 9,
+    "dispatched": 9,
+    "unsent": 0,
+    "settled": 9,
+    "settled_free": 0,
+    "unknown": 0
+   }
+  }
+ ],
+ "pages": {
+  "answers": 7,
+  "by_state": {
+   "completed": 3,
+   "stopped": 3,
+   "refused": 1
+  },
+  "by_verdict": {
+   "new": 3,
+   "repeated": 3,
+   "malformed": 1
+  },
+  "store_checks": [
+   "PASS"
+  ],
+  "locations": [
+   "53100502"
+  ],
+  "modalities": [
+   "PICKUP"
+  ]
+ },
+ "set_aside": {
+  "requests": 2,
+  "by_state": {
+   "recovered": 2
+  },
+  "reasks_answered": 3,
+  "new_products_from_reasks": 41,
+  "min_seconds_between_answers": 304.6
+ },
+ "products": {
+  "retained_records": 65,
+  "fresh_records": 62,
+  "distinct_fresh_upcs": 62,
+  "fresh_categories": 1,
+  "verified": 62,
+  "historical": {
+   "too_old": 0,
+   "carried_forward": 0
+  },
+  "identities": {
+   "record_rows": 65,
+   "fresh_valid": 62,
+   "fresh_not_valid": 3,
+   "carried_forward": 0,
+   "excluded": 0,
+   "excluded_rows": 0,
+   "exported_rows": 65,
+   "retained_unique": 65,
+   "duplicates": 0,
+   "overlaps": {
+    "fresh_valid & fresh_not_valid": 0,
+    "fresh_valid & carried_forward": 0,
+    "fresh_valid & excluded": 0,
+    "fresh_not_valid & carried_forward": 0,
+    "fresh_not_valid & excluded": 0,
+    "carried_forward & excluded": 0
+   },
+   "relations": {
+    "no identity is in two classes": true,
+    "retained = fresh valid + fresh not valid + carried forward": true,
+    "no exported identity twice": true
+   },
+   "holds": true
+  }
+ },
+ "gates": {
+  "G1": "PASS",
+  "G2": "PASS",
+  "G3": "PASS",
+  "G4": "PASS",
+  "G5": "PASS",
+  "G6": "PASS",
+  "G7": "PASS",
+  "G8": "PASS",
+  "G9": "PASS",
+  "G10": "PASS",
+  "G11": "PASS",
+  "G12": "PASS",
+  "G13": "PASS",
+  "G14": "FAIL"
+ },
+ "nodes": {
+  "DONE": 1
+ },
+ "status": "validated",
+ "outcome": "validated",
+ "pilot": false,
+ "store": {
+  "key": "marianos-53100502-pickup",
+  "name": "Marianos Vernon Hills",
+  "modality": "PICKUP",
+  "retailer": "marianos",
+  "location_id": "53100502"
+ },
+ "csv_rows": {
+  "NOT_ATTEMPTED": 27,
+  "COMPLETE": 1
+ },
+ "listings_not_complete": []
+}

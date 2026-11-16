@@ -1,0 +1,145 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  1.567MB
+Step 1/21 : FROM python:3.12-slim-bookworm AS build
+3.12-slim-bookworm: Pulling from library/python
+Digest: sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+Status: Image is up to date for python:3.12-slim-bookworm
+ ---> 935c3c5b1235
+Step 2/21 : COPY --from=ghcr.io/astral-sh/uv:0.13.1 /uv /usr/local/bin/uv
+0.13.1: Pulling from astral-sh/uv
+Digest: sha256:4a1f3666816dafadd20ceb71eac9a7d56d7ef30279f7d64048519ab901ada336
+Status: Image is up to date for ghcr.io/astral-sh/uv:0.13.1
+ ---> 65c6ae80efb5
+Step 3/21 : ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy UV_PYTHON_DOWNLOADS=never
+ ---> Running in c0e88cf2e97a
+ ---> Removed intermediate container c0e88cf2e97a
+ ---> 36e560e5b4ea
+Step 4/21 : WORKDIR /app
+ ---> Running in 1d80184c24e2
+ ---> Removed intermediate container 1d80184c24e2
+ ---> 5eca8b6a76ec
+Step 5/21 : COPY pyproject.toml uv.lock README.md ./
+ ---> 9076e4e062e7
+Step 6/21 : RUN uv sync --frozen --no-dev --no-install-project
+ ---> Running in 4313bb3d1eef
+[91mUsing CPython[0m[91m 3.12.16 interpreter at: [0m[91m/usr/local/bin/python3[0m[91m
+[0m[91mCreating virtual environment at: [0m[91m.venv[0m[91m
+[0m[91mDownloading pydantic-core (2.1MiB)
+[0m[91mDownloading[0m[91m playwright (46.0MiB)
+[0m[91mDownloading[0m[91m sqlalchemy (4.5MiB)
+[0m[91mDownloading psycopg-binary (5.0MiB)
+[0m[91mDownloading cryptography (4.5MiB)
+[0m[91mDownloading selectolax (1.5MiB)
+[0m[91m Downloaded selectolax
+[0m[91m Downloaded pydantic-core
+[0m[91m [0m[91mDownloaded[0m[91m [0m[91mpsycopg-binary[0m[91m
+[0m[91m Downloaded cryptography
+[0m[91m Downloaded sqlalchemy
+[0m[91m Downloaded playwright
+[0m[91mPrepared 37 packages in 770ms
+[0m[91mInstalled 37 packages in 10.26s
+[0m[91mBytecode compiled 1312 files in 1.76s
+[0m[91m + alembic==1.20.0
+ + annotated-types==0.8.0
+ + anyio==4.15.1
+ + azure-core==1.41.0
+ + azure-identity==1.26.0
+ + azure-storage-blob==12.31.0
+ + certifi==2026.10.19
+ + cffi==2.1.1
+ + charset-normalizer==3.5.2
+ + cryptography==50.0.2
+ + greenlet==3.5.6
+ + h11==0.16.0
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + idna==3.20
+ + isodate==0.7.2
+ + mako==1.4.3
+ + markupsafe==3.0.4
+ + msal==1.39.0
+ + msal-extensions==1.3.1
+ + playwright==1.63.0
+ + psycopg==3.3.6
+ + psycopg-binary==3.3.6
+ + pycparser==3.11
+ + pydantic==2.14.1
+ + pydantic-core==2.50.1
+ + pyee==13.0.1
+ + pyjwt==2.15.1
+ + python-ulid==4.0.1
+ + pyyaml==6.0.3
+ + requests==2.34.2
+ + selectolax==1.0.1
+ + sqlalchemy==2.1.6
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.4
+ + tzdata==2026.5
+ + urllib3==2.8.0
+[0m ---> Removed intermediate container 4313bb3d1eef
+ ---> a05b6c2c6e7a
+Step 7/21 : COPY src ./src
+ ---> 050ee868fc7d
+Step 8/21 : RUN uv sync --frozen --no-dev
+ ---> Running in 9e45cb7fb1bf
+[91m   Building marianos-azure-headless @ file:///app
+[0m[91m      Built marianos-azure-headless @ file:///app
+[0m[91mPrepared 1 package in 635ms
+[0m[91mInstalled 1 package in 0.88ms
+[0m[91mBytecode compiled 1312 files in 67ms
+ + marianos-azure-headless==1.10.0rc4 (from file:///app)
+[0m ---> Removed intermediate container 9e45cb7fb1bf
+ ---> 3978193b9243
+Step 9/21 : FROM python:3.12-slim-bookworm
+3.12-slim-bookworm: Pulling from library/python
+Digest: sha256:935c3c5b12357a7e10caa9c1e6ca5692344d97cf229832ef584be2cec9fc03df
+Status: Image is up to date for python:3.12-slim-bookworm
+ ---> 935c3c5b1235
+Step 10/21 : ARG SOURCE_COMMIT=unknown
+ ---> Running in 7c961dafa1b8
+ ---> Removed intermediate container 7c961dafa1b8
+ ---> e641928262b7
+Step 11/21 : ARG BUILT_AT=unknown
+ ---> Running in a0ec34a064a0
+ ---> Removed intermediate container a0ec34a064a0
+ ---> aa1f601ed33f
+Step 12/21 : ENV PATH="/app/.venv/bin:$PATH"     PYTHONUNBUFFERED=1     PYTHONDONTWRITEBYTECODE=1     MARIANOS_COLLECTOR_CONFIG=/app/config/collector.yaml     MARIANOS_COLLECTOR_DATA_DIR=/app/data
+ ---> Running in c53fa5bd1df3
+ ---> Removed intermediate container c53fa5bd1df3
+ ---> 3f7f81835b72
+Step 13/21 : RUN groupadd --system --gid 10001 collector && useradd --system --uid 10001 --gid collector --home /app collector
+ ---> Running in 46a93414d079
+[91museradd warning: collector's uid 10001 is greater than SYS_UID_MAX 999
+[0m ---> Removed intermediate container 46a93414d079
+ ---> 1aa80a7ab63f
+Step 14/21 : WORKDIR /app
+ ---> Running in b2b44e7ac795
+ ---> Removed intermediate container b2b44e7ac795
+ ---> 3fd095c625b0
+Step 15/21 : COPY --from=build /app/.venv /app/.venv
+ ---> 11e98ed67f3f
+Step 16/21 : COPY --from=build /app/src /app/src
+ ---> 32c82e85a1d0
+Step 17/21 : COPY config ./config
+ ---> 7fd988510fe6
+Step 18/21 : RUN printf '{"commit": "%s", "built_at": "%s"}\n' "$SOURCE_COMMIT" "$BUILT_AT" > /app/BUILD_INFO.json     && mkdir -p /app/data && chown collector:collector /app/data
+ ---> Running in c253c39d6c1f
+ ---> Removed intermediate container c253c39d6c1f
+ ---> df2bc9308c60
+Step 19/21 : USER collector
+ ---> Running in 9ca2ac9e0d5b
+ ---> Removed intermediate container 9ca2ac9e0d5b
+ ---> c4cb9ff46998
+Step 20/21 : ENTRYPOINT ["marianos-collector"]
+ ---> Running in c6368482bb0b
+ ---> Removed intermediate container c6368482bb0b
+ ---> 2b15826dd2ac
+Step 21/21 : CMD ["validate-config"]
+ ---> Running in 02032dcea1c5
+ ---> Removed intermediate container 02032dcea1c5
+ ---> 91074c91bc2b
+Successfully built 91074c91bc2b
+Successfully tagged marianos-collector:1.10.0rc4

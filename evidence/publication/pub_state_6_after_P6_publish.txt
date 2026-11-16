@@ -1,0 +1,34 @@
+== pointer (store_id | publication_id | version | updated_at | run_id | manifest_sha256)
+01M7JRXAKQEYA7A18HCEVXFT6X | 01M7JV9KD0QCH4B1AGKE9MNC59 | 2 | 2026-11-16 18:53:14.01519+00 | 01M7JTAC3J8TYR7RV93F2W7PG3 | 4209f0a0075835bf0cd7dbb560ab851eed62a2a36d43a22d5ee9f172a400d220
+== publications (id | run_id | published_at | published_by | previous_publication_id | manifest_sha256)
+01M7JSWRSZD7E7Z2T4YA62TA8J | 01M7JRXD9P93HPNBRY3J0BVMSX | 2026-11-16 18:28:44.989967+00 | hamza-owner-vm-qualification |  | 73115fedbd8b2edcfef9aedf99232d9d4abece913f0ca48818e87e0f662b7e49
+01M7JV9KD0QCH4B1AGKE9MNC59 | 01M7JTAC3J8TYR7RV93F2W7PG3 | 2026-11-16 18:53:14.01519+00 | hamza-owner-vm-qualification | 01M7JSWRSZD7E7Z2T4YA62TA8J | 4209f0a0075835bf0cd7dbb560ab851eed62a2a36d43a22d5ee9f172a400d220
+== every file under published/
+e31310d97b9724c8daf2e1016626e419758965ffa314c1433a94546806eead8d  published/marianos-53100502-pickup/latest.json
+== latest.json
+{
+  "publication_id": "01M7JV9KD0QCH4B1AGKE9MNC59",
+  "run_id": "01M7JTAC3J8TYR7RV93F2W7PG3",
+  "manifest_key": "runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/manifest.json",
+  "manifest_sha256": "4209f0a0075835bf0cd7dbb560ab851eed62a2a36d43a22d5ee9f172a400d220",
+  "version": 2,
+  "mode": "LIVE",
+  "written_at": "2026-11-16T18:53:14.025004Z",
+  "note": "convenience copy; the database publication_pointer is authoritative"
+}
+
+== exports of the published run 01M7JTAC3J8TYR7RV93F2W7PG3
+7649918f203ebae25fa3e7681b7a709336182a4023bf70a4a590c15399c39d41  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/coverage_by_csv_row.csv
+f278e94b9c43275e0ae01c98a159735b0e61bb01eaea8d70fc89f12ad8b1fccb  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/coverage_reconciliation.csv
+a07b194a92c3599baac7022e1b700ec359aed96c128addc6f05e8bc0835dad87  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/coverage_reconciliation.json
+95235297255e4562b54872e77e7657ab51c16e805ba0df945ee4194573dd5249  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/deferred_requests.json
+75990753eceab40e319231969c685977f975f7cbd2f4407c9fa6a3be44fab68d  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/listing_pages.csv
+4209f0a0075835bf0cd7dbb560ab851eed62a2a36d43a22d5ee9f172a400d220  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/manifest.json
+dcd52118b092ea1420643f7d8e06a80d7e50f5485c27dd0a72cfe37fabb13d1a  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/memberships.json
+37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/offers.json
+cbeaeb823401025aca0c031ad1148061428b917e189f5d7ce3a35f3cc9104ae8  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/products.csv
+6dbbf3c04ed42769fbfb5305851dd531462c13322b5114879bf387502512e57a  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/products.json
+9fe9e35228640083fc25614144f32b49ee87ba97110846d1f24bba1fb8d5e74b  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/products_fresh.csv
+2dd2b7eed7b1d96bdf69fb3adc1637b723af35c0e2838e9b00bd0a0c0d5bc567  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/products_fresh.json
+3f15cc7e33c1f5d34fea8d8c75d481ac278761ce0884ab966b5b3be9648964b0  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/provenance.json
+98e9652470091af0052555bddec43a637ffb7876d90394b5a01f0c5d7423369d  runs/marianos-53100502-pickup/01M7JTAC3J8TYR7RV93F2W7PG3/exports/validation_report.json

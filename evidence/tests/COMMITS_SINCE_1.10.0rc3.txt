@@ -1,0 +1,7 @@
+bc19afe60c1016cf5d08d055abd96bc69c9d3dd1 2026-11-16T16:31:05Z marianos-azure-headless 1.10.0rc5: a page brought before its search was made is asked again, not taken for another store
+a1385f81cbdc7a893235cb9b6c7d57e1272ae416 2026-11-16T16:29:51Z marianos-azure-headless 1.10.0rc5 (tests only): a page brought before its search was made
+570ff7cce9d45a913963d495593f0f9d89c3c41e 2026-11-16T04:45:58Z marianos-azure-headless 1.10.0rc4 (tests only): the scheduled-run test's collector clock starts at its occurrence
+1838de7a9d62639bde9e82bdc7968d063cba88ae 2026-11-16T04:45:58Z marianos-azure-headless 1.10.0rc4 (tests only): the test browser starts where unprivileged user namespaces are restricted
+dc926d49eb4b9d27f44ac74a3090a00d20c6b5c9 2026-11-16T04:13:02Z marianos-azure-headless 1.10.0rc4: the gzip_bytes comment within the 110-character line limit
+9a2799908b8731f56cdfcdb2c94fac60b90ebd08 2026-11-16T04:09:57Z marianos-azure-headless 1.10.0rc4: the version of the candidate whose collector code is 1.10.0rc3's
+3beaf8957e8df741fb53895823fdf2092aceb67d 2026-11-16T03:47:34Z marianos-azure-headless (tests only): the C1 Batteries replay compares the stored page with the saved answer's body

@@ -382,6 +382,56 @@ def test_an_empty_or_malformed_page_is_asked_again_within_its_bounds(
         assert len(_upcs(s, run_id)) == 60
 
 
+@pytest.mark.parametrize("page", [1, 2])
+def test_a_page_brought_before_its_search_was_made_is_asked_again_and_the_run_goes_on(
+    env: dict[str, Any], settings: Settings, page: int
+) -> None:
+    """Release 1.10.0rc5. Live 2026-11-16 (run F1, 1.10.0rc4): page 3 of a listing came back before the page's
+    search was made (no request, still loading, no response, no product, no card) in the store's own context;
+    the search request's store was read as absent, the page taken for another store's, and the run stopped
+    (STORE_NOT_VERIFIED). Such a page prices nothing: it is not counted and is asked again, and every other
+    store check of it still has to pass."""
+    site = _complete(60)
+    site.on("03001", page, "search_not_made")
+    run_id, status = _run(env, settings, site)
+    assert status != "interrupted", status
+    assert site.asked.count(("03001", page)) == 2
+    with env["factory"]() as s:
+        run = s.get(Run, run_id)
+        assert run is not None and run.stop_code is None, (run.status, run.stop_code)
+        pages = _pages(s, run_id)
+        assert (page, "refused", "malformed") in pages
+        assert [p for p in pages if p[1] == "completed"] == [
+            (1, "completed", "new"),
+            (2, "completed", "new"),
+            (3, "completed", "new"),
+        ]
+        shell = next(r for r in _rows(s, run_id) if r.state == "refused")
+        assert shell.store_check == "PASS" and shell.identities == [] and shell.new_count == 0
+        upcs = _upcs(s, run_id)
+        assert len(upcs) == 60 and len(set(upcs)) == 60
+        cov = _coverage(s, run_id)
+        assert cov is not None and (cov.status, cov.total_count) == ("DONE", 60)
+
+
+@pytest.mark.parametrize("what", ["search_not_made_with_products", "search_not_made_wrong_store"])
+def test_a_page_without_its_search_that_shows_products_or_another_store_still_stops_the_run(
+    env: dict[str, Any], settings: Settings, what: str
+) -> None:
+    """Release 1.10.0rc5, its bounds: a page that shows products is checked as before, its search request
+    included; an empty page in another store's context fails the page's own store checks."""
+    site = _complete(60)
+    site.on("03001", 2, what)
+    run_id, status = _run(env, settings, site)
+    assert status == "rejected"
+    assert site.asked == [("03001", 1), ("03001", 2)]
+    with env["factory"]() as s:
+        run = s.get(Run, run_id)
+        assert run is not None and run.stop_code == "STORE_NOT_VERIFIED"
+        assert _pages(s, run_id) == [(1, "completed", "new"), (2, "refused", "wrong_context")]
+        assert len(_upcs(s, run_id)) == 24  # nothing of the refused page
+
+
 def test_a_blocked_page_stops_the_run_without_retrying_and_is_not_counted(
     env: dict[str, Any], settings: Settings
 ) -> None:

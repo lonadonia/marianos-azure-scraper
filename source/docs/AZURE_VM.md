@@ -1,7 +1,7 @@
 # Azure option B: one small Linux VM (the smallest test)
 
 > Status: the first section, **Mariano's on its own VM (`deploy/vm/`)**, is the procedure of the test
-> installation on the VM `testmarianos` (release 1.3.1, then the upgrades to 1.3.2, 1.3.3, 1.3.4 and 1.3.5); what was run there, when,
+> installation on the VM `[redacted:vm-hostname]` (release 1.3.1, then the upgrades to 1.3.2, 1.3.3, 1.3.4 and 1.3.5); what was run there, when,
 > and its output are in the delivery evidence, not in this file. The rest of this page is the earlier plan for a VM shared
 > with Walmart; it was written when no Azure subscription was available and has **not** been executed.
 > The Container Apps option (AZURE.md, `azure/main.bicep`) is separate and unchanged.

@@ -1,0 +1,29 @@
+csv_row,category,census_products_listed_20261102,census_pages_all_products,census_not_measured,f2_status,f2_listings_planned,f2_listings_complete,f2_listings_incomplete,f2_listings_not_read,f2_reported_total_of_its_listings,f2_pages_completed,f2_distinct_products
+0,Coupons,,,,NOT_ATTEMPTED,0,0,0,0,,0,0
+1,Produce,1212,54,,INCOMPLETE,10,7,3,0,1202,34,762
+2,Meat,949,47,department 01;department 19,INCOMPLETE,16,14,2,0,1072,53,1071
+3,Seafood,466,22,department 01;department 19,INCOMPLETE,6,4,2,0,518,20,410
+4,Deli,577,30,,INCOMPLETE,10,8,2,0,532,22,457
+5,Bakery,343,22,,INCOMPLETE,15,14,1,0,321,21,314
+6,Floral,57,6,,COMPLETE,6,6,0,0,47,6,47
+7,Grocery,0,0,department 01,INCOMPLETE,14,3,11,0,5981,27,642
+8,Dairy,1519,70,,INCOMPLETE,10,8,2,0,1532,38,805
+9,Frozen,0,0,department 19,INCOMPLETE,16,14,2,0,2559,74,1595
+10,Natural Organic,2832,123,category 18002,INCOMPLETE,11,5,5,1,2733,32,766
+11,Beverages,0,0,department 04,INCOMPLETE,10,3,6,1,3154,37,858
+12,Breakfast,949,43,department 19,INCOMPLETE,8,4,2,2,931,21,449
+13,Coffee,0,0,department 04,INCOMPLETE,10,2,0,8,777,16,393
+14,Candy,815,37,,INCOMPLETE,8,2,2,4,1522,12,275
+15,Beer Wine Liquor,2378,106,,INCOMPLETE,16,0,0,16,317,5,120
+16,Health,2581,109,department 22 categories (its total used),INCOMPLETE,26,0,0,26,,0,0
+17,Personal Care,0,0,department 21,INCOMPLETE,9,0,0,9,,0,0
+18,Beauty,2601,110,department 21,INCOMPLETE,18,0,0,18,,0,0
+19,Baby,616,29,,INCOMPLETE,7,0,0,7,,0,0
+20,Household,1217,54,,INCOMPLETE,40,0,0,40,,0,0
+21,Kitchen Dining,617,36,,INCOMPLETE,16,0,0,16,,0,0
+22,Pet Supplies,755,38,category 27027;category 27029,INCOMPLETE,12,0,0,12,,0,0
+23,Candles Home Fragrances,,,,INCOMPLETE,1,0,0,1,,0,0
+24,Batteries,,,,INCOMPLETE,1,0,0,1,,0,0
+25,Light Bulbs,,,,INCOMPLETE,1,0,0,1,,0,0
+26,School Office,,,,INCOMPLETE,1,0,0,1,,0,0
+27,Hardware Home Improvement,,,,INCOMPLETE,1,0,0,1,,0,0

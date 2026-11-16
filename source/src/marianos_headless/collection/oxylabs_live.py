@@ -398,17 +398,40 @@ class OxylabsCollector(LiveCollector):
         except (InitialStateNotFound, ValueError):
             state = {}
         summary = search_summary(state)
+        products = state_products(state)
+        shows = fetch.purpose != "coupons" and bool(products or grid_cards(html)[1])
         if summary is not None:
+            # Release 1.10.0rc5: a page brought before its search was made (live 2026-11-16, run F1: no
+            # request, still loading, no response, no product, no card) states no store for its search
+            # because it has none. Nothing on it is priced, so this check does not apply to it, as
+            # price_locations does not apply to a page that shows no product; every other check of the page
+            # still has to pass, and the listing step judges the page (no page number, no result count: not
+            # counted, asked for again). 1.10.0rc4 took it for a page of another store and stopped the run.
+            # A search that names another store or fulfillment, and any page that shows a product, are
+            # checked as before.
+            not_made = (
+                summary.filters is None  # no request at all (requestVars empty or missing)
+                and summary.loaded is not True
+                and summary.total is None
+                and not shows
+            )
+            observed: dict[str, Any] = {
+                "locationId": summary.location_id,
+                "activeModalityType": summary.modality,
+            }
+            if not_made:
+                observed.update(loaded=summary.loaded, loading=summary.loading)
             v.checks.append(
                 StoreCheck(
                     "search_request",
-                    summary.location_id == loc and summary.modality == modality,
-                    {"locationId": summary.location_id, "activeModalityType": summary.modality},
+                    None if not_made else summary.location_id == loc and summary.modality == modality,
+                    observed,
                     {"locationId": loc, "activeModalityType": modality},
-                    note="the page's own search request (search.searchAll.requestVars)",
+                    required=not not_made,
+                    note="the page's own search request (search.searchAll.requestVars)"
+                    + ("; not made when the page was brought: not applicable" if not_made else ""),
                 )
             )
-        products = state_products(state)
         locs = Counter(price_location(p) for p in products)
         stated = set(locs) - {None}
         # Every price a page states must be the store's. A product whose data states no price (``price``
@@ -418,7 +441,6 @@ class OxylabsCollector(LiveCollector):
         # nothing, the Coupons page) has none either; its store and fulfillment are still checked above,
         # and the listing step tells an empty search from an abnormal page. A page that shows cards
         # without their product data cannot be checked: it fails.
-        shows = fetch.purpose != "coupons" and bool(products or grid_cards(html)[1])
         ok = (stated == {loc}) if stated else (False if shows and not products else None)
         v.checks.append(
             StoreCheck(

@@ -1,0 +1,10 @@
+Export: ev/F2d/export (8104 records, 1121 offers kept)
+
+=== 0081675102373  Cutwater Espresso Martini ("Buy 1 Save $1": a one-unit condition, not a volume offer)
+    not exported by this run (its listing was not read, or the product was not shown)
+=== 0086001079386  The Finnish Long Drink ("Buy 1 Save $2": a one-unit condition, not a volume offer)
+    not exported by this run (its listing was not read, or the product was not shown)
+=== 0001820020352  Nutrl Vodka Hard Seltzer ("Buy 1 Save $2": a one-unit condition, not a volume offer)
+    not exported by this run (its listing was not read, or the product was not shown)
+=== 0073679800140  Avocado Green Goddess Dip & Spread (weight is the pack, 8 OUNCES, not the serving "2 tbsp")
+    not exported by this run (its listing was not read, or the product was not shown)
