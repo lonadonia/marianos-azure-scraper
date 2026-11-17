@@ -1,0 +1,1 @@
+{"ts": "2026-11-16T23:53:19.149Z", "level": "ERROR", "event": "COMMAND_REFUSED", "collector": "marianos-azure-headless", "command": "validate-export", "exit_code": 2, "message": "run 01M7KBQ3XXMP3W3FK2EXE525EA has no exports"}

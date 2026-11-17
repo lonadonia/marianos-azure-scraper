@@ -1,0 +1,508 @@
+From 9a06c1bb4048c9dbc7715724f629dd04c89c4d52 Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Mon, 16 Nov 2026 21:28:04 +0000
+Subject: [PATCH 05/12] marianos-azure-headless 1.10.0rc6 (tests only): the
+ Coupons row is read only when its list loaded, and its verdict holds through
+ the run (OR-04)
+
+Seven of twelve runs before 1.10.0rc6 recorded the Coupons page (CSV row 0) as read with 0 coupons when the
+page had been rendered before its list loaded. These tests use the two real Coupons pages stored on
+2026-11-16 (loaded with 24 cards; the site's loading indicator, no count, no card) and derived pages for what
+no stored page shows (a loaded empty list; a count without cards; a product page still loading). They state:
+three readings of the list (loaded with cards, loaded empty, not loaded); a page not loaded asked again
+within its bounds; the answers and the verdict kept across a restart; an unread Coupons route keeps a run of
+the whole list from complete (G3, the dataset label, the coverage file); a product page still loading proves
+no coupon absent. Expected to fail on 1.10.0rc5 (12 tests); the control passes on both.
+---
+ .../integration/test_coupons_route_or04.py    | 304 ++++++++++++++++++
+ .../tests/listing_site.py                     |   8 +-
+ .../tests/unit/test_coupons_list_or04.py      | 141 ++++++++
+ 3 files changed, 452 insertions(+), 1 deletion(-)
+ create mode 100644 headless/marianos-azure-headless/tests/integration/test_coupons_route_or04.py
+ create mode 100644 headless/marianos-azure-headless/tests/unit/test_coupons_list_or04.py
+
+diff --git a/headless/marianos-azure-headless/tests/integration/test_coupons_route_or04.py b/headless/marianos-azure-headless/tests/integration/test_coupons_route_or04.py
+new file mode 100644
+index 0000000..0030ff0
+--- /dev/null
++++ b/headless/marianos-azure-headless/tests/integration/test_coupons_route_or04.py
+@@ -0,0 +1,304 @@
++"""OR-04 (release 1.10.0rc6): the Coupons row (CSV row 0) is read only when its list loaded, and its verdict
++holds through the run: its retries, a restart, the coverage files, the checks and publication.
++
++Seven of twelve runs before 1.10.0rc6 recorded the Coupons page as read with 0 coupons when its list had not
++loaded. These tests serve, behind a fake Web API (an httpx mock transport, nothing leaves the process), the
++REAL Coupons pages the collector stored on 2026-11-16 for Vernon Hills 53100502 Pickup
++(``tests/fixtures/oxylabs_2026-11-16``: one loaded with 24 coupon cards, one rendered before its list
++loaded), beside SYNTHETIC listing pages for the same store. A product page still loading (DERIVED from the
++real rendered page of 0001780014939, stage O1, 2026-11-06) cannot prove that the product has no coupon.
++
++Tests named ``test_or04_...`` fail on 1.10.0rc5; ``test_control_...`` hold before and after."""
++
++from __future__ import annotations
++
++import asyncio
++import gzip
++import json
++from pathlib import Path
++from typing import Any
++
++import httpx
++import pytest
++from pydantic import SecretStr
++from selectolax.lexbor import LexborHTMLParser
++from sqlalchemy import Engine, select
++
++from marianos_headless.acquisition import oxylabs
++from marianos_headless.collection import reconciliation
++from marianos_headless.collection.config import CollectionConfig, Limits
++from marianos_headless.collection.oxylabs_live import OxylabsCollector
++from marianos_headless.core.settings import (
++    AcquisitionSettings,
++    BrowserProvider,
++    OxylabsSettings,
++    PrivateLabelConfig,
++    Settings,
++)
++from marianos_headless.db.models import CategorySource, ProductObservation, RecordRow, Run, ValidationFinding
++from marianos_headless.sites.marianos import pdp_savings
++from marianos_headless.storage.local import LocalStorageAdapter
++from marianos_headless.worker.pipeline import Pipeline
++from tests.c1_site import target_store
++from tests.integration import test_product_terms_collector as terms
++from tests.integration.helpers import seed
++from tests.listing_site import BASE, KEY, Site, plan_nodes, products
++
++pytestmark = [pytest.mark.postgres]
++
++FIX16 = Path(__file__).resolve().parents[1] / "fixtures" / "oxylabs_2026-11-16"
++LOADED = gzip.decompress((FIX16 / "coupons_loaded_24_cards.html.gz").read_bytes()).decode("utf-8")
++SPINNER = gzip.decompress((FIX16 / "coupons_not_loaded_spinner.html.gz").read_bytes()).decode("utf-8")
++COUPONS_URL = f"{BASE}/savings/cl/coupons/"
++# The Coupons row as the plan of a run of the client's whole list names it (1.10.0rc6: a route of the run).
++ROUTE = {
++    "row": 0,
++    "category": "Coupons",
++    "route": "coupons",
++    "url": COUPONS_URL,
++    "reason": "the coupons catalogue lists offers, not products: read as the run's Coupons route",
++}
++VH = {"name": "Marianos Vernon Hills", "addressLine1": "1720 N Milwaukee Ave", "zip": "60061"}
++
++
++async def _no_sleep(_: float) -> None:
++    return None
++
++
++@pytest.fixture
++def env(migrated_engine: Engine, tmp_path: Path, private_label: PrivateLabelConfig) -> dict[str, Any]:
++    factory, _ = seed(migrated_engine)
++    with factory() as s:
++        oxylabs.set_ceiling(s, submissions=400, usd=10, actor="test", reason="test")
++        s.commit()
++    return {
++        "engine": migrated_engine,
++        "factory": factory,
++        "storage": LocalStorageAdapter(tmp_path / "data"),
++        "store": target_store(),
++        "private_label": private_label,
++        "tmp": tmp_path,
++    }
++
++
++def _site(coupons: list[str]) -> Site:
++    return Site(
++        {"03001": products(48)},
++        location_id="53100502",
++        fulfillment="pickup",
++        modality="PICKUP",
++        address=VH,
++        coupons=coupons,
++    )
++
++
++def _pipe(env: dict[str, Any], settings: Settings) -> Pipeline:
++    acq = AcquisitionSettings(browser_provider=BrowserProvider.OXYLABS, oxylabs=OxylabsSettings())
++    return Pipeline(
++        env["engine"],
++        env["storage"],
++        Settings(acquisition=acq, records=settings.records, attestation=settings.attestation),
++        env["store"],
++        env["private_label"],
++    )
++
++
++def _run(
++    env: dict[str, Any], settings: Settings, site: Site, *, run_id: str | None = None
++) -> tuple[str, str]:
++    pipe = _pipe(env, settings)
++    resume = run_id is not None
++    if run_id is None:
++        with env["factory"]() as s:
++            ids = {c.csv_row_index: c.id for c in s.scalars(select(CategorySource))}
++        nodes = plan_nodes(ids, ("03001",))
++        with env["factory"]() as s:
++            run_id = pipe.create_live_run(
++                s,
++                nodes,
++                trigger="console",
++                snapshot={
++                    "plan": {"nodes": [n.as_dict() for n in nodes], "skipped": [ROUTE]},
++                    "started_by": "test",
++                    "provider": "oxylabs",
++                },
++            )
++            s.commit()
++    collector = OxylabsCollector(
++        pipe,
++        run_id,
++        api_key=SecretStr(KEY),
++        transport=httpx.MockTransport(site),
++        sleep=_no_sleep,
++        config=CollectionConfig(limits=Limits()),
++        trigger="manual",
++    )
++    status = asyncio.run(pipe.execute(run_id, "test-collector", resume=resume, collector=collector))
++    return run_id, str(status)
++
++
++def _row0(env: dict[str, Any], run_id: str) -> dict[str, Any]:
++    with env["factory"]() as s:
++        report = reconciliation.reconciliation(s, run_id)
++    return next(r for r in report["rows"] if r["csv_row"] == 0)
++
++
++def test_control_a_coupons_page_whose_list_loaded_is_read_with_its_cards(
++    env: dict[str, Any], settings: Settings
++) -> None:
++    """Before and after 1.10.0rc6: the loaded page is read once, with its 24 coupon cards, and the run of a
++    complete listing is validated."""
++    site = _site([LOADED])
++    run_id, status = _run(env, settings, site)
++    assert status == "validated" and site.coupons_asked == 1
++    with env["factory"]() as s:
++        run = s.get(Run, run_id)
++        assert run is not None
++        route = run.counts["coupons_route"]
++        assert route["status"] == "READ" and route["coupon_cards"] == 24 and route["store_check"] == "PASS"
++        assert run.counts["collection_complete"] is True
++
++
++def test_or04_a_coupons_page_whose_list_never_loads_is_not_read_and_keeps_the_run_from_complete(
++    env: dict[str, Any], settings: Settings
++) -> None:
++    """Expected to FAIL on 1.10.0rc5 (it records the page as read with 0 coupons and validates the run). The
++    page is asked within its bounds (four answers), each kept with its reading; the route stays unread; the
++    listing is complete, but the run is not: G3 fails on the Coupons row, the dataset is partial, the coverage
++    file says why, and nothing is published."""
++    site = _site([SPINNER])
++    run_id, status = _run(env, settings, site)
++    assert site.coupons_asked == 4
++    with env["factory"]() as s:
++        run = s.get(Run, run_id)
++        assert run is not None
++        route = run.counts["coupons_route"]
++        assert route["status"].startswith("NOT READ") and "had not loaded" in route["status"], route["status"]
++        assert (
++            route["list_state"] == "not_loaded" and route["coupon_cards"] == 0 and route["mandatory"] is True
++        )
++        assert [a["list_state"] for a in route["attempts"]] == ["not_loaded"] * 4
++        assert all(a["store_check"] == "PASS" and a["fetch_id"] for a in route["attempts"])
++        assert run.counts["nodes"] == {"DONE": 1}  # the listing itself was read to its end
++        assert run.counts["collection_complete"] is False
++        assert status == "rejected" and run.counts["gates"]["G3"] == "FAIL"
++        g3 = [
++            f
++            for f in s.scalars(select(ValidationFinding).where(ValidationFinding.run_id == run_id))
++            if f.gate == "G3"
++        ]
++        assert [(f.ref, f.severity) for f in g3] == [("Coupons", "FAIL")], [(f.ref, f.message) for f in g3]
++        assert _pipe(env, settings).dataset_label(run) == "partial"
++    row0 = _row0(env, run_id)
++    assert row0["status"] == "NOT_READ" and "had not loaded" in row0["completion_reason"], row0
++    assert not (env["tmp"] / "data" / "published").exists()
++
++
++def test_or04_a_coupons_page_loaded_on_a_later_answer_is_read_and_the_run_is_complete(
++    env: dict[str, Any], settings: Settings
++) -> None:
++    """Expected to FAIL on 1.10.0rc5 (it takes the first answer, not loaded, as read with 0 coupons and never
++    asks again). The first answer is kept as not loaded; the page is asked again after the listings; the
++    loaded answer is read with its 24 cards and the count the page states."""
++    site = _site([SPINNER, LOADED])
++    run_id, status = _run(env, settings, site)
++    assert site.coupons_asked == 2
++    with env["factory"]() as s:
++        run = s.get(Run, run_id)
++        assert run is not None
++        route = run.counts["coupons_route"]
++        assert route["status"] == "READ" and route["list_state"] == "loaded_with_cards"
++        assert (route["coupon_cards"], route["count_stated"]) == (24, 450)
++        assert [a["list_state"] for a in route["attempts"]] == ["not_loaded", "loaded_with_cards"]
++        assert route["fetch_id"] == route["attempts"][-1]["fetch_id"]
++        assert status == "validated" and run.counts["collection_complete"] is True
++        assert run.counts["gates"]["G3"] == "PASS"
++    row0 = _row0(env, run_id)
++    assert row0["status"] == "COMPLETE" and "24 coupon card" in row0["completion_reason"], row0
++
++
++def test_or04_the_coupons_verdict_and_its_answers_are_kept_across_a_restart(
++    env: dict[str, Any], settings: Settings
++) -> None:
++    """Expected to FAIL on 1.10.0rc5 (the first answer, not loaded, is recorded as read). A run stopped
++    (resumably) after the Coupons page came back unloaded keeps that answer; its resume asks the page again
++    once, reads the loaded answer and completes; the listing pages already held are not asked again."""
++    first = _site([SPINNER])
++    first.on("03001", 2, *["fail"] * 40)
++    run_id, status = _run(env, settings, first)
++    assert status == "interrupted" and first.coupons_asked == 1
++    with env["factory"]() as s:
++        run = s.get(Run, run_id)
++        assert run is not None and run.stop_code == "PROVIDER_ERROR"
++        route = run.counts["coupons_route"]
++        assert route["status"].startswith("NOT READ") and len(route["attempts"]) == 1
++    again = _site([LOADED])
++    _, status = _run(env, settings, again, run_id=run_id)
++    assert status == "validated" and again.coupons_asked == 1
++    assert ("03001", 1) not in again.asked
++    with env["factory"]() as s:
++        run = s.get(Run, run_id)
++        assert run is not None
++        route = run.counts["coupons_route"]
++        assert route["status"] == "READ"
++        assert [a["list_state"] for a in route["attempts"]] == ["not_loaded", "loaded_with_cards"]
++        assert run.counts["collection_complete"] is True
++
++
++def _loading_pdp() -> str:
++    """DERIVED from the real rendered product page of 0001780014939: its Savings section replaced by the
++    site's loading indicator."""
++    html = gzip.decompress((terms.FIX / "pdp_0001780014939_rendered.html.gz").read_bytes()).decode("utf-8")
++    tree = LexborHTMLParser(html)
++    section = tree.css_first(pdp_savings.SECTION)
++    assert section is not None
++    indicator = (
++        '<div data-citrus-component="LoadingIndicator" role="status" class="citrus-LoadingIndicator"></div>'
++    )
++    return (tree.html or "").replace(section.html or "", indicator, 1)
++
++
++class _LoadingProductPage(terms.FakeTermsApi):
++    """The product page of 0001780014939 answered rendered (the provider states run_js) but still loading."""
++
++    def __call__(self, request: httpx.Request) -> httpx.Response:
++        body = json.loads(request.content)
++        url = body.get("url", "")
++        if "/p/" in url and url.endswith(terms.PURINA.upc):
++            self.requests.append({"path": request.url.path, **body})
++            meta = {"page": 1, "run_js": True, "url": url, "statuses": {"http_request": {"code": 200}}}
++            return httpx.Response(
++                200,
++                json={
++                    "status": "done",
++                    "results": [{"html": _loading_pdp(), "metadata": meta}],
++                    "metadata": {"request_id": "req-loading", "timestamp": "2026-11-06T18:30:00Z"},
++                },
++            )
++        return super().__call__(request)
++
++
++def test_or04_a_product_page_still_loading_leaves_the_coupon_unread_not_in_conflict(
++    env: dict[str, Any], settings: Settings
++) -> None:
++    """Expected to FAIL on 1.10.0rc5 (a rendered page that shows no coupon is a conflict with the card). The
++    product page was still loading: its coupons are unread, the record keeps the card's headline flagged
++    DIGITAL_TERMS_UNREAD, and no conflict is recorded."""
++    vh_env = env  # Vernon Hills 53100502 Pickup, as the product pages were read
++    terms._ceiling(vh_env["factory"], 20)
++    fake = _LoadingProductPage()
++    run_id = terms._run(vh_env, settings, fake, read=True, limits=Limits(max_product_term_reads=1))
++    assert terms._product_pages(fake) == [terms.PURINA.upc]
++    with vh_env["factory"]() as s:
++        obs = {
++            o.upc: o.provenance
++            for o in s.scalars(select(ProductObservation).where(ProductObservation.run_id == run_id))
++        }
++        read = obs[terms.PURINA.upc]["coupon_terms"]
++        assert read["status"] == "unread_loading" and "loading indicator" in read["reason"], read
++        rec = next(
++            r
++            for r in s.scalars(select(RecordRow).where(RecordRow.run_id == run_id))
++            if r.upc == terms.PURINA.upc
++        )
++        assert "DIGITAL_TERMS_UNREAD" in rec.flags and "DIGITAL_TERMS_CONFLICT" not in rec.flags
+diff --git a/headless/marianos-azure-headless/tests/listing_site.py b/headless/marianos-azure-headless/tests/listing_site.py
+index 8493fba..d8831d7 100644
+--- a/headless/marianos-azure-headless/tests/listing_site.py
++++ b/headless/marianos-azure-headless/tests/listing_site.py
+@@ -55,8 +55,13 @@ class Site:
+         address: dict[str, str] | None = None,
+         on_request: Callable[[str, int], None] | None = None,
+         listing_run_js: bool = False,
++        coupons: list[str] | None = None,
+     ):
+         self.listings = listings
++        # The Coupons page's answers, in order (the last one again once they are used up): by default the
++        # synthetic page with one coupon card. 1.10.0rc6 (OR-04) tests serve the real pages of 2026-11-16.
++        self.coupons = list(coupons) if coupons else [syn.coupons_page(1)]
++        self.coupons_asked = 0
+         # Whether the collector asks for listing pages rendered: since release 1.9.0rc2 it does not by default
+         # (``OxylabsSettings.listing_run_js``); the site checks every listing request against it.
+         self.listing_run_js = listing_run_js
+@@ -182,7 +187,8 @@ class Site:
+         elif url.endswith("/robots.txt"):
+             html = ROBOTS
+         elif "/savings/cl/coupons" in url:
+-            html = syn.coupons_page(1)
++            html = self.coupons[min(self.coupons_asked, len(self.coupons) - 1)]
++            self.coupons_asked += 1
+         else:
+             parts = urlsplit(url)
+             query = parse_qs(parts.query)
+diff --git a/headless/marianos-azure-headless/tests/unit/test_coupons_list_or04.py b/headless/marianos-azure-headless/tests/unit/test_coupons_list_or04.py
+new file mode 100644
+index 0000000..004bd22
+--- /dev/null
++++ b/headless/marianos-azure-headless/tests/unit/test_coupons_list_or04.py
+@@ -0,0 +1,141 @@
++"""OR-04 (release 1.10.0rc6): what a rendered page shows of its coupons, read as one of three states.
++
++The Coupons page (the client's CSV row 0). REAL pages stored on 2026-11-16
++(``tests/fixtures/oxylabs_2026-11-16``): one with its list loaded ("450 Coupons", 24 coupon cards) and one
++rendered before its list loaded (the site's loading indicator in the coupons tab, no count, no card), which
++1.10.0rc5 recorded as read with 0 coupons, as in seven of twelve runs. No stored page shows a loaded, empty
++list: the tests that need one DERIVE it from the loaded page (cards removed, its count set) and say so.
++
++A product's own page (the coupon terms of one product). DERIVED from the REAL rendered page of 0001780014939
++(stage O1, 2026-11-06): its Savings section replaced by the site's loading indicator. A page still loading
++cannot prove that a product has no coupon.
++
++Expected to FAIL on 1.10.0rc5, which has none of these readings."""
++
++from __future__ import annotations
++
++import gzip
++import json
++from pathlib import Path
++from types import SimpleNamespace
++
++from selectolax.lexbor import LexborHTMLParser
++
++from marianos_headless.assembly import record_builder
++from marianos_headless.collection.nodes import load_seed, plan_nodes
++from marianos_headless.sites.marianos import dom_parsers, observations, pdp_savings
++from marianos_headless.sites.marianos.source_json import PDP_SAVINGS, ResponseRef, SourceIndex
++
++FIX = Path(__file__).resolve().parents[1] / "fixtures"
++LOADED = FIX / "oxylabs_2026-11-16" / "coupons_loaded_24_cards.html.gz"
++SPINNER = FIX / "oxylabs_2026-11-16" / "coupons_not_loaded_spinner.html.gz"
++PDP = FIX / "oxylabs_2026-11-06" / "pdp_0001780014939_rendered.html.gz"
++INDICATOR = (
++    '<div data-citrus-component="LoadingIndicator" role="status" class="citrus-LoadingIndicator">'
++    '<svg aria-hidden="true" viewBox="0 0 100 100"></svg></div>'
++)
++
++
++def _html(path: Path) -> str:
++    return gzip.decompress(path.read_bytes()).decode("utf-8")
++
++
++def _derived_list(count: str | None, *, cards: bool = False, indicator: bool = False) -> str:
++    """DERIVED from the real loaded Coupons page: its coupon cards removed (unless ``cards``), its count
++    replaced (or removed when ``count`` is None), the loading indicator added in the coupons tab if asked."""
++    tree = LexborHTMLParser(_html(LOADED))
++    if not cards:
++        for n in tree.css('[data-testid^="CouponCard-"]'):
++            n.decompose()
++    html = tree.html or ""
++    stated = tree.css_first('[data-testid="coupons-count-format"]')
++    assert stated is not None
++    shown = stated.html or ""
++    if count is None:
++        html = html.replace(shown, "", 1)
++    else:
++        html = html.replace(shown, shown.replace("450 Coupons", count), 1)
++    if indicator:
++        html = html.replace('<div class="infinite-scroll-component__outerdiv">', INDICATOR, 1)
++    return html
++
++
++def test_or04_the_real_coupons_page_with_its_list_loaded_is_read_with_its_cards() -> None:
++    r = dom_parsers.coupon_list_reading(_html(LOADED))
++    assert (r.state, r.count_stated, r.cards, r.loading_indicator) == ("loaded_with_cards", 450, 24, False)
++    assert "24 coupon card" in r.detail and "450 Coupons" in r.detail
++
++
++def test_or04_the_real_coupons_page_rendered_before_its_list_loaded_is_not_read() -> None:
++    r = dom_parsers.coupon_list_reading(_html(SPINNER))
++    assert (r.state, r.count_stated, r.cards, r.loading_indicator) == ("not_loaded", None, 0, True)
++    assert "loading indicator" in r.detail and "no coupon count" in r.detail
++
++
++def test_or04_a_loaded_empty_list_derived_from_the_real_page_is_read_as_empty() -> None:
++    r = dom_parsers.coupon_list_reading(_derived_list("0 Coupons"))
++    assert (r.state, r.count_stated, r.cards, r.loading_indicator) == ("loaded_empty", 0, 0, False)
++
++
++def test_or04_derived_lists_that_prove_nothing_are_not_read() -> None:
++    # a count of coupons and no card drawn; no count and no card; an empty count beside the loading indicator
++    for html in (
++        _derived_list("450 Coupons"),
++        _derived_list(None),
++        _derived_list("0 Coupons", indicator=True),
++    ):
++        r = dom_parsers.coupon_list_reading(html)
++        assert r.state == "not_loaded" and r.cards == 0, r
++
++
++def test_or04_cards_drawn_are_read_even_beside_a_loading_indicator() -> None:
++    # (the next cards of the infinite list loading below the first ones)
++    r = dom_parsers.coupon_list_reading(_derived_list("450 Coupons", cards=True, indicator=True))
++    assert (r.state, r.cards, r.loading_indicator) == ("loaded_with_cards", 24, True)
++
++
++def _loading_pdp() -> str:
++    """DERIVED from the real rendered product page of 0001780014939: its Savings section replaced by the
++    site's loading indicator."""
++    tree = LexborHTMLParser(_html(PDP))
++    section = tree.css_first(pdp_savings.SECTION)
++    assert section is not None
++    html = tree.html or ""
++    return html.replace(section.html or "", INDICATOR, 1)
++
++
++def test_or04_a_product_page_still_loading_is_read_as_loading_and_proves_no_absence() -> None:
++    real = pdp_savings.savings_document(_html(PDP), upc="0001780014939", rendered=True, requested_run_js=True)
++    assert real["data"]["loading"] is False and real["data"]["rows"]
++    doc = pdp_savings.savings_document(
++        _loading_pdp(), upc="0001780014939", rendered=True, requested_run_js=True
++    )
++    assert doc["data"]["loading"] is True and doc["data"]["rows"] == [] and doc["data"]["section"] is False
++    sources = SourceIndex()
++    ref = ResponseRef(kind=PDP_SAVINGS, fetch_id="f-1", sha256=None, observed_at="2026-11-16T18:00:00Z")
++    sources.add(PDP_SAVINGS, json.dumps(doc), ref)
++    read = sources.terms_read("0001780014939")
++    assert read is not None and read.loading is True and read.coupon_ids == ()
++    assert observations.page_read_of(read) == "loading"
++    assert observations.page_read_of(None) == ""
++
++
++def test_or04_a_tile_whose_product_page_was_still_loading_has_an_unknown_coupon() -> None:
++    evidence = SimpleNamespace(listing_shows_coupons=False, product_page_read="loading")
++    reason = record_builder.no_coupon_reason(evidence)  # type: ignore[arg-type]
++    assert "still loading" in reason and record_builder.COUPON_UNKNOWN in reason
++
++
++def test_or04_the_plan_names_the_coupons_row_as_a_route_of_the_run() -> None:
++    seed = load_seed()
++    sources = {
++        int(r["row_index"]): (r["category"], f"id{r['row_index']}", str(r.get("url") or ""))
++        for r in seed["rows"]
++    }
++    sources[0] = ("Coupons", "id0", "https://www.marianos.com/savings/cl/coupons/")
++    _, skipped = plan_nodes(seed, sources, [], {})
++    [route] = [s for s in skipped if s.get("route")]
++    assert route["route"] == "coupons" and route["row"] == 0 and route["category"] == "Coupons"
++    assert route["url"] == "https://www.marianos.com/savings/cl/coupons/"
++    _, narrowed = plan_nodes(seed, sources, [8], {})
++    assert not [s for s in narrowed if s.get("route")]  # a run without the Coupons row has no such route

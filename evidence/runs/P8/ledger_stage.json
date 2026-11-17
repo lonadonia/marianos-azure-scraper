@@ -1,0 +1,221 @@
+{
+ "stage": [
+  {
+   "stage_id": "M-P8-pdp-reread-pilot-110rc6-20261117",
+   "project": "marianos",
+   "opened_at": "2026-11-17T04:20:40.664090Z",
+   "objective": "a one-lane pilot of the candidate 1.10.0rc6 on an isolated target of its own (database marianos_p8, data folder p8/data: the store has no unfinished run there, while the full run R7 stays resumable on its own target), to read again the three named product pages whose reads in R7 (2026-11-17, 04:01:41Z to 04:01:59Z) came back without the page's scripts run (the provider's answer states rendered false: nothing learnt about their coupons): --categories 22,27 with row 22 narrowed to Dog Food 27017 (--subcategory 22:27017), where 0001780014939 and 0001780014941 are on page 7, and row 27 (Hardware 33), where 0003980014995 is on page 2; --term-upc names only those three. A bounded run, so a pilot: exported, never published. The ceiling of 30 ends it after the named pages.",
+   "command": "run --store marianos-53100502-pickup --categories 22,27 --subcategory 22:27017 --term-upc 0001780014939 --term-upc 0001780014941 --term-upc 0003980014995",
+   "config": "{\"config_dir\": \"/var/lib/marianos-collector/ops-rc6/stages/M-P8-pdp-reread-pilot-110rc6-20261117/config\", \"config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"d4d96195af013f3ea7acb401a373e4e6ae8e72952674f7cf4c1f36d22c78d416\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}, \"differs_from_shipped_in\": [\"collector.yaml: publish.auto false\"], \"environment\": \"the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel\", \"lanes\": 1, \"shipped_config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}}",
+   "source_revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "max_requests": 30,
+   "max_results": 30,
+   "max_usd": "0.045000",
+   "deadline_utc": "2026-11-17T05:00:36Z",
+   "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt; the Coupons page asked again while its list has not loaded, at most 4 answers for the run, 60 s apart (1.10.0rc6, OR-04); each submission reserved at its worst case",
+   "stop_conditions": "the operator's slice target (SIGTERM: a resumable stop) before the stage's submission ceiling; the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR; the collector resumes itself up to 3 times, 60 s later); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator (watch_stage.sh, counted from the slice's own start): 10 re-asks answered in the slice and none recovered its request; or 16 or more answers to a page 2 or later in the slice of which 25% or more repeat an earlier page (the share is read at the watcher's start from repeat_stop_pct, set to 25 for R7: on 2026-11-16 a quarter of such answers repeated by 15Z, and every re-ask exhausted that day was at 15-23Z; R6a's watcher had no repeat rule); either stops the stage resumably and it is reported as it stands",
+   "closed_at": null,
+   "outcome": null
+  }
+ ],
+ "events_naming_the_stage": [
+  {
+   "seq": 607,
+   "at": "2026-11-17T04:20:40.664185Z",
+   "kind": "stage_opened",
+   "ref": "M-P8-pdp-reread-pilot-110rc6-20261117",
+   "detail": "{\"deadline_utc\":\"2026-11-17T05:00:36Z\",\"max_requests\":30,\"max_results\":30,\"max_usd\":\"0.045000\",\"project\":\"marianos\",\"source_revision\":\"d77f3065c757b8b962524dbf8d9961dec212e72b\"}",
+   "prev_hash": "6b1785b4bf63608c859574e2ca4cd2cbe1e49f45bc2bcfe4663d1002bffc04f1",
+   "hash": "b7bcbc1e58da2dfa85e29dd03f7b3d7b7b6d98047e2a63638a0ecb607f1ccb67"
+  },
+  {
+   "seq": 608,
+   "at": "2026-11-17T04:20:41.037300Z",
+   "kind": "lease_acquired",
+   "ref": "5",
+   "detail": "{\"holder\":\"live111:M-P8-pdp-reread-pilot-110rc6-20261117:117584\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "b7bcbc1e58da2dfa85e29dd03f7b3d7b7b6d98047e2a63638a0ecb607f1ccb67",
+   "hash": "5d98b7822cd40776d4e28814f2a2f677843474beb6760ca847a6088296d63d56"
+  },
+  {
+   "seq": 609,
+   "at": "2026-11-17T04:20:41.421305Z",
+   "kind": "reserved",
+   "ref": "3b9957d2aae941179285934e7067125d",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5d98b7822cd40776d4e28814f2a2f677843474beb6760ca847a6088296d63d56",
+   "hash": "b0fc9875d7e6584123af6b690050e4be15c55efed3e80f1224b3efb5f34881d0"
+  },
+  {
+   "seq": 612,
+   "at": "2026-11-17T04:20:43.044639Z",
+   "kind": "reserved",
+   "ref": "63ca15fb287946f7b96babe71e5e92a9",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "424b3d8d24376dd8360683c663dad011b0744ff09c062af7e999fb985142615c",
+   "hash": "76e5cd2ff1ed43bbc14d4c6be7fe872786f8e620d0dfdfe491849b5a2d942178"
+  },
+  {
+   "seq": 615,
+   "at": "2026-11-17T04:21:19.939959Z",
+   "kind": "reserved",
+   "ref": "9420f81e10184af3ab8ea3cf6a010f22",
+   "detail": "{\"purpose\":\"coupons (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9e5ece9d02fad33ad01acc86b8f364392015a251e526064978c1bf7b1eb0b24d",
+   "hash": "694bc759935cffd3b7a8bfc66dc7344c79f62552c1d452b7ed57a62e48b4f839"
+  },
+  {
+   "seq": 618,
+   "at": "2026-11-17T04:21:39.244572Z",
+   "kind": "reserved",
+   "ref": "5c16a5ae767645d09ab8fb3b91591eab",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5428439ba46ca66adbcc314311fb498a985852a521e57207534ef671800fff9a",
+   "hash": "9802d27aad582251831a74512eb803f61d5fd5179976aef35f8768229504a66f"
+  },
+  {
+   "seq": 621,
+   "at": "2026-11-17T04:21:44.907641Z",
+   "kind": "reserved",
+   "ref": "eab2b3dfb00d4238b793d5b9b4059bd9",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d1dbc38148560a724ab474d25d2a45e0a161a606938945a32f093f7cb8b0dd71",
+   "hash": "533fc60400919befd237f2b9c4ac2e954583204f8f2c8bd7e065ef71d5450796"
+  },
+  {
+   "seq": 624,
+   "at": "2026-11-17T04:21:49.815581Z",
+   "kind": "reserved",
+   "ref": "23b383b60ab84a37a288cdc3e76c382f",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "92a4b44767745bce37c2e6687c4153b6ec7238aa9e8036e7248344e3ade106c0",
+   "hash": "1f696a42fd24e24d1b90befade685b7b2e46ba172223908642f816c96445d48a"
+  },
+  {
+   "seq": 627,
+   "at": "2026-11-17T04:21:54.129419Z",
+   "kind": "reserved",
+   "ref": "8d5467a1dcfd4d4c95d8a004b6e76b02",
+   "detail": "{\"purpose\":\"product_terms (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "727f790c7c72064f9530818764c8fda5d9d7bc084f6ef6cd353eb85aca3cd111",
+   "hash": "af97dec4381c62b4cc6f106fc1436923c09d96a102022e1ac6cbd17a47329411"
+  },
+  {
+   "seq": 630,
+   "at": "2026-11-17T04:22:06.838212Z",
+   "kind": "reserved",
+   "ref": "7a6439a09b00457391f6cb00d42022c5",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "74362f5076efd6ef40b055086edda2d168c6cdb21bf725bb819f99d7ee6b430f",
+   "hash": "715b0c6c7ceee8f2f6ca319467047a210d5654160c510e4c3b2273a26ff06795"
+  },
+  {
+   "seq": 633,
+   "at": "2026-11-17T04:22:10.720520Z",
+   "kind": "reserved",
+   "ref": "f634ee900ee84dc9affdd262cb7340e4",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f71055547589e5f69fa758c72aa2ffc8e1c3f887fd9383e0d129f73556ef9b55",
+   "hash": "9f29231f52ef2341d80a0e68ce089977ad3c40a9502c31eccd2136220b231db7"
+  },
+  {
+   "seq": 636,
+   "at": "2026-11-17T04:22:16.472037Z",
+   "kind": "reserved",
+   "ref": "636245f029a64361a349a1e22c23b45a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "dd2bada4ae12cff0fd2d635ec5ff8a93071d938540ebd7e7df9c282648d82f72",
+   "hash": "b7dd418acaf95fe3afad69ad5c7598c0787c65eb00cfa5f1e2f9bfb0a3e7cfea"
+  },
+  {
+   "seq": 639,
+   "at": "2026-11-17T04:22:21.385144Z",
+   "kind": "reserved",
+   "ref": "909b5c7ccac34d03a3a4ad3d2aa723d0",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d0ebc77bfa971413802b9d9b3346e733791c44e5f9541ccf632183cbe623c85c",
+   "hash": "84617a451fba80de313388da5b4bd0751e89e985a1d7f7a6c76da7406fdff84a"
+  },
+  {
+   "seq": 642,
+   "at": "2026-11-17T04:22:26.229364Z",
+   "kind": "reserved",
+   "ref": "6500f18442964ffd87ba9d7a2a9b0198",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "31bc2b33690c91a4844dc9d75062d4c92b64122472fc7c4115073a27bfdb9d9e",
+   "hash": "8aa0be329fa8e8167ceca17191adcd51eb403f005cd029c3b1d2bb3865c567df"
+  },
+  {
+   "seq": 645,
+   "at": "2026-11-17T04:22:30.619884Z",
+   "kind": "reserved",
+   "ref": "9abde4666f054927ac9ccf7ad60d40f2",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "7c6628f1d82b77084c1bde8476a726dcaa0ff4d23f899e01a9c8a51acdf19fb8",
+   "hash": "4421a6e92fecffcd5825987c2d90c053c0e3d335b338577f817eab6f5ff0aee4"
+  },
+  {
+   "seq": 648,
+   "at": "2026-11-17T04:22:36.233257Z",
+   "kind": "reserved",
+   "ref": "5ef7581f852049569dfe0c7d8fa3bef1",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "273229d0f3b0fc5a54cf4141c019297281ea165847e8c7fa8db58b5d23e4ab71",
+   "hash": "adaa7b5ae586d6bae2a196eceaa3607757208ea1e560cd1dce28502ae7708456"
+  },
+  {
+   "seq": 651,
+   "at": "2026-11-17T04:22:40.493467Z",
+   "kind": "reserved",
+   "ref": "81e2d77f59da4967bf095839aaf9aa4c",
+   "detail": "{\"purpose\":\"product_terms (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "109abdb5fde91d158e2dd59fc9fea47c612d5f06d03191143c1459c2583dde2e",
+   "hash": "7efea3ad30a3702a8c472898fcaa5c66243267d557d7735146ce0f3aa9a2aa09"
+  },
+  {
+   "seq": 654,
+   "at": "2026-11-17T04:22:42.868481Z",
+   "kind": "reserved",
+   "ref": "3e05ce51658e4f038c9f519da415ad33",
+   "detail": "{\"purpose\":\"product_terms (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "fe101daeac833e46ce547d2f5d0df743e278b1b01b5865a366751a5509beb251",
+   "hash": "abaa163e8d861fd1c27d290d1945dbf521eaf67c448b071367248f221d4960ae"
+  },
+  {
+   "seq": 657,
+   "at": "2026-11-17T04:22:46.835233Z",
+   "kind": "reserved",
+   "ref": "7020d213a4074de6abf7fc1d5b0afc45",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "06dfbe749c2467d71b76e1b1b00369a9553d050b9ad46b629dc5c3cf573412ef",
+   "hash": "84db8a723184e80f36317ae524e9c264bbf4a3635871855a9883d90f2dbea8ec"
+  },
+  {
+   "seq": 660,
+   "at": "2026-11-17T04:22:52.451338Z",
+   "kind": "reserved",
+   "ref": "bf91f7e7b416494d9b8ce22ce31f380d",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d6d268924ae6b2c2fbfaabaa2f9fb970f26ac355e0d42221539a92f65dbf7309",
+   "hash": "ca0de0b3b19a1170786c088ec49c28a365b0710cd71a4a241945fa4342d37c5f"
+  },
+  {
+   "seq": 663,
+   "at": "2026-11-17T04:22:57.069189Z",
+   "kind": "reserved",
+   "ref": "330a81dbe9974b33a8e9f3c87de02eeb",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P8-pdp-reread-pilot-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9174f788c622f67daf38d5e35f5ea6d4c386ecd9ef7c5ad509b41756f5317323",
+   "hash": "1224bae166b35144c335e709ba8e6d82679be66af8d0abf317f00bc12db1ad1e"
+  },
+  {
+   "seq": 666,
+   "at": "2026-11-17T04:23:01.390469Z",
+   "kind": "lease_released",
+   "ref": "5",
+   "detail": "{\"reason\":\"live111 M-P8-pdp-reread-pilot-110rc6-20261117 ended (exit 0)\"}",
+   "prev_hash": "4f6893d5fbbba7667ee262e26b59a8b1e862243c06ffcdc990f9bb615ed92ab8",
+   "hash": "58bab13da19a9aef8986c6cb765e807a090167e0279303a12ffa3468124858e0"
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+stage=M-P8-pdp-reread-pilot-110rc6-20261117 run=01M7KVRMP5X4THRJ8EE50PVKSK collected_at=2026-11-17T04:24:02Z
+status exit 0
+export exit 0
+validate-export exit 0
+runs 0
+listing_pages 0
+deferred 0
+events 0
+provider_usage 0
+node_coverage 0
+page_fetches 0
+tasks 0
+audit_log 0
+collection_segments 0
+store_attestations 0
+validation_findings 0
+exports 0
+publications 0
+publication_pointer 0
+ledger rows 19 {"settled": 19}
+chain 0
+stored copied

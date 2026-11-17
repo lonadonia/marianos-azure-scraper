@@ -107,6 +107,55 @@ def index(bodies: Iterable[bytes], pages: Iterable[str] = ()) -> dict[str, list[
     return out
 
 
+class SourceIndex:
+    """Release 1.10.0rc6 (OR-20): the product data of a run's stored sources, read one source at a time and
+    kept compact. Per UPC, each distinct price statement (evidence class, store, regular and promotional
+    price) is kept once, with the first source that stated it; ``check_records`` reads it as it reads
+    ``index``'s output (only ``price.storePrices`` decides a comparison). Memory grows with a run's distinct
+    price statements, not with its pages: 1.10.0rc5 held every page's text and every embedded product object
+    at once, and its validation of run F2 (575 stored listing pages) was killed for lack of memory on a 3.8
+    GiB VM."""
+
+    def __init__(self) -> None:
+        self.products: dict[str, list[dict[str, Any]]] = {}
+        self._seen: set[tuple[str, str, str]] = set()
+        self.statements = 0  # every product statement read, repeated ones included
+
+    def add(self, product: Mapping[str, Any], evidence: str, source: str) -> None:
+        key = upc13((product.get("item") or {}).get("upc") or product.get("upc"))
+        if not key:
+            return
+        self.statements += 1
+        sp = ((product.get("price") or {}).get("storePrices")) or {}
+        reg = sp.get("regular") or {}
+        promo = sp.get("promo") or {}
+        kept = {
+            "sourceLocationId": sp.get("sourceLocationId"),
+            "regular": {"price": reg.get("price"), "defaultDescription": reg.get("defaultDescription")},
+            "promo": {"price": promo.get("price")},
+        }
+        sig = (key, evidence, json.dumps(kept, sort_keys=True, default=str))
+        if sig in self._seen:
+            return
+        self._seen.add(sig)
+        self.products.setdefault(key, []).append(
+            {"price": {"storePrices": kept}, "_evidence": evidence, "_source": source}
+        )
+
+    def add_response(self, body: bytes, source: str) -> None:
+        for p in products_of(body):
+            self.add(p, PRODUCT_RESPONSE, source)
+
+    def add_page(self, html: str, source: str) -> int:
+        found = embedded_products(html)
+        for p in found:
+            self.add(p, EMBEDDED_PAGE_DATA, source)
+        return len(found)
+
+    def __len__(self) -> int:
+        return len(self.products)
+
+
 def compare(record: Mapping[str, Any], product: Mapping[str, Any], location_id: str) -> dict[str, bool]:
     location, regular, promo = store_prices(product)
     rec_regular, rec_sale = amount(record.get("regular_price")), amount(record.get("sale_price"))
@@ -144,10 +193,10 @@ def check_records(
             continue
         # The candidate with the fewest differences decides; a product response before embedded page data.
         scored = sorted(
-            ((compare(rec, p, location_id), p.get("_evidence", PRODUCT_RESPONSE)) for p in candidates),
+            ((compare(rec, p, location_id), p.get("_evidence", PRODUCT_RESPONSE), p) for p in candidates),
             key=lambda c: (sum(not ok for ok in c[0].values()), c[1] != PRODUCT_RESPONSE),
         )
-        best, evidence = scored[0]
+        best, evidence, product = scored[0]
         bad = [k for k, ok in best.items() if not ok]
         for k in bad:
             fields[k] = fields.get(k, 0) + 1
@@ -161,6 +210,24 @@ def check_records(
                 "evidence": evidence,
                 "mismatched_fields": bad,
                 "candidates": len(candidates),
+                **({"source": product["_source"]} if product.get("_source") else {}),
+                **(
+                    {
+                        "record_values": {
+                            "regular_price": rec.get("regular_price"),
+                            "sale_price": rec.get("sale_price"),
+                        },
+                        "source_values": dict(
+                            zip(
+                                ("store", "regular", "promo"),
+                                (str(v) if v is not None else None for v in store_prices(product)),
+                                strict=True,
+                            )
+                        ),
+                    }
+                    if bad
+                    else {}
+                ),
             }
         )
     return {"summary": summary, "by_evidence": by_evidence, "mismatched_fields": fields, "results": results}

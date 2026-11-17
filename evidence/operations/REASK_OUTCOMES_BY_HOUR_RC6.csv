@@ -1,0 +1,8 @@
+stages,kind,hour_utc_of_first_answer,set_aside,recovered_at_reask_1,recovered_at_reask_2,exhausted,waiting,other_states
+P7,repeated_page,2026-11-16T23Z,2,1,0,1,0,0
+R6a+R6fin,missing_facets,2026-11-16T23Z,1,0,0,0,1,0
+R6a+R6fin,repeated_page,2026-11-16T23Z,14,0,0,0,14,0
+R7a+R7a2+R7b+R7w+R7c,repeated_page,2026-11-17T03Z,7,6,1,0,0,0
+R7a+R7a2+R7b+R7w+R7c,repeated_page,2026-11-17T04Z,17,7,6,4,0,0
+R7a+R7a2+R7b+R7w+R7c,missing_facets,2026-11-17T05Z,2,0,0,0,2,0
+R7a+R7a2+R7b+R7w+R7c,repeated_page,2026-11-17T05Z,9,1,2,2,4,0

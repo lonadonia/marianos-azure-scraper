@@ -522,6 +522,58 @@ class PageParse:
     header: HeaderStore | None = None
 
 
+# Release 1.10.0rc6 (OR-04): the Coupons page's list as rendered. Live 2026-11-16 (twelve runs, Vernon Hills
+# 53100502 Pickup): a loaded list states its count ("450 Coupons") above its coupon cards; a page rendered
+# before its list loaded shows the site's loading indicator in the coupons tab, no count and no card (seven of
+# the twelve, which 1.10.0rc5 recorded as read with 0 coupons).
+COUPONS_COUNT = '[data-testid="coupons-count-format"]'
+LOADING_INDICATOR = '[data-citrus-component="LoadingIndicator"]'
+_COUPONS_STATED = re.compile(r"^\s*([\d,]+)\s+coupons?\b", re.IGNORECASE)
+
+
+class CouponList(StrEnum):
+    LOADED_WITH_CARDS = "loaded_with_cards"  # coupon cards drawn: the list loaded
+    LOADED_EMPTY = "loaded_empty"  # the page states 0 coupons, draws no card and is not loading
+    NOT_LOADED = "not_loaded"  # anything else: nothing is learnt about the coupons
+
+
+@dataclass(frozen=True)
+class CouponListReading:
+    state: CouponList
+    count_stated: int | None  # the count the page states ("450 Coupons"); None when it states none
+    count_text: str
+    cards: int
+    loading_indicator: bool
+    detail: str
+
+
+def coupon_list_reading(html: str, sel: Selectors = DEFAULT_SELECTORS) -> CouponListReading:
+    """What the rendered Coupons page shows of its list. Cards drawn are a loaded list (the next cards of the
+    infinite list may still be loading below them). No card is a loaded empty list only when the page states
+    a count of 0 and shows no loading indicator; otherwise the list had not loaded and proves nothing (a
+    count of coupons without a card, no count at all, or the site's loading indicator)."""
+    tree = LexborHTMLParser(html)
+    cards = len(parse_coupon_cards(tree, sel))
+    node = tree.css_first(COUPONS_COUNT)
+    count_text = text_of(node) if node is not None else ""
+    m = _COUPONS_STATED.match(count_text)
+    count = int(m.group(1).replace(",", "")) if m else None
+    loading = tree.css_first(LOADING_INDICATOR) is not None
+    stated = f"the page states {count_text!r}" if count_text else "the page states no coupon count"
+    if cards:
+        state, detail = CouponList.LOADED_WITH_CARDS, f"{cards} coupon card(s) drawn; {stated}"
+    elif count == 0 and not loading:
+        state = CouponList.LOADED_EMPTY
+        detail = f"{stated} and draws no card, with no loading indicator: the list loaded and is empty"
+    else:
+        why = [
+            *(["the coupons tab shows the site's loading indicator"] if loading else []),
+            stated if count is None else f"{stated} but draws no card" if count else stated,
+        ]
+        state, detail = CouponList.NOT_LOADED, "; ".join(why) + ": the coupon list had not loaded"
+    return CouponListReading(state, count, count_text, cards, loading, detail)
+
+
 def parse_page(html: str, sel: Selectors = DEFAULT_SELECTORS) -> PageParse:
     tree = LexborHTMLParser(html)
     return PageParse(

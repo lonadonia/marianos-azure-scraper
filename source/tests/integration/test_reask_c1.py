@@ -1010,3 +1010,126 @@ def test_control_products_carried_from_an_earlier_run_keep_their_own_dates_when_
     assert {r.record["crawl_date"] for r in carried} == {old}
     assert old not in {r.record["crawl_date"] for r in fresh}
     assert all("CARRIED_FORWARD" in (r.flags or []) for r in carried)
+
+
+# -- release 1.10.0rc6, OR-19: a re-ask answered for the store without its product data ---------------------
+
+FIX16 = c1.FIXTURES / "oxylabs_2026-11-16"
+ESPRESSO = "https://www.marianos.com/pl/espresso-coffee/0400300007"
+F2_REPEAT_REASON = (
+    "accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly"
+)
+
+
+def _espresso(env: dict[str, Any]) -> list[Node]:
+    with env["factory"]() as s:
+        ids = {c.csv_row_index: c.id for c in s.scalars(select(CategorySource))}
+    return [Node(13, "Coffee", ids[13], "Espresso Coffee", "0400300007", ESPRESSO, kind="listing")]
+
+
+def test_or19_replay_f2_espresso_a_reask_without_product_data_counts_nothing_and_the_run_goes_on(
+    env: dict[str, Any], settings: Settings
+) -> None:
+    """REPLAY (release 1.10.0rc6, OR-19; expected to FAIL on 1.10.0rc5): the answers run F2 saved on
+    2026-11-16 for Espresso Coffee (0400300007, Coffee, CSV row 13): page 1 (18:00:21Z), page 2 answering with
+    page 1's products (18:00:25Z), then page 2's re-ask 1 (18:55:26Z), whose search was made for 53100502
+    Pickup (page 2, 45 results, 21 of them listed) while its state carried no product's data and its grid drew
+    3 cards. 1.10.0rc5 stopped F2 on that answer, not resumable (STORE_NOT_VERIFIED). Here it counts no
+    product and is kept with its identity; the second re-ask finds nothing left to serve (the fixture holds no
+    later answer: the provider's documented free failure), so the request is exhausted and the listing stays
+    incomplete for the reason it had before any re-ask. No store check stops the run."""
+    clock = Clock()
+    replay = Replay(
+        {
+            ESPRESSO: [FIX16 / "f2_espresso_p1.html.gz"],
+            ESPRESSO + "?page=2": [
+                FIX16 / "f2_espresso_p2_repeats_p1.html.gz",
+                FIX16 / "f2_espresso_p2_reask1_products_not_loaded.html.gz",
+            ],
+        },
+        clock,
+    )
+    run_id, status = c1.run(env, settings, replay, clock, nodes=_espresso(env))
+    obs = c1.observe(env, run_id, "0400300007")
+    c1.evidence(
+        "or19 replay f2 espresso",
+        REPLAY,
+        {"served": replay.asked_at, "sources": json.loads((FIX16 / "SOURCES.json").read_text("utf-8")),
+         "run_status": status, "observed": obs},
+    )  # fmt: skip
+    assert [name for _, _, name in replay.asked_at] == [
+        "f2_espresso_p1.html.gz",
+        "f2_espresso_p2_repeats_p1.html.gz",
+        "f2_espresso_p2_reask1_products_not_loaded.html.gz",
+        "(nothing left to serve)",
+    ]
+    assert _pages(obs, "0400300007") == [
+        (1, "completed", "new"),
+        (2, "stopped", "repeated"),
+        (2, "refused", "malformed"),
+        (2, "failed", "failed"),  # re-ask 2: nothing left to serve, the provider's free failure
+    ]
+    req = _request(obs, "0400300007")
+    assert (req["state"], req["reasks_dispatched"]) == ("exhausted", 2)
+    assert (req["original_verdict"], req["original_reason"]) == ("repeated", F2_REPEAT_REASON)
+    unloaded = req["attempts"][1]
+    assert (unloaded["role"], unloaded["verdict"], unloaded["counted"], unloaded["store_check"]) == (
+        "re-ask",
+        "malformed",
+        False,
+        "PASS",
+    )
+    assert "carries no product data" in unloaded["detail"], unloaded
+    assert obs["coverage"]["status"] == "INCOMPLETE"
+    assert obs["coverage"]["reason"].startswith(F2_REPEAT_REASON)
+    assert obs["records"] == 28  # page 1's 24 results and 4 sponsored placements; nothing of page 2
+    with env["factory"]() as s:
+        run = s.get(Run, run_id)
+        assert run is not None and run.stop_code is None, (run.status, run.stop_code)
+
+
+def test_or19_a_reask_without_product_data_is_kept_and_after_a_restart_the_last_reask_completes_the_listing(
+    env: dict[str, Any], settings: Settings
+) -> None:
+    """Release 1.10.0rc6 (OR-19), recovery across restarts; expected to FAIL on 1.10.0rc5. Page 2 repeats page
+    1 and is set aside; the run is paused at its wait (an execution ends) and resumed; re-ask 1 comes back for
+    the store without its product data: kept, not counted, nothing stopped; the run is paused again at the
+    next wait and resumed by a new execution, whose one re-ask left completes the listing. Page 1 is never
+    asked again, and the record of the request keeps both answers."""
+    clock = Clock()
+    site = C1Site({"03001": products(60)}, clock)
+    site.on("03001", 2, "repeat")
+    pipe = c1.pipe_of(env, settings)
+    run_id = c1.plan(env, pipe, c1.nodes_of(env, ("03001",)))
+    _pause_at_first_wait(env, clock, [run_id])
+    _, status = c1.run(env, settings, site, clock, run_id=run_id)
+    assert status == "interrupted" and site.asked == [("03001", 1), ("03001", 2)]
+    clock.t = START + timedelta(seconds=WAIT_S + 1)
+    second = C1Site({"03001": products(60)}, clock)
+    second.on("03001", 2, "products_not_loaded")
+    _, status = c1.run(env, settings, second, clock, run_id=run_id)
+    mid = c1.observe(env, run_id)
+    assert status == "interrupted", status
+    assert second.times("03001", 1) == 0 and second.times("03001", 2) == 1
+    held = _request(mid)
+    assert (held["state"], held["reasks_dispatched"]) == ("waiting", 1)
+    assert (held["attempts"][1]["verdict"], held["attempts"][1]["counted"]) == ("malformed", False)
+    with env["factory"]() as s:
+        run = s.get(Run, run_id)
+        assert run is not None and run.stop_code != "STORE_NOT_VERIFIED", (run.status, run.stop_code)
+    clock.on_sleep = None
+    clock.t += timedelta(seconds=WAIT_S + 1)
+    third = C1Site({"03001": products(60)}, clock)
+    _, status = c1.run(env, settings, third, clock, run_id=run_id)
+    obs = c1.observe(env, run_id)
+    c1.evidence(
+        "or19 reask without product data across restarts",
+        SYNTHETIC,
+        {"first": site.asked_at, "second": second.asked_at, "third": third.asked_at, "middle": mid,
+         "observed": obs},
+    )  # fmt: skip
+    assert third.times("03001", 1) == 0 and third.times("03001", 2) == 1
+    req = _request(obs)
+    assert (req["state"], req["reasks_dispatched"]) == ("recovered", 2)
+    assert [a["role"] for a in req["attempts"]] == ["first answer", "re-ask", "re-ask"]
+    assert obs["distinct_records"] == 60 and status == "validated"

@@ -1,0 +1,25 @@
+Coupons route (CSV row 0, /savings/cl/coupons/): each reading the runs recorded, beside its stored page.
+recorded = the collector's own verdict (run counts 'coupons_route'); page = the stored page as kept;
+cards = coupon cards in the page (data-testid="coupon-grid-card"); tab spinner = the coupons tab shows the
+site's loading indicator instead of a list.
+
+run 01M7JNB2HDFCNR3GHQVX8FYXX6 (started 2026-11-16 17:09:11Z)
+  recorded  status 'READ', coupon_cards 0, store_check 'PASS', run_js True, fetch 01M7JNBJGVHDAJ5EMPY67YYFXD
+  page      live/dom/01M7JNBJGVHDAJ5EMPY67YYFXD.html.gz sha256 4cc636382c777b84b8d9979817b91cf6c8aa0921b0345a3baba427d155f5ac33 (114,227 characters)
+  read      cards 0; tab spinner YES -> the list had NOT loaded: 0 cards is not 'no coupons'
+
+run 01M7KAJZTFXAWFA8AHXRQ343TT (started 2026-11-16 23:20:30Z)
+  recorded  status 'READ', coupon_cards 24, store_check 'PASS', run_js True, fetch 01M7KAM2C0TS9SSA1BQ3CY6Y6K
+  page      live/dom/01M7KAM2C0TS9SSA1BQ3CY6Y6K.html.gz sha256 4eb88e3d5fa23c7cb50422fa32429452233cae965e1788ec9e39b4e0da5ca317 (261,398 characters)
+  read      cards 24; tab spinner no -> the list loaded
+
+run 01M7KBQ3XXMP3W3FK2EXE525EA (started 2026-11-16 23:40:14Z)
+  recorded  status 'READ', coupon_cards 24, store_check 'PASS', run_js True, fetch 01M7KBQHVQNXKBEXCS7YBTYMV7
+  page      live/dom/01M7KBQHVQNXKBEXCS7YBTYMV7.html.gz sha256 1bb2d581b400ea967a75a42811f08d4917cc27deacdef0df2803901559afae36 (261,237 characters)
+  read      cards 24; tab spinner no -> the list loaded
+
+run 01M7KQ5GZVF5VK1S9FGTG6YFC9 (started 2026-11-17 03:00:20Z)
+  recorded  status 'READ', coupon_cards 24, store_check 'PASS', run_js True, fetch 01M7KQ6P3Y3TDJWF1SHD1KGD9Z
+  page      live/dom/01M7KQ6P3Y3TDJWF1SHD1KGD9Z.html.gz sha256 ab62e798ec70a44cec741fd0ad5685713a25942b4bfe5f622b36d6c7d45823ab (261,397 characters)
+  read      cards 24; tab spinner no -> the list loaded
+

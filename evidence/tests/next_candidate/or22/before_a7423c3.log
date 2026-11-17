@@ -1,0 +1,18 @@
+# 2026-11-17T04:42:15Z commit a7423c3 marianos-azure-headless next: tests for OR-22 (a menu link missing the slash before its ID is asked in its canonical form)
+# python -m pytest -p no:cacheprovider tests/unit/test_collection.py -k "missing_the_slash or only_the_missing_slash" -rA
+# imported from marianos-azure-headless/src/marianos_headless/__init__.py
+FAILED tests/unit/test_collection.py::test_a_menu_link_missing_the_slash_before_its_id_is_asked_in_its_canonical_form
+FAILED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/hard-cider08194?pzn=relevance-08194-/pl/hard-cider/08194?pzn=relevance]
+FAILED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/hard-cider08194-08194-/pl/hard-cider/08194]
+FAILED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/canned-foods/01006?pzn=relevance-01006-/pl/canned-foods/01006?pzn=relevance]
+FAILED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/milk-plant-based-%20milk/02001-02001-/pl/milk-plant-based-%20milk/02001]
+FAILED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/snacks/05009?facets=true?pzn=relevance-05009-/pl/snacks/05009?facets=true?pzn=relevance]
+FAILED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/hard-cider08195-08194-/pl/hard-cider08195]
+FAILED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/08194-08194-/pl/08194]
+====================== 8 failed, 29 deselected in 2.32s =======================
+# exit 1
+# the first test's assertion on 1.10.0rc6's planning (same commit):
+E       AssertionError: assert [('08194', 'h...n=relevance')] == [('08194', 'h...n=relevance')]
+E         
+E         At index 0 diff: ('08194', 'https://www.marianos.com/pl/hard-cider08194?pzn=relevance') != ('08194', 'https://www.marianos.com/pl/hard-cider/08194?pzn=relevance')
+E         Use -v to get more diff

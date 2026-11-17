@@ -231,6 +231,9 @@ class TermsRead:
     section: bool  # the page shows a Savings section
     coupon_ids: tuple[str, ...]
     other_rows: tuple[str, ...]  # offers of the section that are not coupons (a sale), by headline
+    # Release 1.10.0rc6 (OR-04): the page still showed the site's loading indicator and no coupon row: its
+    # coupons are unread (a page still loading proves no coupon absent).
+    loading: bool = False
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -240,6 +243,7 @@ class TermsRead:
             "section": self.section,
             "coupon_ids": list(self.coupon_ids),
             "other_rows": list(self.other_rows),
+            "loading": self.loading,
         }
 
 
@@ -510,6 +514,7 @@ class SourceIndex:
                 section=bool(data.get("section")),
                 coupon_ids=tuple(c.coupon_id for c in coupons) if rendered else (),
                 other_rows=tuple(others),
+                loading=data.get("loading") is True and not coupons,
             )
         if not rendered:
             return 0

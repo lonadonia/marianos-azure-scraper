@@ -393,6 +393,9 @@ def search_page(
     loading: bool = False,
     has_error: bool = False,
     search_made: bool = True,
+    product_data_loaded: bool = True,
+    cards_drawn: int | None = None,
+    search_location: bool = True,
 ) -> str:
     """A search result page, or (with ``taxonomy_id`` and ``ranks``) a listing's page: the grid's cards and
     the page state (``products``: (product, taxonomy)). ``show_cards=False`` is a page brought without its
@@ -400,8 +403,12 @@ def search_page(
     later page without rendering, probe L9 of 2026-11-02). ``store_*`` name the selected store the page
     shows. ``search_made=False`` is a page brought before its search was made, its ``searchAll`` as in the
     answer of 2026-11-16 (run F1, page 3 of ``frozen-meat-alternatives``): no request, still loading, no
-    response; the page's own store context is there."""
-    cards = "".join(grid_card(i, p, base) for i, (p, _) in enumerate(products)) if show_cards else ""
+    response; the page's own store context is there. ``product_data_loaded=False`` is the answer of
+    2026-11-16 (run F2, re-ask 1 of page 2 of Espresso Coffee): its search made for the store and listing its
+    results, its state without any product's data, ``cards_drawn`` cards in its grid.
+    ``search_location=False``: a search whose request names no store and no fulfillment."""
+    drawn = products if cards_drawn is None else products[:cards_drawn]
+    cards = "".join(grid_card(i, p, base) for i, (p, _) in enumerate(drawn)) if show_cards else ""
     grid = f'<div data-testid="paginate-items">{cards}</div>'
     data = {
         p.upc: (product_data or {}).get(p.upc)
@@ -420,6 +427,8 @@ def search_page(
         "clearedOnRequestUpcs": None,
         "latestResponseSearchId": None,
     }
+    if not product_data_loaded:
+        data = {}
     extra = {
         "calypso": {"domains": {"products": {u: {"data": d} for u, d in data.items()}}},
         "search": {"searchAll": not_made}
@@ -431,8 +440,11 @@ def search_page(
                     **({"page": page_number} if page_number is not None else {}),
                     **({"taxonomyId": taxonomy_id} if taxonomy_id else {}),
                     "fulfillment": "all",
-                    "locationId": request_location_id or location_id,
-                    "activeModalityType": modality,
+                    **(
+                        {"locationId": request_location_id or location_id, "activeModalityType": modality}
+                        if search_location
+                        else {}
+                    ),
                     # 1.9.0: the facets a real page states (all 99 saved pages of 2026-11-02)
                     **(filters if filters is not None else {"brandName": []}),
                 },

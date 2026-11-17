@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from typing import Any
 
-from sqlalchemy import and_, func, or_, select, update
+from sqlalchemy import Integer, and_, case, cast, func, or_, select, update
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session, aliased
 
@@ -100,8 +100,26 @@ def lease_next(
     q = select(Task).where(Task.run_id == run_id, cond, ~blocked)
     if kinds:
         q = q.where(Task.kind.in_(kinds))
+    # Release 1.10.0rc6: listing tasks grouped by their place in the run's plan, then by creation. A listing's
+    # key names its place ("<run>/node/0007-<listing>") and a subdivision's key extends its listing's
+    # ("<run>/node/0007-<listing>/<child>"), so a listing read through its subdivisions is finished before
+    # the plan's next listing is started (depth first) instead of after every listing of the plan (1.10.0rc5:
+    # by creation only, which left run F2 with 25 listings above the window and none of their subdivisions
+    # read). Within a listing's group, creation order as before: the listing, then its subdivisions in the
+    # order they were planned (brands in the facet's order). A key without a place (no "/node/<n>-") is
+    # ordered by creation after the placed ones. A subdivision waiting for a re-ask holds no lane: only a
+    # task that can be leased now is ordered.
+    place = case(
+        (
+            Task.kind == "listing_node",
+            cast(func.substring(Task.idem_key, r"^[^/]+/node/([0-9]+)-"), Integer),
+        ),
+        else_=None,
+    )
     task = session.scalars(
-        q.order_by(Task.priority, Task.created_at, Task.id).with_for_update(skip_locked=True).limit(1)
+        q.order_by(Task.priority, place.asc().nulls_last(), Task.created_at, Task.id)
+        .with_for_update(skip_locked=True)
+        .limit(1)
     ).first()
     if task is None:
         return None

@@ -1,0 +1,8 @@
+== 2026-11-17T05:59:26Z publication of R7 (01M7KQ5GZVF5VK1S9FGTG6YFC9) on the run target; refusals of P7 (01M7KAJZTFXAWFA8AHXRQ343TT) and R6 (01M7KBQ3XXMP3W3FK2EXE525EA)
+  logs/rc6/pub6/pub_state_0_before_R7_publish.txt: 4 lines
+  logs/rc6/pub6/R7_publish.log: exit 6
+  logs/rc6/pub6/pub_state_1_after_R7_publish.txt: 4 lines
+  R7 was NOT published (exit 6): no published dataset exists on the target, so the
+  refusal checks against a published dataset are not run
+  COMPARE_before_vs_after_R7_refusal: RESULT as expected
+== 2026-11-17T05:59:35Z done

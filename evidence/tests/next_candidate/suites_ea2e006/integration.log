@@ -1,0 +1,9 @@
+# 2026-11-17T05:03:48Z start, commit ea2e006 marianos-azure-headless next: OR-21, a termination signal cancels the lanes with the worker and waits for them; 
+# python -m pytest -q -p no:cacheprovider tests/integration
+........................................................................ [ 29%]
+........................................................................ [ 58%]
+........................................................................ [ 87%]
+................................                                         [100%]
+248 passed in 2410.90s (0:40:10)
+# exit 0
+# 2026-11-17T05:44:07Z end

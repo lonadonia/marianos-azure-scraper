@@ -1,0 +1,7 @@
+..                                                                       [100%]
+=================================== PASSES ====================================
+=========================== short test summary info ===========================
+PASSED tests/unit/test_cli_rc6.py::test_rc6_run_takes_a_row_order_and_named_product_pages
+PASSED tests/unit/test_cli_rc6.py::test_rc6_the_overrides_reach_the_runs_collection_settings
+2 passed in 2.07s
+after_unit exit 0 2026-11-16T21:52:21Z

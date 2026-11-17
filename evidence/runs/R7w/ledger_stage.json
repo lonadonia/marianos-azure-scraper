@@ -1,0 +1,383 @@
+{
+ "stage": [
+  {
+   "stage_id": "M-R7w-walkthrough-110rc6-20261117",
+   "project": "marianos",
+   "opened_at": "2026-11-17T05:05:25.846011Z",
+   "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. This slice resumes the run and is recorded as the walkthrough (record_cast.py: every command is run for real while it is recorded, nothing typed in or edited afterwards): the run resumed as a service, two lanes, and stopped with SIGTERM after 12 pages (exit 75, resumable); a second start for the store refused before any request (exit 9); the run resumed again with the slice stopper at 100 reservations in this stage (SIGTERM, exit 75, resumable) unless it completes first; its status; a publication attempted (an unfinished or incomplete run is refused, exit 6, and the published dataset is left as it was); the ledger's status; the units left running.",
+   "command": "resume --store marianos-53100502-pickup",
+   "config": "{\"config_dir\": \"/var/lib/marianos-collector/ops-rc6/stages/M-R7w-walkthrough-110rc6-20261117/config\", \"config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"b22c3c676712e6b6cceaf6d5cf7d08b700dbe7a23f806bf63901fedd4e6ea0b5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}, \"differs_from_shipped_in\": [\"collector.yaml: publish.auto false\", \"collector.yaml: limits.max_concurrent_listings 2\"], \"environment\": \"the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel\", \"lanes\": 2, \"shipped_config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}}",
+   "source_revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "max_requests": 110,
+   "max_results": 110,
+   "max_usd": "0.165000",
+   "deadline_utc": "2026-11-17T06:20:23Z",
+   "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt; the Coupons page asked again while its list has not loaded, at most 4 answers for the run, 60 s apart (1.10.0rc6, OR-04); each submission reserved at its worst case",
+   "stop_conditions": "the operator's slice target (SIGTERM: a resumable stop) before the stage's submission ceiling; the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR; the collector resumes itself up to 3 times, 60 s later); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator (watch_stage.sh, counted from the slice's own start): 10 re-asks answered in the slice and none recovered its request; or 16 or more answers to a page 2 or later in the slice of which 25% or more repeat an earlier page (the share is read at the watcher's start from repeat_stop_pct, set to 25 for R7: on 2026-11-16 a quarter of such answers repeated by 15Z, and every re-ask exhausted that day was at 15-23Z; R6a's watcher had no repeat rule); either stops the stage resumably and it is reported as it stands",
+   "closed_at": null,
+   "outcome": null
+  }
+ ],
+ "events_naming_the_stage": [
+  {
+   "seq": 854,
+   "at": "2026-11-17T05:05:25.846112Z",
+   "kind": "stage_opened",
+   "ref": "M-R7w-walkthrough-110rc6-20261117",
+   "detail": "{\"deadline_utc\":\"2026-11-17T06:20:23Z\",\"max_requests\":110,\"max_results\":110,\"max_usd\":\"0.165000\",\"project\":\"marianos\",\"source_revision\":\"d77f3065c757b8b962524dbf8d9961dec212e72b\"}",
+   "prev_hash": "c533c6ba00ce4bb26b2cfa8dc870be6ffc735a59c8f6172b5131eb410839587b",
+   "hash": "4ae98faca5fe3515b93be79eeefcdffcdb66a5dd2c9c112dd03c5fdd508e7807"
+  },
+  {
+   "seq": 855,
+   "at": "2026-11-17T05:05:38.770472Z",
+   "kind": "lease_acquired",
+   "ref": "8",
+   "detail": "{\"holder\":\"live111:M-R7w-walkthrough-110rc6-20261117:132019\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "4ae98faca5fe3515b93be79eeefcdffcdb66a5dd2c9c112dd03c5fdd508e7807",
+   "hash": "11558fd70939a927a182bd7753b5b33bfa6495cbb09c78d05ed4a5ec052a086d"
+  },
+  {
+   "seq": 856,
+   "at": "2026-11-17T05:05:39.837674Z",
+   "kind": "reserved",
+   "ref": "ed221cff6cc7470e80d3e908bc55e1ed",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "11558fd70939a927a182bd7753b5b33bfa6495cbb09c78d05ed4a5ec052a086d",
+   "hash": "3db93e8b2fbfb253156595133d3ae2ca125a5e838532b3cf7d2c40c2a675da49"
+  },
+  {
+   "seq": 859,
+   "at": "2026-11-17T05:05:41.756799Z",
+   "kind": "reserved",
+   "ref": "4d9c19696423469ea52edf031035d297",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "fb9f6d40e2943af3b937b63ea770c5e5b6912be9d8c21a29bdb557d68d35d155",
+   "hash": "5e6a0fa81b3e33b492a3fc6847f9c13a9d885368a4039763ffe61782983e3863"
+  },
+  {
+   "seq": 861,
+   "at": "2026-11-17T05:05:42.016839Z",
+   "kind": "reserved",
+   "ref": "0d8d6718e64748b884c574fe9cd449b5",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f6cab8838f8332fc26d30de3d10027825e6880ba77f2c364257545202824088a",
+   "hash": "d87f7e618fb7bcfcc7ee5f140d3b2cea0cf8f72666eacd31ff0a7117e2b4d046"
+  },
+  {
+   "seq": 864,
+   "at": "2026-11-17T05:06:20.826111Z",
+   "kind": "reserved",
+   "ref": "5f6e0af1b4c84902a644a55f224b81f4",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "92e40eaa7042c23b7e30e7e0102c281f1966c6d9b406d4ece73a96cd51c8b688",
+   "hash": "6fef6e551da1608769f9162035d01ab85c1c187d62ea80a4d04b03705c493ac3"
+  },
+  {
+   "seq": 867,
+   "at": "2026-11-17T05:07:00.856431Z",
+   "kind": "reserved",
+   "ref": "f8e0fc4584fc4b8fa3f9a66ca353c7b0",
+   "detail": "{\"purpose\":\"listing (attempt 2)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "27650a67496dd42cbfd544b2ce739524bf469ddc42a0038e5fc8910b41f39e25",
+   "hash": "e1a24f155fc32a346639185cba871de007106604e4623929e12ef839750b1b62"
+  },
+  {
+   "seq": 870,
+   "at": "2026-11-17T05:07:04.925323Z",
+   "kind": "reserved",
+   "ref": "955405c6a02447c7b28062850f2fa978",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "815e2ef5097ea00526d0d092b92d2c6bd3306df08ba6fd182bb492b8b1fa81fe",
+   "hash": "459532d423a0d0f1d2a76558c973bda58761ce6c503f38cebbd2fe4bbaf9846b"
+  },
+  {
+   "seq": 873,
+   "at": "2026-11-17T05:07:10.099967Z",
+   "kind": "reserved",
+   "ref": "f787cc37ce4742d0b6e2f0a143e91fba",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b7679f04a0b8ee05f86a1993eb14043143deda5505b0930092025a93ed6a8aa6",
+   "hash": "1bbbd6e242a83592d5b8298246af2c3ec9c27fcc8e9e905ce303a6adf6e64728"
+  },
+  {
+   "seq": 876,
+   "at": "2026-11-17T05:07:18.076606Z",
+   "kind": "reserved",
+   "ref": "91e66baf64614d30bdc106648b9dadb7",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "7de337762df17c110e6e603489b57f636145c8e120318560968cbeaf645360e4",
+   "hash": "b0754b36690a76832323986c128e94e82fb337f57ec108e5bf2d6fb7c60c2c25"
+  },
+  {
+   "seq": 879,
+   "at": "2026-11-17T05:07:23.483613Z",
+   "kind": "reserved",
+   "ref": "e9c785f30d2b44a89cc87f6f31e120cd",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5b6773c84b23dfcba388bff44eb98ca882d63b17d946b2373ed8e8ad2158e4eb",
+   "hash": "fe4727d3133b8cb1a0fd8ddf76dcfe56e881a12f007e935e0bb4140916c06e8f"
+  },
+  {
+   "seq": 882,
+   "at": "2026-11-17T05:07:28.695369Z",
+   "kind": "reserved",
+   "ref": "094102d2dd9c4566a37e0b6d19984889",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5c763fc450b8b5a78261ca9a5a2e71c131dfde29fbd28664f9d1f6a5837d7773",
+   "hash": "82fb4ac72d567e700268778d56343b01ffed83c8d39f22f9894eb86f9682e498"
+  },
+  {
+   "seq": 885,
+   "at": "2026-11-17T05:08:10.704185Z",
+   "kind": "reserved",
+   "ref": "e44c9c5af79442de8acab1c69b742b49",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "aa79831860b2dc5ea998d05d1ed4a5e407214426d039bd0eb631d597ea9ee765",
+   "hash": "089de48ecb153fd6e9e9475ba0a0043a4906af90aa986459d03a61c23847546d"
+  },
+  {
+   "seq": 888,
+   "at": "2026-11-17T05:08:49.241220Z",
+   "kind": "reserved",
+   "ref": "d9feb087cc7040618fe804d5c8136dae",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "5057c9d1dfc0826432114b650b3d915416e7601510425f9e81261a30430bb341",
+   "hash": "004764d9105706fd56917bea3d6f199871bd21338bd3ebb2c1a30eba68eba757"
+  },
+  {
+   "seq": 891,
+   "at": "2026-11-17T05:09:19.739137Z",
+   "kind": "reserved",
+   "ref": "a8c16a03bfee420e805ad5c2ad394dfb",
+   "detail": "{\"purpose\":\"listing (attempt 3)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2dc8b5f7b6dd8a58d46b7bd77e73285ab5e1800fff826c3eaa42bd175726bdc3",
+   "hash": "ec21dfa70a7b929d713fc1339da11c74345616649a8fc977bfa2b569b7e2b43f"
+  },
+  {
+   "seq": 894,
+   "at": "2026-11-17T05:09:23.326707Z",
+   "kind": "reserved",
+   "ref": "b75e975e13214a55af736766eae04d1d",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f0e06f8b9a4a054a91898ed79397a21e278903c53ebb621b337caaf8f60c15ba",
+   "hash": "3859a8a9d61f9875907ef84198efc031eff05b3937c9c906cf804680f33b0520"
+  },
+  {
+   "seq": 897,
+   "at": "2026-11-17T05:09:51.890369Z",
+   "kind": "reserved",
+   "ref": "fa928be0c6574e85a04b2316655016ab",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2fa4c6778428c23eb9b6184e18a8ec902c3803b42d3f05a024221511a63c642b",
+   "hash": "aa0577c4d305a3ac6c915e578603f2dac516b50e139109ada98eb2e08adaa0e4"
+  },
+  {
+   "seq": 900,
+   "at": "2026-11-17T05:09:56.400328Z",
+   "kind": "reserved",
+   "ref": "dad4f40ea5ec462782039c87caa1349a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "bfc5f1a5d0ecbcd4b4eb65c09635f2ebe6402df7eb449a136175396a0c3ac014",
+   "hash": "14d61fba5b2a1a2eedf84467300585ffec361c608d54ef69d22c7027a75fed08"
+  },
+  {
+   "seq": 903,
+   "at": "2026-11-17T05:10:00.750361Z",
+   "kind": "reserved",
+   "ref": "2e16c7b001af4419a2c85d31448a41f8",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f1afd7cf7550ff4a4d37260f60fda45d4d1b11d9c31594be8ec0ff5c4e1291d0",
+   "hash": "5c2bc07dc4f0e35cf5273952d603525b0c33ed049123d641c29242f38aa1f7b1"
+  },
+  {
+   "seq": 906,
+   "at": "2026-11-17T05:10:05.096081Z",
+   "kind": "reserved",
+   "ref": "d72b767548984709959ccac786bba16e",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "8e9b7d72071aefa18f7d181cbfb4afc36886c85b129132135d9be0293dafdee9",
+   "hash": "45dc847ad8601e9d57391620b79b35d59d25fdc34003d0ae74220f7a11590f2a"
+  },
+  {
+   "seq": 909,
+   "at": "2026-11-17T05:10:47.647315Z",
+   "kind": "reserved",
+   "ref": "22ebd552a3c54b5c8e3b24b36e836334",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9373c961b2f7cb607f360e6cc1c3e2b13f1ce378d756db619c9da540c84b5391",
+   "hash": "f543acb01ac92e6ec29a97ddd5f9142327e928b0f8dafaaed4b1fe2da38b05de"
+  },
+  {
+   "seq": 912,
+   "at": "2026-11-17T05:10:52.346665Z",
+   "kind": "reserved",
+   "ref": "72b50705c7bd4c15897fada6c363aedd",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9c20c8e56526c28908bb7a75d9e3ee5733db45ae9ac1ecfcf46644e54b8e6adc",
+   "hash": "ae58fb9abbd15ec209256296e7014d87dcb57f2e65f63c005037da0fb8993cca"
+  },
+  {
+   "seq": 915,
+   "at": "2026-11-17T05:10:57.173536Z",
+   "kind": "reserved",
+   "ref": "437216af03db4db69d95a1b5979026c0",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "15d45c914ee5d419041b14641b10b48289713871b35c107134680554a8a6285e",
+   "hash": "e98d66186dbc05f6228c4fda965105585949ed4b5909dc231b6c9571329bdd2a"
+  },
+  {
+   "seq": 919,
+   "at": "2026-11-17T05:11:03.349031Z",
+   "kind": "lease_released",
+   "ref": "8",
+   "detail": "{\"reason\":\"live111 M-R7w-walkthrough-110rc6-20261117 ended (exit 75)\"}",
+   "prev_hash": "94c83727b12df1357380de58e93d55aa8a12668a5ff7b54828e1e03e434c186a",
+   "hash": "291d4006fc72135c5644e77f7ed79b60d5623993b297675ac1987b7221a7b841"
+  },
+  {
+   "seq": 920,
+   "at": "2026-11-17T05:11:09.504070Z",
+   "kind": "lease_acquired",
+   "ref": "9",
+   "detail": "{\"holder\":\"live111:M-R7w-walkthrough-110rc6-20261117:134302\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "291d4006fc72135c5644e77f7ed79b60d5623993b297675ac1987b7221a7b841",
+   "hash": "b461d972feaf9fdd779c66a221feaab99865e484a1f257f61e8d29d4153f4fb6"
+  },
+  {
+   "seq": 921,
+   "at": "2026-11-17T05:11:10.452594Z",
+   "kind": "reserved",
+   "ref": "2f61360546cd446d9d3a0719c3af36fd",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b461d972feaf9fdd779c66a221feaab99865e484a1f257f61e8d29d4153f4fb6",
+   "hash": "2c895ab2b487e4afcffc22896e43df74d6a513407f05370a824ee0405609c89c"
+  },
+  {
+   "seq": 924,
+   "at": "2026-11-17T05:11:12.353899Z",
+   "kind": "reserved",
+   "ref": "649e0be00e2a44e9a9cdeb2d8e0b897d",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "68e481ec7ed79574f903f4b05481cc05322d16bd7921e489abb8eb3af2c37371",
+   "hash": "4fd60e2b5aafe24037da1e48179fd69c7be80e7256ed6c4b71c3bb24201f129c"
+  },
+  {
+   "seq": 926,
+   "at": "2026-11-17T05:11:12.538525Z",
+   "kind": "reserved",
+   "ref": "058f2daa54564018ad3dc978b215e078",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "18797cba443605a77eb1d0924663f46cfcc858bdba25a73e420d1f6f5de6851d",
+   "hash": "8aa2621084a36af872d97804f9a1335cdba0f80d9b15db4945bc859c0d4f3ecc"
+  },
+  {
+   "seq": 929,
+   "at": "2026-11-17T05:11:48.802549Z",
+   "kind": "reserved",
+   "ref": "1187e2f308cf49c1947eb7b86ac5f033",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9d87f06c2189c21a2a355f3a4da7acc23244a09b2e96ffde0c12470dad0bf32a",
+   "hash": "278bfaae6e7b544f50b394814eb50dcdc6505a29ee394f5072c3970cde7a85b8"
+  },
+  {
+   "seq": 932,
+   "at": "2026-11-17T05:12:16.442745Z",
+   "kind": "reserved",
+   "ref": "ac63d4fd04e14b6bab9b0ed7d039ec88",
+   "detail": "{\"purpose\":\"listing (attempt 2)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2f429bb052c867592e410bf24196b98071f76b41b34c20b9c2fdc23617de53cb",
+   "hash": "3e97a3a542a8fbb584fac03f7e2a1349fccf373f47a42155dc4be32a9cdbd40a"
+  },
+  {
+   "seq": 935,
+   "at": "2026-11-17T05:12:19.384091Z",
+   "kind": "reserved",
+   "ref": "5390456a77cd4ef0a28df8d38a3bc72f",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "cee49e7c6aa9d2e04e67544890da800556614ea0349c9796faaddddf0ac2b36c",
+   "hash": "6244645e6963a49e0fc49581699c79739cb60269c52859e5bf5091445732f665"
+  },
+  {
+   "seq": 938,
+   "at": "2026-11-17T05:12:52.805028Z",
+   "kind": "reserved",
+   "ref": "3f1fff0fcc8c4468a3c065d0d5e8c9ba",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9398eb744b18c859a4f021da88c661dae75ffdc3728c92543a531074b063b676",
+   "hash": "618242d2284f8cf0ae1f138519d558f7fb80c57f018472b4db730b8bccf167ed"
+  },
+  {
+   "seq": 941,
+   "at": "2026-11-17T05:13:27.715606Z",
+   "kind": "reserved",
+   "ref": "e07f7c4f03cc4c20a3eac3f4f3be1893",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d86104e72d20d761497c33a48a18ec0a836e860f90decf23ed528b1d8524c8fd",
+   "hash": "bfb68106d8f0a45d81cc4f7c3c93c0367140c69b18c5dc23267b2f639144bd88"
+  },
+  {
+   "seq": 944,
+   "at": "2026-11-17T05:13:48.148825Z",
+   "kind": "reserved",
+   "ref": "006afed25cbb485a83c2301b897fc17c",
+   "detail": "{\"purpose\":\"listing (attempt 3)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "deaccdaad1cc36d2c3ea588c1e50a4fc6b70d9d23d3647d09d69b43a8c1199db",
+   "hash": "8bed6b11c76478536a127a4fbbaecb280738ece87d794da7c3ef79c03bb54d3a"
+  },
+  {
+   "seq": 947,
+   "at": "2026-11-17T05:13:58.999672Z",
+   "kind": "reserved",
+   "ref": "3aebe7d4005d488988ab9f8d838d4dcf",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "6bc965bdd5ff3d6e2ebcaaca44ecb3b5659147c4a76ca1e29ede694ecff95498",
+   "hash": "a6bcdf6bad68038aabe74748897e387b51460fc10cf5f955024f4fd6a7dc63c4"
+  },
+  {
+   "seq": 950,
+   "at": "2026-11-17T05:15:24.700897Z",
+   "kind": "reserved",
+   "ref": "ac4e7ba952474b86931d09747133d611",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "7f6f55e28f99f0b23b72066511adeb40cffdd53b4db2cd2092f2033ebf7a2213",
+   "hash": "3e1f4cf863c7b302ef7dcae0fccd197d0a8f1a9cb6b8619e7beec2c56d84a627"
+  },
+  {
+   "seq": 953,
+   "at": "2026-11-17T05:15:32.730120Z",
+   "kind": "reserved",
+   "ref": "c00c8c7ab81545d9beb53ba35b864231",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0292a2151b8ae85b3aaccfa5acc040893a56862335390f361134f1c109695a4f",
+   "hash": "77e6fba8aa9883e59c6828bb6649e4522234f46d4a79b1d567ee0b347a7b242c"
+  },
+  {
+   "seq": 956,
+   "at": "2026-11-17T05:15:37.413573Z",
+   "kind": "reserved",
+   "ref": "a944b790d5dd4d0d877713bce1326b57",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "1e19d19f2e3063f7e011a2b2ab00312e03cd8a52178f9988b77b766a16fe7b83",
+   "hash": "d7c7549da349700ea6d5a38e11444965ec5c8b0cbdbda85b683eb637fe9ee93f"
+  },
+  {
+   "seq": 959,
+   "at": "2026-11-17T05:15:43.229679Z",
+   "kind": "reserved",
+   "ref": "dcb70d53b9fd4ffaba35c872a0b51ab4",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7w-walkthrough-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "8566b93f5cb150027fb2abff81e2df49a4a0b12e71458093b89e540fe150da68",
+   "hash": "e8c5a70487b51e41a1fb83812829d8770fa264e8e68e9069d517512f67468c02"
+  },
+  {
+   "seq": 963,
+   "at": "2026-11-17T05:15:54.306903Z",
+   "kind": "lease_released",
+   "ref": "9",
+   "detail": "{\"reason\":\"live111 M-R7w-walkthrough-110rc6-20261117 ended (exit 75)\"}",
+   "prev_hash": "917533d5f8f24bb54327057394afabfd5d46c92793422183fb1b343656fedc76",
+   "hash": "eda2b8134ca9b0b1c367077486cee58a972c07cb7c557046c1015deae1d13e80"
+  }
+ ]
+}

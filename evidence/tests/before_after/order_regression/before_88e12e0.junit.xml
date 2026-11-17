@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="28" time="117.898" timestamp="2026-11-16T22:34:46.919826+00:00" hostname="[redacted:workstation-host]"><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_a_listings_subdivisions_are_read_before_the_plans_next_listing" time="5.920" /><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_subdivisions_keep_the_order_they_were_planned_in" time="0.770"><failure message="AssertionError: assert ['0000000002'...001', '03002'] == ['ffff000001'...002', '03002']&#10;  &#10;  At index 0 diff: '0000000002' != 'ffff000001'&#10;  Use -v to get more diff">migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:49693/walmart_collector_test)
+
+    def test_rc6_subdivisions_keep_the_order_they_were_planned_in(migrated_engine: Engine) -&gt; None:
+        factory, store = seed(migrated_engine)
+        run = new_run(factory, store)
+        with factory() as s:
+            queue.enqueue(
+                s, run.id, "listing_node", f"{run.id}/node/0000-03001", priority=50, taxonomy_id="03001"
+            )
+            queue.enqueue(
+                s, run.id, "listing_node", f"{run.id}/node/0001-03002", priority=50, taxonomy_id="03002"
+            )
+            s.commit()
+            parent = queue.lease_next(s, run.id, "w1")
+            assert parent is not None and parent.taxonomy_id == "03001"
+            # Brand readings: their IDs are digests, so key order is not the facet's order; one per transaction
+            # here so that each has its own creation time (planned in the facet's order: zeta, then alpha).
+            for pid in ("ffff000001", "0000000002"):
+                queue.enqueue(s, run.id, "listing_node", f"{parent.idem_key}/{pid}", priority=50, taxonomy_id=pid)
+                s.commit()
+            queue.succeed(s, parent)
+            s.commit()
+&gt;           assert _drain(s, run.id) == ["ffff000001", "0000000002", "03002"]
+E           AssertionError: assert ['0000000002'...001', '03002'] == ['ffff000001'...002', '03002']
+E             
+E             At index 0 diff: '0000000002' != 'ffff000001'
+E             Use -v to get more diff
+
+tests\integration\test_run_order_rc6.py:92: AssertionError</failure></testcase><testcase classname="tests.integration.test_run_order_rc6" name="test_keys_without_a_place_in_the_plan_keep_their_creation_order" time="0.698"><failure message="AssertionError: assert ['26002', '26003'] == ['26003', '26002']&#10;  &#10;  At index 0 diff: '26002' != '26003'&#10;  Use -v to get more diff">migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:49693/walmart_collector_test)
+
+    def test_keys_without_a_place_in_the_plan_keep_their_creation_order(migrated_engine: Engine) -&gt; None:
+        factory, store = seed(migrated_engine)
+        run = new_run(factory, store)
+        with factory() as s:
+            for tax in ("26003", "26002"):
+                queue.enqueue(s, run.id, "listing_node", f"{run.id}/listing/{tax}", priority=50, taxonomy_id=tax)
+                s.commit()
+&gt;           assert _drain(s, run.id) == ["26003", "26002"]
+E           AssertionError: assert ['26002', '26003'] == ['26003', '26002']
+E             
+E             At index 0 diff: '26002' != '26003'
+E             Use -v to get more diff
+
+tests\integration\test_run_order_rc6.py:102: AssertionError</failure></testcase><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_a_subdivision_waiting_for_its_re_ask_holds_no_lane" time="0.737" /><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_rows_first_reads_the_named_rows_first_and_keeps_the_plan" time="0.014" /><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_a_product_is_named_by_its_upc" time="0.002" /><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_only_the_named_products_pages_are_read" time="3.297" /><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_named_products_narrow_the_setting_that_reads_every_coupon_card" time="2.745" /><testcase classname="tests.integration.test_runner" name="test_crash_mid_listing_then_resume_matches_clean_run" time="2.103" /><testcase classname="tests.integration.test_runner" name="test_cooperative_cancel" time="0.944"><failure message="AssertionError: assert (&lt;marianos_headless.db.models.Task object at 0x000001401303C410&gt; is not None and {} == {'next_page': 1}&#10;  &#10;  Right contains 1 more item:&#10;  {'next_page': 1}&#10;  Use -v to get more diff)">migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:49693/walmart_collector_test)
+tmp_path = WindowsPath('[redacted:workstation-path]/AppData/Local/Temp/pytest-of-PC/pytest-1398/test_cooperative_cancel0')
+
+    def test_cooperative_cancel(migrated_engine: Engine, tmp_path: Path) -&gt; None:
+        factory, store = seed(migrated_engine)
+        run_id = start(factory, store)
+        w = Worker(
+            factory,
+            run_id,
+            "w",
+            {"listing_node": listing_handler(cancel_after_page=1)},
+            Settings(),
+            LocalStorageAdapter(tmp_path),
+        )
+        res = asyncio.run(w.run())
+        assert res.outcome == "cancelled"
+        with factory() as s:
+            assert s.get(Run, run_id).status == "cancelled"  # type: ignore[union-attr]
+            t = s.scalar(select(Task).where(Task.run_id == run_id, Task.taxonomy_id == "26003"))
+&gt;           assert t is not None and t.cursor == {"next_page": 1}  # the checkpoint survived
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AssertionError: assert (&lt;marianos_headless.db.models.Task object at 0x000001401303C410&gt; is not None and {} == {'next_page': 1}
+E             
+E             Right contains 1 more item:
+E             {'next_page': 1}
+E             Use -v to get more diff)
+
+tests\integration\test_runner.py:165: AssertionError</failure></testcase><testcase classname="tests.integration.test_runner" name="test_challenge_blocks_task_and_aborts_run" time="0.931" /><testcase classname="tests.integration.test_runner" name="test_transient_failure_retries_with_backoff" time="0.744" /><testcase classname="tests.integration.test_runner" name="test_unexpected_handler_error_fails_the_task_not_the_worker" time="0.823" /><testcase classname="tests.integration.test_runner" name="test_circuit_breaker_fails_category" time="0.983" /><testcase classname="tests.integration.test_runner" name="test_pause_then_resume_continues_from_checkpoint" time="0.946" /><testcase classname="tests.integration.test_partitions_190" name="test_two_brands_alike_in_their_first_64_characters_are_two_readings_through_the_run" time="3.195" /><testcase classname="tests.integration.test_partitions_190" name="test_a_worker_killed_inside_one_of_two_alike_brands_resumes_that_brand_alone" time="4.646"><failure message="AssertionError: assert {('03001', 1)...78c55268', 1)} == {('03001', 1)...d438cc02', 2)}&#10;  &#10;  Extra items in the right set:&#10;  ('03001~838b5fdda5367709d438cc02', 1)&#10;  ('03001~838b5fdda5367709d438cc02', 2)&#10;  Use -v to get more diff">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:49693/walmart_collector_test), 'factory': sessionmaker(c...', is_contest_store=False, notes='Marianos Lakeshore East, 333 E Benton Pl, Chicago, IL 60601; In Store prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_a_worker_killed_inside_one_of_two_alike_brands_resumes_that_brand_alone(
+        env: dict[str, Any], settings: Settings
+    ) -&gt; None:
+        pipe = _pipe(env, settings)
+        run_id = _plan(env, pipe, ("03001",))
+        _die(env, run_id, f"03001~{B}", 2)  # dies with B's page 2 out
+        with env["factory"]() as s:
+            done = {
+                (r.taxonomy_id, r.requested_page)
+                for r in s.scalars(select(ListingPage))
+                if r.state == "completed"
+            }
+        # Serial order: the listing's page 1, A's two pages, B's page 1; B's page 2 was out.
+&gt;       assert done == {("03001", 1), (_pid(A), 1), (_pid(A), 2), (_pid(B), 1)}
+E       AssertionError: assert {('03001', 1)...78c55268', 1)} == {('03001', 1)...d438cc02', 2)}
+E         
+E         Extra items in the right set:
+E         ('03001~838b5fdda5367709d438cc02', 1)
+E         ('03001~838b5fdda5367709d438cc02', 2)
+E         Use -v to get more diff
+
+tests\integration\test_partitions_190.py:229: AssertionError</failure></testcase><testcase classname="tests.integration.test_partitions_190" name="test_a_brand_reading_planned_before_1_9_is_never_resumed" time="1.218" /><testcase classname="tests.integration.test_partitions_190" name="test_a_brand_reading_answered_with_another_filter_never_counts_and_stays_incomplete[unfiltered]" time="2.738" /><testcase classname="tests.integration.test_partitions_190" name="test_a_brand_reading_answered_with_another_filter_never_counts_and_stays_incomplete[other_brand]" time="2.619" /><testcase classname="tests.integration.test_partitions_190" name="test_a_brand_reading_answered_with_another_filter_never_counts_and_stays_incomplete[no_filter_state]" time="2.820" /><testcase classname="tests.integration.test_partitions_190" name="test_a_brand_page_whose_search_was_not_finished_is_asked_again[loading]" time="12.912" /><testcase classname="tests.integration.test_partitions_190" name="test_a_brand_page_whose_search_was_not_finished_is_asked_again[stale_search]" time="13.148" /><testcase classname="tests.integration.test_partitions_190" name="test_two_lanes_read_two_brands_at_once_and_never_one_task_twice" time="3.373" /><testcase classname="tests.integration.test_partitions_190" name="test_two_lanes_never_save_a_page_whose_answer_has_not_arrived" time="3.768" /><testcase classname="tests.integration.test_partitions_190" name="test_one_listing_at_a_time_is_the_default_and_keeps_one_request_in_flight" time="3.410" /><testcase classname="tests.integration.test_partitions_190" name="test_a_lane_that_meets_the_ceiling_halts_the_other_and_a_resume_asks_no_page_twice" time="3.815" /><testcase classname="tests.integration.test_partitions_190" name="test_a_provider_failure_that_pauses_the_run_is_not_reported_as_a_limit" time="35.850" /></testsuite></testsuites>

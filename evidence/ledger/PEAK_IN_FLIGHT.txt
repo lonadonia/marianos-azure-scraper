@@ -1,0 +1,34 @@
+Requests in flight at once, from each stage's ledger rows (dispatched_at -> updated_at). Rows marked unknown were
+in flight when their process stopped; their interval ends when the ledger marked them unknown (an upper bound).
+
+== P7: 9 rows, states {'settled': 9}
+   lease 1: 9 rows, peak in flight 1 (first reached 2026-11-16T23:20:30.846183Z); unknown at the end 0
+
+== R6a: 65 rows, states {'settled': 63, 'unknown': 2}
+   lease 2: 65 rows, peak in flight 2 (first reached 2026-11-16T23:40:50.745385Z); unknown at the end 2: listing (attempt 1) dispatched 23:49:15.119, listing (attempt 1) dispatched 23:49:31.133
+
+== R6fin: 65 rows, states {'settled': 63, 'unknown': 2}
+   lease 2: 65 rows, peak in flight 2 (first reached 2026-11-16T23:40:50.745385Z); unknown at the end 2: listing (attempt 1) dispatched 23:49:15.119, listing (attempt 1) dispatched 23:49:31.133
+
+== P8: 19 rows, states {'settled': 19}
+   lease 5: 19 rows, peak in flight 1 (first reached 2026-11-17T04:20:41.438867Z); unknown at the end 0
+
+== R7a: 46 rows, states {'settled': 44, 'unknown': 2}
+   lease 3: 46 rows, peak in flight 2 (first reached 2026-11-17T03:01:09.181651Z); unknown at the end 2: listing (attempt 1) dispatched 03:04:52.466, listing (attempt 1) dispatched 03:04:53.144
+
+== R7a2: 76 rows, states {'settled': 74, 'unknown': 2}
+   lease 4: 76 rows, peak in flight 2 (first reached 2026-11-17T04:00:29.667383Z); unknown at the end 2: listing (attempt 1) dispatched 04:13:39.230, listing (attempt 1) dispatched 04:13:43.235
+
+== R7b: 60 rows, states {'settled': 57, 'unknown': 3}
+   lease 6: 23 rows, peak in flight 2 (first reached 2026-11-17T04:35:27.243708Z); unknown at the end 1: listing (attempt 3) dispatched 04:38:37.414
+   lease 7: 37 rows, peak in flight 2 (first reached 2026-11-17T04:40:29.776901Z); unknown at the end 2: listing (attempt 1) dispatched 04:54:26.387, listing (attempt 1) dispatched 04:55:01.929
+
+== R7w: 35 rows, states {'settled': 35}
+   lease 8: 21 rows, peak in flight 2 (first reached 2026-11-17T05:05:42.034024Z); unknown at the end 0
+   lease 9: 14 rows, peak in flight 2 (first reached 2026-11-17T05:11:12.554055Z); unknown at the end 0
+
+== R7c: 39 rows, states {'settled': 39}
+   lease 10: 17 rows, peak in flight 2 (first reached 2026-11-17T05:22:32.037806Z); unknown at the end 0
+   lease 11: 22 rows, peak in flight 2 (first reached 2026-11-17T05:30:12.571335Z); unknown at the end 0
+
+highest peak over all stages: 2

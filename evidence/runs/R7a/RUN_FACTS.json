@@ -1,0 +1,118 @@
+{
+ "run_id": "01M7KQ5GZVF5VK1S9FGTG6YFC9",
+ "stages": [
+  "M-R7a-full-run-110rc6-20261117"
+ ],
+ "revisions": [
+  {
+   "version": "1.10.0rc6",
+   "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b"
+  }
+ ],
+ "segments": [
+  {
+   "id": "01M7KQ5H6KDYDQEWNQJY7NTH23",
+   "started_at": "2026-11-17 03:00:20.817949+00",
+   "ended_at": "2026-11-17 03:04:55.879433+00",
+   "active_s": "275.05380483599583",
+   "end_state": "ended",
+   "stop_code": "TERMINATED",
+   "trigger": "manual",
+   "code": {
+    "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+    "source": "environment",
+    "version": "1.10.0rc6",
+    "parser_version": "1.10.0"
+   }
+  }
+ ],
+ "ledger": {
+  "rows": 46,
+  "by_state": {
+   "settled": 44,
+   "unknown": 2
+  },
+  "results_charged": 44,
+  "usd_settled": 0.066
+ },
+ "executions": [
+  {
+   "stage": "M-R7a-full-run-110rc6-20261117",
+   "utc_start": "2026-11-17T03:00:20+00:00",
+   "utc_end": "2026-11-17T03:04:55+00:00",
+   "args": [
+    "run",
+    "--store",
+    "marianos-53100502-pickup",
+    "--rows-first",
+    "22,27,23,24,25,26,15",
+    "--term-upc",
+    "0001780014939",
+    "--term-upc",
+    "0001780014941",
+    "--term-upc",
+    "0002310014848",
+    "--term-upc",
+    "0003980014995"
+   ],
+   "exit_code": 75,
+   "seconds": 275.6,
+   "revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "gate_counts": {
+    "reserved": 46,
+    "dispatched": 46,
+    "unsent": 0,
+    "settled": 44,
+    "settled_free": 0,
+    "unknown": 2
+   }
+  }
+ ],
+ "pages": {
+  "answers": 39,
+  "by_state": {
+   "completed": 27,
+   "stopped": 7,
+   "refused": 5
+  },
+  "by_verdict": {
+   "new": 27,
+   "repeated": 7,
+   "malformed": 5
+  },
+  "store_checks": [
+   "PASS"
+  ],
+  "locations": [
+   "53100502"
+  ],
+  "modalities": [
+   "PICKUP"
+  ]
+ },
+ "set_aside": {
+  "requests": 7,
+  "by_state": {
+   "waiting": 7
+  },
+  "reasks_answered": 0,
+  "new_products_from_reasks": 0,
+  "min_seconds_between_answers": null
+ },
+ "export": "none: the run has no export yet (it is written when the run is finalized)",
+ "products": null,
+ "gates": null,
+ "nodes": null,
+ "status": "interrupted",
+ "outcome": null,
+ "pilot": false,
+ "store": {
+  "key": "marianos-53100502-pickup",
+  "name": "Marianos Vernon Hills",
+  "modality": "PICKUP",
+  "retailer": "marianos",
+  "location_id": "53100502"
+ },
+ "csv_rows": {},
+ "listings_not_complete": []
+}

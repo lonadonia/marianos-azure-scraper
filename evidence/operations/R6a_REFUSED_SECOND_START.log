@@ -1,0 +1,8 @@
+== 2026-11-16T23:41:04Z R6a holds the store; a second start for the same store:
+active
+{"ts": "2026-11-16T23:41:07.024Z", "level": "ERROR", "event": "COMMAND_REFUSED", "collector": "marianos-azure-headless", "command": "run", "exit_code": 9, "message": "marianos-53100502-pickup has an unfinished run 01M7KBQ3XXMP3W3FK2EXE525EA (running): resume or finalize it", "run_id": "01M7KBQ3XXMP3W3FK2EXE525EA"}
+{"event": "LIVE111_REFUSED_START_ENDED", "stage": "M-R6a-full-run-110rc6-20261116", "exit_code": 9, "seconds": 0.5, "gate_refusals": []}
+second start exit 9
+== 2026-11-16T23:41:07Z ledger rows with the purpose of a refused start (none expected):
+2 leases in all; 1 open
+CHECK PASSED: the second start was refused (exit 9) with its refusal in the output

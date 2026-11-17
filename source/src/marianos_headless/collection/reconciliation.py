@@ -301,7 +301,12 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
         s.scalars(select(CategorySource).where(CategorySource.enabled).order_by(CategorySource.csv_row_index))
     )
     rows_out: list[dict[str, Any]] = []
+    coupons = (run.counts or {}).get("coupons_route") if run is not None else None
     for src in sources:
+        if isinstance(coupons, dict) and coupons.get("mandatory") and src.url == coupons.get("url"):
+            # The run's plan names the Coupons row (release 1.10.0rc6, OR-04): the row is its route's verdict.
+            rows_out.append(_route_row(src, coupons))
+            continue
         planned = by_row.get(src.csv_row_index, [])
         complete = [x for x in planned if x["status"] in ("DONE", "EMPTY")]
         unread = [x for x in planned if x["status"] == "NOT_COLLECTED"]
@@ -344,6 +349,35 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
         "identities": identity_sets(s, run_id),
         "rows": rows_out,
         "listings": lines,
+    }
+
+
+def _route_row(src: CategorySource, route: dict[str, Any]) -> dict[str, Any]:
+    """The Coupons row (release 1.10.0rc6, OR-04): read as a route of the run, its page's own verdict.
+    COMPLETE only when its list loaded (with cards, or stated empty); NOT_READ with why otherwise."""
+    status = str(route.get("status") or "")
+    attempts = route.get("attempts") or []
+    asked = f" ({len(attempts)} answer(s))" if attempts else ""
+    if status == "READ":
+        reason = f"the Coupons page was read for the store{asked}: {route.get('list_detail') or ''}".rstrip(
+            ": "
+        )
+    else:
+        reason = f"the Coupons page was not read{asked}: {status}"
+    return {
+        "csv_row": src.csv_row_index,
+        "category": src.category_name,
+        "source_url": src.url,
+        "listings_planned": 0,
+        "listings_complete": 0,
+        "listings_incomplete": 0,
+        "listings_not_read": 0,
+        "pages_completed": 1 if status == "READ" else 0,
+        "unique_identities": 0,
+        "approx_weight_exclusions": 0,
+        "unresolved_gap": None,
+        "status": "COMPLETE" if status == "READ" else "NOT_READ",
+        "completion_reason": reason,
     }
 
 

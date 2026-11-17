@@ -1,0 +1,114 @@
+# 2026-11-17T06:59:09Z commit abc4718 marianos-azure-headless next: OR-23, a page that fails again once the run has been resumed at it leaves its listing incomplete and the run goe
+# python -m ruff check src tests
+src/marianos_headless/collection/nodes.py:78:111: E501 Line too long (113 > 110)
+src/marianos_headless/collection/nodes.py:79:111: E501 Line too long (112 > 110)
+src/marianos_headless/collection/nodes.py:83:111: E501 Line too long (119 > 110)
+src/marianos_headless/collection/oxylabs_live.py:113:111: E501 Line too long (112 > 110)
+src/marianos_headless/collection/oxylabs_live.py:1023:111: E501 Line too long (112 > 110)
+src/marianos_headless/collection/oxylabs_live.py:1257:111: E501 Line too long (113 > 110)
+src/marianos_headless/collection/oxylabs_live.py:1259:111: E501 Line too long (111 > 110)
+src/marianos_headless/collection/oxylabs_live.py:1273:111: E501 Line too long (112 > 110)
+src/marianos_headless/collection/oxylabs_live.py:1281:111: E501 Line too long (114 > 110)
+src/marianos_headless/collection/oxylabs_live.py:1283:111: E501 Line too long (114 > 110)
+src/marianos_headless/worker/runner.py:272:111: E501 Line too long (113 > 110)
+src/marianos_headless/worker/runner.py:284:111: E501 Line too long (111 > 110)
+src/marianos_headless/worker/runner.py:353:111: E501 Line too long (114 > 110)
+tests/integration/test_oxylabs_collector.py:381:111: E501 Line too long (120 > 110)
+tests/integration/test_oxylabs_collector.py:384:111: E501 Line too long (115 > 110)
+tests/integration/test_oxylabs_collector.py:385:111: E501 Line too long (111 > 110)
+tests/integration/test_oxylabs_collector.py:386:111: E501 Line too long (112 > 110)
+tests/integration/test_oxylabs_collector.py:387:111: E501 Line too long (113 > 110)
+tests/integration/test_oxylabs_collector.py:400:111: E501 Line too long (114 > 110)
+tests/integration/test_oxylabs_collector.py:405:111: E501 Line too long (115 > 110)
+tests/integration/test_runner.py:323:111: E501 Line too long (111 > 110)
+tests/integration/test_runner.py:324:111: E501 Line too long (114 > 110)
+tests/integration/test_runner.py:325:111: E501 Line too long (113 > 110)
+tests/integration/test_runner.py:327:111: E501 Line too long (115 > 110)
+tests/integration/test_runner.py:346:111: E501 Line too long (111 > 110)
+tests/integration/test_runner.py:352:111: E501 Line too long (113 > 110)
+tests/unit/test_collection.py:214:111: E501 Line too long (115 > 110)
+Found 27 errors.
+# exit 1
+# python -m ruff format --check src tests
+unformatted: File would be reformatted
+  --> src/marianos_headless/collection/nodes.py:83:8
+   |
+82 |     segments = [s for s in path.split("/") if s]
+   -     if len(segments) == 2 and segments[0] == "pl" and segments[1] != taxonomy_id and segments[1].endswith(taxonomy_id):
+83 +     if (
+84 +         len(segments) == 2
+85 +         and segments[0] == "pl"
+86 +         and segments[1] != taxonomy_id
+87 +         and segments[1].endswith(taxonomy_id)
+88 +     ):
+89 |         name = segments[1][: -len(taxonomy_id)].rstrip("-")
+   |
+
+unformatted: File would be reformatted
+    --> src/marianos_headless/collection/oxylabs_live.py:1283:39
+     |
+1282 |         with self.factory() as s:
+     -             rows = pagination.rows_of(s, self.run_id, node.category_source_id, node.taxonomy_id, self._pkey(node))
+1283 +             rows = pagination.rows_of(
+1284 +                 s, self.run_id, node.category_source_id, node.taxonomy_id, self._pkey(node)
+1285 +             )
+1286 |             return sum(1 for r in rows if r.requested_page == page and r.state == "failed")
+     |
+
+unformatted: File would be reformatted
+   --> src/marianos_headless/worker/runner.py:284:22
+    |
+283 |
+    -     async def _lanes(self, max_tasks: int | None, busy: dict[asyncio.Task[bool], queue.Lease]) -> WorkerResult:
+284 +     async def _lanes(
+285 +         self, max_tasks: int | None, busy: dict[asyncio.Task[bool], queue.Lease]
+286 +     ) -> WorkerResult:
+287 |         processed = 0
+    |
+
+unformatted: File would be reformatted
+   --> tests/integration/test_oxylabs_collector.py:400:64
+    |
+399 |         rows = list(s.scalars(select(ListingPage).where(ListingPage.taxonomy_id == "03002")))
+    -         assert [(r.requested_page, r.state) for r in rows] == [(1, "failed")] * 4  # one answer more, then no more
+400 +         assert [(r.requested_page, r.state) for r in rows] == [
+401 +             (1, "failed")
+402 +         ] * 4  # one answer more, then no more
+403 |         cov = {c.taxonomy_id: c for c in s.scalars(select(NodeCoverage).where(NodeCoverage.run_id == run_id))}
+404 |         assert cov["03002"].status == "INCOMPLETE"
+405 |         assert "stays incomplete" in cov["03002"].partition["reason"]
+406 |         assert "the provider brought no page" in cov["03002"].partition["reason"]
+    -         stops = s.scalars(select(Event).where(Event.run_id == run_id, Event.code == "RUN_PAUSED_ON_FAILURE")).all()
+407 +         stops = s.scalars(
+408 +             select(Event).where(Event.run_id == run_id, Event.code == "RUN_PAUSED_ON_FAILURE")
+409 +         ).all()
+410 |         assert len(stops) == 1  # the 1.8.0 stop only
+    |
+
+unformatted: File would be reformatted
+   --> tests/integration/test_runner.py:346:21
+    |
+345 |         w = Worker(
+    -             factory, run_id, "w", {"listing_node": in_flight}, settings, LocalStorageAdapter(tmp_path), lanes=2
+346 +             factory,
+347 +             run_id,
+348 +             "w",
+349 +             {"listing_node": in_flight},
+350 +             settings,
+351 +             LocalStorageAdapter(tmp_path),
+352 +             lanes=2,
+353 |         )
+--------------------------------------------------------------------------------
+357 |             with factory() as s:
+    -                 held = s.scalars(select(Task.cursor).where(Task.run_id == run_id, Task.state == "running")).all()
+358 +                 held = s.scalars(
+359 +                     select(Task.cursor).where(Task.run_id == run_id, Task.state == "running")
+360 +                 ).all()
+361 |             if len(held) == 2 and all(c == {"next_page": 1} for c in held):
+    |
+
+5 files would be reformatted, 171 files already formatted
+# exit 1
+# python -m mypy (strict; the package, as pyproject.toml configures it)
+Success: no issues found in 86 source files
+# exit 0

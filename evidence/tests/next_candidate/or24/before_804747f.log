@@ -1,0 +1,25 @@
+# 2026-11-17T06:52:21Z commit 804747f marianos-azure-headless next: tests for OR-24 (with two lanes, a page whose named product pages are being read keeps its products and its record while the other l
+# python -m pytest -p no:cacheprovider tests/integration/test_lanes_or24.py -rA
+# imported from marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+E           AssertionError: ['0003800000025', '0003800000026', '0003800000027', '0003800000028', '0003800000029', '0003800000030']
+E           assert {'00038000000...0000006', ...} <= {'00038000000...0000006', ...}
+E             
+E             Extra items in the left set:
+E             '0003800000025'
+E             '0003800000029'
+E             '0003800000030'
+E             '0003800000027'
+E             '0003800000026'
+E             '0003800000028'
+E           AssertionError: ['0001780014939', '0001780014941', '0002310014848', '0003980014995']
+E           assert {'00016000122...003980014995'} <= {'0001600012254'}
+E             
+E             Extra items in the left set:
+E             '0002310014848'
+E             '0001780014941'
+E             '0001780014939'
+E             '0003980014995'
+FAILED tests/integration/test_lanes_or24.py::test_or24_a_page_waiting_for_a_product_page_keeps_its_products_while_the_other_lane_reads
+FAILED tests/integration/test_lanes_or24.py::test_or24_on_the_search_route_the_waiting_page_and_its_record_are_kept_while_the_other_lane_reads
+============================= 2 failed in 22.26s ==============================
+# exit 1

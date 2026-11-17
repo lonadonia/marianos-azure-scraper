@@ -88,6 +88,9 @@ class PageFacts:
     loaded: bool | None = None
     loading: bool | None = None
     has_error: bool | None = None
+    # Release 1.10.0rc6 (OR-19): the products whose data the page state carries (None: not counted, as
+    # for a page rebuilt from its stored row).
+    product_data: int | None = None
 
 
 @dataclass(frozen=True)
@@ -100,15 +103,22 @@ class Judgement:
     retry: bool = False
     # Release 1.9.0 (M2): what the response states about its filters and search binding.
     binding: Mapping[str, Any] = field(default_factory=dict)
+    # Release 1.10.0rc6 (OR-19): the page state carries no product's data (the page did not load): asked
+    # for again within the retry bounds, never counted as an abnormal page.
+    unloaded: bool = False
 
     @property
     def accepted(self) -> bool:
         return self.verdict in ACCEPTED
 
 
-def page_facts(page: int, summary: SearchSummary | None, cards: int) -> PageFacts:
+def page_facts(
+    page: int, summary: SearchSummary | None, cards: int, product_data: int | None = None
+) -> PageFacts:
     if summary is None:
-        return PageFacts(page, None, (), None, None, None, None, None, (), (), cards)
+        return PageFacts(
+            page, None, (), None, None, None, None, None, (), (), cards, product_data=product_data
+        )
     return PageFacts(
         requested_page=page,
         returned_page=summary.page,
@@ -127,6 +137,7 @@ def page_facts(page: int, summary: SearchSummary | None, cards: int) -> PageFact
         loaded=summary.loaded,
         loading=summary.loading,
         has_error=summary.has_error,
+        product_data=product_data,
     )
 
 
@@ -261,6 +272,18 @@ def judge(
             (),
             again,
             binding=binding,
+        )
+    if facts.product_data == 0:
+        # Release 1.10.0rc6 (OR-19). Live 2026-11-16 (run F2, re-ask 1 of page 2 of Espresso Coffee): the
+        # page's own search was made for the store and lists its results, but the page state carries no
+        # product's data and the grid draws a few cards. Nothing on it can be recorded: it counts no
+        # product and is asked for again within the usual bounds.
+        return Judgement(
+            PageVerdict.MALFORMED,
+            f"the page's search lists {len(facts.organic)} results and its state carries no product data "
+            f"(not loaded; {facts.cards} card(s) drawn): no product counted",
+            binding=binding,
+            unloaded=True,
         )
     if facts.cards < len(facts.organic):
         return Judgement(

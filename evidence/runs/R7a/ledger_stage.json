@@ -1,0 +1,464 @@
+{
+ "stage": [
+  {
+   "stage_id": "M-R7a-full-run-110rc6-20261117",
+   "project": "marianos",
+   "opened_at": "2026-11-17T03:00:19.968856Z",
+   "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. This slice starts the run and measures the hour's repeat rate before the larger slices.",
+   "command": "run --store marianos-53100502-pickup --rows-first 22,27,23,24,25,26,15 --term-upc 0001780014939 --term-upc 0001780014941 --term-upc 0002310014848 --term-upc 0003980014995",
+   "config": "{\"config_dir\": \"/var/lib/marianos-collector/ops-rc6/stages/M-R7a-full-run-110rc6-20261117/config\", \"config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"b22c3c676712e6b6cceaf6d5cf7d08b700dbe7a23f806bf63901fedd4e6ea0b5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}, \"differs_from_shipped_in\": [\"collector.yaml: publish.auto false\", \"collector.yaml: limits.max_concurrent_listings 2\"], \"environment\": \"the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel\", \"lanes\": 2, \"shipped_config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}}",
+   "source_revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "max_requests": 160,
+   "max_results": 160,
+   "max_usd": "0.240000",
+   "deadline_utc": "2026-11-17T04:15:17Z",
+   "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt; the Coupons page asked again while its list has not loaded, at most 4 answers for the run, 60 s apart (1.10.0rc6, OR-04); each submission reserved at its worst case",
+   "stop_conditions": "the operator's slice target (SIGTERM: a resumable stop) before the stage's submission ceiling; the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR; the collector resumes itself up to 3 times, 60 s later); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator (watch_stage.sh, counted from the slice's own start): 10 re-asks answered in the slice and none recovered its request; or 16 or more answers to a page 2 or later in the slice of which 25% or more repeat an earlier page (the share is read at the watcher's start from repeat_stop_pct, set to 25 for R7: on 2026-11-16 a quarter of such answers repeated by 15Z, and every re-ask exhausted that day was at 15-23Z; R6a's watcher had no repeat rule); either stops the stage resumably and it is reported as it stands",
+   "closed_at": null,
+   "outcome": null
+  }
+ ],
+ "events_naming_the_stage": [
+  {
+   "seq": 233,
+   "at": "2026-11-17T03:00:19.968946Z",
+   "kind": "stage_opened",
+   "ref": "M-R7a-full-run-110rc6-20261117",
+   "detail": "{\"deadline_utc\":\"2026-11-17T04:15:17Z\",\"max_requests\":160,\"max_results\":160,\"max_usd\":\"0.240000\",\"project\":\"marianos\",\"source_revision\":\"d77f3065c757b8b962524dbf8d9961dec212e72b\"}",
+   "prev_hash": "7095d960795922a0d80390aa9b1e8fffca5d96f7f7e69f80cdde2769f2be08be",
+   "hash": "9f3d02e32e8150e39b9c961cb390845f0675feed18d67f84ff079017ddce8218"
+  },
+  {
+   "seq": 234,
+   "at": "2026-11-17T03:00:20.332915Z",
+   "kind": "lease_acquired",
+   "ref": "3",
+   "detail": "{\"holder\":\"live111:M-R7a-full-run-110rc6-20261117:104127\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "9f3d02e32e8150e39b9c961cb390845f0675feed18d67f84ff079017ddce8218",
+   "hash": "a5beb8ac173d8f602c10864e26d6dc391aa3fa72404f181fec216dd860566d24"
+  },
+  {
+   "seq": 235,
+   "at": "2026-11-17T03:00:21.433736Z",
+   "kind": "reserved",
+   "ref": "e5fcc68094164b7c9200248f08de4d6d",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a5beb8ac173d8f602c10864e26d6dc391aa3fa72404f181fec216dd860566d24",
+   "hash": "c78d930d0dbb455292a14e225974b72c41756ebfc43471bdcd3efc7ea474218c"
+  },
+  {
+   "seq": 238,
+   "at": "2026-11-17T03:00:23.999502Z",
+   "kind": "reserved",
+   "ref": "75c1924b480a4fa78a772859c3b308a1",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "14a5028ddf1c0ba9c27b8e21c4c22fff713938289cc8716ad5137b289ad3fcbe",
+   "hash": "83e5a57649f31c1ea622456377a7850152cf7df601ea54ad184191babbaa4ae3"
+  },
+  {
+   "seq": 241,
+   "at": "2026-11-17T03:00:58.628419Z",
+   "kind": "reserved",
+   "ref": "a96514cbe40f464ea19249a5dfe94c48",
+   "detail": "{\"purpose\":\"coupons (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b4cca6f73ab7cb9b5a297381f25178ef0973939bac7c8f9908bc46778d047390",
+   "hash": "1ddf71aa99f712c5eaa8d6b9d76e52e9d1c11382e7bc1dfb6f2120db941bea00"
+  },
+  {
+   "seq": 244,
+   "at": "2026-11-17T03:01:08.981364Z",
+   "kind": "reserved",
+   "ref": "07315a87914e4ab1a0308a664a2ab2ad",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "88756e2ecef7bd84e7953252f59b5d5f7548e5d79e51e7b88388a254bea044c0",
+   "hash": "0f52bb03610ed146322511e164beb3044ec41a5efb40f97cd4451cc68ab4a2ac"
+  },
+  {
+   "seq": 246,
+   "at": "2026-11-17T03:01:09.160480Z",
+   "kind": "reserved",
+   "ref": "18793acb7c424aa18bc05bcae3195830",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9f565dda6dd7d3fb57531ab8bdf1683b2f67998207f9fca0cb09aa001041a11b",
+   "hash": "1662080fa7d2bcf0a84e70cf9470b57a03e966d2e3ae11e6f96c249d41fb381d"
+  },
+  {
+   "seq": 249,
+   "at": "2026-11-17T03:01:39.886658Z",
+   "kind": "reserved",
+   "ref": "c7586e9eb0c146b2b5eab0232719a5c9",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "24310fbe119c228aa2e6a61d1ca2b3a58ef94b187d0b4fb1110ef817aebf96f7",
+   "hash": "caecc220d592f409fab50498d9bb4a483a5b65e17f1b9271399719ab947b4e17"
+  },
+  {
+   "seq": 252,
+   "at": "2026-11-17T03:01:41.682894Z",
+   "kind": "reserved",
+   "ref": "d8dc65c4597e4918b119dd714a0b6c6e",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "9e2f2212eeff07ac8c4242bb74aa3c338907c591b5e08628168aadc8e04a12c6",
+   "hash": "2538b06a45486e099fc567a7b568d0e3a90b8785c7aff29435eaa5cd32d75f56"
+  },
+  {
+   "seq": 255,
+   "at": "2026-11-17T03:02:08.163086Z",
+   "kind": "reserved",
+   "ref": "1613c3835b3a43a3a6c0c998b170994f",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "90654a478e9f116b104099ae0ce23292d69472e9f14907f271bc677ef153d0a6",
+   "hash": "c2de889bee7ffac540f2c90848913b6bf66fe70ed4a6c01b66eb3dc1e512775e"
+  },
+  {
+   "seq": 258,
+   "at": "2026-11-17T03:02:26.290835Z",
+   "kind": "reserved",
+   "ref": "27a6990e7c6c465396e1a4d1d4706fb8",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "ac2f9555337bfec6b360837bbe030bc501364362cf0fefbef96047e7e82b795e",
+   "hash": "3de98f1fce62259e77baa9986bc24e6a35978ec0e512d5b255b528bae41a984e"
+  },
+  {
+   "seq": 261,
+   "at": "2026-11-17T03:02:35.608104Z",
+   "kind": "reserved",
+   "ref": "7c70f485af6a4bc18b48858131805558",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "1bdcab11fb684b6d2e30f8db5f35205bf284359d11a503b8c7771c3071486751",
+   "hash": "10744f15fee537a7d3479d4091a4f8c3004bb27fefe3ab20efb26997ac9eeef6"
+  },
+  {
+   "seq": 264,
+   "at": "2026-11-17T03:02:44.977206Z",
+   "kind": "reserved",
+   "ref": "a4148b01396d43c69950689e3c13e00c",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "c515b5edcfb8a9e48d90494a357d29b0f9c255bd7f5643a97d723edcf75105cf",
+   "hash": "9c7b48238d1f4d07e34308366a414c1efd3f6cd529811fa1adce9ee181d893ea"
+  },
+  {
+   "seq": 267,
+   "at": "2026-11-17T03:02:58.848138Z",
+   "kind": "reserved",
+   "ref": "cc4ac6de4ba64e12b377ac5a31a4c3a1",
+   "detail": "{\"purpose\":\"product_terms (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "8d7c3bb278d1016b95a00d5ab7779ce5fbfb0b683d95da5d75f8a235d7a24857",
+   "hash": "2ead8e0dc91e454d9b346a91ee4c04835115b21e55367b5c011db858ac1c2b5c"
+  },
+  {
+   "seq": 270,
+   "at": "2026-11-17T03:02:59.818470Z",
+   "kind": "reserved",
+   "ref": "1e47011c3998475699a4c703e0fee60d",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "4dea18640d088491d202e208304193667be9a44c61d6a77ceedb5b2669495cfb",
+   "hash": "e23cb275136a4bfacf189450af1886afc639cdc9884f34a6cc0c9cafd73c3c20"
+  },
+  {
+   "seq": 273,
+   "at": "2026-11-17T03:03:02.185409Z",
+   "kind": "reserved",
+   "ref": "ac5fd9b19b454b99914b4050223ab52a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b065044d9050784e11e8df7be60e616687d5ad00c1d20443fd76578d55d51c4c",
+   "hash": "6641589426e17738039bff1f784767e0714b2f8c3ab397841764957e9d45f8dc"
+  },
+  {
+   "seq": 276,
+   "at": "2026-11-17T03:03:08.148991Z",
+   "kind": "reserved",
+   "ref": "10cfeba931aa44fdb8abd39692665cf9",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "29aa3cf10a210a15ab98f5ca1663627b79a342a7f669b1abdec2e95b08e7c482",
+   "hash": "cc55fda73a8954a837f9ffc94833c1b100beaf14744e46a916e59d5f9dc703f3"
+  },
+  {
+   "seq": 279,
+   "at": "2026-11-17T03:03:12.095146Z",
+   "kind": "reserved",
+   "ref": "3f222843521c47ba8c7bb392b3853442",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "1b40b04e700af34cc36950ec4e62bac1474e6e1b18c1897040c9dc40a912a6c0",
+   "hash": "5d3d48ba19979c8f066b24b813fb9739bc26b7e2020348140d12f8c84953d5f4"
+  },
+  {
+   "seq": 282,
+   "at": "2026-11-17T03:03:18.653668Z",
+   "kind": "reserved",
+   "ref": "ad7d81d7cf004c738a9afee311f11fe4",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "4a290715fe71f376c832178a33ebe47bd8611fad7fec1398864aee976837dce0",
+   "hash": "ea431a8eadbac4962f315bf06c3216d8dd6320ea86a2cd13390a9cb2cbe38950"
+  },
+  {
+   "seq": 285,
+   "at": "2026-11-17T03:03:19.706199Z",
+   "kind": "reserved",
+   "ref": "55c8f88d98334eada794d514418b8365",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f2620569696f11cb9625e33d953ddcb8d845478a0d5453c53190e3df06b79657",
+   "hash": "c4190a8147d5d631558439d9cfd3d05b1cf5b3267f413fcfa55228930d550e98"
+  },
+  {
+   "seq": 288,
+   "at": "2026-11-17T03:03:23.235909Z",
+   "kind": "reserved",
+   "ref": "4b9015909b0547929a174c8dba48f9fe",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "66b9f51b6edcbf3b9cdffd456a7c99b17d34968d71920ad03fe13e2eae8dbe23",
+   "hash": "446b15164ba180d21a67f33748a562fc713841bf8c31f5f9ee24449c7bf46123"
+  },
+  {
+   "seq": 291,
+   "at": "2026-11-17T03:03:24.147485Z",
+   "kind": "reserved",
+   "ref": "f23aeebe1a5f4c0f8873cbcf2f4c4cbd",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "fdd38deb14faf20d1ecfba7c0ffbe2e8f60478b3052c076e70ff7dfae551c440",
+   "hash": "3faae04a600f7873fb59e54a8d265146bd97d06c87cc5cf1f7c52aa100814104"
+  },
+  {
+   "seq": 294,
+   "at": "2026-11-17T03:03:27.768403Z",
+   "kind": "reserved",
+   "ref": "5e4283f614b2463dade16d990acdb35d",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "67bfe54d1ec0fb6135e885f231565a49d1b03044c2350d1411d6fdeb70a8e76e",
+   "hash": "a50351d9bca67685084c6f34115f0fa852195294ee4a7679104f8b8d2300e6a9"
+  },
+  {
+   "seq": 297,
+   "at": "2026-11-17T03:03:28.563801Z",
+   "kind": "reserved",
+   "ref": "f257b3e9145a45249cbeb148e351b70a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0e9e07606b43720cb876abaf6775b601275274902858d9b4ee9c71bbf2f113c5",
+   "hash": "269b5afb735f1aac84ea62e679b9456e5895edb66eddd7cf988ee46723115a05"
+  },
+  {
+   "seq": 300,
+   "at": "2026-11-17T03:03:30.783695Z",
+   "kind": "reserved",
+   "ref": "7defe24da3274554b23c20e5675fdea0",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "82259b3f2602cd8ca40e86eeb67f26b91b3df3809636ddfceb306f4f772d4799",
+   "hash": "7992dfaa17ebd10e198bb007bb0ac94ddc510456a62628ab4b01ecd205c2835c"
+  },
+  {
+   "seq": 303,
+   "at": "2026-11-17T03:03:34.586648Z",
+   "kind": "reserved",
+   "ref": "0fe66402f1b442179d735133f9198958",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "98f7a7e9b8f52a8f7a3d588e38aec10951ae483a9e6bf05708f2fa8a131b5ae7",
+   "hash": "ed6a4cbac02bcf82da85a6ef929d529b7175547e0ba6631275e88a3a5f37106e"
+  },
+  {
+   "seq": 306,
+   "at": "2026-11-17T03:03:34.928445Z",
+   "kind": "reserved",
+   "ref": "387a1733b1bd4a1996f888cdc4506881",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "e864064e281a09d748e93fcd8ed65ecd3b9ff20806021e78cfb8736b647bf419",
+   "hash": "0aeb9cfd3dd59ec5beb0badbd411b000e2a411bdd09cb95d46250407b62b470a"
+  },
+  {
+   "seq": 309,
+   "at": "2026-11-17T03:03:39.092811Z",
+   "kind": "reserved",
+   "ref": "a57506376a0240f2b8cd8137cc3634c3",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "0596d5e8b86be91be1aee5bbdae805ea821e8b4bfd3a94c9f61fb47255a706ae",
+   "hash": "fdc86ff6d81da133f84fd68665d2476ac4617f4efd01522d9a27094b1a10a50e"
+  },
+  {
+   "seq": 312,
+   "at": "2026-11-17T03:03:43.813714Z",
+   "kind": "reserved",
+   "ref": "ace8eb2b4b8348d2ae3e983af295ef14",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "a9d46579566ec02aeb9667a47ed9b53b6d0658d9e012da58dbba49d385a4c1c1",
+   "hash": "364b100856d5deaf761be67eeba4d11668b4b916ebcde0b9675e50a2dfced2c0"
+  },
+  {
+   "seq": 315,
+   "at": "2026-11-17T03:03:47.235070Z",
+   "kind": "reserved",
+   "ref": "31fcdb0d12354457889a5217f766dcde",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "4f917e00ba086fa4ab7cca4d41da7283fea3bfc1cbe3db956ab72b21409e8365",
+   "hash": "bcda548e49b8cb15797335e602bb9190970c2b2c2e64b0207786b7cda52d8627"
+  },
+  {
+   "seq": 318,
+   "at": "2026-11-17T03:03:48.010886Z",
+   "kind": "reserved",
+   "ref": "19208620ae1e44e990c106b912bbcc3a",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "e8b7562723900c3fad39f8b1974179f2cbb7ab2147c1ea8b618ddd3e7643bb9e",
+   "hash": "0d7d550b546905a8241b294b8e1de1d3c23adc7a38deac93f25884a50c9b0b49"
+  },
+  {
+   "seq": 321,
+   "at": "2026-11-17T03:03:52.619719Z",
+   "kind": "reserved",
+   "ref": "57eb1c3aac7e4faf9284d301a1fe4cbd",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "470b9bbda26b786330762ae6a85b3faba48ab90bc874bfa08848b7b8ae795f51",
+   "hash": "d61934d22643bd67f323feca20fc393f05b416a9e673eef897f0f3b4b9554f1b"
+  },
+  {
+   "seq": 324,
+   "at": "2026-11-17T03:03:53.229147Z",
+   "kind": "reserved",
+   "ref": "361870d95e184e26b038dbeb43ec1b7b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "e7a172cda6451c6148b2dddb805fd11ef7f243f75e8138a48d36cd700fa09537",
+   "hash": "408f5184cb60809bede481ebf5481e4f112201a6571900f957e27bfe846b178e"
+  },
+  {
+   "seq": 327,
+   "at": "2026-11-17T03:03:57.024148Z",
+   "kind": "reserved",
+   "ref": "d756cdd1aa97444dbcc02d7230406a4b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2e7ffd6c5b97df5a3cfb2b5ccaf8a46089ccf66811369e6441bcbc565471aed0",
+   "hash": "2b406df584055eea08ce418667ed16c99aa1d8acbc54d95b248f5fc8b9c06c13"
+  },
+  {
+   "seq": 330,
+   "at": "2026-11-17T03:03:59.081004Z",
+   "kind": "reserved",
+   "ref": "5fcea91bdd01479d8dd82dcab40e9755",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "58531ce83100ea806e86796cab16a76993bc966479f4ebb25db5db7a8504e094",
+   "hash": "def69408d84f33b7c5836476cedc626dc8473d47f6e1f6f6de621b6e51b90732"
+  },
+  {
+   "seq": 333,
+   "at": "2026-11-17T03:04:04.465295Z",
+   "kind": "reserved",
+   "ref": "81043c195e944908809db87e67dbb5b7",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "fd0a7ebd56bf2297573c5c78e5353fe8d44b38b3b4e9196e9e1056d01c8fd9ab",
+   "hash": "b50d80b187fffaafd38a58a754fedab8f9a44de3251da18bc973a365dfc51ef3"
+  },
+  {
+   "seq": 336,
+   "at": "2026-11-17T03:04:08.437332Z",
+   "kind": "reserved",
+   "ref": "21bb572551cf49e08d91b9c3ce49af9b",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "323030e4fcd41a9dd9d07a043dd42193265412ce9a83058ea2c270178bb9f425",
+   "hash": "a065977bb15295c5dd679b0efaec19e260b7e8a2b5120bf0db9d4a522b68defa"
+  },
+  {
+   "seq": 339,
+   "at": "2026-11-17T03:04:12.833411Z",
+   "kind": "reserved",
+   "ref": "3b9087c267744ec4940ac413b509f7ff",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "913f4a77020653022a3103e9d373d7f09dcc5cb7b78444b762a49f241cb9834f",
+   "hash": "8db1d762848ebe199d288f0da67c0d6f6d77d085dfc1771680c398b6ebda29cf"
+  },
+  {
+   "seq": 342,
+   "at": "2026-11-17T03:04:17.968720Z",
+   "kind": "reserved",
+   "ref": "5eaac643ca414870b3b0332d56f016d8",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "032a2a680032d44fa38c2b181aef6cc470ec9baba9b6c9bbb1c9e5bd3bbe5552",
+   "hash": "b1965fe4d545c4ce5d0f289aa6c63d5e82dfc73e3edd6ba3a787fa3c4fc80528"
+  },
+  {
+   "seq": 345,
+   "at": "2026-11-17T03:04:22.000033Z",
+   "kind": "reserved",
+   "ref": "9c3ceb16c53b427398eeef9b18b0c876",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d1aab3ae9efd05c8e6234d93eb5a4cbb802c63b8abc397bbcceb6114652a5653",
+   "hash": "db723400ad848d5575674401c1a9c66e15e8ced34d5b9f78ee6eb1fcf3044671"
+  },
+  {
+   "seq": 348,
+   "at": "2026-11-17T03:04:25.983432Z",
+   "kind": "reserved",
+   "ref": "172493dcf127474fafb84db8d1c7c658",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "253f4680f3569bccc05217cb919cd93d9ffd3b6d9436c1ad679758cfa92c45a1",
+   "hash": "befc90cf0e88048e46715f66794fee4ec69d84db8d50eaead65d9fe5ad76498e"
+  },
+  {
+   "seq": 351,
+   "at": "2026-11-17T03:04:31.180086Z",
+   "kind": "reserved",
+   "ref": "4afd869ecbf946e99f7c721559f36032",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "d93e475e95c56d5ffe4802eca6eb9bd22999237e5e6a4d7903841df6760d39a4",
+   "hash": "755141bf122451225a7ddb9ef517d6d33dcf03bc8bed52aff45ee0973522e574"
+  },
+  {
+   "seq": 354,
+   "at": "2026-11-17T03:04:35.946467Z",
+   "kind": "reserved",
+   "ref": "e05aabfbc50d4bcfa343ba95b5c3c6a3",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "33a9178786e45a297e28d91cfbe71e3c68d707a95646dcbf7ead17c432b8621a",
+   "hash": "16dbdcad9c3fa3a8849f91f6be8d464851f452c69ec40ae7627d871106ee01b5"
+  },
+  {
+   "seq": 357,
+   "at": "2026-11-17T03:04:38.613552Z",
+   "kind": "reserved",
+   "ref": "6bdd3a2ec19f40ceab14b7c805f459bc",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "34949a562b776850388255414f4eeedb41c0f025233e865c126cf0700e09a35d",
+   "hash": "039ef34ef0211d35f2eae4f54e341876112c05aad3be47d31be1924c4daf7f04"
+  },
+  {
+   "seq": 360,
+   "at": "2026-11-17T03:04:43.580903Z",
+   "kind": "reserved",
+   "ref": "477d97e684ad4c71b65296354d00077d",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "288b2ca248ba9f075ead6f2d28e41e37f6e136349927a4fbc94c88b5aeae6cd1",
+   "hash": "33c4ffcc9bb02269ed370da0ead238254a659fb73405fbe6af4f52d437bb76ff"
+  },
+  {
+   "seq": 363,
+   "at": "2026-11-17T03:04:47.355526Z",
+   "kind": "reserved",
+   "ref": "825c61f9ec4b42edaaeb594d96bd8f91",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "f8003f77dc8d287684cdf0bda6e25a3e5cbdc5ebecc21606dfa8134fbd35bac4",
+   "hash": "ad79473163ac501f657a6608315b48dfda976748838f2b757730cb2bfb41f7e9"
+  },
+  {
+   "seq": 366,
+   "at": "2026-11-17T03:04:52.453213Z",
+   "kind": "reserved",
+   "ref": "799d34d022c6433aa2df46e7735a2b99",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "edd1f5f827d2800dab505b70d42280655c6c4527d3c19f894d64b97664b85021",
+   "hash": "11fd8ffea7661c4dfef72e89a6fd6101702d540d0764c6f1cad4c0cbcb26af28"
+  },
+  {
+   "seq": 369,
+   "at": "2026-11-17T03:04:53.131070Z",
+   "kind": "reserved",
+   "ref": "db4cc6f2b04647dc90e6f5a6b346e9c3",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-R7a-full-run-110rc6-20261117\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "00ac6f08d1f75ba5ff217e62d4012aa531ad5dfbe8bdd4d103988eb6ca73b308",
+   "hash": "72ea1bc2ece6e80ea9c89f2328d0afab7b3f4ed2166f1413d7b411a1d42be747"
+  },
+  {
+   "seq": 373,
+   "at": "2026-11-17T03:04:55.951248Z",
+   "kind": "lease_released",
+   "ref": "3",
+   "detail": "{\"reason\":\"live111 M-R7a-full-run-110rc6-20261117 ended (exit 75)\"}",
+   "prev_hash": "3592995b88b7a58824ed0fa8d9dd69771c003835feead93639898e9201526f20",
+   "hash": "6d4ddbf8d34ebadbd25fafad76a7ea4d5e00fb6a7837aff21401b8cc667eeac6"
+  }
+ ]
+}

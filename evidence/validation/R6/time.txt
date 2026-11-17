@@ -1,0 +1,23 @@
+	Command being timed: "/opt/marianos-collector/current/venv/bin/marianos-collector validate-export --run 01M7KBQ3XXMP3W3FK2EXE525EA"
+	User time (seconds): 40.60
+	System time (seconds): 0.18
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:41.03
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 184936
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 7
+	Minor (reclaiming a frame) page faults: 65105
+	Voluntary context switches: 951
+	Involuntary context switches: 339
+	Swaps: 0
+	File system inputs: 69512
+	File system outputs: 16064
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

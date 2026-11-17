@@ -1,0 +1,13 @@
+{
+ "listings_above_the_window": 4,
+ "reconciled": 0,
+ "by_collector_status": {
+  "INCOMPLETE": 2,
+  "NOT_COLLECTED": 2
+ },
+ "subdivisions": 11,
+ "pages_checked": 45,
+ "pages_failing_a_check": 0,
+ "union_disagrees_with_collector": [],
+ "gap_products": 889
+}

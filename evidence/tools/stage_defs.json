@@ -1,0 +1,182 @@
+{
+ "common": {
+  "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt; the Coupons page asked again while its list has not loaded, at most 4 answers for the run, 60 s apart (1.10.0rc6, OR-04); each submission reserved at its worst case",
+  "stop_conditions": [
+   "the operator's slice target (SIGTERM: a resumable stop) before the stage's submission ceiling",
+   "the stage's submission ceiling (the collector's own ceiling and the account-wide gate)",
+   "store or fulfillment not verified on a page (STORE_NOT_VERIFIED)",
+   "ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR; the collector resumes itself up to 3 times, 60 s later)",
+   "a ledger refusal, or more than 2 outcomes left unknown",
+   "the stage deadline",
+   "by the operator (watch_stage.sh, counted from the slice's own start): 10 re-asks answered in the slice and none recovered its request; or 16 or more answers to a page 2 or later in the slice of which 25% or more repeat an earlier page (the share is read at the watcher's start from repeat_stop_pct, set to 25 for R7: on 2026-11-16 a quarter of such answers repeated by 15Z, and every re-ask exhausted that day was at 15-23Z; R6a's watcher had no repeat rule); either stops the stage resumably and it is reported as it stands"
+  ],
+  "approval": "Hamza's brief of 16 November 2026 (closeout after 1.10.0rc5): USD 5 of free credit authorized for Mariano's on the Oxylabs Web API credential he supplied, on his own Azure VM, accounted in the campaign oxylabs-marianos-20261116 (cap 5.00, headroom 0.10, Mariano's envelope 4.90); the client's VM, the client's billing, Oxylabs Classic and other providers stay outside it; no top-up or paid overage"
+ },
+ "stages": {
+  "P7": {
+   "stage_id": "M-P7-one-lane-pilot-110rc6-20261116",
+   "lanes": 1,
+   "max_submissions": 20,
+   "slice_target": null,
+   "deadline_minutes": 30,
+   "command": "run --store marianos-53100502-pickup --categories 0,27",
+   "objective": "a one-lane pilot of the candidate 1.10.0rc6 before its full run R6 (a bounded run: --categories 0,27 narrows the scope, so it is a pilot, never a complete catalogue, never published): row 0, the Coupons page (read as the run's Coupons route, asked again while its list has not loaded: at most 4 answers, 60 s apart), and row 27 (Hardware, one listing of about 3 pages). It shows on the exact release, live: one lane under the account-wide gate of the new campaign (shared accounting with the later two-lane run, one ledger), the Coupons page read with its list's state recorded (OR-04), and the depth-first order. It ends on its own when its scope is read (the run is then finalized as a pilot); the ceiling of 20 is the backstop. A resumed run keeps the lanes it started with, so the full run R6 starts with two.",
+   "passes_when": "the pilot finishes its scope (exit 0, or a recorded refusal of the gates for a bounded run); every page verified for 53100502 PICKUP; the Coupons page's verdict (READ or NOT READ with its list state) recorded in the run's export and coverage; at most 20 submissions, 0 unknown outcomes"
+  },
+  "R6a": {
+   "stage_id": "M-R6a-full-run-110rc6-20261116",
+   "lanes": 2,
+   "max_submissions": 160,
+   "slice_target": 150,
+   "deadline_minutes": 75,
+   "command": "run --store marianos-53100502-pickup --rows-first 22,27,23,24,25,26,15 --term-upc 0001780014939 --term-upc 0001780014941 --term-upc 0002310014848 --term-upc 0003980014995",
+   "objective": "one logical full-scope run R6 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). In 1.10.0rc6, as in rc5, a stop at a spending ceiling finalizes the run, so every slice is ended by the operator with SIGTERM (systemctl stop, by slice_stop.sh) once the stage has its target of reservations in the ledger: a resumable stop (exit 75); the requests then in flight are held as unknown outcomes, charged against the ceiling; the ceiling, 10 above the target, is the backstop. The estimate from F2's traces (brand readings of the 7 child listings above the window included) puts a full run at 3,190 to 3,796 submissions (USD 4.79 to 5.69 at the reservation rate) against the USD 4.90 envelope (3,266 submissions): at the low end the run completes; at the high end the envelope ends first, the run is then left resumable after its last slice and the shortfall is reported with the measured rates. This slice starts the run. Its first requests verify the corrections: the Coupons page's list read as loaded or not and asked again while not loaded (OR-04), the store check of re-asks as they occur (OR-19), then rows 22, 27 and 15 (Cat Food 27021, the PPM traces, the four product pages, the named offers). Operator check during it: a second start for the store is refused (exit 9) before any request (a gate refusing every submission, no lease).",
+   "passes_when": "the slice ends with the operator's SIGTERM at 150 reservations (exit 75, the run interrupted and resumable); every page verified for 53100502 PICKUP; at most 2 unknown outcomes; the second start exits 9 with no ledger row"
+  },
+  "R6b": {
+   "stage_id": "M-R6b-full-run-110rc6-20261116",
+   "lanes": 2,
+   "max_submissions": 610,
+   "slice_target": 600,
+   "deadline_minutes": 150,
+   "command": "resume --store marianos-53100502-pickup",
+   "objective": "one logical full-scope run R6 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). In 1.10.0rc6, as in rc5, a stop at a spending ceiling finalizes the run, so every slice is ended by the operator with SIGTERM (systemctl stop, by slice_stop.sh) once the stage has its target of reservations in the ledger: a resumable stop (exit 75); the requests then in flight are held as unknown outcomes, charged against the ceiling; the ceiling, 10 above the target, is the backstop. The estimate from F2's traces (brand readings of the 7 child listings above the window included) puts a full run at 3,190 to 3,796 submissions (USD 4.79 to 5.69 at the reservation rate) against the USD 4.90 envelope (3,266 submissions): at the low end the run completes; at the high end the envelope ends first, the run is then left resumable after its last slice and the shortfall is reported with the measured rates. This slice resumes the run. Operator check during it: a hard kill (SIGKILL of every process of the unit, no handler runs) while both lanes are working (kill_recover.sh), the dead lease left to expire, then the same run resumed in the same stage (its dispatched rows become unknown outcomes, its never-dispatched rows released), with the slice stopper beside it.",
+   "passes_when": "the killed execution leaves the run resumable; the resume continues it from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 600 reservations (exit 75); every page verified for 53100502 PICKUP"
+  },
+  "R6c": {
+   "stage_id": "M-R6c-full-run-110rc6-20261116",
+   "lanes": 2,
+   "max_submissions": 810,
+   "slice_target": 800,
+   "deadline_minutes": 180,
+   "command": "resume --store marianos-53100502-pickup",
+   "objective": "one logical full-scope run R6 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). In 1.10.0rc6, as in rc5, a stop at a spending ceiling finalizes the run, so every slice is ended by the operator with SIGTERM (systemctl stop, by slice_stop.sh) once the stage has its target of reservations in the ledger: a resumable stop (exit 75); the requests then in flight are held as unknown outcomes, charged against the ceiling; the ceiling, 10 above the target, is the backstop. The estimate from F2's traces (brand readings of the 7 child listings above the window included) puts a full run at 3,190 to 3,796 submissions (USD 4.79 to 5.69 at the reservation rate) against the USD 4.90 envelope (3,266 submissions): at the low end the run completes; at the high end the envelope ends first, the run is then left resumable after its last slice and the shortfall is reported with the measured rates. This slice resumes the run.",
+   "passes_when": "the resume continues the run from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 800 reservations (exit 75); every page verified for 53100502 PICKUP; at most 2 unknown outcomes"
+  },
+  "R6d": {
+   "stage_id": "M-R6d-full-run-110rc6-20261116",
+   "lanes": 2,
+   "max_submissions": 810,
+   "slice_target": 800,
+   "deadline_minutes": 180,
+   "command": "resume --store marianos-53100502-pickup",
+   "objective": "one logical full-scope run R6 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). In 1.10.0rc6, as in rc5, a stop at a spending ceiling finalizes the run, so every slice is ended by the operator with SIGTERM (systemctl stop, by slice_stop.sh) once the stage has its target of reservations in the ledger: a resumable stop (exit 75); the requests then in flight are held as unknown outcomes, charged against the ceiling; the ceiling, 10 above the target, is the backstop. The estimate from F2's traces (brand readings of the 7 child listings above the window included) puts a full run at 3,190 to 3,796 submissions (USD 4.79 to 5.69 at the reservation rate) against the USD 4.90 envelope (3,266 submissions): at the low end the run completes; at the high end the envelope ends first, the run is then left resumable after its last slice and the shortfall is reported with the measured rates. This slice resumes the run.",
+   "passes_when": "the resume continues the run from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 800 reservations (exit 75); every page verified for 53100502 PICKUP; at most 2 unknown outcomes"
+  },
+  "R6e": {
+   "stage_id": "M-R6e-full-run-110rc6-20261116",
+   "lanes": 2,
+   "max_submissions": 810,
+   "slice_target": 800,
+   "deadline_minutes": 180,
+   "command": "resume --store marianos-53100502-pickup",
+   "objective": "one logical full-scope run R6 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). In 1.10.0rc6, as in rc5, a stop at a spending ceiling finalizes the run, so every slice is ended by the operator with SIGTERM (systemctl stop, by slice_stop.sh) once the stage has its target of reservations in the ledger: a resumable stop (exit 75); the requests then in flight are held as unknown outcomes, charged against the ceiling; the ceiling, 10 above the target, is the backstop. The estimate from F2's traces (brand readings of the 7 child listings above the window included) puts a full run at 3,190 to 3,796 submissions (USD 4.79 to 5.69 at the reservation rate) against the USD 4.90 envelope (3,266 submissions): at the low end the run completes; at the high end the envelope ends first, the run is then left resumable after its last slice and the shortfall is reported with the measured rates. This slice resumes the run.",
+   "passes_when": "the resume continues the run from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 800 reservations (exit 75); every page verified for 53100502 PICKUP; at most 2 unknown outcomes"
+  },
+  "R6f": {
+   "stage_id": "M-R6f-full-run-110rc6-20261116",
+   "lanes": 2,
+   "max_submissions": 40,
+   "slice_target": 30,
+   "deadline_minutes": 90,
+   "command": "resume --store marianos-53100502-pickup",
+   "objective": "one logical full-scope run R6 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). In 1.10.0rc6, as in rc5, a stop at a spending ceiling finalizes the run, so every slice is ended by the operator with SIGTERM (systemctl stop, by slice_stop.sh) once the stage has its target of reservations in the ledger: a resumable stop (exit 75); the requests then in flight are held as unknown outcomes, charged against the ceiling; the ceiling, 10 above the target, is the backstop. The estimate from F2's traces (brand readings of the 7 child listings above the window included) puts a full run at 3,190 to 3,796 submissions (USD 4.79 to 5.69 at the reservation rate) against the USD 4.90 envelope (3,266 submissions): at the low end the run completes; at the high end the envelope ends first, the run is then left resumable after its last slice and the shortfall is reported with the measured rates. The last slice the envelope allows: it too ends with SIGTERM at its target, so the run stays resumable for a funded continuation if it has not completed. Its ceiling is set when it opens, from what the envelope then holds (the ledger refuses a stage above it).",
+   "passes_when": "the run completes, or the slice ends with SIGTERM at 30 reservations (exit 75, the run left resumable); every page verified for 53100502 PICKUP"
+  },
+  "R7a": {
+   "stage_id": "M-R7a-full-run-110rc6-20261117",
+   "lanes": 2,
+   "max_submissions": 160,
+   "slice_target": 150,
+   "deadline_minutes": 75,
+   "command": "run --store marianos-53100502-pickup --rows-first 22,27,23,24,25,26,15 --term-upc 0001780014939 --term-upc 0001780014941 --term-upc 0002310014848 --term-upc 0003980014995",
+   "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. This slice starts the run and measures the hour's repeat rate before the larger slices.",
+   "passes_when": "the slice ends with the operator's SIGTERM at 150 reservations (exit 75, the run interrupted and resumable), or earlier by an operator rule, reported as it stands; every page verified for 53100502 PICKUP; at most 2 unknown outcomes"
+  },
+  "R7b": {
+   "lanes": 2,
+   "command": "resume --store marianos-53100502-pickup",
+   "stage_id": "M-R7b-full-run-110rc6-20261117",
+   "max_submissions": 610,
+   "slice_target": 600,
+   "deadline_minutes": 150,
+   "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. This slice resumes the run. Operator check during it: a hard kill (SIGKILL of every process of the unit, no handler runs) while both lanes are working (kill_recover.sh), the dead lease left to expire, then the same run resumed in the same stage (its dispatched rows become unknown outcomes, its never-dispatched rows released), with the slice stopper beside the resumed unit.",
+   "passes_when": "the killed execution leaves the run resumable; the resume continues it from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 600 reservations (exit 75); every page verified for 53100502 PICKUP"
+  },
+  "R7c": {
+   "lanes": 2,
+   "command": "resume --store marianos-53100502-pickup",
+   "stage_id": "M-R7c-full-run-110rc6-20261117",
+   "max_submissions": 150,
+   "slice_target": 140,
+   "deadline_minutes": 120,
+   "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. This slice resumes the run.",
+   "passes_when": "the resume continues the run from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 800 reservations (exit 75) or the run completes; every page verified for 53100502 PICKUP; at most 2 unknown outcomes"
+  },
+  "R7d": {
+   "lanes": 2,
+   "command": "resume --store marianos-53100502-pickup",
+   "stage_id": "M-R7d-full-run-110rc6-20261117",
+   "max_submissions": 810,
+   "slice_target": 800,
+   "deadline_minutes": 180,
+   "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. This slice resumes the run.",
+   "passes_when": "the resume continues the run from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 800 reservations (exit 75) or the run completes; every page verified for 53100502 PICKUP; at most 2 unknown outcomes"
+  },
+  "R7e": {
+   "lanes": 2,
+   "command": "resume --store marianos-53100502-pickup",
+   "stage_id": "M-R7e-full-run-110rc6-20261117",
+   "max_submissions": 805,
+   "slice_target": 795,
+   "deadline_minutes": 180,
+   "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. The last slice the envelope allows: it too ends with SIGTERM at its target, so the run stays resumable for a funded continuation if it has not completed. Its ceiling is set when it opens, from what the envelope then holds (the ledger refuses a stage above it).",
+   "passes_when": "the run completes, or the slice ends with SIGTERM at its target (exit 75) and the run stays resumable; every page verified for 53100502 PICKUP; at most 2 unknown outcomes"
+  },
+  "R7a2": {
+   "stage_id": "M-R7a2-full-run-110rc6-20261117",
+   "lanes": 2,
+   "max_submissions": 160,
+   "slice_target": 150,
+   "deadline_minutes": 75,
+   "command": "resume --store marianos-53100502-pickup",
+   "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. A short resume used only when the slice before it was stopped by the repeat-rate rule: it measures the hour again before the larger slices.",
+   "passes_when": "the resume continues the run from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 150 reservations (exit 75), or earlier by an operator rule, reported as it stands; every page verified for 53100502 PICKUP; at most 2 unknown outcomes"
+  },
+  "R7a3": {
+   "stage_id": "M-R7a3-full-run-110rc6-20261117",
+   "lanes": 2,
+   "max_submissions": 160,
+   "slice_target": 150,
+   "deadline_minutes": 75,
+   "command": "resume --store marianos-53100502-pickup",
+   "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. A short resume used only when the slice before it was stopped by the repeat-rate rule: it measures the hour again before the larger slices.",
+   "passes_when": "the resume continues the run from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 150 reservations (exit 75), or earlier by an operator rule, reported as it stands; every page verified for 53100502 PICKUP; at most 2 unknown outcomes"
+  },
+  "R7w": {
+   "lanes": 2,
+   "command": "resume --store marianos-53100502-pickup",
+   "stage_id": "M-R7w-walkthrough-110rc6-20261117",
+   "max_submissions": 110,
+   "slice_target": 100,
+   "deadline_minutes": 75,
+   "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. This slice resumes the run and is recorded as the walkthrough (record_cast.py: every command is run for real while it is recorded, nothing typed in or edited afterwards): the run resumed as a service, two lanes, and stopped with SIGTERM after 12 pages (exit 75, resumable); a second start for the store refused before any request (exit 9); the run resumed again with the slice stopper at 100 reservations in this stage (SIGTERM, exit 75, resumable) unless it completes first; its status; a publication attempted (an unfinished or incomplete run is refused, exit 6, and the published dataset is left as it was); the ledger's status; the units left running.",
+   "passes_when": "the SIGTERM stop exits 75 and leaves the run resumable; the second start exits 9 with no submission; the resumed run continues from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 100 reservations (exit 75) or the run completes; a publication of an unfinished run is refused (exit 6) with the published dataset unchanged; every page verified for 53100502 PICKUP"
+  },
+  "P8": {
+   "stage_id": "M-P8-pdp-reread-pilot-110rc6-20261117",
+   "lanes": 1,
+   "max_submissions": 30,
+   "slice_target": null,
+   "deadline_minutes": 40,
+   "command": "run --store marianos-53100502-pickup --categories 22,27 --subcategory 22:27017 --term-upc 0001780014939 --term-upc 0001780014941 --term-upc 0003980014995",
+   "target": {
+    "database_url": "postgresql://marianos@/marianos_p8?host=/var/run/postgresql",
+    "data_dir": "/var/lib/marianos-collector/p8/data"
+   },
+   "pre_cli": "db-upgrade;sync-config",
+   "objective": "a one-lane pilot of the candidate 1.10.0rc6 on an isolated target of its own (database marianos_p8, data folder p8/data: the store has no unfinished run there, while the full run R7 stays resumable on its own target), to read again the three named product pages whose reads in R7 (2026-11-17, 04:01:41Z to 04:01:59Z) came back without the page's scripts run (the provider's answer states rendered false: nothing learnt about their coupons): --categories 22,27 with row 22 narrowed to Dog Food 27017 (--subcategory 22:27017), where 0001780014939 and 0001780014941 are on page 7, and row 27 (Hardware 33), where 0003980014995 is on page 2; --term-upc names only those three. A bounded run, so a pilot: exported, never published. The ceiling of 30 ends it after the named pages.",
+   "passes_when": "the three product pages are read once each when the run meets their cards, each with its verdict (coupon shown, offer for others, no savings shown, or unread with its reason); every page verified for 53100502 PICKUP; at most 30 submissions, 0 unknown outcomes; the run ends at its ceiling (exit 4, a partial dataset, never published) or at its scope"
+  }
+ }
+}

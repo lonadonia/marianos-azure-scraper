@@ -1,0 +1,5 @@
+# command: bash -c marianos publish --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py result -; exit ${PIPESTATUS[0]}
+# started: 2026-11-17T05:15:58Z
+ERROR COMMAND_REFUSED: run 01M7KQ5GZVF5VK1S9FGTG6YFC9 is a partial dataset: only complete runs are published
+# exit: 6
+# ended: 2026-11-17T05:15:59Z

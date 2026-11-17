@@ -1,0 +1,29 @@
+{
+ "read_at": "2026-11-17T05:59:08+00:00",
+ "chain": [
+  true,
+  1087
+ ],
+ "cap_usd": "5.000000",
+ "committed_usd": "0.480000",
+ "spendable_campaign_usd": "4.420000",
+ "active_lease": null,
+ "projects": {
+  "marianos": {
+   "envelope_usd": "4.900000",
+   "rows": "349",
+   "held_usd": "0.013500",
+   "held_results": "9",
+   "unknown_usd": "0.013500",
+   "unknown_rows": "9",
+   "settled_usd": "0.466500",
+   "settled_results": "311",
+   "committed_usd": "0.480000",
+   "spendable_in_envelope_usd": "4.420000"
+  }
+ },
+ "reservations_by_state": {
+  "settled": 340,
+  "unknown": 9
+ }
+}

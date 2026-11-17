@@ -1,0 +1,6 @@
+0003980014995: no savings shown; 1 product-page read(s); record valid (fresh); digital: ''; flags ['SIZE_FROM_PRODUCT_DATA']
+   read 01M7KVTVTAX1Y4D0B2CQAX6DEZ at 2026-11-17 04:21:54.122278+00: HTTP 200, scripts run True, section False, loading False, rows 0, the collector's capture equals the re-parse: True
+0001780014939: unread: not rendered; 1 product-page read(s); record valid (fresh); digital: ''; flags ['SIZE_FROM_PRODUCT_DATA', 'DIGITAL_COUPONS_UNOBSERVED']
+   read 01M7KVW935M10YM61C9BQK1PP6 at 2026-11-17 04:22:40.485781+00: HTTP 200, scripts run False, section False, loading False, rows 0, the collector's capture equals the re-parse: True
+0001780014941: unread: not rendered; 1 product-page read(s); record valid (fresh); digital: ''; flags ['SIZE_FROM_PRODUCT_DATA', 'DIGITAL_COUPONS_UNOBSERVED']
+   read 01M7KVWBDD4X5HQ3254KEY8FJK at 2026-11-17 04:22:42.86108+00: HTTP 200, scripts run False, section False, loading False, rows 0, the collector's capture equals the re-parse: True

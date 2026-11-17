@@ -1,0 +1,45 @@
+{
+ "stage_id": "M-P7-one-lane-pilot-110rc6-20261116",
+ "project": "marianos",
+ "objective": "a one-lane pilot of the candidate 1.10.0rc6 before its full run R6 (a bounded run: --categories 0,27 narrows the scope, so it is a pilot, never a complete catalogue, never published): row 0, the Coupons page (read as the run's Coupons route, asked again while its list has not loaded: at most 4 answers, 60 s apart), and row 27 (Hardware, one listing of about 3 pages). It shows on the exact release, live: one lane under the account-wide gate of the new campaign (shared accounting with the later two-lane run, one ledger), the Coupons page read with its list's state recorded (OR-04), and the depth-first order. It ends on its own when its scope is read (the run is then finalized as a pilot); the ceiling of 20 is the backstop. A resumed run keeps the lanes it started with, so the full run R6 starts with two.",
+ "command": "run --store marianos-53100502-pickup --categories 0,27",
+ "config": {
+  "config_dir": "/var/lib/marianos-collector/ops-rc6/stages/M-P7-one-lane-pilot-110rc6-20261116/config",
+  "config_sha256": {
+   "Marianos_Category_URLs.csv": "606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4",
+   "collector.yaml": "d4d96195af013f3ea7acb401a373e4e6ae8e72952674f7cf4c1f36d22c78d416",
+   "private_label_brands.yaml": "75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1",
+   "settings.yaml": "7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd",
+   "stores.yaml": "3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6",
+   "taxonomy_seed.snapshot_2026-10-17.json": "32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c"
+  },
+  "shipped_config_sha256": {
+   "Marianos_Category_URLs.csv": "606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4",
+   "collector.yaml": "43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5",
+   "private_label_brands.yaml": "75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1",
+   "settings.yaml": "7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd",
+   "stores.yaml": "3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6",
+   "taxonomy_seed.snapshot_2026-10-17.json": "32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c"
+  },
+  "differs_from_shipped_in": [
+   "collector.yaml: publish.auto false"
+  ],
+  "lanes": 1,
+  "environment": "the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel"
+ },
+ "source_revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+ "version": "1.10.0rc6",
+ "release": "1.10.0rc6",
+ "release_sources_sha256": "5553114225fe5bc1eac0decd9660d3bdf7afad0eaf372e3a4534a3b089f2fff6",
+ "max_requests": 20,
+ "max_results": 20,
+ "max_usd": "0.030000",
+ "deadline_utc": "2026-11-16T23:50:27Z",
+ "deadline_minutes": 30,
+ "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt; the Coupons page asked again while its list has not loaded, at most 4 answers for the run, 60 s apart (1.10.0rc6, OR-04); each submission reserved at its worst case",
+ "stop_conditions": "the operator's slice target (SIGTERM: a resumable stop) before the stage's submission ceiling; the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator: once 10 re-asks have been answered and none recovered its request, the stage is stopped and reported as it stands",
+ "passes_when": "the pilot finishes its scope (exit 0, or a recorded refusal of the gates for a bounded run); every page verified for 53100502 PICKUP; the Coupons page's verdict (READ or NOT READ with its list state) recorded in the run's export and coverage; at most 20 submissions, 0 unknown outcomes",
+ "approval": "Hamza's brief of 16 November 2026 (closeout after 1.10.0rc5): USD 5 of free credit authorized for Mariano's on the Oxylabs Web API credential he supplied, on his own Azure VM, accounted in the campaign oxylabs-marianos-20261116 (cap 5.00, headroom 0.10, Mariano's envelope 4.90); the client's VM, the client's billing, Oxylabs Classic and other providers stay outside it; no top-up or paid overage",
+ "target": {},
+ "prepared_at": "2026-11-16T23:20:27+00:00"
+}

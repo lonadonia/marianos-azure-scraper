@@ -1,0 +1,25 @@
+{
+ "what": "one full run of a corrected candidate (the branch marianos-1.10-next, not released) at R7's measured rate; R7 itself cannot complete on 1.10.0rc6 (OR-22, OR-23)",
+ "from": "REPROJECTION_after_R7c.json (R7's five slices) and ESTIMATE_1.10.0rc6.json (the pages of a full run)",
+ "formula": "submissions = ceil(full_run_pages * submissions_so_far / pages_counted); usd = submissions * 0.0015; short = submissions - envelope_room_submissions; hours = full_run_pages * seconds_of_execution / pages_counted / 3600",
+ "submissions_per_counted_page": 1.9394,
+ "seconds_per_counted_page": 24.44,
+ "envelope_room_usd": 4.42,
+ "envelope_room_submissions": 2946,
+ "low": {
+  "full_run_pages": 2223,
+  "submissions": 4312,
+  "usd": 6.468,
+  "short_submissions": 1366,
+  "short_usd": 2.049,
+  "hours_at_r7_rate": 15.09
+ },
+ "high": {
+  "full_run_pages": 2646,
+  "submissions": 5132,
+  "usd": 7.698,
+  "short_submissions": 2186,
+  "short_usd": 3.279,
+  "hours_at_r7_rate": 17.96
+ }
+}

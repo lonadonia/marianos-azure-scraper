@@ -1,0 +1,1 @@
+Its output on this folder's EVENTS.csv (2026-11-17T06:32:28Z, exit 0): events 1087: links checked 1086 of 1086; hashes recomputed and matching 1087; not recomputable (a private identifier masked in the published detail) 0; chain OK.

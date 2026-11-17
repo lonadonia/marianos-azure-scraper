@@ -1,0 +1,2 @@
+== 2026-11-17T03:00:25.210Z slice_stop start: unit=marianos-stage-r7a stage=M-R7a-full-run-110rc6-20261117 target=150 reservations
+== 2026-11-17T03:04:56.402Z marianos-stage-r7a is no longer active before the target: 46 {"settled": 44, "unknown": 2}; nothing sent to it

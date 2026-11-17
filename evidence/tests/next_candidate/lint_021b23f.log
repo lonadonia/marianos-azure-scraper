@@ -1,0 +1,10 @@
+# 2026-11-17T06:59:12Z commit 021b23f marianos-azure-headless next: OR-24, a listing page parse and the page being recorded are put back once its product pages are read, so the oth
+# python -m ruff check src tests
+All checks passed!
+# exit 0
+# python -m ruff format --check src tests
+177 files already formatted
+# exit 0
+# python -m mypy (strict; the package, as pyproject.toml configures it)
+Success: no issues found in 86 source files
+# exit 0

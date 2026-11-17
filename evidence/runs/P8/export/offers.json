@@ -1,0 +1,98 @@
+[
+  {
+    "upc": "0001780010322",
+    "source": "json_products",
+    "tag": "",
+    "text": "4 For $5.00 (Exp. 12/30/9999)",
+    "expiry_text": "Exp. 12/30/9999",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001901401329",
+    "source": "json_products",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 12/30/9999)",
+    "expiry_text": "Exp. 12/30/9999",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001901401331",
+    "source": "json_products",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 12/30/9999)",
+    "expiry_text": "Exp. 12/30/9999",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001901402519",
+    "source": "json_products",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 12/30/9999)",
+    "expiry_text": "Exp. 12/30/9999",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0001901402520",
+    "source": "json_products",
+    "tag": "",
+    "text": "2 For $5.00 (Exp. 12/30/9999)",
+    "expiry_text": "Exp. 12/30/9999",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "5.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002310012286",
+    "source": "zone",
+    "tag": "",
+    "text": "4 For $10.00",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002310012287",
+    "source": "zone",
+    "tag": "",
+    "text": "4 For $10.00",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0002310012292",
+    "source": "zone",
+    "tag": "",
+    "text": "4 For $10.00",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "volume",
+    "explicit_price": "10.00",
+    "modalities": [],
+    "flags": []
+  }
+]

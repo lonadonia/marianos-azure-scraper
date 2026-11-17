@@ -144,6 +144,7 @@ from marianos_headless.sites.marianos.store_context import (
 from marianos_headless.validation.gates import (
     AttestationSummary,
     CategoryOutcome,
+    RouteOutcome,
     RunEvidence,
     field_completeness,
     run_gates,
@@ -2116,6 +2117,10 @@ class LiveCollector:
             assert run is not None
             nodes = self.node_outcomes(s)
             complete = bool(nodes) and all(n["status"] in ("DONE", "EMPTY") for n in nodes)
+            # Release 1.10.0rc6 (OR-04): a route the run's plan names (the Coupons page) is part of the
+            # collection; the listings alone decide what is carried forward.
+            routes = self.route_outcomes(run)
+            unread = [r for r in routes if r.required and r.status != "READ"]
             # The store's products verified by earlier runs and not observed by this one (retention.py).
             cfg = self.historical_cfg
             kept = (
@@ -2157,7 +2162,8 @@ class LiveCollector:
                 "records_by_status": statuses,
                 "verified": verified_in_run(s, self.run_id),
                 "nodes": by_status,
-                "collection_complete": complete,
+                "listings_complete": complete,
+                "collection_complete": complete and not unread,
             }
             event(
                 s,
@@ -2165,11 +2171,21 @@ class LiveCollector:
                 "INFO",
                 "RECORDS_ASSEMBLED",
                 f"{sum(statuses.values())} products ({statuses.get('valid', 0)} verified)"
-                + ("" if complete else "; collection incomplete"),
-                {"records_by_status": statuses, "collection_complete": complete},
+                + ("" if complete else "; collection incomplete")
+                + "".join(f"; row {r.row_index} ({r.name}) not read" for r in unread),
+                {
+                    "records_by_status": statuses,
+                    "collection_complete": complete and not unread,
+                    "routes_not_read": [r.name for r in unread],
+                },
             )
             s.commit()
-        return {**ctx.cursor, "collection_complete": complete}
+        return {**ctx.cursor, "collection_complete": complete and not unread}
+
+    def route_outcomes(self, run: Run) -> list[RouteOutcome]:
+        """The rows of the client's list this collector reads as routes, not as listing pages (release
+        1.10.0rc6, OR-04). None here; the Oxylabs collector reads the Coupons page."""
+        return []
 
     async def h_validate(self, ctx: TaskContext) -> dict[str, Any]:
         with ctx.session() as s:
@@ -2261,6 +2277,7 @@ class LiveCollector:
                 attestations=atts,
                 challenges_detected=int(challenges or 0),
                 categories=cats,
+                routes=self.route_outcomes(run),
                 exported_records=exported,
                 exported_keys=[r.upc for r in exported_rows],
                 valid_upcs=frozenset(r.upc for r in recs if r.status == RecordStatus.VALID.value),

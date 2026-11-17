@@ -1,0 +1,253 @@
+From b75201b606165291fe8c557d0ff8744118b10b23 Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Mon, 16 Nov 2026 21:52:37 +0000
+Subject: [PATCH 09/12] marianos-azure-headless 1.10.0rc6: subdivisions read
+ depth first, rows read first on request, product pages read only for named
+ products
+
+Listing tasks are leased in the order of their keys: a subdivision's key extends its listing's, so a
+listing read through its subdivisions is finished before the plan's next listing starts (byte order, any
+collation); a task waiting for its re-ask holds no lane. collection.rows_first (run --rows-first) reads
+the listings of the named CSV rows first, in that order, the others after in the CSV's order; the plan is
+unchanged and the order is recorded with the run (policy rows_first); a row without a listing is refused.
+limits.product_term_upcs (run --term-upc, repeatable) reads the own pages of the named products only, each
+once per run when its card is met, whatever the card shows, with or without coverage.read_product_terms;
+a named card showing no coupon is read like a tile's (read or none_on_page). Neither is a scope limit.
+---
+ .../src/marianos_headless/cli.py              | 25 +++++++++++++++++++
+ .../marianos_headless/collection/config.py    | 23 +++++++++++++++++
+ .../marianos_headless/collection/control.py   | 19 +++++++++++++-
+ .../collection/oxylabs_live.py                | 17 ++++++++++---
+ .../src/marianos_headless/db/queue.py         | 14 +++++++++--
+ .../src/marianos_headless/operations.py       |  2 +-
+ 6 files changed, 92 insertions(+), 8 deletions(-)
+
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/cli.py b/headless/marianos-azure-headless/src/marianos_headless/cli.py
+index e83fef9..a75f994 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/cli.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/cli.py
+@@ -87,6 +87,13 @@ def _categories(value: str) -> list[int]:
+         raise argparse.ArgumentTypeError("categories are CSV row numbers, e.g. 3,7") from None
+ 
+ 
++def _row_order(value: str) -> list[int]:
++    try:
++        return list(dict.fromkeys(int(x) for x in value.split(",") if x.strip()))
++    except ValueError:
++        raise argparse.ArgumentTypeError("rows are CSV row numbers in reading order, e.g. 22,27,15") from None
++
++
+ def _safe(text: object) -> str:
+     """An error message with any configured key value removed (never printed or logged)."""
+     return redact(str(text), load_key())[:2000]
+@@ -129,6 +136,20 @@ def build_parser() -> argparse.ArgumentParser:
+     )
+     for flag in LIMIT_FLAGS:
+         r.add_argument("--" + flag.replace("_", "-"), dest=flag, type=int)
++    r.add_argument(
++        "--rows-first",
++        type=_row_order,
++        metavar="ROWS",
++        help="CSV row numbers read first, in this order; the others follow in the CSV's order (not a scope "
++        "limit)",
++    )
++    r.add_argument(
++        "--term-upc",
++        action="append",
++        metavar="UPC",
++        help="read this product's own page for its coupon terms (repeatable); only the named products' pages "
++        "are read",
++    )
+ 
+     for name, text in (
+         ("resume", "continue an interrupted run from its checkpoints"),
+@@ -270,6 +291,10 @@ def dispatch(args: argparse.Namespace) -> int:
+             }
+             if args.categories:
+                 overrides["categories"] = args.categories
++            if args.rows_first:
++                overrides["rows_first"] = args.rows_first
++            if args.term_upc:
++                overrides["product_term_upcs"] = list(dict.fromkeys(u.strip() for u in args.term_upc))
+             if args.subcategory:
+                 chosen: dict[str, list[str]] = {}
+                 for item in args.subcategory:
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/config.py b/headless/marianos-azure-headless/src/marianos_headless/collection/config.py
+index 4c2624d..49dbc9a 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/config.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/config.py
+@@ -49,6 +49,12 @@ class Limits(_Model):
+     # whose terms were not read is still recorded, flagged DIGITAL_TERMS_UNREAD with the reason.
+     # Release 1.9.0rc3: on the tile served since 2026-11-06 (no coupon shown) every product is a candidate.
+     max_product_term_reads: int | None = Field(None, ge=0)
++    # Release 1.10.0rc6: when it names products (13-digit UPCs), only their own pages are read for coupon
++    # terms (each once per run when its card is met, whatever the card shows, within max_product_term_reads),
++    # with or without ``coverage.read_product_terms``; every other product is recorded as with that setting
++    # off (its card's coupon only, flagged as before). Not a scope limit: a bounded share of the credit for
++    # the product pages a review names, instead of one more request for every tile.
++    product_term_upcs: list[str] = Field(default_factory=list)
+     # Release 1.10.0 (C1): how many times one listing request is asked again later in the same run when a
+     # later page answers with an earlier page's products, or when the first page of a listing above the
+     # source's window carries no filter to subdivide it by (``collection.reask``). Empty or 0 (the default,
+@@ -59,6 +65,15 @@ class Limits(_Model):
+     # seconds; empty: 300, which is also the least a configuration may set.
+     reask_min_wait_seconds: int | None = Field(None, ge=300, le=3600)
+ 
++    @field_validator("product_term_upcs")
++    @classmethod
++    def _term_upcs(cls, v: list[str]) -> list[str]:
++        upcs = list(dict.fromkeys(u.strip() for u in v))
++        bad = [u for u in upcs if not (len(u) == 13 and u.isdigit())]
++        if bad:
++            raise ValueError(f"a product is named by its 13-digit UPC, not {bad[0]!r}")
++        return upcs
++
+     def bounded(self) -> bool:
+         """True when a limit narrows the scope (the run is then a pilot, never a complete catalogue)."""
+         return any(v is not None for v in (self.max_products_per_run, self.max_pages_per_listing))
+@@ -121,6 +136,9 @@ class Schedule(_Model):
+ class CollectionConfig(_Model):
+     categories: list[int] = Field(default_factory=list)  # client CSV rows; empty = every category
+     subcategories: dict[str, list[str]] = Field(default_factory=dict)  # row -> listing URLs; absent = all
++    # Release 1.10.0rc6: CSV rows whose listings are read first, in this order; the other rows follow in the
++    # CSV's order. Not a scope limit: the plan is the same, only its order changes (recorded with the run).
++    rows_first: list[int] = Field(default_factory=list)
+     timezone: str = "America/Chicago"
+     limits: Limits = Field(default_factory=Limits)
+     schedule: Schedule = Field(default_factory=Schedule)
+@@ -139,6 +157,11 @@ class CollectionConfig(_Model):
+     def _rows(cls, v: list[int]) -> list[int]:
+         return sorted(set(v))
+ 
++    @field_validator("rows_first")
++    @classmethod
++    def _rows_first(cls, v: list[int]) -> list[int]:
++        return list(dict.fromkeys(v))
++
+     @property
+     def tz(self) -> ZoneInfo:
+         return ZoneInfo(self.timezone)
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/control.py b/headless/marianos-azure-headless/src/marianos_headless/collection/control.py
+index 86aa096..dab5a80 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/control.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/control.py
+@@ -7,7 +7,7 @@ executions (two Azure job replicas, or a manual run during a scheduled one) can
+ 
+ from __future__ import annotations
+ 
+-from collections.abc import Mapping
++from collections.abc import Mapping, Sequence
+ from datetime import datetime
+ from typing import Any
+ 
+@@ -64,6 +64,13 @@ def plan(
+     )
+ 
+ 
++def rows_first(nodes: Sequence[Node], rows: Sequence[int]) -> list[Node]:
++    """Release 1.10.0rc6: the listings of ``rows`` first, in that order of rows, then the others; within a
++    row, the plan's own order (a stable sort)."""
++    rank = {r: i for i, r in enumerate(rows)}
++    return sorted(nodes, key=lambda n: rank.get(n.row_index, len(rank)))
++
++
+ def open_run(session: Session, store_id: str) -> Run | None:
+     """The store's live run that is not finished (active or paused), if any."""
+     return session.scalars(
+@@ -106,6 +113,16 @@ def create_run(
+             "finalize it first"
+         )
+     order: dict[str, Any] = {"policy": "csv"}
++    if cfg.rows_first:
++        planned = {n.row_index for n in nodes}
++        absent = [r for r in cfg.rows_first if r not in planned]
++        if absent:
++            raise StartRefused(
++                f"rows {absent} of rows_first have no listing in this run's plan (row 0, Coupons, is read "
++                "when the run starts)"
++            )
++        nodes = rows_first(nodes, cfg.rows_first)
++        order = {"policy": "rows_first", "rows": list(cfg.rows_first)}
+     if trigger == "schedule" and cfg.schedule.backlog_first:
+         nodes, backlog = backlog_first(nodes, last_complete_reads(session, row.id))
+         order = {"policy": "backlog_first", "backlog": backlog}
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+index 322b3e2..1277e69 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+@@ -733,16 +733,25 @@ class OxylabsCollector(LiveCollector):
+         ``max_product_term_reads``), ``unread_ceiling`` (the spending ceiling or another run limit was reached
+         first), ``unread_robots``.
+         A refusal (challenge) page stops the run as on any page. Off unless
+-        ``coverage.read_product_terms``."""
+-        if not self.settings.coverage.read_product_terms:
++        ``coverage.read_product_terms``, or ``limits.product_term_upcs`` names products (release 1.10.0rc6:
++        then only the named products' pages are read, whatever their cards show)."""
++        named = frozenset(self.cfg.limits.product_term_upcs)
++        if not self.settings.coverage.read_product_terms and not named:
+             return
+         assert self.ox is not None
+         limit = self.cfg.limits.max_product_term_reads
+         for card in view.cards:
+             upc = card.upc
+-            tile_unshown = card.layout == "tile" and not self.shows_coupon(card)
+-            if not upc or not card.url or not (tile_unshown or self.shows_coupon(card)):
++            if not upc or not card.url:
+                 continue
++            if named:
++                if upc not in named:
++                    continue
++            elif card.layout != "tile" and not self.shows_coupon(card):
++                continue
++            # A card that shows no coupon (a tile; 1.10.0rc6: or a named product's card): its own page says
++            # whether the product has one (read) or not (none_on_page), never a conflict with the card.
++            tile_unshown = not self.shows_coupon(card)
+             if upc in self.term_status or upc in self.recorded:
+                 continue
+             if limit is not None and self.term_reads >= limit:
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/db/queue.py b/headless/marianos-azure-headless/src/marianos_headless/db/queue.py
+index 25186ce..03cb52a 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/db/queue.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/db/queue.py
+@@ -11,7 +11,7 @@ from dataclasses import dataclass
+ from datetime import datetime, timedelta
+ from typing import Any
+ 
+-from sqlalchemy import and_, func, or_, select, update
++from sqlalchemy import and_, case, func, or_, select, update
+ from sqlalchemy.dialects.postgresql import insert
+ from sqlalchemy.orm import Session, aliased
+ 
+@@ -100,8 +100,18 @@ def lease_next(
+     q = select(Task).where(Task.run_id == run_id, cond, ~blocked)
+     if kinds:
+         q = q.where(Task.kind.in_(kinds))
++    # Release 1.10.0rc6: listing tasks in the order of their keys. A listing's key is its place in the run's
++    # plan ("<run>/node/0007-<listing>") and a subdivision's key extends its listing's ("<run>/node/0007-
++    # <listing>/<child>"), so a listing read through its subdivisions is finished before the plan's next
++    # listing is started (depth first) instead of after every listing of the plan (1.10.0rc5: by creation,
++    # which left run F2 with 25 listings above the window and none of their subdivisions read). Byte order
++    # ("C"), whatever the database's collation. A subdivision waiting for a re-ask holds no lane: only a
++    # task that can be leased now is ordered.
++    listing_key = case((Task.kind == "listing_node", Task.idem_key.collate("C")), else_=None)
+     task = session.scalars(
+-        q.order_by(Task.priority, Task.created_at, Task.id).with_for_update(skip_locked=True).limit(1)
++        q.order_by(Task.priority, listing_key, Task.created_at, Task.id)
++        .with_for_update(skip_locked=True)
++        .limit(1)
+     ).first()
+     if task is None:
+         return None
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/operations.py b/headless/marianos-azure-headless/src/marianos_headless/operations.py
+index 96ff4e9..085af33 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/operations.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/operations.py
+@@ -803,7 +803,7 @@ def _overrides(coll: StoreCollection, overrides: dict[str, Any]) -> StoreCollect
+     data = coll.model_dump(mode="json")
+     limits = dict(data["limits"])
+     for key, value in overrides.items():
+-        if key in ("categories", "subcategories"):
++        if key in ("categories", "subcategories", "rows_first"):
+             data[key] = value
+         else:
+             limits[key] = value

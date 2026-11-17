@@ -1,0 +1,70 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0
+rootdir: [redacted:workstation-path]\or19b\headless\marianos-azure-headless
+configfile: pyproject.toml
+plugins: anyio-4.15.1, hypothesis-6.170.5, platformdirs-4.13.5
+collected 6 items
+
+tests\integration\test_run_order_rc6.py FFFFFF                           [100%]
+
+================================== FAILURES ===================================
+___ test_rc6_a_listings_subdivisions_are_read_before_the_plans_next_listing ___
+tests\integration\test_run_order_rc6.py:67: in test_rc6_a_listings_subdivisions_are_read_before_the_plans_next_listing
+    assert _drain(s, run.id) == ["0611200691", "0611200694", "06113", "06114"]
+E   AssertionError: assert ['06113', '06... '0611200691'] == ['0611200691'...113', '06114']
+E     
+E     At index 0 diff: '06113' != '0611200691'
+E     Use -v to get more diff
+---------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T21:50:44.475Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7K5EM7NQCK9QJTWFHXE6KY4", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "test"}}
+_________ test_rc6_a_subdivision_waiting_for_its_re_ask_holds_no_lane _________
+tests\integration\test_run_order_rc6.py:86: in test_rc6_a_subdivision_waiting_for_its_re_ask_holds_no_lane
+    assert child is not None and child.taxonomy_id == "0611200694"
+E   AssertionError: assert (Lease(task_id='01M7K5EPFWYDMDDD94KJQZDSXK', owner='w1', kind='listing_node', idem_key='01M7K5EPF9D9XWXF30MA0607CC/node/0001-06113', attempts=1, cursor={}, taxonomy_id='06113', category_source_id=None, reclaimed=False) is not None and '06113' == '0611200694'
+E     
+E     - 0611200694
+E     + 06113)
+---------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T21:50:46.765Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7K5EPF9D9XWXF30MA0607CC", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "test"}}
+______ test_rc6_rows_first_reads_the_named_rows_first_and_keeps_the_plan ______
+tests\integration\test_run_order_rc6.py:100: in test_rc6_rows_first_reads_the_named_rows_first_and_keeps_the_plan
+    cfg = CollectionConfig(rows_first=[22, 27, 22, 15])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for CollectionConfig
+E   rows_first
+E     Extra inputs are not permitted [type=extra_forbidden, input_value=[22, 27, 22, 15], input_type=list]
+E       For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden
+___________________ test_rc6_a_product_is_named_by_its_upc ____________________
+tests\integration\test_run_order_rc6.py:118: in test_rc6_a_product_is_named_by_its_upc
+    assert Limits(product_term_upcs=["0001780014939", " 0001780014939 "]).product_term_upcs == ["0001780014939"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for Limits
+E   product_term_upcs
+E     Extra inputs are not permitted [type=extra_forbidden, input_value=['0001780014939', ' 0001780014939 '], input_type=list]
+E       For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden
+_______________ test_rc6_only_the_named_products_pages_are_read _______________
+tests\integration\test_run_order_rc6.py:136: in test_rc6_only_the_named_products_pages_are_read
+    run_id = terms._run(vh_env, settings, fake, read=False, limits=Limits(product_term_upcs=named))
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for Limits
+E   product_term_upcs
+E     Extra inputs are not permitted [type=extra_forbidden, input_value=['0002310014848', '000178...14939', '0001600012254'], input_type=list]
+E       For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden
+___ test_rc6_named_products_narrow_the_setting_that_reads_every_coupon_card ___
+tests\integration\test_run_order_rc6.py:151: in test_rc6_named_products_narrow_the_setting_that_reads_every_coupon_card
+    vh_env, settings, fake, read=True, limits=Limits(product_term_upcs=[terms.ENERGIZER.upc])
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for Limits
+E   product_term_upcs
+E     Extra inputs are not permitted [type=extra_forbidden, input_value=['0003980014995'], input_type=list]
+E       For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden
+---------- generated xml file: [redacted:workstation-path]\logs\rc6order\before.junit.xml -----------
+=========================== short test summary info ===========================
+FAILED tests/integration/test_run_order_rc6.py::test_rc6_a_listings_subdivisions_are_read_before_the_plans_next_listing
+FAILED tests/integration/test_run_order_rc6.py::test_rc6_a_subdivision_waiting_for_its_re_ask_holds_no_lane
+FAILED tests/integration/test_run_order_rc6.py::test_rc6_rows_first_reads_the_named_rows_first_and_keeps_the_plan
+FAILED tests/integration/test_run_order_rc6.py::test_rc6_a_product_is_named_by_its_upc
+FAILED tests/integration/test_run_order_rc6.py::test_rc6_only_the_named_products_pages_are_read
+FAILED tests/integration/test_run_order_rc6.py::test_rc6_named_products_narrow_the_setting_that_reads_every_coupon_card
+============================= 6 failed in 16.26s ==============================
+before (rc5 bc19afe + this test) 2026-11-16T21:50:32Z -> 2026-11-16T21:50:52Z exit 1

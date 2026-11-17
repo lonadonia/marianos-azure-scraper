@@ -1,0 +1,139 @@
+{
+ "0001780014939": {
+  "reads": [
+   {
+    "fetch_id": "01M7KTNVATQ6WTWR3N7PFTDEC9",
+    "url": "https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014939",
+    "started_at": "2026-11-17 04:01:41.21036+00",
+    "http_status": "200",
+    "challenge": "f",
+    "stored_page": "01M7KTNVATQ6WTWR3N7PFTDEC9.html.gz",
+    "sha256_stored": "d2bc6c7fc0e4f38dec6d9c95d2e8598a4ed6e42301a195749fe2c2ce69bd74a4",
+    "section": false,
+    "loading": false,
+    "rows": [],
+    "collector_capture": "01M7KTNVATQ6WTWR3N7PFTDEC9.0009.pdp_savings.json.gz",
+    "provider_ran_scripts": false,
+    "requested_run_js": true,
+    "capture_rows_equal_reparse": true,
+    "verdict": "unread: not rendered"
+   }
+  ],
+  "verdict": "unread: not rendered",
+  "record": null,
+  "record_status": null,
+  "record_kind": null,
+  "flags": null,
+  "reasons": null,
+  "empty_field_reasons": {},
+  "empty_field_kinds": {}
+ },
+ "0001780014941": {
+  "reads": [
+   {
+    "fetch_id": "01M7KTNYD8SBYZG0WMWT0NS816",
+    "url": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941",
+    "started_at": "2026-11-17 04:01:44.360442+00",
+    "http_status": "200",
+    "challenge": "f",
+    "stored_page": "01M7KTNYD8SBYZG0WMWT0NS816.html.gz",
+    "sha256_stored": "7e1491f6f58318038647bf1f837c80f8c6e2218457048654dfc6725a30c75e2f",
+    "section": false,
+    "loading": false,
+    "rows": [],
+    "collector_capture": "01M7KTNYD8SBYZG0WMWT0NS816.0011.pdp_savings.json.gz",
+    "provider_ran_scripts": false,
+    "requested_run_js": true,
+    "capture_rows_equal_reparse": true,
+    "verdict": "unread: not rendered"
+   }
+  ],
+  "verdict": "unread: not rendered",
+  "record": null,
+  "record_status": null,
+  "record_kind": null,
+  "flags": null,
+  "reasons": null,
+  "empty_field_reasons": {},
+  "empty_field_kinds": {}
+ },
+ "0002310014848": {
+  "reads": [
+   {
+    "fetch_id": "01M7KQABGRH5N4Z8N026DQAE5E",
+    "url": "https://www.marianos.com/p/temptations-birthday-adult-crunchy-and-soft-cat-treats-lobster-and-beef/0002310014848",
+    "started_at": "2026-11-17 03:02:58.840897+00",
+    "http_status": "200",
+    "challenge": "f",
+    "stored_page": "01M7KQABGRH5N4Z8N026DQAE5E.html.gz",
+    "sha256_stored": "c40a0cd243c8f3f1ef2db4e000df546c5507a468e812cd990b3d8bd0e1b4cfba",
+    "section": false,
+    "loading": false,
+    "rows": [],
+    "collector_capture": "01M7KQABGRH5N4Z8N026DQAE5E.0013.pdp_savings.json.gz",
+    "provider_ran_scripts": true,
+    "requested_run_js": true,
+    "capture_rows_equal_reparse": true,
+    "verdict": "no savings shown"
+   }
+  ],
+  "verdict": "no savings shown",
+  "record": null,
+  "record_status": null,
+  "record_kind": null,
+  "flags": null,
+  "reasons": null,
+  "empty_field_reasons": {},
+  "empty_field_kinds": {}
+ },
+ "0003980014995": {
+  "reads": [
+   {
+    "fetch_id": "01M7KTPCZ6FYVZ41NQG4B9SCWC",
+    "url": "https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995",
+    "started_at": "2026-11-17 04:01:59.27024+00",
+    "http_status": "200",
+    "challenge": "f",
+    "stored_page": "01M7KTPCZ6FYVZ41NQG4B9SCWC.html.gz",
+    "sha256_stored": "d6b5eb1b0d96581e9f7a5807d4c0dcae44f5caac8cf4cc999da85f1b9b3b004c",
+    "section": false,
+    "loading": false,
+    "rows": [],
+    "collector_capture": "01M7KTPCZ6FYVZ41NQG4B9SCWC.0017.pdp_savings.json.gz",
+    "provider_ran_scripts": false,
+    "requested_run_js": true,
+    "capture_rows_equal_reparse": true,
+    "verdict": "unread: not rendered"
+   }
+  ],
+  "verdict": "unread: not rendered",
+  "record": {
+   "product_title": "Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries",
+   "category": "Hardware Home Improvement",
+   "regular_price": "21.99",
+   "sale_price": "19.99",
+   "digital_deals_description": "",
+   "digital_deals_price": "",
+   "volume_deals_description": "",
+   "volume_deals_price": "",
+   "weight": "10 Count",
+   "ppm": "$2.00/each",
+   "crawl_date": "2026-11-16"
+  },
+  "record_status": "valid",
+  "record_kind": "fresh",
+  "flags": [
+   "SIZE_FROM_PRODUCT_DATA",
+   "DIGITAL_COUPONS_UNOBSERVED"
+  ],
+  "reasons": [],
+  "empty_field_reasons": {
+   "digital_deals_price": "the tile shows no coupon (tiles omit coupons that the product's own page shows) and that page was not brought rendered: whether a digital coupon applies is unknown",
+   "digital_deals_description": "the tile shows no coupon (tiles omit coupons that the product's own page shows) and that page was not brought rendered: whether a digital coupon applies is unknown"
+  },
+  "empty_field_kinds": {
+   "digital_deals_price": "not_attempted",
+   "digital_deals_description": "not_attempted"
+  }
+ }
+}

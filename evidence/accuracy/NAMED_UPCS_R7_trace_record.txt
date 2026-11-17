@@ -1,0 +1,90 @@
+=== UPC 0084024314377
+    export   product_title  'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Cuts in Gravy Salmon & Tuna'
+    export   weight         '12 ct / 2.6 oz'
+    export   regular_price  '19.99'
+    export   sale_price     ''
+    export   ppm            '$19.99/oz'
+    export   category       'Pet Supplies'
+    export   sub_category   'Cat Food'
+    export   url            'https://www.marianos.com/p/blue-buffalo-tastefuls-savory-singles-natural-wet-cat-food-cuts-in-gravy-salmon-tuna/0084024314377'
+    export   crawl_date     '2026-11-16'
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  fetched 2026-11-17T04:54:57.079327Z  fetch 01M7KXQC9QW3H3QMPVZ1R6E4DQ
+    tile     position 19 of listing 27021; status valid; flags SIZE_FROM_PRODUCT_DATA,PPM_EQUALS_ITEM_PRICE,DIGITAL_COUPONS_UNOBSERVED
+    stored   runs/marianos-53100502-pickup/01M7KQ5GZVF5VK1S9FGTG6YFC9/live/dom/01M7KXQC9QW3H3QMPVZ1R6E4DQ.html.gz  sha256 MATCHES (a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738)
+    source   description    'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Cuts in Gravy Salmon & Tuna'
+    source   price element  '$19.99$19.99'
+    source   per measure    '$19.99/oz'
+=== UPC 0001280052496
+    export   product_title  'Rayovac 100 Lumens Workhorse LED Headlight'
+    export   weight         '1 Count'
+    export   regular_price  '10.49'
+    export   sale_price     '7.99'
+    export   ppm            '$7.99/oz'
+    export   category       'Hardware Home Improvement'
+    export   sub_category   ''
+    export   url            'https://www.marianos.com/p/rayovac-100-lumens-workhorse-led-headlight/0001280052496'
+    export   crawl_date     '2026-11-16'
+    page     https://www.marianos.com/pl/hardware-home-improvement/33?page=3  fetched 2026-11-17T04:02:02.243371Z  fetch 01M7KTPFW3D6RHNXCNH8FCB1HB
+    tile     position 13 of listing 33; status valid; flags SIZE_FROM_PRODUCT_DATA,PPM_UNIT_FAMILY_MISMATCH,DIGITAL_COUPONS_UNOBSERVED
+    stored   runs/marianos-53100502-pickup/01M7KQ5GZVF5VK1S9FGTG6YFC9/live/dom/01M7KTPFW3D6RHNXCNH8FCB1HB.html.gz  sha256 MATCHES (460cd1e6ee548c1fe916fc23317e8affecda8b7fc9de86ba78bb50bd4a7998ef)
+    source   description    'Rayovac 100 Lumens Workhorse LED Headlight'
+    source   price element  '$7.99$10.49Sale: $7.99 discounted from $10.49'
+    source   per measure    '$7.99/oz'
+=== UPC 0001780014939
+    not in this export
+=== UPC 0001780014941
+    not in this export
+=== UPC 0002310014848
+    not in this export
+=== UPC 0003980014995
+    export   product_title  'Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries'
+    export   weight         '10 Count'
+    export   regular_price  '21.99'
+    export   sale_price     '19.99'
+    export   ppm            '$2.00/each'
+    export   category       'Hardware Home Improvement'
+    export   sub_category   ''
+    export   url            'https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995'
+    export   crawl_date     '2026-11-16'
+    page     https://www.marianos.com/pl/hardware-home-improvement/33?page=2  fetched 2026-11-17T04:01:55.709639Z  fetch 01M7KTP9FXP9JEY4TG9QMZXQMR
+    tile     position 14 of listing 33; status valid; flags SIZE_FROM_PRODUCT_DATA,DIGITAL_COUPONS_UNOBSERVED
+    stored   runs/marianos-53100502-pickup/01M7KQ5GZVF5VK1S9FGTG6YFC9/live/dom/01M7KTP9FXP9JEY4TG9QMZXQMR.html.gz  sha256 MATCHES (92554d5736d6584d733ff2c8413777112f80c9547d522fb7d8ff516933aedb7b)
+    source   description    'Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries'
+    source   price element  '$19.99$21.99Sale: $19.99 discounted from $21.99'
+    source   per measure    '$2.00/each'
+=== UPC 0081675102373
+    export   product_title  'Cutwater Espresso Martini Canned Cocktail'
+    export   weight         '4 cans / 12 fl oz'
+    export   regular_price  '14.99'
+    export   sale_price     '9.99'
+    export   ppm            '$0.21/fl oz'
+    export   category       'Beer Wine Liquor'
+    export   sub_category   'Ready to Drink Cocktails'
+    export   url            'https://www.marianos.com/p/cutwater-espresso-martini-canned-cocktail/0081675102373'
+    export   crawl_date     '2026-11-16'
+    page     https://www.marianos.com/pl/ready-to-drink-cocktails/08193  fetched 2026-11-17T05:26:07.105239Z  fetch 01M7KZGEG1SEZ6TMJXGR808M76
+    tile     position 6 of listing 08193; status valid; flags SIZE_FROM_PRODUCT_DATA,DIGITAL_COUPONS_UNOBSERVED
+    stored   runs/marianos-53100502-pickup/01M7KQ5GZVF5VK1S9FGTG6YFC9/live/dom/01M7KZGEG1SEZ6TMJXGR808M76.html.gz  sha256 MATCHES (1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f)
+    source   description    'Cutwater Espresso Martini Canned Cocktail'
+    source   price element  '$9.99$14.99Sale: $9.99 discounted from $14.99'
+    source   per measure    '$0.21/fl oz'
+=== UPC 0086001079386
+    export   product_title  'The Finnish Long Drink Zero Sugar Cocktail Can'
+    export   weight         '12 cans / 12 fl oz'
+    export   regular_price  '28.99'
+    export   sale_price     '22.99'
+    export   ppm            '$0.16/fl oz'
+    export   category       'Beer Wine Liquor'
+    export   sub_category   'Ready to Drink Cocktails'
+    export   url            'https://www.marianos.com/p/the-finnish-long-drink-zero-sugar-cocktail-can/0086001079386'
+    export   crawl_date     '2026-11-16'
+    page     https://www.marianos.com/pl/ready-to-drink-cocktails/08193  fetched 2026-11-17T05:26:07.105239Z  fetch 01M7KZGEG1SEZ6TMJXGR808M76
+    tile     position 16 of listing 08193; status valid; flags SIZE_FROM_PRODUCT_DATA,DIGITAL_COUPONS_UNOBSERVED
+    stored   runs/marianos-53100502-pickup/01M7KQ5GZVF5VK1S9FGTG6YFC9/live/dom/01M7KZGEG1SEZ6TMJXGR808M76.html.gz  sha256 MATCHES (1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f)
+    source   description    'The Finnish Long Drink Zero Sugar Cocktail Can'
+    source   price element  '$22.99$28.99Sale: $22.99 discounted from $28.99'
+    source   per measure    '$0.16/fl oz'
+=== UPC 0001820020352
+    not in this export
+=== UPC 0073679800140
+    not in this export

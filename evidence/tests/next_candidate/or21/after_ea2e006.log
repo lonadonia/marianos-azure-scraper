@@ -1,0 +1,15 @@
+# 2026-11-17T05:02:45Z commit ea2e006 marianos-azure-headless next: OR-21, a termination signal cancels the lanes with the worker and waits for them; a cancelled task is handed back with its checkpoin
+# python -m pytest -p no:cacheprovider tests/integration/test_runner.py -rA   (the new test and the 7 other runner tests)
+# imported from marianos-azure-headless/src/marianos_headless/worker/runner.py
+_________ test_unexpected_handler_error_fails_the_task_not_the_worker _________
+_ test_a_termination_signal_cancels_the_lanes_and_hands_their_tasks_back_unfailed _
+PASSED tests/integration/test_runner.py::test_crash_mid_listing_then_resume_matches_clean_run
+PASSED tests/integration/test_runner.py::test_cooperative_cancel
+PASSED tests/integration/test_runner.py::test_challenge_blocks_task_and_aborts_run
+PASSED tests/integration/test_runner.py::test_transient_failure_retries_with_backoff
+PASSED tests/integration/test_runner.py::test_unexpected_handler_error_fails_the_task_not_the_worker
+PASSED tests/integration/test_runner.py::test_circuit_breaker_fails_category
+PASSED tests/integration/test_runner.py::test_pause_then_resume_continues_from_checkpoint
+PASSED tests/integration/test_runner.py::test_a_termination_signal_cancels_the_lanes_and_hands_their_tasks_back_unfailed
+============================= 8 passed in 18.70s ==============================
+# exit 0

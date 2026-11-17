@@ -62,12 +62,26 @@ class CategoryOutcome:
     node_coverage: Mapping[str, float] = field(default_factory=dict)
 
 
+@dataclass(frozen=True)
+class RouteOutcome:
+    """A row of the client's list read as a route of the run, not as listing pages (release 1.10.0rc6,
+    OR-04: the Coupons page). ``required``: the run's plan names it, so the run is complete only once it is
+    read."""
+
+    row_index: int
+    name: str
+    status: str  # READ, or why not ("NOT READ: ...", "STORE_NOT_VERIFIED", "SKIPPED: ...", "NOT ATTEMPTED")
+    required: bool
+    detail: str = ""
+
+
 @dataclass
 class RunEvidence:
     mode: DataMode
     attestations: Sequence[AttestationSummary] = ()
     challenges_detected: int = 0
     categories: Sequence[CategoryOutcome] = ()
+    routes: Sequence[RouteOutcome] = ()
     exported_records: Sequence[Mapping[str, str]] = ()
     # The identity of each exported record, in the same order: its UPC, or the retailer's own product ID
     # where the listing shows no UPC (Walmart ``wm:<item id>``). Empty: the records' ``upc`` field.
@@ -141,6 +155,19 @@ def g3_coverage(ev: RunEvidence, s: Settings) -> GateResult:
     fail_below = s.gates.coverage_fail_below
     if not ev.categories:
         f.append(Finding("G3", Severity.FAIL, RunCode.NODE_INCOMPLETE, "no category outcomes recorded"))
+    for r in ev.routes:
+        if r.required and r.status != "READ":
+            f.append(
+                Finding(
+                    "G3",
+                    Severity.FAIL,
+                    RunCode.NODE_INCOMPLETE,
+                    f"row {r.row_index} ({r.name}) not read: {r.status}"
+                    + (f"; {r.detail}" if r.detail else ""),
+                    "category",
+                    r.name,
+                )
+            )
     for c in ev.categories:
         if c.status != "DONE":
             f.append(

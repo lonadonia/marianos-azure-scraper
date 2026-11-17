@@ -1,0 +1,86 @@
+2026-11-16T23:29:06Z
+== the shipped schedule of the installed 1.10.0rc6 (schedule-info)
+{"ts": "2026-11-16T23:29:06.617Z", "level": "INFO", "event": "RESULT", "collector": "marianos-azure-headless", "command": "schedule-info", "exit_code": 0, "result": {"store": "marianos-53100502-pickup", "schedule": {"enabled": false, "weekdays": [0, 3], "start_time": "07:00", "window_start": null, "window_end": "19:00", "start_date": null, "end_date": null, "continue_unfinished": true, "backlog_first": true, "cron_utc": "0 12,13 * * 1,4", "offsets": {"january": "local 07:00 = 13:00 UTC (UTC-0600)", "july": "local 07:00 = 12:00 UTC (UTC-0500)"}, "timezone": "America/Chicago", "cron_utc_with_continuation": "*/30 * * * *", "next_local_start": null}}}
+
+== a systemd calendar for the same schedule (Monday and Thursday 07:00 America/Chicago), its next 40 firings across the daylight-saving change of 2027-03-14 (systemd-analyze calendar)
+Normalized form: Mon,Thu *-*-* 07:00:00 America/Chicago
+    Next elapse: Thu 2026-11-19 13:00:00 UTC
+       From now: 2 days left
+   Iteration #2: Mon 2026-11-23 13:00:00 UTC
+       From now: 6 days left
+   Iteration #3: Thu 2026-11-26 13:00:00 UTC
+       From now: 1 week 2 days left
+   Iteration #4: Mon 2026-11-30 13:00:00 UTC
+       From now: 1 week 6 days left
+   Iteration #5: Thu 2026-12-03 13:00:00 UTC
+       From now: 2 weeks 2 days left
+   Iteration #6: Mon 2026-12-07 13:00:00 UTC
+       From now: 2 weeks 6 days left
+   Iteration #7: Thu 2026-12-10 13:00:00 UTC
+       From now: 3 weeks 2 days left
+   Iteration #8: Mon 2026-12-14 13:00:00 UTC
+       From now: 3 weeks 6 days left
+   Iteration #9: Thu 2026-12-17 13:00:00 UTC
+       From now: 1 month 0 days left
+  Iteration #10: Mon 2026-12-21 13:00:00 UTC
+       From now: 1 month 4 days left
+  Iteration #11: Thu 2026-12-24 13:00:00 UTC
+       From now: 1 month 7 days left
+  Iteration #12: Mon 2026-12-28 13:00:00 UTC
+       From now: 1 month 11 days left
+  Iteration #13: Thu 2026-12-31 13:00:00 UTC
+       From now: 1 month 14 days left
+  Iteration #14: Mon 2027-01-04 13:00:00 UTC
+       From now: 1 month 18 days left
+  Iteration #15: Thu 2027-01-07 13:00:00 UTC
+       From now: 1 month 21 days left
+  Iteration #16: Mon 2027-01-11 13:00:00 UTC
+       From now: 1 month 25 days left
+  Iteration #17: Thu 2027-01-14 13:00:00 UTC
+       From now: 1 month 28 days left
+  Iteration #18: Mon 2027-01-18 13:00:00 UTC
+       From now: 2 months 1 day left
+  Iteration #19: Thu 2027-01-21 13:00:00 UTC
+       From now: 2 months 4 days left
+  Iteration #20: Mon 2027-01-25 13:00:00 UTC
+       From now: 2 months 8 days left
+  Iteration #21: Thu 2027-01-28 13:00:00 UTC
+       From now: 2 months 11 days left
+  Iteration #22: Mon 2027-02-01 13:00:00 UTC
+       From now: 2 months 15 days left
+  Iteration #23: Thu 2027-02-04 13:00:00 UTC
+       From now: 2 months 18 days left
+  Iteration #24: Mon 2027-02-08 13:00:00 UTC
+       From now: 2 months 22 days left
+  Iteration #25: Thu 2027-02-11 13:00:00 UTC
+       From now: 2 months 25 days left
+  Iteration #26: Mon 2027-02-15 13:00:00 UTC
+       From now: 2 months 29 days left
+  Iteration #27: Thu 2027-02-18 13:00:00 UTC
+       From now: 3 months 2 days left
+  Iteration #28: Mon 2027-02-22 13:00:00 UTC
+       From now: 3 months 6 days left
+  Iteration #29: Thu 2027-02-25 13:00:00 UTC
+       From now: 3 months 9 days left
+  Iteration #30: Mon 2027-03-01 13:00:00 UTC
+       From now: 3 months 13 days left
+  Iteration #31: Thu 2027-03-04 13:00:00 UTC
+       From now: 3 months 16 days left
+  Iteration #32: Mon 2027-03-08 13:00:00 UTC
+       From now: 3 months 20 days left
+  Iteration #33: Thu 2027-03-11 13:00:00 UTC
+       From now: 3 months 23 days left
+  Iteration #34: Mon 2027-03-15 12:00:00 UTC
+       From now: 3 months 27 days left
+  Iteration #35: Thu 2027-03-18 12:00:00 UTC
+       From now: 3 months 30 days left
+  Iteration #36: Mon 2027-03-22 12:00:00 UTC
+       From now: 4 months 3 days left
+  Iteration #37: Thu 2027-03-25 12:00:00 UTC
+       From now: 4 months 6 days left
+  Iteration #38: Mon 2027-03-29 12:00:00 UTC
+       From now: 4 months 10 days left
+  Iteration #39: Thu 2027-04-01 12:00:00 UTC
+       From now: 4 months 13 days left
+  Iteration #40: Mon 2027-04-05 12:00:00 UTC
+       From now: 4 months 17 days left

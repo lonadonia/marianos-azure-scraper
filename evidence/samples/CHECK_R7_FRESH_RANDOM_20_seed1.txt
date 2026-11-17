@@ -1,0 +1,142 @@
+20 records drawn at random (seed 1) of 2667 fresh records (of 10536 exported)
+=== 0003354400177  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/Import-Beer/08190?page=2  observed 2026-11-17T04:02:33.084671Z  sha256 5eb792fc1b9fd8d54b8fb7a6fcb4d20c3f56f85a4647572f77ebeb010d5f132f
+    title    export 'Modelo Chelada Variety Pack Mexican Import Flavored Beer'
+             source 'Modelo Chelada Variety Pack Mexican Import Flavored Beer'  same
+    prices   export {'regular_price': '18.99'}  source price text '$18.99$18.99'  regular_price shown
+    per unit export '$0.13/fl oz'  source '$0.13/fl oz'  same
+    also     weight '12 cans / 12 fl oz', category 'Beer Wine Liquor' / 'Import Beer', url https://www.marianos.com/p/modelo-chelada-variety-pack-mexican-import-flavored-beer/0003354400177
+=== 0084797904000  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/candles-home-fragrances/32001  observed 2026-11-17T03:03:47.228149Z  sha256 26d30cf5be8144055f4724c7f8eb5ea5c5576d20d16ac2d2a0c2c271cf8fdfbf
+    title    export 'St. Jude Clear Glass Candle - White'
+             source 'St. Jude Clear Glass Candle - White'  same
+    prices   export {'regular_price': '2.49'}  source price text '$2.49$2.49'  regular_price shown
+    per unit export '$2.49/each'  source '$2.49/each'  same
+    also     weight '1 ct', category 'Candles Home Fragrances' / '', url https://www.marianos.com/p/st-jude-clear-glass-candle-white/0084797904000
+=== 0001780013640  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Beneful Beef Dry Dog Food'
+             source 'Beneful Beef Dry Dog Food'  same
+    prices   export {'regular_price': '7.49'}  source price text '$7.49$7.49'  regular_price shown
+    per unit export '$2.14/lb'  source '$2.14/lb'  same
+    also     weight '3.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-beef-dry-dog-food/0001780013640
+=== 0007199017028  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/American-Lager-Beer/08119?page=2  observed 2026-11-17T04:02:19.332708Z  sha256 7aa356dec12d0aa0b71caf06dd6c032cc687a1a7e51fe8e3c66233281d7617d7
+    title    export 'Coors Banquet American Lager Beer'
+             source 'Coors Banquet American Lager Beer'  same
+    prices   export {'regular_price': '7.49', 'sale_price': '6.99'}  source price text '$6.99$7.49Sale: $6.99 discounted from $7.49'  regular_price shown, sale_price shown
+    per unit export '$0.10/fl oz'  source '$0.10/fl oz'  same
+    also     weight '6 bottles / 12 fl oz', category 'Beer Wine Liquor' / 'American Lager', url https://www.marianos.com/p/coors-banquet-american-lager-beer/0007199017028
+=== 0002600000305  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/school-office/35?page=2  observed 2026-11-17T03:04:08.430212Z  sha256 b4aa5c6ae123ff8ab137f2bb77aabcf97f481e0d4ea71c283453f2ebfc671478
+    title    export "Elmer's Liquid School Glue, Clear Glue, Washable, Great for Making Slime, 5 Ounces"
+             source "Elmer's Liquid School Glue, Clear Glue, Washable, Great for Making Slime, 5 Ounces"  same
+    prices   export {'regular_price': '2.29'}  source price text '$2.29$2.29'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '1 Count', category 'School Office' / '', url https://www.marianos.com/p/elmer-s-liquid-school-glue-clear-glue-washable-great-for-making-slime-5-ounces/0002600000305
+=== 0073052150612  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export "Nature's Recipe Grain Free Salmon, Sweet Potato & Pumpkin Recipe Dry Dog Food, 4 lb. Bag"
+             source "Nature's Recipe Grain Free Salmon, Sweet Potato & Pumpkin Recipe Dry Dog Food, 4 lb. Bag"  same
+    prices   export {'regular_price': '14.99'}  source price text '$14.99$14.99'  regular_price shown
+    per unit export '$3.75/lb'  source '$3.75/lb'  same
+    also     weight '4 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nature-s-recipe-grain-free-salmon-sweet-potato-pumpkin-recipe-dry-dog-food-4-lb-bag/0073052150612
+=== 0062797501056  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Freshpet Roasted Meals® Tender Chicken Recipe With Garden Vegetables Fresh Dog Food'
+             source 'Freshpet Roasted Meals® Tender Chicken Recipe With Garden Vegetables Fresh Dog Food'  same
+    prices   export {'regular_price': '26.99'}  source price text '$26.99$26.99'  regular_price shown
+    per unit export '$4.91/lb'  source '$4.91/lb'  same
+    also     weight '5.5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-roasted-meals-tender-chicken-recipe-with-garden-vegetables-fresh-dog-food/0062797501056
+=== 0066359593112  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/candles-home-fragrances/32001?page=2  observed 2026-11-17T03:03:53.222422Z  sha256 03b1a70df54e8fc63cf5cd32b494f2076b7d6ce80318aab9b964d025a06f6383
+    title    export 'WoodWick Vanilla Bean Scented Large Hourglass Candle, 21oz'
+             source 'WoodWick Vanilla Bean Scented Large Hourglass Candle, 21oz'  same
+    prices   export {'regular_price': '24.99'}  source price text '$24.99$24.99'  regular_price shown
+    per unit export '$1.16/oz'  source '$1.16/oz'  same
+    also     weight '1 ct', category 'Candles Home Fragrances' / '', url https://www.marianos.com/p/woodwick-vanilla-bean-scented-large-hourglass-candle-21oz/0066359593112
+=== 0008600382073  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cabernet-sauvignon-wine/0812000571?page=5  observed 2026-11-17T04:36:54.731203Z  sha256 808403b67af8aaa6117461c9c5019462a17811e4ca5e532b1a2d80c08f1ae209
+    title    export 'Woodbridge Cabernet Sauvignon California Red Wine Box'
+             source 'Woodbridge Cabernet Sauvignon California Red Wine Box'  same
+    prices   export {'regular_price': '8.99'}  source price text '$8.99$8.99'  regular_price shown
+    per unit export '$0.53/fl oz'  source '$0.53/fl oz'  same
+    also     weight '500 ml', category 'Beer Wine Liquor' / 'Red Wine', url https://www.marianos.com/p/woodbridge-cabernet-sauvignon-california-red-wine-box/0008600382073
+=== 0005000029329  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Friskies Extra Gravy Wet Cat Food Chunky Chicken in Savory Gravy'
+             source 'Friskies Extra Gravy Wet Cat Food Chunky Chicken in Savory Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-extra-gravy-wet-cat-food-chunky-chicken-in-savory-gravy/0005000029329
+=== 0002120001113  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/school-office/35  observed 2026-11-17T03:04:04.456806Z  sha256 5978d908b40abcad55ac85f6fd25fc84375821ff6b2fdbf59ea95bf57c3eda40
+    title    export 'Scotch® Magic™ Tape'
+             source 'Scotch® Magic™ Tape'  same
+    prices   export {'regular_price': '4.49', 'sale_price': '3.19'}  source price text '$3.19$4.49Sale: $3.19 discounted from $4.49'  regular_price shown, sale_price shown
+    per unit export '$3.19/each'  source '$3.19/each'  same
+    also     weight '1 ea', category 'School Office' / '', url https://www.marianos.com/p/scotch-magic-tape/0002120001113
+=== 0071788851002  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cabernet-sauvignon-wine/0812000571?page=2  observed 2026-11-17T04:36:39.298652Z  sha256 465c73be945eaae99ef0807ee22e5d73753d20bf318023f12e8880c7ed022e16
+    title    export 'Hess Select Cabernet Sauvignon California Red Wine'
+             source 'Hess Select Cabernet Sauvignon California Red Wine'  same
+    prices   export {'regular_price': '21.99'}  source price text '$21.99$21.99'  regular_price shown
+    per unit export '$0.87/fl oz'  source '$0.87/fl oz'  same
+    also     weight '750 ml', category 'Beer Wine Liquor' / 'Red Wine', url https://www.marianos.com/p/hess-select-cabernet-sauvignon-california-red-wine/0071788851002
+=== 0001111013715  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'ABOUND® All Life Stages Dry Cat Food Salmon and Brown Rice'
+             source 'ABOUND® All Life Stages Dry Cat Food Salmon and Brown Rice'  same
+    prices   export {'regular_price': '33.99'}  source price text '$33.99$33.99'  regular_price shown
+    per unit export '$2.12/lb'  source '$2.12/lb'  same
+    also     weight '16 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/abound-all-life-stages-dry-cat-food-salmon-and-brown-rice/0001111013715
+=== 0008724188106  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/pinot-grigio-pinot-gris-wine/0812200585?page=3  observed 2026-11-17T04:50:18.318530Z  sha256 326ee3f60504c3846d2d9d07d3f3fd8f388d1849f31a4d260ed98967f7a9fd4e
+    title    export 'Mezzacorona Pinot Grigio Italy White Wine'
+             source 'Mezzacorona Pinot Grigio Italy White Wine'  same
+    prices   export {'regular_price': '16.99'}  source price text '$16.99$16.99'  regular_price shown
+    per unit export '$0.67/fl oz'  source '$0.67/fl oz'  same
+    also     weight '750 ml', category 'Beer Wine Liquor' / 'White Wine', url https://www.marianos.com/p/mezzacorona-pinot-grigio-italy-white-wine/0008724188106
+=== 0009479901004  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/desserts-vermouth-wine/08185  observed 2026-11-17T05:11:48.792069Z  sha256 3045cff6e87c946bae03b3ba34eab984c297d9ebca6567bb3360772de319606a
+    title    export "Graham's Six Grapes Reserve Portugal Port Red Wine"
+             source "Graham's Six Grapes Reserve Portugal Port Red Wine"  same
+    prices   export {'regular_price': '34.99'}  source price text '$34.99$34.99'  regular_price shown
+    per unit export '$1.38/fl oz'  source '$1.38/fl oz'  same
+    also     weight '750 ml', category 'Beer Wine Liquor' / 'Dessert & Vermouth Wine', url https://www.marianos.com/p/graham-s-six-grapes-reserve-portugal-port-red-wine/0009479901004
+=== 0085588000811  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/ready-to-drink-cocktails/08193  observed 2026-11-17T05:26:07.105239Z  sha256 1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f
+    title    export 'On The Rocks Hornitos Margarita'
+             source 'On The Rocks Hornitos Margarita'  same
+    prices   export {'regular_price': '12.99', 'sale_price': '9.99'}  source price text '$9.99$12.99Sale: $9.99 discounted from $12.99'  regular_price shown, sale_price shown
+    per unit export '$0.79/fl oz'  source '$0.79/fl oz'  same
+    also     weight '375 ml', category 'Beer Wine Liquor' / 'Ready to Drink Cocktails', url https://www.marianos.com/p/on-the-rocks-hornitos-margarita/0085588000811
+=== 0000000004072  (fresh, status eligible_unpriced, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/fresh-vegetables/06112  observed 2026-11-17T05:32:45.767086Z  sha256 5b7674f9e7c5143c0d90fd6b4d0f6f5f9fd6380a0e9df4b0ce34ad0f5c143e54
+    title    export 'Russet Potato'
+             source 'Russet Potato'  same
+    prices   export {}  source price text 'about$0.74eachabout $0.74 each'  
+    per unit export ''  source ''  same
+    also     weight '', category 'Produce' / 'Fresh Vegetables', url https://www.marianos.com/p/russet-potato/0000000004072
+=== 0035283300010  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/chardonnay-wine/0812200584?page=6  observed 2026-11-17T04:47:46.889217Z  sha256 272124edb858f110cbdee995a4269a384f91d1cdd282eeace6cd43de9443a4b8
+    title    export 'Trenel Macon Villages Chardonnay French White Wine'
+             source 'Trenel Macon Villages Chardonnay French White Wine'  same
+    prices   export {'regular_price': '36.99'}  source price text '$36.99$36.99'  regular_price shown
+    per unit export '$1.46/fl oz'  source '$1.46/fl oz'  same
+    also     weight '750 ml', category 'Beer Wine Liquor' / 'White Wine', url https://www.marianos.com/p/trenel-macon-villages-chardonnay-french-white-wine/0035283300010
+=== 0007575533107  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/school-office/35?page=2  observed 2026-11-17T03:04:08.430212Z  sha256 b4aa5c6ae123ff8ab137f2bb77aabcf97f481e0d4ea71c283453f2ebfc671478
+    title    export 'Top Flight College Rule 1-Subject Notebook - Colors May Vary'
+             source 'Top Flight College Rule 1-Subject Notebook - Colors May Vary'  same
+    prices   export {'regular_price': '3.99'}  source price text '$3.99$3.99'  regular_price shown
+    per unit export '$0.05/each'  source '$0.05/each'  same
+    also     weight '8 x 5 in', category 'School Office' / '', url https://www.marianos.com/p/top-flight-college-rule-1-subject-notebook-colors-may-vary/0007575533107
+=== 0005000096264  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Fancy Feast Pate Wet Cat Food, Medleys White Meat Chicken Primavera With Garden Veggies'
+             source 'Fancy Feast Pate Wet Cat Food, Medleys White Meat Chicken Primavera With Garden Veggies'  same
+    prices   export {'regular_price': '1.39'}  source price text '$1.39$1.39'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-pate-wet-cat-food-medleys-white-meat-chicken-primavera-with-garden-veggies/0005000096264
+differences: 0

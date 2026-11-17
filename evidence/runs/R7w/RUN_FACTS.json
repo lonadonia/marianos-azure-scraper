@@ -1,0 +1,330 @@
+{
+ "run_id": "01M7KQ5GZVF5VK1S9FGTG6YFC9",
+ "stages": [
+  "M-R7a-full-run-110rc6-20261117",
+  "M-R7a2-full-run-110rc6-20261117",
+  "M-R7b-full-run-110rc6-20261117",
+  "M-R7w-walkthrough-110rc6-20261117"
+ ],
+ "revisions": [
+  {
+   "version": "1.10.0rc6",
+   "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b"
+  }
+ ],
+ "segments": [
+  {
+   "id": "01M7KQ5H6KDYDQEWNQJY7NTH23",
+   "started_at": "2026-11-17 03:00:20.817949+00",
+   "ended_at": "2026-11-17 03:04:55.879433+00",
+   "active_s": "275.05380483599583",
+   "end_state": "ended",
+   "stop_code": "TERMINATED",
+   "trigger": "manual",
+   "code": {
+    "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+    "source": "environment",
+    "version": "1.10.0rc6",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7KTKFXRM3FAR0N3KTQ2CJC7",
+   "started_at": "2026-11-17 04:00:23.991121+00",
+   "ended_at": "2026-11-17 04:14:04.224341+00",
+   "active_s": "820.2206952819979",
+   "end_state": "ended",
+   "stop_code": "TERMINATED",
+   "trigger": "resume",
+   "code": {
+    "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+    "source": "environment",
+    "version": "1.10.0rc6",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7KWKG7QG6KQTA4Z2Y949ER9",
+   "started_at": "2026-11-17 04:35:21.462399+00",
+   "ended_at": "",
+   "active_s": "206.61399950499617",
+   "end_state": "abandoned",
+   "stop_code": "TERMINATED",
+   "trigger": "resume",
+   "code": {
+    "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+    "source": "environment",
+    "version": "1.10.0rc6",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7KWWTEYTS7W34DV9NN6Q2V1",
+   "started_at": "2026-11-17 04:40:26.844925+00",
+   "ended_at": "2026-11-17 04:45:53.124867+00",
+   "active_s": "326.25714552499994",
+   "end_state": "ended",
+   "stop_code": "PROVIDER_ERROR",
+   "trigger": "resume",
+   "code": {
+    "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+    "source": "environment",
+    "version": "1.10.0rc6",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7KX8KV64FM7NTBRD20H6TNE",
+   "started_at": "2026-11-17 04:46:53.286422+00",
+   "ended_at": "2026-11-17 04:52:23.572944+00",
+   "active_s": "330.26744938100455",
+   "end_state": "ended",
+   "stop_code": "PROVIDER_ERROR",
+   "trigger": "auto",
+   "code": {
+    "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+    "source": "environment",
+    "version": "1.10.0rc6",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7KXPBNSGNREX68WF7RZDBFB",
+   "started_at": "2026-11-17 04:54:23.672975+00",
+   "ended_at": "2026-11-17 04:55:09.426361+00",
+   "active_s": "45.73309715499636",
+   "end_state": "ended",
+   "stop_code": "TERMINATED",
+   "trigger": "auto",
+   "code": {
+    "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+    "source": "environment",
+    "version": "1.10.0rc6",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7KYAZM3XXDPQVZXSWFD0KXQ",
+   "started_at": "2026-11-17 05:05:39.458397+00",
+   "ended_at": "2026-11-17 05:11:02.999509+00",
+   "active_s": "323.51703198999894",
+   "end_state": "ended",
+   "stop_code": "PROVIDER_ERROR",
+   "trigger": "resume",
+   "code": {
+    "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+    "source": "environment",
+    "version": "1.10.0rc6",
+    "parser_version": "1.10.0"
+   }
+  },
+  {
+   "id": "01M7KYN2ENBHJ1EQVQC2Y579F6",
+   "started_at": "2026-11-17 05:11:10.035454+00",
+   "ended_at": "2026-11-17 05:15:54.266072+00",
+   "active_s": "284.20211279300565",
+   "end_state": "ended",
+   "stop_code": "PROVIDER_ERROR",
+   "trigger": "resume",
+   "code": {
+    "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+    "source": "environment",
+    "version": "1.10.0rc6",
+    "parser_version": "1.10.0"
+   }
+  }
+ ],
+ "ledger": {
+  "rows": 217,
+  "by_state": {
+   "settled": 210,
+   "unknown": 7
+  },
+  "results_charged": 190,
+  "usd_settled": 0.285
+ },
+ "executions": [
+  {
+   "stage": "M-R7a-full-run-110rc6-20261117",
+   "utc_start": "2026-11-17T03:00:20+00:00",
+   "utc_end": "2026-11-17T03:04:55+00:00",
+   "args": [
+    "run",
+    "--store",
+    "marianos-53100502-pickup",
+    "--rows-first",
+    "22,27,23,24,25,26,15",
+    "--term-upc",
+    "0001780014939",
+    "--term-upc",
+    "0001780014941",
+    "--term-upc",
+    "0002310014848",
+    "--term-upc",
+    "0003980014995"
+   ],
+   "exit_code": 75,
+   "seconds": 275.6,
+   "revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "gate_counts": {
+    "reserved": 46,
+    "dispatched": 46,
+    "unsent": 0,
+    "settled": 44,
+    "settled_free": 0,
+    "unknown": 2
+   }
+  },
+  {
+   "stage": "M-R7a2-full-run-110rc6-20261117",
+   "utc_start": "2026-11-17T04:00:23+00:00",
+   "utc_end": "2026-11-17T04:14:04+00:00",
+   "args": [
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 75,
+   "seconds": 820.6,
+   "revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "gate_counts": {
+    "reserved": 76,
+    "dispatched": 76,
+    "unsent": 0,
+    "settled": 68,
+    "settled_free": 6,
+    "unknown": 2
+   }
+  },
+  {
+   "stage": "M-R7b-full-run-110rc6-20261117",
+   "utc_start": "2026-11-17T04:40:26+00:00",
+   "utc_end": "2026-11-17T04:55:09+00:00",
+   "args": [
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 75,
+   "seconds": 883.0,
+   "revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "gate_counts": {
+    "reserved": 37,
+    "dispatched": 37,
+    "unsent": 0,
+    "settled": 29,
+    "settled_free": 6,
+    "unknown": 2
+   }
+  },
+  {
+   "stage": "M-R7w-walkthrough-110rc6-20261117",
+   "utc_start": "2026-11-17T05:05:39+00:00",
+   "utc_end": "2026-11-17T05:11:03+00:00",
+   "args": [
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 75,
+   "seconds": 324.2,
+   "revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "gate_counts": {
+    "reserved": 21,
+    "dispatched": 21,
+    "unsent": 0,
+    "settled": 18,
+    "settled_free": 3,
+    "unknown": 0
+   }
+  },
+  {
+   "stage": "M-R7w-walkthrough-110rc6-20261117",
+   "utc_start": "2026-11-17T05:11:07+00:00",
+   "utc_end": "2026-11-17T05:11:07+00:00",
+   "args": [
+    "run",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 9,
+   "seconds": 0.2,
+   "revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "gate_counts": null
+  },
+  {
+   "stage": "M-R7w-walkthrough-110rc6-20261117",
+   "utc_start": "2026-11-17T05:11:09+00:00",
+   "utc_end": "2026-11-17T05:15:54+00:00",
+   "args": [
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "exit_code": 75,
+   "seconds": 284.6,
+   "revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "gate_counts": {
+    "reserved": 14,
+    "dispatched": 14,
+    "unsent": 0,
+    "settled": 11,
+    "settled_free": 3,
+    "unknown": 0
+   }
+  }
+ ],
+ "pages": {
+  "answers": 183,
+  "by_state": {
+   "completed": 114,
+   "stopped": 44,
+   "refused": 17,
+   "failed": 8
+  },
+  "by_verdict": {
+   "new": 113,
+   "repeated": 44,
+   "malformed": 17,
+   "failed": 8,
+   "partial_overlap": 1
+  },
+  "store_checks": [
+   "N/A",
+   "PASS"
+  ],
+  "locations": [
+   "53100502"
+  ],
+  "modalities": [
+   "PICKUP"
+  ]
+ },
+ "set_aside": {
+  "requests": 29,
+  "by_state": {
+   "exhausted": 4,
+   "recovered": 20,
+   "waiting": 5
+  },
+  "reasks_answered": 35,
+  "new_products_from_reasks": 458,
+  "min_seconds_between_answers": 309.7
+ },
+ "export": "none: the run has no export yet (it is written when the run is finalized)",
+ "products": null,
+ "gates": null,
+ "nodes": null,
+ "status": "interrupted",
+ "outcome": null,
+ "pilot": false,
+ "store": {
+  "key": "marianos-53100502-pickup",
+  "name": "Marianos Vernon Hills",
+  "modality": "PICKUP",
+  "retailer": "marianos",
+  "location_id": "53100502"
+ },
+ "csv_rows": {},
+ "listings_not_complete": []
+}

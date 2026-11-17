@@ -1,0 +1,70 @@
+{
+ "evidence": "ev\\R7a2",
+ "listing_answers": 106,
+ "listings_and_partitions": 26,
+ "deferred_requests": 16,
+ "deferred_by_state": {
+  "exhausted": 1,
+  "recovered": 10,
+  "waiting": 5
+ },
+ "reasks_answered": 15,
+ "distinct_new_products_from_counted_reasks": 228,
+ "min_seconds_between_answers_of_a_request": 309.7,
+ "distinct_identities_all_counted_pages": 1479,
+ "validation_report": {
+  "status": null,
+  "dataset": null,
+  "gates": null,
+  "nodes": null
+ },
+ "cat_food_27021": [
+  {
+   "csv_row": "22",
+   "taxonomy_id": "27021",
+   "partition": "",
+   "stated_total_last": 234,
+   "stated_totals_seen": [
+    234
+   ],
+   "answers": 7,
+   "pages_counted": 2,
+   "states": {
+    "completed": 2,
+    "refused": 1,
+    "stopped": 4
+   },
+   "verdicts": {
+    "malformed": 1,
+    "new": 2,
+    "repeated": 4
+   },
+   "slots_counted": 48,
+   "distinct_counted": 48,
+   "duplicates_across_counted_pages": {},
+   "store_checks": [
+    "PASS"
+   ],
+   "locations": [
+    "53100502"
+   ],
+   "modalities": [
+    "PICKUP"
+   ],
+   "first_observed": "2026-11-17 03:02:26.284578+00",
+   "last_observed": "2026-11-17 04:13:13.254395+00"
+  }
+ ],
+ "upc_0002310014492_pages": [],
+ "listings_with_duplicate_slots": [],
+ "store_checks": [
+  "N/A",
+  "PASS"
+ ],
+ "locations": [
+  "53100502"
+ ],
+ "modalities": [
+  "PICKUP"
+ ]
+}

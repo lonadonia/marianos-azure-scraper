@@ -1,0 +1,6 @@
+# command: mstage6 refused-start M-R7w-walkthrough-110rc6-20261117 -- run --store marianos-53100502-pickup
+# started: 2026-11-17T05:11:07Z
+{"ts": "2026-11-17T05:11:07.867Z", "level": "ERROR", "event": "COMMAND_REFUSED", "collector": "marianos-azure-headless", "command": "run", "exit_code": 9, "message": "marianos-53100502-pickup has an unfinished run 01M7KQ5GZVF5VK1S9FGTG6YFC9 (interrupted): resume or finalize it", "run_id": "01M7KQ5GZVF5VK1S9FGTG6YFC9"}
+{"event": "LIVE111_REFUSED_START_ENDED", "stage": "M-R7w-walkthrough-110rc6-20261117", "exit_code": 9, "seconds": 0.2, "gate_refusals": []}
+# exit: 9
+# ended: 2026-11-17T05:11:07Z

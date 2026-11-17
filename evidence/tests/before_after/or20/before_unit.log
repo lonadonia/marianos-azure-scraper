@@ -1,0 +1,20 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0
+rootdir: [redacted:workstation-path]\or19b\headless\marianos-azure-headless
+configfile: pyproject.toml
+plugins: anyio-4.15.1, hypothesis-6.170.5, platformdirs-4.13.5
+collected 2 items
+
+tests\unit\test_source_index_or20.py FF                                  [100%]
+
+================================== FAILURES ===================================
+E   AttributeError: module 'marianos_headless.checks.source_check' has no attribute 'SourceIndex'
+[redacted:workstation-path]\or19b\headless\marianos-azure-headless\tests\unit\test_source_index_or20.py:14: AttributeError: module 'marianos_headless.checks.source_check' has no attribute 'SourceIndex'
+E   AttributeError: module 'marianos_headless.checks.source_check' has no attribute 'SourceIndex'
+[redacted:workstation-path]\or19b\headless\marianos-azure-headless\tests\unit\test_source_index_or20.py:27: AttributeError: module 'marianos_headless.checks.source_check' has no attribute 'SourceIndex'
+---------- generated xml file: [redacted:workstation-path]\logs\or20\before_unit.junit.xml ----------
+=========================== short test summary info ===========================
+FAILED tests/unit/test_source_index_or20.py::test_or20_a_price_stated_on_many_pages_is_kept_once_and_still_decides_the_record
+FAILED tests/unit/test_source_index_or20.py::test_or20_distinct_statements_are_all_kept_and_the_best_one_decides
+============================== 2 failed in 0.56s ==============================
+before-unit 2026-11-16T21:15:12Z -> 2026-11-16T21:15:14Z exit 1

@@ -116,6 +116,7 @@ def write_exports(
     prefix: str | None = None,
     fresh_products: Sequence[Mapping[str, str]] | None = None,
     supporting: Mapping[str, bytes] | None = None,
+    routes: Mapping[str, Any] | None = None,
 ) -> ExportSet:
     prefix = prefix or export_prefix(store_key, run_id)
     bodies = {
@@ -145,6 +146,9 @@ def write_exports(
         # Records this run observed itself (products_fresh.json); the rest of products.json is carried.
         **({"fresh_record_count": len(fresh_products)} if fresh_products is not None else {}),
         "dataset": dataset,
+        # Release 1.10.0rc6 (OR-04): the rows of the client's list read as routes of the run (the Coupons
+        # page): each one's verdict, which a complete dataset needs as READ when the run's plan names it.
+        **({"routes": dict(routes)} if routes else {}),
         "files": {
             name: {"key": ref.key, "sha256": ref.sha256, "size": ref.size} for name, ref in refs.items()
         },

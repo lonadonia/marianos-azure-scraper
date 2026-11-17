@@ -1,0 +1,16 @@
+== 2026-11-17T02:54:12Z 1.10.0rc6 refuses an incomplete run beside a published dataset (a copy of marianos_pubtest5)
+2026-11-17T02:54:13Z dump of marianos_pubtest5
+2026-11-17T02:54:14Z data folder copied
+  runs: target 3, copy 3
+  records: target 195, copy 195
+  listing_pages: target 15, copy 15
+  data files: target 78, copy 78
+2026-11-17T02:54:15Z copy pt5c made
+  db-upgrade: exit 0
+  pub_state_0_before_P5_publish.txt: 34 lines
+  CHECK PASSED: P5 refused by 1.10.0rc6 (exit 6), the refusal in its output
+  pub_state_1_after_P5_refusal.txt: 34 lines
+  COMPARE: RESULT as expected
+01M7JRXAKQEYA7A18HCEVXFT6X | 01M7JSWRSZD7E7Z2T4YA62TA8J | 3 | 2026-11-16 18:53:19.961451+00 | 01M7JRXD9P93HPNBRY3J0BVMSX | 73115fedbd8b2edcfef9aedf99232d9d4abece913f0ca48818e87e0f662b7e49
+copy pt5c dropped
+== 2026-11-17T02:54:29Z done

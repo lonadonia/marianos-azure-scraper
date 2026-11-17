@@ -1,0 +1,214 @@
+From 39278beb54a436d1400702ac70cc3b7d18bf0f8a Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Mon, 16 Nov 2026 21:15:00 +0000
+Subject: [PATCH 02/12] marianos-azure-headless 1.10.0rc6: a page for the store
+ whose product data has not loaded counts nothing and is asked again, not
+ taken for another store (OR-19)
+
+A listing answer whose own search names the run's store and fulfillment while its page state carries no
+product's data did not load: it is judged MALFORMED (not loaded), counts no product, keeps its search's
+identity, and is asked again within the task's attempt bounds (a re-ask stays a re-ask: the original reason
+is kept word for word). It never counts toward the abnormal-page stop, which is not resumable. When the
+attempts run out the run stops resumably (PROVIDER_ERROR) with the listing incomplete. An answer whose search
+names another store or fulfillment, or names none, still fails the store check and stops the run.
+---
+ .../collection/oxylabs_live.py                | 62 +++++++++++++++----
+ .../collection/pagination.py                  | 27 +++++++-
+ 2 files changed, 76 insertions(+), 13 deletions(-)
+
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+index 6c609b4..a8c63ac 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+@@ -399,7 +399,8 @@ class OxylabsCollector(LiveCollector):
+             state = {}
+         summary = search_summary(state)
+         products = state_products(state)
+-        shows = fetch.purpose != "coupons" and bool(products or grid_cards(html)[1])
++        drawn = 0 if fetch.purpose == "coupons" else len(grid_cards(html)[1])
++        shows = fetch.purpose != "coupons" and bool(products or drawn)
+         if summary is not None:
+             # Release 1.10.0rc5: a page brought before its search was made (live 2026-11-16, run F1: no
+             # request, still loading, no response, no product, no card) states no store for its search
+@@ -434,6 +435,17 @@ class OxylabsCollector(LiveCollector):
+             )
+         locs = Counter(price_location(p) for p in products)
+         stated = set(locs) - {None}
++        # Release 1.10.0rc6 (OR-19). Live 2026-11-16 (run F2, 18:56:02Z): an answer whose own search was made
++        # for the store and fulfillment (location 53100502, PICKUP, page 2, 45 results) while its state
++        # carried no product's data and its grid drew 3 cards. 1.10.0rc5 took the cards without data for
++        # prices it could not check, failed the page as another store's and stopped the run, not resumable.
++        # Such a page states no price at all: nothing on it can be recorded, the listing step counts no
++        # product from it and asks for it again (within the usual bounds). Its search's own store and
++        # fulfillment are its store proof, checked above (search_request) with every other check of the
++        # page. Cards without data on a page whose search names another store or fulfillment, or names
++        # none, still fail.
++        own_search = summary is not None and summary.location_id == loc and summary.modality == modality
++        unloaded = shows and not products and own_search
+         # Every price a page states must be the store's. A product whose data states no price (``price``
+         # empty, the card showing "Prices May Vary": temporarily out of stock at the store; live
+         # 2026-10-29, the search for "Fresh Herbs") has no price to check, as in the record checks: it is
+@@ -441,17 +453,37 @@ class OxylabsCollector(LiveCollector):
+         # nothing, the Coupons page) has none either; its store and fulfillment are still checked above,
+         # and the listing step tells an empty search from an abnormal page. A page that shows cards
+         # without their product data cannot be checked: it fails.
+-        ok = (stated == {loc}) if stated else (False if shows and not products else None)
++        ok: bool | None
++        if stated:
++            ok = stated == {loc}
++        elif shows and not products:
++            ok = None if unloaded else False
++        else:
++            ok = None
++        observed_prices: dict[str, Any] = {k or "no price stated": n for k, n in locs.items()}
++        if unloaded:
++            assert summary is not None
++            observed_prices = {
++                "product data": "not loaded",
++                "cards drawn": drawn,
++                "search": {
++                    "locationId": summary.location_id,
++                    "activeModalityType": summary.modality,
++                    "page": summary.page,
++                    "totalCount": summary.total,
++                },
++            }
+         v.checks.append(
+             StoreCheck(
+                 "price_locations",
+                 ok,
+-                {k or "no price stated": n for k, n in locs.items()},
++                observed_prices,
+                 loc,
+                 required=ok is not None,
+                 note="the store each price a page states is for (price.storePrices.sourceLocationId);"
+                 " not applicable to a product that states no price or a page that shows no product (the"
+-                " Coupons page, a search that found nothing)",
++                " Coupons page, a search that found nothing) or a page whose state carries no product's data"
++                " while its own search names the store and fulfillment (it counts no product)",
+             )
+         )
+         return v
+@@ -1546,7 +1578,7 @@ class OxylabsCollector(LiveCollector):
+             return self._facets_after(ctx, node, state, held)
+         v = self.verify(fetch)
+         view = self._view(fetch)
+-        facts = pagination.page_facts(1, self._summary, len(view.cards))
++        facts = pagination.page_facts(1, self._summary, len(view.cards), len(self._price_loc))
+         store_problem = "; ".join(v.failures())
+         # Judged as a first page in its own right: store, page, listing and filters as asked, and products.
+         j = pagination.judge(
+@@ -1625,7 +1657,7 @@ class OxylabsCollector(LiveCollector):
+             self.failed_in_a_row = 0
+             self.abnormal_in_a_row = 0
+             return named
+-        if j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED):
++        if j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED) and not j.unloaded:
+             self.abnormal_in_a_row += 1
+             if self.abnormal_in_a_row >= MAX_ABNORMAL_LISTINGS_IN_A_ROW:
+                 raise AbnormalPage(f"{url}: {j.detail}")
+@@ -1804,7 +1836,7 @@ class OxylabsCollector(LiveCollector):
+                     break
+                 v = self.verify(fetch)
+             view = self._view(fetch)
+-            facts = pagination.page_facts(page, self._summary, len(view.cards))
++            facts = pagination.page_facts(page, self._summary, len(view.cards), len(self._price_loc))
+             store_problem = "; ".join(v.failures())
+             j = pagination.judge(
+                 facts,
+@@ -1890,7 +1922,11 @@ class OxylabsCollector(LiveCollector):
+                         resumable=False,
+                     )
+                 if held is not None:
+-                    if again is not None and j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED):
++                    if (
++                        again is not None
++                        and j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED)
++                        and not j.unloaded
++                    ):
+                         self.abnormal_in_a_row += 1
+                         if self.abnormal_in_a_row >= MAX_ABNORMAL_LISTINGS_IN_A_ROW:
+                             raise AbnormalPage(f"{url}: {j.detail}")
+@@ -1905,9 +1941,13 @@ class OxylabsCollector(LiveCollector):
+                 if j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED) or (
+                     j.verdict in pagination.FILTER_VERDICTS and j.retry
+                 ):
+-                    self.abnormal_in_a_row += 1
+-                    if self.abnormal_in_a_row >= MAX_ABNORMAL_LISTINGS_IN_A_ROW:
+-                        raise AbnormalPage(f"{url}: {j.detail}")
++                    # 1.10.0rc6 (OR-19): a page that did not load is a failure to bring the page, as a
++                    # provider failure is: asked for again within the task's bounded retries; once they are
++                    # spent the run stops resumably with the page unread (never the abnormal-page stop).
++                    if not j.unloaded:
++                        self.abnormal_in_a_row += 1
++                        if self.abnormal_in_a_row >= MAX_ABNORMAL_LISTINGS_IN_A_ROW:
++                            raise AbnormalPage(f"{url}: {j.detail}")
+                     self._unread(ctx, node, page, j.detail)
+                 state.status = "INCOMPLETE"
+                 state.reason = f"{pagination.GAP}: page {page}: {j.detail}"[:1000]
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/pagination.py b/headless/marianos-azure-headless/src/marianos_headless/collection/pagination.py
+index cab636e..23afb82 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/pagination.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/pagination.py
+@@ -88,6 +88,9 @@ class PageFacts:
+     loaded: bool | None = None
+     loading: bool | None = None
+     has_error: bool | None = None
++    # Release 1.10.0rc6 (OR-19): the products whose data the page state carries (None: not counted, as
++    # for a page rebuilt from its stored row).
++    product_data: int | None = None
+ 
+ 
+ @dataclass(frozen=True)
+@@ -100,15 +103,22 @@ class Judgement:
+     retry: bool = False
+     # Release 1.9.0 (M2): what the response states about its filters and search binding.
+     binding: Mapping[str, Any] = field(default_factory=dict)
++    # Release 1.10.0rc6 (OR-19): the page state carries no product's data (the page did not load): asked
++    # for again within the retry bounds, never counted as an abnormal page.
++    unloaded: bool = False
+ 
+     @property
+     def accepted(self) -> bool:
+         return self.verdict in ACCEPTED
+ 
+ 
+-def page_facts(page: int, summary: SearchSummary | None, cards: int) -> PageFacts:
++def page_facts(
++    page: int, summary: SearchSummary | None, cards: int, product_data: int | None = None
++) -> PageFacts:
+     if summary is None:
+-        return PageFacts(page, None, (), None, None, None, None, None, (), (), cards)
++        return PageFacts(
++            page, None, (), None, None, None, None, None, (), (), cards, product_data=product_data
++        )
+     return PageFacts(
+         requested_page=page,
+         returned_page=summary.page,
+@@ -127,6 +137,7 @@ def page_facts(page: int, summary: SearchSummary | None, cards: int) -> PageFact
+         loaded=summary.loaded,
+         loading=summary.loading,
+         has_error=summary.has_error,
++        product_data=product_data,
+     )
+ 
+ 
+@@ -262,6 +273,18 @@ def judge(
+             again,
+             binding=binding,
+         )
++    if facts.product_data == 0:
++        # Release 1.10.0rc6 (OR-19). Live 2026-11-16 (run F2, re-ask 1 of page 2 of Espresso Coffee): the
++        # page's own search was made for the store and lists its results, but the page state carries no
++        # product's data and the grid draws a few cards. Nothing on it can be recorded: it counts no
++        # product and is asked for again within the usual bounds.
++        return Judgement(
++            PageVerdict.MALFORMED,
++            f"the page's search lists {len(facts.organic)} results and its state carries no product data "
++            f"(not loaded; {facts.cards} card(s) drawn): no product counted",
++            binding=binding,
++            unloaded=True,
++        )
+     if facts.cards < len(facts.organic):
+         return Judgement(
+             PageVerdict.MALFORMED,

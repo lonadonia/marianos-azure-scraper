@@ -1,0 +1,15 @@
+csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
+22,27017,https://www.marianos.com/pl/dog-food/27017,listing,1,1,1,completed,new,,224,224,24,0,24,0,0,0,5df8e920586c2966dfc7a3e93eb51c30c4442e7ce8c95baa6887c1b292d6d068,7528311132730193921
+22,27017,https://www.marianos.com/pl/dog-food/27017?page=2,listing,2,2,1,refused,malformed,the response states no page number or no result count,,,0,0,0,0,0,0,0ca40b58ae42b19e4682cbcfd8436e50d614e1dfd90a0644a60985d8cdadecd7,7528311368454280193
+22,27017,https://www.marianos.com/pl/dog-food/27017?page=2,listing,2,2,2,completed,new,,224,224,24,0,30,1,0,0,ee7a611d5a793574e9e4fa97b4aaf565130e34f27e0ff8058edeb7aba5ba065d,7528311500486795265
+22,27017,https://www.marianos.com/pl/dog-food/27017?page=3,listing,3,3,1,completed,new,,224,224,24,0,21,8,0,0,40d7394cf4a9eb743a622e86ce8882557458f7542589c0510c0dcb6a3678712a,7528311524536913921
+22,27017,https://www.marianos.com/pl/dog-food/27017?page=4,listing,4,4,1,completed,new,,224,224,24,0,22,7,0,0,33ff8d8ce3a094a33249a28e52984c77c8d54e30fc212fcdf6d59219884eedae,7528311545248390145
+22,27017,https://www.marianos.com/pl/dog-food/27017?page=5,listing,5,5,1,completed,new,,224,224,24,0,24,8,0,0,e48d696ef0d29f724cd71dcdf5c9dc00dc301b6210bf21bbd398d0c837c7fad5,7528311565527841793
+22,27017,https://www.marianos.com/pl/dog-food/27017?page=6,listing,6,6,1,completed,new,,224,224,24,0,23,8,0,0,d38a5d1075269a6f2b739d529f66e4b48de08f75998cf40b8a06473223e1a5e5,7528311583940816897
+22,27017,https://www.marianos.com/pl/dog-food/27017?page=7,listing,7,7,1,completed,new,,224,224,24,0,24,8,0,0,0de7fb7025b38e49617ddcd82fccfd566e6768c2400126e1d348b07f0c44b194,7528311607496073217
+22,27017,https://www.marianos.com/pl/dog-food/27017?page=8,listing,8,8,1,completed,new,,224,224,24,0,24,8,0,0,a6441c3d4afaa524d3c1a106398be465ae114b6c72802cb2d8a3482c133e9c90,7528311651964073985
+22,27017,https://www.marianos.com/pl/dog-food/27017?page=9,listing,9,9,1,completed,new,,224,224,24,0,24,8,0,0,dcc4833f6e990059d9fab359322b07449fe393af3bf68f50282edcf72381f04d,7528311675502467073
+22,27017,https://www.marianos.com/pl/dog-food/27017?page=10,listing,10,10,1,completed,new,,224,224,8,0,8,7,0,0,f01c1c631399d760801e6866a9627e4de6d266aab1d191cac0ebb2c227f61cdb,7528311694829824002
+27,33,https://www.marianos.com/pl/hardware-home-improvement/33,listing,1,1,1,completed,new,,65,65,24,7,24,0,0,2,126bc11b7bcba6a968b9d1e97858cc0f05d981a7b67dffcb59251036a3f05c9e,7528311392173092865
+27,33,https://www.marianos.com/pl/hardware-home-improvement/33?page=2,listing,2,2,1,completed,new,,65,65,24,0,24,2,0,0,6dc4d7e2e4f0c73c029948435bcaab81e8bead4f497ca77267d9e1572ff8ec29,7528311412746104833
+27,33,https://www.marianos.com/pl/hardware-home-improvement/33?page=3,listing,3,3,1,completed,new,,65,65,17,0,17,2,0,1,21ef65c76b298bbed12b481d667382982e395a228c2c9f8ff95c85c041cfd823,7528311484175133697

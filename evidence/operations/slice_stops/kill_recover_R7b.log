@@ -1,0 +1,36 @@
+== 2026-11-17T04:35:25.698Z kill_recover start: unit=marianos-stage-r7b then marianos-stage-r7b2, stage=M-R7b-full-run-110rc6-20261117, kill after 15 pages
+== 2026-11-17T04:38:48.180Z 15 pages collected; in flight just before the kill:
+4ca791f7d2d543e887cf88bb1ef6659f | dispatched | 6 | listing (attempt 3) | 2026-11-17T04:38:37.397481Z | 2026-11-17T04:38:37.414800Z
+== 2026-11-17T04:38:48.217Z SIGKILL to every process of marianos-stage-r7b
+== 2026-11-17T04:38:48.740Z unit after the kill:
+Result=signal
+ExecMainCode=2
+ExecMainStatus=9
+ActiveState=failed
+SubState=failed
+== 2026-11-17T04:38:48.745Z the run as the dead worker left it (id | status | stop_code)
+01M7KQ5GZVF5VK1S9FGTG6YFC9 | running | -
+== open segments (id | started_at | ended_at | end_state)
+01M7KQ5H6KDYDQEWNQJY7NTH23 | 2026-11-17 03:00:20.817949+00 | 2026-11-17 03:04:55.879433+00 | ended
+01M7KTKFXRM3FAR0N3KTQ2CJC7 | 2026-11-17 04:00:23.991121+00 | 2026-11-17 04:14:04.224341+00 | ended
+01M7KWKG7QG6KQTA4Z2Y949ER9 | 2026-11-17 04:35:21.462399+00 | - | -
+== tasks held by a lease (id | state | lease_owner | lease_expires_at)
+01M7KQ5H0J3NEPZ5CZP61VGP60 | running | [redacted:vm-hostname]:119374 | 2026-11-17 04:40:30.121878+00
+01M7KV82Y7NYG2BEAJY9HK55PP | running | [redacted:vm-hostname]:119374 | 2026-11-17 04:40:48.114929+00
+== run_locks
+01M7JN611WMAGDJW7Y9YVFQRZE | 01M7KQ5GZVF5VK1S9FGTG6YFC9 | [redacted:vm-hostname]:119374 | 2026-11-17 04:35:21.429073+00 | 2026-11-17 04:40:21.429073+00
+== ledger rows of the stage in flight or unknown (id | state | lease | purpose | created | updated)
+4ca791f7d2d543e887cf88bb1ef6659f | dispatched | 6 | listing (attempt 3) | 2026-11-17T04:38:37.397481Z | 2026-11-17T04:38:37.414800Z
+== latest ledger lease (id | holder | acquired | expires | released | reason)
+6 | live111:M-R7b-full-run-110rc6-20261117:119374 | 2026-11-17T04:35:20.772324Z | 2026-11-17T04:40:21.438796Z | None | None
+== 2026-11-17T04:38:49.028Z waiting until the dead lease expires at 2026-11-17T04:40:21.438796Z
+== 2026-11-17T04:40:26.178Z resuming run 01M7KQ5GZVF5VK1S9FGTG6YFC9 in the same stage as marianos-stage-r7b2
+active
+== 2026-11-17T04:40:31.209Z watcher: active
+== 2026-11-17T04:40:31.230Z slice stopper for marianos-stage-r7b2 at 600 reservations: active
+== latest ledger lease after the resume (the dead one expired, a new one acquired)
+7 | live111:M-R7b-full-run-110rc6-20261117:122578 | 2026-11-17T04:40:26.528518Z | 2026-11-17T04:42:26.528518Z | None | None
+6 | live111:M-R7b-full-run-110rc6-20261117:119374 | 2026-11-17T04:35:20.772324Z | 2026-11-17T04:40:21.438796Z | 2026-11-17T04:40:26.528997Z | expired before a new acquisition
+== ledger rows of the stage now unknown or released unsent (id | state | lease | purpose | created | updated)
+4ca791f7d2d543e887cf88bb1ef6659f | unknown | 6 | listing (attempt 3) | 2026-11-17T04:38:37.397481Z | 2026-11-17T04:40:26.528840Z
+== 2026-11-17T04:40:31.312Z kill_recover done

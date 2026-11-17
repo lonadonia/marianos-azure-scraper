@@ -1,0 +1,57 @@
+From 82f1901cd24311c8bd8b1149dbda8d189807804a Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Mon, 16 Nov 2026 21:56:28 +0000
+Subject: [PATCH 10/12] marianos-azure-headless 1.10.0rc6: README, what the
+ candidate corrects and adds
+
+---
+ headless/marianos-azure-headless/README.md | 36 +++++++++++++++++++++-
+ 1 file changed, 35 insertions(+), 1 deletion(-)
+
+diff --git a/headless/marianos-azure-headless/README.md b/headless/marianos-azure-headless/README.md
+index d69b960..af4cdf2 100644
+--- a/headless/marianos-azure-headless/README.md
++++ b/headless/marianos-azure-headless/README.md
+@@ -92,7 +92,41 @@ validated run is also published:
+   Azure), with the results, for the releases up to 1.2.1; the verification of each later release is in that
+   release's delivery (TECHNICAL_REPORT).
+ 
+-## Release 1.10.0 (candidate 1.10.0rc5, not a final release): a request set aside and asked again (C1)
++## Release 1.10.0 (candidate 1.10.0rc6, not a final release): a request set aside and asked again (C1)
++
++**1.10.0rc6: three defects found by the full run F2 (1.10.0rc5, 2026-11-16) corrected, and the run's order
++and product pages chosen from F2's traces.** Each defect has a focused test that fails on 1.10.0rc5 and
++passes here.
++
++* **OR-19, a re-ask answered before its products loaded.** F2 stopped (`STORE_NOT_VERIFIED`, exit 7, not
++  resumable) on a re-ask of Espresso Coffee page 2 whose own search named the configured store (53100502,
++  PICKUP) while its page state carried no product's data and its grid drew 3 cards. Such an answer now counts
++  no product, keeps its identity and the request's original reason, and is asked again within the task's
++  bounded retries or set aside; an unresolved repeat or spent retries leave the listing incomplete. Another
++  store, another fulfillment or a page without its store proof still stop the run.
++* **OR-20, `validate-export` within a small VM's memory.** The command held every page's text and every
++  embedded product at once and was killed on F2's 575 pages. It now reads one stored page at a time and keeps
++  only the distinct price statements it needs; it checks every record against them, every capture named by
++  the supporting log against its stored bytes and hash (missing, corrupted, unreadable, not named), and lists
++  each mismatch with the record's and the source's values. The report states the seconds, the sources read
++  and the peak memory.
++* **OR-04, the Coupons row read only when its list loaded.** Seven of twelve earlier answers rendered the
++  coupons tab before its list loaded and were recorded as read with 0 coupons. The page is now read as
++  loaded with cards, loaded and empty (a stated 0 without the loading indicator) or not loaded; a page not
++  loaded is asked again after the listings (at most `coupons_attempts`, 4, `coupons_retry_wait_s`, 60 s,
++  apart, across restarts). A run whose plan names the row is complete only when it is READ (G3; the dataset
++  label; the coverage file's row 0; the manifest's `routes`). A product page still loading proves no coupon
++  absent (`unread_loading`).
++* **Order.** A listing read through its subdivisions is finished before the plan's next listing starts
++  (F2 left 25 listings above the window with none of their subdivisions read). `run --rows-first 22,27,15`
++  reads those rows first, the others after in the CSV's order (recorded as the run's order; not a scope
++  limit).
++* **Product pages.** `run --term-upc UPC` (repeatable) reads the own pages of the named products only, once
++  per run when their cards are met; with `coverage.read_product_terms` on, every tile's page would be one
++  more request.
++
++### C1 and the earlier candidates of 1.10.0
++
+ 
+ On 2026-11-09 some answers to a listing's page N listed page 1's products, and some first pages of a
+ listing above the site's 250-result window named no child listing and no brand to subdivide it by; minutes

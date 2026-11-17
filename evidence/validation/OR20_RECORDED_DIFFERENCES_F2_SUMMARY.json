@@ -1,0 +1,27 @@
+{
+ "rows": 142,
+ "by_field_and_status": {
+  "regular_price/price_conflict": 132,
+  "store/exported_not_valid": 10
+ },
+ "regular_price_difference_cents": {
+  "-1": 132
+ },
+ "regular_price_rows_whose_sale_price_agrees": 132,
+ "regular_price_rows_whose_card_shows_the_exported_value": 132,
+ "validate_export_summary": {
+  "records": 8104,
+  "verified": 7962,
+  "mismatch": 0,
+  "unverified": 0,
+  "recorded_conflict": 132,
+  "recorded_store_not_stated": 10
+ },
+ "checks": {
+  "every listed record is excluded from the valid records": true,
+  "regular_price rows == validate-export recorded_conflict": true,
+  "store rows == validate-export recorded_store_not_stated": true,
+  "validate-export silent mismatches == 0": true,
+  "mismatched_fields agree": true
+ }
+}

@@ -1,0 +1,7 @@
+# 2026-11-17T06:52:49Z commit 021b23f marianos-azure-headless next: OR-24, a listing page parse and the page being recorded are put back once its product pages are read, so the other lane no longer re
+# python -m pytest -p no:cacheprovider tests/integration/test_lanes_or24.py -rA
+# imported from marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+PASSED tests/integration/test_lanes_or24.py::test_or24_a_page_waiting_for_a_product_page_keeps_its_products_while_the_other_lane_reads
+PASSED tests/integration/test_lanes_or24.py::test_or24_on_the_search_route_the_waiting_page_and_its_record_are_kept_while_the_other_lane_reads
+============================= 2 passed in 14.99s ==============================
+# exit 0

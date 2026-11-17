@@ -278,8 +278,8 @@ class ProductEvidence:
     # False: a tile (served since 2026-11-06), which shows no coupon even for a product whose own page shows
     # one (release 1.9.0rc3): its empty coupon zone is not an observed absence.
     listing_shows_coupons: bool = True
-    # The product's own page read for its coupons: "rendered", "not_rendered" (not brought rendered), or ""
-    # (not read).
+    # The product's own page read for its coupons: "rendered", "not_rendered" (not brought rendered),
+    # "loading" (1.10.0rc6: rendered but still loading, no coupon shown) or "" (not read).
     product_page_read: str = ""
     brand: str | None = None
     is_ship_only: bool = False
@@ -428,7 +428,10 @@ def no_coupon_reason(evidence: ProductEvidence) -> str:
         return "no digital coupon is displayed"
     if evidence.product_page_read == "rendered":
         return "neither the tile nor the product's own page, rendered, shows an applicable digital coupon"
-    page = "was not brought rendered" if evidence.product_page_read == "not_rendered" else "was not read"
+    page = {
+        "not_rendered": "was not brought rendered",
+        "loading": "was still loading (the site's loading indicator, no coupon shown)",
+    }.get(evidence.product_page_read, "was not read")
     return (
         "the tile shows no coupon (tiles omit coupons that the product's own page shows) and that page "
         f"{page}: {COUPON_UNKNOWN}"

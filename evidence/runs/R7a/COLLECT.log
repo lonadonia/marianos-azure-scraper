@@ -1,0 +1,22 @@
+stage=M-R7a-full-run-110rc6-20261117 run=01M7KQ5GZVF5VK1S9FGTG6YFC9 collected_at=2026-11-17T03:08:47Z
+status exit 0
+export exit 2
+validate-export exit 2
+runs 0
+listing_pages 0
+deferred 0
+events 0
+provider_usage 0
+node_coverage 0
+page_fetches 0
+tasks 0
+audit_log 0
+collection_segments 0
+store_attestations 0
+validation_findings 0
+exports 0
+publications 0
+publication_pointer 0
+ledger rows 46 {"settled": 44, "unknown": 2}
+chain 0
+stored not copied (SKIP_STORED); listing of 81 files

@@ -1,0 +1,211 @@
+{
+ "title": "Mariano's collector 1.10.0rc6 walkthrough, M-R7w-walkthrough-110rc6-20261117",
+ "steps": [
+  {
+   "say": [
+    "Mariano's collector 1.10.0rc6 (commit d77f306), recorded on Hamza's own Azure test VM (Ubuntu 24.04),",
+    "not on the client's VM. Store: Mariano's Vernon Hills 53100502, PICKUP. Provider: Oxylabs Web API,",
+    "the credit Hamza supplied, every submission reserved in its own spending ledger before it is sent.",
+    "Every command below runs for real while it is recorded; nothing is edited afterwards. The published",
+    "copy masks private identifiers (host name, paths) and nothing else.",
+    "The run shown is the logical full-scope run 01M7KQ5GZVF5VK1S9FGTG6YFC9, read in slices; this is the slice M-R7w-walkthrough-110rc6-20261117."
+   ]
+  },
+  {
+   "cmd": "marianos --version",
+   "argv": [
+    "marianos",
+    "--version"
+   ],
+   "save": "version"
+  },
+  {
+   "say": [
+    "The run as the collector records it: interrupted by the operator's SIGTERM that ended the previous slice,",
+    "resumable."
+   ]
+  },
+  {
+   "cmd": "marianos status --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py status -",
+   "argv": [
+    "bash",
+    "-c",
+    "marianos status --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py status -"
+   ],
+   "save": "status_before"
+  },
+  {
+   "say": [
+    "The spending ledger of this credit: hash chain, active lease, what Mariano's can still spend."
+   ]
+  },
+  {
+   "cmd": "mstage6 ledger-status",
+   "argv": [
+    "bash",
+    "-c",
+    "mstage6 ledger-status | python3 -I -c 'import json,sys; d=json.load(sys.stdin); m=d[\"projects\"][\"marianos\"]; print(\"chain\", d[\"chain\"], \"| lease\", d[\"active_lease\"], \"| Mariano\\x27s committed\", m[\"committed_usd\"], \"| spendable\", m[\"spendable_in_envelope_usd\"], \"| held unknown\", m[\"unknown_rows\"], \"rows\")'"
+   ],
+   "save": "ledger_before"
+  },
+  {
+   "say": [
+    "Resume the run as a service (it survives a lost SSH session), two lanes, and follow its log. After 12 pages",
+    "it is stopped with SIGTERM (systemctl stop): the collector records a resumable stop (exit 75)."
+   ]
+  },
+  {
+   "cmd": "run_and_follow6.sh marianos-stage-r7w M-R7w-walkthrough-110rc6-20261117 resume --store marianos-53100502-pickup",
+   "argv": [
+    "/var/lib/marianos-collector/ops-rc6/walk/run_and_follow6.sh",
+    "marianos-stage-r7w",
+    "M-R7w-walkthrough-110rc6-20261117",
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "save": "resume_then_sigterm",
+   "view": "events",
+   "kill_after": {
+    "event": "PAGE_COLLECTED",
+    "count": 12,
+    "cmd": "systemctl stop marianos-stage-r7w   # SIGTERM",
+    "argv": [
+     "systemctl",
+     "stop",
+     "marianos-stage-r7w"
+    ],
+    "save": "sigterm"
+   }
+  },
+  {
+   "cmd": "marianos status --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py status -",
+   "argv": [
+    "bash",
+    "-c",
+    "marianos status --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py status -"
+   ],
+   "save": "status_after_sigterm"
+  },
+  {
+   "say": [
+    "A second start for the store while it has an unfinished run is refused before any request: the harness",
+    "gives it a gate that refuses every submission, and none is even attempted (exit 9)."
+   ]
+  },
+  {
+   "cmd": "mstage6 refused-start M-R7w-walkthrough-110rc6-20261117 -- run --store marianos-53100502-pickup",
+   "argv": [
+    "mstage6",
+    "refused-start",
+    "M-R7w-walkthrough-110rc6-20261117",
+    "--",
+    "run",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "save": "refused_start",
+   "view": "events"
+  },
+  {
+   "say": [
+    "Resume again, with the slice stopper beside it: the run goes on until this slice's stage holds 100 reservations",
+    "in the ledger (then SIGTERM: exit 75, resumable), or until the run itself ends, whichever comes first.",
+    "Pages completed before the stop are not asked again."
+   ]
+  },
+  {
+   "cmd": "SLICE_TARGET=100 run_and_follow6.sh marianos-stage-r7w-2 M-R7w-walkthrough-110rc6-20261117 resume --store marianos-53100502-pickup",
+   "argv": [
+    "env",
+    "SLICE_TARGET=100",
+    "/var/lib/marianos-collector/ops-rc6/walk/run_and_follow6.sh",
+    "marianos-stage-r7w-2",
+    "M-R7w-walkthrough-110rc6-20261117",
+    "resume",
+    "--store",
+    "marianos-53100502-pickup"
+   ],
+   "save": "resume_to_target",
+   "view": "events"
+  },
+  {
+   "cmd": "marianos status --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py status -",
+   "argv": [
+    "bash",
+    "-c",
+    "marianos status --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py status -"
+   ],
+   "save": "status_final"
+  },
+  {
+   "say": [
+    "An attempt to publish the run as it now stands (only a complete run whose gates pass is published;",
+    "anything else is refused with exit 6 and the published dataset is left as it was):"
+   ]
+  },
+  {
+   "cmd": "marianos publish --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py result -",
+   "argv": [
+    "bash",
+    "-c",
+    "marianos publish --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py result -; exit ${PIPESTATUS[0]}"
+   ],
+   "save": "publish_attempt"
+  },
+  {
+   "say": [
+    "The coverage of the CSV rows, when the run has ended and exported its records:"
+   ]
+  },
+  {
+   "cmd": "python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py coverage <the run's export folder>",
+   "argv": [
+    "bash",
+    "-c",
+    "if [ -f /var/lib/marianos-collector/rc5/data/runs/marianos-53100502-pickup/01M7KQ5GZVF5VK1S9FGTG6YFC9/exports/manifest.json ]; then python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py coverage /var/lib/marianos-collector/rc5/data/runs/marianos-53100502-pickup/01M7KQ5GZVF5VK1S9FGTG6YFC9/exports; else echo 'no export yet: the run is interrupted and resumable, and exports its records when it ends'; fi"
+   ],
+   "save": "coverage"
+  },
+  {
+   "say": [
+    "Records traced to the stored page they were read from (its SHA-256 checked), and the tile read again",
+    "independently of the collector, when the run has exported them:"
+   ]
+  },
+  {
+   "cmd": "trace_record.py <the run's export folder> <data folder> 0084024314377 0001280052496 0001780014939 0001780014941 0002310014848 0003980014995",
+   "argv": [
+    "bash",
+    "-c",
+    "if [ -f /var/lib/marianos-collector/rc5/data/runs/marianos-53100502-pickup/01M7KQ5GZVF5VK1S9FGTG6YFC9/exports/manifest.json ]; then sudo -u marianos /opt/marianos-collector/current/venv/bin/python -I /var/lib/marianos-collector/ops-rc6/walk/tools/trace_record.py /var/lib/marianos-collector/rc5/data/runs/marianos-53100502-pickup/01M7KQ5GZVF5VK1S9FGTG6YFC9/exports /var/lib/marianos-collector/rc5/data 0084024314377 0001280052496 0001780014939 0001780014941 0002310014848 0003980014995; else echo 'no export yet: nothing to trace'; fi"
+   ],
+   "save": "trace"
+  },
+  {
+   "cmd": "mstage6 ledger-status",
+   "argv": [
+    "bash",
+    "-c",
+    "mstage6 ledger-status | python3 -I -c 'import json,sys; d=json.load(sys.stdin); m=d[\"projects\"][\"marianos\"]; print(\"chain\", d[\"chain\"], \"| lease\", d[\"active_lease\"], \"| Mariano\\x27s committed\", m[\"committed_usd\"], \"| spendable\", m[\"spendable_in_envelope_usd\"], \"| held unknown\", m[\"unknown_rows\"], \"rows\")'"
+   ],
+   "save": "ledger_after"
+  },
+  {
+   "cmd": "systemctl list-units --no-legend 'marianos-*'",
+   "argv": [
+    "bash",
+    "-c",
+    "systemctl list-units --no-legend 'marianos-*'; echo \"(units listed above; none means no collector process is left running)\""
+   ],
+   "save": "units_left"
+  },
+  {
+   "say": [
+    "End of the walkthrough. Not shown here, and still open: the client's VM (a separately authorized",
+    "window), the twice-weekly schedule (enabled only after a protected full-scope publication) and the",
+    "client's own review."
+   ]
+  }
+ ]
+}

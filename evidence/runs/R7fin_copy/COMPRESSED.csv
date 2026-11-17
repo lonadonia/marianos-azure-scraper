@@ -1,0 +1,3 @@
+file,published_as,sha256_uncompressed,bytes_uncompressed
+export/products.json,export/products.json.gz,24460a0a1c58803d8bd327eb3135e67e4b67ce6e69427c086fb4a49e7a0d990d,9769586
+export/provenance.json,export/provenance.json.gz,031fb9e53d49d19a82840b67e9de168ae0767a7930eba288b556000d1f24454f,44645542

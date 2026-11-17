@@ -432,6 +432,101 @@ def test_a_page_without_its_search_that_shows_products_or_another_store_still_st
         assert len(_upcs(s, run_id)) == 24  # nothing of the refused page
 
 
+# -- release 1.10.0rc6, OR-19: a page for the store whose product data has not loaded ------------------------
+
+
+@pytest.mark.parametrize("page", [1, 2])
+def test_or19_a_page_for_the_store_whose_product_data_has_not_loaded_counts_nothing_and_is_asked_again(
+    env: dict[str, Any], settings: Settings, page: int
+) -> None:
+    """Release 1.10.0rc6 (OR-19); expected to FAIL on 1.10.0rc5. Live 2026-11-16 (run F2, 18:56:02Z): an
+    answer whose own search was made for the store and fulfillment (53100502, Pickup) and lists its results,
+    while its state carried no product's data and its grid drew 3 cards. 1.10.0rc5 read the cards without data
+    as prices it could not check, judged the page another store's (wrong_context) and stopped the run, not
+    resumable (STORE_NOT_VERIFIED). Such a page prices nothing: it is kept with its identity (the search's own
+    store and fulfillment), counts no product, and is asked for again within the task's bounded retries; the
+    run goes on."""
+    site = _complete(60)
+    site.on("03001", page, "products_not_loaded")
+    run_id, status = _run(env, settings, site)
+    assert status != "interrupted", status
+    assert site.asked.count(("03001", page)) == 2
+    with env["factory"]() as s:
+        run = s.get(Run, run_id)
+        assert run is not None and run.stop_code is None, (run.status, run.stop_code)
+        pages = _pages(s, run_id)
+        assert (page, "refused", "malformed") in pages
+        assert [p for p in pages if p[1] == "completed"] == [
+            (1, "completed", "new"),
+            (2, "completed", "new"),
+            (3, "completed", "new"),
+        ]
+        shell = next(r for r in _rows(s, run_id) if r.state == "refused")
+        # kept with its identity: the results its search listed, the store and fulfillment it was made for
+        assert shell.store_check == "PASS" and shell.new_count == 0 and len(shell.identities) == 24
+        first = next(r for r in _rows(s, run_id) if r.state == "completed")
+        assert shell.location_id and (shell.location_id, shell.modality) == (
+            first.location_id,
+            first.modality,
+        )
+        assert "carries no product data" in shell.detail, shell.detail
+        upcs = _upcs(s, run_id)
+        assert len(upcs) == 60 and len(set(upcs)) == 60
+        cov = _coverage(s, run_id)
+        assert cov is not None and (cov.status, cov.total_count) == ("DONE", 60)
+
+
+def test_or19_a_page_whose_product_data_never_loads_is_asked_again_only_within_its_bounds(
+    env: dict[str, Any], settings: Settings
+) -> None:
+    """Release 1.10.0rc6 (OR-19), its bound; expected to FAIL on 1.10.0rc5 (the run stops at once with
+    STORE_NOT_VERIFIED, not resumable). Page 2 comes back without its product data every time: each answer is
+    kept and counts nothing, the task's retries are spent, and the run stops RESUMABLY with page 2 unread; no
+    product of page 2 or 3 is counted and the listing is not complete."""
+    site = _complete(60)
+    site.on("03001", 2, *(["products_not_loaded"] * 12))
+    run_id, status = _run(env, settings, site)
+    asked = site.asked.count(("03001", 2))
+    assert 2 <= asked <= settings.retries.max_attempts_per_task, asked
+    with env["factory"]() as s:
+        run = s.get(Run, run_id)
+        assert run is not None and run.stop_code != "STORE_NOT_VERIFIED", (run.status, run.stop_code)
+        assert status == "interrupted" and run.stop_code == "PROVIDER_ERROR", (status, run.stop_code)
+        pages = _pages(s, run_id)
+        assert pages[0] == (1, "completed", "new")
+        assert all(p == (2, "refused", "malformed") for p in pages[1:]) and len(pages) == 1 + asked
+        assert len(_upcs(s, run_id)) == 24
+        cov = _coverage(s, run_id)
+        assert cov is None or cov.status != "DONE"
+
+
+@pytest.mark.parametrize(
+    "what",
+    [
+        "products_not_loaded_other_store",
+        "products_not_loaded_other_fulfillment",
+        "products_not_loaded_no_store_proof",
+    ],
+)
+def test_or19_a_page_without_product_data_whose_search_is_not_the_stores_still_stops_the_run(
+    env: dict[str, Any], settings: Settings, what: str
+) -> None:
+    """Release 1.10.0rc6 (OR-19), its bounds (expected to pass before and after the fix): cards without
+    product data on a page whose own search names another store, another fulfillment, or no store at all
+    cannot be told from another store's page: the run stops, not resumable (STORE_NOT_VERIFIED), and nothing
+    of the page is counted."""
+    site = _complete(60)
+    site.on("03001", 2, what)
+    run_id, status = _run(env, settings, site)
+    assert status == "rejected"
+    assert site.asked == [("03001", 1), ("03001", 2)]
+    with env["factory"]() as s:
+        run = s.get(Run, run_id)
+        assert run is not None and run.stop_code == "STORE_NOT_VERIFIED"
+        assert _pages(s, run_id) == [(1, "completed", "new"), (2, "refused", "wrong_context")]
+        assert len(_upcs(s, run_id)) == 24
+
+
 def test_a_blocked_page_stops_the_run_without_retrying_and_is_not_counted(
     env: dict[str, Any], settings: Settings
 ) -> None:

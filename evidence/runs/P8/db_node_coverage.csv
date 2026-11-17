@@ -1,0 +1,3 @@
+id,run_id,category_source_id,taxonomy_id,total_count,organic_upcs,coverage_ratio,status,partition
+01M7KVTD8287C36PTTK5F28AQ4,01M7KVRMP5X4THRJ8EE50PVKSK,01M7KVRHZM9WRGA5680V8X18RQ,27017,224,224,1,DONE,"{""url"": ""https://www.marianos.com/pl/dog-food/27017"", ""read"": {""route"": ""listing"", ""pages_read"": 10}, ""steps"": 10, ""parent"": null, ""reason"": """", ""available"": 224, ""partitions"": []}"
+01M7KVTQ88EE19Y5K5MG2FK6AJ,01M7KVRMP5X4THRJ8EE50PVKSK,01M7KVRHZM9WRGA5680V8X18RW,33,65,65,1,DONE,"{""url"": ""https://www.marianos.com/pl/hardware-home-improvement/33?pzn=relevance"", ""read"": {""route"": ""listing"", ""pages_read"": 3}, ""steps"": 3, ""parent"": null, ""reason"": """", ""available"": 65, ""partitions"": []}"

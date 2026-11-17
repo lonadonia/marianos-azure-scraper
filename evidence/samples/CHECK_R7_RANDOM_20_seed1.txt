@@ -1,0 +1,142 @@
+20 records drawn at random (seed 1) of 10536
+=== 0001450000711  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/frozen-family-meals-sides/19015  observed 2026-11-16T17:42:14.208373Z  sha256 5351cfdc56677a3219aeb25d348915c1767680f1ec362c454665c145e8e0ab28
+    title    export 'Birds Eye Voila! Garlic Chicken Skillet Meals, Frozen Meal'
+             source 'Birds Eye Voila! Garlic Chicken Skillet Meals, Frozen Meal'  same
+    prices   export {'regular_price': '6.49'}  source price text '$6.49$6.49'  regular_price shown
+    per unit export '$0.31/oz'  source '$0.31/oz'  same
+    also     weight '21 OZ', category 'Frozen' / 'Frozen Family Meals & Sides', url https://www.marianos.com/p/birds-eye-voila-garlic-chicken-skillet-meals-frozen-meal/0001450000711
+=== 0083330200536  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/red-blend-wine/0812000569?page=9  observed 2026-11-17T05:06:20.818504Z  sha256 771daee1b9a28a72784e1bbdbc07a105637912bfd0c777d19c4ab31111bd1590
+    title    export 'Big Smooth Zinfandel California Red Wine'
+             source 'Big Smooth Zinfandel California Red Wine'  same
+    prices   export {'regular_price': '21.99'}  source price text '$21.99$21.99'  regular_price shown
+    per unit export '$0.87/fl oz'  source '$0.87/fl oz'  same
+    also     weight '750 ml', category 'Beer Wine Liquor' / 'Red Wine', url https://www.marianos.com/p/big-smooth-zinfandel-california-red-wine/0083330200536
+=== 0001111016603  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/juice-breakfast-drinks/03007  observed 2026-11-16T17:59:36.801987Z  sha256 6ac0f23c87cbad90541821fab93bd58acb9e6ce698ab30937175f848391373d7
+    title    export 'Kroger® Zero Sugar Cranberry Grape Flavored Juice Cocktail'
+             source 'Kroger® Zero Sugar Cranberry Grape Flavored Juice Cocktail'  same
+    prices   export {'regular_price': '2.99'}  source price text '$2.99$2.99'  regular_price shown
+    per unit export '$2.99/oz'  source '$2.99/oz'  same
+    also     weight '64 fl oz', category 'Breakfast' / 'Juice & Breakfast Drinks', url https://www.marianos.com/p/kroger-zero-sugar-cranberry-grape-flavored-juice-cocktail/0001111016603
+=== 0004227200121  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/frozen-appetizers-snacks/19006?page=7  observed 2026-11-16T17:48:00.446846Z  sha256 7e72707dc1ee7e7ceb5dec355834b146bcd4f6cb941b8bf592176ac6e117d13f
+    title    export "Amy's® Cheese Pizza Snacks"
+             source "Amy's® Cheese Pizza Snacks"  same
+    prices   export {'regular_price': '5.49'}  source price text '$5.49$5.49'  regular_price shown
+    per unit export '$0.92/oz'  source '$0.92/oz'  same
+    also     weight '6 oz', category 'Frozen' / 'Frozen Appetizers & Snacks', url https://www.marianos.com/p/amy-s-cheese-pizza-snacks/0004227200121
+=== 0001115099416  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/fresh-herbs/06122?page=2  observed 2026-11-17T05:32:54.991864Z  sha256 571cbae1589519b3ea351d39bf39a133b629764885c5420546bd1f019853e032
+    title    export "Roundy's Organics Lemon Grass"
+             source "Roundy's Organics Lemon Grass"  same
+    prices   export {'regular_price': '2.50'}  source price text '$2.50$2.50'  regular_price shown
+    per unit export ''  source ''  same
+    also     weight '0.75 oz', category 'Produce' / 'Fresh Herbs', url https://www.marianos.com/p/roundy-s-organics-lemon-grass/0001115099416
+=== 0071146450658  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/indian-foods/0101300170  observed 2026-11-16T17:40:14.029884Z  sha256 8534c5d4af99fa3e64f609895b29191aee51746fddc3562b9551a88dff1347e2
+    title    export "Patak's® Indian Medium Lentil & Veggie Tikka Masala Meal"
+             source "Patak's® Indian Medium Lentil & Veggie Tikka Masala Meal"  same
+    prices   export {'regular_price': '4.99', 'sale_price': '4.69'}  source price text '$4.69$4.99Sale: $4.69 discounted from $4.99'  regular_price shown, sale_price shown
+    per unit export '$0.47/oz'  source '$0.47/oz'  same
+    also     weight '10.05 oz', category 'Grocery' / 'Indian', url https://www.marianos.com/p/patak-s-indian-medium-lentil-veggie-tikka-masala-meal/0071146450658
+=== 0020318500000  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/pork-ham/05006?page=3  observed 2026-11-16T17:41:55.747427Z  sha256 1c5244449445748f5a57b9365e56cd7af4e5a2f0379ae69f73e5b479d6bfd27f
+    title    export 'Boneless Butt Pork Roast'
+             source 'Boneless Butt Pork Roast'  same
+    prices   export {}  source price text 'about$12.81eachabout $12.81 each'  
+    per unit export ''  source ''  same
+    also     weight '1 pk', category 'Meat' / 'Pork & Ham', url https://www.marianos.com/p/boneless-butt-pork-roast/0020318500000
+=== 0061458362406  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/frozen-fish/1900800003?page=2  observed 2026-11-16T17:15:48.909394Z  sha256 0a68c6debf80f7c2fe4c8234397e6fe3f5c072b07f8bcda43aa01d064449b4b0
+    title    export 'PanaPesca® Seafood Mix'
+             source 'PanaPesca® Seafood Mix'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$12.11/lb'  source '$12.11/lb'  same
+    also     weight '10.6 oz', category 'Seafood' / 'Breaded Fish', url https://www.marianos.com/p/panapesca-seafood-mix/0061458362406
+=== 0007778200011  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/pepperoni-salami-summer-sausage/05015  observed 2026-11-16T17:14:35.622426Z  sha256 3a8edc46563472ec43b90eceefd5a3f596c878003b89f0caa6c2594ddbe89073
+    title    export 'Johnsonville Original Summer Sausage'
+             source 'Johnsonville Original Summer Sausage'  same
+    prices   export {'regular_price': '7.49', 'sale_price': '6.99'}  source price text '$6.99$7.49Sale: $6.99 discounted from $7.49'  regular_price shown, sale_price shown
+    per unit export '$0.58/oz'  source '$0.58/oz'  same
+    also     weight '12 OZ', category 'Meat' / 'Pepperoni, Salami & Summer Sausage', url https://www.marianos.com/p/johnsonville-original-summer-sausage/0007778200011
+=== 0003410051609  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/craft-beer/08145  observed 2026-11-17T03:04:25.975885Z  sha256 c6e7ebf3d8f8d2ed3bd6a8a9bce534ca4bed44a80537f8622e4c9039895e38a5
+    title    export "Leinenkugel's Summer Shandy Craft Beer"
+             source "Leinenkugel's Summer Shandy Craft Beer"  same
+    prices   export {'regular_price': '14.99'}  source price text '$14.99$14.99'  regular_price shown
+    per unit export '$0.10/fl oz'  source '$0.10/fl oz'  same
+    also     weight '12 cans / 12 fl oz', category 'Beer Wine Liquor' / 'Craft Beer', url https://www.marianos.com/p/leinenkugel-s-summer-shandy-craft-beer/0003410051609
+=== 0001111070456  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/sushi/13013  observed 2026-11-16T17:16:47.897521Z  sha256 ccd423f37038a38ad7c13ddb238a582a049b926f583b76d01511a5890e3a24b2
+    title    export 'Private Selection® Basil Pesto Chicken Breast Cutlet with Grape Tomatoes and Parmesan Chees'
+             source 'Private Selection® Basil Pesto Chicken Breast Cutlet with Grape Tomatoes and Parmesan Chees'  same
+    prices   export {'regular_price': '10.00'}  source price text '$10.00$10.00'  regular_price shown
+    per unit export '$0.51/oz'  source '$0.51/oz'  same
+    also     weight '20.44 oz', category 'Seafood' / 'Sushi', url https://www.marianos.com/p/private-selection-basil-pesto-chicken-breast-cutlet-with-grape-tomatoes-and-parmesan-chees/0001111070456
+=== 0066957602052  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/red-blend-wine/0812000569?page=5  observed 2026-11-17T04:11:49.386096Z  sha256 bcb6cf6d188360506badfad0d195957ee11eb332cd76e9e7a7906b60e153960f
+    title    export 'Decoy Limited Alexander Valley Red Blend'
+             source 'Decoy Limited Alexander Valley Red Blend'  same
+    prices   export {'regular_price': '36.99', 'sale_price': '23.99'}  source price text '$23.99$36.99Sale: $23.99 discounted from $36.99'  regular_price shown, sale_price shown
+    per unit export '$0.95/fl oz'  source '$0.95/fl oz'  same
+    also     weight '750 ml', category 'Beer Wine Liquor' / 'Red Wine', url https://www.marianos.com/p/decoy-limited-alexander-valley-red-blend/0066957602052
+=== 0001111009683  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/frozen-breakfast/19007?page=5  observed 2026-11-16T17:56:01.469421Z  sha256 ca6786b21bd75d8f5f1946793bc4c01045b74006c60f1a6dbbb076b924314673
+    title    export 'Kroger® Lite Turkey Sausage Egg White and Cheese English Muffin Breakfast Sandwich'
+             source 'Kroger® Lite Turkey Sausage Egg White and Cheese English Muffin Breakfast Sandwich'  same
+    prices   export {'regular_price': '7.49'}  source price text '$7.49$7.49'  regular_price shown
+    per unit export '$0.39/oz'  source '$0.39/oz'  same
+    also     weight '4 ct / 19.2 oz', category 'Frozen' / 'Frozen Breakfast', url https://www.marianos.com/p/kroger-lite-turkey-sausage-egg-white-and-cheese-english-muffin-breakfast-sandwich/0001111009683
+=== 0007920006068  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/gummy-chewy/23003  observed 2026-11-16T18:00:52.941517Z  sha256 5d10a2e94a51999ae498d845d8c0f2dbf14dbc6bdac920622d35647fbe1179af
+    title    export 'NERDS Gummy Clusters Candy Very Berry 8 oz'
+             source 'NERDS Gummy Clusters Candy Very Berry 8 oz'  same
+    prices   export {'regular_price': '5.79', 'sale_price': '4.29'}  source price text '$4.29$5.79Sale: $4.29 discounted from $5.79'  regular_price shown, sale_price shown
+    per unit export '$0.54/oz'  source '$0.54/oz'  same
+    also     weight '8.0 oz', category 'Candy' / 'Gummy & Chewy', url https://www.marianos.com/p/nerds-gummy-clusters-candy-very-berry-8-oz/0007920006068
+=== 0008894000002  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/red-blend-wine/0812000569?page=2  observed 2026-11-17T04:04:03.009274Z  sha256 5ecde03fbebbaa4bb920cf8f996b6b4a3aece1a8e46b2df2a452de5efdddcd79
+    title    export 'Taylor Port® Dessert Wine'
+             source 'Taylor Port® Dessert Wine'  same
+    prices   export {'regular_price': '18.99'}  source price text '$18.99$18.99'  regular_price shown
+    per unit export '$0.37/fl oz'  source '$0.37/fl oz'  same
+    also     weight '1.5 L', category 'Beer Wine Liquor' / 'Red Wine', url https://www.marianos.com/p/taylor-port-dessert-wine/0008894000002
+=== 0085535200813  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/non-alcoholic/08184?page=2  observed 2026-11-17T05:31:58.346051Z  sha256 f52a5019ce02cf87830b1fe2751fd94ec78fe923accb1a3cbb87c0fcf7e34a9f
+    title    export 'Athletic Brewing Co Non-Alcoholic Upside Dawn Golden 12-Pack'
+             source 'Athletic Brewing Co Non-Alcoholic Upside Dawn Golden 12-Pack'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$0.12/fl oz'  source '$0.12/fl oz'  same
+    also     weight '12 ct / 12 fl oz', category 'Beer Wine Liquor' / 'Shop All', url https://www.marianos.com/p/athletic-brewing-co-non-alcoholic-upside-dawn-golden-12-pack/0085535200813
+=== 0000000004068  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/fresh-vegetables/06112  observed 2026-11-17T05:32:45.767086Z  sha256 5b7674f9e7c5143c0d90fd6b4d0f6f5f9fd6380a0e9df4b0ce34ad0f5c143e54
+    title    export 'Green Onions'
+             source 'Green Onions'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export ''  source ''  same
+    also     weight '1 each', category 'Produce' / 'Fresh Vegetables', url https://www.marianos.com/p/green-onions/0000000004068
+=== 0019056953779  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/frozen-vegetables/19005?page=2  observed 2026-11-16T17:52:32.820294Z  sha256 f6e8567be22ecbcf99d3ee3f1ef3a25e4affd510a24d8caa4d17fbeb2bec9032
+    title    export 'Green Giant Simply Steam Antioxidant Blend'
+             source 'Green Giant Simply Steam Antioxidant Blend'  same
+    prices   export {'regular_price': '1.99', 'sale_price': '1.25'}  source price text '$1.25$1.99Sale: $1.25 discounted from $1.99'  regular_price shown, sale_price shown
+    per unit export '$0.18/oz'  source '$0.18/oz'  same
+    also     weight '7 oz', category 'Frozen' / 'Frozen Vegetables', url https://www.marianos.com/p/green-giant-simply-steam-antioxidant-blend/0019056953779
+=== 0004369521103  (carried_forward: an earlier run's observation, read by run 01M7JNB2HDFCNR3GHQVX8FYXX6)
+    page     https://www.marianos.com/pl/frozen-appetizers-snacks/19006?page=7  observed 2026-11-16T17:48:00.446846Z  sha256 7e72707dc1ee7e7ceb5dec355834b146bcd4f6cb941b8bf592176ac6e117d13f
+    title    export 'Hot Pockets Crispy Crust Hickory Ham and Cheddar Frozen Sandwich'
+             source 'Hot Pockets Crispy Crust Hickory Ham and Cheddar Frozen Sandwich'  same
+    prices   export {'regular_price': '2.99'}  source price text '$2.99$2.99'  regular_price shown
+    per unit export '$0.67/oz'  source '$0.67/oz'  same
+    also     weight '1 pk / 4.5 oz', category 'Frozen' / 'Frozen Appetizers & Snacks', url https://www.marianos.com/p/hot-pockets-crispy-crust-hickory-ham-and-cheddar-frozen-sandwich/0004369521103
+=== 0003980014530  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/batteries/26003?page=2  observed 2026-11-17T04:02:03.372335Z  sha256 2c30b019e6ad06cef2d32ecefef8ada5c44421859a8a0cdfc73b30488c895f98
+    title    export 'Energizer Max D Alkaline Batteries'
+             source 'Energizer Max D Alkaline Batteries'  same
+    prices   export {'regular_price': '15.99'}  source price text '$15.99$15.99'  regular_price shown
+    per unit export '$2.67/each'  source '$2.67/each'  same
+    also     weight '1 ea', category 'Batteries' / '', url https://www.marianos.com/p/energizer-max-d-alkaline-batteries/0003980014530
+differences: 0

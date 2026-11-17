@@ -1,0 +1,4 @@
+2026-11-17T05:48:07Z on the copy: stop --run 01M7KQ5GZVF5VK1S9FGTG6YFC9
+{"ts": "2026-11-17T05:48:09.628Z", "level": "INFO", "event": "STOP_REQUESTED", "collector": "marianos-azure-headless", "run_id": "01M7KQ5GZVF5VK1S9FGTG6YFC9", "message": "Stopped by an operator: R7 is left resumable on the run target; this isolated copy finalizes its state at the end of its last slice (no provider request)", "data": {"by": "operator", "kept": false}}
+{"ts": "2026-11-17T05:48:09.635Z", "level": "INFO", "event": "RESULT", "collector": "marianos-azure-headless", "command": "stop", "exit_code": 0, "result": {"run_id": "01M7KQ5GZVF5VK1S9FGTG6YFC9", "stop_requested": true, "worker_running": false, "next": "no execution is collecting it: run 'marianos-collector finalize'"}}
+exit 0

@@ -1,0 +1,5 @@
+expected: equal ['pointer', 'publications', 'every file under published/', 'latest.json', 'exports of the published run']; different none named
+EQUAL     every file under published/
+EQUAL     pointer
+EQUAL     publications
+RESULT as expected

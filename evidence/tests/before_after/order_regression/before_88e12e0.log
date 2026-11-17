@@ -1,0 +1,124 @@
+.FF......F......F...........                                             [100%]
+================================== FAILURES ===================================
+__________ test_rc6_subdivisions_keep_the_order_they_were_planned_in __________
+
+migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:49693/walmart_collector_test)
+
+    def test_rc6_subdivisions_keep_the_order_they_were_planned_in(migrated_engine: Engine) -> None:
+        factory, store = seed(migrated_engine)
+        run = new_run(factory, store)
+        with factory() as s:
+            queue.enqueue(
+                s, run.id, "listing_node", f"{run.id}/node/0000-03001", priority=50, taxonomy_id="03001"
+            )
+            queue.enqueue(
+                s, run.id, "listing_node", f"{run.id}/node/0001-03002", priority=50, taxonomy_id="03002"
+            )
+            s.commit()
+            parent = queue.lease_next(s, run.id, "w1")
+            assert parent is not None and parent.taxonomy_id == "03001"
+            # Brand readings: their IDs are digests, so key order is not the facet's order; one per transaction
+            # here so that each has its own creation time (planned in the facet's order: zeta, then alpha).
+            for pid in ("ffff000001", "0000000002"):
+                queue.enqueue(s, run.id, "listing_node", f"{parent.idem_key}/{pid}", priority=50, taxonomy_id=pid)
+                s.commit()
+            queue.succeed(s, parent)
+            s.commit()
+>           assert _drain(s, run.id) == ["ffff000001", "0000000002", "03002"]
+E           AssertionError: assert ['0000000002'...001', '03002'] == ['ffff000001'...002', '03002']
+E             
+E             At index 0 diff: '0000000002' != 'ffff000001'
+E             Use -v to get more diff
+
+tests\integration\test_run_order_rc6.py:92: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T22:34:55.490Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7K7ZH3X5HHAG7WH7W29R1Y1", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "test"}}
+_______ test_keys_without_a_place_in_the_plan_keep_their_creation_order _______
+
+migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:49693/walmart_collector_test)
+
+    def test_keys_without_a_place_in_the_plan_keep_their_creation_order(migrated_engine: Engine) -> None:
+        factory, store = seed(migrated_engine)
+        run = new_run(factory, store)
+        with factory() as s:
+            for tax in ("26003", "26002"):
+                queue.enqueue(s, run.id, "listing_node", f"{run.id}/listing/{tax}", priority=50, taxonomy_id=tax)
+                s.commit()
+>           assert _drain(s, run.id) == ["26003", "26002"]
+E           AssertionError: assert ['26002', '26003'] == ['26003', '26002']
+E             
+E             At index 0 diff: '26002' != '26003'
+E             Use -v to get more diff
+
+tests\integration\test_run_order_rc6.py:102: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T22:34:56.897Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7K7ZJFTWZGY4ECMDG3XA33C", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "test"}}
+___________________________ test_cooperative_cancel ___________________________
+
+migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:49693/walmart_collector_test)
+tmp_path = WindowsPath('[redacted:workstation-path]/AppData/Local/Temp/pytest-of-PC/pytest-1398/test_cooperative_cancel0')
+
+    def test_cooperative_cancel(migrated_engine: Engine, tmp_path: Path) -> None:
+        factory, store = seed(migrated_engine)
+        run_id = start(factory, store)
+        w = Worker(
+            factory,
+            run_id,
+            "w",
+            {"listing_node": listing_handler(cancel_after_page=1)},
+            Settings(),
+            LocalStorageAdapter(tmp_path),
+        )
+        res = asyncio.run(w.run())
+        assert res.outcome == "cancelled"
+        with factory() as s:
+            assert s.get(Run, run_id).status == "cancelled"  # type: ignore[union-attr]
+            t = s.scalar(select(Task).where(Task.run_id == run_id, Task.taxonomy_id == "26003"))
+>           assert t is not None and t.cursor == {"next_page": 1}  # the checkpoint survived
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AssertionError: assert (<marianos_headless.db.models.Task object at 0x000001401303C410> is not None and {} == {'next_page': 1}
+E             
+E             Right contains 1 more item:
+E             {'next_page': 1}
+E             Use -v to get more diff)
+
+tests\integration\test_runner.py:165: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T22:35:06.716Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7K7ZW2W8S0M8ZCKS2FZ75WY", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "test"}}
+{"ts": "2026-11-16T22:35:06.782Z", "level": "INFO", "event": "CANCEL_REQUESTED", "collector": "marianos-azure-headless", "run_id": "01M7K7ZW2W8S0M8ZCKS2FZ75WY", "message": "cooperative cancel requested", "data": {}}
+{"ts": "2026-11-16T22:35:06.795Z", "level": "INFO", "event": "RUN_CANCELLED", "collector": "marianos-azure-headless", "run_id": "01M7K7ZW2W8S0M8ZCKS2FZ75WY", "message": "running -> cancelled", "data": {}}
+_ test_a_worker_killed_inside_one_of_two_alike_brands_resumes_that_brand_alone _
+
+env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:49693/walmart_collector_test), 'factory': sessionmaker(c...', is_contest_store=False, notes='Marianos Lakeshore East, 333 E Benton Pl, Chicago, IL 60601; In Store prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=<AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'>, browser_provider=<BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_a_worker_killed_inside_one_of_two_alike_brands_resumes_that_brand_alone(
+        env: dict[str, Any], settings: Settings
+    ) -> None:
+        pipe = _pipe(env, settings)
+        run_id = _plan(env, pipe, ("03001",))
+        _die(env, run_id, f"03001~{B}", 2)  # dies with B's page 2 out
+        with env["factory"]() as s:
+            done = {
+                (r.taxonomy_id, r.requested_page)
+                for r in s.scalars(select(ListingPage))
+                if r.state == "completed"
+            }
+        # Serial order: the listing's page 1, A's two pages, B's page 1; B's page 2 was out.
+>       assert done == {("03001", 1), (_pid(A), 1), (_pid(A), 2), (_pid(B), 1)}
+E       AssertionError: assert {('03001', 1)...78c55268', 1)} == {('03001', 1)...d438cc02', 2)}
+E         
+E         Extra items in the right set:
+E         ('03001~838b5fdda5367709d438cc02', 1)
+E         ('03001~838b5fdda5367709d438cc02', 2)
+E         Use -v to get more diff
+
+tests\integration\test_partitions_190.py:229: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"ts": "2026-11-16T22:35:15.201Z", "level": "INFO", "event": "RUN_CREATED", "collector": "marianos-azure-headless", "run_id": "01M7K804BYYRH9P5X995CMXJ1J", "message": "LIVE run for marianos-53100503-instore", "data": {"trigger": "console"}}
+=========================== short test summary info ===========================
+FAILED tests/integration/test_run_order_rc6.py::test_rc6_subdivisions_keep_the_order_they_were_planned_in
+FAILED tests/integration/test_run_order_rc6.py::test_keys_without_a_place_in_the_plan_keep_their_creation_order
+FAILED tests/integration/test_runner.py::test_cooperative_cancel - AssertionE...
+FAILED tests/integration/test_partitions_190.py::test_a_worker_killed_inside_one_of_two_alike_brands_resumes_that_brand_alone
+4 failed, 24 passed in 119.48s (0:01:59)

@@ -1,0 +1,68 @@
+From 88e12e0e64801585b6661eae51a1b7cf054925b5 Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Mon, 16 Nov 2026 22:05:47 +0000
+Subject: [PATCH 11/12] marianos-azure-headless 1.10.0rc6: the coverage file's
+ row 0 is the Coupons route's verdict only when the run's plan names it; no
+ product page named is no limit
+
+Two regressions the suites found in 82f1901. The coverage file read the Coupons route's verdict into row 0
+for any run that asked the page, so a run whose plan does not name the row (narrowed, or a test's) counted
+it among its complete rows; it now does so only for a run whose plan names it (the route is mandatory),
+as before otherwise. limits.product_term_upcs is empty (None) by default, like every other limit.
+---
+ .../src/marianos_headless/collection/config.py              | 6 ++++--
+ .../src/marianos_headless/collection/oxylabs_live.py        | 2 +-
+ .../src/marianos_headless/collection/reconciliation.py      | 3 ++-
+ 3 files changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/config.py b/headless/marianos-azure-headless/src/marianos_headless/collection/config.py
+index 49dbc9a..29dcda5 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/config.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/config.py
+@@ -54,7 +54,7 @@ class Limits(_Model):
+     # with or without ``coverage.read_product_terms``; every other product is recorded as with that setting
+     # off (its card's coupon only, flagged as before). Not a scope limit: a bounded share of the credit for
+     # the product pages a review names, instead of one more request for every tile.
+-    product_term_upcs: list[str] = Field(default_factory=list)
++    product_term_upcs: list[str] | None = None
+     # Release 1.10.0 (C1): how many times one listing request is asked again later in the same run when a
+     # later page answers with an earlier page's products, or when the first page of a listing above the
+     # source's window carries no filter to subdivide it by (``collection.reask``). Empty or 0 (the default,
+@@ -67,7 +67,9 @@ class Limits(_Model):
+ 
+     @field_validator("product_term_upcs")
+     @classmethod
+-    def _term_upcs(cls, v: list[str]) -> list[str]:
++    def _term_upcs(cls, v: list[str] | None) -> list[str] | None:
++        if v is None:
++            return None
+         upcs = list(dict.fromkeys(u.strip() for u in v))
+         bad = [u for u in upcs if not (len(u) == 13 and u.isdigit())]
+         if bad:
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+index 1277e69..08898dc 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+@@ -735,7 +735,7 @@ class OxylabsCollector(LiveCollector):
+         A refusal (challenge) page stops the run as on any page. Off unless
+         ``coverage.read_product_terms``, or ``limits.product_term_upcs`` names products (release 1.10.0rc6:
+         then only the named products' pages are read, whatever their cards show)."""
+-        named = frozenset(self.cfg.limits.product_term_upcs)
++        named = frozenset(self.cfg.limits.product_term_upcs or ())
+         if not self.settings.coverage.read_product_terms and not named:
+             return
+         assert self.ox is not None
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/reconciliation.py b/headless/marianos-azure-headless/src/marianos_headless/collection/reconciliation.py
+index 28e1598..05397c8 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/reconciliation.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/reconciliation.py
+@@ -303,7 +303,8 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
+     rows_out: list[dict[str, Any]] = []
+     coupons = (run.counts or {}).get("coupons_route") if run is not None else None
+     for src in sources:
+-        if isinstance(coupons, dict) and src.url == coupons.get("url"):
++        if isinstance(coupons, dict) and coupons.get("mandatory") and src.url == coupons.get("url"):
++            # The run's plan names the Coupons row (release 1.10.0rc6, OR-04): the row is its route's verdict.
+             rows_out.append(_route_row(src, coupons))
+             continue
+         planned = by_row.get(src.csv_row_index, [])

@@ -1,0 +1,46 @@
+=== 0084024314377  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Cuts in Gravy Salmon & Tuna'
+             source 'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Cuts in Gravy Salmon & Tuna'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$19.99/oz'  source '$19.99/oz'  same
+    also     weight '12 ct / 2.6 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-savory-singles-natural-wet-cat-food-cuts-in-gravy-salmon-tuna/0084024314377
+=== 0001280052496  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/hardware-home-improvement/33?page=3  observed 2026-11-17T04:02:02.243371Z  sha256 460cd1e6ee548c1fe916fc23317e8affecda8b7fc9de86ba78bb50bd4a7998ef
+    title    export 'Rayovac 100 Lumens Workhorse LED Headlight'
+             source 'Rayovac 100 Lumens Workhorse LED Headlight'  same
+    prices   export {'regular_price': '10.49', 'sale_price': '7.99'}  source price text '$7.99$10.49Sale: $7.99 discounted from $10.49'  regular_price shown, sale_price shown
+    per unit export '$7.99/oz'  source '$7.99/oz'  same
+    also     weight '1 Count', category 'Hardware Home Improvement' / '', url https://www.marianos.com/p/rayovac-100-lumens-workhorse-led-headlight/0001280052496
+=== 0001780014939
+    not in this export
+=== 0001780014941
+    not in this export
+=== 0002310014848
+    not in this export
+=== 0003980014995  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/hardware-home-improvement/33?page=2  observed 2026-11-17T04:01:55.709639Z  sha256 92554d5736d6584d733ff2c8413777112f80c9547d522fb7d8ff516933aedb7b
+    title    export 'Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries'
+             source 'Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries'  same
+    prices   export {'regular_price': '21.99', 'sale_price': '19.99'}  source price text '$19.99$21.99Sale: $19.99 discounted from $21.99'  regular_price shown, sale_price shown
+    per unit export '$2.00/each'  source '$2.00/each'  same
+    also     weight '10 Count', category 'Hardware Home Improvement' / '', url https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995
+=== 0081675102373  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/ready-to-drink-cocktails/08193  observed 2026-11-17T05:26:07.105239Z  sha256 1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f
+    title    export 'Cutwater Espresso Martini Canned Cocktail'
+             source 'Cutwater Espresso Martini Canned Cocktail'  same
+    prices   export {'regular_price': '14.99', 'sale_price': '9.99'}  source price text '$9.99$14.99Sale: $9.99 discounted from $14.99'  regular_price shown, sale_price shown
+    per unit export '$0.21/fl oz'  source '$0.21/fl oz'  same
+    also     weight '4 cans / 12 fl oz', category 'Beer Wine Liquor' / 'Ready to Drink Cocktails', url https://www.marianos.com/p/cutwater-espresso-martini-canned-cocktail/0081675102373
+=== 0086001079386  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/ready-to-drink-cocktails/08193  observed 2026-11-17T05:26:07.105239Z  sha256 1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f
+    title    export 'The Finnish Long Drink Zero Sugar Cocktail Can'
+             source 'The Finnish Long Drink Zero Sugar Cocktail Can'  same
+    prices   export {'regular_price': '28.99', 'sale_price': '22.99'}  source price text '$22.99$28.99Sale: $22.99 discounted from $28.99'  regular_price shown, sale_price shown
+    per unit export '$0.16/fl oz'  source '$0.16/fl oz'  same
+    also     weight '12 cans / 12 fl oz', category 'Beer Wine Liquor' / 'Ready to Drink Cocktails', url https://www.marianos.com/p/the-finnish-long-drink-zero-sugar-cocktail-can/0086001079386
+=== 0001820020352
+    not in this export
+=== 0073679800140
+    not in this export
+differences: 0

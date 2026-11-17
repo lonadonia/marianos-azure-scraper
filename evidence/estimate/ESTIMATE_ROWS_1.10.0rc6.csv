@@ -1,0 +1,28 @@
+csv_row,category,listings,listings_with_a_total,listings_without_a_total,above_window,subdivision_pages,leaves_above_window,leaf_plain_pages,pages_bottom_up,census_pages,pages_low,pages_high,basis
+1,Produce,10,10,0,1,27,0,0,66,54,66,66,bottom-up from the listings' own totals; leaves above the window through brand readings
+2,Meat,16,16,0,0,0,0,0,53,47,53,53,bottom-up from the listings' own totals; leaves above the window through brand readings
+3,Seafood,6,6,0,0,0,0,0,25,22,25,25,bottom-up from the listings' own totals; leaves above the window through brand readings
+4,Deli,10,10,0,0,0,0,0,26,30,26,26,bottom-up from the listings' own totals; leaves above the window through brand readings
+5,Bakery,15,15,0,0,0,0,0,22,22,22,22,bottom-up from the listings' own totals; leaves above the window through brand readings
+6,Floral,6,6,0,0,0,0,0,6,6,6,6,bottom-up from the listings' own totals; leaves above the window through brand readings
+7,Grocery,14,14,0,10,215,4,54,246,0,489,554,bottom-up from the listings' own totals; leaves above the window through brand readings
+8,Dairy,10,10,0,2,40,0,0,78,70,78,78,bottom-up from the listings' own totals; leaves above the window through brand readings
+9,Frozen,16,16,0,2,51,0,0,125,0,125,125,bottom-up from the listings' own totals; leaves above the window through brand readings
+10,Natural Organic,11,11,0,3,56,0,0,105,123,105,105,bottom-up from the listings' own totals; leaves above the window through brand readings
+11,Beverages,10,10,0,4,141,0,0,193,0,193,193,bottom-up from the listings' own totals; leaves above the window through brand readings
+12,Breakfast,8,8,0,1,8,1,12,36,43,90,104,bottom-up from the listings' own totals; leaves above the window through brand readings
+13,Coffee,10,10,0,0,0,0,0,39,0,39,39,bottom-up from the listings' own totals; leaves above the window through brand readings
+14,Candy,8,8,0,2,26,2,33,55,37,204,243,bottom-up from the listings' own totals; leaves above the window through brand readings
+15,Beer Wine Liquor,16,3,13,0,0,0,0,14,106,131,159,"census pages for the listings no run reached, with the measured overheads (see method)"
+16,Health,26,0,26,0,0,0,0,0,109,148,193,"census pages for the listings no run reached, with the measured overheads (see method)"
+17,Personal Care,9,0,9,0,0,0,0,0,0,54,162,no census and no run: 6 to 18 pages per listing (the range of rows 1-15's listings)
+18,Beauty,18,0,18,0,0,0,0,0,110,149,187,"census pages for the listings no run reached, with the measured overheads (see method)"
+19,Baby,7,0,7,0,0,0,0,0,29,39,52,"census pages for the listings no run reached, with the measured overheads (see method)"
+20,Household,40,0,40,0,0,0,0,0,54,73,123,"census pages for the listings no run reached, with the measured overheads (see method)"
+21,Kitchen Dining,16,0,16,0,0,0,0,0,36,49,71,"census pages for the listings no run reached, with the measured overheads (see method)"
+22,Pet Supplies,12,12,0,0,0,0,0,40,38,40,40,bottom-up from the listings' own totals; leaves above the window through brand readings
+23,Candles Home Fragrances,1,1,0,0,0,0,0,3,0,3,3,bottom-up from the listings' own totals; leaves above the window through brand readings
+24,Batteries,1,1,0,0,0,0,0,4,0,4,4,bottom-up from the listings' own totals; leaves above the window through brand readings
+25,Light Bulbs,1,1,0,0,0,0,0,5,0,5,5,bottom-up from the listings' own totals; leaves above the window through brand readings
+26,School Office,1,1,0,0,0,0,0,5,0,5,5,bottom-up from the listings' own totals; leaves above the window through brand readings
+27,Hardware Home Improvement,1,1,0,0,0,0,0,3,0,3,3,bottom-up from the listings' own totals; leaves above the window through brand readings

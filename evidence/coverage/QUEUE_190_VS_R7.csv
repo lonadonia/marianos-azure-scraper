@@ -1,0 +1,303 @@
+csv_row,row_category,taxonomy_id,listing,state_1.9_baseline,stated_total_1.9,products_read_1.9,status_R7,matched_row_R7,reported_total_R7,unique_identities_R7,completion_reason_R7
+1,Produce,06111,Fresh Fruit,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,1,198,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+1,Produce,06112,Fresh Vegetables,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,1,369,24,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+1,Produce,06122,Fresh Herbs,INCOMPLETE,49,24,DONE,1,47,47,"47 distinct products of 47 reported, on 2 page(s)"
+1,Produce,18003,Organic Produce,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,1,127,51,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+1,Produce,06114,Salads,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,1,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+1,Produce,06110,Dressings & Dips,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,1,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+1,Produce,06121,Fresh-cut Fruit & Vegetables,INCOMPLETE,46,24,NOT_COLLECTED,1,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+1,Produce,06123,Packaged Produce,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,1,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+1,Produce,06119,Party Trays,DONE,8,8,NOT_COLLECTED,1,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+1,Produce,06113,Fresh Juice & Smoothies,INCOMPLETE,39,24,NOT_COLLECTED,1,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05001,Beef,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05002,Chicken,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05006,Pork & Ham,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05012,Turkey,INCOMPLETE,31,24,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05014,"Lamb, Veal & Bison",DONE,11,11,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05011,Specialty Meat,DONE,7,7,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05017,Bacon & Breakfast Sausage,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05013,Packaged & Sliced Deli Meat,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05003,Dinner Sausage,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05016,Heat & Serve Meals & Sides,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05005,Hot Dogs & Franks,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05015,"Pepperoni, Salami & Summer Sausage",INCOMPLETE,47,24,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05018,Lunch & Snack Kits,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,0100600006,Canned Meat,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,05008,Enhancements,DONE,14,14,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+2,Meat,1900800005,Frozen Meatless Choices,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,2,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+3,Seafood,0501000009,Shrimp,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,3,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+3,Seafood,1900800003,Breaded Fish,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,3,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+3,Seafood,0500400020,Seafood Salads & Dips,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,3,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+3,Seafood,0100600007,Canned Seafood,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,3,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+3,Seafood,05009,Sauce & Breading,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,3,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+3,Seafood,13013,Sushi,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,3,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13001,Fresh Deli Meats,INCOMPLETE,44,24,NOT_COLLECTED,4,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13002,Fresh Deli Cheeses,DONE,14,14,NOT_COLLECTED,4,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13007,Chicken & Hot Meals,DONE,11,11,NOT_COLLECTED,4,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13011,"Olives, Dips, Spreads & Snacks",NOT COLLECTED BY 1.9,,,NOT_COLLECTED,4,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13003,Packaged Deli Meats,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,4,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13004,Packaged Deli Cheeses,DONE,21,21,NOT_COLLECTED,4,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13006,Ready-to-heat Meals & Soups,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,4,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13009,Cold Side Dishes,INCOMPLETE,33,24,NOT_COLLECTED,4,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13008,Grab & Go Meals,INCOMPLETE,30,24,NOT_COLLECTED,4,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13010,Party Platters,DONE,11,11,NOT_COLLECTED,4,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+4,Deli,13013,Sushi,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,3,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14160,Cakes & Cupcakes,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14166,"Donuts, Danishes & Muffins",INCOMPLETE,44,24,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14187,Cookies,INCOMPLETE,40,24,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14165,Brownies,DONE,17,17,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14169,Pies,INCOMPLETE,36,24,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14161,"Angel Food, Pound & Pudding Cakes",DONE,8,8,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14164,Cheesecakes,DONE,5,5,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14180,Sweet Goods & Snacks,DONE,12,12,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14162,Artisan Bread,INCOMPLETE,27,24,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14181,"Sandwich Bread, Buns and Rolls",INCOMPLETE,26,24,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14182,Dinner Bread & Rolls,DONE,15,15,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14183,Breakfast Breads,DONE,7,7,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14184,Bread by Lifestyle,DONE,10,10,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14185,Specialty Breads & Rolls,DONE,18,18,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+5,Bakery,14186,Specialty Butters & Spreads,DONE,7,7,NOT_COLLECTED,5,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+6,Floral,09130,Fresh Cut Roses,DONE,6,6,NOT_COLLECTED,6,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+6,Floral,09126,Bouquets,DONE,13,13,NOT_COLLECTED,6,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+6,Floral,09128,Floral Arrangements,DONE,5,5,NOT_COLLECTED,6,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+6,Floral,09132,Orchids,DONE,1,1,NOT_COLLECTED,6,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+6,Floral,09133,Plants,DONE,15,15,NOT_COLLECTED,6,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+6,Floral,09125,Balloons,DONE,18,18,NOT_COLLECTED,6,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01026,Crackers,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01016,Packaged Breads,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01006,Canned Foods,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01012,Baking & Cooking,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01008,Condiments & Salad Dressings,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01010,Pasta & Pasta Sauces,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01007,"Grains, Beans & Rice",NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01011,"Easy Meals, Sides, Mac & Cheese",NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01014,"Spreads, Jelly & Honey",NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01015,Spices & Seasonings,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,01022,"Nuts, Trail Mix & Seeds",NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,0101300170,Indian,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,0101300166,European,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+7,Grocery,0101300004,Kosher,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,7,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+8,Dairy,02001,Milk & Plant-based Milk,INCOMPLETE,246,77,NOT_COLLECTED,8,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+8,Dairy,02005,Cream & Creamer,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,8,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+8,Dairy,02003,Eggs,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,8,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+8,Dairy,02002,Cheese,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,8,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+8,Dairy,02009,Yogurt,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,8,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+8,Dairy,02004,Butter & Margarine,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,8,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+8,Dairy,02010,Cream Cheese,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,8,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+8,Dairy,02006,Sour Cream & Dips,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,8,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+8,Dairy,02007,Refrigerated Dough & Crust,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,8,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+8,Dairy,02008,Pudding & Gelatin,INCOMPLETE,41,24,NOT_COLLECTED,8,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19003,Frozen Pizza,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19006,Frozen Appetizers & Snacks,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19007,Frozen Breakfast,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19015,Frozen Family Meals & Sides,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19016,Frozen Individual Meals,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19017,Frozen Meatballs,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19010,Frozen Potatoes & Onion Rings,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19013,Frozen International Foods,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19008,"Frozen Chicken, Meat & Seafood",NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19009,Frozen Bread,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19002,Ice Cream & Ice Pops,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19001,Frozen Desserts,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19005,Frozen Vegetables,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19012,Frozen Fruit,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19011,Frozen Juice & Mixers,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+9,Frozen,19014,Ice,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18003,Produce,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,1,127,51,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18004,Meat & Seafood,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18007,Dairy & Eggs,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18009,Bakery & Bread,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18008,Deli,DONE,16,16,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18012,Pantry,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18010,Frozen,INCOMPLETE,273,24,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18005,Beverages,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18006,Spices & Baking,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18011,Cleaning & Household,INCOMPLETE,45,24,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18001,Beauty & Personal Care,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+10,Natural Organic,18002,Baby,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,10,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+11,Beverages,04001,Soda & Pop,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,11,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+11,Beverages,04004,Juice & Lemonade,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,11,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+11,Beverages,04010,Drink Boxes & Pouches,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,11,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+11,Beverages,04011,Energy Drinks,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,11,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+11,Beverages,04005,Sports Drinks,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,11,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+11,Beverages,04008,Drink Mixes & Beverage Enhancers,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,11,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+11,Beverages,04006,Water,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,11,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+11,Beverages,04002,Sparkling Water,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,11,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+11,Beverages,04003,Coffee,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,11,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+11,Beverages,04007,Tea & Kombucha,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,11,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+12,Breakfast,03001,Cereal & Granola,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,12,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+12,Breakfast,03002,Bars & Toaster Pastries,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,12,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+12,Breakfast,03004,"Bread, Bagels & Muffins",NOT COLLECTED BY 1.9,,,NOT_COLLECTED,12,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+12,Breakfast,03005,Donuts & Pastries,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,12,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+12,Breakfast,03003,"Pancake, Waffle & Baking Mixes",NOT COLLECTED BY 1.9,,,NOT_COLLECTED,12,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+12,Breakfast,19007,Frozen Breakfast,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,9,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+12,Breakfast,03006,Dairy & Refrigerated Breakfast,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,12,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+12,Breakfast,05017,Bacon & Breakfast Sausage,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,12,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+12,Breakfast,03007,Juice & Breakfast Drinks,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,12,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+13,Coffee,0400300003,Ground Coffee,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,13,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+13,Coffee,0400300001,K-Cups & Coffee Pods,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,13,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+13,Coffee,0400300002,Whole Coffee Beans,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,13,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+13,Coffee,0400300008,Coffee Creamers & Flavoring Syrups,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,13,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+13,Coffee,0400300004,Nespresso Pods & Capsules,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,13,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+13,Coffee,0400300007,Espresso Coffee,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,13,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+13,Coffee,0400300009,"Cold Brew, Iced & Bottled Coffee",NOT COLLECTED BY 1.9,,,NOT_COLLECTED,13,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+13,Coffee,0400300006,Decaffeinated Coffee,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,13,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+13,Coffee,0400300010,Instant Coffee,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,13,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+13,Coffee,0400300005,Seasonal & Holiday Flavored Coffee & Creamer,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,13,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+14,Candy,23001,Chocolate,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,14,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+14,Candy,23008,Premium Chocolate,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,14,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+14,Candy,23003,Gummy & Chewy,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,14,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+14,Candy,23004,Hard Candy & Lollipops,INCOMPLETE,59,24,NOT_COLLECTED,14,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+14,Candy,23002,Gums & Mints,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,14,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+14,Candy,23009,Healthier Options,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,14,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+14,Candy,23005,International,DONE,21,21,NOT_COLLECTED,14,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+14,Candy,23007,Seasonal,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,14,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+15,Beer Wine Liquor,08145,Craft Beer,NOT COLLECTED BY 1.9,,,DONE,15,145,145,"145 distinct products of 145 reported, on 7 page(s)"
+15,Beer Wine Liquor,08119,American Lager,NOT COLLECTED BY 1.9,,,DONE,15,90,90,"90 distinct products of 90 reported, on 4 page(s)"
+15,Beer Wine Liquor,08190,Import Beer,NOT COLLECTED BY 1.9,,,DONE,15,84,84,"84 distinct products of 84 reported, on 4 page(s)"
+15,Beer Wine Liquor,08194,Hard Cider,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,15,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+15,Beer Wine Liquor,08120,Red Wine,NOT COLLECTED BY 1.9,,,INCOMPLETE,15,557,499,"the site's search lets the page reach 250 of the 557 results; the listing is read through 5 subdivisions the page itself names (Red Blend Wine, Cabernet Sauvignon Wine, Pinot Noir Wine, Merlot Wine, Malbec Wine) and is complete only when they cover its results"
+15,Beer Wine Liquor,08122,White Wine,NOT COLLECTED BY 1.9,,,INCOMPLETE,15,441,404,"the site's search lets the page reach 250 of the 441 results; the listing is read through 6 subdivisions the page itself names (Chardonnay Wine, Sauvignon Blanc Wine, Pinot Grigio/Pinot Gris Wine, White Blend Wine, Riesling Wine, Moscato Wine) and is complete only when they cover its results"
+15,Beer Wine Liquor,08181,Rose & Blush Wine,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,15,63,48,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+15,Beer Wine Liquor,08180,Champagne & Sparkling Wine,NOT COLLECTED BY 1.9,,,INCOMPLETE,15,117,24,"accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 2 repeats an earlier page exactly); re-ask 2: repeated (page 2 repeats an earlier page exactly); the "
+15,Beer Wine Liquor,08182,Box Wine,INCOMPLETE,47,24,DONE,15,47,47,"47 distinct products of 47 reported, on 2 page(s)"
+15,Beer Wine Liquor,08185,Dessert & Vermouth Wine,INCOMPLETE,26,24,DONE,15,26,26,"26 distinct products of 26 reported, on 2 page(s)"
+15,Beer Wine Liquor,08183,Hard Seltzers,NOT COLLECTED BY 1.9,,,INCOMPLETE,15,87,24,"accessible pages exhausted; coverage incomplete: page 2: page 2 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: malformed (the page state lists 24 products and the grid shows 0 cards; the provider ran the page's scripts (its ans"
+15,Beer Wine Liquor,08193,Ready to Drink Cocktails,NOT COLLECTED BY 1.9,,,DONE,15,73,73,"73 distinct products of 73 reported, on 4 page(s)"
+15,Beer Wine Liquor,08191,Hard Teas & Lemonades,DONE,20,20,DONE,15,20,20,"20 distinct products of 20 reported, on 1 page(s)"
+15,Beer Wine Liquor,08192,Flavored Malt Beverages,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,15,56,24,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+15,Beer Wine Liquor,08121,Shop Liquor,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,15,473,24,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+15,Beer Wine Liquor,08184,Shop All,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,15,110,48,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22011,Pickup & Delivery Cold Medicine,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22012,Allergy & Sinus,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22005,Pain & Fever,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22014,Children's Medicine,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22008,Energy & Stimulants,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22010,Sports & Adult Nutrition,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22001,Digestive Health & Nausea,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201100003,Immune Support,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22006,Sleep Aids,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300005,Multivitamins,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300001,Letter Vitamins,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300002,Children's Vitamins,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300004,Minerals,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300003,Herbal Supplements,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300008,Diet & Nutrition,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,1800100003,Natural & Organic,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300010,Prenatal & Postnatal Vitamins,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300007,Joint Health,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300006,Fish Oils & Omegas,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300011,"Hair, Skin & Nails",NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,2201300012,CoQ-10,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22004,First Aid,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22007,Foot Care,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22002,Eye Care,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22009,Home Healthcare Solutions,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+16,Health,22015,Sexual Health,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,16,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+17,Personal Care,21002,Hair Care,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,17,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+17,Personal Care,21003,Oral Care,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,17,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+17,Personal Care,21006,Body Lotion,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,17,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+17,Personal Care,21013,Bath & Shower,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,17,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+17,Personal Care,21009,Feminine Care,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,17,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+17,Personal Care,21007,Hand Soap & Sanitizers,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,17,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+17,Personal Care,21001,Deodorants,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,17,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+17,Personal Care,21008,Incontinence,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,17,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+17,Personal Care,21004,Shaving & Grooming,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,17,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000400001,Shampoo,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2100200016,Conditioner,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2100200019,Hair Color,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000400008,Hair Styling Tools & Appliances,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2100200001,Hair Brushes & Accessories,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000200004,Facial Treatments,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000200001,Facial Moisturizers,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000200005,Face Masks,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000100005,Makeup Remover,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,20005,Bath & Shower,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,20006,Sun & Tanning,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000200012,Korean Skincare,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000100002,Eyes,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000100007,Face,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000100006,Lips,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000100003,Nails,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,2000100001,Makeup Tools & Brushes,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+18,Beauty,20003,Shop All,DONE,16,16,NOT_COLLECTED,18,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+19,Baby,10001,Baby Food & Snacks,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,19,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+19,Baby,10093,Baby Formula,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,19,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+19,Baby,10098,Baby & Toddler Beverages,INCOMPLETE,27,24,NOT_COLLECTED,19,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+19,Baby,10003,Diapers & Training Pants,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,19,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+19,Baby,10099,Baby Wipes,INCOMPLETE,38,24,NOT_COLLECTED,19,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+19,Baby,10005,Baby Bath & Skincare,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,19,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+19,Baby,10006,Baby Essentials,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,19,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500007,Laundry Detergent Pods,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500001,Liquid Laundry Detergent,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500010,Powder Laundry Detergent,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500005,Fabric Softener,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500003,Dryer Sheets,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500011,Scent Boosters,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500002,Bleach,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500012,Stain Remover,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500008,Laundry Sanitizer,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500004,Fabric Refreshers,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500014,Free & Clear Laundry,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602500009,Laundry Supplies,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602400003,Paper Towels,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602400001,Toilet Paper,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602400002,Flushable Wipes,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602400004,Facial Tissue,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602400006,Bulk Paper Products,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602400007,Hand Wipes,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602400008,Natural & Organic,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2602400005,Napkins,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,26005,Dishwashing Needs,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,26006,Food Storage,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,26018,Disposable Tableware,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,26019,Baking Paper & Foils,INCOMPLETE,35,24,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,26011,Water Filtration,DONE,5,5,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400006,Wipes & Cleaning Supplies,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400005,Cleaning Tools,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400007,Kitchen Cleaners,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400008,All-Purpose Cleaners,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400009,Bathroom Cleaners,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400010,Carpet & Floor Cleaners,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400004,Glass Cleaners,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400011,Dusters,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400012,Mops,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400013,Furniture Cleaner,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400014,Brooms & Dust Pans,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400015,Drain Cleaners,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400016,Natural Cleaners,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400017,Bulk Cleaning Supplies,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+20,Household,2600400018,Pet Cleaning Supplies,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,20,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,28005,Kitchen Appliances,INCOMPLETE,43,24,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,28001,Kitchen Gadgets,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,28004,Coffee & Tea Supplies,INCOMPLETE,34,24,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,28003,Cookware,INCOMPLETE,30,24,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,28009,Bakeware,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,28006,Kitchen Linens,INCOMPLETE,38,24,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,28016,Kitchen Maintenance,DONE,6,6,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,28015,Reusable Bags & Totes,DONE,3,3,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,28002,Kitchen Organization,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,40003,Glassware & Drinkware,DONE,23,23,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,40004,Thermal & Water Bottles,NOT COLLECTED BY 1.9,,,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,40001,Dinnerware,INCOMPLETE,34,24,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,40006,Serveware,DONE,11,11,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,40008,Wine & Bar Essentials,DONE,21,21,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,40002,Cutlery & Knives,DONE,11,11,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+21,Kitchen Dining,40005,Flatware,DONE,1,1,NOT_COLLECTED,21,,0,accessible pages exhausted; coverage incomplete: the listing was not read to an end by this run
+22,Pet Supplies,27017,Dog Food,INCOMPLETE,222,24,DONE,22,224,224,"224 distinct products of 224 reported, on 10 page(s)"
+22,Pet Supplies,27018,Dog Treats,INCOMPLETE,150,24,INCOMPLETE,22,152,52,"accessible pages exhausted; coverage incomplete: page 3: page 3 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 3 repeats an earlier page exactly); re-ask 2: repeated (page 3 repeats an earlier page exactly); the "
+22,Pet Supplies,27019,Dog Toys,DONE,16,16,DONE,22,16,16,"16 distinct products of 16 reported, on 1 page(s)"
+22,Pet Supplies,27020,Dog Supplies,DONE,7,7,DONE,22,9,9,"9 distinct products of 9 reported, on 1 page(s)"
+22,Pet Supplies,27021,Cat Food,INCOMPLETE,232,24,DONE,22,234,234,"234 distinct products of 234 reported, on 10 page(s)"
+22,Pet Supplies,27022,Cat Treats,INCOMPLETE,52,24,DONE,22,52,52,"52 distinct products of 52 reported, on 3 page(s)"
+22,Pet Supplies,27023,Cat Litter & Accessories,INCOMPLETE,64,24,DONE,22,64,64,"64 distinct products of 64 reported, on 3 page(s)"
+22,Pet Supplies,27024,Cat Toys,DONE,6,6,DONE,22,6,6,"6 distinct products of 6 reported, on 1 page(s)"
+22,Pet Supplies,27025,Cat Supplies,DONE,4,4,DONE,22,6,6,"6 distinct products of 6 reported, on 1 page(s)"
+22,Pet Supplies,27026,Bird Supplies,DONE,3,3,DONE,22,3,3,"3 distinct products of 3 reported, on 1 page(s)"
+22,Pet Supplies,27027,Fish Supplies,EMPTY,0,0,EMPTY,22,0,0,the source reports 0 results
+22,Pet Supplies,27029,Small Animal Supplies,EMPTY,0,0,EMPTY,22,0,0,the source reports 0 results
+23,Candles Home Fragrances,32001,Candles Home Fragrances,INCOMPLETE,57,24,DONE,23,55,55,"55 distinct products of 55 reported, on 3 page(s)"
+24,Batteries,26003,Batteries,INCOMPLETE,96,24,DONE,24,96,96,"96 distinct products of 96 reported, on 4 page(s)"
+25,Light Bulbs,26002,Light Bulbs,INCOMPLETE,100,24,INCOMPLETE,25,99,72,"accessible pages exhausted; coverage incomplete: page 4: page 4 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 4 repeats an earlier page exactly); re-ask 2: repeated (page 4 repeats an earlier page exactly); the "
+26,School Office,35,School Office,INCOMPLETE,113,24,DONE,26,103,103,"103 distinct products of 103 reported, on 5 page(s)"
+27,Hardware Home Improvement,33,Hardware Home Improvement,INCOMPLETE,65,24,DONE,27,65,65,"65 distinct products of 65 reported, on 3 page(s)"

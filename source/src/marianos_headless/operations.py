@@ -20,17 +20,21 @@ from __future__ import annotations
 
 import asyncio
 import gzip
+import hashlib
 import json
 import os
 import socket
+import sys
 import tempfile
+import zlib
 from collections import Counter
 from collections.abc import Callable
 from datetime import datetime, time, timedelta
 from enum import IntEnum
 from functools import cached_property
 from pathlib import Path
-from typing import Any
+from time import monotonic as _monotonic
+from typing import Any, NamedTuple
 from zoneinfo import ZoneInfo
 
 from sqlalchemy import Engine, select
@@ -82,7 +86,7 @@ from marianos_headless.publishing.publish import (
     rollback_publication,
 )
 from marianos_headless.sites.marianos.csv_sources import load_category_csv
-from marianos_headless.storage.base import ImmutableWriteError, StorageAdapter
+from marianos_headless.storage.base import ArtifactNotFound, ImmutableWriteError, StorageAdapter
 from marianos_headless.storage.factory import make_storage
 from marianos_headless.worker.pipeline import FINISHED_STATES, Pipeline
 from marianos_headless.worker.runs import event, transition
@@ -799,7 +803,7 @@ def _overrides(coll: StoreCollection, overrides: dict[str, Any]) -> StoreCollect
     data = coll.model_dump(mode="json")
     limits = dict(data["limits"])
     for key, value in overrides.items():
-        if key in ("categories", "subcategories"):
+        if key in ("categories", "subcategories", "rows_first"):
             data[key] = value
         else:
             limits[key] = value
@@ -1253,6 +1257,11 @@ def validate_export(
         report = contract.check(products)
         return (Exit.OK if report["passed"] else Exit.REJECTED), {"contract": report}
     assert ctx is not None
+    started = _monotonic()
+    capture_check: Counter[str] = Counter(
+        {"ok": 0, "missing": 0, "corrupted": 0, "unreadable": 0, "not_named": 0}
+    )
+    capture_problems: list[dict[str, Any]] = []
     with ctx.factory() as s:
         run = s.get(Run, run_id)
         if run is None:
@@ -1264,15 +1273,24 @@ def validate_export(
             .join(ExportRow, ExportRow.artifact_id == Artifact.id)
             .where(ExportRow.run_id == run_id, ExportRow.kind == "manifest")
         )
-        rows = list(s.scalars(select(RecordRow).where(RecordRow.run_id == run_id)))
+        # Release 1.10.0rc6 (OR-20): the columns the checks read, not whole rows (a run's provenance is tens
+        # of megabytes): status, flags, the run a carried record was observed in, each record's capture.
+        prov = RecordRow.provenance
+        rows = [
+            _RecordFacts(*r)
+            for r in s.execute(
+                select(
+                    RecordRow.upc,
+                    RecordRow.status,
+                    RecordRow.flags,
+                    prov["historical"]["run_id"].astext,
+                ).where(RecordRow.run_id == run_id)
+            )
+        ]
         statuses = Counter(r.status for r in rows)
         # A carried-forward record is checked against the product responses of the run that observed it
         # (its prices are from that day); every other record against this run's own responses.
-        carried_from = {
-            r.upc: str(((r.provenance or {}).get("historical") or {}).get("run_id") or "")
-            for r in rows
-            if r.status == "historical"
-        }
+        carried_from = {r.upc: str(r.historical_run_id or "") for r in rows if r.status == "historical"}
         # The fresh file's records (release 1.4.0): this run's own ``valid`` records, nothing else.
         valid_keys = {r.upc for r in rows if r.status == "valid"}
         # Records whose displayed price differs from the product's own data, recorded as such by the collector
@@ -1288,27 +1306,29 @@ def validate_export(
             r.upc for r in rows if r.status != "valid" and "PRICE_STORE_NOT_STATED" in (r.flags or [])
         }
         responses = {
-            rid: list(
-                s.scalars(
-                    select(Artifact.key)
+            rid: [
+                (k, h)
+                for k, h in s.execute(
+                    select(Artifact.key, Artifact.sha256)
                     .join(CapturedResponse, CapturedResponse.artifact_id == Artifact.id)
                     .where(CapturedResponse.run_id == rid, CapturedResponse.kind == "products_v2")
                 )
-            )
+            ]
             for rid in {run_id, *(x for x in carried_from.values() if x)}
         }
         # The listing pages each run stored: their embedded product data is a second source (1.2.1).
         pages = {
-            rid: list(
-                s.scalars(
-                    select(Artifact.key)
+            rid: [
+                (k, h)
+                for k, h in s.execute(
+                    select(Artifact.key, Artifact.sha256)
                     .join(PageFetch, PageFetch.dom_artifact_id == Artifact.id)
                     .where(
                         PageFetch.run_id == rid,
                         PageFetch.purpose.in_(("listing", "listing_after_selection", "load_more")),
                     )
                 )
-            )
+            ]
             for rid in responses
         }
         location_id = store.location_id
@@ -1317,6 +1337,13 @@ def validate_export(
     problems = verify_manifest(ctx.storage, manifest.key, manifest.sha256)
     prefix = manifest.key.rsplit("/", 1)[0]
     listed = manifest_files(json.loads(ctx.storage.get_bytes(manifest.key)))
+    # Release 1.10.0rc6 (OR-20): each record's capture as the published supporting log names it (the stored
+    # page and its SHA-256), read one record at a time.
+    captures = (
+        supporting_log_captures(ctx.storage.get_bytes(f"{prefix}/provenance.json"))
+        if "provenance.json" in listed
+        else {}
+    )
     with tempfile.TemporaryDirectory(prefix="marianos-validate-") as tmp:
         root = Path(tmp)
         products_path = root / "products.json"
@@ -1354,20 +1381,60 @@ def validate_export(
         evidence: Counter[str] = Counter()
         read, pages_read, indexed = 0, 0, 0
         by_run: dict[str, dict[str, int]] = {}
+        mismatches: list[dict[str, Any]] = []
+        # Release 1.10.0rc6 (OR-20): every source is read, hashed and released before the next; the index
+        # keeps only distinct price statements. Each source's state: its bytes against the hash the run
+        # recorded for it, then whether it can be read.
+        sources = _Sources(ctx.storage)
+        statements = 0
         for rid, keys in sorted(responses.items()):
-            bodies = []
-            for key in keys:
-                data = ctx.storage.get_bytes(key)
-                bodies.append(gzip.decompress(data) if data[:2] == b"\x1f\x8b" else data)
-            html = []
-            for key in pages.get(rid, []):
-                data = ctx.storage.get_bytes(key)
-                html.append(
-                    (gzip.decompress(data) if data[:2] == b"\x1f\x8b" else data).decode("utf-8", "replace")
-                )
+            index = source_check.SourceIndex()
             mine = [r for r in records if (carried_from.get(str(r.get("upc"))) or run_id) == rid]
-            index = source_check.index(bodies, html)
-            out = source_check.check_records(mine, index, location_id)
+            named: dict[str, str | None] = {}  # the stored pages the records name as their capture
+            for r in mine:
+                named_key, named_sha = captures.get(str(r.get("upc")), (None, None))
+                if named_key:
+                    named[named_key] = named_sha
+            stored_pages = dict(pages.get(rid, []))
+            for key, want in keys:
+                body = sources.read(key, want)
+                if body is not None:
+                    index.add_response(body, key)
+                    read += 1
+            for key in sorted(set(stored_pages) | set(named)):
+                body = sources.read(key, stored_pages.get(key) or named.get(key))
+                if body is None:
+                    continue
+                try:
+                    index.add_page(body.decode("utf-8", "replace"), key)
+                except ValueError:
+                    sources.state[key] = "unreadable"
+                    continue
+                pages_read += 1
+                del body
+            statements += index.statements
+            out = source_check.check_records(mine, index.products, location_id)
+            mismatches.extend(
+                x
+                for x in out["results"]
+                if x["result"] == "mismatch"
+                and str(x["upc"]) not in recorded_conflicts
+                and not (
+                    str(x["upc"]) in recorded_store_not_stated and set(x["mismatched_fields"]) == {"store"}
+                )
+            )
+            for r in mine:
+                cap_key, cap_sha = captures.get(str(r.get("upc")), (None, None))
+                if not cap_key or not cap_sha:
+                    capture_check["not_named"] += 1
+                    capture_problems.append({"upc": r.get("upc"), "capture": "not named"})
+                    continue
+                got = sources.state.get(cap_key, "missing")
+                if got == "ok" and sources.digest.get(cap_key) != cap_sha:
+                    got = "corrupted"
+                capture_check[got] += 1
+                if got != "ok":
+                    capture_problems.append({"upc": r.get("upc"), "capture": got, "key": cap_key})
             known = sum(
                 1 for x in out["results"] if x["result"] == "mismatch" and str(x["upc"]) in recorded_conflicts
             )
@@ -1382,7 +1449,7 @@ def validate_export(
             out["summary"]["mismatch"] -= known + unattributed
             out["summary"]["recorded_conflict"] = known
             out["summary"]["recorded_store_not_stated"] = unattributed
-            read, pages_read, indexed = read + len(bodies), pages_read + len(html), indexed + len(index)
+            indexed += len(index)
             for k, v in out["summary"].items():
                 summary[k] += v
             mismatched.update(out["mismatched_fields"])
@@ -1394,6 +1461,7 @@ def validate_export(
         not problems
         and report["passed"]
         and summary["mismatch"] == 0
+        and not capture_problems
         and (
             fresh is None
             or (
@@ -1420,8 +1488,128 @@ def validate_export(
             # fresh records against this run's responses; carried-forward ones against their own run's
             "by_run": by_run,
         },
+        # Release 1.10.0rc6 (OR-20): every exported record's capture, the stored page its provenance names:
+        # present, its bytes' SHA-256 as recorded, readable.
+        "captures": {
+            **capture_check,
+            "problems": capture_problems[:200],
+            "problems_total": len(capture_problems),
+        },
+        "mismatches": {"total": len(mismatches), "first_200": mismatches[:200]},
         "records_by_status": dict(statuses),
+        "resources": {
+            "seconds": round(_monotonic() - started, 1),
+            "sources_read": len(sources.state),
+            "price_statements_read": statements,
+            "peak_rss_kib": _peak_rss_kib(),
+        },
     }
+
+
+class _RecordFacts(NamedTuple):
+    upc: str
+    status: str
+    flags: list[str] | None
+    historical_run_id: str | None
+
+
+def supporting_log_captures(data: bytes) -> dict[str, tuple[str | None, str | None]]:
+    """Each record's capture in a supporting log (``provenance.json``): UPC -> (storage key, SHA-256) of the
+    stored page its values were read from. The log is decoded one member at a time: its records are never all
+    held as objects at once (run F2's log is 79 MB)."""
+    text = data.decode("utf-8")
+    del data
+    dec = json.JSONDecoder()
+    out: dict[str, tuple[str | None, str | None]] = {}
+
+    def ws(i: int) -> int:
+        while i < len(text) and text[i] in " \t\r\n":
+            i += 1
+        return i
+
+    def members(i: int) -> Any:
+        """(key, value start) for each member of the object opening at ``i``; the caller consumes the value
+        and sends back the index after it."""
+        if text[i] != "{":
+            raise ValueError(f"supporting log: an object expected at {i}")
+        i = ws(i + 1)
+        if text[i] == "}":
+            return i + 1
+        while True:
+            key, i = dec.raw_decode(text, i)
+            i = ws(i)
+            if text[i] != ":":
+                raise ValueError(f"supporting log: ':' expected at {i}")
+            i = yield key, ws(i + 1)
+            i = ws(i)
+            if text[i] == "}":
+                return i + 1
+            if text[i] != ",":
+                raise ValueError(f"supporting log: ',' expected at {i}")
+            i = ws(i + 1)
+
+    top = members(ws(0))
+    try:
+        key, i = next(top)
+        while True:
+            if key == "records":
+                inner = members(i)
+                try:
+                    upc, j = next(inner)
+                    while True:
+                        rec, j = dec.raw_decode(text, j)
+                        cap = (rec or {}).get("capture") or {}
+                        out[str(upc)] = (cap.get("dom_key"), cap.get("dom_sha256"))
+                        upc, j = inner.send(j)
+                except StopIteration as done:
+                    i = done.value
+            else:
+                _, i = dec.raw_decode(text, i)
+            key, i = top.send(i)
+    except StopIteration:
+        pass
+    return out
+
+
+class _Sources:
+    """A run's stored sources, read one at a time (release 1.10.0rc6, OR-20). Each source read is noted:
+    ``state`` (``ok``; ``missing``, not in storage; ``corrupted``, its bytes differ from the hash recorded for
+    them; ``unreadable``, not gzip or not text) and ``digest`` (its bytes' SHA-256)."""
+
+    def __init__(self, storage: Any) -> None:
+        self.storage = storage
+        self.state: dict[str, str] = {}
+        self.digest: dict[str, str] = {}
+
+    def read(self, key: str, want: str | None) -> bytes | None:
+        """The source's bytes, decompressed, or None when it is missing, corrupted or unreadable."""
+        if self.state.get(key, "ok") != "ok":
+            return None
+        try:
+            data = self.storage.get_bytes(key)
+        except (ArtifactNotFound, FileNotFoundError):
+            self.state[key] = "missing"
+            return None
+        self.digest[key] = hashlib.sha256(data).hexdigest()
+        if want and self.digest[key] != want:
+            self.state[key] = "corrupted"
+            return None
+        try:
+            body = gzip.decompress(data) if data[:2] == b"\x1f\x8b" else data
+        except (OSError, EOFError, zlib.error):
+            self.state[key] = "unreadable"
+            return None
+        self.state[key] = "ok"
+        return body
+
+
+def _peak_rss_kib() -> int | None:
+    """The process's peak resident memory (Linux reports KiB); None where the platform does not say."""
+    if sys.platform != "win32":
+        import resource
+
+        return int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    return None
 
 
 def oxylabs_ledger(s: Session) -> dict[str, Any]:

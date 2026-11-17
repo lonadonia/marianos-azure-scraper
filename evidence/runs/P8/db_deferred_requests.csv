@@ -1,0 +1,1 @@
+id,run_id,category_source_id,csv_row_index,taxonomy_id,partition_key,requested_page,kind,url,requested_filter,store_context,original_listing_page_id,original_verdict,original_reason,max_reasks,min_wait_s,reasks_dispatched,not_before,state,outcome,attempts,created_at,updated_at,resolved_at

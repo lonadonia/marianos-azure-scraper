@@ -1,0 +1,12 @@
+=== 0001780014939
+    not in this run's export
+=== 0001780014941
+    not in this run's export
+=== 0002310014848
+    not in this run's export
+=== 0003980014995
+    page https://www.marianos.com/pl/hardware-home-improvement/33?page=2  fetched 2026-11-17T04:01:55.709639Z  fetch 01M7KTP9FXP9JEY4TG9QMZXQMR
+    stored page sha256 92554d5736d6584d733ff2c8413777112f80c9547d522fb7d8ff516933aedb7b (MATCHES the provenance)
+    tile text: 'Aisle 10 | $19.99 | $21.99 | Sale: $19.99 discounted from $21.99 | $2.00/each | Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries | Sign In to Add'
+    coupon words in the tile: none
+    record flags: SIZE_FROM_PRODUCT_DATA, DIGITAL_COUPONS_UNOBSERVED

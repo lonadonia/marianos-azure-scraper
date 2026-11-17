@@ -1,0 +1,7 @@
+# 2026-11-17T05:41:05Z commit abc4718 marianos-azure-headless next: OR-23, a page that fails again once the run has been resumed at it leaves its listing incomplete and the run goes on (bounded: no ru
+# python -m pytest -p no:cacheprovider tests/integration/test_oxylabs_collector.py -k "or23 or cannot_bring" -rA
+# imported from marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+PASSED tests/integration/test_oxylabs_collector.py::test_a_listing_the_provider_cannot_bring_stays_unread_without_charge_and_the_run_stops_resumably
+PASSED tests/integration/test_oxylabs_collector.py::test_or23_a_page_the_provider_still_cannot_bring_after_the_resume_leaves_its_listing_incomplete_and_the_run_goes_on
+================= 2 passed, 10 deselected in 75.57s (0:01:15) =================
+# exit 0

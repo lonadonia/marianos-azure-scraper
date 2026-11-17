@@ -1,0 +1,17 @@
+# command: bash -c marianos status --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py status -
+# started: 2026-11-17T05:05:36Z
+exit 0  command status
+  run_id           01M7KQ5GZVF5VK1S9FGTG6YFC9
+  status           interrupted
+  trigger          manual
+  dataset          partial
+  pilot            False
+  stop_code        TERMINATED
+  created_at       2026-11-17T03:00:20.569537Z
+  finished_at      None
+  outcome          None
+  worker_running   False
+  stop_detail      the collector received a termination signal during the run
+  records          null
+# exit: 0
+# ended: 2026-11-17T05:05:37Z

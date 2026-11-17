@@ -1,0 +1,12 @@
+d77f3065c757b8b962524dbf8d9961dec212e72b 2026-11-16T22:38:17Z marianos-azure-headless 1.10.0rc6: depth first by the plan's place, creation order within a listing's group
+88e12e0e64801585b6661eae51a1b7cf054925b5 2026-11-16T22:05:47Z marianos-azure-headless 1.10.0rc6: the coverage file's row 0 is the Coupons route's verdict only when the run's plan names it; no product page named is no limit
+82f1901cd24311c8bd8b1149dbda8d189807804a 2026-11-16T21:56:28Z marianos-azure-headless 1.10.0rc6: README, what the candidate corrects and adds
+b75201b606165291fe8c557d0ff8744118b10b23 2026-11-16T21:52:37Z marianos-azure-headless 1.10.0rc6: subdivisions read depth first, rows read first on request, product pages read only for named products
+692ec6ed577e32d6d1312be54cddf452a1bca35c 2026-11-16T21:52:37Z marianos-azure-headless 1.10.0rc6: tests of the run order and the named product pages (fail on 1.10.0rc5)
+3ff94cffcb1544c73ed5a15eb6ea0862318182ac 2026-11-16T21:35:03Z marianos-azure-headless 1.10.0rc6: version
+5f29c0dfbf8bce2587b947d1d455537a6bfffa56 2026-11-16T21:34:48Z marianos-azure-headless 1.10.0rc6: the Coupons row is read only when its list loaded, and its verdict holds through the run (OR-04)
+9a06c1bb4048c9dbc7715724f629dd04c89c4d52 2026-11-16T21:28:04Z marianos-azure-headless 1.10.0rc6 (tests only): the Coupons row is read only when its list loaded, and its verdict holds through the run (OR-04)
+62af220208c9ca43f3368edff8c1ef2faedede89 2026-11-16T21:15:01Z marianos-azure-headless 1.10.0rc6: validate-export reads each stored source once with bounded memory and checks every record's capture and values (OR-20)
+fdda7b2e07dfa2d8e6b21c7c77e6ab524c97aa83 2026-11-16T21:15:01Z marianos-azure-headless 1.10.0rc6 (tests only): validate-export reads a run's stored pages one at a time and checks every record's capture (OR-20)
+39278beb54a436d1400702ac70cc3b7d18bf0f8a 2026-11-16T21:15:00Z marianos-azure-headless 1.10.0rc6: a page for the store whose product data has not loaded counts nothing and is asked again, not taken for another store (OR-19)
+c7e8f2dd60902fb0971d78bf7d8ea2fb0b5c9025 2026-11-16T21:15:00Z marianos-azure-headless 1.10.0rc6 (tests only): a page for the store whose product data has not loaded counts nothing and is asked again (OR-19)

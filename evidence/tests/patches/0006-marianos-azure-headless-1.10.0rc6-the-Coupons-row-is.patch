@@ -1,0 +1,769 @@
+From 5f29c0dfbf8bce2587b947d1d455537a6bfffa56 Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Mon, 16 Nov 2026 21:34:48 +0000
+Subject: [PATCH 06/12] marianos-azure-headless 1.10.0rc6: the Coupons row is
+ read only when its list loaded, and its verdict holds through the run (OR-04)
+
+The rendered Coupons page is read as one of three states (coupon_list_reading): cards drawn (loaded), a
+stated count of 0 without the loading indicator (loaded and empty), or not loaded (the site's loading
+indicator, no count, or a count without cards), which proves no coupon absent. The route keeps every answer
+with its reading and fetch; a page not loaded is asked again after the listings, within coupons_attempts
+answers for the run (4 by default, coupons_retry_wait_s apart), across restarts.
+
+The plan names the Coupons row as a route of the run. A run whose plan names it is complete only when the
+route is READ: collection_complete (the dataset label) and G3 require it; the listings alone still decide
+what is carried forward (listings_complete). The coverage file's row 0 states the route's verdict (COMPLETE
+or NOT_READ, with why and the number of answers) instead of "not in this run's scope", and the manifest
+states it under routes.
+
+A product's own page rendered but still showing the loading indicator and no coupon row is read as
+"loading": its coupons are unread (unread_loading, DIGITAL_TERMS_UNREAD), not absent and not in conflict
+with the card; a tile's coupon stays unknown.
+---
+ .../assembly/record_builder.py                |   9 +-
+ .../src/marianos_headless/collection/live.py  |  25 ++-
+ .../src/marianos_headless/collection/nodes.py |  15 ++
+ .../collection/oxylabs_live.py                | 162 ++++++++++++++++--
+ .../collection/reconciliation.py              |  33 ++++
+ .../src/marianos_headless/core/settings.py    |   5 +
+ .../marianos_headless/publishing/exports.py   |   4 +
+ .../sites/marianos/dom_parsers.py             |  52 ++++++
+ .../sites/marianos/observations.py            |  18 +-
+ .../sites/marianos/pdp_savings.py             |  10 +-
+ .../sites/marianos/source_json.py             |   5 +
+ .../src/marianos_headless/validation/gates.py |  27 +++
+ .../src/marianos_headless/worker/pipeline.py  |  21 +++
+ .../integration/test_coupons_route_or04.py    |   4 +
+ 14 files changed, 361 insertions(+), 29 deletions(-)
+
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/assembly/record_builder.py b/headless/marianos-azure-headless/src/marianos_headless/assembly/record_builder.py
+index fed6877..563fd57 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/assembly/record_builder.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/assembly/record_builder.py
+@@ -278,8 +278,8 @@ class ProductEvidence:
+     # False: a tile (served since 2026-11-06), which shows no coupon even for a product whose own page shows
+     # one (release 1.9.0rc3): its empty coupon zone is not an observed absence.
+     listing_shows_coupons: bool = True
+-    # The product's own page read for its coupons: "rendered", "not_rendered" (not brought rendered), or ""
+-    # (not read).
++    # The product's own page read for its coupons: "rendered", "not_rendered" (not brought rendered),
++    # "loading" (1.10.0rc6: rendered but still loading, no coupon shown) or "" (not read).
+     product_page_read: str = ""
+     brand: str | None = None
+     is_ship_only: bool = False
+@@ -428,7 +428,10 @@ def no_coupon_reason(evidence: ProductEvidence) -> str:
+         return "no digital coupon is displayed"
+     if evidence.product_page_read == "rendered":
+         return "neither the tile nor the product's own page, rendered, shows an applicable digital coupon"
+-    page = "was not brought rendered" if evidence.product_page_read == "not_rendered" else "was not read"
++    page = {
++        "not_rendered": "was not brought rendered",
++        "loading": "was still loading (the site's loading indicator, no coupon shown)",
++    }.get(evidence.product_page_read, "was not read")
+     return (
+         "the tile shows no coupon (tiles omit coupons that the product's own page shows) and that page "
+         f"{page}: {COUPON_UNKNOWN}"
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/live.py b/headless/marianos-azure-headless/src/marianos_headless/collection/live.py
+index 1166ced..59ca5b8 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/live.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/live.py
+@@ -144,6 +144,7 @@ from marianos_headless.sites.marianos.store_context import (
+ from marianos_headless.validation.gates import (
+     AttestationSummary,
+     CategoryOutcome,
++    RouteOutcome,
+     RunEvidence,
+     field_completeness,
+     run_gates,
+@@ -2116,6 +2117,10 @@ class LiveCollector:
+             assert run is not None
+             nodes = self.node_outcomes(s)
+             complete = bool(nodes) and all(n["status"] in ("DONE", "EMPTY") for n in nodes)
++            # Release 1.10.0rc6 (OR-04): a route the run's plan names (the Coupons page) is part of the
++            # collection; the listings alone decide what is carried forward.
++            routes = self.route_outcomes(run)
++            unread = [r for r in routes if r.required and r.status != "READ"]
+             # The store's products verified by earlier runs and not observed by this one (retention.py).
+             cfg = self.historical_cfg
+             kept = (
+@@ -2157,7 +2162,8 @@ class LiveCollector:
+                 "records_by_status": statuses,
+                 "verified": verified_in_run(s, self.run_id),
+                 "nodes": by_status,
+-                "collection_complete": complete,
++                "listings_complete": complete,
++                "collection_complete": complete and not unread,
+             }
+             event(
+                 s,
+@@ -2165,11 +2171,21 @@ class LiveCollector:
+                 "INFO",
+                 "RECORDS_ASSEMBLED",
+                 f"{sum(statuses.values())} products ({statuses.get('valid', 0)} verified)"
+-                + ("" if complete else "; collection incomplete"),
+-                {"records_by_status": statuses, "collection_complete": complete},
++                + ("" if complete else "; collection incomplete")
++                + "".join(f"; row {r.row_index} ({r.name}) not read" for r in unread),
++                {
++                    "records_by_status": statuses,
++                    "collection_complete": complete and not unread,
++                    "routes_not_read": [r.name for r in unread],
++                },
+             )
+             s.commit()
+-        return {**ctx.cursor, "collection_complete": complete}
++        return {**ctx.cursor, "collection_complete": complete and not unread}
++
++    def route_outcomes(self, run: Run) -> list[RouteOutcome]:
++        """The rows of the client's list this collector reads as routes, not as listing pages (release
++        1.10.0rc6, OR-04). None here; the Oxylabs collector reads the Coupons page."""
++        return []
+ 
+     async def h_validate(self, ctx: TaskContext) -> dict[str, Any]:
+         with ctx.session() as s:
+@@ -2261,6 +2277,7 @@ class LiveCollector:
+                 attestations=atts,
+                 challenges_detected=int(challenges or 0),
+                 categories=cats,
++                routes=self.route_outcomes(run),
+                 exported_records=exported,
+                 exported_keys=[r.upc for r in exported_rows],
+                 valid_upcs=frozenset(r.upc for r in recs if r.status == RecordStatus.VALID.value),
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/nodes.py b/headless/marianos-azure-headless/src/marianos_headless/collection/nodes.py
+index 8ad3109..9285300 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/nodes.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/nodes.py
+@@ -92,6 +92,21 @@ def plan_nodes(
+             continue
+         name, source_id, *rest = sources[row_index]
+         row_url = rest[0] if rest else ""
++        if urlsplit(row_url).path.startswith("/savings/cl/coupons"):
++            # Release 1.10.0rc6 (OR-04): the coupons catalogue lists offers, not products. It is read as a
++            # route of the run (its own page, its own verdict), and a run whose plan names it is complete only
++            # once it is read.
++            skipped.append(
++                {
++                    "row": row_index,
++                    "category": name,
++                    "route": "coupons",
++                    "url": row_url,
++                    "reason": "the coupons catalogue lists offers, not products: read as the run's Coupons "
++                    "route (its own page and verdict), not as listing pages",
++                }
++            )
++            continue
+         menu = rows.get(row_index, {}).get("menu_nodes") or []
+         chosen = {str(t) for t in subcategories.get(str(row_index), [])}
+         if not menu:
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+index a8c63ac..322b3e2 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+@@ -67,7 +67,12 @@ from marianos_headless.core.ids import new_id
+ from marianos_headless.core.settings import BrowserProvider
+ from marianos_headless.core.timeutil import iso
+ from marianos_headless.db.models import CategorySource, DeferredRequest, ListingPage, Run
+-from marianos_headless.sites.marianos.dom_parsers import CardObservation, parse_page
++from marianos_headless.sites.marianos.dom_parsers import (
++    CardObservation,
++    CouponList,
++    coupon_list_reading,
++    parse_page,
++)
+ from marianos_headless.sites.marianos.initial_state import InitialStateNotFound, parse_initial_state
+ from marianos_headless.sites.marianos.search_state import (
+     SearchSummary,
+@@ -78,6 +83,7 @@ from marianos_headless.sites.marianos.search_state import (
+     state_products,
+     taxonomy_ids,
+ )
++from marianos_headless.validation.gates import RouteOutcome
+ from marianos_headless.worker.retry import FailureKind, TaskFailure
+ from marianos_headless.worker.runner import CancelledByOperator, RunStop, TaskContext, TaskDeferred, Timer
+ from marianos_headless.worker.runs import event
+@@ -519,43 +525,148 @@ class OxylabsCollector(LiveCollector):
+                 await self._with_reconnects(ctx, lambda: self.coupons_route(ctx))
+         return out
+ 
++    async def h_assemble(self, ctx: TaskContext) -> dict[str, Any]:
++        """Release 1.10.0rc6 (OR-04): before the records are assembled, the Coupons page is asked again while
++        its list has not loaded, within ``coupons_attempts`` answers for the run (the first one was asked when
++        the run started; each answer is kept, across restarts)."""
++        cfg = self.settings.acquisition.oxylabs
++        asked = 0
++        while True:
++            route = self._coupons_summary()
++            if route is None or not route.get("url"):
++                break
++            status = str(route.get("status") or "")
++            if status == "READ" or status.startswith("SKIPPED"):
++                break
++            if len(route.get("attempts") or []) >= cfg.coupons_attempts:
++                break
++            if asked and cfg.coupons_retry_wait_s:
++                await (self.sleep or asyncio.sleep)(cfg.coupons_retry_wait_s)
++            asked += 1
++            async with self.keepalive(ctx):
++                await self._with_reconnects(ctx, lambda: self.coupons_route(ctx))
++        return await super().h_assemble(ctx)
++
++    def _coupons_summary(self) -> dict[str, Any] | None:
++        with self.factory() as s:
++            run = s.get(Run, self.run_id)
++            route = (run.counts or {}).get("coupons_route") if run is not None else None
++        return dict(route) if isinstance(route, dict) else None
++
++    @staticmethod
++    def _coupons_planned(run: Run | None) -> dict[str, Any] | None:
++        """The Coupons row as the run's plan names it (a route of the run: release 1.10.0rc6, OR-04), if it
++        does. A run of the client's whole list names it; a run narrowed to other rows does not."""
++        plan = ((run.config_snapshot or {}).get("plan") or {}) if run is not None else {}
++        for entry in plan.get("skipped") or []:
++            if isinstance(entry, dict) and entry.get("route") == "coupons":
++                return entry
++        return None
++
++    def route_outcomes(self, run: Run) -> list[RouteOutcome]:
++        """The Coupons row: required when the run's plan names it; READ only when its list loaded."""
++        planned = self._coupons_planned(run)
++        route = (run.counts or {}).get("coupons_route")
++        if planned is None and not isinstance(route, dict):
++            return []
++        row = int((planned or {}).get("row") or 0)
++        name = str((planned or {}).get("category") or "Coupons")
++        if not isinstance(route, dict):
++            return [RouteOutcome(row, name, "NOT ATTEMPTED", planned is not None)]
++        detail = str(route.get("list_detail") or "")
++        return [RouteOutcome(row, name, str(route.get("status") or ""), planned is not None, detail)]
++
++    async def _provider_ready(self, ctx: TaskContext) -> None:
++        """The provider session, opened if this execution has none yet (a resumed run whose listings were all
++        read before): as for a listing page, one session for every lane."""
++        if self.ox is None or self.ox.robots is None:
++            async with self._session_lock:
++                if self.ox is None:
++                    await self.open_session(ctx)
++
+     async def coupons_route(self, ctx: TaskContext) -> None:
+-        """The client's Coupons row (offer discovery): its page read once per run, rendered (its coupon cards
+-        appear only then), for the same store and fulfillment. The cards name each coupon's wording, terms
+-        and expiry; the page does not list the products a coupon applies to, so coupons reach records only
+-        through the coupon a product's own card shows."""
++        """The client's Coupons row (offer discovery): its page asked rendered (its coupon cards appear only
++        then), for the same store and fulfillment. The cards name each coupon's wording, terms and expiry; the
++        page does not list the products a coupon applies to, so coupons reach records only through the coupon
++        a product's own card shows.
++
++        Release 1.10.0rc6 (OR-04): one answer per call, kept with the run's earlier ones. It is READ only when
++        the store check passes and its list loaded (``coupon_list_reading``: cards drawn, or a stated count of
++        0 without the loading indicator); a page rendered before its list loaded is NOT READ and proves no
++        coupon absent (seven of twelve answers of 2026-11-16 were such pages)."""
+         with self.factory() as s:
+             url = s.scalar(
+                 select(CategorySource.url).where(
+                     CategorySource.csv_row_index == 0, CategorySource.category_name == "Coupons"
+                 )
+             )
++            run = s.get(Run, self.run_id)
++            before = (run.counts or {}).get("coupons_route") if run is not None else None
++            planned = self._coupons_planned(run)
+         if not url:
+             return
++        cfg = self.settings.acquisition.oxylabs
++        attempts: list[dict[str, Any]] = list((before or {}).get("attempts") or [])
++        summary: dict[str, Any] = {
++            "url": url,
++            "provider": "oxylabs",
++            "run_js": cfg.coupons_run_js,
++            # the run's plan names the row: the run is complete only once it is read
++            "mandatory": planned is not None,
++            "max_attempts": cfg.coupons_attempts,
++            "products_listed": False,
++            "coupon_cards": 0,
++            "coupons": [],
++        }
++        attempt: dict[str, Any] = {"answer": len(attempts) + 1, "at": iso(self.clock())}
++        await self._provider_ready(ctx)
+         assert self.ox is not None
+-        summary: dict[str, Any] = {"url": url, "provider": "oxylabs", "run_js": True}
+         if not self.ox.robots or not self.ox.robots.allowed(url):
+             summary["status"] = "SKIPPED: robots.txt does not allow the page"
++            attempt.update(status=summary["status"], fetch_id=None, list_state=None, store_check=None)
+         else:
+             self.check(ctx)
+             try:
+-                fetch = await self.ox.navigate(
+-                    url, "coupons", run_js=self.settings.acquisition.oxylabs.coupons_run_js
+-                )
++                fetch = await self.ox.navigate(url, "coupons", run_js=cfg.coupons_run_js)
+             except oxylabs.OxylabsError as exc:
+                 if exc.kind not in LISTING_FAILURES:
+                     raise
+                 summary["status"] = f"NOT READ: the provider brought no page ({exc.kind})"
++                attempt.update(status=summary["status"], fetch_id=None, list_state=None, store_check=None)
+             else:
+                 self.steps += 1
+                 v = self.verify(fetch)
+-                coupons = parse_page(self.html(fetch)).coupons
++                html = self.html(fetch)
++                reading = coupon_list_reading(html)
++                coupons = parse_page(html).coupons
++                store = "PASS" if v.passed else "; ".join(v.failures())[:500]
++                if not v.passed:
++                    status = "STORE_NOT_VERIFIED"
++                elif reading.state is CouponList.NOT_LOADED:
++                    status = f"NOT READ: {reading.detail}"
++                else:
++                    status = "READ"
++                provider = fetch.notes.get("provider") or {}
++                attempt.update(
++                    status=status,
++                    fetch_id=fetch.fetch_id,
++                    request_id=provider.get("request_id"),
++                    store_check=store,
++                    list_state=reading.state.value,
++                    count_stated=reading.count_stated,
++                    coupon_cards=reading.cards,
++                    loading_indicator=reading.loading_indicator,
++                    detail=reading.detail,
++                )
+                 summary.update(
+                     {
+-                        "status": "READ" if v.passed else "STORE_NOT_VERIFIED",
++                        "status": status,
+                         "fetch_id": fetch.fetch_id,
+-                        "store_check": "PASS" if v.passed else "; ".join(v.failures())[:500],
+-                        "coupon_cards": len(coupons),
++                        "store_check": store,
++                        "list_state": reading.state.value,
++                        "list_detail": reading.detail,
++                        "count_stated": reading.count_stated,
++                        "coupon_cards": len(coupons) if status == "READ" else 0,
+                         "coupons": [
+                             {
+                                 "coupon_id": c.coupon_id,
+@@ -567,10 +678,12 @@ class OxylabsCollector(LiveCollector):
+                                 "other_tags": list(c.other_tags),
+                             }
+                             for c in coupons
+-                        ],
+-                        "products_listed": False,
++                        ]
++                        if status == "READ"
++                        else [],
+                     }
+                 )
++        summary["attempts"] = [*attempts, attempt]
+         with self.factory() as s:
+             self.persist(s, ctx)
+             run = s.get(Run, self.run_id)
+@@ -581,8 +694,9 @@ class OxylabsCollector(LiveCollector):
+                 self.run_id,
+                 "INFO" if summary.get("status") == "READ" else "WARN",
+                 "COUPONS_ROUTE",
+-                f"Coupons page: {summary.get('status')}; {summary.get('coupon_cards', 0)} coupon cards",
+-                {k: v for k, v in summary.items() if k != "coupons"},
++                f"Coupons page, answer {attempt['answer']} of at most {cfg.coupons_attempts}: "
++                f"{summary.get('status')}; {summary.get('coupon_cards', 0)} coupon cards",
++                {k: v for k, v in summary.items() if k not in ("coupons", "attempts")} | {"attempt": attempt},
+             )
+             s.commit()
+ 
+@@ -613,6 +727,8 @@ class OxylabsCollector(LiveCollector):
+         ``conflict``: the page was rendered but shows no coupon, or other coupons than the card (both kept);
+         ``unread_not_rendered``: the provider brought the page without running its scripts (its own answer
+         says so), and the coupons load only then: nothing is learnt about them;
++        ``unread_loading`` (1.10.0rc6, OR-04): rendered but still loading (the site's loading indicator) and
++        showing no coupon: nothing is learnt about them;
+         ``request_failed`` (sent once, never retried), ``store_unverified``, ``unread_limit`` (the run's
+         ``max_product_term_reads``), ``unread_ceiling`` (the spending ceiling or another run limit was reached
+         first), ``unread_robots``.
+@@ -708,6 +824,18 @@ class OxylabsCollector(LiveCollector):
+                 continue
+             index_captures(self.sources, fetch, self._read)
+             read = self.sources.terms_read(upc)
++            if rendered is True and read is not None and read.loading:
++                # Release 1.10.0rc6 (OR-04): rendered, but still loading and showing no coupon: a page still
++                # loading proves no coupon absent.
++                self._terms(
++                    upc,
++                    "unread_loading",
++                    "the rendered product page was still loading (the site's loading indicator is shown) "
++                    "and shows no coupon: its coupons are unread, not absent",
++                    rendered=True,
++                    **base,
++                )
++                continue
+             if rendered is not True or read is None:
+                 self._terms(
+                     upc,
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/reconciliation.py b/headless/marianos-azure-headless/src/marianos_headless/collection/reconciliation.py
+index e5cc306..28e1598 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/reconciliation.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/reconciliation.py
+@@ -301,7 +301,11 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
+         s.scalars(select(CategorySource).where(CategorySource.enabled).order_by(CategorySource.csv_row_index))
+     )
+     rows_out: list[dict[str, Any]] = []
++    coupons = (run.counts or {}).get("coupons_route") if run is not None else None
+     for src in sources:
++        if isinstance(coupons, dict) and src.url == coupons.get("url"):
++            rows_out.append(_route_row(src, coupons))
++            continue
+         planned = by_row.get(src.csv_row_index, [])
+         complete = [x for x in planned if x["status"] in ("DONE", "EMPTY")]
+         unread = [x for x in planned if x["status"] == "NOT_COLLECTED"]
+@@ -347,6 +351,35 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
+     }
+ 
+ 
++def _route_row(src: CategorySource, route: dict[str, Any]) -> dict[str, Any]:
++    """The Coupons row (release 1.10.0rc6, OR-04): read as a route of the run, its page's own verdict.
++    COMPLETE only when its list loaded (with cards, or stated empty); NOT_READ with why otherwise."""
++    status = str(route.get("status") or "")
++    attempts = route.get("attempts") or []
++    asked = f" ({len(attempts)} answer(s))" if attempts else ""
++    if status == "READ":
++        reason = f"the Coupons page was read for the store{asked}: {route.get('list_detail') or ''}".rstrip(
++            ": "
++        )
++    else:
++        reason = f"the Coupons page was not read{asked}: {status}"
++    return {
++        "csv_row": src.csv_row_index,
++        "category": src.category_name,
++        "source_url": src.url,
++        "listings_planned": 0,
++        "listings_complete": 0,
++        "listings_incomplete": 0,
++        "listings_not_read": 0,
++        "pages_completed": 1 if status == "READ" else 0,
++        "unique_identities": 0,
++        "approx_weight_exclusions": 0,
++        "unresolved_gap": None,
++        "status": "COMPLETE" if status == "READ" else "NOT_READ",
++        "completion_reason": reason,
++    }
++
++
+ def to_csv(rows: list[dict[str, Any]], fields: tuple[str, ...]) -> bytes:
+     buf = io.StringIO(newline="")
+     w = csv.DictWriter(buf, fieldnames=list(fields), extrasaction="ignore", lineterminator="\r\n")
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/core/settings.py b/headless/marianos-azure-headless/src/marianos_headless/core/settings.py
+index 0825d5a..06d99fe 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/core/settings.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/core/settings.py
+@@ -129,6 +129,11 @@ class OxylabsSettings(_Strict):
+     request_timeout_s: float = Field(180, gt=0)  # a JavaScript-rendered page took up to 120 s (probe)
+     max_attempts: int = Field(3, ge=1, le=5)  # retry 408, 429 and 5xx with backoff (Troubleshooting)
+     coupons_run_js: bool = True  # the Coupons page shows its cards only when rendered (probe 2026-10-28)
++    # Release 1.10.0rc6 (OR-04): the Coupons page is asked at most this many times in a run (one when the run
++    # starts, the rest after its listings, ``coupons_retry_wait_s`` apart) until its list has loaded. Live
++    # 2026-11-16: seven of twelve answers had been rendered before the list loaded.
++    coupons_attempts: int = Field(4, ge=1, le=8)
++    coupons_retry_wait_s: float = Field(60, ge=0, le=900)
+     # How a listing is read (release 1.8.0). ``listing``: its own /pl/ page and every later page. ``search``:
+     # only the first page of the retailer's search for the listing's name, for a context whose /pl/ pages are
+     # refused; such a listing is never complete.
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/publishing/exports.py b/headless/marianos-azure-headless/src/marianos_headless/publishing/exports.py
+index 66dc837..e325ab8 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/publishing/exports.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/publishing/exports.py
+@@ -116,6 +116,7 @@ def write_exports(
+     prefix: str | None = None,
+     fresh_products: Sequence[Mapping[str, str]] | None = None,
+     supporting: Mapping[str, bytes] | None = None,
++    routes: Mapping[str, Any] | None = None,
+ ) -> ExportSet:
+     prefix = prefix or export_prefix(store_key, run_id)
+     bodies = {
+@@ -145,6 +146,9 @@ def write_exports(
+         # Records this run observed itself (products_fresh.json); the rest of products.json is carried.
+         **({"fresh_record_count": len(fresh_products)} if fresh_products is not None else {}),
+         "dataset": dataset,
++        # Release 1.10.0rc6 (OR-04): the rows of the client's list read as routes of the run (the Coupons
++        # page): each one's verdict, which a complete dataset needs as READ when the run's plan names it.
++        **({"routes": dict(routes)} if routes else {}),
+         "files": {
+             name: {"key": ref.key, "sha256": ref.sha256, "size": ref.size} for name, ref in refs.items()
+         },
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/dom_parsers.py b/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/dom_parsers.py
+index 08df452..8546bda 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/dom_parsers.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/dom_parsers.py
+@@ -522,6 +522,58 @@ class PageParse:
+     header: HeaderStore | None = None
+ 
+ 
++# Release 1.10.0rc6 (OR-04): the Coupons page's list as rendered. Live 2026-11-16 (twelve runs, Vernon Hills
++# 53100502 Pickup): a loaded list states its count ("450 Coupons") above its coupon cards; a page rendered
++# before its list loaded shows the site's loading indicator in the coupons tab, no count and no card (seven of
++# the twelve, which 1.10.0rc5 recorded as read with 0 coupons).
++COUPONS_COUNT = '[data-testid="coupons-count-format"]'
++LOADING_INDICATOR = '[data-citrus-component="LoadingIndicator"]'
++_COUPONS_STATED = re.compile(r"^\s*([\d,]+)\s+coupons?\b", re.IGNORECASE)
++
++
++class CouponList(StrEnum):
++    LOADED_WITH_CARDS = "loaded_with_cards"  # coupon cards drawn: the list loaded
++    LOADED_EMPTY = "loaded_empty"  # the page states 0 coupons, draws no card and is not loading
++    NOT_LOADED = "not_loaded"  # anything else: nothing is learnt about the coupons
++
++
++@dataclass(frozen=True)
++class CouponListReading:
++    state: CouponList
++    count_stated: int | None  # the count the page states ("450 Coupons"); None when it states none
++    count_text: str
++    cards: int
++    loading_indicator: bool
++    detail: str
++
++
++def coupon_list_reading(html: str, sel: Selectors = DEFAULT_SELECTORS) -> CouponListReading:
++    """What the rendered Coupons page shows of its list. Cards drawn are a loaded list (the next cards of the
++    infinite list may still be loading below them). No card is a loaded empty list only when the page states
++    a count of 0 and shows no loading indicator; otherwise the list had not loaded and proves nothing (a
++    count of coupons without a card, no count at all, or the site's loading indicator)."""
++    tree = LexborHTMLParser(html)
++    cards = len(parse_coupon_cards(tree, sel))
++    node = tree.css_first(COUPONS_COUNT)
++    count_text = text_of(node) if node is not None else ""
++    m = _COUPONS_STATED.match(count_text)
++    count = int(m.group(1).replace(",", "")) if m else None
++    loading = tree.css_first(LOADING_INDICATOR) is not None
++    stated = f"the page states {count_text!r}" if count_text else "the page states no coupon count"
++    if cards:
++        state, detail = CouponList.LOADED_WITH_CARDS, f"{cards} coupon card(s) drawn; {stated}"
++    elif count == 0 and not loading:
++        state = CouponList.LOADED_EMPTY
++        detail = f"{stated} and draws no card, with no loading indicator: the list loaded and is empty"
++    else:
++        why = [
++            *(["the coupons tab shows the site's loading indicator"] if loading else []),
++            stated if count is None else f"{stated} but draws no card" if count else stated,
++        ]
++        state, detail = CouponList.NOT_LOADED, "; ".join(why) + ": the coupon list had not loaded"
++    return CouponListReading(state, count, count_text, cards, loading, detail)
++
++
+ def parse_page(html: str, sel: Selectors = DEFAULT_SELECTORS) -> PageParse:
+     tree = LexborHTMLParser(html)
+     return PageParse(
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/observations.py b/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/observations.py
+index 6a0e925..8c4d988 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/observations.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/observations.py
+@@ -17,7 +17,7 @@ from marianos_headless.sites.marianos.dom_parsers import (
+     HeaderStore,
+     Selectors,
+ )
+-from marianos_headless.sites.marianos.source_json import SourceIndex, coupon_offer, product_offers
++from marianos_headless.sites.marianos.source_json import SourceIndex, TermsRead, coupon_offer, product_offers
+ from marianos_headless.sites.marianos.store_context import StoreDetails, store_location_text
+ 
+ 
+@@ -42,10 +42,22 @@ class OfferDetails:
+     notes: tuple[str, ...] = ()  # listed offers left out of the record, and why
+     check: SourceCheck | None = None
+     sources: tuple[dict[str, object], ...] = ()  # the responses read, for the field provenance
+-    # The product's own page read for its coupons (release 1.9.0rc3): "rendered", "not_rendered" or "".
++    # The product's own page read for its coupons (release 1.9.0rc3): "rendered", "not_rendered", "loading"
++    # (1.10.0rc6: rendered but still loading, no coupon shown) or "".
+     page_read: str = ""
+ 
+ 
++def page_read_of(read: TermsRead | None) -> str:
++    """How the product's own page was read for its coupons: "" (not read), "loading" (release 1.10.0rc6,
++    OR-04: it still showed the site's loading indicator and no coupon, so it proves no coupon absent),
++    "rendered" or "not_rendered" (the provider did not state that it ran the page's scripts)."""
++    if read is None:
++        return ""
++    if read.loading:
++        return "loading"
++    return "rendered" if read.rendered is True else "not_rendered"
++
++
+ def offer_details(
+     card: CardObservation, sources: SourceIndex, *, store: str, modality: str, tz: str
+ ) -> OfferDetails:
+@@ -73,7 +85,7 @@ def offer_details(
+         refs.append({"upc": product.upc, **product.ref.as_dict()})
+     read = sources.terms_read(card.upc)
+     return OfferDetails(
+-        page_read="" if read is None else "rendered" if read.rendered is True else "not_rendered",
++        page_read=page_read_of(read),
+         offers=tuple(offers),
+         notes=tuple(notes),
+         check=product.check(store, modality) if product is not None else None,
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/pdp_savings.py b/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/pdp_savings.py
+index 605dd06..31e9060 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/pdp_savings.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/pdp_savings.py
+@@ -34,6 +34,9 @@ TAG = '[data-testid="savings-tag"]'
+ ACTION = '[data-testid^="CouponActionButton-"]'
+ PROMOTION = '[data-testid="promotion-description"]'
+ PROMOTION_SECTION = '[data-testid="promotion-details-section"]'
++# Release 1.10.0rc6 (OR-04): the site's loading indicator. A page that still shows it and no coupon row was
++# rendered before its offers loaded: it proves no coupon absent.
++LOADING_INDICATOR = '[data-citrus-component="LoadingIndicator"]'
+ _UPC_HREF = re.compile(r"/p/[^?#]*/(\d{13})(?:[?#]|$)")
+ COUPON_KINDS = frozenset({"other-coupon", "cash-back", "digital-coupon", "coupon"})
+ 
+@@ -97,6 +100,7 @@ class PdpSavings:
+ 
+     section: bool  # the page shows a Savings section at all
+     rows: tuple[SavingsRow, ...]
++    loading: bool = False  # the page shows the site's loading indicator (release 1.10.0rc6, OR-04)
+ 
+     def coupons(self) -> list[SavingsRow]:
+         return [r for r in self.rows if r.is_coupon]
+@@ -184,10 +188,11 @@ def parse_row(row: LexborNode) -> SavingsRow:
+ 
+ def parse_pdp_savings(html: str) -> PdpSavings:
+     tree = LexborHTMLParser(html)
++    loading = tree.css_first(LOADING_INDICATOR) is not None
+     section = tree.css_first(SECTION)
+     if section is None:
+-        return PdpSavings(section=False, rows=())
+-    return PdpSavings(section=True, rows=tuple(parse_row(r) for r in section.css(ROW)))
++        return PdpSavings(section=False, rows=(), loading=loading)
++    return PdpSavings(section=True, rows=tuple(parse_row(r) for r in section.css(ROW)), loading=loading)
+ 
+ 
+ def savings_document(html: str, *, upc: str, rendered: bool | None, requested_run_js: bool) -> dict[str, Any]:
+@@ -206,5 +211,6 @@ def savings_document(html: str, *, upc: str, rendered: bool | None, requested_ru
+             "rendered": rendered,
+             "section": s.section,
+             "rows": [r.as_dict() for r in s.rows],
++            "loading": s.loading,
+         }
+     }
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/source_json.py b/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/source_json.py
+index 6dcedfe..53c027a 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/source_json.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/sites/marianos/source_json.py
+@@ -231,6 +231,9 @@ class TermsRead:
+     section: bool  # the page shows a Savings section
+     coupon_ids: tuple[str, ...]
+     other_rows: tuple[str, ...]  # offers of the section that are not coupons (a sale), by headline
++    # Release 1.10.0rc6 (OR-04): the page still showed the site's loading indicator and no coupon row: its
++    # coupons are unread (a page still loading proves no coupon absent).
++    loading: bool = False
+ 
+     def as_dict(self) -> dict[str, Any]:
+         return {
+@@ -240,6 +243,7 @@ class TermsRead:
+             "section": self.section,
+             "coupon_ids": list(self.coupon_ids),
+             "other_rows": list(self.other_rows),
++            "loading": self.loading,
+         }
+ 
+ 
+@@ -510,6 +514,7 @@ class SourceIndex:
+                 section=bool(data.get("section")),
+                 coupon_ids=tuple(c.coupon_id for c in coupons) if rendered else (),
+                 other_rows=tuple(others),
++                loading=data.get("loading") is True and not coupons,
+             )
+         if not rendered:
+             return 0
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/validation/gates.py b/headless/marianos-azure-headless/src/marianos_headless/validation/gates.py
+index 07b3ce7..31a2b06 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/validation/gates.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/validation/gates.py
+@@ -62,12 +62,26 @@ class CategoryOutcome:
+     node_coverage: Mapping[str, float] = field(default_factory=dict)
+ 
+ 
++@dataclass(frozen=True)
++class RouteOutcome:
++    """A row of the client's list read as a route of the run, not as listing pages (release 1.10.0rc6,
++    OR-04: the Coupons page). ``required``: the run's plan names it, so the run is complete only once it is
++    read."""
++
++    row_index: int
++    name: str
++    status: str  # READ, or why not ("NOT READ: ...", "STORE_NOT_VERIFIED", "SKIPPED: ...", "NOT ATTEMPTED")
++    required: bool
++    detail: str = ""
++
++
+ @dataclass
+ class RunEvidence:
+     mode: DataMode
+     attestations: Sequence[AttestationSummary] = ()
+     challenges_detected: int = 0
+     categories: Sequence[CategoryOutcome] = ()
++    routes: Sequence[RouteOutcome] = ()
+     exported_records: Sequence[Mapping[str, str]] = ()
+     # The identity of each exported record, in the same order: its UPC, or the retailer's own product ID
+     # where the listing shows no UPC (Walmart ``wm:<item id>``). Empty: the records' ``upc`` field.
+@@ -141,6 +155,19 @@ def g3_coverage(ev: RunEvidence, s: Settings) -> GateResult:
+     fail_below = s.gates.coverage_fail_below
+     if not ev.categories:
+         f.append(Finding("G3", Severity.FAIL, RunCode.NODE_INCOMPLETE, "no category outcomes recorded"))
++    for r in ev.routes:
++        if r.required and r.status != "READ":
++            f.append(
++                Finding(
++                    "G3",
++                    Severity.FAIL,
++                    RunCode.NODE_INCOMPLETE,
++                    f"row {r.row_index} ({r.name}) not read: {r.status}"
++                    + (f"; {r.detail}" if r.detail else ""),
++                    "category",
++                    r.name,
++                )
++            )
+     for c in ev.categories:
+         if c.status != "DONE":
+             f.append(
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/worker/pipeline.py b/headless/marianos-azure-headless/src/marianos_headless/worker/pipeline.py
+index 5b81d72..3954ba8 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/worker/pipeline.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/worker/pipeline.py
+@@ -448,6 +448,27 @@ class Pipeline:
+             prefix=prefix,
+             fresh_products=fresh,
+             supporting=coverage_files(s, run.id),
++            routes=_routes(run),
+         )
+         register_exports(s, run.id, run.mode, ex)
+         return ex
++
++
++def _routes(run: Run) -> dict[str, Any]:
++    """The Coupons route's verdict as the manifest states it (release 1.10.0rc6, OR-04)."""
++    route = (run.counts or {}).get("coupons_route")
++    if not isinstance(route, dict):
++        return {}
++    return {
++        "coupons": {
++            "status": route.get("status"),
++            "mandatory": route.get("mandatory"),
++            "list_state": route.get("list_state"),
++            "list_detail": route.get("list_detail"),
++            "count_stated": route.get("count_stated"),
++            "coupon_cards": route.get("coupon_cards"),
++            "answers": len(route.get("attempts") or []),
++            "fetch_id": route.get("fetch_id"),
++            "url": route.get("url"),
++        }
++    }
+diff --git a/headless/marianos-azure-headless/tests/integration/test_coupons_route_or04.py b/headless/marianos-azure-headless/tests/integration/test_coupons_route_or04.py
+index 0030ff0..c1c096f 100644
+--- a/headless/marianos-azure-headless/tests/integration/test_coupons_route_or04.py
++++ b/headless/marianos-azure-headless/tests/integration/test_coupons_route_or04.py
+@@ -215,6 +215,10 @@ def test_or04_a_coupons_page_loaded_on_a_later_answer_is_read_and_the_run_is_com
+         assert run.counts["gates"]["G3"] == "PASS"
+     row0 = _row0(env, run_id)
+     assert row0["status"] == "COMPLETE" and "24 coupon card" in row0["completion_reason"], row0
++    manifest = json.loads(
++        (env["tmp"] / "data" / "runs" / env["store"].key / run_id / "exports" / "manifest.json").read_bytes()
++    )
++    assert manifest["routes"]["coupons"]["status"] == "READ" and manifest["routes"]["coupons"]["answers"] == 2
+ 
+ 
+ def test_or04_the_coupons_verdict_and_its_answers_are_kept_across_a_restart(

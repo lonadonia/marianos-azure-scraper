@@ -1,0 +1,7 @@
+# command: bash -c systemctl list-units --no-legend 'marianos-*'; echo "(units listed above; none means no collector process is left running)"
+# started: 2026-11-17T05:16:00Z
+  marianos-walk-r7w.service    loaded active running /usr/bin/python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/record_cast.py /var/lib/marianos-collector/ops-rc6/walk/steps_r7w.json /var/lib/marianos-collector/ops-rc6/walk/walkthrough_r7w.cast /var/lib/marianos-collector/ops-rc6/walk/raw_r7w
+  marianos-watch-r7w-2.service loaded active running /var/lib/marianos-collector/ops-rc6/watch_stage.sh marianos-stage-r7w-2 M-R7w-walkthrough-110rc6-20261117 marianos_rc5 /var/lib/marianos-collector/ops-rc6/stages/M-R7w-walkthrough-110rc6-20261117/watch_marianos-stage-r7w-2.log
+(units listed above; none means no collector process is left running)
+# exit: 0
+# ended: 2026-11-17T05:16:00Z

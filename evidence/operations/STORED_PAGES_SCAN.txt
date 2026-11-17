@@ -1,0 +1,15 @@
+The scan of every stored page of the runs this delivery reports (the collector's own captures, kept privately and not
+published; the published excerpts and samples are drawn from them), for the private identifiers (23 patterns: host
+names, addresses, user and home names, workstation paths, e-mail addresses) and the Oxylabs credential's secret forms
+(the key, its credential line, and the base64 of each), in files and in archive members, ASCII case ignored. Counts
+only: no pattern and no match is ever printed. An item that cannot be read fails the scan; none is skipped.
+
+Run (stored pages)                      Files  Hits  Unreadable  Scanned (UTC, 2026-11-17)
+F2   (1.10.0rc5, the stopped full run)   1159     0           0  05:56:37Z
+P7   (1.10.0rc6 pilot)                     30     0           0  05:57:12Z
+R6   (1.10.0rc6, R6a and its finalized)   128     0           0  05:57:13Z
+P8   (1.10.0rc6 pilot, product pages)      48     0           0  05:56Z
+R7   (1.10.0rc6 full run, every slice)    443     0           0  05:55:57Z
+
+Every scan exited 0 (0 clean, 1 a hit, 2 an item that could not be read). F2, P7 and R6 were first scanned at
+01:27-01:28Z with the 22 patterns of that time (0 hits); the rescans above use the 23 of 03:53Z onwards.

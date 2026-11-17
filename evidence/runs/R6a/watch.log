@@ -1,0 +1,25 @@
+2026-11-16T23:40:16Z watch start unit=marianos-stage-r6a stage=M-R6a-full-run-110rc6-20261116 db=marianos_rc5
+2026-11-16T23:40:16Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=preflight|-  pages=[0 pages, 0 completed ] distinct_upcs=0  deferred(all|wait|rec|exh|answered_reasks)=0|0|0|0|0  ledger={"dispatched": 1}
+2026-11-16T23:40:47Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[0 pages, 0 completed ] distinct_upcs=0  deferred(all|wait|rec|exh|answered_reasks)=0|0|0|0|0  ledger={"dispatched": 1, "settled": 2}
+2026-11-16T23:41:17Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[6 pages, 4 completed ] distinct_upcs=73  deferred(all|wait|rec|exh|answered_reasks)=2|2|0|0|0  ledger={"dispatched": 2, "settled": 8}
+2026-11-16T23:41:47Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[17 pages, 11 completed ] distinct_upcs=182  deferred(all|wait|rec|exh|answered_reasks)=5|5|0|0|0  ledger={"dispatched": 2, "settled": 20}
+2026-11-16T23:42:17Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[20 pages, 13 completed ] distinct_upcs=230  deferred(all|wait|rec|exh|answered_reasks)=6|6|0|0|0  ledger={"dispatched": 1, "settled": 24}
+2026-11-16T23:42:47Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[25 pages, 16 completed ] distinct_upcs=289  deferred(all|wait|rec|exh|answered_reasks)=8|8|0|0|0  ledger={"dispatched": 2, "settled": 29}
+2026-11-16T23:43:18Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[32 pages, 20 completed ] distinct_upcs=385  deferred(all|wait|rec|exh|answered_reasks)=11|11|0|0|0  ledger={"dispatched": 2, "settled": 36}
+2026-11-16T23:43:48Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[35 pages, 22 completed ] distinct_upcs=433  deferred(all|wait|rec|exh|answered_reasks)=12|12|0|0|0  ledger={"dispatched": 2, "settled": 39}
+2026-11-16T23:44:18Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[36 pages, 22 completed ] distinct_upcs=433  deferred(all|wait|rec|exh|answered_reasks)=13|13|0|0|0  ledger={"dispatched": 2, "settled": 40}
+2026-11-16T23:44:48Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[38 pages, 23 completed ] distinct_upcs=457  deferred(all|wait|rec|exh|answered_reasks)=14|14|0|0|0  ledger={"dispatched": 2, "settled": 43}
+2026-11-16T23:45:19Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[40 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|0  ledger={"dispatched": 2, "settled": 45}
+2026-11-16T23:45:49Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[41 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|0  ledger={"dispatched": 2, "settled": 46}
+2026-11-16T23:46:19Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[42 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|0  ledger={"dispatched": 2, "settled": 48}
+2026-11-16T23:46:49Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|PROVIDER_ERROR  pages=[46 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|3  ledger={"dispatched": 1, "settled": 52}
+2026-11-16T23:47:20Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|PROVIDER_ERROR  pages=[46 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|3  ledger={"dispatched": 1, "settled": 52}
+2026-11-16T23:47:50Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=interrupted|PROVIDER_ERROR  pages=[47 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|3  ledger={"settled": 53}
+2026-11-16T23:48:20Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=interrupted|PROVIDER_ERROR  pages=[47 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|3  ledger={"settled": 53}
+2026-11-16T23:48:50Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[47 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|3  ledger={"dispatched": 2, "settled": 54}
+2026-11-16T23:49:21Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[53 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|9  ledger={"dispatched": 2, "settled": 60}
+2026-11-16T23:49:51Z unit=active run=01M7KBQ3XXMP3W3FK2EXE525EA status=running|-  pages=[56 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|12  ledger={"dispatched": 2, "settled": 63}
+2026-11-16T23:49:51Z OPERATOR STOP: 10 re-asks answered (12) and none recovered -> systemctl stop marianos-stage-r6a
+2026-11-16T23:49:51Z unit after stop: failed
+2026-11-16T23:50:21Z unit=failed run=01M7KBQ3XXMP3W3FK2EXE525EA status=interrupted|TERMINATED  pages=[57 pages, 24 completed ] distinct_upcs=481  deferred(all|wait|rec|exh|answered_reasks)=15|15|0|0|12  ledger={"settled": 63, "unknown": 2}
+2026-11-16T23:50:21Z unit not active (failed): watch ends

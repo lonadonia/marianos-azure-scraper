@@ -1,0 +1,260 @@
+From e4f958ac2335d77e402f1a6173eadbbda7b1ce15 Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Tue, 17 Nov 2026 06:51:34 +0000
+Subject: [PATCH 7/9] marianos-azure-headless next: the lint and format checks
+ pass again, as on 1.10.0rc6 (the OR-21, OR-22 and OR-23 changes wrapped to
+ 110 columns and formatted; no change of behaviour)
+
+---
+ .../src/marianos_headless/collection/nodes.py | 13 ++++++---
+ .../collection/oxylabs_live.py                | 27 +++++++++++--------
+ .../src/marianos_headless/worker/runner.py    | 14 +++++-----
+ .../integration/test_oxylabs_collector.py     | 21 ++++++++-------
+ .../tests/integration/test_runner.py          | 24 +++++++++++------
+ .../tests/unit/test_collection.py             |  7 ++---
+ 6 files changed, 65 insertions(+), 41 deletions(-)
+
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/nodes.py b/headless/marianos-azure-headless/src/marianos_headless/collection/nodes.py
+index 5417947..5aa601c 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/nodes.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/nodes.py
+@@ -75,12 +75,17 @@ def listing_url(base: str, href: str) -> str:
+ def canonical_listing_href(href: str, taxonomy_id: str) -> str:
+     """The menu's link to a listing as it is asked: as given, except one form the site does not serve (OR-22):
+     ``/pl/<name><ID>``, the slash before the ID missing (``/pl/hard-cider08194``: asked as given, the provider
+-    brought no page in any run), asked as ``/pl/<name>/<ID>`` like every other listing. Only a link whose path is
+-    a name ending with the node's own ID is rewritten (a name ending with a digit is left as given: the ID could
+-    not be told apart); the query is kept as given."""
++    brought no page in any run), asked as ``/pl/<name>/<ID>`` like every other listing. Only a link whose path
++    is a name ending with the node's own ID is rewritten (a name ending with a digit is left as given: the ID
++    could not be told apart); the query is kept as given."""
+     path, sep, query = href.partition("?")
+     segments = [s for s in path.split("/") if s]
+-    if len(segments) == 2 and segments[0] == "pl" and segments[1] != taxonomy_id and segments[1].endswith(taxonomy_id):
++    if (
++        len(segments) == 2
++        and segments[0] == "pl"
++        and segments[1] != taxonomy_id
++        and segments[1].endswith(taxonomy_id)
++    ):
+         name = segments[1][: -len(taxonomy_id)].rstrip("-")
+         if name and not name[-1].isdigit():
+             return f"/pl/{name}/{taxonomy_id}" + (sep + query if sep else "")
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+index 2c577ad..d601516 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+@@ -110,8 +110,8 @@ SEARCH_ROUTE_REASON = (
+ 
+ class ListingUnread(Exception):
+     """OR-23: a page of the listing the provider did not bring once more after the run had stopped at it (more
+-    failed answers for the page than a task's attempts): the listing stays incomplete, with this reason, and the
+-    run goes on instead of stopping there again at every resume."""
++    failed answers for the page than a task's attempts): the listing stays incomplete, with this reason, and
++    the run goes on instead of stopping there again at every resume."""
+ 
+     def __init__(self, reason: str) -> None:
+         super().__init__(reason)
+@@ -1020,7 +1020,8 @@ class OxylabsCollector(LiveCollector):
+                 return await self.read_search(ctx, node, state)
+             return await self.read_listing(ctx, node, state)
+         except ListingUnread as exc:
+-            # OR-23: bounded across resumes; the pages read before it stay counted, the listing is not complete.
++            # OR-23: bounded across resumes; the pages read before it stay counted, the listing is not
++            # complete.
+             state.status, state.reason = "INCOMPLETE", exc.reason
+             return self._finish_node(node, state)
+ 
+@@ -1254,10 +1255,11 @@ class OxylabsCollector(LiveCollector):
+         retries); once they are spent, or when pages keep failing on any listing, the run stops resumably, and
+         the resume starts at this page.
+ 
+-        OR-23: bounded across resumes. A page that fails again once the run has been resumed (more failed answers
+-        for it in this run than a task's attempts) leaves its listing incomplete, with the reason, and the run
+-        goes on: it no longer stops the run at every resume, which made a run holding a page the provider never
+-        brings endless (Hard Cider 08194 in R7). Pages failing in a row on any listings still stop the run."""
++        OR-23: bounded across resumes. A page that fails again once the run has been resumed (more failed
++        answers for it in this run than a task's attempts) leaves its listing incomplete, with the reason, and
++        the run goes on: it no longer stops the run at every resume, which made a run holding a page the
++        provider never brings endless (Hard Cider 08194 in R7). Pages failing in a row on any listings still
++        stop the run."""
+         self.failed_in_a_row += 1
+         text = f"{node.url}: page {page} not read: {why}"[:600]
+         if self.failed_in_a_row >= MAX_FAILED_LISTINGS_IN_A_ROW:
+@@ -1270,17 +1272,20 @@ class OxylabsCollector(LiveCollector):
+         failed = self._failed_answers(node, page)
+         if failed > limit:
+             raise ListingUnread(
+-                f"{text}; the provider brought no page in {failed} answers, the last after the run had stopped "
+-                f"at this page and been resumed: the listing stays incomplete"
++                f"{text}; the provider brought no page in {failed} answers, the last after the run had "
++                f"stopped at this page and been resumed: the listing stays incomplete"
+             )
+         if ctx.lease.attempts >= limit:
+             raise RunStop(StopCode.PROVIDER_ERROR, text, resumable=True)
+         raise TaskFailure(FailureKind.TRANSIENT, text)
+ 
+     def _failed_answers(self, node: Node, page: int) -> int:
+-        """OR-23: the provider's failed answers for this page of the listing in this run (one row per attempt)."""
++        """OR-23: the provider's failed answers for this page of the listing in this run (one row per
++        attempt)."""
+         with self.factory() as s:
+-            rows = pagination.rows_of(s, self.run_id, node.category_source_id, node.taxonomy_id, self._pkey(node))
++            rows = pagination.rows_of(
++                s, self.run_id, node.category_source_id, node.taxonomy_id, self._pkey(node)
++            )
+             return sum(1 for r in rows if r.requested_page == page and r.state == "failed")
+ 
+     # -- requests set aside and asked again (release 1.10.0, C1; collection.reask) -------------------------
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/worker/runner.py b/headless/marianos-azure-headless/src/marianos_headless/worker/runner.py
+index 346d33c..53b496a 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/worker/runner.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/worker/runner.py
+@@ -269,8 +269,8 @@ class Worker:
+ 
+         OR-21: a termination signal cancels the worker's own task (``cli.run_async``); the lanes are cancelled
+         with it and waited for, so each hands its task back before the caller closes the provider session and
+-        leaves the run resumable. Left running (1.10.0rc6), a lane saw the closing session as a transport failure
+-        and could fail its task for good."""
++        leaves the run resumable. Left running (1.10.0rc6), a lane saw the closing session as a transport
++        failure and could fail its task for good."""
+         busy: dict[asyncio.Task[bool], queue.Lease] = {}
+         try:
+             return await self._lanes(max_tasks, busy)
+@@ -281,7 +281,9 @@ class Worker:
+                 await asyncio.gather(*busy, return_exceptions=True)
+             raise
+ 
+-    async def _lanes(self, max_tasks: int | None, busy: dict[asyncio.Task[bool], queue.Lease]) -> WorkerResult:
++    async def _lanes(
++        self, max_tasks: int | None, busy: dict[asyncio.Task[bool], queue.Lease]
++    ) -> WorkerResult:
+         processed = 0
+         aborted = False
+         while True:
+@@ -350,9 +352,9 @@ class Worker:
+         try:
+             final_cursor = await handler(ctx)
+         except asyncio.CancelledError:
+-            # OR-21: the run is being stopped (a termination signal cancels the worker and its lanes). The stop is
+-            # never a failure of the task: it is handed back with its checkpoint (attempts kept). A lease the
+-            # stop has already taken back leaves nothing to hand back.
++            # OR-21: the run is being stopped (a termination signal cancels the worker and its lanes). The
++            # stop is never a failure of the task: it is handed back with its checkpoint (attempts kept). A
++            # lease the stop has already taken back leaves nothing to hand back.
+             with contextlib.suppress(queue.LeaseLost), self.factory() as s:
+                 queue.release(s, ctx.lease)
+                 s.commit()
+diff --git a/headless/marianos-azure-headless/tests/integration/test_oxylabs_collector.py b/headless/marianos-azure-headless/tests/integration/test_oxylabs_collector.py
+index 3349481..7637e15 100644
+--- a/headless/marianos-azure-headless/tests/integration/test_oxylabs_collector.py
++++ b/headless/marianos-azure-headless/tests/integration/test_oxylabs_collector.py
+@@ -378,15 +378,15 @@ def test_a_listing_the_provider_cannot_bring_stays_unread_without_charge_and_the
+         assert len(failed) == 9 and sum(u.cost_usd for u in failed) == 0
+ 
+ 
+-def test_or23_a_page_the_provider_still_cannot_bring_after_the_resume_leaves_its_listing_incomplete_and_the_run_goes_on(
++def test_or23_a_page_the_provider_still_cannot_bring_after_the_resume_leaves_its_listing_incomplete_and_the_run_goes_on(  # noqa: E501
+     env: dict[str, Any], settings: Settings
+ ) -> None:
+-    """OR-23 (1.10.0rc6, run R7): the run stops at a page whose attempts are spent (release 1.8.0, the test above),
+-    but nothing bounded that across resumes: every resume asked the page again and the run stopped there again,
+-    so a run holding a page the provider never brings could never end (Hard Cider 08194 in R7: attempt 9, a stop
+-    in every execution, each after about 5 minutes). A page that fails again once the run has been resumed leaves
+-    its listing incomplete, with the reason, and the run goes on: one more attempt, one run stop in all, no
+-    charge."""
++    """OR-23 (1.10.0rc6, run R7): the run stops at a page whose attempts are spent (release 1.8.0, the test
++    above), but nothing bounded that across resumes: every resume asked the page again and the run stopped
++    there again, so a run holding a page the provider never brings could never end (Hard Cider 08194 in R7:
++    attempt 9, a stop in every execution, each after about 5 minutes). A page that fails again once the run
++    has been resumed leaves its listing incomplete, with the reason, and the run goes on: one more attempt,
++    one run stop in all, no charge."""
+     _ceiling(env["factory"], 60)
+     fake = FakeOxylabs("fail_bars")
+     run_id, status = _run(env, settings, fake)
+@@ -397,12 +397,15 @@ def test_or23_a_page_the_provider_still_cannot_bring_after_the_resume_leaves_its
+         run = s.get(Run, run_id)
+         assert run is not None and run.status != "interrupted"
+         rows = list(s.scalars(select(ListingPage).where(ListingPage.taxonomy_id == "03002")))
+-        assert [(r.requested_page, r.state) for r in rows] == [(1, "failed")] * 4  # one answer more, then no more
++        # one answer more, then no more
++        assert [(r.requested_page, r.state) for r in rows] == [(1, "failed")] * 4
+         cov = {c.taxonomy_id: c for c in s.scalars(select(NodeCoverage).where(NodeCoverage.run_id == run_id))}
+         assert cov["03002"].status == "INCOMPLETE"
+         assert "stays incomplete" in cov["03002"].partition["reason"]
+         assert "the provider brought no page" in cov["03002"].partition["reason"]
+-        stops = s.scalars(select(Event).where(Event.run_id == run_id, Event.code == "RUN_PAUSED_ON_FAILURE")).all()
++        stops = s.scalars(
++            select(Event).where(Event.run_id == run_id, Event.code == "RUN_PAUSED_ON_FAILURE")
++        ).all()
+         assert len(stops) == 1  # the 1.8.0 stop only
+         failed = list(s.scalars(select(ProviderUsage).where(ProviderUsage.outcome == "provider_failed_free")))
+         assert len(failed) == 12 and sum(u.cost_usd for u in failed) == 0
+diff --git a/headless/marianos-azure-headless/tests/integration/test_runner.py b/headless/marianos-azure-headless/tests/integration/test_runner.py
+index c6b2d9d..8e94fd6 100644
+--- a/headless/marianos-azure-headless/tests/integration/test_runner.py
++++ b/headless/marianos-azure-headless/tests/integration/test_runner.py
+@@ -320,12 +320,12 @@ def test_pause_then_resume_continues_from_checkpoint(migrated_engine: Engine, tm
+ def test_a_termination_signal_cancels_the_lanes_and_hands_their_tasks_back_unfailed(
+     migrated_engine: Engine, tmp_path: Path
+ ) -> None:
+-    """OR-21: a termination signal cancels the run's main task (``cli.run_async``) while its lanes wait for the
+-    provider. 1.10.0rc6 left the lanes running: the stop then closed the provider session under them, a lane saw a
+-    transport failure and, its task at its last attempt, failed that task for good; only the stop's later release
+-    of the leases refused the write (``LeaseLost`` in the journal of every stop). The lanes are cancelled and
+-    waited for with the worker: each hands its task back (pending, cursor and attempts kept), none is left running,
+-    and a failure the closed session would give afterwards reaches no task."""
++    """OR-21: a termination signal cancels the run's main task (``cli.run_async``) while its lanes wait for
++    the provider. 1.10.0rc6 left the lanes running: the stop then closed the provider session under them, a
++    lane saw a transport failure and, its task at its last attempt, failed that task for good; only the stop's
++    later release of the leases refused the write (``LeaseLost`` in the journal of every stop). The lanes are
++    cancelled and waited for with the worker: each hands its task back (pending, cursor and attempts kept),
++    none is left running, and a failure the closed session would give afterwards reaches no task."""
+     factory, store = seed(migrated_engine)
+     run_id = start(factory, store)
+     settings = Settings()
+@@ -343,13 +343,21 @@ def test_a_termination_signal_cancels_the_lanes_and_hands_their_tasks_back_unfai
+             raise TaskFailure(FailureKind.TRANSIENT, "transport (HTTP 0)")  # what a closed session gives
+ 
+         w = Worker(
+-            factory, run_id, "w", {"listing_node": in_flight}, settings, LocalStorageAdapter(tmp_path), lanes=2
++            factory,
++            run_id,
++            "w",
++            {"listing_node": in_flight},
++            settings,
++            LocalStorageAdapter(tmp_path),
++            lanes=2,
+         )
+         main = asyncio.create_task(w.run())
+         for _ in range(500):  # until both lanes hold their task
+             await asyncio.sleep(0.01)
+             with factory() as s:
+-                held = s.scalars(select(Task.cursor).where(Task.run_id == run_id, Task.state == "running")).all()
++                held = s.scalars(
++                    select(Task.cursor).where(Task.run_id == run_id, Task.state == "running")
++                ).all()
+             if len(held) == 2 and all(c == {"next_page": 1} for c in held):
+                 break
+         main.cancel()  # what run_async does on SIGTERM
+diff --git a/headless/marianos-azure-headless/tests/unit/test_collection.py b/headless/marianos-azure-headless/tests/unit/test_collection.py
+index 9b0d672..7403661 100644
+--- a/headless/marianos-azure-headless/tests/unit/test_collection.py
++++ b/headless/marianos-azure-headless/tests/unit/test_collection.py
+@@ -211,9 +211,10 @@ def test_a_csv_row_that_is_itself_a_listing_page_is_planned_and_the_coupons_row_
+ 
+ 
+ def test_a_menu_link_missing_the_slash_before_its_id_is_asked_in_its_canonical_form() -> None:
+-    """OR-22: the site's menu links Hard Cider (08194) as /pl/hard-cider08194; asked as given, the provider brought
+-    no page (F2c, F2d, R6a, R7a2: HTTP 500 after about 250 s) and the listing was never read. It is asked as
+-    /pl/hard-cider/08194, the form of every other listing, and the menu's own link is kept beside it."""
++    """OR-22: the site's menu links Hard Cider (08194) as /pl/hard-cider08194; asked as given, the provider
++    brought no page (F2c, F2d, R6a, R7a2: HTTP 500 after about 250 s) and the listing was never read. It is
++    asked as /pl/hard-cider/08194, the form of every other listing, and the menu's own link is kept beside
++    it."""
+     seed = load_seed()
+     sources = {r["row_index"]: (r["category"], f"id{r['row_index']}") for r in seed["rows"]}
+     nodes, _ = plan_nodes(seed, sources, [15], {"15": ["08194"]})
+-- 
+2.55.0.windows.5
+

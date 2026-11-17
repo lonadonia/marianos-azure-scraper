@@ -1,0 +1,17 @@
+installed_file,published_tool,installed_sha256,against_the_private_source
+/usr/local/sbin/mstage6,mstage6,a15230b3817a99eb3dfcb2480026c95cd3f1540fff257a319fd9631f4217db18,SAME
+/var/lib/marianos-collector/ops-rc6/kill_recover.sh,kill_recover.sh,d6214d7aec3de9f4ab845287625b8b571ae5134c4df46668fe5335488ee7d6ea,SAME
+/var/lib/marianos-collector/ops-rc6/live_rc6_run.py,live_rc6_run.py,5371620f4d9528b53c0e9338fe961570f8cdfc70e0575efcf2c03dfb8ef13c68,SAME
+/var/lib/marianos-collector/ops-rc6/ops.env,ops.env,3d751387a6b94ad3299def713b5378d8da236517493b4c6d9ac3c3180b1eea9f,SAME
+/var/lib/marianos-collector/ops-rc6/prep_stage.py,prep_stage.py,d40676ea47783e214561ce8256e9a54842e06c9f934e71ce9ae28f558edb4475,SAME
+/var/lib/marianos-collector/ops-rc6/slice_stop.sh,slice_stop.sh,4925e35f2317ff424375edcbb780dc9cc1742a91b3509835a17cf272ecad36f9,SAME
+/var/lib/marianos-collector/ops-rc6/stage_defs.json,stage_defs.json,85d08980690ca1683e0da6477ec264f39e642d13d2d5fa9ff5faf3b9314c6a7d,SAME
+/var/lib/marianos-collector/ops-rc6/stage_evidence6.sh,stage_evidence6.sh,4c2a05bd63a9e62d7f42f23d5d3467ef19c6d920f16daf2738bcca47b2d964f8,SAME
+/var/lib/marianos-collector/ops-rc6/stage_launch.sh,stage_launch.sh,0d290424123e737193a83230a19ff9aded122ad228bec919d280662d0a27f74e,SAME
+/var/lib/marianos-collector/ops-rc6/vm_or20.sh,vm_or20.sh,10b373f97728b90a36bd0778b50d51755b5e4a78f11f1da2c4b2f6fbf4f2ffc4,SAME
+/var/lib/marianos-collector/ops-rc6/vm_post_install.sh,vm_post_install.sh,a8c1c6ce626b673bf10a16092daec7fe72e408a6d110853a03ddb60f2342bfc3,SAME
+/var/lib/marianos-collector/ops-rc6/walk/run_and_follow6.sh,run_and_follow6.sh,60c83d2ecdbe6691c7a3d1f5ac511da75011bee6b86f7b58d0e301d7a35f6fa8,SAME
+/var/lib/marianos-collector/ops-rc6/walk/tools/record_cast.py,record_cast.py,21f345ee624f332d4f3091071e54d0f2980180950edfb5522d64a9de0b9dbca6,SAME
+/var/lib/marianos-collector/ops-rc6/walk/tools/show.py,show.py,9c808d43d23ff2bf2428750b41190370f0b742a56bc3f51631ecbbd7f810c1dd,SAME
+/var/lib/marianos-collector/ops-rc6/walk/tools/trace_record.py,trace_record.py,2a8c22d298731a750968d8d6d0032c06501c6c65f4a8481c95672570ff373f53,SAME
+/var/lib/marianos-collector/ops-rc6/watch_stage.sh,watch_stage.sh,1ae705be3f0b4ddfa58282cb3f52b118a0a27054015b66f6f752aed50f4fd566,SAME

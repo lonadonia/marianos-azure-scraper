@@ -1,0 +1,176 @@
+{
+ "run_id": "01M7KAJZTFXAWFA8AHXRQ343TT",
+ "stages": [
+  "M-P7-one-lane-pilot-110rc6-20261116"
+ ],
+ "revisions": [
+  {
+   "version": "1.10.0rc6",
+   "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b"
+  }
+ ],
+ "segments": [
+  {
+   "id": "01M7KAJZWM2FFR3WDW0EDCD24S",
+   "started_at": "2026-11-16 23:20:30.355654+00",
+   "ended_at": "2026-11-16 23:37:57.396752+00",
+   "active_s": "1047.034163610002",
+   "end_state": "ended",
+   "stop_code": "",
+   "trigger": "manual",
+   "code": {
+    "commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+    "source": "environment",
+    "version": "1.10.0rc6",
+    "parser_version": "1.10.0"
+   }
+  }
+ ],
+ "ledger": {
+  "rows": 9,
+  "by_state": {
+   "settled": 9
+  },
+  "results_charged": 9,
+  "usd_settled": 0.0135
+ },
+ "executions": [
+  {
+   "stage": "M-P7-one-lane-pilot-110rc6-20261116",
+   "utc_start": "2026-11-16T23:20:30+00:00",
+   "utc_end": "2026-11-16T23:38:02+00:00",
+   "args": [
+    "run",
+    "--store",
+    "marianos-53100502-pickup",
+    "--categories",
+    "0,27"
+   ],
+   "exit_code": 0,
+   "seconds": 1052.5,
+   "revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "gate_counts": {
+    "reserved": 9,
+    "dispatched": 9,
+    "unsent": 0,
+    "settled": 9,
+    "settled_free": 0,
+    "unknown": 0
+   }
+  }
+ ],
+ "pages": {
+  "answers": 7,
+  "by_state": {
+   "refused": 1,
+   "completed": 2,
+   "stopped": 4
+  },
+  "by_verdict": {
+   "malformed": 1,
+   "new": 2,
+   "repeated": 4
+  },
+  "store_checks": [
+   "PASS"
+  ],
+  "locations": [
+   "53100502"
+  ],
+  "modalities": [
+   "PICKUP"
+  ]
+ },
+ "set_aside": {
+  "requests": 2,
+  "by_state": {
+   "exhausted": 1,
+   "recovered": 1
+  },
+  "reasks_answered": 3,
+  "new_products_from_reasks": 24,
+  "min_seconds_between_answers": 304.9
+ },
+ "products": {
+  "retained_records": 8152,
+  "fresh_records": 46,
+  "distinct_fresh_upcs": 46,
+  "fresh_categories": 1,
+  "verified": 46,
+  "historical": {
+   "too_old": 0,
+   "carried_forward": 8104
+  },
+  "identities": {
+   "record_rows": 8152,
+   "fresh_valid": 46,
+   "fresh_not_valid": 2,
+   "carried_forward": 8104,
+   "excluded": 0,
+   "excluded_rows": 0,
+   "exported_rows": 8152,
+   "retained_unique": 8152,
+   "duplicates": 0,
+   "overlaps": {
+    "fresh_valid & fresh_not_valid": 0,
+    "fresh_valid & carried_forward": 0,
+    "fresh_valid & excluded": 0,
+    "fresh_not_valid & carried_forward": 0,
+    "fresh_not_valid & excluded": 0,
+    "carried_forward & excluded": 0
+   },
+   "relations": {
+    "no identity is in two classes": true,
+    "retained = fresh valid + fresh not valid + carried forward": true,
+    "no exported identity twice": true
+   },
+   "holds": true
+  }
+ },
+ "gates": {
+  "G1": "PASS",
+  "G2": "PASS",
+  "G3": "FAIL",
+  "G4": "PASS",
+  "G5": "PASS",
+  "G6": "PASS",
+  "G7": "PASS",
+  "G8": "PASS",
+  "G9": "PASS",
+  "G10": "PASS",
+  "G11": "PASS",
+  "G12": "PASS",
+  "G13": "PASS",
+  "G14": "FAIL"
+ },
+ "nodes": {
+  "INCOMPLETE": 1
+ },
+ "status": "rejected",
+ "outcome": "rejected",
+ "pilot": true,
+ "store": {
+  "key": "marianos-53100502-pickup",
+  "name": "Marianos Vernon Hills",
+  "modality": "PICKUP",
+  "retailer": "marianos",
+  "location_id": "53100502"
+ },
+ "csv_rows": {
+  "COMPLETE": 1,
+  "NOT_ATTEMPTED": 26,
+  "INCOMPLETE": 1
+ },
+ "listings_not_complete": [
+  {
+   "csv_row": "27",
+   "category": "Hardware Home Improvement",
+   "sub_category": "",
+   "listing_id": "33",
+   "reported_total": "65",
+   "unique_identities": "48",
+   "status": "INCOMPLETE",
+   "completion_reason": "accessible pages exhausted; coverage incomplete: page 3: page 3 repeats an earlier page exactly; asked again 2 time(s), each at least 300 s after the last answer or attempt: re-ask 1: repeated (page 3 repeats an earlier page exactly); re-ask 2: repeated (page 3 repeats an earlier page exactly); the re-asks are spent, which says nothing about where the listing ends: its remaining results were not read"
+  }
+ ]
+}

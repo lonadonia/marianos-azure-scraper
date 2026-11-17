@@ -1,0 +1,11 @@
+# 2026-11-17T05:39:41Z commit cd2af89 marianos-azure-headless next: tests for OR-23 (a page the provider still cannot bring after the resume leaves its listing incomplete and the run goes on)
+# python -m pytest -p no:cacheprovider tests/integration/test_oxylabs_collector.py -k "or23 or cannot_bring" -rA
+# imported from marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+E       AssertionError: assert 'interrupted' == 'rejected'
+E         
+E         - rejected
+E         + interrupted
+PASSED tests/integration/test_oxylabs_collector.py::test_a_listing_the_provider_cannot_bring_stays_unread_without_charge_and_the_run_stops_resumably
+FAILED tests/integration/test_oxylabs_collector.py::test_or23_a_page_the_provider_still_cannot_bring_after_the_resume_leaves_its_listing_incomplete_and_the_run_goes_on
+============ 1 failed, 1 passed, 10 deselected in 76.47s (0:01:16) ============
+# exit 1

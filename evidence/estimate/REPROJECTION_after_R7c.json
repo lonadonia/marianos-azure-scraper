@@ -1,0 +1,37 @@
+{
+ "run_id": "01M7KQ5GZVF5VK1S9FGTG6YFC9",
+ "slices": [
+  "R7a",
+  "R7a2",
+  "R7b",
+  "R7w",
+  "R7c"
+ ],
+ "submissions_so_far": 256,
+ "pages_counted": 132,
+ "submissions_per_counted_page": 1.939,
+ "seconds_of_execution": 3226,
+ "seconds_per_counted_page": 24.44,
+ "envelope_room_usd": 4.42,
+ "envelope_room_submissions": 2946,
+ "projection": {
+  "low": {
+   "full_run_pages": 2223,
+   "pages_left": 2091,
+   "submissions_left": 4056,
+   "usd_left": 6.084,
+   "shortfall_submissions": 1110,
+   "shortfall_usd": 1.665,
+   "hours_left_at_run_rate": 14.19
+  },
+  "high": {
+   "full_run_pages": 2646,
+   "pages_left": 2514,
+   "submissions_left": 4876,
+   "usd_left": 7.314,
+   "shortfall_submissions": 1930,
+   "shortfall_usd": 2.895,
+   "hours_left_at_run_rate": 17.07
+  }
+ }
+}

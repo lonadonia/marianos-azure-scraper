@@ -448,6 +448,27 @@ class Pipeline:
             prefix=prefix,
             fresh_products=fresh,
             supporting=coverage_files(s, run.id),
+            routes=_routes(run),
         )
         register_exports(s, run.id, run.mode, ex)
         return ex
+
+
+def _routes(run: Run) -> dict[str, Any]:
+    """The Coupons route's verdict as the manifest states it (release 1.10.0rc6, OR-04)."""
+    route = (run.counts or {}).get("coupons_route")
+    if not isinstance(route, dict):
+        return {}
+    return {
+        "coupons": {
+            "status": route.get("status"),
+            "mandatory": route.get("mandatory"),
+            "list_state": route.get("list_state"),
+            "list_detail": route.get("list_detail"),
+            "count_stated": route.get("count_stated"),
+            "coupon_cards": route.get("coupon_cards"),
+            "answers": len(route.get("attempts") or []),
+            "fetch_id": route.get("fetch_id"),
+            "url": route.get("url"),
+        }
+    }

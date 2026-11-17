@@ -1,0 +1,2 @@
+id,run_id,store_id,trigger,day,started_at,heartbeat_at,ended_at,active_s,credits_estimated,browser_sessions,browsers_closed,steps,products_verified,account_remaining_start,account_remaining_end,stop_code,stop_detail,end_state,recovered_at
+01M7KQ5H6KDYDQEWNQJY7NTH23,01M7KQ5GZVF5VK1S9FGTG6YFC9,01M7JN611WMAGDJW7Y9YVFQRZE,manual,2026-11-16,2026-11-17 03:00:20.817949+00,2026-11-17 03:04:55.879433+00,2026-11-17 03:04:55.879433+00,275.05380483599583,46,1,1,43,477,160,114,TERMINATED,the collector received a termination signal during the run,ended,

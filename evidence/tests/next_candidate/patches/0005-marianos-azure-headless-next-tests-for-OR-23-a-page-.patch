@@ -1,0 +1,55 @@
+From cd2af8955b1efb85da48133d1bac0b4e0bf8d5ab Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Tue, 17 Nov 2026 05:27:07 +0000
+Subject: [PATCH 5/6] marianos-azure-headless next: tests for OR-23 (a page the
+ provider still cannot bring after the resume leaves its listing incomplete
+ and the run goes on)
+
+---
+ .../integration/test_oxylabs_collector.py     | 30 +++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
+diff --git a/headless/marianos-azure-headless/tests/integration/test_oxylabs_collector.py b/headless/marianos-azure-headless/tests/integration/test_oxylabs_collector.py
+index 4e2653d..3349481 100644
+--- a/headless/marianos-azure-headless/tests/integration/test_oxylabs_collector.py
++++ b/headless/marianos-azure-headless/tests/integration/test_oxylabs_collector.py
+@@ -378,6 +378,36 @@ def test_a_listing_the_provider_cannot_bring_stays_unread_without_charge_and_the
+         assert len(failed) == 9 and sum(u.cost_usd for u in failed) == 0
+ 
+ 
++def test_or23_a_page_the_provider_still_cannot_bring_after_the_resume_leaves_its_listing_incomplete_and_the_run_goes_on(
++    env: dict[str, Any], settings: Settings
++) -> None:
++    """OR-23 (1.10.0rc6, run R7): the run stops at a page whose attempts are spent (release 1.8.0, the test above),
++    but nothing bounded that across resumes: every resume asked the page again and the run stopped there again,
++    so a run holding a page the provider never brings could never end (Hard Cider 08194 in R7: attempt 9, a stop
++    in every execution, each after about 5 minutes). A page that fails again once the run has been resumed leaves
++    its listing incomplete, with the reason, and the run goes on: one more attempt, one run stop in all, no
++    charge."""
++    _ceiling(env["factory"], 60)
++    fake = FakeOxylabs("fail_bars")
++    run_id, status = _run(env, settings, fake)
++    assert status == "interrupted"  # 1.8.0: the run stops at the page, resumable
++    run_id, status = _run(env, settings, fake, run_id=run_id)  # the operator resumes it
++    assert status == "rejected"  # the run ended (incomplete: first pages only, Bars unread), never published
++    with env["factory"]() as s:
++        run = s.get(Run, run_id)
++        assert run is not None and run.status != "interrupted"
++        rows = list(s.scalars(select(ListingPage).where(ListingPage.taxonomy_id == "03002")))
++        assert [(r.requested_page, r.state) for r in rows] == [(1, "failed")] * 4  # one answer more, then no more
++        cov = {c.taxonomy_id: c for c in s.scalars(select(NodeCoverage).where(NodeCoverage.run_id == run_id))}
++        assert cov["03002"].status == "INCOMPLETE"
++        assert "stays incomplete" in cov["03002"].partition["reason"]
++        assert "the provider brought no page" in cov["03002"].partition["reason"]
++        stops = s.scalars(select(Event).where(Event.run_id == run_id, Event.code == "RUN_PAUSED_ON_FAILURE")).all()
++        assert len(stops) == 1  # the 1.8.0 stop only
++        failed = list(s.scalars(select(ProviderUsage).where(ProviderUsage.outcome == "provider_failed_free")))
++        assert len(failed) == 12 and sum(u.cost_usd for u in failed) == 0
++
++
+ @pytest.mark.parametrize(
+     ("mode", "reason"), [("empty_bars", "accessible pages exhausted"), ("unread_bars", "not read: ")]
+ )
+-- 
+2.55.0.windows.5
+

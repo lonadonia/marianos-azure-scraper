@@ -1,0 +1,31 @@
+Cat Food, CSV row 22, listing 27021 (store 53100502, PICKUP). Before: Q2 (1.8.0rc4, 2026-11-02, run
+01M6E5V6CASQ8F00VC8PE9TFYW) read 232 slots holding 231 distinct products, the stated total 232, 0002310014492
+shown twice (page 7 slot 24 and page 8 slot 1); evidence/1.9.0/m5_catfood at tag review-1.10.0rc3-20261112.
+Columns: state and verdict of the answer (stopped/repeated = the site answered with a page already read, set aside
+and asked again by C1); total = the listing's stated result count; products = the listing's own product tiles on
+the page (the run's identities); cards-new = the collector's count of cards whose product this listing had not
+shown before, sponsored cards included (the figure its repeated-page check uses; not a product count);
+sha256 = the stored page's hash as the run recorded it.
+
+== R7fin_copy: run 01M7KQ5GZVF5VK1S9FGTG6YFC9, collector 1.10.0rc6 (d77f306)
+   page  1 attempt 1: refused   malformed total  234 products  24 cards-new   0  2026-11-17 03:02:26Z  sha256 997ede95242f52ff5a8ccb3ccd9862df15aa1c7003244f59d6cd0a249a2bb726
+   page  1 attempt 2: completed new       total  234 products  24 cards-new  35  2026-11-17 03:03:12Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+   page  2 attempt 1: stopped   repeated  total  234 products  24 cards-new   0  2026-11-17 03:03:18Z  sha256 4f57744165da4dbd194733c8649540e907b55aeb94d665d738c71f7f32b65172
+   page  2 attempt 2: stopped   repeated  total  234 products  24 cards-new   0  2026-11-17 04:01:10Z  sha256 51ec72d9b64462bfaa31946ad3e608e983efed45d9c542e93c21f0c1d6afef3b
+   page  2 attempt 3: completed new       total  234 products  24 cards-new  23  2026-11-17 04:07:08Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+   page  3 attempt 1: stopped   repeated  total  234 products  24 cards-new   0  2026-11-17 04:07:14Z  sha256 a135b54b7d403468d2dadc8c3a5818fd3d396c6075eafa516cdb84610572034b
+   page  3 attempt 2: stopped   repeated  total  234 products  24 cards-new   0  2026-11-17 04:13:13Z  sha256 76c45158a1742b65c9b4cafda47413f4a3bab4455cb8e1a782abfba7b7e304e7
+   page  3 attempt 3: completed new       total  234 products  24 cards-new  23  2026-11-17 04:35:26Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+   page  4 attempt 1: completed new       total  234 products  24 cards-new  22  2026-11-17 04:35:34Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+   page  5 attempt 1: completed new       total  234 products  24 cards-new  22  2026-11-17 04:35:38Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+   page  6 attempt 1: completed new       total  234 products  24 cards-new  22  2026-11-17 04:35:46Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+   page  7 attempt 1: completed new       total  234 products  24 cards-new  24  2026-11-17 04:35:52Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+   page  8 attempt 1: stopped   repeated  total  234 products  24 cards-new   0  2026-11-17 04:35:58Z  sha256 cb5fd674b0540cf5984582acbc77c6224a35fb1a964a08ff597b40ab28e193f6
+   page  8 attempt 2: completed new       total  234 products  24 cards-new  22  2026-11-17 04:41:09Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+   page  9 attempt 1: stopped   repeated  total  234 products  24 cards-new   0  2026-11-17 04:41:44Z  sha256 8ddced5b7b723df13b2b50d590fb67024f2365e2709607ba27a9c77a34221696
+   page  9 attempt 2: stopped   repeated  total  234 products  24 cards-new   0  2026-11-17 04:47:52Z  sha256 29a567d2c0be593e90b3a42e3af0ff8c2fe43edbf0ec0ff8cb07f35951815869
+   page  9 attempt 3: completed new       total  234 products  24 cards-new  23  2026-11-17 04:54:26Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+   page 10 attempt 1: completed new       total  234 products  18 cards-new  18  2026-11-17 04:54:57Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+   stated total(s): 234; counted pages: 10; slots counted: 234; distinct products: 234; products on two counted pages: none
+   0002310014492: on counted page(s) [7]
+

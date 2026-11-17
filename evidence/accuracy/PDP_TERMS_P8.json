@@ -1,0 +1,151 @@
+{
+ "0003980014995": {
+  "reads": [
+   {
+    "fetch_id": "01M7KVTVTAX1Y4D0B2CQAX6DEZ",
+    "url": "https://www.marianos.com/p/energizer-ultimate-child-shield-2032-3v-lithium-coin-batteries/0003980014995",
+    "started_at": "2026-11-17 04:21:54.122278+00",
+    "http_status": "200",
+    "challenge": "f",
+    "stored_page": "01M7KVTVTAX1Y4D0B2CQAX6DEZ.html.gz",
+    "sha256_stored": "bf7cca205b9815d96a1a5cf9cc5df2255d01c7838917643e25e3bce8467e4f1c",
+    "section": false,
+    "loading": false,
+    "rows": [],
+    "collector_capture": "01M7KVTVTAX1Y4D0B2CQAX6DEZ.0004.pdp_savings.json.gz",
+    "provider_ran_scripts": true,
+    "requested_run_js": true,
+    "capture_rows_equal_reparse": true,
+    "verdict": "no savings shown"
+   }
+  ],
+  "verdict": "no savings shown",
+  "record": {
+   "product_title": "Energizer Ultimate Child Shield 2032 3V Lithium Coin Batteries",
+   "category": "Hardware Home Improvement",
+   "regular_price": "21.99",
+   "sale_price": "19.99",
+   "digital_deals_description": "",
+   "digital_deals_price": "",
+   "volume_deals_description": "",
+   "volume_deals_price": "",
+   "weight": "10 Count",
+   "ppm": "$2.00/each",
+   "crawl_date": "2026-11-16"
+  },
+  "record_status": "valid",
+  "record_kind": "fresh",
+  "flags": [
+   "SIZE_FROM_PRODUCT_DATA"
+  ],
+  "reasons": [],
+  "empty_field_reasons": {
+   "digital_deals_price": "neither the tile nor the product's own page, rendered, shows an applicable digital coupon",
+   "digital_deals_description": "neither the tile nor the product's own page, rendered, shows an applicable digital coupon"
+  },
+  "empty_field_kinds": {
+   "digital_deals_price": "not_displayed",
+   "digital_deals_description": "not_displayed"
+  }
+ },
+ "0001780014939": {
+  "reads": [
+   {
+    "fetch_id": "01M7KVW935M10YM61C9BQK1PP6",
+    "url": "https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014939",
+    "started_at": "2026-11-17 04:22:40.485781+00",
+    "http_status": "200",
+    "challenge": "f",
+    "stored_page": "01M7KVW935M10YM61C9BQK1PP6.html.gz",
+    "sha256_stored": "a9477c510e011998cd6e913b8b86aca85b95037aec4d69a31e352dbb0153ca01",
+    "section": false,
+    "loading": false,
+    "rows": [],
+    "collector_capture": "01M7KVW935M10YM61C9BQK1PP6.0012.pdp_savings.json.gz",
+    "provider_ran_scripts": false,
+    "requested_run_js": true,
+    "capture_rows_equal_reparse": true,
+    "verdict": "unread: not rendered"
+   }
+  ],
+  "verdict": "unread: not rendered",
+  "record": {
+   "product_title": "Natural Dog Food, Chicken and Rice Formula Dry Dog food for Digestive and Gut Health Support",
+   "category": "Pet Supplies",
+   "regular_price": "54.99",
+   "sale_price": "",
+   "digital_deals_description": "",
+   "digital_deals_price": "",
+   "volume_deals_description": "",
+   "volume_deals_price": "",
+   "weight": "31.1 lb.",
+   "ppm": "$1.77/lb",
+   "crawl_date": "2026-11-16"
+  },
+  "record_status": "valid",
+  "record_kind": "fresh",
+  "flags": [
+   "SIZE_FROM_PRODUCT_DATA",
+   "DIGITAL_COUPONS_UNOBSERVED"
+  ],
+  "reasons": [],
+  "empty_field_reasons": {
+   "digital_deals_price": "the tile shows no coupon (tiles omit coupons that the product's own page shows) and that page was not brought rendered: whether a digital coupon applies is unknown",
+   "digital_deals_description": "the tile shows no coupon (tiles omit coupons that the product's own page shows) and that page was not brought rendered: whether a digital coupon applies is unknown"
+  },
+  "empty_field_kinds": {
+   "digital_deals_price": "not_attempted",
+   "digital_deals_description": "not_attempted"
+  }
+ },
+ "0001780014941": {
+  "reads": [
+   {
+    "fetch_id": "01M7KVWBDD4X5HQ3254KEY8FJK",
+    "url": "https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014941",
+    "started_at": "2026-11-17 04:22:42.86108+00",
+    "http_status": "200",
+    "challenge": "f",
+    "stored_page": "01M7KVWBDD4X5HQ3254KEY8FJK.html.gz",
+    "sha256_stored": "77b65251cbd421787a0dd6fc6eff82e8904c19ccee3213e52d9319f5e94afcb2",
+    "section": false,
+    "loading": false,
+    "rows": [],
+    "collector_capture": "01M7KVWBDD4X5HQ3254KEY8FJK.0013.pdp_savings.json.gz",
+    "provider_ran_scripts": false,
+    "requested_run_js": true,
+    "capture_rows_equal_reparse": true,
+    "verdict": "unread: not rendered"
+   }
+  ],
+  "verdict": "unread: not rendered",
+  "record": {
+   "product_title": "ONE Natural Dog Food, Lamb and Rice Formula Dry Dog food for Digestive and Gut Health Support",
+   "category": "Pet Supplies",
+   "regular_price": "54.99",
+   "sale_price": "",
+   "digital_deals_description": "",
+   "digital_deals_price": "",
+   "volume_deals_description": "",
+   "volume_deals_price": "",
+   "weight": "31.1 lb.",
+   "ppm": "$1.77/lb",
+   "crawl_date": "2026-11-16"
+  },
+  "record_status": "valid",
+  "record_kind": "fresh",
+  "flags": [
+   "SIZE_FROM_PRODUCT_DATA",
+   "DIGITAL_COUPONS_UNOBSERVED"
+  ],
+  "reasons": [],
+  "empty_field_reasons": {
+   "digital_deals_price": "the tile shows no coupon (tiles omit coupons that the product's own page shows) and that page was not brought rendered: whether a digital coupon applies is unknown",
+   "digital_deals_description": "the tile shows no coupon (tiles omit coupons that the product's own page shows) and that page was not brought rendered: whether a digital coupon applies is unknown"
+  },
+  "empty_field_kinds": {
+   "digital_deals_price": "not_attempted",
+   "digital_deals_description": "not_attempted"
+  }
+ }
+}

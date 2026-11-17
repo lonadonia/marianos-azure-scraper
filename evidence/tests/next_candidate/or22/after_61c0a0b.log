@@ -1,0 +1,13 @@
+# 2026-11-17T04:42:20Z commit 61c0a0b marianos-azure-headless next: OR-22, a menu link missing the slash before its ID (/pl/hard-cider08194) is asked as /pl/<name>/<ID>, 
+# python -m pytest -p no:cacheprovider tests/unit/test_collection.py -k "missing_the_slash or only_the_missing_slash" -rA
+# imported from marianos-azure-headless/src/marianos_headless/__init__.py
+PASSED tests/unit/test_collection.py::test_a_menu_link_missing_the_slash_before_its_id_is_asked_in_its_canonical_form
+PASSED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/hard-cider08194?pzn=relevance-08194-/pl/hard-cider/08194?pzn=relevance]
+PASSED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/hard-cider08194-08194-/pl/hard-cider/08194]
+PASSED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/canned-foods/01006?pzn=relevance-01006-/pl/canned-foods/01006?pzn=relevance]
+PASSED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/milk-plant-based-%20milk/02001-02001-/pl/milk-plant-based-%20milk/02001]
+PASSED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/snacks/05009?facets=true?pzn=relevance-05009-/pl/snacks/05009?facets=true?pzn=relevance]
+PASSED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/hard-cider08195-08194-/pl/hard-cider08195]
+PASSED tests/unit/test_collection.py::test_only_the_missing_slash_form_is_rewritten[/pl/08194-08194-/pl/08194]
+====================== 8 passed, 29 deselected in 1.44s =======================
+# exit 0

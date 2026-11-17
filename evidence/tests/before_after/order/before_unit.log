@@ -1,0 +1,22 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+E   SystemExit: 2
+---------------------------- Captured stderr call -----------------------------
+usage: marianos-collector [-h] [--version] [--config CONFIG] [--pretty]
+                          {validate-config,db-upgrade,sync-config,run,resume,finalize,stop,publish,rollback-publication,status,export,validate-export,provider-balance,set-ceiling,release-hold,reprocess,schedule-info,ops}
+                          ...
+marianos-collector: error: unrecognized arguments: --rows-first 22,27,22,15 --term-upc 0001780014939 --term-upc 0003980014995
+[redacted:workstation-path]\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\argparse.py:2637: SystemExit: 2
+E   pydantic_core._pydantic_core.ValidationError: 2 validation errors for StoreCollection
+    limits.rows_first
+      Extra inputs are not permitted [type=extra_forbidden, input_value=[22, 27], input_type=list]
+        For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden
+    limits.product_term_upcs
+      Extra inputs are not permitted [type=extra_forbidden, input_value=['0001780014939'], input_type=list]
+        For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden
+[redacted:workstation-path]\or19b\headless\marianos-azure-headless\src\marianos_headless\operations.py:807: pydantic_core._pydantic_core.ValidationError: 2 validation errors for StoreCollection
+=========================== short test summary info ===========================
+FAILED tests/unit/test_cli_rc6.py::test_rc6_run_takes_a_row_order_and_named_product_pages
+FAILED tests/unit/test_cli_rc6.py::test_rc6_the_overrides_reach_the_runs_collection_settings
+2 failed in 2.25s
+before_unit exit 1 2026-11-16T21:52:09Z

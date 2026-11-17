@@ -1,0 +1,30 @@
+Export: ev/R7fin_copy/export (10536 records, 2040 offers kept)
+
+=== 0081675102373  Cutwater Espresso Martini ("Buy 1 Save $1": a one-unit condition, not a volume offer)
+    title    'Cutwater Espresso Martini Canned Cocktail'
+    weight   '4 cans / 12 fl oz'
+    prices   regular '14.99' sale '9.99' ppm '$0.21/fl oz'
+    volume   '' ''
+    digital  '' ''
+    category 'Beer Wine Liquor' / 'Ready to Drink Cocktails'
+    record   fresh, valid; flags SIZE_FROM_PRODUCT_DATA, DIGITAL_COUPONS_UNOBSERVED
+    missing  volume_deals_description: no multi-unit offer is displayed
+    missing  volume_deals_price: no multi-unit offer is displayed
+    page     https://www.marianos.com/pl/ready-to-drink-cocktails/08193  fetched 2026-11-17T05:26:07.105239Z  sha256 1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f
+    offer    none kept for this product
+=== 0086001079386  The Finnish Long Drink ("Buy 1 Save $2": a one-unit condition, not a volume offer)
+    title    'The Finnish Long Drink Zero Sugar Cocktail Can'
+    weight   '12 cans / 12 fl oz'
+    prices   regular '28.99' sale '22.99' ppm '$0.16/fl oz'
+    volume   '' ''
+    digital  '' ''
+    category 'Beer Wine Liquor' / 'Ready to Drink Cocktails'
+    record   fresh, valid; flags SIZE_FROM_PRODUCT_DATA, DIGITAL_COUPONS_UNOBSERVED
+    missing  volume_deals_description: no multi-unit offer is displayed
+    missing  volume_deals_price: no multi-unit offer is displayed
+    page     https://www.marianos.com/pl/ready-to-drink-cocktails/08193  fetched 2026-11-17T05:26:07.105239Z  sha256 1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f
+    offer    none kept for this product
+=== 0001820020352  Nutrl Vodka Hard Seltzer ("Buy 1 Save $2": a one-unit condition, not a volume offer)
+    not exported by this run (its listing was not read, or the product was not shown)
+=== 0073679800140  Avocado Green Goddess Dip & Spread (weight is the pack, 8 OUNCES, not the serving "2 tbsp")
+    not exported by this run (its listing was not read, or the product was not shown)

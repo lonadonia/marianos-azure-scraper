@@ -1,0 +1,16 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.15, pytest-9.1.1, pluggy-1.7.0
+rootdir: [redacted:workstation-path]\wt\headless\marianos-azure-headless
+configfile: pyproject.toml
+plugins: anyio-4.15.1, hypothesis-6.170.5, platformdirs-4.13.5
+collected 2 items
+
+tests\unit\test_source_index_or20.py ..                                  [100%]
+
+=================================== PASSES ====================================
+---------- generated xml file: [redacted:workstation-path]\logs\or20\after_unit.junit.xml -----------
+=========================== short test summary info ===========================
+PASSED tests/unit/test_source_index_or20.py::test_or20_a_price_stated_on_many_pages_is_kept_once_and_still_decides_the_record
+PASSED tests/unit/test_source_index_or20.py::test_or20_distinct_statements_are_all_kept_and_the_best_one_decides
+============================== 2 passed in 0.55s ==============================
+after-unit 2026-11-16T21:15:15Z -> 2026-11-16T21:15:17Z exit 0

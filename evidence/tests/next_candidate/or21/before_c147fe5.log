@@ -1,0 +1,13 @@
+# 2026-11-17T05:02:14Z commit c147fe5 marianos-azure-headless next: tests for OR-21 (a termination signal cancels the lanes and hands their tasks back unfailed)
+# python -m pytest -p no:cacheprovider tests/integration/test_runner.py -k termination_signal -rA
+# imported from marianos-azure-headless/src/marianos_headless/worker/runner.py
+_ test_a_termination_signal_cancels_the_lanes_and_hands_their_tasks_back_unfailed _
+    def test_a_termination_signal_cancels_the_lanes_and_hands_their_tasks_back_unfailed(
+        transport failure and, its task at its last attempt, failed that task for good; only the stop's later release
+E           AssertionError: assert ['failed', 'failed'] == ['pending', 'pending']
+E             
+E             At index 0 diff: 'failed' != 'pending'
+E             Use -v to get more diff
+FAILED tests/integration/test_runner.py::test_a_termination_signal_cancels_the_lanes_and_hands_their_tasks_back_unfailed
+====================== 1 failed, 7 deselected in 16.69s =======================
+# exit 1

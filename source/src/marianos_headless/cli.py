@@ -87,6 +87,13 @@ def _categories(value: str) -> list[int]:
         raise argparse.ArgumentTypeError("categories are CSV row numbers, e.g. 3,7") from None
 
 
+def _row_order(value: str) -> list[int]:
+    try:
+        return list(dict.fromkeys(int(x) for x in value.split(",") if x.strip()))
+    except ValueError:
+        raise argparse.ArgumentTypeError("rows are CSV row numbers in reading order, e.g. 22,27,15") from None
+
+
 def _safe(text: object) -> str:
     """An error message with any configured key value removed (never printed or logged)."""
     return redact(str(text), load_key())[:2000]
@@ -129,6 +136,20 @@ def build_parser() -> argparse.ArgumentParser:
     )
     for flag in LIMIT_FLAGS:
         r.add_argument("--" + flag.replace("_", "-"), dest=flag, type=int)
+    r.add_argument(
+        "--rows-first",
+        type=_row_order,
+        metavar="ROWS",
+        help="CSV row numbers read first, in this order; the others follow in the CSV's order (not a scope "
+        "limit)",
+    )
+    r.add_argument(
+        "--term-upc",
+        action="append",
+        metavar="UPC",
+        help="read this product's own page for its coupon terms (repeatable); only the named products' pages "
+        "are read",
+    )
 
     for name, text in (
         ("resume", "continue an interrupted run from its checkpoints"),
@@ -270,6 +291,10 @@ def dispatch(args: argparse.Namespace) -> int:
             }
             if args.categories:
                 overrides["categories"] = args.categories
+            if args.rows_first:
+                overrides["rows_first"] = args.rows_first
+            if args.term_upc:
+                overrides["product_term_upcs"] = list(dict.fromkeys(u.strip() for u in args.term_upc))
             if args.subcategory:
                 chosen: dict[str, list[str]] = {}
                 for item in args.subcategory:

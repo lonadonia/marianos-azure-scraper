@@ -129,6 +129,11 @@ class OxylabsSettings(_Strict):
     request_timeout_s: float = Field(180, gt=0)  # a JavaScript-rendered page took up to 120 s (probe)
     max_attempts: int = Field(3, ge=1, le=5)  # retry 408, 429 and 5xx with backoff (Troubleshooting)
     coupons_run_js: bool = True  # the Coupons page shows its cards only when rendered (probe 2026-10-28)
+    # Release 1.10.0rc6 (OR-04): the Coupons page is asked at most this many times in a run (one when the run
+    # starts, the rest after its listings, ``coupons_retry_wait_s`` apart) until its list has loaded. Live
+    # 2026-11-16: seven of twelve answers had been rendered before the list loaded.
+    coupons_attempts: int = Field(4, ge=1, le=8)
+    coupons_retry_wait_s: float = Field(60, ge=0, le=900)
     # How a listing is read (release 1.8.0). ``listing``: its own /pl/ page and every later page. ``search``:
     # only the first page of the retailer's search for the listing's name, for a context whose /pl/ pages are
     # refused; such a listing is never complete.

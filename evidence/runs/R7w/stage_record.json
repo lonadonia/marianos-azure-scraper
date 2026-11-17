@@ -1,0 +1,46 @@
+{
+ "stage_id": "M-R7w-walkthrough-110rc6-20261117",
+ "project": "marianos",
+ "objective": "one logical full-scope run R7 of the candidate 1.10.0rc6 (every CSV row 0-27 as configured; not a pilot: --rows-first only orders the plan, reading rows 22, 27, 23 to 26 and 15 first, and --term-upc names the four product pages of the review; neither narrows the scope), two lanes, read in slices, each one ledger stage of the new credential's campaign oxylabs-marianos-20261116 whose ceiling is also set in the collector (set-ceiling). Every slice is ended by the operator with SIGTERM once the stage has its target of reservations (a resumable stop, exit 75); the ceiling, 10 above the target, is the backstop. Why R7: run R6 started at 23:40Z on 2026-11-16, when the site served page 1 again for 25 of 29 answers to a page 2 or later and for all 12 re-asks (measured by hour over all runs of the day: 10% at 03Z, 20-27% at 15Z, 28-34% at 16-17Z, 55-60% at 18Z, 80-86% at 23Z); a page has at most 2 re-asks in a run, so R6 was finalized offline after its first slice (rejected, never published) and R7 starts afresh in the night hours, with every page's re-asks intact. The envelope then held USD 4.7935 (3,195 submissions); a full run needs 3,145 to 3,750 submissions at F2's measured 1.43 per counted page, fewer at the night rate: if the envelope ends first, the run is left resumable after its last slice and the shortfall is reported with R7's measured rates. This slice resumes the run and is recorded as the walkthrough (record_cast.py: every command is run for real while it is recorded, nothing typed in or edited afterwards): the run resumed as a service, two lanes, and stopped with SIGTERM after 12 pages (exit 75, resumable); a second start for the store refused before any request (exit 9); the run resumed again with the slice stopper at 100 reservations in this stage (SIGTERM, exit 75, resumable) unless it completes first; its status; a publication attempted (an unfinished or incomplete run is refused, exit 6, and the published dataset is left as it was); the ledger's status; the units left running.",
+ "command": "resume --store marianos-53100502-pickup",
+ "config": {
+  "config_dir": "/var/lib/marianos-collector/ops-rc6/stages/M-R7w-walkthrough-110rc6-20261117/config",
+  "config_sha256": {
+   "Marianos_Category_URLs.csv": "606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4",
+   "collector.yaml": "b22c3c676712e6b6cceaf6d5cf7d08b700dbe7a23f806bf63901fedd4e6ea0b5",
+   "private_label_brands.yaml": "75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1",
+   "settings.yaml": "7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd",
+   "stores.yaml": "3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6",
+   "taxonomy_seed.snapshot_2026-10-17.json": "32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c"
+  },
+  "shipped_config_sha256": {
+   "Marianos_Category_URLs.csv": "606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4",
+   "collector.yaml": "43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5",
+   "private_label_brands.yaml": "75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1",
+   "settings.yaml": "7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd",
+   "stores.yaml": "3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6",
+   "taxonomy_seed.snapshot_2026-10-17.json": "32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c"
+  },
+  "differs_from_shipped_in": [
+   "collector.yaml: publish.auto false",
+   "collector.yaml: limits.max_concurrent_listings 2"
+  ],
+  "lanes": 2,
+  "environment": "the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel"
+ },
+ "source_revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+ "version": "1.10.0rc6",
+ "release": "1.10.0rc6",
+ "release_sources_sha256": "5553114225fe5bc1eac0decd9660d3bdf7afad0eaf372e3a4534a3b089f2fff6",
+ "max_requests": 110,
+ "max_results": 110,
+ "max_usd": "0.165000",
+ "deadline_utc": "2026-11-17T06:20:23Z",
+ "deadline_minutes": 75,
+ "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt; the Coupons page asked again while its list has not loaded, at most 4 answers for the run, 60 s apart (1.10.0rc6, OR-04); each submission reserved at its worst case",
+ "stop_conditions": "the operator's slice target (SIGTERM: a resumable stop) before the stage's submission ceiling; the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR; the collector resumes itself up to 3 times, 60 s later); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator (watch_stage.sh, counted from the slice's own start): 10 re-asks answered in the slice and none recovered its request; or 16 or more answers to a page 2 or later in the slice of which 25% or more repeat an earlier page (the share is read at the watcher's start from repeat_stop_pct, set to 25 for R7: on 2026-11-16 a quarter of such answers repeated by 15Z, and every re-ask exhausted that day was at 15-23Z; R6a's watcher had no repeat rule); either stops the stage resumably and it is reported as it stands",
+ "passes_when": "the SIGTERM stop exits 75 and leaves the run resumable; the second start exits 9 with no submission; the resumed run continues from its checkpoints (no completed page asked again); the slice ends with SIGTERM at 100 reservations (exit 75) or the run completes; a publication of an unfinished run is refused (exit 6) with the published dataset unchanged; every page verified for 53100502 PICKUP",
+ "approval": "Hamza's brief of 16 November 2026 (closeout after 1.10.0rc5): USD 5 of free credit authorized for Mariano's on the Oxylabs Web API credential he supplied, on his own Azure VM, accounted in the campaign oxylabs-marianos-20261116 (cap 5.00, headroom 0.10, Mariano's envelope 4.90); the client's VM, the client's billing, Oxylabs Classic and other providers stay outside it; no top-up or paid overage",
+ "target": {},
+ "prepared_at": "2026-11-17T05:05:23+00:00"
+}

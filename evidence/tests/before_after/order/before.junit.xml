@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="6" time="15.694" timestamp="2026-11-16T21:50:35.262426+00:00" hostname="[redacted:workstation-host]"><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_a_listings_subdivisions_are_read_before_the_plans_next_listing" time="8.309"><failure message="AssertionError: assert ['06113', '06... '0611200691'] == ['0611200691'...113', '06114']&#10;  &#10;  At index 0 diff: '06113' != '0611200691'&#10;  Use -v to get more diff">tests\integration\test_run_order_rc6.py:67: in test_rc6_a_listings_subdivisions_are_read_before_the_plans_next_listing
+    assert _drain(s, run.id) == ["0611200691", "0611200694", "06113", "06114"]
+E   AssertionError: assert ['06113', '06... '0611200691'] == ['0611200691'...113', '06114']
+E     
+E     At index 0 diff: '06113' != '0611200691'
+E     Use -v to get more diff</failure></testcase><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_a_subdivision_waiting_for_its_re_ask_holds_no_lane" time="1.230"><failure message="AssertionError: assert (Lease(task_id='01M7K5EPFWYDMDDD94KJQZDSXK', owner='w1', kind='listing_node', idem_key='01M7K5EPF9D9XWXF30MA0607CC/node/0001-06113', attempts=1, cursor={}, taxonomy_id='06113', category_source_id=None, reclaimed=False) is not None and '06113' == '0611200694'&#10;  &#10;  - 0611200694&#10;  + 06113)">tests\integration\test_run_order_rc6.py:86: in test_rc6_a_subdivision_waiting_for_its_re_ask_holds_no_lane
+    assert child is not None and child.taxonomy_id == "0611200694"
+E   AssertionError: assert (Lease(task_id='01M7K5EPFWYDMDDD94KJQZDSXK', owner='w1', kind='listing_node', idem_key='01M7K5EPF9D9XWXF30MA0607CC/node/0001-06113', attempts=1, cursor={}, taxonomy_id='06113', category_source_id=None, reclaimed=False) is not None and '06113' == '0611200694'
+E     
+E     - 0611200694
+E     + 06113)</failure></testcase><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_rows_first_reads_the_named_rows_first_and_keeps_the_plan" time="0.003"><failure message="pydantic_core._pydantic_core.ValidationError: 1 validation error for CollectionConfig&#10;rows_first&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value=[22, 27, 22, 15], input_type=list]&#10;    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden">tests\integration\test_run_order_rc6.py:100: in test_rc6_rows_first_reads_the_named_rows_first_and_keeps_the_plan
+    cfg = CollectionConfig(rows_first=[22, 27, 22, 15])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for CollectionConfig
+E   rows_first
+E     Extra inputs are not permitted [type=extra_forbidden, input_value=[22, 27, 22, 15], input_type=list]
+E       For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden</failure></testcase><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_a_product_is_named_by_its_upc" time="0.003"><failure message="pydantic_core._pydantic_core.ValidationError: 1 validation error for Limits&#10;product_term_upcs&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value=['0001780014939', ' 0001780014939 '], input_type=list]&#10;    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden">tests\integration\test_run_order_rc6.py:118: in test_rc6_a_product_is_named_by_its_upc
+    assert Limits(product_term_upcs=["0001780014939", " 0001780014939 "]).product_term_upcs == ["0001780014939"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for Limits
+E   product_term_upcs
+E     Extra inputs are not permitted [type=extra_forbidden, input_value=['0001780014939', ' 0001780014939 '], input_type=list]
+E       For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden</failure></testcase><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_only_the_named_products_pages_are_read" time="1.224"><failure message="pydantic_core._pydantic_core.ValidationError: 1 validation error for Limits&#10;product_term_upcs&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value=['0002310014848', '000178...14939', '0001600012254'], input_type=list]&#10;    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden">tests\integration\test_run_order_rc6.py:136: in test_rc6_only_the_named_products_pages_are_read
+    run_id = terms._run(vh_env, settings, fake, read=False, limits=Limits(product_term_upcs=named))
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for Limits
+E   product_term_upcs
+E     Extra inputs are not permitted [type=extra_forbidden, input_value=['0002310014848', '000178...14939', '0001600012254'], input_type=list]
+E       For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden</failure></testcase><testcase classname="tests.integration.test_run_order_rc6" name="test_rc6_named_products_narrow_the_setting_that_reads_every_coupon_card" time="2.797"><failure message="pydantic_core._pydantic_core.ValidationError: 1 validation error for Limits&#10;product_term_upcs&#10;  Extra inputs are not permitted [type=extra_forbidden, input_value=['0003980014995'], input_type=list]&#10;    For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden">tests\integration\test_run_order_rc6.py:151: in test_rc6_named_products_narrow_the_setting_that_reads_every_coupon_card
+    vh_env, settings, fake, read=True, limits=Limits(product_term_upcs=[terms.ENERGIZER.upc])
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for Limits
+E   product_term_upcs
+E     Extra inputs are not permitted [type=extra_forbidden, input_value=['0003980014995'], input_type=list]
+E       For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden</failure></testcase></testsuite></testsuites>

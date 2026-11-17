@@ -1,0 +1,19 @@
+listing-page rows of the run: 216; states {'completed': 132, 'stopped': 52, 'refused': 22, 'failed': 10}
+distinct requests completed: 132
+
+per segment (in order of its first row):
+  01M7KQ5H6KDYDQEWNQJY7NTH23: rows 39, completed 27, first 2026-11-17 03:00:23.993511+00, last 2026-11-17 03:04:47.348652+00; segment 2026-11-17 03:00:20.817949+00 -> 2026-11-17 03:04:55.879433+00 ended TERMINATED (manual)
+  01M7KTKFXRM3FAR0N3KTQ2CJC7: rows 66, completed 46, first 2026-11-17 04:00:29.443903+00, last 2026-11-17 04:13:34.185089+00; segment 2026-11-17 04:00:23.991121+00 -> 2026-11-17 04:14:04.224341+00 ended TERMINATED (resume)
+  : rows 2, completed 0, first 2026-11-17 04:14:04.296183+00, last 2026-11-17 04:55:09.482308+00; segment ? -> ? ?  ()
+  01M7KWKG7QG6KQTA4Z2Y949ER9: rows 19, completed 15, first 2026-11-17 04:35:26.996052+00, last 2026-11-17 04:38:43.638332+00; segment 2026-11-17 04:35:21.462399+00 ->  abandoned TERMINATED (resume)
+  01M7KWWTEYTS7W34DV9NN6Q2V1: rows 14, completed 3, first 2026-11-17 04:40:29.754528+00, last 2026-11-17 04:45:53.091598+00; segment 2026-11-17 04:40:26.844925+00 -> 2026-11-17 04:45:53.124867+00 ended PROVIDER_ERROR (resume)
+  01M7KX8KV64FM7NTBRD20H6TNE: rows 12, completed 6, first 2026-11-17 04:47:12.696373+00, last 2026-11-17 04:52:23.540493+00; segment 2026-11-17 04:46:53.286422+00 -> 2026-11-17 04:52:23.572944+00 ended PROVIDER_ERROR (auto)
+  01M7KXPBNSGNREX68WF7RZDBFB: rows 2, completed 2, first 2026-11-17 04:54:26.213815+00, last 2026-11-17 04:54:57.079327+00; segment 2026-11-17 04:54:23.672975+00 -> 2026-11-17 04:55:09.426361+00 ended TERMINATED (auto)
+  01M7KYAZM3XXDPQVZXSWFD0KXQ: rows 18, completed 12, first 2026-11-17 05:05:42.009194+00, last 2026-11-17 05:11:01.212135+00; segment 2026-11-17 05:05:39.458397+00 -> 2026-11-17 05:11:02.999509+00 ended PROVIDER_ERROR (resume)
+  01M7KYN2ENBHJ1EQVQC2Y579F6: rows 11, completed 3, first 2026-11-17 05:11:12.530995+00, last 2026-11-17 05:15:43.961265+00; segment 2026-11-17 05:11:10.035454+00 -> 2026-11-17 05:15:54.266072+00 ended PROVIDER_ERROR (resume)
+  01M7KZ9RTAXYZHG904TH1A1YB2: rows 14, completed 9, first 2026-11-17 05:22:32.014888+00, last 2026-11-17 05:26:44.575108+00; segment 2026-11-17 05:22:28.296564+00 -> 2026-11-17 05:27:09.586438+00 ended PROVIDER_ERROR (resume)
+  01M7KZQQR4FR7WMD999GNN420Q: rows 19, completed 9, first 2026-11-17 05:30:12.545108+00, last 2026-11-17 05:35:38.659858+00; segment 2026-11-17 05:30:05.95512+00 -> 2026-11-17 05:35:38.697795+00 ended PROVIDER_ERROR (resume)
+
+deliberate C1 re-asks of a completed page (each named as a re-ask by a request set aside for the same key): 0; their answers: {}
+
+no completed page was re-fetched: apart from the deliberate C1 re-asks above, no request has a row after its completed one, in any segment

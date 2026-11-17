@@ -1,0 +1,16 @@
+key,value
+authority,"Hamza's brief of 2026-11-16 (closeout after 1.10.0rc5): USD 5 of free credit authorized for Mariano's on the Oxylabs Web API credential he supplied; on his own infrastructure; no top-up, paid overage, Oxylabs Classic, other provider, client VM or client billing"
+campaign_id,oxylabs-marianos-20261116
+cap_usd,5.000000
+controller_sha256_at_init,bf90e2a323a749863d97aa6c57bc558e0fd9cd82b0c3e2169fbd70952b8873f2
+created_at,2026-11-16T22:14:48.960012Z
+created_by,closeout-1.10.0rc6
+credential_fingerprint,…022e50
+credential_relation,"the supplied credential's fingerprint differs from the earlier trial key (…4aef98); whether it belongs to a new account or is a rotation or credit on the earlier account cannot be read through the API. Per the brief it gets this distinct USD 5 envelope, reconciled once: the earlier campaign oxylabs-trial-20261103 records the hand-over and makes no reservation with it"
+headroom_reason,"USD 0.10 kept inside the USD 5 cap: every submission is reserved and settled at the highest non-AI list price (USD 0.0015 a result, above the unrendered custom-domain rate), so the cap bounds the spend; the earlier campaign kept 0.50"
+headroom_usd,0.100000
+not_carried,the earlier campaign's Mariano's envelope left USD 0.312; it is not added here
+rate_source,"oxylabs.io/pricing/web-scraper-api read 2026-11-03: the highest non-AI row (Custom domain, JS) USD 1.50 per 1,000 results; a list price, not a confirmed account rate (the dashboard balance is not readable by API)"
+rate_usd_per_result,0.001500
+schema_version,1
+supersedes,"ledger.sqlite3.SUPERSEDED-BEFORE-ANY-RESERVATION-20261116T221448Z (initialized at 22:08Z with headroom 0.50 and envelope 4.50; 2 events, no lease, no reservation; replaced before any reservation because the estimate from the stored traces puts a full run at USD 3.83 to 4.65 at the reservation rate, above 4.50 at its high end; the cap stays USD 5.00)"

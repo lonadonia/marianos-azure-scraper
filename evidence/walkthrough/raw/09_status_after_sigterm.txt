@@ -1,0 +1,17 @@
+# command: bash -c marianos status --run 01M7KQ5GZVF5VK1S9FGTG6YFC9 | python3 -I /var/lib/marianos-collector/ops-rc6/walk/tools/show.py status -
+# started: 2026-11-17T05:11:05Z
+exit 0  command status
+  run_id           01M7KQ5GZVF5VK1S9FGTG6YFC9
+  status           interrupted
+  trigger          manual
+  dataset          partial
+  pilot            False
+  stop_code        PROVIDER_ERROR
+  created_at       2026-11-17T03:00:20.569537Z
+  finished_at      None
+  outcome          None
+  worker_running   False
+  stop_detail      https://www.marianos.com/pl/hard-cider08194?pzn=relevance: page 1 not read: the provider brought no page (prov~
+  records          null
+# exit: 0
+# ended: 2026-11-17T05:11:06Z

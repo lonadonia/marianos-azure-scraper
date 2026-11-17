@@ -1,0 +1,74 @@
+From c147fe59cb7da1f436c353fd1e2bf2ec95950020 Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Tue, 17 Nov 2026 04:40:57 +0000
+Subject: [PATCH 3/6] marianos-azure-headless next: tests for OR-21 (a
+ termination signal cancels the lanes and hands their tasks back unfailed)
+
+---
+ .../tests/integration/test_runner.py          | 53 +++++++++++++++++++
+ 1 file changed, 53 insertions(+)
+
+diff --git a/headless/marianos-azure-headless/tests/integration/test_runner.py b/headless/marianos-azure-headless/tests/integration/test_runner.py
+index 34dba85..c6b2d9d 100644
+--- a/headless/marianos-azure-headless/tests/integration/test_runner.py
++++ b/headless/marianos-azure-headless/tests/integration/test_runner.py
+@@ -315,3 +315,56 @@ def test_pause_then_resume_continues_from_checkpoint(migrated_engine: Engine, tm
+     )
+     assert res.outcome == "idle" and res.states == {"succeeded": 2}
+     assert membership_keys(factory, run_id) == membership_keys(factory, clean)
++
++
++def test_a_termination_signal_cancels_the_lanes_and_hands_their_tasks_back_unfailed(
++    migrated_engine: Engine, tmp_path: Path
++) -> None:
++    """OR-21: a termination signal cancels the run's main task (``cli.run_async``) while its lanes wait for the
++    provider. 1.10.0rc6 left the lanes running: the stop then closed the provider session under them, a lane saw a
++    transport failure and, its task at its last attempt, failed that task for good; only the stop's later release
++    of the leases refused the write (``LeaseLost`` in the journal of every stop). The lanes are cancelled and
++    waited for with the worker: each hands its task back (pending, cursor and attempts kept), none is left running,
++    and a failure the closed session would give afterwards reaches no task."""
++    factory, store = seed(migrated_engine)
++    run_id = start(factory, store)
++    settings = Settings()
++    last = settings.retries.max_attempts_per_task
++    with factory() as s:
++        s.execute(update(Task).where(Task.run_id == run_id).values(attempts=last - 1))
++        s.commit()
++
++    async def scenario() -> list[asyncio.Task[Any]]:
++        closed = asyncio.Event()  # the provider session, closed by the stop
++
++        async def in_flight(ctx: TaskContext) -> dict[str, Any]:
++            ctx.checkpoint({"next_page": 1})
++            await closed.wait()  # the provider's answer, which the stop cuts
++            raise TaskFailure(FailureKind.TRANSIENT, "transport (HTTP 0)")  # what a closed session gives
++
++        w = Worker(
++            factory, run_id, "w", {"listing_node": in_flight}, settings, LocalStorageAdapter(tmp_path), lanes=2
++        )
++        main = asyncio.create_task(w.run())
++        for _ in range(500):  # until both lanes hold their task
++            await asyncio.sleep(0.01)
++            with factory() as s:
++                held = s.scalars(select(Task.cursor).where(Task.run_id == run_id, Task.state == "running")).all()
++            if len(held) == 2 and all(c == {"next_page": 1} for c in held):
++                break
++        main.cancel()  # what run_async does on SIGTERM
++        with pytest.raises(asyncio.CancelledError):
++            await main
++        closed.set()  # the stop closes the provider session, the leases not yet released
++        await asyncio.sleep(0.3)
++        return [t for t in asyncio.all_tasks() if t is not asyncio.current_task() and not t.done()]
++
++    left_running = asyncio.run(scenario())
++    assert left_running == []
++    with factory() as s:
++        tasks = s.scalars(select(Task).where(Task.run_id == run_id)).all()
++        assert sorted(t.state for t in tasks) == ["pending", "pending"]
++        assert all(t.attempts == last and t.cursor == {"next_page": 1} for t in tasks)
++        assert all(t.lease_owner is None for t in tasks)
++        codes = list(s.scalars(select(Event.code).where(Event.run_id == run_id)))
++        assert "TASK_FAILED" not in codes and "TASK_RETRY" not in codes
+-- 
+2.55.0.windows.5
+

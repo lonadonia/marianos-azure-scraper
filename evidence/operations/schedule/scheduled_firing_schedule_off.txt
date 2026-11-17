@@ -1,0 +1,10 @@
+usage: marianos-collector run [-h] --store STORE [--scheduled]
+                              [--categories CATEGORIES]
+--
+  --scheduled           a scheduled execution: act only when it is the store's
+== 2026-11-16T23:40:00Z a scheduled firing with the shipped schedule (enabled: false)
+{"ts": "2026-11-16T23:40:01.162Z", "level": "INFO", "event": "SCHEDULE_OFF", "collector": "marianos-azure-headless", "store": "marianos-53100502-pickup"}
+{"ts": "2026-11-16T23:40:01.162Z", "level": "INFO", "event": "RESULT", "collector": "marianos-azure-headless", "command": "run", "exit_code": 0, "result": {"store": "marianos-53100502-pickup"}}
+exit 0
+== ledger rows after it (unchanged expected: 9)
+9 reservations

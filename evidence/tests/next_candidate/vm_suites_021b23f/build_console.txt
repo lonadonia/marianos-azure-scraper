@@ -1,0 +1,23 @@
+# The console output of vm_build.sh for the branch head 021b23f on Hamza's VM, as captured on the workstation
+# (the login user's home folder shown as ~). The archive was made by `git archive` of 021b23f; the script
+# checks its SHA-256, extracts it, recomputes its Git tree before anything runs, then builds (nothing installed).
+start 2026-11-17T15:00:48Z
+~/collector_021b23f.tar.gz: OK
+files: 279  tree: 056a3e8ca92e52af8e70013416e6f7180d93cd84
+TREE MATCHES the pinned candidate (056a3e8ca92e52af8e70013416e6f7180d93cd84)
+Python 3.12.3
+uv 0.13.1 (x86_64-unknown-linux-gnu)
+uv build exit 0
+Successfully built ~/m10n24/rel/marianos_azure_headless-1.10.0rc6-py3-none-any.whl
+uv export exit 0
+lock export: 238 hashes, 37 packages
+ec37a7478ce3be67147e37fd5379e29567316c01685f94fe79ab95873a8a0446  backup.sh
+cad2188cf81048c87da8b74ae4864d9a047aaeec807766606a66d0b90315f9c5  collector.env.example
+9208130a29d09084b67877d7a83c7eed865db76eee183d858c0b8468ad650fe2  config.tgz
+2cb55758a9f886c9164f90570fa38bcd018691fe40cf6119346ac3726c86abd9  install_release.sh
+c92f91f50009f84804f1cd299f57cf9b2d6e5cf312bff6e021e00a00529530b9  marianos
+34a7b26a4d521aacb6de83f94757fb41d8aa989b7a622d2587b83a3feee19d5a  marianos_azure_headless-1.10.0rc6-py3-none-any.whl
+de284cc86b82ee611d1b437ab1cd3540da1d519f309644e1952be692fcd92c5a  prepare_host.sh
+b1f54480824af1fdddfda178ad921dd04e7e96c06d23d3991f4cec4f088a007a  requirements.lock.txt
+5a3dd06e439f9c548128a8b281cbed5d1e42acda9da6cb0702a454e79691f597  rollback.sh
+end 2026-11-17T15:00:50Z

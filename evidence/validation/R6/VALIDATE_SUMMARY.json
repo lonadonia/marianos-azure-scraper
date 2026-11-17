@@ -1,0 +1,23 @@
+{
+ "command": "marianos-collector validate-export --run 01M7KBQ3XXMP3W3FK2EXE525EA",
+ "release": "1.10.0rc6",
+ "utc_start": "2026-11-17T01:54:11Z",
+ "utc_end": "2026-11-17T01:54:52Z",
+ "wall_seconds": 41.1,
+ "exit_code": 0,
+ "gnu_time_max_rss_kib": "184936",
+ "gnu_time_elapsed": "0:41.03",
+ "gnu_time_exit_status": "0",
+ "systemd_memory_peak": "3.1M",
+ "memory_bound": "MemoryMax=3G, no swap",
+ "kernel_oom_lines": 0,
+ "output_keys": [
+  "collector",
+  "command",
+  "event",
+  "exit_code",
+  "level",
+  "result",
+  "ts"
+ ]
+}

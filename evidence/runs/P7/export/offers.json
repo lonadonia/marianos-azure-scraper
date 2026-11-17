@@ -1,0 +1,50 @@
+[
+  {
+    "upc": "0003980002880",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $1.00 on Energizer",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003980014524",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $1.00 on Energizer",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003980014531",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $1.00 on Energizer",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  },
+  {
+    "upc": "0003980014995",
+    "source": "zone",
+    "tag": "",
+    "text": "Save $1.00 on Energizer",
+    "expiry_text": "",
+    "requires_clip": false,
+    "kind": "other_promo",
+    "explicit_price": "",
+    "modalities": [],
+    "flags": []
+  }
+]

@@ -1,0 +1,67 @@
+From 021b23ff5ebfaea2c47f655d1f55df6b460438d3 Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Tue, 17 Nov 2026 06:52:07 +0000
+Subject: [PATCH 9/9] marianos-azure-headless next: OR-24, a listing page parse
+ and the page being recorded are put back once its product pages are read, so
+ the other lane no longer replaces them before its records are built (R7 kept
+ no product of Dog Food page 7 or Cat Treats page 2)
+
+---
+ .../collection/oxylabs_live.py                | 31 ++++++++++++++++++-
+ 1 file changed, 30 insertions(+), 1 deletion(-)
+
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+index d601516..22aa357 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/collection/oxylabs_live.py
+@@ -100,6 +100,20 @@ MAX_ABNORMAL_LISTINGS_IN_A_ROW = 3
+ LISTING_FAILURES = frozenset(
+     {"provider_failed_free", "provider_failure", "timeout", "transport", "empty_result", "rate_limit"}
+ )
++# What a listing page is parsed into (``_view``) and the page being recorded: kept on the collector, which the
++# listing lanes share (OR-24, see ``read_terms``).
++PAGE_STATE = (
++    "_tax",
++    "_price_loc",
++    "_sponsored",
++    "_ranks",
++    "_query",
++    "_summary",
++    "_children",
++    "_brands",
++    "_reading",
++    "_reasked",
++)
+ SEARCH_ROUTE_REASON = (
+     "accessible pages exhausted; coverage incomplete: the listing page {url} is read through the first page "
+     "of the retailer's search for {query!r} ({cards} cards of {total} search results; the search route's "
+@@ -744,10 +758,25 @@ class OxylabsCollector(LiveCollector):
+         first), ``unread_robots``.
+         A refusal (challenge) page stops the run as on any page. Off unless
+         ``coverage.read_product_terms``, or ``limits.product_term_upcs`` names products (release 1.10.0rc6:
+-        then only the named products' pages are read, whatever their cards show)."""
++        then only the named products' pages are read, whatever their cards show).
++
++        OR-24 (run R7, 2026-11-17): while a product page is read the other listing lane goes on, and the page
++        it parses replaced what this page was parsed into (its products' taxonomies and ranks among others,
++        kept on the collector the lanes share): this page's records were then built against the other page,
++        and none of its products was kept (Dog Food 27017 page 7 and Cat Treats 27022 page 2, both counted
++        with 0 products). This page's parse, and the page being recorded, are put back once its product pages
++        are read, before its records are built."""
+         named = frozenset(self.cfg.limits.product_term_upcs or ())
+         if not self.settings.coverage.read_product_terms and not named:
+             return
++        page = {k: getattr(self, k) for k in PAGE_STATE}
++        try:
++            await self._read_product_pages(ctx, view, named)
++        finally:
++            for k, x in page.items():
++                setattr(self, k, x)
++
++    async def _read_product_pages(self, ctx: TaskContext, view: ListingView, named: frozenset[str]) -> None:
+         assert self.ox is not None
+         limit = self.cfg.limits.max_product_term_reads
+         for card in view.cards:
+-- 
+2.55.0.windows.5
+

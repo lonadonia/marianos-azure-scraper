@@ -92,6 +92,21 @@ def plan_nodes(
             continue
         name, source_id, *rest = sources[row_index]
         row_url = rest[0] if rest else ""
+        if urlsplit(row_url).path.startswith("/savings/cl/coupons"):
+            # Release 1.10.0rc6 (OR-04): the coupons catalogue lists offers, not products. It is read as a
+            # route of the run (its own page, its own verdict), and a run whose plan names it is complete only
+            # once it is read.
+            skipped.append(
+                {
+                    "row": row_index,
+                    "category": name,
+                    "route": "coupons",
+                    "url": row_url,
+                    "reason": "the coupons catalogue lists offers, not products: read as the run's Coupons "
+                    "route (its own page and verdict), not as listing pages",
+                }
+            )
+            continue
         menu = rows.get(row_index, {}).get("menu_nodes") or []
         chosen = {str(t) for t in subcategories.get(str(row_index), [])}
         if not menu:

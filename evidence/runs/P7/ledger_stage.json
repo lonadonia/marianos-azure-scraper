@@ -1,0 +1,131 @@
+{
+ "stage": [
+  {
+   "stage_id": "M-P7-one-lane-pilot-110rc6-20261116",
+   "project": "marianos",
+   "opened_at": "2026-11-16T23:20:29.537583Z",
+   "objective": "a one-lane pilot of the candidate 1.10.0rc6 before its full run R6 (a bounded run: --categories 0,27 narrows the scope, so it is a pilot, never a complete catalogue, never published): row 0, the Coupons page (read as the run's Coupons route, asked again while its list has not loaded: at most 4 answers, 60 s apart), and row 27 (Hardware, one listing of about 3 pages). It shows on the exact release, live: one lane under the account-wide gate of the new campaign (shared accounting with the later two-lane run, one ledger), the Coupons page read with its list's state recorded (OR-04), and the depth-first order. It ends on its own when its scope is read (the run is then finalized as a pilot); the ceiling of 20 is the backstop. A resumed run keeps the lanes it started with, so the full run R6 starts with two.",
+   "command": "run --store marianos-53100502-pickup --categories 0,27",
+   "config": "{\"config_dir\": \"/var/lib/marianos-collector/ops-rc6/stages/M-P7-one-lane-pilot-110rc6-20261116/config\", \"config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"d4d96195af013f3ea7acb401a373e4e6ae8e72952674f7cf4c1f36d22c78d416\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}, \"differs_from_shipped_in\": [\"collector.yaml: publish.auto false\"], \"environment\": \"the owner's own Azure VM (Ubuntu 24.04), PostgreSQL 16, release installed from the wheel\", \"lanes\": 1, \"shipped_config_sha256\": {\"Marianos_Category_URLs.csv\": \"606133cb12548d3f7f437ea9e0a056d88d0dd7f621ec0e1c210bb2fc20044da4\", \"collector.yaml\": \"43c0b91caacbcdbb32486dd2a1d7a30c805c0d9549d62a8548aaa2dbf911cca5\", \"private_label_brands.yaml\": \"75fe1a857e5929854cce5ecdb8effcf76d9be6116ca43bafde00978aff40e0a1\", \"settings.yaml\": \"7affd56325fff800547bc21b7b65cbe5047bdd5208247fa4ab26b63030a6e8fd\", \"stores.yaml\": \"3c6ab8181eedccef0512ac35d65d936d0b14bbb884f95260bc65372c18ecc9e6\", \"taxonomy_seed.snapshot_2026-10-17.json\": \"32b68a3729c47db4530f2e0f963b33f39b6081d203cd2098777d4b4ca6d8b28c\"}}",
+   "source_revision": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+   "max_requests": 20,
+   "max_results": 20,
+   "max_usd": "0.030000",
+   "deadline_utc": "2026-11-16T23:50:27Z",
+   "retry_policy": "as shipped: up to 3 attempts on 408, 429 and 5xx with backoff for a first ask; a re-ask is sent once; a request set aside is asked again at most 2 more times, each at least 300 s after its previous answer or attempt; the Coupons page asked again while its list has not loaded, at most 4 answers for the run, 60 s apart (1.10.0rc6, OR-04); each submission reserved at its worst case",
+   "stop_conditions": "the operator's slice target (SIGTERM: a resumable stop) before the stage's submission ceiling; the stage's submission ceiling (the collector's own ceiling and the account-wide gate); store or fulfillment not verified on a page (STORE_NOT_VERIFIED); ABNORMAL_RESULT, SITE_REFUSAL or three pages in a row not read (PROVIDER_ERROR); a ledger refusal, or more than 2 outcomes left unknown; the stage deadline; by the operator: once 10 re-asks have been answered and none recovered its request, the stage is stopped and reported as it stands",
+   "closed_at": null,
+   "outcome": null
+  }
+ ],
+ "events_naming_the_stage": [
+  {
+   "seq": 3,
+   "at": "2026-11-16T23:20:29.537658Z",
+   "kind": "stage_opened",
+   "ref": "M-P7-one-lane-pilot-110rc6-20261116",
+   "detail": "{\"deadline_utc\":\"2026-11-16T23:50:27Z\",\"max_requests\":20,\"max_results\":20,\"max_usd\":\"0.030000\",\"project\":\"marianos\",\"source_revision\":\"d77f3065c757b8b962524dbf8d9961dec212e72b\"}",
+   "prev_hash": "b06c4edb484c47e40cd8b2cc4917ef9d09e5f4f7a96b664b974066bc7b05293a",
+   "hash": "cd35b17f53bf38ae4b36a82fe07b02a206a939c4539c6359170c340aa0caa17b"
+  },
+  {
+   "seq": 4,
+   "at": "2026-11-16T23:20:29.904434Z",
+   "kind": "lease_acquired",
+   "ref": "1",
+   "detail": "{\"holder\":\"live111:M-P7-one-lane-pilot-110rc6-20261116:73402\",\"project\":\"marianos\",\"ttl_s\":120.0}",
+   "prev_hash": "cd35b17f53bf38ae4b36a82fe07b02a206a939c4539c6359170c340aa0caa17b",
+   "hash": "4a61f541f677d363aa67e279d0b8dcf09f2da838823898e9094ab7e6682e1b02"
+  },
+  {
+   "seq": 5,
+   "at": "2026-11-16T23:20:30.831683Z",
+   "kind": "reserved",
+   "ref": "26a3834e15f54efe8c881015c2f030ad",
+   "detail": "{\"purpose\":\"robots (attempt 1)\",\"stage\":\"M-P7-one-lane-pilot-110rc6-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "4a61f541f677d363aa67e279d0b8dcf09f2da838823898e9094ab7e6682e1b02",
+   "hash": "b7cf3f137de96adc4af4476edfb1964aaed4ef1b4bedc9a28bf0c8ab6eeb26b3"
+  },
+  {
+   "seq": 8,
+   "at": "2026-11-16T23:20:36.356460Z",
+   "kind": "reserved",
+   "ref": "53d8d7e5f4b24366bae36ca1c9fc54e6",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P7-one-lane-pilot-110rc6-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "c89b86d983cf1c608fbd59b37be00de6de1ec9988364cbb0347c1930c82281fe",
+   "hash": "30f2ab7965827125db0c1a803eadbc553ac289550dc05ecf8856d08acbebae8f"
+  },
+  {
+   "seq": 11,
+   "at": "2026-11-16T23:21:05.670894Z",
+   "kind": "reserved",
+   "ref": "a003a7638a87470eba3dd6eabf853fff",
+   "detail": "{\"purpose\":\"coupons (attempt 1)\",\"stage\":\"M-P7-one-lane-pilot-110rc6-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "8640857d975fbe46840939060d0fb0608ed9b388d8ed82959321b5095b28b183",
+   "hash": "c904dc5862b0399a8d18563f5a905f93eccce0d71b9392c42340ff8b1cd635c2"
+  },
+  {
+   "seq": 14,
+   "at": "2026-11-16T23:21:37.496032Z",
+   "kind": "reserved",
+   "ref": "230045d5992d4da0baec5c1db322f9a5",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P7-one-lane-pilot-110rc6-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "44eede80df75fbe353294d2d4fe7fdfece91696979fc6856817efd0204d7f53d",
+   "hash": "54ac450e76622b31cec9dc622b514d2e5d761578a482f012bf4fc6ccbeab1469"
+  },
+  {
+   "seq": 17,
+   "at": "2026-11-16T23:21:42.651483Z",
+   "kind": "reserved",
+   "ref": "5a2019f211cb439f97c9f59d64dec095",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P7-one-lane-pilot-110rc6-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "b7bf3517c24db993d51d616c5f0f7da33cdf096d7fe720d215c862f6350f0bff",
+   "hash": "f7e03dab916881bf9bfba5aa4533e14b72f3f512517521d2c2b8afe2c6dc801a"
+  },
+  {
+   "seq": 20,
+   "at": "2026-11-16T23:26:47.590821Z",
+   "kind": "reserved",
+   "ref": "3f0387ba5e954eaf9acc87db13a28b8e",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P7-one-lane-pilot-110rc6-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "aa08fe22a297e92eaa07306c8bc2f114f351099132539f5df15e37944bd1db12",
+   "hash": "1c16926b403867798598ab1789b2758a9274d4b7187a4a4e78373705a63638c0"
+  },
+  {
+   "seq": 23,
+   "at": "2026-11-16T23:27:16.497331Z",
+   "kind": "reserved",
+   "ref": "9a0e5d626c744588bcf9430ff36d39f5",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P7-one-lane-pilot-110rc6-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "2e562168e479fa1c0ec22cdff4a4452f771469c319a9300dc6da53dcb99881a7",
+   "hash": "4615eef2b35ea350b890273585a2470bed14296fc1ab516b4c9ed146ba291053"
+  },
+  {
+   "seq": 26,
+   "at": "2026-11-16T23:32:22.364067Z",
+   "kind": "reserved",
+   "ref": "1e71809440d54cf4920f43d91dc43842",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P7-one-lane-pilot-110rc6-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "df377e4386442644b3239f892c0b49899d1d5174fbbcc5b9f921bac161f2bbca",
+   "hash": "937a8981b20a4a78b846e0729edf6162f1a542ee8385bde06a6fdff61cb23a86"
+  },
+  {
+   "seq": 29,
+   "at": "2026-11-16T23:37:52.689381Z",
+   "kind": "reserved",
+   "ref": "385cdeb1a7374702950f50317a7a5408",
+   "detail": "{\"purpose\":\"listing (attempt 1)\",\"stage\":\"M-P7-one-lane-pilot-110rc6-20261116\",\"worst_results\":1,\"worst_usd\":\"0.001500\"}",
+   "prev_hash": "c57446d02086c47b139c0248da7bbd9e810112975294a8d16a0922dc456ac555",
+   "hash": "bf7f8a095cd478ec590fedeb2877b6c1798e665b449dd937271710b7f5218a46"
+  },
+  {
+   "seq": 32,
+   "at": "2026-11-16T23:38:02.554618Z",
+   "kind": "lease_released",
+   "ref": "1",
+   "detail": "{\"reason\":\"live111 M-P7-one-lane-pilot-110rc6-20261116 ended (exit 0)\"}",
+   "prev_hash": "8cab8874fbbd25f28e5b1bd9ce7919f996a77b191abf4aabe75ef77d1fe24fb2",
+   "hash": "821e949b76da33b5d9631821e913429af62c398c845e2a67c1ede56763b26903"
+  }
+ ]
+}

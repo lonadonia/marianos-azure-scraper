@@ -1,0 +1,9 @@
+start 2026-11-17T15:32:21Z
+collector_021b23f.tar.gz: OK
+new extraction: files 279, tree 056a3e8ca92e52af8e70013416e6f7180d93cd84
+TREE MATCHES the pinned candidate (056a3e8ca92e52af8e70013416e6f7180d93cd84)
+compared without: .venv __pycache__ .mypy_cache .ruff_cache .pytest_cache (made by uv sync and the checks)
+SUITE FOLDER DIFFERS from the new extraction (diff exit 1):
+Only in SUITE_FOLDER: .hypothesis
+generated, not compared: .venv .mypy_cache .ruff_cache 19 __pycache__ folder(s)
+end 2026-11-17T15:32:21Z

@@ -49,6 +49,12 @@ class Limits(_Model):
     # whose terms were not read is still recorded, flagged DIGITAL_TERMS_UNREAD with the reason.
     # Release 1.9.0rc3: on the tile served since 2026-11-06 (no coupon shown) every product is a candidate.
     max_product_term_reads: int | None = Field(None, ge=0)
+    # Release 1.10.0rc6: when it names products (13-digit UPCs), only their own pages are read for coupon
+    # terms (each once per run when its card is met, whatever the card shows, within max_product_term_reads),
+    # with or without ``coverage.read_product_terms``; every other product is recorded as with that setting
+    # off (its card's coupon only, flagged as before). Not a scope limit: a bounded share of the credit for
+    # the product pages a review names, instead of one more request for every tile.
+    product_term_upcs: list[str] | None = None
     # Release 1.10.0 (C1): how many times one listing request is asked again later in the same run when a
     # later page answers with an earlier page's products, or when the first page of a listing above the
     # source's window carries no filter to subdivide it by (``collection.reask``). Empty or 0 (the default,
@@ -58,6 +64,17 @@ class Limits(_Model):
     # The shortest wait before a request is asked again, counted from its previous answer or attempt, in
     # seconds; empty: 300, which is also the least a configuration may set.
     reask_min_wait_seconds: int | None = Field(None, ge=300, le=3600)
+
+    @field_validator("product_term_upcs")
+    @classmethod
+    def _term_upcs(cls, v: list[str] | None) -> list[str] | None:
+        if v is None:
+            return None
+        upcs = list(dict.fromkeys(u.strip() for u in v))
+        bad = [u for u in upcs if not (len(u) == 13 and u.isdigit())]
+        if bad:
+            raise ValueError(f"a product is named by its 13-digit UPC, not {bad[0]!r}")
+        return upcs
 
     def bounded(self) -> bool:
         """True when a limit narrows the scope (the run is then a pilot, never a complete catalogue)."""
@@ -121,6 +138,9 @@ class Schedule(_Model):
 class CollectionConfig(_Model):
     categories: list[int] = Field(default_factory=list)  # client CSV rows; empty = every category
     subcategories: dict[str, list[str]] = Field(default_factory=dict)  # row -> listing URLs; absent = all
+    # Release 1.10.0rc6: CSV rows whose listings are read first, in this order; the other rows follow in the
+    # CSV's order. Not a scope limit: the plan is the same, only its order changes (recorded with the run).
+    rows_first: list[int] = Field(default_factory=list)
     timezone: str = "America/Chicago"
     limits: Limits = Field(default_factory=Limits)
     schedule: Schedule = Field(default_factory=Schedule)
@@ -138,6 +158,11 @@ class CollectionConfig(_Model):
     @classmethod
     def _rows(cls, v: list[int]) -> list[int]:
         return sorted(set(v))
+
+    @field_validator("rows_first")
+    @classmethod
+    def _rows_first(cls, v: list[int]) -> list[int]:
+        return list(dict.fromkeys(v))
 
     @property
     def tz(self) -> ZoneInfo:

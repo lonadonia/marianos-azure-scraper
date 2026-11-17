@@ -1,0 +1,124 @@
+From d77f3065c757b8b962524dbf8d9961dec212e72b Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Mon, 16 Nov 2026 22:38:17 +0000
+Subject: [PATCH 12/12] marianos-azure-headless 1.10.0rc6: depth first by the
+ plan's place, creation order within a listing's group
+
+88e12e0 leased listing tasks in the order of their keys. That kept a listing's subdivisions ahead of the plan's
+next listing, but it also ordered a listing's subdivisions by their IDs: brand readings by digest instead of the
+facet's order, and keys without a place in the plan by name instead of creation. Two integration tests failed on
+88e12e0: test_runner::test_cooperative_cancel and
+test_partitions_190::test_a_worker_killed_inside_one_of_two_alike_brands_resumes_that_brand_alone.
+
+Listing tasks are now grouped by the place their key names in the run's plan ("<run>/node/<n>-...", read as an
+integer), and ordered by creation within the group, as before 1.10.0rc6. A key without a place is ordered by
+creation after the placed ones. Two tests guard this; both fail on 88e12e0 and pass here (28 passed in the
+order, runner and partition files; on 88e12e0, 4 failed).
+---
+ .../src/marianos_headless/db/queue.py         | 26 ++++++++-----
+ .../tests/integration/test_run_order_rc6.py   | 39 ++++++++++++++++++-
+ 2 files changed, 55 insertions(+), 10 deletions(-)
+
+diff --git a/headless/marianos-azure-headless/src/marianos_headless/db/queue.py b/headless/marianos-azure-headless/src/marianos_headless/db/queue.py
+index 03cb52a..fdbd6d5 100644
+--- a/headless/marianos-azure-headless/src/marianos_headless/db/queue.py
++++ b/headless/marianos-azure-headless/src/marianos_headless/db/queue.py
+@@ -11,7 +11,7 @@ from dataclasses import dataclass
+ from datetime import datetime, timedelta
+ from typing import Any
+ 
+-from sqlalchemy import and_, case, func, or_, select, update
++from sqlalchemy import Integer, and_, case, cast, func, or_, select, update
+ from sqlalchemy.dialects.postgresql import insert
+ from sqlalchemy.orm import Session, aliased
+ 
+@@ -100,16 +100,24 @@ def lease_next(
+     q = select(Task).where(Task.run_id == run_id, cond, ~blocked)
+     if kinds:
+         q = q.where(Task.kind.in_(kinds))
+-    # Release 1.10.0rc6: listing tasks in the order of their keys. A listing's key is its place in the run's
+-    # plan ("<run>/node/0007-<listing>") and a subdivision's key extends its listing's ("<run>/node/0007-
+-    # <listing>/<child>"), so a listing read through its subdivisions is finished before the plan's next
+-    # listing is started (depth first) instead of after every listing of the plan (1.10.0rc5: by creation,
+-    # which left run F2 with 25 listings above the window and none of their subdivisions read). Byte order
+-    # ("C"), whatever the database's collation. A subdivision waiting for a re-ask holds no lane: only a
++    # Release 1.10.0rc6: listing tasks grouped by their place in the run's plan, then by creation. A listing's
++    # key names its place ("<run>/node/0007-<listing>") and a subdivision's key extends its listing's
++    # ("<run>/node/0007-<listing>/<child>"), so a listing read through its subdivisions is finished before
++    # the plan's next listing is started (depth first) instead of after every listing of the plan (1.10.0rc5:
++    # by creation only, which left run F2 with 25 listings above the window and none of their subdivisions
++    # read). Within a listing's group, creation order as before: the listing, then its subdivisions in the
++    # order they were planned (brands in the facet's order). A key without a place (no "/node/<n>-") is
++    # ordered by creation after the placed ones. A subdivision waiting for a re-ask holds no lane: only a
+     # task that can be leased now is ordered.
+-    listing_key = case((Task.kind == "listing_node", Task.idem_key.collate("C")), else_=None)
++    place = case(
++        (
++            Task.kind == "listing_node",
++            cast(func.substring(Task.idem_key, r"^[^/]+/node/([0-9]+)-"), Integer),
++        ),
++        else_=None,
++    )
+     task = session.scalars(
+-        q.order_by(Task.priority, listing_key, Task.created_at, Task.id)
++        q.order_by(Task.priority, place.asc().nulls_last(), Task.created_at, Task.id)
+         .with_for_update(skip_locked=True)
+         .limit(1)
+     ).first()
+diff --git a/headless/marianos-azure-headless/tests/integration/test_run_order_rc6.py b/headless/marianos-azure-headless/tests/integration/test_run_order_rc6.py
+index 0ebd3f0..5940a17 100644
+--- a/headless/marianos-azure-headless/tests/integration/test_run_order_rc6.py
++++ b/headless/marianos-azure-headless/tests/integration/test_run_order_rc6.py
+@@ -64,7 +64,42 @@ def test_rc6_a_listings_subdivisions_are_read_before_the_plans_next_listing(migr
+         queue.succeed(s, first)
+         queue.succeed(s, second)
+         s.commit()
+-        assert _drain(s, run.id) == ["0611200691", "0611200694", "06113", "06114"]
++        order = _drain(s, run.id)
++        # Both subdivisions (in the order they were planned) before the plan's next listing.
++        assert set(order[:2]) == {"0611200691", "0611200694"} and order[2:] == ["06113", "06114"]
++
++
++def test_rc6_subdivisions_keep_the_order_they_were_planned_in(migrated_engine: Engine) -> None:
++    factory, store = seed(migrated_engine)
++    run = new_run(factory, store)
++    with factory() as s:
++        queue.enqueue(
++            s, run.id, "listing_node", f"{run.id}/node/0000-03001", priority=50, taxonomy_id="03001"
++        )
++        queue.enqueue(
++            s, run.id, "listing_node", f"{run.id}/node/0001-03002", priority=50, taxonomy_id="03002"
++        )
++        s.commit()
++        parent = queue.lease_next(s, run.id, "w1")
++        assert parent is not None and parent.taxonomy_id == "03001"
++        # Brand readings: their IDs are digests, so key order is not the facet's order; one per transaction
++        # here so that each has its own creation time (planned in the facet's order: zeta, then alpha).
++        for pid in ("ffff000001", "0000000002"):
++            queue.enqueue(s, run.id, "listing_node", f"{parent.idem_key}/{pid}", priority=50, taxonomy_id=pid)
++            s.commit()
++        queue.succeed(s, parent)
++        s.commit()
++        assert _drain(s, run.id) == ["ffff000001", "0000000002", "03002"]
++
++
++def test_keys_without_a_place_in_the_plan_keep_their_creation_order(migrated_engine: Engine) -> None:
++    factory, store = seed(migrated_engine)
++    run = new_run(factory, store)
++    with factory() as s:
++        for tax in ("26003", "26002"):
++            queue.enqueue(s, run.id, "listing_node", f"{run.id}/listing/{tax}", priority=50, taxonomy_id=tax)
++            s.commit()
++        assert _drain(s, run.id) == ["26003", "26002"]
+ 
+ 
+ def test_rc6_a_subdivision_waiting_for_its_re_ask_holds_no_lane(migrated_engine: Engine) -> None:
+@@ -78,6 +113,8 @@ def test_rc6_a_subdivision_waiting_for_its_re_ask_holds_no_lane(migrated_engine:
+         queue.enqueue(
+             s, run.id, "listing_node", f"{run.id}/node/0001-06113", priority=50, taxonomy_id="06113"
+         )
++        s.commit()
++        # The subdivision is planned after its listing (as when the listing's page 1 names it).
+         queue.enqueue(
+             s,
+             run.id,

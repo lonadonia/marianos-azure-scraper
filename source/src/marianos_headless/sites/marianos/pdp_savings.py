@@ -34,6 +34,9 @@ TAG = '[data-testid="savings-tag"]'
 ACTION = '[data-testid^="CouponActionButton-"]'
 PROMOTION = '[data-testid="promotion-description"]'
 PROMOTION_SECTION = '[data-testid="promotion-details-section"]'
+# Release 1.10.0rc6 (OR-04): the site's loading indicator. A page that still shows it and no coupon row was
+# rendered before its offers loaded: it proves no coupon absent.
+LOADING_INDICATOR = '[data-citrus-component="LoadingIndicator"]'
 _UPC_HREF = re.compile(r"/p/[^?#]*/(\d{13})(?:[?#]|$)")
 COUPON_KINDS = frozenset({"other-coupon", "cash-back", "digital-coupon", "coupon"})
 
@@ -97,6 +100,7 @@ class PdpSavings:
 
     section: bool  # the page shows a Savings section at all
     rows: tuple[SavingsRow, ...]
+    loading: bool = False  # the page shows the site's loading indicator (release 1.10.0rc6, OR-04)
 
     def coupons(self) -> list[SavingsRow]:
         return [r for r in self.rows if r.is_coupon]
@@ -184,10 +188,11 @@ def parse_row(row: LexborNode) -> SavingsRow:
 
 def parse_pdp_savings(html: str) -> PdpSavings:
     tree = LexborHTMLParser(html)
+    loading = tree.css_first(LOADING_INDICATOR) is not None
     section = tree.css_first(SECTION)
     if section is None:
-        return PdpSavings(section=False, rows=())
-    return PdpSavings(section=True, rows=tuple(parse_row(r) for r in section.css(ROW)))
+        return PdpSavings(section=False, rows=(), loading=loading)
+    return PdpSavings(section=True, rows=tuple(parse_row(r) for r in section.css(ROW)), loading=loading)
 
 
 def savings_document(html: str, *, upc: str, rendered: bool | None, requested_run_js: bool) -> dict[str, Any]:
@@ -206,5 +211,6 @@ def savings_document(html: str, *, upc: str, rendered: bool | None, requested_ru
             "rendered": rendered,
             "section": s.section,
             "rows": [r.as_dict() for r in s.rows],
+            "loading": s.loading,
         }
     }

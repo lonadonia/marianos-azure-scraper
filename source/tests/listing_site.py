@@ -55,8 +55,13 @@ class Site:
         address: dict[str, str] | None = None,
         on_request: Callable[[str, int], None] | None = None,
         listing_run_js: bool = False,
+        coupons: list[str] | None = None,
     ):
         self.listings = listings
+        # The Coupons page's answers, in order (the last one again once they are used up): by default the
+        # synthetic page with one coupon card. 1.10.0rc6 (OR-04) tests serve the real pages of 2026-11-16.
+        self.coupons = list(coupons) if coupons else [syn.coupons_page(1)]
+        self.coupons_asked = 0
         # Whether the collector asks for listing pages rendered: since release 1.9.0rc2 it does not by default
         # (``OxylabsSettings.listing_run_js``); the site checks every listing request against it.
         self.listing_run_js = listing_run_js
@@ -146,6 +151,18 @@ class Site:
         elif what == "search_not_made_wrong_store":  # the same empty page, in another store's context
             rows = []
             kw.update(search_made=False, location_id="53100511")
+        elif what == "products_not_loaded":  # 1.10.0rc6 (OR-19): live 2026-11-16, run F2
+            kw.update(product_data_loaded=False, cards_drawn=3)
+        elif what == "products_not_loaded_other_store":  # the same, its search made for another store
+            kw.update(product_data_loaded=False, cards_drawn=3, request_location_id="53100511")
+        elif what == "products_not_loaded_other_fulfillment":  # the same, for another fulfillment
+            kw.update(
+                product_data_loaded=False,
+                cards_drawn=3,
+                modality="SHIP" if self.modality != "SHIP" else "PICKUP",
+            )
+        elif what == "products_not_loaded_no_store_proof":  # the same, its search naming no store
+            kw.update(product_data_loaded=False, cards_drawn=3, search_location=False)
         elif what == "total_up":
             self.totals[key] = total = total + 3
         ranks = {p.upc: start + i + 1 for i, p in enumerate(rows)}
@@ -170,7 +187,8 @@ class Site:
         elif url.endswith("/robots.txt"):
             html = ROBOTS
         elif "/savings/cl/coupons" in url:
-            html = syn.coupons_page(1)
+            html = self.coupons[min(self.coupons_asked, len(self.coupons) - 1)]
+            self.coupons_asked += 1
         else:
             parts = urlsplit(url)
             query = parse_qs(parts.query)

@@ -17,7 +17,7 @@ from marianos_headless.sites.marianos.dom_parsers import (
     HeaderStore,
     Selectors,
 )
-from marianos_headless.sites.marianos.source_json import SourceIndex, coupon_offer, product_offers
+from marianos_headless.sites.marianos.source_json import SourceIndex, TermsRead, coupon_offer, product_offers
 from marianos_headless.sites.marianos.store_context import StoreDetails, store_location_text
 
 
@@ -42,8 +42,20 @@ class OfferDetails:
     notes: tuple[str, ...] = ()  # listed offers left out of the record, and why
     check: SourceCheck | None = None
     sources: tuple[dict[str, object], ...] = ()  # the responses read, for the field provenance
-    # The product's own page read for its coupons (release 1.9.0rc3): "rendered", "not_rendered" or "".
+    # The product's own page read for its coupons (release 1.9.0rc3): "rendered", "not_rendered", "loading"
+    # (1.10.0rc6: rendered but still loading, no coupon shown) or "".
     page_read: str = ""
+
+
+def page_read_of(read: TermsRead | None) -> str:
+    """How the product's own page was read for its coupons: "" (not read), "loading" (release 1.10.0rc6,
+    OR-04: it still showed the site's loading indicator and no coupon, so it proves no coupon absent),
+    "rendered" or "not_rendered" (the provider did not state that it ran the page's scripts)."""
+    if read is None:
+        return ""
+    if read.loading:
+        return "loading"
+    return "rendered" if read.rendered is True else "not_rendered"
 
 
 def offer_details(
@@ -73,7 +85,7 @@ def offer_details(
         refs.append({"upc": product.upc, **product.ref.as_dict()})
     read = sources.terms_read(card.upc)
     return OfferDetails(
-        page_read="" if read is None else "rendered" if read.rendered is True else "not_rendered",
+        page_read=page_read_of(read),
         offers=tuple(offers),
         notes=tuple(notes),
         check=product.check(store, modality) if product is not None else None,

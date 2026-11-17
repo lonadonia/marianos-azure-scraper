@@ -67,7 +67,12 @@ from marianos_headless.core.ids import new_id
 from marianos_headless.core.settings import BrowserProvider
 from marianos_headless.core.timeutil import iso
 from marianos_headless.db.models import CategorySource, DeferredRequest, ListingPage, Run
-from marianos_headless.sites.marianos.dom_parsers import CardObservation, parse_page
+from marianos_headless.sites.marianos.dom_parsers import (
+    CardObservation,
+    CouponList,
+    coupon_list_reading,
+    parse_page,
+)
 from marianos_headless.sites.marianos.initial_state import InitialStateNotFound, parse_initial_state
 from marianos_headless.sites.marianos.search_state import (
     SearchSummary,
@@ -78,6 +83,7 @@ from marianos_headless.sites.marianos.search_state import (
     state_products,
     taxonomy_ids,
 )
+from marianos_headless.validation.gates import RouteOutcome
 from marianos_headless.worker.retry import FailureKind, TaskFailure
 from marianos_headless.worker.runner import CancelledByOperator, RunStop, TaskContext, TaskDeferred, Timer
 from marianos_headless.worker.runs import event
@@ -399,7 +405,8 @@ class OxylabsCollector(LiveCollector):
             state = {}
         summary = search_summary(state)
         products = state_products(state)
-        shows = fetch.purpose != "coupons" and bool(products or grid_cards(html)[1])
+        drawn = 0 if fetch.purpose == "coupons" else len(grid_cards(html)[1])
+        shows = fetch.purpose != "coupons" and bool(products or drawn)
         if summary is not None:
             # Release 1.10.0rc5: a page brought before its search was made (live 2026-11-16, run F1: no
             # request, still loading, no response, no product, no card) states no store for its search
@@ -434,6 +441,17 @@ class OxylabsCollector(LiveCollector):
             )
         locs = Counter(price_location(p) for p in products)
         stated = set(locs) - {None}
+        # Release 1.10.0rc6 (OR-19). Live 2026-11-16 (run F2, 18:56:02Z): an answer whose own search was made
+        # for the store and fulfillment (location 53100502, PICKUP, page 2, 45 results) while its state
+        # carried no product's data and its grid drew 3 cards. 1.10.0rc5 took the cards without data for
+        # prices it could not check, failed the page as another store's and stopped the run, not resumable.
+        # Such a page states no price at all: nothing on it can be recorded, the listing step counts no
+        # product from it and asks for it again (within the usual bounds). Its search's own store and
+        # fulfillment are its store proof, checked above (search_request) with every other check of the
+        # page. Cards without data on a page whose search names another store or fulfillment, or names
+        # none, still fail.
+        own_search = summary is not None and summary.location_id == loc and summary.modality == modality
+        unloaded = shows and not products and own_search
         # Every price a page states must be the store's. A product whose data states no price (``price``
         # empty, the card showing "Prices May Vary": temporarily out of stock at the store; live
         # 2026-10-29, the search for "Fresh Herbs") has no price to check, as in the record checks: it is
@@ -441,17 +459,37 @@ class OxylabsCollector(LiveCollector):
         # nothing, the Coupons page) has none either; its store and fulfillment are still checked above,
         # and the listing step tells an empty search from an abnormal page. A page that shows cards
         # without their product data cannot be checked: it fails.
-        ok = (stated == {loc}) if stated else (False if shows and not products else None)
+        ok: bool | None
+        if stated:
+            ok = stated == {loc}
+        elif shows and not products:
+            ok = None if unloaded else False
+        else:
+            ok = None
+        observed_prices: dict[str, Any] = {k or "no price stated": n for k, n in locs.items()}
+        if unloaded:
+            assert summary is not None
+            observed_prices = {
+                "product data": "not loaded",
+                "cards drawn": drawn,
+                "search": {
+                    "locationId": summary.location_id,
+                    "activeModalityType": summary.modality,
+                    "page": summary.page,
+                    "totalCount": summary.total,
+                },
+            }
         v.checks.append(
             StoreCheck(
                 "price_locations",
                 ok,
-                {k or "no price stated": n for k, n in locs.items()},
+                observed_prices,
                 loc,
                 required=ok is not None,
                 note="the store each price a page states is for (price.storePrices.sourceLocationId);"
                 " not applicable to a product that states no price or a page that shows no product (the"
-                " Coupons page, a search that found nothing)",
+                " Coupons page, a search that found nothing) or a page whose state carries no product's data"
+                " while its own search names the store and fulfillment (it counts no product)",
             )
         )
         return v
@@ -487,43 +525,148 @@ class OxylabsCollector(LiveCollector):
                 await self._with_reconnects(ctx, lambda: self.coupons_route(ctx))
         return out
 
+    async def h_assemble(self, ctx: TaskContext) -> dict[str, Any]:
+        """Release 1.10.0rc6 (OR-04): before the records are assembled, the Coupons page is asked again while
+        its list has not loaded, within ``coupons_attempts`` answers for the run (the first one was asked when
+        the run started; each answer is kept, across restarts)."""
+        cfg = self.settings.acquisition.oxylabs
+        asked = 0
+        while True:
+            route = self._coupons_summary()
+            if route is None or not route.get("url"):
+                break
+            status = str(route.get("status") or "")
+            if status == "READ" or status.startswith("SKIPPED"):
+                break
+            if len(route.get("attempts") or []) >= cfg.coupons_attempts:
+                break
+            if asked and cfg.coupons_retry_wait_s:
+                await (self.sleep or asyncio.sleep)(cfg.coupons_retry_wait_s)
+            asked += 1
+            async with self.keepalive(ctx):
+                await self._with_reconnects(ctx, lambda: self.coupons_route(ctx))
+        return await super().h_assemble(ctx)
+
+    def _coupons_summary(self) -> dict[str, Any] | None:
+        with self.factory() as s:
+            run = s.get(Run, self.run_id)
+            route = (run.counts or {}).get("coupons_route") if run is not None else None
+        return dict(route) if isinstance(route, dict) else None
+
+    @staticmethod
+    def _coupons_planned(run: Run | None) -> dict[str, Any] | None:
+        """The Coupons row as the run's plan names it (a route of the run: release 1.10.0rc6, OR-04), if it
+        does. A run of the client's whole list names it; a run narrowed to other rows does not."""
+        plan = ((run.config_snapshot or {}).get("plan") or {}) if run is not None else {}
+        for entry in plan.get("skipped") or []:
+            if isinstance(entry, dict) and entry.get("route") == "coupons":
+                return entry
+        return None
+
+    def route_outcomes(self, run: Run) -> list[RouteOutcome]:
+        """The Coupons row: required when the run's plan names it; READ only when its list loaded."""
+        planned = self._coupons_planned(run)
+        route = (run.counts or {}).get("coupons_route")
+        if planned is None and not isinstance(route, dict):
+            return []
+        row = int((planned or {}).get("row") or 0)
+        name = str((planned or {}).get("category") or "Coupons")
+        if not isinstance(route, dict):
+            return [RouteOutcome(row, name, "NOT ATTEMPTED", planned is not None)]
+        detail = str(route.get("list_detail") or "")
+        return [RouteOutcome(row, name, str(route.get("status") or ""), planned is not None, detail)]
+
+    async def _provider_ready(self, ctx: TaskContext) -> None:
+        """The provider session, opened if this execution has none yet (a resumed run whose listings were all
+        read before): as for a listing page, one session for every lane."""
+        if self.ox is None or self.ox.robots is None:
+            async with self._session_lock:
+                if self.ox is None:
+                    await self.open_session(ctx)
+
     async def coupons_route(self, ctx: TaskContext) -> None:
-        """The client's Coupons row (offer discovery): its page read once per run, rendered (its coupon cards
-        appear only then), for the same store and fulfillment. The cards name each coupon's wording, terms
-        and expiry; the page does not list the products a coupon applies to, so coupons reach records only
-        through the coupon a product's own card shows."""
+        """The client's Coupons row (offer discovery): its page asked rendered (its coupon cards appear only
+        then), for the same store and fulfillment. The cards name each coupon's wording, terms and expiry; the
+        page does not list the products a coupon applies to, so coupons reach records only through the coupon
+        a product's own card shows.
+
+        Release 1.10.0rc6 (OR-04): one answer per call, kept with the run's earlier ones. It is READ only when
+        the store check passes and its list loaded (``coupon_list_reading``: cards drawn, or a stated count of
+        0 without the loading indicator); a page rendered before its list loaded is NOT READ and proves no
+        coupon absent (seven of twelve answers of 2026-11-16 were such pages)."""
         with self.factory() as s:
             url = s.scalar(
                 select(CategorySource.url).where(
                     CategorySource.csv_row_index == 0, CategorySource.category_name == "Coupons"
                 )
             )
+            run = s.get(Run, self.run_id)
+            before = (run.counts or {}).get("coupons_route") if run is not None else None
+            planned = self._coupons_planned(run)
         if not url:
             return
+        cfg = self.settings.acquisition.oxylabs
+        attempts: list[dict[str, Any]] = list((before or {}).get("attempts") or [])
+        summary: dict[str, Any] = {
+            "url": url,
+            "provider": "oxylabs",
+            "run_js": cfg.coupons_run_js,
+            # the run's plan names the row: the run is complete only once it is read
+            "mandatory": planned is not None,
+            "max_attempts": cfg.coupons_attempts,
+            "products_listed": False,
+            "coupon_cards": 0,
+            "coupons": [],
+        }
+        attempt: dict[str, Any] = {"answer": len(attempts) + 1, "at": iso(self.clock())}
+        await self._provider_ready(ctx)
         assert self.ox is not None
-        summary: dict[str, Any] = {"url": url, "provider": "oxylabs", "run_js": True}
         if not self.ox.robots or not self.ox.robots.allowed(url):
             summary["status"] = "SKIPPED: robots.txt does not allow the page"
+            attempt.update(status=summary["status"], fetch_id=None, list_state=None, store_check=None)
         else:
             self.check(ctx)
             try:
-                fetch = await self.ox.navigate(
-                    url, "coupons", run_js=self.settings.acquisition.oxylabs.coupons_run_js
-                )
+                fetch = await self.ox.navigate(url, "coupons", run_js=cfg.coupons_run_js)
             except oxylabs.OxylabsError as exc:
                 if exc.kind not in LISTING_FAILURES:
                     raise
                 summary["status"] = f"NOT READ: the provider brought no page ({exc.kind})"
+                attempt.update(status=summary["status"], fetch_id=None, list_state=None, store_check=None)
             else:
                 self.steps += 1
                 v = self.verify(fetch)
-                coupons = parse_page(self.html(fetch)).coupons
+                html = self.html(fetch)
+                reading = coupon_list_reading(html)
+                coupons = parse_page(html).coupons
+                store = "PASS" if v.passed else "; ".join(v.failures())[:500]
+                if not v.passed:
+                    status = "STORE_NOT_VERIFIED"
+                elif reading.state is CouponList.NOT_LOADED:
+                    status = f"NOT READ: {reading.detail}"
+                else:
+                    status = "READ"
+                provider = fetch.notes.get("provider") or {}
+                attempt.update(
+                    status=status,
+                    fetch_id=fetch.fetch_id,
+                    request_id=provider.get("request_id"),
+                    store_check=store,
+                    list_state=reading.state.value,
+                    count_stated=reading.count_stated,
+                    coupon_cards=reading.cards,
+                    loading_indicator=reading.loading_indicator,
+                    detail=reading.detail,
+                )
                 summary.update(
                     {
-                        "status": "READ" if v.passed else "STORE_NOT_VERIFIED",
+                        "status": status,
                         "fetch_id": fetch.fetch_id,
-                        "store_check": "PASS" if v.passed else "; ".join(v.failures())[:500],
-                        "coupon_cards": len(coupons),
+                        "store_check": store,
+                        "list_state": reading.state.value,
+                        "list_detail": reading.detail,
+                        "count_stated": reading.count_stated,
+                        "coupon_cards": len(coupons) if status == "READ" else 0,
                         "coupons": [
                             {
                                 "coupon_id": c.coupon_id,
@@ -535,10 +678,12 @@ class OxylabsCollector(LiveCollector):
                                 "other_tags": list(c.other_tags),
                             }
                             for c in coupons
-                        ],
-                        "products_listed": False,
+                        ]
+                        if status == "READ"
+                        else [],
                     }
                 )
+        summary["attempts"] = [*attempts, attempt]
         with self.factory() as s:
             self.persist(s, ctx)
             run = s.get(Run, self.run_id)
@@ -549,8 +694,9 @@ class OxylabsCollector(LiveCollector):
                 self.run_id,
                 "INFO" if summary.get("status") == "READ" else "WARN",
                 "COUPONS_ROUTE",
-                f"Coupons page: {summary.get('status')}; {summary.get('coupon_cards', 0)} coupon cards",
-                {k: v for k, v in summary.items() if k != "coupons"},
+                f"Coupons page, answer {attempt['answer']} of at most {cfg.coupons_attempts}: "
+                f"{summary.get('status')}; {summary.get('coupon_cards', 0)} coupon cards",
+                {k: v for k, v in summary.items() if k not in ("coupons", "attempts")} | {"attempt": attempt},
             )
             s.commit()
 
@@ -581,20 +727,31 @@ class OxylabsCollector(LiveCollector):
         ``conflict``: the page was rendered but shows no coupon, or other coupons than the card (both kept);
         ``unread_not_rendered``: the provider brought the page without running its scripts (its own answer
         says so), and the coupons load only then: nothing is learnt about them;
+        ``unread_loading`` (1.10.0rc6, OR-04): rendered but still loading (the site's loading indicator) and
+        showing no coupon: nothing is learnt about them;
         ``request_failed`` (sent once, never retried), ``store_unverified``, ``unread_limit`` (the run's
         ``max_product_term_reads``), ``unread_ceiling`` (the spending ceiling or another run limit was reached
         first), ``unread_robots``.
         A refusal (challenge) page stops the run as on any page. Off unless
-        ``coverage.read_product_terms``."""
-        if not self.settings.coverage.read_product_terms:
+        ``coverage.read_product_terms``, or ``limits.product_term_upcs`` names products (release 1.10.0rc6:
+        then only the named products' pages are read, whatever their cards show)."""
+        named = frozenset(self.cfg.limits.product_term_upcs or ())
+        if not self.settings.coverage.read_product_terms and not named:
             return
         assert self.ox is not None
         limit = self.cfg.limits.max_product_term_reads
         for card in view.cards:
             upc = card.upc
-            tile_unshown = card.layout == "tile" and not self.shows_coupon(card)
-            if not upc or not card.url or not (tile_unshown or self.shows_coupon(card)):
+            if not upc or not card.url:
                 continue
+            if named:
+                if upc not in named:
+                    continue
+            elif card.layout != "tile" and not self.shows_coupon(card):
+                continue
+            # A card that shows no coupon (a tile; 1.10.0rc6: or a named product's card): its own page says
+            # whether the product has one (read) or not (none_on_page), never a conflict with the card.
+            tile_unshown = not self.shows_coupon(card)
             if upc in self.term_status or upc in self.recorded:
                 continue
             if limit is not None and self.term_reads >= limit:
@@ -676,6 +833,18 @@ class OxylabsCollector(LiveCollector):
                 continue
             index_captures(self.sources, fetch, self._read)
             read = self.sources.terms_read(upc)
+            if rendered is True and read is not None and read.loading:
+                # Release 1.10.0rc6 (OR-04): rendered, but still loading and showing no coupon: a page still
+                # loading proves no coupon absent.
+                self._terms(
+                    upc,
+                    "unread_loading",
+                    "the rendered product page was still loading (the site's loading indicator is shown) "
+                    "and shows no coupon: its coupons are unread, not absent",
+                    rendered=True,
+                    **base,
+                )
+                continue
             if rendered is not True or read is None:
                 self._terms(
                     upc,
@@ -1546,7 +1715,7 @@ class OxylabsCollector(LiveCollector):
             return self._facets_after(ctx, node, state, held)
         v = self.verify(fetch)
         view = self._view(fetch)
-        facts = pagination.page_facts(1, self._summary, len(view.cards))
+        facts = pagination.page_facts(1, self._summary, len(view.cards), len(self._price_loc))
         store_problem = "; ".join(v.failures())
         # Judged as a first page in its own right: store, page, listing and filters as asked, and products.
         j = pagination.judge(
@@ -1625,7 +1794,7 @@ class OxylabsCollector(LiveCollector):
             self.failed_in_a_row = 0
             self.abnormal_in_a_row = 0
             return named
-        if j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED):
+        if j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED) and not j.unloaded:
             self.abnormal_in_a_row += 1
             if self.abnormal_in_a_row >= MAX_ABNORMAL_LISTINGS_IN_A_ROW:
                 raise AbnormalPage(f"{url}: {j.detail}")
@@ -1804,7 +1973,7 @@ class OxylabsCollector(LiveCollector):
                     break
                 v = self.verify(fetch)
             view = self._view(fetch)
-            facts = pagination.page_facts(page, self._summary, len(view.cards))
+            facts = pagination.page_facts(page, self._summary, len(view.cards), len(self._price_loc))
             store_problem = "; ".join(v.failures())
             j = pagination.judge(
                 facts,
@@ -1890,7 +2059,11 @@ class OxylabsCollector(LiveCollector):
                         resumable=False,
                     )
                 if held is not None:
-                    if again is not None and j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED):
+                    if (
+                        again is not None
+                        and j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED)
+                        and not j.unloaded
+                    ):
                         self.abnormal_in_a_row += 1
                         if self.abnormal_in_a_row >= MAX_ABNORMAL_LISTINGS_IN_A_ROW:
                             raise AbnormalPage(f"{url}: {j.detail}")
@@ -1905,9 +2078,13 @@ class OxylabsCollector(LiveCollector):
                 if j.verdict in (PageVerdict.EMPTY, PageVerdict.MALFORMED) or (
                     j.verdict in pagination.FILTER_VERDICTS and j.retry
                 ):
-                    self.abnormal_in_a_row += 1
-                    if self.abnormal_in_a_row >= MAX_ABNORMAL_LISTINGS_IN_A_ROW:
-                        raise AbnormalPage(f"{url}: {j.detail}")
+                    # 1.10.0rc6 (OR-19): a page that did not load is a failure to bring the page, as a
+                    # provider failure is: asked for again within the task's bounded retries; once they are
+                    # spent the run stops resumably with the page unread (never the abnormal-page stop).
+                    if not j.unloaded:
+                        self.abnormal_in_a_row += 1
+                        if self.abnormal_in_a_row >= MAX_ABNORMAL_LISTINGS_IN_A_ROW:
+                            raise AbnormalPage(f"{url}: {j.detail}")
                     self._unread(ctx, node, page, j.detail)
                 state.status = "INCOMPLETE"
                 state.reason = f"{pagination.GAP}: page {page}: {j.detail}"[:1000]

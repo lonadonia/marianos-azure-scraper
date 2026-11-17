@@ -1,0 +1,11 @@
+2026-11-16T23:26:14Z
+current -> /opt/marianos-collector/releases/1.10.0rc6
+MARIANOS_COLLECTOR_SOURCE_COMMIT=d77f3065c757b8b962524dbf8d9961dec212e72b
+installed version: 1.10.0rc6
+files of the candidate tree (src/marianos_headless, by git archive of d77f306) compared with the installed package: 93, differing: 0
+installed package files not in the candidate tree: 0
+
+build info inside the image (run_build_info, vm_container.sh):
+{"commit": "d77f3065c757b8b962524dbf8d9961dec212e72b", "built_at": "2026-11-16T23:10:29Z"}
+image (docker image inspect):
+sha256:92332ded100a78f325f45a05f10fa86e27bc1006a9be4ee27eb243e7b831c874 created 2026-11-16T23:12:19.290302357Z size 127661412

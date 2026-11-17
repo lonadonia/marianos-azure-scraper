@@ -7,7 +7,7 @@ executions (two Azure job replicas, or a manual run during a scheduled one) can 
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 from datetime import datetime
 from typing import Any
 
@@ -64,6 +64,13 @@ def plan(
     )
 
 
+def rows_first(nodes: Sequence[Node], rows: Sequence[int]) -> list[Node]:
+    """Release 1.10.0rc6: the listings of ``rows`` first, in that order of rows, then the others; within a
+    row, the plan's own order (a stable sort)."""
+    rank = {r: i for i, r in enumerate(rows)}
+    return sorted(nodes, key=lambda n: rank.get(n.row_index, len(rank)))
+
+
 def open_run(session: Session, store_id: str) -> Run | None:
     """The store's live run that is not finished (active or paused), if any."""
     return session.scalars(
@@ -106,6 +113,16 @@ def create_run(
             "finalize it first"
         )
     order: dict[str, Any] = {"policy": "csv"}
+    if cfg.rows_first:
+        planned = {n.row_index for n in nodes}
+        absent = [r for r in cfg.rows_first if r not in planned]
+        if absent:
+            raise StartRefused(
+                f"rows {absent} of rows_first have no listing in this run's plan (row 0, Coupons, is read "
+                "when the run starts)"
+            )
+        nodes = rows_first(nodes, cfg.rows_first)
+        order = {"policy": "rows_first", "rows": list(cfg.rows_first)}
     if trigger == "schedule" and cfg.schedule.backlog_first:
         nodes, backlog = backlog_first(nodes, last_complete_reads(session, row.id))
         order = {"policy": "backlog_first", "backlog": backlog}
