@@ -1,5 +1,0 @@
-# command: bash -c systemctl list-units --no-legend 'marianos-*'; echo "(units listed above; none means no collector process is left running)"
-# started: 2026-11-16T18:56:26Z
-(units listed above; none means no collector process is left running)
-# exit: 0
-# ended: 2026-11-16T18:56:26Z

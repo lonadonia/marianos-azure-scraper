@@ -1,7 +1,0 @@
-== src 03:47:04Z
-[redacted:vm-home]/m110/src/src/marianos_headless/__init__.py
-{"ts": "2026-11-16T03:47:11.766Z", "level": "INFO", "event": "RUN_VALIDATED", "collector": "marianos-azure-headless", "run_id": "01M7H7EFS9T8G0MV3BBFVXB3GE", "message": "validating -> validated", "data": {}}
-=========================== short test summary info ============================
-FAILED tests/integration/test_reask_c1.py::test_c1_replay_batteries_page_2_repeated_then_answered_six_minutes_later_is_read_to_its_end
-1 failed in 7.56s
-exit 1

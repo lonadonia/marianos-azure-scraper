@@ -1,4 +1,0 @@
-{"label":"before_c1","utc_start":"2026-11-16T15:07:30Z","utc_end":"2026-11-16T15:08:40Z","exit_code":0,"last_line":"21 failed, 7 passed in 67.88s (0:01:07)"}
-{"label":"before_publication","utc_start":"2026-11-16T15:08:40Z","utc_end":"2026-11-16T15:08:58Z","exit_code":0,"last_line":"3 failed, 3 passed in 16.86s"}
-postgres left: 0
-ALL_DONE

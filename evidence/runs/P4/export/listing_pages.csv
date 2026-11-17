@@ -1,7 +1,0 @@
-csv_row,taxonomy_id,url,route,requested_page,returned_page,attempt,state,verdict,detail,total,available,identities,children,new,duplicates,excluded,conflicts,sha256,provider_request_id
-27,33,https://www.marianos.com/pl/hardware-home-improvement/33,listing,1,1,1,completed,new,,65,65,24,0,24,0,0,2,62673922544aaf96714b569b052deeb563eae15145e13fd07a6c2784b25d671b,7528157867753399297
-27,33,https://www.marianos.com/pl/hardware-home-improvement/33?page=2,listing,2,2,1,stopped,repeated,page 2 repeats an earlier page exactly,65,65,24,0,0,24,0,0,34bff7719bfcd6008aaa7fafaf5d15d311422ead94b72299ebb070b73318527f,7528157956525794305
-27,33,https://www.marianos.com/pl/hardware-home-improvement/33?page=2,listing,2,2,2,completed,new,,65,65,24,0,25,2,0,0,5777b9b030fdc6737bdba68cd96f9f6d22d79ca6ce4ddf417d9c5676bfd9cb47,7528159240049971202
-27,33,https://www.marianos.com/pl/hardware-home-improvement/33?page=3,listing,3,3,1,stopped,repeated,page 3 repeats an earlier page exactly,65,65,24,0,0,24,0,0,5fd037ae4c997486f85326e19e2f9ec92bf5d758adc22f46fd631202f296e8b0,7528159263936513025
-27,33,https://www.marianos.com/pl/hardware-home-improvement/33?page=3,listing,3,3,2,stopped,repeated,page 3 repeats an earlier page exactly,65,65,24,0,0,24,0,0,c35980d02c2cdcf5ceaad05d36d03af52cdd4907cf80366208fd7299e9f003f6,7528160554834257921
-27,33,https://www.marianos.com/pl/hardware-home-improvement/33?page=3,listing,3,3,3,completed,new,,65,65,17,0,16,3,0,1,196230c063b4f4acf3e84b9713acfead4dfdebb24b7efdd45deb267fd1a8089d,7528161853193645057

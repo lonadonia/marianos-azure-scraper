@@ -1,5 +1,0 @@
-2026-11-16T16:06:26Z watch start unit=marianos-stage-p3 stage=M-P3-pubtarget-second-publication-rollback-110rc4-20261116 db=marianos_pubtest
-2026-11-16T16:06:27Z unit=active run=01M7JHR4GE1PZMY8D8J2DA6R4P status=preflight|-  pages=[0 pages, 0 completed ] distinct_upcs=0  deferred(all|wait|rec|exh|answered_reasks)=0|0|0|0|0  ledger={"dispatched": 1}
-2026-11-16T16:06:57Z unit=active run=01M7JHR4GE1PZMY8D8J2DA6R4P status=running|-  pages=[1 pages, 1 completed ] distinct_upcs=24  deferred(all|wait|rec|exh|answered_reasks)=0|0|0|0|0  ledger={"settled": 4}
-2026-11-16T16:07:27Z unit=inactive run=01M7JHR4GE1PZMY8D8J2DA6R4P status=published|-  pages=[3 pages, 3 completed ] distinct_upcs=65  deferred(all|wait|rec|exh|answered_reasks)=0|0|0|0|0  ledger={"settled": 5}
-2026-11-16T16:07:27Z unit not active (inactive): watch ends

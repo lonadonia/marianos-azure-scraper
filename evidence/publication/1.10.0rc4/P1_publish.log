@@ -1,2 +1,0 @@
-{"ts": "2026-11-16T16:02:29.096Z", "level": "INFO", "event": "RESULT", "collector": "marianos-azure-headless", "command": "publish", "exit_code": 0, "result": {"run_id": "01M7JH4G03W52YEZMES5QSWVC4", "publication_id": "01M7JHGYJMTH6TRRQMB0WXFTQD", "version": 1}}
-exit 0

@@ -1,2 +1,0 @@
-csv_row,taxonomy_id,partition,stated_total_last,stated_totals_seen,answers,pages_counted,states,verdicts,slots_counted,distinct_counted,duplicates_across_counted_pages,store_checks,locations,modalities,first_observed,last_observed
-27,33,,65,[65],2,2,"{""completed"": 2}","{""new"": 2}",48,48,{},"[""PASS""]","[""53100502""]","[""PICKUP""]",2026-11-16 16:03:29.572092+00,2026-11-16 16:04:12.314459+00

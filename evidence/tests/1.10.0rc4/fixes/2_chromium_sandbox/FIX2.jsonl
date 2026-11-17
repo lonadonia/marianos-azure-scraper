@@ -1,5 +1,0 @@
-{"label":"before","utc_start":"2026-11-16T04:28:55Z","utc_end":"2026-11-16T04:30:07Z","exit_code":1,"last_line":"5 failed, 1 passed in 70.17s (0:01:10)"}
-left after BEFORE: postgres 0, chrome 0
-{"label":"after","utc_start":"2026-11-16T04:30:10Z","utc_end":"2026-11-16T04:42:33Z","exit_code":1,"last_line":"1 failed, 28 passed in 741.69s (0:12:21)"}
-postgres processes of the test servers left: 0; chrome: 0
-ALL_DONE
