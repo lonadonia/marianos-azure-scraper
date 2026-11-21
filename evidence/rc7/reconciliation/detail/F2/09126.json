@@ -1,0 +1,109 @@
+{
+ "audit": {
+  "accounted_identities": 14,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 14,
+  "fresh_records": 14,
+  "fresh_valid": 14,
+  "listing_id": "09126",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "14 distinct products of 14 reported, on 1 page(s), each accounted for",
+  "reported_total": 14,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0000180190062",
+  "0000180190074",
+  "0002005922338",
+  "0002005944611",
+  "0002005948861",
+  "0072869251722",
+  "0072869258847",
+  "0077513999180",
+  "0081006593517",
+  "0083874103277",
+  "0083874103290",
+  "0083874104112",
+  "0083874104114",
+  "0084022850861"
+ ],
+ "fresh_linked": [
+  "0000180190062",
+  "0000180190074",
+  "0002005922338",
+  "0002005944611",
+  "0002005948861",
+  "0072869251722",
+  "0072869258847",
+  "0077513999180",
+  "0081006593517",
+  "0083874103277",
+  "0083874103290",
+  "0083874104112",
+  "0083874104114",
+  "0084022850861"
+ ],
+ "listing": "09126",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 14,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNYET93S9WPSQ42HFGY95F",
+   "identities": [
+    "0084022850861",
+    "0000180190074",
+    "0083874103290",
+    "0072869258847",
+    "0002005944611",
+    "0083874103277",
+    "0002005948861",
+    "0000180190062",
+    "0077513999180",
+    "0081006593517",
+    "0002005922338",
+    "0083874104114",
+    "0083874104112",
+    "0072869251722"
+   ],
+   "listing": "09126",
+   "observed_at": "2026-11-16 17:19:45.993764+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "09126",
+   "sha256": "4543a94090593d0bfa440294dd0067cad6bd30096f61dc7f14dae63e37c3ec6d",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 14,
+   "url": "https://www.marianos.com/pl/bouquets/09126"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

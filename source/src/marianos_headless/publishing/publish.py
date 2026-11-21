@@ -25,6 +25,7 @@ from dataclasses import dataclass
 from sqlalchemy import select, update
 from sqlalchemy.orm import Session, sessionmaker
 
+from marianos_headless.collection.reconciliation import coverage_problems
 from marianos_headless.core.jsonio import dumps_bytes
 from marianos_headless.core.timeutil import iso, utcnow
 from marianos_headless.db.models import (
@@ -146,6 +147,14 @@ def publish_run(
         lineage = lineage_problems(s, run)
         if lineage:
             raise PublicationRefused("lineage check failed: " + "; ".join(lineage))
+        # 1.10.0rc7: the coverage itself, read again from the run's pages, placements and records, whatever
+        # the recorded gates say: a listing not accounted for, or a product a counted page lists with no
+        # record placed under it, blocks a full publication.
+        coverage = coverage_problems(s, run_id)
+        if coverage:
+            raise PublicationRefused(
+                f"coverage reconciliation failed for {len(coverage)} listing(s): " + "; ".join(coverage[:10])
+            )
         store = s.get(Store, run.store_id)
         assert store is not None
         manifest = _manifest(s, run_id)

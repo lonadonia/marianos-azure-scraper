@@ -1,0 +1,12 @@
+ok   exit 0 (must be 0)  interactive use: a difference is reported, exit 0  [differences: 1]
+ok   exit 0 (must be 0)  strict: a genuine match  [strict: PASS]
+ok   exit 0 (must be 0)  strict: a genuine match against an expected list (CSV, leading zeros)  [strict: PASS]
+ok   exit 1 (must be 1)  strict: an altered price per measure  [strict: FAIL]
+ok   exit 1 (must be 1)  strict: an exported price the tile does not show  [strict: FAIL]
+ok   exit 1 (must be 1)  strict: an expected UPC missing from the export  [strict: FAIL]
+ok   exit 0 (must be 0)  strict: the same UPC as a documented exclusion  [strict: PASS]
+ok   exit 1 (must be 1)  strict: an exclusion without a reason is not one  [strict: FAIL]
+ok   exit 1 (must be 1)  strict: a record without its excerpt  [strict: FAIL]
+ok   exit 2 (must be 2)  strict: no excerpt file at all  [REFUSED: no source excerpts to check against (FileNotFoundError: source_excerpts.jsonl.gz)]
+ok   exit 1 (must be 1)  strict: nothing asked for  [strict: FAIL (nothing was checked)]
+selftest: PASS

@@ -1,0 +1,94 @@
+{
+ "audit": {
+  "accounted_identities": 9,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 9,
+  "fresh_records": 9,
+  "fresh_valid": 9,
+  "listing_id": "27020",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "9 distinct products of 9 reported, on 1 page(s), each accounted for",
+  "reported_total": 9,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111080187",
+  "0001111084459",
+  "0001111084970",
+  "0001111087993",
+  "0002969581160",
+  "0002969581264",
+  "0004566301647",
+  "0004566397237",
+  "0004566397556"
+ ],
+ "fresh_linked": [
+  "0001111080187",
+  "0001111084459",
+  "0001111084970",
+  "0001111087993",
+  "0002969581160",
+  "0002969581264",
+  "0004566301647",
+  "0004566397237",
+  "0004566397556"
+ ],
+ "listing": "27020",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 9,
+    "sha256_matches": true
+   },
+   "fetch": "01M7KQ8T0VV7W0VHHMQHRBFJ8A",
+   "identities": [
+    "0001111087993",
+    "0001111080187",
+    "0004566301647",
+    "0001111084459",
+    "0004566397237",
+    "0004566397556",
+    "0001111084970",
+    "0002969581160",
+    "0002969581264"
+   ],
+   "listing": "27020",
+   "observed_at": "2026-11-17 03:02:08.155843+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "27020",
+   "sha256": "0dab4b4fd2abbd8ae3884cf88d3bc53eb0d1b92fef4936836d06cf3cb9093da2",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 9,
+   "url": "https://www.marianos.com/pl/dog-supplies/27020"
+  }
+ ],
+ "replay_id": "RPL-R7-76c0932dbc0a",
+ "run": "01M7KQ5GZVF5VK1S9FGTG6YFC9",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

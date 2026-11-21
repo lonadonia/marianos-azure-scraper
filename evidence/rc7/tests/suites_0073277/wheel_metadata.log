@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import zipfile,glob,hashlib; w=sorted(glob.glob('dist/rc7/*.whl'))[-1]; z=zipfile.ZipFile(w); m=[n for n in z.namelist() if n.endswith('METADATA')][0]; print(w.replace(chr(92),'/').split('/')[-1]); [print(l) for l in z.read(m).decode().splitlines() if l.startswith(('Name:','Version:'))]; print(hashlib.sha256(open(w,'rb').read()).hexdigest())
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range

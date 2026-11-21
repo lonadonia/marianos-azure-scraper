@@ -1,0 +1,7 @@
+...                                                                      [100%]
+=================================== PASSES ====================================
+=========================== short test summary info ===========================
+PASSED tests/unit/test_contract_csv_rc7.py::test_the_csv_and_the_json_of_one_export_pass_the_same_contract
+PASSED tests/unit/test_contract_csv_rc7.py::test_a_csv_whose_leading_zeros_were_lost_fails
+PASSED tests/unit/test_contract_csv_rc7.py::test_a_csv_with_another_header_or_a_short_row_fails
+3 passed in 0.64s

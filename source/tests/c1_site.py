@@ -466,7 +466,9 @@ def _killed(args: dict[str, Any]) -> None:
 
     site.before_answer = before
     pipe = pipe_of(env, settings)
-    collector = collector_of(pipe, args["run"], site, clock, max_reasks=args.get("max_reasks", 2))
+    collector = collector_of(
+        pipe, args["run"], site, clock, max_reasks=args.get("max_reasks", 2), lanes=int(args.get("lanes", 1))
+    )
     asyncio.run(pipe.execute(args["run"], "doomed-worker", resume=True, collector=collector))
     os._exit(0)  # it was meant to die before this
 

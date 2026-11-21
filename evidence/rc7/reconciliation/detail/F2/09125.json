@@ -1,0 +1,91 @@
+{
+ "audit": {
+  "accounted_identities": 8,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 8,
+  "fresh_records": 8,
+  "fresh_valid": 8,
+  "listing_id": "09125",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "8 distinct products of 8 reported, on 1 page(s), each accounted for",
+  "reported_total": 8,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0009811136744",
+  "0009811136748",
+  "0009811136752",
+  "0009811140283",
+  "0009811149898",
+  "0009811149900",
+  "0009811177763",
+  "0080286363300"
+ ],
+ "fresh_linked": [
+  "0009811136744",
+  "0009811136748",
+  "0009811136752",
+  "0009811140283",
+  "0009811149898",
+  "0009811149900",
+  "0009811177763",
+  "0080286363300"
+ ],
+ "listing": "09125",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 8,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNZTVGWZ6WDMQDDX0MY8M0",
+   "identities": [
+    "0009811177763",
+    "0009811140283",
+    "0009811136744",
+    "0009811136748",
+    "0009811149900",
+    "0009811149898",
+    "0009811136752",
+    "0080286363300"
+   ],
+   "listing": "09125",
+   "observed_at": "2026-11-16 17:20:31.088461+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "09125",
+   "sha256": "4062d8531eb465569903754e5582d03e135a76e2a8dc8a150c8cef09c8facd4d",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 8,
+   "url": "https://www.marianos.com/pl/balloons/09125"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

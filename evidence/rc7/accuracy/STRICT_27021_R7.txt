@@ -1,0 +1,1642 @@
+234 UPCs expected (from EXPECTED_27021_R7.txt)
+=== 0001111001768  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Pet Pride® Adult Wet Cat Food Paté Mixed Grill'
+             source 'Pet Pride® Adult Wet Cat Food Paté Mixed Grill'  same
+    prices   export {'regular_price': '0.85'}  source price text '$0.85$0.85'  regular_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-adult-wet-cat-food-pat-mixed-grill/0001111001768
+=== 0001111001772  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Pet Pride® Adult Wet Cat Food Paté Poultry Platter'
+             source 'Pet Pride® Adult Wet Cat Food Paté Poultry Platter'  same
+    prices   export {'regular_price': '0.85'}  source price text '$0.85$0.85'  regular_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-adult-wet-cat-food-pat-poultry-platter/0001111001772
+=== 0001111001775  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Pet Pride® Adult Wet Cat Food Paté Chicken and Tuna Dinner'
+             source 'Pet Pride® Adult Wet Cat Food Paté Chicken and Tuna Dinner'  same
+    prices   export {'regular_price': '0.85'}  source price text '$0.85$0.85'  regular_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-adult-wet-cat-food-pat-chicken-and-tuna-dinner/0001111001775
+=== 0001111002593  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'ABOUND® All Life Stages Dry Cat Food Chicken & Brown Rice'
+             source 'ABOUND® All Life Stages Dry Cat Food Chicken & Brown Rice'  same
+    prices   export {'regular_price': '10.99'}  source price text '$10.99$10.99'  regular_price shown
+    per unit export '$3.14/lb'  source '$3.14/lb'  same
+    also     weight '3.5 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/abound-all-life-stages-dry-cat-food-chicken-brown-rice/0001111002593
+=== 0001111002594  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'ABOUND® All Life Stages Dry Cat Food Salmon & Brown Rice'
+             source 'ABOUND® All Life Stages Dry Cat Food Salmon & Brown Rice'  same
+    prices   export {'regular_price': '10.99'}  source price text '$10.99$10.99'  regular_price shown
+    per unit export '$3.14/lb'  source '$3.14/lb'  same
+    also     weight '3.5 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/abound-all-life-stages-dry-cat-food-salmon-brown-rice/0001111002594
+=== 0001111003518  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Pet Pride® Heart Eye & Immunity Support All Life Stages Dry Cat Food Chicken Flavor'
+             source 'Pet Pride® Heart Eye & Immunity Support All Life Stages Dry Cat Food Chicken Flavor'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$1.12/lb'  source '$1.12/lb'  same
+    also     weight '16 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-heart-eye-immunity-support-all-life-stages-dry-cat-food-chicken-flavor/0001111003518
+=== 0001111003519  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Pet Pride® Indoor Adult Dry Cat Food Chicken and Turkey Flavor'
+             source 'Pet Pride® Indoor Adult Dry Cat Food Chicken and Turkey Flavor'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$1.12/lb'  source '$1.12/lb'  same
+    also     weight '16 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-indoor-adult-dry-cat-food-chicken-and-turkey-flavor/0001111003519
+=== 0001111008188  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022?page=3  observed 2026-11-17T03:03:19.697651Z  sha256 aaebe9e238a25fbf6d1d913ff86486902e8ce8823f2457e9204b4c8873f1793f
+    title    export 'Pet Pride Combo Liquid Bisque Cat Treat'
+             source 'Pet Pride Combo Liquid Bisque Cat Treat'  same
+    prices   export {'regular_price': '11.99'}  source price text '$11.99$11.99'  regular_price shown
+    per unit export '$0.71/oz'  source '$0.71/oz'  same
+    also     weight '12Ct 16.8oz 476g', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/pet-pride-combo-liquid-bisque-cat-treat/0001111008188
+=== 0001111008196  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022?page=3  observed 2026-11-17T03:03:19.697651Z  sha256 aaebe9e238a25fbf6d1d913ff86486902e8ce8823f2457e9204b4c8873f1793f
+    title    export 'Pet Pride Combo Liquid Stew Cat Treat'
+             source 'Pet Pride Combo Liquid Stew Cat Treat'  same
+    prices   export {'regular_price': '11.99'}  source price text '$11.99$11.99'  regular_price shown
+    per unit export '$0.71/oz'  source '$0.71/oz'  same
+    also     weight '12Ct 16.8oz 476g', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/pet-pride-combo-liquid-stew-cat-treat/0001111008196
+=== 0001111013677  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Pet Pride® Outdoor All Life Stages Dry Cat Food Poultry and Seafood Flavor'
+             source 'Pet Pride® Outdoor All Life Stages Dry Cat Food Poultry and Seafood Flavor'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$1.12/lb'  source '$1.12/lb'  same
+    also     weight '16 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-outdoor-all-life-stages-dry-cat-food-poultry-and-seafood-flavor/0001111013677
+=== 0001111013678  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Pet Pride® Complete Nutrition All Life Stages Dry Cat Food Seafood Variety Mix'
+             source 'Pet Pride® Complete Nutrition All Life Stages Dry Cat Food Seafood Variety Mix'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$1.12/lb'  source '$1.12/lb'  same
+    also     weight '16 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-complete-nutrition-all-life-stages-dry-cat-food-seafood-variety-mix/0001111013678
+=== 0001111013679  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Pet Pride® Kitten Dry Cat Food Chicken Flavor'
+             source 'Pet Pride® Kitten Dry Cat Food Chicken Flavor'  same
+    prices   export {'regular_price': '4.99'}  source price text '$4.99$4.99'  regular_price shown
+    per unit export '$1.58/lb'  source '$1.58/lb'  same
+    also     weight '3.15 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-kitten-dry-cat-food-chicken-flavor/0001111013679
+=== 0001111013680  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Pet Pride® Complete Nutrition All Life Stages Dry Cat Food Seafood Variety Mix'
+             source 'Pet Pride® Complete Nutrition All Life Stages Dry Cat Food Seafood Variety Mix'  same
+    prices   export {'regular_price': '4.99'}  source price text '$4.99$4.99'  regular_price shown
+    per unit export '$1.58/lb'  source '$1.58/lb'  same
+    also     weight '3.15 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-complete-nutrition-all-life-stages-dry-cat-food-seafood-variety-mix/0001111013680
+=== 0001111013681  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Pet Pride® Indoor Adult Dry Cat Food Chicken and Turkey Flavor'
+             source 'Pet Pride® Indoor Adult Dry Cat Food Chicken and Turkey Flavor'  same
+    prices   export {'regular_price': '4.99'}  source price text '$4.99$4.99'  regular_price shown
+    per unit export '$1.58/lb'  source '$1.58/lb'  same
+    also     weight '3.15 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-indoor-adult-dry-cat-food-chicken-and-turkey-flavor/0001111013681
+=== 0001111013682  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Pet Pride® Heart Eye and Immunity Support All Life Stages Dry Cat Food Chicken Flavor'
+             source 'Pet Pride® Heart Eye and Immunity Support All Life Stages Dry Cat Food Chicken Flavor'  same
+    prices   export {'regular_price': '4.99'}  source price text '$4.99$4.99'  regular_price shown
+    per unit export '$1.58/lb'  source '$1.58/lb'  same
+    also     weight '3.15 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-heart-eye-and-immunity-support-all-life-stages-dry-cat-food-chicken-flavor/0001111013682
+=== 0001111013683  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'ABOUND® Wild Beginnings™ Adult Dry Cat Food with Salmon'
+             source 'ABOUND® Wild Beginnings™ Adult Dry Cat Food with Salmon'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$2.57/lb'  source '$2.57/lb'  same
+    also     weight '7 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/abound-wild-beginnings-adult-dry-cat-food-with-salmon/0001111013683
+=== 0001111013690  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Pet Pride® All Life Stages Wet Cat Food Paté Classic Chicken Dinner'
+             source 'Pet Pride® All Life Stages Wet Cat Food Paté Classic Chicken Dinner'  same
+    prices   export {'regular_price': '0.99'}  source price text '$0.99$0.99'  regular_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-all-life-stages-wet-cat-food-pat-classic-chicken-dinner/0001111013690
+=== 0001111013692  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Pet Pride® All Life Stages Wet Cat Food Paté Savory Salmon Dinner'
+             source 'Pet Pride® All Life Stages Wet Cat Food Paté Savory Salmon Dinner'  same
+    prices   export {'regular_price': '0.99'}  source price text '$0.99$0.99'  regular_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-all-life-stages-wet-cat-food-pat-savory-salmon-dinner/0001111013692
+=== 0001111013695  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Pet Pride® All Life Stages Wet Cat Food Cuts Chicken Dinner in Gravy'
+             source 'Pet Pride® All Life Stages Wet Cat Food Cuts Chicken Dinner in Gravy'  same
+    prices   export {'regular_price': '0.99'}  source price text '$0.99$0.99'  regular_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-all-life-stages-wet-cat-food-cuts-chicken-dinner-in-gravy/0001111013695
+=== 0001111013699  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Pet Pride® All Life Stages Wet Cat Food Paté Salmon Dinner'
+             source 'Pet Pride® All Life Stages Wet Cat Food Paté Salmon Dinner'  same
+    prices   export {'regular_price': '0.85'}  source price text '$0.85$0.85'  regular_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-all-life-stages-wet-cat-food-pat-salmon-dinner/0001111013699
+=== 0001111013701  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Pet Pride® Adult Wet Cat Food Shreds Chicken and Salmon Dinner in Gravy'
+             source 'Pet Pride® Adult Wet Cat Food Shreds Chicken and Salmon Dinner in Gravy'  same
+    prices   export {'regular_price': '0.85'}  source price text '$0.85$0.85'  regular_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-adult-wet-cat-food-shreds-chicken-and-salmon-dinner-in-gravy/0001111013701
+=== 0001111013702  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Pet Pride® Adult Wet Cat Food Shreds Turkey and Cheese Flavored Dinner In Gravy'
+             source 'Pet Pride® Adult Wet Cat Food Shreds Turkey and Cheese Flavored Dinner In Gravy'  same
+    prices   export {'regular_price': '0.85'}  source price text '$0.85$0.85'  regular_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-adult-wet-cat-food-shreds-turkey-and-cheese-flavored-dinner-in-gravy/0001111013702
+=== 0001111013714  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'ABOUND® All Life Stages Dry Cat Food Chicken and Brown Rice'
+             source 'ABOUND® All Life Stages Dry Cat Food Chicken and Brown Rice'  same
+    prices   export {'regular_price': '33.99'}  source price text '$33.99$33.99'  regular_price shown
+    per unit export '$2.12/lb'  source '$2.12/lb'  same
+    also     weight '16 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/abound-all-life-stages-dry-cat-food-chicken-and-brown-rice/0001111013714
+=== 0001111013715  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'ABOUND® All Life Stages Dry Cat Food Salmon and Brown Rice'
+             source 'ABOUND® All Life Stages Dry Cat Food Salmon and Brown Rice'  same
+    prices   export {'regular_price': '33.99'}  source price text '$33.99$33.99'  regular_price shown
+    per unit export '$2.12/lb'  source '$2.12/lb'  same
+    also     weight '16 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/abound-all-life-stages-dry-cat-food-salmon-and-brown-rice/0001111013715
+=== 0001111013716  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'ABOUND® Pro Vet Formulated Senior Dry Cat Food Chicken and Brown Rice'
+             source 'ABOUND® Pro Vet Formulated Senior Dry Cat Food Chicken and Brown Rice'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$2.57/lb'  source '$2.57/lb'  same
+    also     weight '7 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/abound-pro-vet-formulated-senior-dry-cat-food-chicken-and-brown-rice/0001111013716
+=== 0001111013717  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'ABOUND® Pro Vet Formulated Sensitive Skin & Stomach Adult Dry Cat Food Salmon & Brown Rice'
+             source 'ABOUND® Pro Vet Formulated Sensitive Skin & Stomach Adult Dry Cat Food Salmon & Brown Rice'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$2.57/lb'  source '$2.57/lb'  same
+    also     weight '7 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/abound-pro-vet-formulated-sensitive-skin-stomach-adult-dry-cat-food-salmon-brown-rice/0001111013717
+=== 0001111013718  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'ABOUND® Pro Vet Formulated Indoor Weight & Hairball Care Adult Dry Cat Food Chicken and Turkey'
+             source 'ABOUND® Pro Vet Formulated Indoor Weight & Hairball Care Adult Dry Cat Food Chicken and Turkey'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$2.57/lb'  source '$2.57/lb'  same
+    also     weight '7 pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/abound-pro-vet-formulated-indoor-weight-hairball-care-adult-dry-cat-food-chicken-and-turkey/0001111013718
+=== 0001111080032  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Pet Pride® All Life Stages Wet Cat Food Cuts Chicken Dinner in Gravy'
+             source 'Pet Pride® All Life Stages Wet Cat Food Cuts Chicken Dinner in Gravy'  same
+    prices   export {'regular_price': '0.99'}  source price text '$0.99$0.99'  regular_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-all-life-stages-wet-cat-food-cuts-chicken-dinner-in-gravy/0001111080032
+=== 0001111080035  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Pet Pride® All Life Stages Wet Cat Food Cuts Tuna in Sauce'
+             source 'Pet Pride® All Life Stages Wet Cat Food Cuts Tuna in Sauce'  same
+    prices   export {'regular_price': '0.99'}  source price text '$0.99$0.99'  regular_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/pet-pride-all-life-stages-wet-cat-food-cuts-tuna-in-sauce/0001111080035
+=== 0001780003198  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Sensitive Stomach, Sensitive Skin, Natural Dry Cat Food, +Plus Sensitive Skin and Stomach Formula'
+             source 'Sensitive Stomach, Sensitive Skin, Natural Dry Cat Food, +Plus Sensitive Skin and Stomach Formula'  same
+    prices   export {'regular_price': '20.99'}  source price text '$20.99$20.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '7 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sensitive-stomach-sensitive-skin-natural-dry-cat-food-plus-sensitive-skin-and-stomach-formula/0001780003198
+=== 0001780003199  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Sensitive Stomach, Sensitive Skin, Natural Dry Cat Food, +Plus Sensitive Skin and Stomach Formula'
+             source 'Sensitive Stomach, Sensitive Skin, Natural Dry Cat Food, +Plus Sensitive Skin and Stomach Formula'  same
+    prices   export {'regular_price': '12.49'}  source price text '$12.49$12.49'  regular_price shown
+    per unit export '$12.49/oz'  source '$12.49/oz'  same
+    also     weight '3.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sensitive-stomach-sensitive-skin-natural-dry-cat-food-plus-sensitive-skin-and-stomach-formula/0001780003199
+=== 0001780003388  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'ONE Plus Indoor Advantage Cat Food with Turkey, Dry Cat Food for Indoor Cats'
+             source 'ONE Plus Indoor Advantage Cat Food with Turkey, Dry Cat Food for Indoor Cats'  same
+    prices   export {'regular_price': '12.49'}  source price text '$12.49$12.49'  regular_price shown
+    per unit export '$12.49/oz'  source '$12.49/oz'  same
+    also     weight '3.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/one-plus-indoor-advantage-cat-food-with-turkey-dry-cat-food-for-indoor-cats/0001780003388
+=== 0001780010307  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'ONE Plus Whole Body Support With Chicken Dry Cat Food'
+             source 'ONE Plus Whole Body Support With Chicken Dry Cat Food'  same
+    prices   export {'regular_price': '12.49'}  source price text '$12.49$12.49'  regular_price shown
+    per unit export '$3.57/lb'  source '$3.57/lb'  same
+    also     weight '3.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/one-plus-whole-body-support-with-chicken-dry-cat-food/0001780010307
+=== 0001780011322  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Cat Chow Naturals with Real Chicken and Salmon Dry Cat Food'
+             source 'Cat Chow Naturals with Real Chicken and Salmon Dry Cat Food'  same
+    prices   export {'regular_price': '8.49'}  source price text '$8.49$8.49'  regular_price shown
+    per unit export '$2.70/lb'  source '$2.70/lb'  same
+    also     weight '3.15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/cat-chow-naturals-with-real-chicken-and-salmon-dry-cat-food/0001780011322
+=== 0001780014098  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Kit and Kaboodle Dry Cat Food Original Poultry, Liver and Ocean Fish Flavors'
+             source 'Kit and Kaboodle Dry Cat Food Original Poultry, Liver and Ocean Fish Flavors'  same
+    prices   export {'regular_price': '14.99'}  source price text '$14.99$14.99'  regular_price shown
+    per unit export '$1.15/lb'  source '$1.15/lb'  same
+    also     weight '13 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/kit-and-kaboodle-dry-cat-food-original-poultry-liver-and-ocean-fish-flavors/0001780014098
+=== 0001780014500  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Cat Chow Naturals Original Dry Cat Food With Real Chicken & Salmon'
+             source 'Cat Chow Naturals Original Dry Cat Food With Real Chicken & Salmon'  same
+    prices   export {'regular_price': '23.99'}  source price text '$23.99$23.99'  regular_price shown
+    per unit export '$1.85/lb'  source '$1.85/lb'  same
+    also     weight '13 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/cat-chow-naturals-original-dry-cat-food-with-real-chicken-salmon/0001780014500
+=== 0001780015014  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Cat Chow Complete High Protein Dry Cat Food With Real Chicken'
+             source 'Cat Chow Complete High Protein Dry Cat Food With Real Chicken'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$2.54/lb'  source '$2.54/lb'  same
+    also     weight '3.15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/cat-chow-complete-high-protein-dry-cat-food-with-real-chicken/0001780015014
+=== 0001780015018  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Cat Chow Indoor Dry Cat Food, Hairball + Healthy Weight'
+             source 'Cat Chow Indoor Dry Cat Food, Hairball + Healthy Weight'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$2.54/lb'  source '$2.54/lb'  same
+    also     weight '3.15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/cat-chow-indoor-dry-cat-food-hairball-healthy-weight/0001780015018
+=== 0001780015020  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Kitten Chow Chicken Dry Cat Food'
+             source 'Kitten Chow Chicken Dry Cat Food'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$2.54/lb'  source '$2.54/lb'  same
+    also     weight '3.15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/kitten-chow-chicken-dry-cat-food/0001780015020
+=== 0001780016629  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Cat Chow Gentle Sensitive Stomach and Skin Dry Cat Food with Turkey'
+             source 'Cat Chow Gentle Sensitive Stomach and Skin Dry Cat Food with Turkey'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$2.54/lb'  source '$2.54/lb'  same
+    also     weight '3.15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/cat-chow-gentle-sensitive-stomach-and-skin-dry-cat-food-with-turkey/0001780016629
+=== 0001780017156  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Cat Chow Naturals Hairball, Healthy Weight Dry Cat Food'
+             source 'Cat Chow Naturals Hairball, Healthy Weight Dry Cat Food'  same
+    prices   export {'regular_price': '8.49'}  source price text '$8.49$8.49'  regular_price shown
+    per unit export '$2.70/lb'  source '$2.70/lb'  same
+    also     weight '3.15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/cat-chow-naturals-hairball-healthy-weight-dry-cat-food/0001780017156
+=== 0001780018495  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Cat Chow Complete High Protein Dry Cat Food With Real Chicken'
+             source 'Cat Chow Complete High Protein Dry Cat Food With Real Chicken'  same
+    prices   export {'regular_price': '22.99'}  source price text '$22.99$22.99'  regular_price shown
+    per unit export '$1.53/lb'  source '$1.53/lb'  same
+    also     weight '15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/cat-chow-complete-high-protein-dry-cat-food-with-real-chicken/0001780018495
+=== 0001780018499  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Cat Chow Indoor Healthy Weight and Hairball Dry Cat Food With Chicken'
+             source 'Cat Chow Indoor Healthy Weight and Hairball Dry Cat Food With Chicken'  same
+    prices   export {'regular_price': '22.99'}  source price text '$22.99$22.99'  regular_price shown
+    per unit export '$1.53/lb'  source '$1.53/lb'  same
+    also     weight '15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/cat-chow-indoor-healthy-weight-and-hairball-dry-cat-food-with-chicken/0001780018499
+=== 0001780019008  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Cat Chow Healthy Aging 7+ Senior Dry Cat Food With Chicken'
+             source 'Cat Chow Healthy Aging 7+ Senior Dry Cat Food With Chicken'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$2.54/lb'  source '$2.54/lb'  same
+    also     weight '3.15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/cat-chow-healthy-aging-7-senior-dry-cat-food-with-chicken/0001780019008
+=== 0001780043119  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'ONE Natural Dry Cat Food, Tender Selects Blend With Real Salmon'
+             source 'ONE Natural Dry Cat Food, Tender Selects Blend With Real Salmon'  same
+    prices   export {'regular_price': '37.99'}  source price text '$37.99$37.99'  regular_price shown
+    per unit export '$2.37/lb'  source '$2.37/lb'  same
+    also     weight '16 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/one-natural-dry-cat-food-tender-selects-blend-with-real-salmon/0001780043119
+=== 0001780047474  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'ONE Natural Dry Cat Food, Tender Selects Blend With Real Salmon'
+             source 'ONE Natural Dry Cat Food, Tender Selects Blend With Real Salmon'  same
+    prices   export {'regular_price': '12.49'}  source price text '$12.49$12.49'  regular_price shown
+    per unit export '$12.49/oz'  source '$12.49/oz'  same
+    also     weight '3.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/one-natural-dry-cat-food-tender-selects-blend-with-real-salmon/0001780047474
+=== 0001780047490  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'ONE Natural Dry Cat Food, Tender Selects Blend With Real Salmon'
+             source 'ONE Natural Dry Cat Food, Tender Selects Blend With Real Salmon'  same
+    prices   export {'regular_price': '20.99'}  source price text '$20.99$20.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '7 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/one-natural-dry-cat-food-tender-selects-blend-with-real-salmon/0001780047490
+=== 0001780054917  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'ONE High Protein Dry Cat Food, +Plus Urinary Tract Health Formula'
+             source 'ONE High Protein Dry Cat Food, +Plus Urinary Tract Health Formula'  same
+    prices   export {'regular_price': '12.49'}  source price text '$12.49$12.49'  regular_price shown
+    per unit export '$12.49/oz'  source '$12.49/oz'  same
+    also     weight '3.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/one-high-protein-dry-cat-food-plus-urinary-tract-health-formula/0001780054917
+=== 0001780057118  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'ONE Natural Dry Cat Food, Tender Selects Blend With Real Chicken'
+             source 'ONE Natural Dry Cat Food, Tender Selects Blend With Real Chicken'  same
+    prices   export {'regular_price': '12.49'}  source price text '$12.49$12.49'  regular_price shown
+    per unit export '$12.49/oz'  source '$12.49/oz'  same
+    also     weight '3.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/one-natural-dry-cat-food-tender-selects-blend-with-real-chicken/0001780057118
+=== 0001780057121  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'ONE Natural Dry Cat Food, Tender Selects Blend With Real Chicken'
+             source 'ONE Natural Dry Cat Food, Tender Selects Blend With Real Chicken'  same
+    prices   export {'regular_price': '20.99'}  source price text '$20.99$20.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '7 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/one-natural-dry-cat-food-tender-selects-blend-with-real-chicken/0001780057121
+=== 0001901471226  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Iams Proactive Health Adult Healthy Dry Cat Food Chicken'
+             source 'Iams Proactive Health Adult Healthy Dry Cat Food Chicken'  same
+    prices   export {'regular_price': '34.99'}  source price text '$34.99$34.99'  regular_price shown
+    per unit export '$2.19/lb'  source '$2.19/lb'  same
+    also     weight '16 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/iams-proactive-health-adult-healthy-dry-cat-food-chicken/0001901471226
+=== 0001901471238  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Iams Proactive Health Adult Dry Cat Food Hairball Care Chicken and Salmon'
+             source 'Iams Proactive Health Adult Dry Cat Food Hairball Care Chicken and Salmon'  same
+    prices   export {'regular_price': '11.99'}  source price text '$11.99$11.99'  regular_price shown
+    per unit export '$3.43/lb'  source '$3.43/lb'  same
+    also     weight '3.5 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/iams-proactive-health-adult-dry-cat-food-hairball-care-chicken-and-salmon/0001901471238
+=== 0001901471243  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Iams Proactive Health Adult Dry Cat Food Hairball Care Chicken and Salmon'
+             source 'Iams Proactive Health Adult Dry Cat Food Hairball Care Chicken and Salmon'  same
+    prices   export {'regular_price': '20.99'}  source price text '$20.99$20.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '7 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/iams-proactive-health-adult-dry-cat-food-hairball-care-chicken-and-salmon/0001901471243
+=== 0001901471245  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Iams Proactive Health Adult Dry Cat Food Indoor Weight Control & Hairball Care Chicken & Turkey'
+             source 'Iams Proactive Health Adult Dry Cat Food Indoor Weight Control & Hairball Care Chicken & Turkey'  same
+    prices   export {'regular_price': '20.99'}  source price text '$20.99$20.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '7 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/iams-proactive-health-adult-dry-cat-food-indoor-weight-control-hairball-care-chicken-turkey/0001901471245
+=== 0001901471246  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Iams Proactive Health Adult Dry Cat Food Indoor Weight Control & Hairball Care Chicken & Turkey'
+             source 'Iams Proactive Health Adult Dry Cat Food Indoor Weight Control & Hairball Care Chicken & Turkey'  same
+    prices   export {'regular_price': '11.99'}  source price text '$11.99$11.99'  regular_price shown
+    per unit export '$3.43/lb'  source '$3.43/lb'  same
+    also     weight '3.5 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/iams-proactive-health-adult-dry-cat-food-indoor-weight-control-hairball-care-chicken-turkey/0001901471246
+=== 0001901471256  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Iams Prh Org Ck 3.5 Lb'
+             source 'Iams Prh Org Ck 3.5 Lb'  same
+    prices   export {'regular_price': '11.99'}  source price text '$11.99$11.99'  regular_price shown
+    per unit export '$3.43/lb'  source '$3.43/lb'  same
+    also     weight '3.5 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/iams-prh-org-ck-3-5-lb/0001901471256
+=== 0001901471257  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Iams Proactive Health Adult Healthy Dry Cat Food with Chicken Cat Kibble'
+             source 'Iams Proactive Health Adult Healthy Dry Cat Food with Chicken Cat Kibble'  same
+    prices   export {'regular_price': '20.99'}  source price text '$20.99$20.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '7 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/iams-proactive-health-adult-healthy-dry-cat-food-with-chicken-cat-kibble/0001901471257
+=== 0001901480220  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Iams Proactive Health Urinary Tract Healthy Adult Dry Cat Food with Chicken Cat Kibble'
+             source 'Iams Proactive Health Urinary Tract Healthy Adult Dry Cat Food with Chicken Cat Kibble'  same
+    prices   export {'regular_price': '11.99'}  source price text '$11.99$11.99'  regular_price shown
+    per unit export '$3.43/lb'  source '$3.43/lb'  same
+    also     weight '3.5 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/iams-proactive-health-urinary-tract-healthy-adult-dry-cat-food-with-chicken-cat-kibble/0001901480220
+=== 0001901480411  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Iams Proactive Health Healthy Adult Dry Cat Food Salmon'
+             source 'Iams Proactive Health Healthy Adult Dry Cat Food Salmon'  same
+    prices   export {'regular_price': '11.99'}  source price text '$11.99$11.99'  regular_price shown
+    per unit export '$3.43/lb'  source '$3.43/lb'  same
+    also     weight '3.5 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/iams-proactive-health-healthy-adult-dry-cat-food-salmon/0001901480411
+=== 0001901480497  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Iams Proactive Health Indoor Weight & Hairball Care Adult Dry Cat Food Salmon'
+             source 'Iams Proactive Health Indoor Weight & Hairball Care Adult Dry Cat Food Salmon'  same
+    prices   export {'regular_price': '20.99'}  source price text '$20.99$20.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '7 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/iams-proactive-health-indoor-weight-hairball-care-adult-dry-cat-food-salmon/0001901480497
+=== 0002310011020  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Sheba Perfect Portions Adult Wet Cat Food Pate Savory Chicken'
+             source 'Sheba Perfect Portions Adult Wet Cat Food Pate Savory Chicken'  same
+    prices   export {'regular_price': '1.33'}  source price text '$1.33$1.33'  regular_price shown
+    per unit export '$0.51/oz'  source '$0.51/oz'  same
+    also     weight '2 / 1.3oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-adult-wet-cat-food-pate-savory-chicken/0002310011020
+=== 0002310011021  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Sheba Perfect Portions Adult Wet Cat Food Pate Delicate Salmon Flavor'
+             source 'Sheba Perfect Portions Adult Wet Cat Food Pate Delicate Salmon Flavor'  same
+    prices   export {'regular_price': '1.33'}  source price text '$1.33$1.33'  regular_price shown
+    per unit export '$0.51/oz'  source '$0.51/oz'  same
+    also     weight '2/ 1.3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-adult-wet-cat-food-pate-delicate-salmon-flavor/0002310011021
+=== 0002310011026  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Sheba Perfect Portions Adult Wet Cat Food Pate Roasted Turkey'
+             source 'Sheba Perfect Portions Adult Wet Cat Food Pate Roasted Turkey'  same
+    prices   export {'regular_price': '1.33'}  source price text '$1.33$1.33'  regular_price shown
+    per unit export '$0.51/oz'  source '$0.51/oz'  same
+    also     weight '2 / 1.3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-adult-wet-cat-food-pate-roasted-turkey/0002310011026
+=== 0002310011027  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Sheba Perfect Portions Adult Wet Cat Food Pate Savory Chicken & Roasted Turkey Variety Pack'
+             source 'Sheba Perfect Portions Adult Wet Cat Food Pate Savory Chicken & Roasted Turkey Variety Pack'  same
+    prices   export {'regular_price': '15.99'}  source price text '$15.99$15.99'  regular_price shown
+    per unit export '$0.50/oz'  source '$0.50/oz'  same
+    also     weight '24 ct / 1.3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-adult-wet-cat-food-pate-savory-chicken-roasted-turkey-variety-pack/0002310011027
+=== 0002310011028  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Sheba Perfect Portions Adult Wet Cat Food Pate Salmon Whitefish & Tuna Variety Pack'
+             source 'Sheba Perfect Portions Adult Wet Cat Food Pate Salmon Whitefish & Tuna Variety Pack'  same
+    prices   export {'regular_price': '15.99'}  source price text '$15.99$15.99'  regular_price shown
+    per unit export '$0.50/oz'  source '$0.50/oz'  same
+    also     weight '24 ct / 1.3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-adult-wet-cat-food-pate-salmon-whitefish-tuna-variety-pack/0002310011028
+=== 0002310011415  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Sheba Wet Cat Food Cuts in Gravy With Sustainable Tuna, 2.64 oz Perfect Portions Twin-Pack Trays'
+             source 'Sheba Wet Cat Food Cuts in Gravy With Sustainable Tuna, 2.64 oz Perfect Portions Twin-Pack Trays'  same
+    prices   export {'regular_price': '1.33'}  source price text '$1.33$1.33'  regular_price shown
+    per unit export '$0.51/oz'  source '$0.51/oz'  same
+    also     weight '2.64 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-wet-cat-food-cuts-in-gravy-with-sustainable-tuna-2-64-oz-perfect-portions-twin-pack-trays/0002310011415
+=== 0002310011418  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Sheba Perfect Portions Wet Cat Food Cuts With Sustainable Salmon, 2.6 oz, Twin-Pack Tray'
+             source 'Sheba Perfect Portions Wet Cat Food Cuts With Sustainable Salmon, 2.6 oz, Twin-Pack Tray'  same
+    prices   export {'regular_price': '1.33'}  source price text '$1.33$1.33'  regular_price shown
+    per unit export '$0.51/oz'  source '$0.51/oz'  same
+    also     weight '2.6 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-wet-cat-food-cuts-with-sustainable-salmon-2-6-oz-twin-pack-tray/0002310011418
+=== 0002310011422  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Sheba Perfect Portions Adult Wet Cat Food Cuts in Gravy Tender Trout Entree'
+             source 'Sheba Perfect Portions Adult Wet Cat Food Cuts in Gravy Tender Trout Entree'  same
+    prices   export {'regular_price': '1.33'}  source price text '$1.33$1.33'  regular_price shown
+    per unit export '$0.51/oz'  source '$0.51/oz'  same
+    also     weight '2.6 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-adult-wet-cat-food-cuts-in-gravy-tender-trout-entree/0002310011422
+=== 0002310011516  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Sheba Perfect Portions Adult Wet Cat Food Cuts in Gravy Salmon & Sustainable Tuna Variety Pack'
+             source 'Sheba Perfect Portions Adult Wet Cat Food Cuts in Gravy Salmon & Sustainable Tuna Variety Pack'  same
+    prices   export {'regular_price': '15.99'}  source price text '$15.99$15.99'  regular_price shown
+    per unit export '$0.50/oz'  source '$0.50/oz'  same
+    also     weight '24 ct / 1.3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-adult-wet-cat-food-cuts-in-gravy-salmon-sustainable-tuna-variety-pack/0002310011516
+=== 0002310011884  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Sheba Perfect Portions Adult Wet Cat Food Pate Seafood & Salmon & Whitefish & Tuna Variety Pack'
+             source 'Sheba Perfect Portions Adult Wet Cat Food Pate Seafood & Salmon & Whitefish & Tuna Variety Pack'  same
+    prices   export {'regular_price': '28.99'}  source price text '$28.99$28.99'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '48 ct / 1.3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-adult-wet-cat-food-pate-seafood-salmon-whitefish-tuna-variety-pack/0002310011884
+=== 0002310012401  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Sheba Perfect Portions Adult Wet Cat Food Cuts in Gravy Tuna Salmon White Fish & Tuna Variety Pack'
+             source 'Sheba Perfect Portions Adult Wet Cat Food Cuts in Gravy Tuna Salmon White Fish & Tuna Variety Pack'  same
+    prices   export {'regular_price': '28.99'}  source price text '$28.99$28.99'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '48 ct / 1.3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-adult-wet-cat-food-cuts-in-gravy-tuna-salmon-white-fish-tuna-variety-pack/0002310012401
+=== 0002310013698  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Sheba Perfect Portions Adult Wet Cat Food Bistro Chicken in Alfredo Sauce Entree'
+             source 'Sheba Perfect Portions Adult Wet Cat Food Bistro Chicken in Alfredo Sauce Entree'  same
+    prices   export {'regular_price': '1.33'}  source price text '$1.33$1.33'  regular_price shown
+    per unit export '$0.51/oz'  source '$0.51/oz'  same
+    also     weight '2.6 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/sheba-perfect-portions-adult-wet-cat-food-bistro-chicken-in-alfredo-sauce-entree/0002310013698
+=== 0002310014490  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Temptations Complete Nutrition Tasty Chicken Flavor Adult Dry Cat Food'
+             source 'Temptations Complete Nutrition Tasty Chicken Flavor Adult Dry Cat Food'  same
+    prices   export {'regular_price': '6.29'}  source price text '$6.29$6.29'  regular_price shown
+    per unit export '$2.00/lb'  source '$2.00/lb'  same
+    also     weight '3.15 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/temptations-complete-nutrition-tasty-chicken-flavor-adult-dry-cat-food/0002310014490
+=== 0002310014492  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Temptations Complete Nutrition Tasty Chicken Flavor Adult Dry Cat Food'
+             source 'Temptations Complete Nutrition Tasty Chicken Flavor Adult Dry Cat Food'  same
+    prices   export {'regular_price': '18.99'}  source price text '$18.99$18.99'  regular_price shown
+    per unit export '$1.41/lb'  source '$1.41/lb'  same
+    also     weight '13.5 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/temptations-complete-nutrition-tasty-chicken-flavor-adult-dry-cat-food/0002310014492
+=== 0002310014494  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Temptations Complete Nutrition Seafood Medley Flavor Adult Dry Cat Food'
+             source 'Temptations Complete Nutrition Seafood Medley Flavor Adult Dry Cat Food'  same
+    prices   export {'regular_price': '6.29'}  source price text '$6.29$6.29'  regular_price shown
+    per unit export '$2.00/lb'  source '$2.00/lb'  same
+    also     weight '3.15 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/temptations-complete-nutrition-seafood-medley-flavor-adult-dry-cat-food/0002310014494
+=== 0002310014495  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Temptations Complete Nutrition Seafood Medley Flavor Adult Dry Cat Food'
+             source 'Temptations Complete Nutrition Seafood Medley Flavor Adult Dry Cat Food'  same
+    prices   export {'regular_price': '18.99'}  source price text '$18.99$18.99'  regular_price shown
+    per unit export '$1.41/lb'  source '$1.41/lb'  same
+    also     weight '13.5 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/temptations-complete-nutrition-seafood-medley-flavor-adult-dry-cat-food/0002310014495
+=== 0002310014500  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Temptations Complete Nutrition Tempting Tuna & Chicken Flavor Adult Dry Cat Food'
+             source 'Temptations Complete Nutrition Tempting Tuna & Chicken Flavor Adult Dry Cat Food'  same
+    prices   export {'regular_price': '6.29'}  source price text '$6.29$6.29'  regular_price shown
+    per unit export '$2.00/lb'  source '$2.00/lb'  same
+    also     weight '3.15 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/temptations-complete-nutrition-tempting-tuna-chicken-flavor-adult-dry-cat-food/0002310014500
+=== 0002310014650  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Temptations Bites in Gravy Adult Wet Cat Food Tasty Chicken Flavor'
+             source 'Temptations Bites in Gravy Adult Wet Cat Food Tasty Chicken Flavor'  same
+    prices   export {'regular_price': '0.90'}  source price text '$0.90$0.90'  regular_price shown
+    per unit export '$0.26/oz'  source '$0.26/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/temptations-bites-in-gravy-adult-wet-cat-food-tasty-chicken-flavor/0002310014650
+=== 0002310014657  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Temptations Adult Wet Cat Food Paté in Gravy Tasty Chicken Flavor'
+             source 'Temptations Adult Wet Cat Food Paté in Gravy Tasty Chicken Flavor'  same
+    prices   export {'regular_price': '0.90'}  source price text '$0.90$0.90'  regular_price shown
+    per unit export '$0.26/oz'  source '$0.26/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/temptations-adult-wet-cat-food-pat-in-gravy-tasty-chicken-flavor/0002310014657
+=== 0002310014677  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Temptations Bites in Gravy Adult Wet Cat Food Tasty Chicken and Seafood Medley Variety Pack'
+             source 'Temptations Bites in Gravy Adult Wet Cat Food Tasty Chicken and Seafood Medley Variety Pack'  same
+    prices   export {'regular_price': '11.99', 'sale_price': '9.99'}  source price text '$9.99$11.99Sale: $9.99 discounted from $11.99'  regular_price shown, sale_price shown
+    per unit export '$0.24/oz'  source '$0.24/oz'  same
+    also     weight '12 ct / 3.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/temptations-bites-in-gravy-adult-wet-cat-food-tasty-chicken-and-seafood-medley-variety-pack/0002310014677
+=== 0002310014679  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Temptations Adult Wet Cat Food Paté in Gravy Tasty Chicken and Seafood Medley Variety Pack'
+             source 'Temptations Adult Wet Cat Food Paté in Gravy Tasty Chicken and Seafood Medley Variety Pack'  same
+    prices   export {'regular_price': '11.99', 'sale_price': '9.99'}  source price text '$9.99$11.99Sale: $9.99 discounted from $11.99'  regular_price shown, sale_price shown
+    per unit export '$0.24/oz'  source '$0.24/oz'  same
+    also     weight '12 ct / 3.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/temptations-adult-wet-cat-food-pat-in-gravy-tasty-chicken-and-seafood-medley-variety-pack/0002310014679
+=== 0003270015469  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Hartz Delectables™ Bisque Wet Cat Food Variety Pack'
+             source 'Hartz Delectables™ Bisque Wet Cat Food Variety Pack'  same
+    prices   export {'regular_price': '16.99'}  source price text '$16.99$16.99'  regular_price shown
+    per unit export '$1.01/oz'  source '$1.01/oz'  same
+    also     weight '12 ct / 1.4 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/hartz-delectables-bisque-wet-cat-food-variety-pack/0003270015469
+=== 0005000000252  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Fancy Feast Petites Ocean Whitefish Entree With Tomato in Gravy Gourmet Wet Cat Food'
+             source 'Fancy Feast Petites Ocean Whitefish Entree With Tomato in Gravy Gourmet Wet Cat Food'  same
+    prices   export {'regular_price': '1.49'}  source price text '$1.49$1.49'  regular_price shown
+    per unit export '$0.53/oz'  source '$0.53/oz'  same
+    also     weight '2.8 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-petites-ocean-whitefish-entree-with-tomato-in-gravy-gourmet-wet-cat-food/0005000000252
+=== 0005000001547  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Friskies Dry Cat Food Seafood Sensations With Salmon, Tuna, and Shrimp Flavors'
+             source 'Friskies Dry Cat Food Seafood Sensations With Salmon, Tuna, and Shrimp Flavors'  same
+    prices   export {'regular_price': '7.49'}  source price text '$7.49$7.49'  regular_price shown
+    per unit export '$2.38/lb'  source '$2.38/lb'  same
+    also     weight '3.15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-dry-cat-food-seafood-sensations-with-salmon-tuna-and-shrimp-flavors/0005000001547
+=== 0005000004060  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Fancy Feast Grilled Wet Cat Food Turkey Feast in Wet Cat Food Gravy'
+             source 'Fancy Feast Grilled Wet Cat Food Turkey Feast in Wet Cat Food Gravy'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-grilled-wet-cat-food-turkey-feast-in-wet-cat-food-gravy/0005000004060
+=== 0005000004070  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Fancy Feast Grilled Wet Cat Food Beef Feast in Wet Cat Food Gravy'
+             source 'Fancy Feast Grilled Wet Cat Food Beef Feast in Wet Cat Food Gravy'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-grilled-wet-cat-food-beef-feast-in-wet-cat-food-gravy/0005000004070
+=== 0005000010034  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Friskies Cat Food Surfin and Turfin Favorites Flavors of Chicken, Whitefish'
+             source 'Friskies Cat Food Surfin and Turfin Favorites Flavors of Chicken, Whitefish'  same
+    prices   export {'regular_price': '7.49'}  source price text '$7.49$7.49'  regular_price shown
+    per unit export '$2.38/lb'  source '$2.38/lb'  same
+    also     weight '3.15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-cat-food-surfin-and-turfin-favorites-flavors-of-chicken-whitefish/0005000010034
+=== 0005000010084  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Fancy Feast Grilled Wet Cat Food Ocean Whitefish and Tuna Feast in Wet Cat Food Gravy'
+             source 'Fancy Feast Grilled Wet Cat Food Ocean Whitefish and Tuna Feast in Wet Cat Food Gravy'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-grilled-wet-cat-food-ocean-whitefish-and-tuna-feast-in-wet-cat-food-gravy/0005000010084
+=== 0005000010368  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Friskies Shreds With Ocean Whitefish and Tuna in Sauce Wet Cat Food'
+             source 'Friskies Shreds With Ocean Whitefish and Tuna in Sauce Wet Cat Food'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-shreds-with-ocean-whitefish-and-tuna-in-sauce-wet-cat-food/0005000010368
+=== 0005000010386  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Fancy Feast Salmon and Shrimp Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Salmon and Shrimp Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-salmon-and-shrimp-feast-classic-grain-free-wet-cat-food-pate/0005000010386
+=== 0005000015355  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Fancy Feast Gravy Lovers Chicken Feast Pate in Wet Cat Food Gravy'
+             source 'Fancy Feast Gravy Lovers Chicken Feast Pate in Wet Cat Food Gravy'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-gravy-lovers-chicken-feast-pate-in-wet-cat-food-gravy/0005000015355
+=== 0005000016858  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Friskies Gravy Swirlers With Flavors of Chicken, Salmon and Gravy Dry Cat Food'
+             source 'Friskies Gravy Swirlers With Flavors of Chicken, Salmon and Gravy Dry Cat Food'  same
+    prices   export {'regular_price': '7.49'}  source price text '$7.49$7.49'  regular_price shown
+    per unit export '$2.38/lb'  source '$2.38/lb'  same
+    also     weight '3.15 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-gravy-swirlers-with-flavors-of-chicken-salmon-and-gravy-dry-cat-food/0005000016858
+=== 0005000016862  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Friskies Gravy Swirlers With Flavors of Chicken, Salmon and Gravy Dry Cat Food'
+             source 'Friskies Gravy Swirlers With Flavors of Chicken, Salmon and Gravy Dry Cat Food'  same
+    prices   export {'regular_price': '18.99'}  source price text '$18.99$18.99'  regular_price shown
+    per unit export '$1.19/lb'  source '$1.19/lb'  same
+    also     weight '16 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-gravy-swirlers-with-flavors-of-chicken-salmon-and-gravy-dry-cat-food/0005000016862
+=== 0005000016876  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Friskies Gravy Pate, Wet Cat Food Extra Gravy Pate With Chicken in Savory'
+             source 'Friskies Gravy Pate, Wet Cat Food Extra Gravy Pate With Chicken in Savory'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-gravy-pate-wet-cat-food-extra-gravy-pate-with-chicken-in-savory/0005000016876
+=== 0005000017018  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Friskies Prime Filets With Chicken in Wet Cat Food Gravy'
+             source 'Friskies Prime Filets With Chicken in Wet Cat Food Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-prime-filets-with-chicken-in-wet-cat-food-gravy/0005000017018
+=== 0005000017084  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Friskies Gravy Wet Cat Food Variety Pack, Surfin’ and Turfin’ Prime Filets Favorites'
+             source 'Friskies Gravy Wet Cat Food Variety Pack, Surfin’ and Turfin’ Prime Filets Favorites'  same
+    prices   export {'regular_price': '35.49'}  source price text '$35.49$35.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '13.75 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-gravy-wet-cat-food-variety-pack-surfin-and-turfin-prime-filets-favorites/0005000017084
+=== 0005000017085  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Friskies Pate Wet Cat Food Variety Pack Seafood and Chicken Pate Favorites 40ct VP'
+             source 'Friskies Pate Wet Cat Food Variety Pack Seafood and Chicken Pate Favorites 40ct VP'  same
+    prices   export {'regular_price': '35.49'}  source price text '$35.49$35.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '13.75 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-pate-wet-cat-food-variety-pack-seafood-and-chicken-pate-favorites-40ct-vp/0005000017085
+=== 0005000017171  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Purina Friskies Cat Food (Chicken and Turkey Casserole, Saucy Seafood Bake, Homestyle Turkey Dinner)'
+             source 'Purina Friskies Cat Food (Chicken and Turkey Casserole, Saucy Seafood Bake, Homestyle Turkey Dinner)'  same
+    prices   export {'regular_price': '21.49'}  source price text '$21.49$21.49'  regular_price shown
+    per unit export '$0.30/oz'  source '$0.30/oz'  same
+    also     weight '8.25 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/purina-friskies-cat-food-chicken-and-turkey-casserole-saucy-seafood-bake-homestyle-turkey-dinner-/0005000017171
+=== 0005000017172  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Friskies Extra Gravy Wet Cat Food Chunky 24ct Variety Pack (Chicken, Turkey, Salmon, Beef)'
+             source 'Friskies Extra Gravy Wet Cat Food Chunky 24ct Variety Pack (Chicken, Turkey, Salmon, Beef)'  same
+    prices   export {'regular_price': '21.49'}  source price text '$21.49$21.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '8.25 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-extra-gravy-wet-cat-food-chunky-24ct-variety-pack-chicken-turkey-salmon-beef-/0005000017172
+=== 0005000017227  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Friskies Wet Cat Food Variety Pack, Shreds With Beef, Turkey and Cheese Dinner'
+             source 'Friskies Wet Cat Food Variety Pack, Shreds With Beef, Turkey and Cheese Dinner'  same
+    prices   export {'regular_price': '35.49'}  source price text '$35.49$35.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '13.75 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-variety-pack-shreds-with-beef-turkey-and-cheese-dinner/0005000017227
+=== 0005000017235  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Fancy Feast Kitten Tender Chicken Feast Wet Kitten Food Pate'
+             source 'Fancy Feast Kitten Tender Chicken Feast Wet Kitten Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-kitten-tender-chicken-feast-wet-kitten-food-pate/0005000017235
+=== 0005000019811  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Friskies Gravy Wet Cat Food Variety Pack, Meaty Bits'
+             source 'Friskies Gravy Wet Cat Food Variety Pack, Meaty Bits'  same
+    prices   export {'regular_price': '21.49'}  source price text '$21.49$21.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '8.25 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-gravy-wet-cat-food-variety-pack-meaty-bits/0005000019811
+=== 0005000021562  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Fancy Feast Seafood Classic Pate Collection Grain Free Wet Cat Food Variety Pack'
+             source 'Fancy Feast Seafood Classic Pate Collection Grain Free Wet Cat Food Variety Pack'  same
+    prices   export {'regular_price': '13.99'}  source price text '$13.99$13.99'  regular_price shown
+    per unit export '$0.39/oz'  source '$0.39/oz'  same
+    also     weight '2.25 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-seafood-classic-pate-collection-grain-free-wet-cat-food-variety-pack/0005000021562
+=== 0005000022522  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Friskies Prime Filets Turkey Dinner in Wet Cat Food Gravy'
+             source 'Friskies Prime Filets Turkey Dinner in Wet Cat Food Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-prime-filets-turkey-dinner-in-wet-cat-food-gravy/0005000022522
+=== 0005000023972  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Friskies Fully Load’d Wet Food for Cats With Chicken, Carrots, Tomatoes and Spinach in Gravy'
+             source 'Friskies Fully Load’d Wet Food for Cats With Chicken, Carrots, Tomatoes and Spinach in Gravy'  same
+    prices   export {'regular_price': '1.09'}  source price text '$1.09$1.09'  regular_price shown
+    per unit export '$0.20/oz'  source '$0.20/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-fully-load-d-wet-food-for-cats-with-chicken-carrots-tomatoes-and-spinach-in-gravy/0005000023972
+=== 0005000024120  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Friskies Fully Load’d Wet Food for Cats With Salmon, Wild Rice, Carrots and Spinach in Sauce'
+             source 'Friskies Fully Load’d Wet Food for Cats With Salmon, Wild Rice, Carrots and Spinach in Sauce'  same
+    prices   export {'regular_price': '1.09'}  source price text '$1.09$1.09'  regular_price shown
+    per unit export '$0.20/oz'  source '$0.20/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-fully-load-d-wet-food-for-cats-with-salmon-wild-rice-carrots-and-spinach-in-sauce/0005000024120
+=== 0005000029089  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Fancy Feast Limited Ingredient Wet Cat Food Complement, Broths With Tuna, Shrimp & Whitefish'
+             source 'Fancy Feast Limited Ingredient Wet Cat Food Complement, Broths With Tuna, Shrimp & Whitefish'  same
+    prices   export {'regular_price': '1.79'}  source price text '$1.79$1.79'  regular_price shown
+    per unit export '$1.28/oz'  source '$1.28/oz'  same
+    also     weight '1.4 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-limited-ingredient-wet-cat-food-complement-broths-with-tuna-shrimp-whitefish/0005000029089
+=== 0005000029109  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Fancy Feast Lickable Wet Cat Food Broth Topper Classic With Tuna, Anchovies and Whitefish'
+             source 'Fancy Feast Lickable Wet Cat Food Broth Topper Classic With Tuna, Anchovies and Whitefish'  same
+    prices   export {'regular_price': '1.79'}  source price text '$1.79$1.79'  regular_price shown
+    per unit export '$1.28/oz'  source '$1.28/oz'  same
+    also     weight '1.4 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-lickable-wet-cat-food-broth-topper-classic-with-tuna-anchovies-and-whitefish/0005000029109
+=== 0005000029211  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Fancy Feast Gravy Lovers Poultry and Beef Grilled Gourmet Wet Cat Food Variety Pack'
+             source 'Fancy Feast Gravy Lovers Poultry and Beef Grilled Gourmet Wet Cat Food Variety Pack'  same
+    prices   export {'regular_price': '33.99'}  source price text '$33.99$33.99'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '5.63 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-gravy-lovers-poultry-and-beef-grilled-gourmet-wet-cat-food-variety-pack/0005000029211
+=== 0005000029220  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Fancy Feast Delights with Cheddar Grilled Chicken'
+             source 'Fancy Feast Delights with Cheddar Grilled Chicken'  same
+    prices   export {'regular_price': '27.49'}  source price text '$27.49$27.49'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '4.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-delights-with-cheddar-grilled-chicken/0005000029220
+=== 0005000029257  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Friskies Wet Cat Food Variety Pack Poultry Pate Favorites'
+             source 'Friskies Wet Cat Food Variety Pack Poultry Pate Favorites'  same
+    prices   export {'regular_price': '28.49'}  source price text '$28.49$28.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '11 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-variety-pack-poultry-pate-favorites/0005000029257
+=== 0005000029259  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Gravy Lovers Salmon and Sole Feast Grilled Gourmet Cat Food in Wet Cat Food Gravy'
+             source 'Fancy Feast Gravy Lovers Salmon and Sole Feast Grilled Gourmet Cat Food in Wet Cat Food Gravy'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-gravy-lovers-salmon-and-sole-feast-grilled-gourmet-cat-food-in-wet-cat-food-gravy/0005000029259
+=== 0005000029261  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Chicken Hearts & Liver Wet Cat Food'
+             source 'Fancy Feast Chicken Hearts & Liver Wet Cat Food'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-chicken-hearts-liver-wet-cat-food/0005000029261
+=== 0005000029263  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Chicken & Beef in Chicken Gravy Wet Cat Food'
+             source 'Fancy Feast Chicken & Beef in Chicken Gravy Wet Cat Food'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-chicken-beef-in-chicken-gravy-wet-cat-food/0005000029263
+=== 0005000029329  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Friskies Extra Gravy Wet Cat Food Chunky Chicken in Savory Gravy'
+             source 'Friskies Extra Gravy Wet Cat Food Chunky Chicken in Savory Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-extra-gravy-wet-cat-food-chunky-chicken-in-savory-gravy/0005000029329
+=== 0005000029333  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Friskies Extra Gravy Wet Cat Food Chunky With Salmon in Savory Gravy'
+             source 'Friskies Extra Gravy Wet Cat Food Chunky With Salmon in Savory Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-extra-gravy-wet-cat-food-chunky-with-salmon-in-savory-gravy/0005000029333
+=== 0005000029335  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Friskies Extra Gravy Wet Cat Food Chunky With Turkey in Savory Gravy'
+             source 'Friskies Extra Gravy Wet Cat Food Chunky With Turkey in Savory Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-extra-gravy-wet-cat-food-chunky-with-turkey-in-savory-gravy/0005000029335
+=== 0005000029365  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Fancy Feast Broth With Wild Salmon & Vegetables'
+             source 'Fancy Feast Broth With Wild Salmon & Vegetables'  same
+    prices   export {'regular_price': '1.79'}  source price text '$1.79$1.79'  regular_price shown
+    per unit export '$1.28/oz'  source '$1.28/oz'  same
+    also     weight '1.4 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-broth-with-wild-salmon-vegetables/0005000029365
+=== 0005000029368  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Fancy Feast Lickable Wet Cat Food Broth Topper, Creamy Wild Salmon and Whitefish'
+             source 'Fancy Feast Lickable Wet Cat Food Broth Topper, Creamy Wild Salmon and Whitefish'  same
+    prices   export {'regular_price': '1.79'}  source price text '$1.79$1.79'  regular_price shown
+    per unit export '$1.28/oz'  source '$1.28/oz'  same
+    also     weight '1.4 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-lickable-wet-cat-food-broth-topper-creamy-wild-salmon-and-whitefish/0005000029368
+=== 0005000029452  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Friskies Wet Cat Food Variety Pack Fish-A-Licious Extra Gravy'
+             source 'Friskies Wet Cat Food Variety Pack Fish-A-Licious Extra Gravy'  same
+    prices   export {'regular_price': '28.49'}  source price text '$28.49$28.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '11 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-variety-pack-fish-a-licious-extra-gravy/0005000029452
+=== 0005000034214  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Friskies Glaz’d and Infuz’d With Gravy Glaz’d Shrimp Flavored Wet Food for Cats'
+             source 'Friskies Glaz’d and Infuz’d With Gravy Glaz’d Shrimp Flavored Wet Food for Cats'  same
+    prices   export {'regular_price': '1.09'}  source price text '$1.09$1.09'  regular_price shown
+    per unit export '$0.20/oz'  source '$0.20/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-glaz-d-and-infuz-d-with-gravy-glaz-d-shrimp-flavored-wet-food-for-cats/0005000034214
+=== 0005000035142  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Friskies Glaz’d and Infuz’d With Gravy Glaz’d Chicken Wet Food for Cats'
+             source 'Friskies Glaz’d and Infuz’d With Gravy Glaz’d Chicken Wet Food for Cats'  same
+    prices   export {'regular_price': '1.09'}  source price text '$1.09$1.09'  regular_price shown
+    per unit export '$0.20/oz'  source '$0.20/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-glaz-d-and-infuz-d-with-gravy-glaz-d-chicken-wet-food-for-cats/0005000035142
+=== 0005000041220  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Friskies Shreds Turkey and Cheese Dinner in Gravy High Protein Wet Cat Food'
+             source 'Friskies Shreds Turkey and Cheese Dinner in Gravy High Protein Wet Cat Food'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-shreds-turkey-and-cheese-dinner-in-gravy-high-protein-wet-cat-food/0005000041220
+=== 0005000042034  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Friskies Pate Wet Cat Food Variety Pack (Ocean Whitefish and Tuna Dinner, Mixed Grill'
+             source 'Friskies Pate Wet Cat Food Variety Pack (Ocean Whitefish and Tuna Dinner, Mixed Grill'  same
+    prices   export {'regular_price': '21.49'}  source price text '$21.49$21.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '8.25 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-pate-wet-cat-food-variety-pack-ocean-whitefish-and-tuna-dinner-mixed-grill/0005000042034
+=== 0005000042044  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Friskies Wet Cat Food Pate, Liver and Chicken Dinner'
+             source 'Friskies Wet Cat Food Pate, Liver and Chicken Dinner'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-pate-liver-and-chicken-dinner/0005000042044
+=== 0005000042054  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Friskies Wet Cat Food, Meaty Bits Gourmet Grill in Gravy'
+             source 'Friskies Wet Cat Food, Meaty Bits Gourmet Grill in Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-meaty-bits-gourmet-grill-in-gravy/0005000042054
+=== 0005000042154  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Friskies Wet Cat Food, Pate Mixed Grill'
+             source 'Friskies Wet Cat Food, Pate Mixed Grill'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-pate-mixed-grill/0005000042154
+=== 0005000042184  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Friskies Wet Cat Food Pate Turkey and Giblets Dinner'
+             source 'Friskies Wet Cat Food Pate Turkey and Giblets Dinner'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-pate-turkey-and-giblets-dinner/0005000042184
+=== 0005000042194  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Friskies Wet Cat Food, Meaty Bits Chicken Dinner in Gravy'
+             source 'Friskies Wet Cat Food, Meaty Bits Chicken Dinner in Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-meaty-bits-chicken-dinner-in-gravy/0005000042194
+=== 0005000042314  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Friskies Wet Cat Food, Meaty Bits With Beef in Gravy'
+             source 'Friskies Wet Cat Food, Meaty Bits With Beef in Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-meaty-bits-with-beef-in-gravy/0005000042314
+=== 0005000042334  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Friskies Wet Cat Food Pate, Pate Salmon Dinner'
+             source 'Friskies Wet Cat Food Pate, Pate Salmon Dinner'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-pate-pate-salmon-dinner/0005000042334
+=== 0005000042364  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Friskies Wet Cat Food Pate, Poultry Platter'
+             source 'Friskies Wet Cat Food Pate, Poultry Platter'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-pate-poultry-platter/0005000042364
+=== 0005000042444  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Friskies Wet Cat Food Pate, Chicken and Tuna Dinner'
+             source 'Friskies Wet Cat Food Pate, Chicken and Tuna Dinner'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-pate-chicken-and-tuna-dinner/0005000042444
+=== 0005000042694  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Fancy Feast Chunky Chicken Feast Wet Cat Food'
+             source 'Fancy Feast Chunky Chicken Feast Wet Cat Food'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-chunky-chicken-feast-wet-cat-food/0005000042694
+=== 0005000042824  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Fancy Feast Seafood Classic Pate Collection Grain Free Wet Cat Food Variety Pack'
+             source 'Fancy Feast Seafood Classic Pate Collection Grain Free Wet Cat Food Variety Pack'  same
+    prices   export {'regular_price': '27.49'}  source price text '$27.49$27.49'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '4.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-seafood-classic-pate-collection-grain-free-wet-cat-food-variety-pack/0005000042824
+=== 0005000042874  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Fancy Feast Wet Cat Food Flaked Fish and Shrimp Feast'
+             source 'Fancy Feast Wet Cat Food Flaked Fish and Shrimp Feast'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-wet-cat-food-flaked-fish-and-shrimp-feast/0005000042874
+=== 0005000042894  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Fancy Feast Cod, Sole and Shrimp Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Cod, Sole and Shrimp Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-cod-sole-and-shrimp-feast-classic-grain-free-wet-cat-food-pate/0005000042894
+=== 0005000042904  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Tender Chicken and Liver Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Tender Chicken and Liver Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-tender-chicken-and-liver-feast-classic-grain-free-wet-cat-food-pate/0005000042904
+=== 0005000042914  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Fancy Feast Tender Beef and Liver Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Tender Beef and Liver Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-tender-beef-and-liver-feast-classic-grain-free-wet-cat-food-pate/0005000042914
+=== 0005000042934  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Fancy Feast Seafood Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Seafood Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-seafood-feast-classic-grain-free-wet-cat-food-pate/0005000042934
+=== 0005000042944  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Salmon Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Salmon Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-salmon-feast-classic-grain-free-wet-cat-food-pate/0005000042944
+=== 0005000042954  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Tender Beef Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Tender Beef Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-tender-beef-feast-classic-grain-free-wet-cat-food-pate/0005000042954
+=== 0005000042964  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Fancy Feast Classic Pate Ocean Whitefish and Tuna Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Classic Pate Ocean Whitefish and Tuna Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-classic-pate-ocean-whitefish-and-tuna-feast-classic-grain-free-wet-cat-food-pate/0005000042964
+=== 0005000042974  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Tender Beef and Chicken Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Tender Beef and Chicken Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-tender-beef-and-chicken-feast-classic-grain-free-wet-cat-food-pate/0005000042974
+=== 0005000042984  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Fancy Feast Pate Turkey and Giblets Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Pate Turkey and Giblets Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-pate-turkey-and-giblets-feast-classic-grain-free-wet-cat-food-pate/0005000042984
+=== 0005000042994  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Chicken Feast Classic Grain Free Wet Cat Food Pate'
+             source 'Fancy Feast Chicken Feast Classic Grain Free Wet Cat Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-chicken-feast-classic-grain-free-wet-cat-food-pate/0005000042994
+=== 0005000043464  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Fancy Feast Sliced Chicken Hearts and Liver Feast Wet Cat Food'
+             source 'Fancy Feast Sliced Chicken Hearts and Liver Feast Wet Cat Food'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-sliced-chicken-hearts-and-liver-feast-wet-cat-food/0005000043464
+=== 0005000044569  (fresh, status eligible_unpriced, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Friskies Shreds Chicken and Salmon Dinner in Wet Cat Food Gravy'
+             source 'Friskies Shreds Chicken and Salmon Dinner in Wet Cat Food Gravy'  same
+    prices   export {}  source price text ''  
+    per unit export ''  source ''  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-shreds-chicken-and-salmon-dinner-in-wet-cat-food-gravy/0005000044569
+=== 0005000045424  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Friskies Gravy Wet Cat Food Variety Pack, Poultry Shreds, Meaty Bits and Prime Filets'
+             source 'Friskies Gravy Wet Cat Food Variety Pack, Poultry Shreds, Meaty Bits and Prime Filets'  same
+    prices   export {'regular_price': '28.49'}  source price text '$28.49$28.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '11 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-gravy-wet-cat-food-variety-pack-poultry-shreds-meaty-bits-and-prime-filets/0005000045424
+=== 0005000046300  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Fancy Feast Dry Cat Food with Savory Farm-Raised Chicken and Turkey'
+             source 'Fancy Feast Dry Cat Food with Savory Farm-Raised Chicken and Turkey'  same
+    prices   export {'regular_price': '11.79'}  source price text '$11.79$11.79'  regular_price shown
+    per unit export '$3.93/lb'  source '$3.93/lb'  same
+    also     weight '3 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-dry-cat-food-with-savory-farm-raised-chicken-and-turkey/0005000046300
+=== 0005000046715  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Fancy Feast Dry Cat Food With Ocean Fish and Salmon'
+             source 'Fancy Feast Dry Cat Food With Ocean Fish and Salmon'  same
+    prices   export {'regular_price': '11.79'}  source price text '$11.79$11.79'  regular_price shown
+    per unit export '$3.93/lb'  source '$3.93/lb'  same
+    also     weight '3 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-dry-cat-food-with-ocean-fish-and-salmon/0005000046715
+=== 0005000050089  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Fancy Feast Kitten Classic Paté Collection Made with Real Milk'
+             source 'Fancy Feast Kitten Classic Paté Collection Made with Real Milk'  same
+    prices   export {'regular_price': '27.49'}  source price text '$27.49$27.49'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '4.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-kitten-classic-pat-collection-made-with-real-milk/0005000050089
+=== 0005000054407  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Fancy Feast Gems Pate Cat Food Mousse With Beef and a Halo of Savory Gravy Cat Food'
+             source 'Fancy Feast Gems Pate Cat Food Mousse With Beef and a Halo of Savory Gravy Cat Food'  same
+    prices   export {'regular_price': '2.49'}  source price text '$2.49$2.49'  regular_price shown
+    per unit export '$0.62/oz'  source '$0.62/oz'  same
+    also     weight '4 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-gems-pate-cat-food-mousse-with-beef-and-a-halo-of-savory-gravy-cat-food/0005000054407
+=== 0005000054409  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Fancy Feast Gems Pate Cat Food Mousse With Tuna and a Halo of Savory Gravy Cat Food'
+             source 'Fancy Feast Gems Pate Cat Food Mousse With Tuna and a Halo of Savory Gravy Cat Food'  same
+    prices   export {'regular_price': '2.49'}  source price text '$2.49$2.49'  regular_price shown
+    per unit export '$0.62/oz'  source '$0.62/oz'  same
+    also     weight '4 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-gems-pate-cat-food-mousse-with-tuna-and-a-halo-of-savory-gravy-cat-food/0005000054409
+=== 0005000054441  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Fancy Feast Sliced Poultry Favorites in Wet Cat Food Gravy Variety Pack'
+             source 'Fancy Feast Sliced Poultry Favorites in Wet Cat Food Gravy Variety Pack'  same
+    prices   export {'regular_price': '27.49'}  source price text '$27.49$27.49'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '4.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-sliced-poultry-favorites-in-wet-cat-food-gravy-variety-pack/0005000054441
+=== 0005000055121  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Fancy Feast Chicken Feast Classic Pate Collection Grain Free Wet Cat Food Multi-Pack'
+             source 'Fancy Feast Chicken Feast Classic Pate Collection Grain Free Wet Cat Food Multi-Pack'  same
+    prices   export {'regular_price': '13.99'}  source price text '$13.99$13.99'  regular_price shown
+    per unit export '$0.39/oz'  source '$0.39/oz'  same
+    also     weight '2.25 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-chicken-feast-classic-pate-collection-grain-free-wet-cat-food-multi-pack/0005000055121
+=== 0005000057034  (fresh, status eligible_unpriced, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Purina Fancy Feast Medleys Wet Cat Food Turkey Florentine'
+             source 'Purina Fancy Feast Medleys Wet Cat Food Turkey Florentine'  same
+    prices   export {}  source price text ''  
+    per unit export ''  source ''  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/purina-fancy-feast-medleys-wet-cat-food-turkey-florentine/0005000057034
+=== 0005000057049  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Fancy Feast Medleys Wild Salmon Florentine with Spinach in a Light Broth Gourmet Wet Cat Food'
+             source 'Fancy Feast Medleys Wild Salmon Florentine with Spinach in a Light Broth Gourmet Wet Cat Food'  same
+    prices   export {'regular_price': '1.39'}  source price text '$1.39$1.39'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-medleys-wild-salmon-florentine-with-spinach-in-a-light-broth-gourmet-wet-cat-food/0005000057049
+=== 0005000057051  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Fancy Feast Medleys Shredded Wild Salmon'
+             source 'Fancy Feast Medleys Shredded Wild Salmon'  same
+    prices   export {'regular_price': '1.39'}  source price text '$1.39$1.39'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-medleys-shredded-wild-salmon/0005000057051
+=== 0005000057056  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Fancy Feast Medleys Tuna Florentine with Spinach in a Light Broth Gourmet Wet Cat Food'
+             source 'Fancy Feast Medleys Tuna Florentine with Spinach in a Light Broth Gourmet Wet Cat Food'  same
+    prices   export {'regular_price': '1.39'}  source price text '$1.39$1.39'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-medleys-tuna-florentine-with-spinach-in-a-light-broth-gourmet-wet-cat-food/0005000057056
+=== 0005000057058  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Fancy Feast Medleys Shredded Tuna Fare'
+             source 'Fancy Feast Medleys Shredded Tuna Fare'  same
+    prices   export {'regular_price': '1.39'}  source price text '$1.39$1.39'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-medleys-shredded-tuna-fare/0005000057058
+=== 0005000057198  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Friskies Shreds With Chicken in Wet Cat Food Gravy'
+             source 'Friskies Shreds With Chicken in Wet Cat Food Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-shreds-with-chicken-in-wet-cat-food-gravy/0005000057198
+=== 0005000057201  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Friskies Shreds With Salmon in Sauce Wet Cat Food'
+             source 'Friskies Shreds With Salmon in Sauce Wet Cat Food'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-shreds-with-salmon-in-sauce-wet-cat-food/0005000057201
+=== 0005000057280  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Fancy Feast Wet Cat Food Variety Pack, Medleys Shredded Fare Collection'
+             source 'Fancy Feast Wet Cat Food Variety Pack, Medleys Shredded Fare Collection'  same
+    prices   export {'regular_price': '16.49'}  source price text '$16.49$16.49'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '2.25 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-wet-cat-food-variety-pack-medleys-shredded-fare-collection/0005000057280
+=== 0005000057281  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Fancy Feast Medleys Florentine Collection Gourmet Wet Cat Food Variety Pack'
+             source 'Fancy Feast Medleys Florentine Collection Gourmet Wet Cat Food Variety Pack'  same
+    prices   export {'regular_price': '16.49'}  source price text '$16.49$16.49'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '2.25 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-medleys-florentine-collection-gourmet-wet-cat-food-variety-pack/0005000057281
+=== 0005000057290  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Fancy Feast Dry Cat Food Filet Mignon Flavor With Seafood and Shrimp'
+             source 'Fancy Feast Dry Cat Food Filet Mignon Flavor With Seafood and Shrimp'  same
+    prices   export {'regular_price': '4.79'}  source price text '$4.79$4.79'  regular_price shown
+    per unit export '$4.79/lb'  source '$4.79/lb'  same
+    also     weight '16 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-dry-cat-food-filet-mignon-flavor-with-seafood-and-shrimp/0005000057290
+=== 0005000057366  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Fancy Feast Wet Cat Food, Medleys White Meat Chicken Tuscany With Long Grain Rice & Greens'
+             source 'Fancy Feast Wet Cat Food, Medleys White Meat Chicken Tuscany With Long Grain Rice & Greens'  same
+    prices   export {'regular_price': '1.39'}  source price text '$1.39$1.39'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-wet-cat-food-medleys-white-meat-chicken-tuscany-with-long-grain-rice-greens/0005000057366
+=== 0005000057395  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Friskies Chicken & Turkey with Garden Greens Wet Cat Food'
+             source 'Friskies Chicken & Turkey with Garden Greens Wet Cat Food'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-chicken-turkey-with-garden-greens-wet-cat-food/0005000057395
+=== 0005000057400  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Friskies Indoor Cat Food Pate Chicken Dinner With Garden Greens'
+             source 'Friskies Indoor Cat Food Pate Chicken Dinner With Garden Greens'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-indoor-cat-food-pate-chicken-dinner-with-garden-greens/0005000057400
+=== 0005000057412  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Friskies Indoor Cat Food Flaked Ocean Whitefish Dinner With Garden Greens in Sauce'
+             source 'Friskies Indoor Cat Food Flaked Ocean Whitefish Dinner With Garden Greens in Sauce'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-indoor-cat-food-flaked-ocean-whitefish-dinner-with-garden-greens-in-sauce/0005000057412
+=== 0005000057498  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Fancy Feast Tender Ocean Whitefish Feast Wet Kitten Food'
+             source 'Fancy Feast Tender Ocean Whitefish Feast Wet Kitten Food'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-tender-ocean-whitefish-feast-wet-kitten-food/0005000057498
+=== 0005000057500  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Fancy Feast Kitten Tender Turkey Feast Wet Kitten Food Pate'
+             source 'Fancy Feast Kitten Tender Turkey Feast Wet Kitten Food Pate'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-kitten-tender-turkey-feast-wet-kitten-food-pate/0005000057500
+=== 0005000057546  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Fancy Feast Grilled Wet Cat Food Seafood Collection in Wet Cat Food Variety Pack'
+             source 'Fancy Feast Grilled Wet Cat Food Seafood Collection in Wet Cat Food Variety Pack'  same
+    prices   export {'regular_price': '27.49'}  source price text '$27.49$27.49'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '4.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-grilled-wet-cat-food-seafood-collection-in-wet-cat-food-variety-pack/0005000057546
+=== 0005000057547  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Fancy Feast Poultry and Beef Feast Classic Pate Collection Grain Free Wet Cat Food Variety Pack'
+             source 'Fancy Feast Poultry and Beef Feast Classic Pate Collection Grain Free Wet Cat Food Variety Pack'  same
+    prices   export {'regular_price': '27.49'}  source price text '$27.49$27.49'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '4.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-poultry-and-beef-feast-classic-pate-collection-grain-free-wet-cat-food-variety-pack/0005000057547
+=== 0005000057577  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Friskies Dry Cat Food Seafood Sensations With Salmon, Tuna, and Shrimp Flavors'
+             source 'Friskies Dry Cat Food Seafood Sensations With Salmon, Tuna, and Shrimp Flavors'  same
+    prices   export {'regular_price': '18.99'}  source price text '$18.99$18.99'  regular_price shown
+    per unit export '$1.19/lb'  source '$1.19/lb'  same
+    also     weight '16 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-dry-cat-food-seafood-sensations-with-salmon-tuna-and-shrimp-flavors/0005000057577
+=== 0005000057579  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Friskies Cat Food Surfin and Turfin Favorites Flavors of Chicken, Whitefish'
+             source 'Friskies Cat Food Surfin and Turfin Favorites Flavors of Chicken, Whitefish'  same
+    prices   export {'regular_price': '18.99'}  source price text '$18.99$18.99'  regular_price shown
+    per unit export '$1.19/lb'  source '$1.19/lb'  same
+    also     weight '16 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-cat-food-surfin-and-turfin-favorites-flavors-of-chicken-whitefish/0005000057579
+=== 0005000057796  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Friskies Wet Cat Food Tasty Treasures With Chicken in Gravy (With Liver)'
+             source 'Friskies Wet Cat Food Tasty Treasures With Chicken in Gravy (With Liver)'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-tasty-treasures-with-chicken-in-gravy-with-liver-/0005000057796
+=== 0005000057798  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=3  observed 2026-11-17T04:35:26.996052Z  sha256 2ea9107efab559eb510510d48f5ff33588ae908cade2634e77d962ec84457bf5
+    title    export 'Friskies Wet Cat Food Tasty Treasures With Turkey and Liver in Gravy'
+             source 'Friskies Wet Cat Food Tasty Treasures With Turkey and Liver in Gravy'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-tasty-treasures-with-turkey-and-liver-in-gravy/0005000057798
+=== 0005000057843  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Ocean Whitefish & Tuna in Sauteed Seafood Gravy Wet Cat Food'
+             source 'Fancy Feast Ocean Whitefish & Tuna in Sauteed Seafood Gravy Wet Cat Food'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-ocean-whitefish-tuna-in-sauteed-seafood-gravy-wet-cat-food/0005000057843
+=== 0005000057845  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Chicken in Chicken Gravy Wet Cat Food'
+             source 'Fancy Feast Chicken in Chicken Gravy Wet Cat Food'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-chicken-in-chicken-gravy-wet-cat-food/0005000057845
+=== 0005000057847  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Gravy Lovers Beef Feast Grilled Gourmet Cat Food in Wet Cat Food Gravy'
+             source 'Fancy Feast Gravy Lovers Beef Feast Grilled Gourmet Cat Food in Wet Cat Food Gravy'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-gravy-lovers-beef-feast-grilled-gourmet-cat-food-in-wet-cat-food-gravy/0005000057847
+=== 0005000057931  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=2  observed 2026-11-17T04:07:08.817424Z  sha256 b5ec86d932c0072f19d173ddbbf68761b194c3a85394f88f9d257f8ed2495d4e
+    title    export 'Fancy Feast Grilled Chicken & Cheddar Cheese Wet Cat Food'
+             source 'Fancy Feast Grilled Chicken & Cheddar Cheese Wet Cat Food'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-grilled-chicken-cheddar-cheese-wet-cat-food/0005000057931
+=== 0005000057990  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Friskies Shreds With Whitefish and Sardines in Sauce Wet Cat Food'
+             source 'Friskies Shreds With Whitefish and Sardines in Sauce Wet Cat Food'  same
+    prices   export {'regular_price': '1.00', 'sale_price': '0.85'}  source price text '$0.85$1.00Sale: $0.85 discounted from $1.00'  regular_price shown, sale_price shown
+    per unit export '$0.15/oz'  source '$0.15/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-shreds-with-whitefish-and-sardines-in-sauce-wet-cat-food/0005000057990
+=== 0005000058004  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Gravy Lovers Turkey Feast Grilled Gourmet Cat Food in Wet Cat Food Gravy'
+             source 'Fancy Feast Gravy Lovers Turkey Feast Grilled Gourmet Cat Food in Wet Cat Food Gravy'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-gravy-lovers-turkey-feast-grilled-gourmet-cat-food-in-wet-cat-food-gravy/0005000058004
+=== 0005000058006  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Fancy Feast Gravy Lovers Poultry and Beef Grilled Gourmet Wet Cat Food Variety Pack'
+             source 'Fancy Feast Gravy Lovers Poultry and Beef Grilled Gourmet Wet Cat Food Variety Pack'  same
+    prices   export {'regular_price': '27.49'}  source price text '$27.49$27.49'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '4.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-gravy-lovers-poultry-and-beef-grilled-gourmet-wet-cat-food-variety-pack/0005000058006
+=== 0005000058996  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Fancy Feast Gems Pate Mousse Wet Cat Food in Gravy With Turkey'
+             source 'Fancy Feast Gems Pate Mousse Wet Cat Food in Gravy With Turkey'  same
+    prices   export {'regular_price': '2.49'}  source price text '$2.49$2.49'  regular_price shown
+    per unit export '$0.62/oz'  source '$0.62/oz'  same
+    also     weight '4 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-gems-pate-mousse-wet-cat-food-in-gravy-with-turkey/0005000058996
+=== 0005000059301  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Fancy Feast Gems Pate Mousse with Gravy Wet Cat Food With Ocean Fish'
+             source 'Fancy Feast Gems Pate Mousse with Gravy Wet Cat Food With Ocean Fish'  same
+    prices   export {'regular_price': '2.49'}  source price text '$2.49$2.49'  regular_price shown
+    per unit export '$0.62/oz'  source '$0.62/oz'  same
+    also     weight '4 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-gems-pate-mousse-with-gravy-wet-cat-food-with-ocean-fish/0005000059301
+=== 0005000081817  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Fancy Feast Grilled Wet Cat Food Poultry and Beef Collection Wet Cat Food Variety Pack'
+             source 'Fancy Feast Grilled Wet Cat Food Poultry and Beef Collection Wet Cat Food Variety Pack'  same
+    prices   export {'regular_price': '27.49'}  source price text '$27.49$27.49'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '4.5 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-grilled-wet-cat-food-poultry-and-beef-collection-wet-cat-food-variety-pack/0005000081817
+=== 0005000083612  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Fancy Feast Grilled Tuna Feast Wet Cat Food in Savory Gravy'
+             source 'Fancy Feast Grilled Tuna Feast Wet Cat Food in Savory Gravy'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-grilled-tuna-feast-wet-cat-food-in-savory-gravy/0005000083612
+=== 0005000096260  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=4  observed 2026-11-17T04:35:34.458803Z  sha256 0371404bccf4522e0f0e446c4aa52c6370472c967ed676cd609a85d06aa35b48
+    title    export 'Fancy Feast Pate White Meat Chicken Florentine with Cheese & Spinach'
+             source 'Fancy Feast Pate White Meat Chicken Florentine with Cheese & Spinach'  same
+    prices   export {'regular_price': '1.39'}  source price text '$1.39$1.39'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-pate-white-meat-chicken-florentine-with-cheese-spinach/0005000096260
+=== 0005000096264  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=5  observed 2026-11-17T04:35:38.774706Z  sha256 70fa13f2490f9156d8175c9acc67acd2d23cdb4a371f7855fa42a1fcb079a63e
+    title    export 'Fancy Feast Pate Wet Cat Food, Medleys White Meat Chicken Primavera With Garden Veggies'
+             source 'Fancy Feast Pate Wet Cat Food, Medleys White Meat Chicken Primavera With Garden Veggies'  same
+    prices   export {'regular_price': '1.39'}  source price text '$1.39$1.39'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '3 oz.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/fancy-feast-pate-wet-cat-food-medleys-white-meat-chicken-primavera-with-garden-veggies/0005000096264
+=== 0005000096358  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Friskies Dry Cat Food Seafood Sensations With Salmon, Tuna, and Shrimp Flavors'
+             source 'Friskies Dry Cat Food Seafood Sensations With Salmon, Tuna, and Shrimp Flavors'  same
+    prices   export {'regular_price': '31.99'}  source price text '$31.99$31.99'  regular_price shown
+    per unit export '$1.07/lb'  source '$1.07/lb'  same
+    also     weight '30 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-dry-cat-food-seafood-sensations-with-salmon-tuna-and-shrimp-flavors/0005000096358
+=== 0005000096460  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Friskies Wet Cat Food Variety Pack, Oceans of Delight Flaked and Prime Filets'
+             source 'Friskies Wet Cat Food Variety Pack, Oceans of Delight Flaked and Prime Filets'  same
+    prices   export {'regular_price': '35.49'}  source price text '$35.49$35.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '13.75 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/friskies-wet-cat-food-variety-pack-oceans-of-delight-flaked-and-prime-filets/0005000096460
+=== 0005000096461  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Purina Friskies Wet Cat Gravy Variety Pack, TurChicken Extra Gravy Chunky, Meaty Bits & Prime Filets'
+             source 'Purina Friskies Wet Cat Gravy Variety Pack, TurChicken Extra Gravy Chunky, Meaty Bits & Prime Filets'  same
+    prices   export {'regular_price': '35.49'}  source price text '$35.49$35.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '13.75 lb.', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/purina-friskies-wet-cat-gravy-variety-pack-turchicken-extra-gravy-chunky-meaty-bits-prime-filets/0005000096461
+=== 0005849671226  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Whiskas Catmilk Plus Drink'
+             source 'Whiskas Catmilk Plus Drink'  same
+    prices   export {'regular_price': '6.79'}  source price text '$6.79$6.79'  regular_price shown
+    per unit export '$0.34/fl oz'  source '$0.34/fl oz'  same
+    also     weight '3 ct / 6.75 fl oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/whiskas-catmilk-plus-drink/0005849671226
+=== 0062797501005  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Freshpet Tender Chicken Recipe With Garden Vegetables Fresh Cat Food'
+             source 'Freshpet Tender Chicken Recipe With Garden Vegetables Fresh Cat Food'  same
+    prices   export {'regular_price': '7.39'}  source price text '$7.39$7.39'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '1 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/freshpet-tender-chicken-recipe-with-garden-vegetables-fresh-cat-food/0062797501005
+=== 0062797501104  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Freshpet Chicken And Beef Grain Free Gourmet Paté Fresh Cat Food Roll'
+             source 'Freshpet Chicken And Beef Grain Free Gourmet Paté Fresh Cat Food Roll'  same
+    prices   export {'regular_price': '5.49'}  source price text '$5.49$5.49'  regular_price shown
+    per unit export '$0.34/oz'  source '$0.34/oz'  same
+    also     weight '1 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/freshpet-chicken-and-beef-grain-free-gourmet-pat-fresh-cat-food-roll/0062797501104
+=== 0082927400622  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Meow Mix Tender Favorites Poultry & Beef Variety Pack, Wet Cat Food'
+             source 'Meow Mix Tender Favorites Poultry & Beef Variety Pack, Wet Cat Food'  same
+    prices   export {'regular_price': '12.49'}  source price text '$12.49$12.49'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '33 Ounces', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-tender-favorites-poultry-beef-variety-pack-wet-cat-food/0082927400622
+=== 0082927400703  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'MEOW MIX 3.15 POUND INDOOR FORMULA EACH'
+             source 'MEOW MIX 3.15 POUND INDOOR FORMULA EACH'  same
+    prices   export {'regular_price': '8.99'}  source price text '$8.99$8.99'  regular_price shown
+    per unit export '$8.99/each'  source '$8.99/each'  same
+    also     weight '3.15 Pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-3-15-pound-indoor-formula-each/0082927400703
+=== 0082927400710  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Meow Mix Kitten Li’l Nibbles Dry Cat Food for Kittens'
+             source 'Meow Mix Kitten Li’l Nibbles Dry Cat Food for Kittens'  same
+    prices   export {'regular_price': '8.99'}  source price text '$8.99$8.99'  regular_price shown
+    per unit export '$2.85/lb'  source '$2.85/lb'  same
+    also     weight '3.15 Pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-kitten-li-l-nibbles-dry-cat-food-for-kittens/0082927400710
+=== 0082927421880  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Meow Mix Tender Centers with Basted Bites, Chicken & Tuna Flavors, Dry Cat Food'
+             source 'Meow Mix Tender Centers with Basted Bites, Chicken & Tuna Flavors, Dry Cat Food'  same
+    prices   export {'regular_price': '8.99'}  source price text '$8.99$8.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '3 Pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-tender-centers-with-basted-bites-chicken-tuna-flavors-dry-cat-food/0082927421880
+=== 0082927426753  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Meow Mix Original Choice Dry Cat Food'
+             source 'Meow Mix Original Choice Dry Cat Food'  same
+    prices   export {'regular_price': '36.99'}  source price text '$36.99$36.99'  regular_price shown
+    per unit export '$1.23/lb'  source '$1.23/lb'  same
+    also     weight '26 Pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-original-choice-dry-cat-food/0082927426753
+=== 0082927434287  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Meow Mix Tender Centers Dry Cat Food with Basted Bites, Chicken & Tuna Flavors'
+             source 'Meow Mix Tender Centers Dry Cat Food with Basted Bites, Chicken & Tuna Flavors'  same
+    prices   export {'regular_price': '24.99'}  source price text '$24.99$24.99'  regular_price shown
+    per unit export '$1.76/lb'  source '$1.76/lb'  same
+    also     weight '14.2 Pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-tender-centers-dry-cat-food-with-basted-bites-chicken-tuna-flavors/0082927434287
+=== 0082927441495  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Meow Mix Gravy Bursts, Savory Salmon Flavor Kibble Mix, Gravy Filled Dry Cat Food'
+             source 'Meow Mix Gravy Bursts, Savory Salmon Flavor Kibble Mix, Gravy Filled Dry Cat Food'  same
+    prices   export {'regular_price': '8.99'}  source price text '$8.99$8.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '3 Pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-gravy-bursts-savory-salmon-flavor-kibble-mix-gravy-filled-dry-cat-food/0082927441495
+=== 0082927450225  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Meow Mix Original Choice Dry Cat Food'
+             source 'Meow Mix Original Choice Dry Cat Food'  same
+    prices   export {'regular_price': '23.99'}  source price text '$23.99$23.99'  regular_price shown
+    per unit export '$1.50/lb'  source '$1.50/lb'  same
+    also     weight '16 Pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-original-choice-dry-cat-food/0082927450225
+=== 0082927451229  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Meow Mix Pate & Shreds Seafood & Poultry Variety Pack, Wet Cat Food'
+             source 'Meow Mix Pate & Shreds Seafood & Poultry Variety Pack, Wet Cat Food'  same
+    prices   export {'regular_price': '12.49'}  source price text '$12.49$12.49'  regular_price shown
+    per unit export '$0.38/oz'  source '$0.38/oz'  same
+    also     weight '33 Ounces', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-pate-shreds-seafood-poultry-variety-pack-wet-cat-food/0082927451229
+=== 0082927451252  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Meow Mix Tender Centers with Salmon & White Meat Chicken Flavors, Dry Cat Food'
+             source 'Meow Mix Tender Centers with Salmon & White Meat Chicken Flavors, Dry Cat Food'  same
+    prices   export {'regular_price': '8.99'}  source price text '$8.99$8.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '3 Pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-tender-centers-with-salmon-white-meat-chicken-flavors-dry-cat-food/0082927451252
+=== 0082927451375  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Meow Mix® 3.15 Pound Original Bag'
+             source 'Meow Mix® 3.15 Pound Original Bag'  same
+    prices   export {'regular_price': '8.99'}  source price text '$8.99$8.99'  regular_price shown
+    per unit export '$2.85/lb'  source '$2.85/lb'  same
+    also     weight '3.15 Pounds', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-3-15-pound-original-bag/0082927451375
+=== 0082927482738  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Meow Mix Gravy Bursts, Savory Chicken Flavor Mix, Gravy Filled Dry Cat Food'
+             source 'Meow Mix Gravy Bursts, Savory Chicken Flavor Mix, Gravy Filled Dry Cat Food'  same
+    prices   export {'regular_price': '8.99'}  source price text '$8.99$8.99'  regular_price shown
+    per unit export '$3.00/lb'  source '$3.00/lb'  same
+    also     weight '48 Ounces', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/meow-mix-gravy-bursts-savory-chicken-flavor-mix-gravy-filled-dry-cat-food/0082927482738
+=== 0084024310185  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Blue Buffalo Wilderness High-Protein Grain-Free Adult 7+ Wet Cat Food Chicken'
+             source 'Blue Buffalo Wilderness High-Protein Grain-Free Adult 7+ Wet Cat Food Chicken'  same
+    prices   export {'regular_price': '2.29', 'sale_price': '1.99'}  source price text '$1.99$2.29Sale: $1.99 discounted from $2.29'  regular_price shown, sale_price shown
+    per unit export '$0.36/oz'  source '$0.36/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-wilderness-high-protein-grain-free-adult-7-wet-cat-food-chicken/0084024310185
+=== 0084024312250  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Blue Buffalo™ Tastefuls Adult Sensitive Stomach Dry Cat Food Chicken & Brown Rice'
+             source 'Blue Buffalo™ Tastefuls Adult Sensitive Stomach Dry Cat Food Chicken & Brown Rice'  same
+    prices   export {'regular_price': '24.99'}  source price text '$24.99$24.99'  regular_price shown
+    per unit export '$5.00/lb'  source '$5.00/lb'  same
+    also     weight '5 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-adult-sensitive-stomach-dry-cat-food-chicken-brown-rice/0084024312250
+=== 0084024313053  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Dry Cat Food Chicken'
+             source 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Dry Cat Food Chicken'  same
+    prices   export {'regular_price': '25.99'}  source price text '$25.99$25.99'  regular_price shown
+    per unit export '$6.50/lb'  source '$6.50/lb'  same
+    also     weight '4 lbs', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-wilderness-high-protein-grain-free-adult-dry-cat-food-chicken/0084024313053
+=== 0084024313056  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Dry Cat Food Chicken'
+             source 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Dry Cat Food Chicken'  same
+    prices   export {'regular_price': '42.99'}  source price text '$42.99$42.99'  regular_price shown
+    per unit export '$4.53/lb'  source '$4.53/lb'  same
+    also     weight '9.5 lbs', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-wilderness-high-protein-grain-free-adult-dry-cat-food-chicken/0084024313056
+=== 0084024313057  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Dry Cat Food Chicken'
+             source 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Dry Cat Food Chicken'  same
+    prices   export {'regular_price': '25.99'}  source price text '$25.99$25.99'  regular_price shown
+    per unit export '$6.50/lb'  source '$6.50/lb'  same
+    also     weight '4 lbs', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-wilderness-high-protein-grain-free-adult-dry-cat-food-chicken/0084024313057
+=== 0084024313060  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Dry Cat Food Salmon'
+             source 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Dry Cat Food Salmon'  same
+    prices   export {'regular_price': '42.99'}  source price text '$42.99$42.99'  regular_price shown
+    per unit export '$4.53/lb'  source '$4.53/lb'  same
+    also     weight '9.5 lbs', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-wilderness-high-protein-grain-free-adult-dry-cat-food-salmon/0084024313060
+=== 0084024313061  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Dry Cat Food Salmon'
+             source 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Dry Cat Food Salmon'  same
+    prices   export {'regular_price': '25.99'}  source price text '$25.99$25.99'  regular_price shown
+    per unit export '$6.50/lb'  source '$6.50/lb'  same
+    also     weight '4 lbs', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-wilderness-high-protein-grain-free-adult-dry-cat-food-salmon/0084024313061
+=== 0084024314052  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Blue Buffalo Tastefuls Natural Adult Pate Wet Cat Food Wet Cat Food Chicken'
+             source 'Blue Buffalo Tastefuls Natural Adult Pate Wet Cat Food Wet Cat Food Chicken'  same
+    prices   export {'regular_price': '1.99', 'sale_price': '1.79'}  source price text '$1.79$1.99Sale: $1.79 discounted from $1.99'  regular_price shown, sale_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-natural-adult-pate-wet-cat-food-wet-cat-food-chicken/0084024314052
+=== 0084024314058  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Blue Buffalo Tastefuls Natural Adult Pate Wet Cat Food Ocean Fish & Tuna'
+             source 'Blue Buffalo Tastefuls Natural Adult Pate Wet Cat Food Ocean Fish & Tuna'  same
+    prices   export {'regular_price': '1.99', 'sale_price': '1.79'}  source price text '$1.79$1.99Sale: $1.79 discounted from $1.99'  regular_price shown, sale_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-natural-adult-pate-wet-cat-food-ocean-fish-tuna/0084024314058
+=== 0084024314060  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Blue Buffalo Tastefuls Wet Cat Food Paté, Made with Natural Ingredients, Salmon Entrée, 5.5-oz. Can'
+             source 'Blue Buffalo Tastefuls Wet Cat Food Paté, Made with Natural Ingredients, Salmon Entrée, 5.5-oz. Can'  same
+    prices   export {'regular_price': '1.99', 'sale_price': '1.79'}  source price text '$1.79$1.99Sale: $1.79 discounted from $1.99'  regular_price shown, sale_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-wet-cat-food-pat-made-with-natural-ingredients-salmon-entr-e-5-5-oz-can/0084024314060
+=== 0084024314063  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021  observed 2026-11-17T03:03:12.088662Z  sha256 a66cba801c538c154cd1c7f4bb245eb6be9549bb7b12f446b3f1e6b60e153f83
+    title    export 'Blue Buffalo™ Tastefuls™ Natural Adult Cat Wet Food, Chicken Entrée in Gravy, Flaked'
+             source 'Blue Buffalo™ Tastefuls™ Natural Adult Cat Wet Food, Chicken Entrée in Gravy, Flaked'  same
+    prices   export {'regular_price': '1.99', 'sale_price': '1.79'}  source price text '$1.79$1.99Sale: $1.79 discounted from $1.99'  regular_price shown, sale_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-natural-adult-cat-wet-food-chicken-entr-e-in-gravy-flaked/0084024314063
+=== 0084024314065  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Blue Buffalo™ Tastefuls™ Natural Adult Cat Wet Food, Tuna Entrée in Gravy, Flaked'
+             source 'Blue Buffalo™ Tastefuls™ Natural Adult Cat Wet Food, Tuna Entrée in Gravy, Flaked'  same
+    prices   export {'regular_price': '1.99', 'sale_price': '1.79'}  source price text '$1.79$1.99Sale: $1.79 discounted from $1.99'  regular_price shown, sale_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-natural-adult-cat-wet-food-tuna-entr-e-in-gravy-flaked/0084024314065
+=== 0084024314067  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Blue Buffalo™ Tastefuls™ Natural Adult Cat Wet Food, Fish and Shrimp Entrée in Gravy, Flaked'
+             source 'Blue Buffalo™ Tastefuls™ Natural Adult Cat Wet Food, Fish and Shrimp Entrée in Gravy, Flaked'  same
+    prices   export {'regular_price': '1.99', 'sale_price': '1.79'}  source price text '$1.79$1.99Sale: $1.79 discounted from $1.99'  regular_price shown, sale_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-natural-adult-cat-wet-food-fish-and-shrimp-entr-e-in-gravy-flaked/0084024314067
+=== 0084024314072  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Blue Buffalo Tastefuls Natural Adult Pate Wet Cat Food Variety Pack Salmon Ocean Fish & Tuna Chicken'
+             source 'Blue Buffalo Tastefuls Natural Adult Pate Wet Cat Food Variety Pack Salmon Ocean Fish & Tuna Chicken'  same
+    prices   export {'regular_price': '16.99'}  source price text '$16.99$16.99'  regular_price shown
+    per unit export '$0.47/oz'  source '$0.47/oz'  same
+    also     weight '12 ct / 3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-natural-adult-pate-wet-cat-food-variety-pack-salmon-ocean-fish-tuna-chicken/0084024314072
+=== 0084024314074  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Blue Buffalo™ Tastefuls™ Natural Adult Cat Wet Food, Tuna, Chicken, Fish & Shrimp, Flaked'
+             source 'Blue Buffalo™ Tastefuls™ Natural Adult Cat Wet Food, Tuna, Chicken, Fish & Shrimp, Flaked'  same
+    prices   export {'regular_price': '16.99'}  source price text '$16.99$16.99'  regular_price shown
+    per unit export '$0.47/oz'  source '$0.47/oz'  same
+    also     weight '2.25 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-natural-adult-cat-wet-food-tuna-chicken-fish-shrimp-flaked/0084024314074
+=== 0084024314366  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Blue Buffalo Tastefuls Spoonless Singles Natural Pate Wet Cat Food Twin-Pack Chicken'
+             source 'Blue Buffalo Tastefuls Spoonless Singles Natural Pate Wet Cat Food Twin-Pack Chicken'  same
+    prices   export {'regular_price': '1.79'}  source price text '$1.79$1.79'  regular_price shown
+    per unit export '$0.69/oz'  source '$0.69/oz'  same
+    also     weight '2.6 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-spoonless-singles-natural-pate-wet-cat-food-twin-pack-chicken/0084024314366
+=== 0084024314372  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=9  observed 2026-11-17T04:54:26.213815Z  sha256 feb0d2c338a436bad60590bdc478b6de2675b9729ea6d78bd8743361029ee233
+    title    export 'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Gravy Twin-Pack Salmon'
+             source 'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Gravy Twin-Pack Salmon'  same
+    prices   export {'regular_price': '1.79'}  source price text '$1.79$1.79'  regular_price shown
+    per unit export '$0.69/oz'  source '$0.69/oz'  same
+    also     weight '2.6 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-savory-singles-natural-wet-cat-food-gravy-twin-pack-salmon/0084024314372
+=== 0084024314374  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Gravy Twin-Pack Tuna'
+             source 'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Gravy Twin-Pack Tuna'  same
+    prices   export {'regular_price': '1.79'}  source price text '$1.79$1.79'  regular_price shown
+    per unit export '$0.69/oz'  source '$0.69/oz'  same
+    also     weight '2.6 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-savory-singles-natural-wet-cat-food-gravy-twin-pack-tuna/0084024314374
+=== 0084024314377  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Cuts in Gravy Salmon & Tuna'
+             source 'Blue Buffalo Tastefuls Savory Singles Natural Wet Cat Food Cuts in Gravy Salmon & Tuna'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$19.99/oz'  source '$19.99/oz'  same
+    also     weight '12 ct / 2.6 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-savory-singles-natural-wet-cat-food-cuts-in-gravy-salmon-tuna/0084024314377
+=== 0084024315117  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Blue Buffalo Tastefuls Natural Adult Purees Pouch Wet Cat Food Chicken'
+             source 'Blue Buffalo Tastefuls Natural Adult Purees Pouch Wet Cat Food Chicken'  same
+    prices   export {'regular_price': '2.19'}  source price text '$2.19$2.19'  regular_price shown
+    per unit export '$0.73/oz'  source '$0.73/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-natural-adult-purees-pouch-wet-cat-food-chicken/0084024315117
+=== 0084024315118  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=6  observed 2026-11-17T04:35:46.895802Z  sha256 439af8d87dc5460654b10525157476f789f1e22a6e7b904d37c00ab337b8e0be
+    title    export 'Blue Buffalo™ Tastefuls™ Purees with Tuna Cat Food'
+             source 'Blue Buffalo™ Tastefuls™ Purees with Tuna Cat Food'  same
+    prices   export {'regular_price': '2.19'}  source price text '$2.19$2.19'  regular_price shown
+    per unit export '$0.73/oz'  source '$0.73/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-purees-with-tuna-cat-food/0084024315118
+=== 0084024315384  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Blue Buffalo™ Tastefuls™ Adult Dry Cat Food, Multi-Protein Chicken & Turkey Recipe'
+             source 'Blue Buffalo™ Tastefuls™ Adult Dry Cat Food, Multi-Protein Chicken & Turkey Recipe'  same
+    prices   export {'regular_price': '24.99'}  source price text '$24.99$24.99'  regular_price shown
+    per unit export '$5.00/lb'  source '$5.00/lb'  same
+    also     weight '5 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-adult-dry-cat-food-multi-protein-chicken-turkey-recipe/0084024315384
+=== 0084024315656  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=10  observed 2026-11-17T04:54:57.079327Z  sha256 a7e6821cfd99430fb9d9aa8ea1c5da83caea0fd66e8c1f792a8c6c92ba59b738
+    title    export 'Blue Buffalo™ Tastefuls Irresistible Gravy Indoor Adult Cat Dry Food Chicken & Brown Rice'
+             source 'Blue Buffalo™ Tastefuls Irresistible Gravy Indoor Adult Cat Dry Food Chicken & Brown Rice'  same
+    prices   export {'regular_price': '24.99'}  source price text '$24.99$24.99'  regular_price shown
+    per unit export '$5.00/lb'  source '$5.00/lb'  same
+    also     weight '5 lb', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-tastefuls-irresistible-gravy-indoor-adult-cat-dry-food-chicken-brown-rice/0084024315656
+=== 0085961000764  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=8  observed 2026-11-17T04:41:09.676044Z  sha256 729c3d23f4f1eb01b27f8a6951b997cbb7bfab5e74a379ec91e0e0db58b4d56c
+    title    export 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Pate Wet Cat Food Chicken'
+             source 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Pate Wet Cat Food Chicken'  same
+    prices   export {'regular_price': '2.29', 'sale_price': '1.99'}  source price text '$1.99$2.29Sale: $1.99 discounted from $2.29'  regular_price shown, sale_price shown
+    per unit export '$0.36/oz'  source '$0.36/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-wilderness-high-protein-grain-free-adult-pate-wet-cat-food-chicken/0085961000764
+=== 0085961000768  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-food/27021?page=7  observed 2026-11-17T04:35:52.971963Z  sha256 72a272c7649133302f9c438bf898f2e67ee42fe94b591df5aaa8d5361a4715b6
+    title    export 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Pate Wet Cat Food Turkey'
+             source 'Blue Buffalo Wilderness High-Protein Grain-Free Adult Pate Wet Cat Food Turkey'  same
+    prices   export {'regular_price': '2.29', 'sale_price': '1.99'}  source price text '$1.99$2.29Sale: $1.99 discounted from $2.29'  regular_price shown, sale_price shown
+    per unit export '$0.36/oz'  source '$0.36/oz'  same
+    also     weight '5.5 oz', category 'Pet Supplies' / 'Cat Food', url https://www.marianos.com/p/blue-buffalo-wilderness-high-protein-grain-free-adult-pate-wet-cat-food-turkey/0085961000768
+differences: 0
+strict: 234 same, 0 with a difference, 0 missing from the export, 0 without an excerpt, 0 documented exclusions
+strict: PASS

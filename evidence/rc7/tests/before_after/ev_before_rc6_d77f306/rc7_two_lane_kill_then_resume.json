@@ -1,0 +1,36 @@
+{
+ "case": "rc7_two_lane_kill_then_resume",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the lost record is injected",
+ "counted_at_kill": [
+  [
+   "03001",
+   1
+  ],
+  [
+   "03001",
+   2
+  ],
+  [
+   "03001",
+   3
+  ],
+  [
+   "03002",
+   1
+  ]
+ ],
+ "incoherent_at_kill": [],
+ "status": "validated",
+ "coverage": {
+  "03001": [
+   "DONE",
+   60,
+   0
+  ],
+  "03002": [
+   "DONE",
+   30,
+   0
+  ]
+ }
+}

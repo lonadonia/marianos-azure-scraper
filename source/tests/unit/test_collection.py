@@ -210,6 +210,43 @@ def test_a_csv_row_that_is_itself_a_listing_page_is_planned_and_the_coupons_row_
     assert [(n.category, n.kind) for n in only] == [("Batteries", "row_listing")]
 
 
+def test_a_menu_link_missing_the_slash_before_its_id_is_asked_in_its_canonical_form() -> None:
+    """OR-22: the site's menu links Hard Cider (08194) as /pl/hard-cider08194; asked as given, the provider
+    brought no page (F2c, F2d, R6a, R7a2: HTTP 500 after about 250 s) and the listing was never read. It is
+    asked as /pl/hard-cider/08194, the form of every other listing, and the menu's own link is kept beside
+    it."""
+    seed = load_seed()
+    sources = {r["row_index"]: (r["category"], f"id{r['row_index']}") for r in seed["rows"]}
+    nodes, _ = plan_nodes(seed, sources, [15], {"15": ["08194"]})
+    assert [(n.taxonomy_id, n.url) for n in nodes] == [
+        ("08194", "https://www.marianos.com/pl/hard-cider/08194?pzn=relevance")
+    ]
+    assert nodes[0].menu_url == "https://www.marianos.com/pl/hard-cider08194?pzn=relevance"
+    # Every other menu link is asked exactly as the menu gives it (malformed ones the site serves included).
+    every, _ = plan_nodes(seed, sources, [], {})
+    assert [n.taxonomy_id for n in every if n.menu_url] == ["08194"]
+    milk = next(n for n in every if n.taxonomy_id == "02001")
+    assert milk.menu_url == "" and "%20" in milk.url
+
+
+@pytest.mark.parametrize(
+    ("href", "tax", "asked"),
+    [
+        ("/pl/hard-cider08194?pzn=relevance", "08194", "/pl/hard-cider/08194?pzn=relevance"),
+        ("/pl/hard-cider08194", "08194", "/pl/hard-cider/08194"),
+        ("/pl/canned-foods/01006?pzn=relevance", "01006", "/pl/canned-foods/01006?pzn=relevance"),
+        ("/pl/milk-plant-based-%20milk/02001", "02001", "/pl/milk-plant-based-%20milk/02001"),
+        ("/pl/snacks/05009?facets=true?pzn=relevance", "05009", "/pl/snacks/05009?facets=true?pzn=relevance"),
+        ("/pl/hard-cider08195", "08194", "/pl/hard-cider08195"),  # another ID: never rewritten
+        ("/pl/08194", "08194", "/pl/08194"),  # no name before the ID: nothing to split
+    ],
+)
+def test_only_the_missing_slash_form_is_rewritten(href: str, tax: str, asked: str) -> None:
+    from marianos_headless.collection.nodes import canonical_listing_href
+
+    assert canonical_listing_href(href, tax) == asked
+
+
 # -- Scrapfly account states ------------------------------------------------------------------------
 
 

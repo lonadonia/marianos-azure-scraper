@@ -1,0 +1,22 @@
+key,csv_row,listing_id,listing,status_rc7_R7,distinct_source_upcs_R7,fresh_stored_linked_R7,pages_counted_R7,compared_with,complete_in_comparison_run,evidence
+15|08119,15,08119,American Lager,DONE,90,90,4,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+15|08145,15,08145,Craft Beer,DONE,145,145,7,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+15|08182,15,08182,Box Wine,DONE,47,47,2,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+15|08185,15,08185,Dessert & Vermouth Wine,DONE,26,26,2,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+15|08190,15,08190,Import Beer,DONE,84,84,4,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+15|08191,15,08191,Hard Teas & Lemonades,DONE,20,20,1,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+15|08193,15,08193,Ready to Drink Cocktails,DONE,73,73,4,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+22|27019,22,27019,Dog Toys,DONE,16,16,1,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+22|27020,22,27020,Dog Supplies,DONE,9,9,1,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+22|27021,22,27021,Cat Food,DONE,234,234,10,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+22|27023,22,27023,Cat Litter & Accessories,DONE,64,64,3,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+22|27024,22,27024,Cat Toys,DONE,6,6,1,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+22|27025,22,27025,Cat Supplies,DONE,6,6,1,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+22|27026,22,27026,Bird Supplies,DONE,3,3,1,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+22|27027,22,27027,Fish Supplies,EMPTY,0,0,0,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+22|27029,22,27029,Small Animal Supplies,EMPTY,0,0,0,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+23|32001,23,32001,Candles Home Fragrances,DONE,55,55,3,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+24|26003,24,26003,Batteries,DONE,96,96,4,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+26|35,26,35,School Office,DONE,103,103,5,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+27|33,27,33,Hardware Home Improvement,DONE,65,65,3,F2 (F2),no,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation
+1|06122,1,06122,Fresh Herbs,DONE,47,47,2,F2 (F2),yes,offline replay of stored live pages (RPL-R7-76c0932dbc0a); not a new live observation

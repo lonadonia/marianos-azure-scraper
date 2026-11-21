@@ -1,0 +1,1453 @@
+224 UPCs expected (from EXPECTED_27017_R7.txt)
+=== 0001111003660  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'ABOUND® Grain Free All Life Stages Dry Dog Food Salmon and Sweet Potato'
+             source 'ABOUND® Grain Free All Life Stages Dry Dog Food Salmon and Sweet Potato'  same
+    prices   export {'regular_price': '29.99'}  source price text '$29.99$29.99'  regular_price shown
+    per unit export '$2.14/lb'  source '$2.14/lb'  same
+    also     weight '14 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/abound-grain-free-all-life-stages-dry-dog-food-salmon-and-sweet-potato/0001111003660
+=== 0001111003664  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'ABOUND® Grain Free All Life Stages Dry Dog Food Chicken Sweet Potato and Cranberry'
+             source 'ABOUND® Grain Free All Life Stages Dry Dog Food Chicken Sweet Potato and Cranberry'  same
+    prices   export {'regular_price': '29.99'}  source price text '$29.99$29.99'  regular_price shown
+    per unit export '$2.14/lb'  source '$2.14/lb'  same
+    also     weight '14 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/abound-grain-free-all-life-stages-dry-dog-food-chicken-sweet-potato-and-cranberry/0001111003664
+=== 0001111012941
+    not in this export
+=== 0001111012942
+    not in this export
+=== 0001111012946  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Pet Pride® Chunk Style Chicken Flavor Dog Food'
+             source 'Pet Pride® Chunk Style Chicken Flavor Dog Food'  same
+    prices   export {'regular_price': '29.99'}  source price text '$29.99$29.99'  regular_price shown
+    per unit export '$0.67/lb'  source '$0.67/lb'  same
+    also     weight '45 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pet-pride-chunk-style-chicken-flavor-dog-food/0001111012946
+=== 0001111013042  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Pet Pride® Adult Wet Dog Food Filet Mignon Flavor'
+             source 'Pet Pride® Adult Wet Dog Food Filet Mignon Flavor'  same
+    prices   export {'regular_price': '0.99'}  source price text '$0.99$0.99'  regular_price shown
+    per unit export '$0.28/oz'  source '$0.28/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pet-pride-adult-wet-dog-food-filet-mignon-flavor/0001111013042
+=== 0001111013043  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Pet Pride® Adult Wet Dog Food Grilled Chicken Flavor in Gravy'
+             source 'Pet Pride® Adult Wet Dog Food Grilled Chicken Flavor in Gravy'  same
+    prices   export {'regular_price': '0.99'}  source price text '$0.99$0.99'  regular_price shown
+    per unit export '$0.28/oz'  source '$0.28/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pet-pride-adult-wet-dog-food-grilled-chicken-flavor-in-gravy/0001111013043
+=== 0001111013044  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Pet Pride® Adult Wet Dog Food Variety Pack'
+             source 'Pet Pride® Adult Wet Dog Food Variety Pack'  same
+    prices   export {'regular_price': '10.99'}  source price text '$10.99$10.99'  regular_price shown
+    per unit export '$0.26/each'  source '$0.26/each'  same
+    also     weight '12 ct / 3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pet-pride-adult-wet-dog-food-variety-pack/0001111013044
+=== 0001111013055
+    not in this export
+=== 0001111013057  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'ABOUND® Pro Vet Formulated Puppy Wet Dog Food Chicken & Vegetable Stew'
+             source 'ABOUND® Pro Vet Formulated Puppy Wet Dog Food Chicken & Vegetable Stew'  same
+    prices   export {'regular_price': '2.69'}  source price text '$2.69$2.69'  regular_price shown
+    per unit export '$0.20/oz'  source '$0.20/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/abound-pro-vet-formulated-puppy-wet-dog-food-chicken-vegetable-stew/0001111013057
+=== 0001111013058  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Pet Pride® Adult Wet Dog Food Chicken & Rice Loaf'
+             source 'Pet Pride® Adult Wet Dog Food Chicken & Rice Loaf'  same
+    prices   export {'regular_price': '1.67'}  source price text '$1.67$1.67'  regular_price shown
+    per unit export '$0.13/oz'  source '$0.13/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pet-pride-adult-wet-dog-food-chicken-rice-loaf/0001111013058
+=== 0001111013060  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pet Pride® Adult Wet Dog Food New York Strip Flavor'
+             source 'Pet Pride® Adult Wet Dog Food New York Strip Flavor'  same
+    prices   export {'regular_price': '1.67'}  source price text '$1.67$1.67'  regular_price shown
+    per unit export '$0.13/oz'  source '$0.13/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pet-pride-adult-wet-dog-food-new-york-strip-flavor/0001111013060
+=== 0001111013087  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Pet Pride® High Protein Adult Dry Dog Food Beef & Lamb Flavor'
+             source 'Pet Pride® High Protein Adult Dry Dog Food Beef & Lamb Flavor'  same
+    prices   export {'regular_price': '16.99'}  source price text '$16.99$16.99'  regular_price shown
+    per unit export '$0.94/lb'  source '$0.94/lb'  same
+    also     weight '18 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pet-pride-high-protein-adult-dry-dog-food-beef-lamb-flavor/0001111013087
+=== 0001111013106
+    not in this export
+=== 0001111013107
+    not in this export
+=== 0001111013109  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'ABOUND® Pro Vet Formulated Healthy Weight Adult Dry Dog Food Chicken & Oatmeal'
+             source 'ABOUND® Pro Vet Formulated Healthy Weight Adult Dry Dog Food Chicken & Oatmeal'  same
+    prices   export {'regular_price': '18.99'}  source price text '$18.99$18.99'  regular_price shown
+    per unit export '$2.37/lb'  source '$2.37/lb'  same
+    also     weight '8 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/abound-pro-vet-formulated-healthy-weight-adult-dry-dog-food-chicken-oatmeal/0001111013109
+=== 0001111013181  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'ABOUND® Adult Dry Dog Food Lamb and Brown Rice with Avocado'
+             source 'ABOUND® Adult Dry Dog Food Lamb and Brown Rice with Avocado'  same
+    prices   export {'regular_price': '28.99'}  source price text '$28.99$28.99'  regular_price shown
+    per unit export '$1.93/lb'  source '$1.93/lb'  same
+    also     weight '15 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/abound-adult-dry-dog-food-lamb-and-brown-rice-with-avocado/0001111013181
+=== 0001111013182  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'ABOUND® All Life Stages Dry Dog Food Superfood Blend Salmon Egg and Pumpkin'
+             source 'ABOUND® All Life Stages Dry Dog Food Superfood Blend Salmon Egg and Pumpkin'  same
+    prices   export {'regular_price': '28.99'}  source price text '$28.99$28.99'  regular_price shown
+    per unit export '$1.93/lb'  source '$1.93/lb'  same
+    also     weight '15 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/abound-all-life-stages-dry-dog-food-superfood-blend-salmon-egg-and-pumpkin/0001111013182
+=== 0001111013185
+    not in this export
+=== 0001111013187
+    not in this export
+=== 0001111013188  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'ABOUND® All Life Stages Dry Dog Food Chicken & Brown Rice'
+             source 'ABOUND® All Life Stages Dry Dog Food Chicken & Brown Rice'  same
+    prices   export {'regular_price': '47.99'}  source price text '$47.99$47.99'  regular_price shown
+    per unit export '$1.60/lb'  source '$1.60/lb'  same
+    also     weight '30 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/abound-all-life-stages-dry-dog-food-chicken-brown-rice/0001111013188
+=== 0001111013214  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'ABOUND® Pro Vet Formulated Puppy Dry Dog Food Chicken and Brown Rice'
+             source 'ABOUND® Pro Vet Formulated Puppy Dry Dog Food Chicken and Brown Rice'  same
+    prices   export {'regular_price': '18.99'}  source price text '$18.99$18.99'  regular_price shown
+    per unit export '$2.37/lb'  source '$2.37/lb'  same
+    also     weight '8 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/abound-pro-vet-formulated-puppy-dry-dog-food-chicken-and-brown-rice/0001111013214
+=== 0001111086644  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'ABOUND® Grain Free Wet Dog Food Chicken Beef and Vegetable in Gravy'
+             source 'ABOUND® Grain Free Wet Dog Food Chicken Beef and Vegetable in Gravy'  same
+    prices   export {'regular_price': '2.79'}  source price text '$2.79$2.79'  regular_price shown
+    per unit export '$0.21/oz'  source '$0.21/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/abound-grain-free-wet-dog-food-chicken-beef-and-vegetable-in-gravy/0001111086644
+=== 0001111086645  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'ABOUND® Grain Free Wet Dog Food Chicken and Vegetables in Gravy'
+             source 'ABOUND® Grain Free Wet Dog Food Chicken and Vegetables in Gravy'  same
+    prices   export {'regular_price': '2.79'}  source price text '$2.79$2.79'  regular_price shown
+    per unit export '$0.21/oz'  source '$0.21/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/abound-grain-free-wet-dog-food-chicken-and-vegetables-in-gravy/0001111086645
+=== 0001262314211  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Supreme Source Grain-Free Super-Premium Salmon Meal and Sweet Potato Recipe Dog Food'
+             source 'Supreme Source Grain-Free Super-Premium Salmon Meal and Sweet Potato Recipe Dog Food'  same
+    prices   export {'regular_price': '10.99'}  source price text '$10.99$10.99'  regular_price shown
+    per unit export '$2.20/lb'  source '$2.20/lb'  same
+    also     weight '5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/supreme-source-grain-free-super-premium-salmon-meal-and-sweet-potato-recipe-dog-food/0001262314211
+=== 0001262314213  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Supreme Source Grain-Free Super-Premium Salmon Meal and Sweet Potato Recipe Dog Food'
+             source 'Supreme Source Grain-Free Super-Premium Salmon Meal and Sweet Potato Recipe Dog Food'  same
+    prices   export {'regular_price': '43.99'}  source price text '$43.99$43.99'  regular_price shown
+    per unit export '$2.00/lb'  source '$2.00/lb'  same
+    also     weight '22 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/supreme-source-grain-free-super-premium-salmon-meal-and-sweet-potato-recipe-dog-food/0001262314213
+=== 0001262314214  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Supreme Source Grain-Free Super-Premium Turkey Meal and Sweet Potato Recipe Dog Food'
+             source 'Supreme Source Grain-Free Super-Premium Turkey Meal and Sweet Potato Recipe Dog Food'  same
+    prices   export {'regular_price': '10.99'}  source price text '$10.99$10.99'  regular_price shown
+    per unit export '$2.20/lb'  source '$2.20/lb'  same
+    also     weight '5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/supreme-source-grain-free-super-premium-turkey-meal-and-sweet-potato-recipe-dog-food/0001262314214
+=== 0001262314216  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Supreme Source Grain-Free Super-Premium Turkey Meal and Sweet Potato Recipe Dog Food'
+             source 'Supreme Source Grain-Free Super-Premium Turkey Meal and Sweet Potato Recipe Dog Food'  same
+    prices   export {'regular_price': '43.99'}  source price text '$43.99$43.99'  regular_price shown
+    per unit export '$2.00/lb'  source '$2.00/lb'  same
+    also     weight '22 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/supreme-source-grain-free-super-premium-turkey-meal-and-sweet-potato-recipe-dog-food/0001262314216
+=== 0001780010045  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Puppy Chow High Protein Dry Puppy Food, Complete With Real Chicken and Rice'
+             source 'Puppy Chow High Protein Dry Puppy Food, Complete With Real Chicken and Rice'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$1.09/lb'  source '$1.09/lb'  same
+    also     weight '15 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/puppy-chow-high-protein-dry-puppy-food-complete-with-real-chicken-and-rice/0001780010045
+=== 0001780010048  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Puppy Chow High Protein Dry Puppy Food, Tender & Crunchy With Real Beef'
+             source 'Puppy Chow High Protein Dry Puppy Food, Tender & Crunchy With Real Beef'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$1.82/lb'  source '$1.82/lb'  same
+    also     weight '', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/puppy-chow-high-protein-dry-puppy-food-tender-crunchy-with-real-beef/0001780010048
+=== 0001780010322  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Beneful With Real Chicken and Peas in Gravy Wet Dog Food'
+             source 'Beneful With Real Chicken and Peas in Gravy Wet Dog Food'  same
+    prices   export {'regular_price': '1.39', 'sale_price': '1.25'}  source price text '$1.25$1.39Sale: $1.25 discounted from $1.39'  regular_price shown, sale_price shown
+    per unit export '$0.23/oz'  source '$0.23/oz'  same
+    also     weight '5.5 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-with-real-chicken-and-peas-in-gravy-wet-dog-food/0001780010322
+=== 0001780010331  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'ONE Plus Whole Body Support With Chicken Dry Dog Food'
+             source 'ONE Plus Whole Body Support With Chicken Dry Dog Food'  same
+    prices   export {'regular_price': '33.99'}  source price text '$33.99$33.99'  regular_price shown
+    per unit export '$2.06/lb'  source '$2.06/lb'  same
+    also     weight '16.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/one-plus-whole-body-support-with-chicken-dry-dog-food/0001780010331
+=== 0001780010332  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'ONE Plus Whole Body Support With Chicken Dry Dog Food'
+             source 'ONE Plus Whole Body Support With Chicken Dry Dog Food'  same
+    prices   export {'regular_price': '19.49'}  source price text '$19.49$19.49'  regular_price shown
+    per unit export '$2.44/lb'  source '$2.44/lb'  same
+    also     weight '8 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/one-plus-whole-body-support-with-chicken-dry-dog-food/0001780010332
+=== 0001780010336  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=10  observed 2026-11-17T04:01:58.309903Z  sha256 649f16c7976292fd75e9c8a2059c8f5b12fe9822d8fb65783e9f0be0e3e5e44b
+    title    export 'Beneful Freshly Prepared Classics Chicken Dinner with Carrots and Peas Loaf Dog Food'
+             source 'Beneful Freshly Prepared Classics Chicken Dinner with Carrots and Peas Loaf Dog Food'  same
+    prices   export {'regular_price': '3.29'}  source price text '$3.29$3.29'  regular_price shown
+    per unit export '$0.35/oz'  source '$0.35/oz'  same
+    also     weight '9.5 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-freshly-prepared-classics-chicken-dinner-with-carrots-and-peas-loaf-dog-food/0001780010336
+=== 0001780010340  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=10  observed 2026-11-17T04:01:58.309903Z  sha256 649f16c7976292fd75e9c8a2059c8f5b12fe9822d8fb65783e9f0be0e3e5e44b
+    title    export 'Beneful Turkey Wet Dog Food'
+             source 'Beneful Turkey Wet Dog Food'  same
+    prices   export {'regular_price': '3.29'}  source price text '$3.29$3.29'  regular_price shown
+    per unit export '$0.35/oz'  source '$0.35/oz'  same
+    also     weight '9.5 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-turkey-wet-dog-food/0001780010340
+=== 0001780010342  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Beneful Freshly Prepared Stews Chicken Dinner with Carrots and Rice Dog Food'
+             source 'Beneful Freshly Prepared Stews Chicken Dinner with Carrots and Rice Dog Food'  same
+    prices   export {'regular_price': '3.29'}  source price text '$3.29$3.29'  regular_price shown
+    per unit export '$0.35/oz'  source '$0.35/oz'  same
+    also     weight '9.5 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-freshly-prepared-stews-chicken-dinner-with-carrots-and-rice-dog-food/0001780010342
+=== 0001780010377  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=10  observed 2026-11-17T04:01:58.309903Z  sha256 649f16c7976292fd75e9c8a2059c8f5b12fe9822d8fb65783e9f0be0e3e5e44b
+    title    export 'Beneful Freshly Prepared Classics with Lamb, Chopped Kale, & Carrots Loaf Dog Food'
+             source 'Beneful Freshly Prepared Classics with Lamb, Chopped Kale, & Carrots Loaf Dog Food'  same
+    prices   export {'regular_price': '3.29'}  source price text '$3.29$3.29'  regular_price shown
+    per unit export '$0.35/oz'  source '$0.35/oz'  same
+    also     weight '9.5 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-freshly-prepared-classics-with-lamb-chopped-kale-carrots-loaf-dog-food/0001780010377
+=== 0001780010963
+    not in this export
+=== 0001780010964  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Beneful Dog Food Freshly Prepared Meals Simmered Chicken Medley with Carrots, Green Beans'
+             source 'Beneful Dog Food Freshly Prepared Meals Simmered Chicken Medley with Carrots, Green Beans'  same
+    prices   export {'regular_price': '3.19'}  source price text '$3.19$3.19'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '10 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-dog-food-freshly-prepared-meals-simmered-chicken-medley-with-carrots-green-beans/0001780010964
+=== 0001780010965  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Beneful Wet Dog Food Freshly Prepared Meals Beef Stew with Peas, Carrots, Rice, and Barley'
+             source 'Beneful Wet Dog Food Freshly Prepared Meals Beef Stew with Peas, Carrots, Rice, and Barley'  same
+    prices   export {'regular_price': '3.19'}  source price text '$3.19$3.19'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '10 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-wet-dog-food-freshly-prepared-meals-beef-stew-with-peas-carrots-rice-and-barley/0001780010965
+=== 0001780010967  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Beneful Wet Dog Food Freshly Prepared Meals Savory Rice and Lamb Stew with Peas and Carrots'
+             source 'Beneful Wet Dog Food Freshly Prepared Meals Savory Rice and Lamb Stew with Peas and Carrots'  same
+    prices   export {'regular_price': '3.19'}  source price text '$3.19$3.19'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '10 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-wet-dog-food-freshly-prepared-meals-savory-rice-and-lamb-stew-with-peas-and-carrots/0001780010967
+=== 0001780012592  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'ONE Classic Ground Beef and Brown Rice Entree Adult Wet Dog Food'
+             source 'ONE Classic Ground Beef and Brown Rice Entree Adult Wet Dog Food'  same
+    prices   export {'regular_price': '2.50'}  source price text '$2.50$2.50'  regular_price shown
+    per unit export '$0.19/oz'  source '$0.19/oz'  same
+    also     weight '13 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/one-classic-ground-beef-and-brown-rice-entree-adult-wet-dog-food/0001780012592
+=== 0001780012596  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'ONE Classic Ground Chicken and Brown Rice Entree Adult Wet Dog Food'
+             source 'ONE Classic Ground Chicken and Brown Rice Entree Adult Wet Dog Food'  same
+    prices   export {'regular_price': '2.50'}  source price text '$2.50$2.50'  regular_price shown
+    per unit export '$0.19/oz'  source '$0.19/oz'  same
+    also     weight '13 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/one-classic-ground-chicken-and-brown-rice-entree-adult-wet-dog-food/0001780012596
+=== 0001780012599  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Purina ONE Plus Puppy Wet Dog Food Classic Ground Lamb and Long Grain Rice'
+             source 'Purina ONE Plus Puppy Wet Dog Food Classic Ground Lamb and Long Grain Rice'  same
+    prices   export {'regular_price': '2.79'}  source price text '$2.79$2.79'  regular_price shown
+    per unit export '$0.21/oz'  source '$0.21/oz'  same
+    also     weight '13 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-plus-puppy-wet-dog-food-classic-ground-lamb-and-long-grain-rice/0001780012599
+=== 0001780013465  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Beneful Chicken Dry Dog Food'
+             source 'Beneful Chicken Dry Dog Food'  same
+    prices   export {'regular_price': '7.49'}  source price text '$7.49$7.49'  regular_price shown
+    per unit export '$2.14/lb'  source '$2.14/lb'  same
+    also     weight '3.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-chicken-dry-dog-food/0001780013465
+=== 0001780013483  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Beneful Originals With Farm-Raised Beef Natural Dog Food Dry Recipe With Added Vitamins'
+             source 'Beneful Originals With Farm-Raised Beef Natural Dog Food Dry Recipe With Added Vitamins'  same
+    prices   export {'regular_price': '7.49'}  source price text '$7.49$7.49'  regular_price shown
+    per unit export '$2.14/lb'  source '$2.14/lb'  same
+    also     weight '3.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-originals-with-farm-raised-beef-natural-dog-food-dry-recipe-with-added-vitamins/0001780013483
+=== 0001780013640  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Beneful Beef Dry Dog Food'
+             source 'Beneful Beef Dry Dog Food'  same
+    prices   export {'regular_price': '7.49'}  source price text '$7.49$7.49'  regular_price shown
+    per unit export '$2.14/lb'  source '$2.14/lb'  same
+    also     weight '3.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-beef-dry-dog-food/0001780013640
+=== 0001780014311  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Purina ONE Plus Healthy Weight Wet Dog Food Tender Cuts in Gravy Lamb and Brown Rice'
+             source 'Purina ONE Plus Healthy Weight Wet Dog Food Tender Cuts in Gravy Lamb and Brown Rice'  same
+    prices   export {'regular_price': '2.79'}  source price text '$2.79$2.79'  regular_price shown
+    per unit export '$0.21/oz'  source '$0.21/oz'  same
+    also     weight '13 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-plus-healthy-weight-wet-dog-food-tender-cuts-in-gravy-lamb-and-brown-rice/0001780014311
+=== 0001780014314  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'ONE Tender Cuts in Wet Dog Food Gravy Chicken and Brown Rice Entree'
+             source 'ONE Tender Cuts in Wet Dog Food Gravy Chicken and Brown Rice Entree'  same
+    prices   export {'regular_price': '2.50'}  source price text '$2.50$2.50'  regular_price shown
+    per unit export '$0.19/oz'  source '$0.19/oz'  same
+    also     weight '13 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/one-tender-cuts-in-wet-dog-food-gravy-chicken-and-brown-rice-entree/0001780014314
+=== 0001780014915  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Dog Chow Complete Adult Dry Dog Food Kibble With Chicken Flavor'
+             source 'Dog Chow Complete Adult Dry Dog Food Kibble With Chicken Flavor'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$0.97/lb'  source '$0.97/lb'  same
+    also     weight '18.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/dog-chow-complete-adult-dry-dog-food-kibble-with-chicken-flavor/0001780014915
+=== 0001780014920  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'ONE Turkey Dry Dog Food'
+             source 'ONE Turkey Dry Dog Food'  same
+    prices   export {'regular_price': '33.99'}  source price text '$33.99$33.99'  regular_price shown
+    per unit export '$2.06/lb'  source '$2.06/lb'  same
+    also     weight '16.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/one-turkey-dry-dog-food/0001780014920
+=== 0001780014923  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'ONE Plus High-Protein Large Breed Dog Food with Real chicken, Adult Dry Dog Food'
+             source 'ONE Plus High-Protein Large Breed Dog Food with Real chicken, Adult Dry Dog Food'  same
+    prices   export {'regular_price': '50.99'}  source price text '$50.99$50.99'  regular_price shown
+    per unit export '$1.64/lb'  source '$1.64/lb'  same
+    also     weight '31.1 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/one-plus-high-protein-large-breed-dog-food-with-real-chicken-adult-dry-dog-food/0001780014923
+=== 0001780014929  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Purina ONE Small Bites Beef & Rice Natural Dog Food'
+             source 'Purina ONE Small Bites Beef & Rice Natural Dog Food'  same
+    prices   export {'regular_price': '31.49'}  source price text '$31.49$31.49'  regular_price shown
+    per unit export '$1.91/lb'  source '$1.91/lb'  same
+    also     weight '16.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-small-bites-beef-rice-natural-dog-food/0001780014929
+=== 0001780014932  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Purina ONE Plus High Protein Senior Dry Dog Food Vibrant Maturity'
+             source 'Purina ONE Plus High Protein Senior Dry Dog Food Vibrant Maturity'  same
+    prices   export {'regular_price': '33.99'}  source price text '$33.99$33.99'  regular_price shown
+    per unit export '$2.06/lb'  source '$2.06/lb'  same
+    also     weight '16.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-plus-high-protein-senior-dry-dog-food-vibrant-maturity/0001780014932
+=== 0001780014937  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Natural Dog Food, Chicken and Rice Formula Dry Dog food for Digestive and Gut Health Support'
+             source 'Natural Dog Food, Chicken and Rice Formula Dry Dog food for Digestive and Gut Health Support'  same
+    prices   export {'regular_price': '31.49'}  source price text '$31.49$31.49'  regular_price shown
+    per unit export '$1.91/lb'  source '$1.91/lb'  same
+    also     weight '16.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780014937
+=== 0001780014939
+    not in this export
+=== 0001780014940  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Purina ONE Natural Dog Food, Lamb and Rice Formula Dry Dog'
+             source 'Purina ONE Natural Dog Food, Lamb and Rice Formula Dry Dog'  same
+    prices   export {'regular_price': '31.49'}  source price text '$31.49$31.49'  regular_price shown
+    per unit export '$1.91/lb'  source '$1.91/lb'  same
+    also     weight '16.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-natural-dog-food-lamb-and-rice-formula-dry-dog/0001780014940
+=== 0001780014941
+    not in this export
+=== 0001780015103  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Beneful Freshly Prepared Meals Beef Stew/Chicken Stew/Savory Rice & Lamb Stew Dog Food'
+             source 'Beneful Freshly Prepared Meals Beef Stew/Chicken Stew/Savory Rice & Lamb Stew Dog Food'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$0.30/oz'  source '$0.30/oz'  same
+    also     weight '60 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-freshly-prepared-meals-beef-stew-chicken-stew-savory-rice-lamb-stew-dog-food/0001780015103
+=== 0001780015452  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'ONE True Instinct With A Blend Of Real Turkey and Venison Dry Dog Food'
+             source 'ONE True Instinct With A Blend Of Real Turkey and Venison Dry Dog Food'  same
+    prices   export {'regular_price': '36.99'}  source price text '$36.99$36.99'  regular_price shown
+    per unit export '$2.47/lb'  source '$2.47/lb'  same
+    also     weight '15 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/one-true-instinct-with-a-blend-of-real-turkey-and-venison-dry-dog-food/0001780015452
+=== 0001780015456  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Purina ONE True Instinct Dry Dog Food With Real Turkey and Venison'
+             source 'Purina ONE True Instinct Dry Dog Food With Real Turkey and Venison'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$2.70/lb'  source '$2.70/lb'  same
+    also     weight '7.4 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-true-instinct-dry-dog-food-with-real-turkey-and-venison/0001780015456
+=== 0001780015496  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Beneful Freshly Prepared Blends Wet Dog Food With Chicken, Carrots, Peas and Wild Rice'
+             source 'Beneful Freshly Prepared Blends Wet Dog Food With Chicken, Carrots, Peas and Wild Rice'  same
+    prices   export {'regular_price': '3.19'}  source price text '$3.19$3.19'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '10 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-freshly-prepared-blends-wet-dog-food-with-chicken-carrots-peas-and-wild-rice/0001780015496
+=== 0001780015947  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Beneful Small Breed Wet Dog Food With Gravy, IncrediBites with Real Beef'
+             source 'Beneful Small Breed Wet Dog Food With Gravy, IncrediBites with Real Beef'  same
+    prices   export {'regular_price': '3.29'}  source price text '$3.29$3.29'  regular_price shown
+    per unit export '$0.37/oz'  source '$0.37/oz'  same
+    also     weight '9 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-small-breed-wet-dog-food-with-gravy-incredibites-with-real-beef/0001780015947
+=== 0001780016627  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Beneful Freshly Prepared Blends Wet Dog Food Variety Pack With Beef, Chicken, or Lamb Dog Food'
+             source 'Beneful Freshly Prepared Blends Wet Dog Food Variety Pack With Beef, Chicken, or Lamb Dog Food'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$0.30/oz'  source '$0.30/oz'  same
+    also     weight '60 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-freshly-prepared-blends-wet-dog-food-variety-pack-with-beef-chicken-or-lamb-dog-food/0001780016627
+=== 0001780016951  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=10  observed 2026-11-17T04:01:58.309903Z  sha256 649f16c7976292fd75e9c8a2059c8f5b12fe9822d8fb65783e9f0be0e3e5e44b
+    title    export 'Beneful High-quality protein Gravy Wet Dog Food Variety Pack Freshly Prepared Meals Stew'
+             source 'Beneful High-quality protein Gravy Wet Dog Food Variety Pack Freshly Prepared Meals Stew'  same
+    prices   export {'regular_price': '33.99'}  source price text '$33.99$33.99'  regular_price shown
+    per unit export '$0.28/oz'  source '$0.28/oz'  same
+    also     weight '7.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-high-quality-protein-gravy-wet-dog-food-variety-pack-freshly-prepared-meals-stew/0001780016951
+=== 0001780017150  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'ONE Wet Dog Food, Tender Cuts in Gravy'
+             source 'ONE Wet Dog Food, Tender Cuts in Gravy'  same
+    prices   export {'regular_price': '12.99'}  source price text '$12.99$12.99'  regular_price shown
+    per unit export '$0.17/oz'  source '$0.17/oz'  same
+    also     weight '4.88 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/one-wet-dog-food-tender-cuts-in-gravy/0001780017150
+=== 0001780017583  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Purina ONE True Instinct High Protein Wet Dog Food Tender Cuts in Gravy With Real Turkey and Venison'
+             source 'Purina ONE True Instinct High Protein Wet Dog Food Tender Cuts in Gravy With Real Turkey and Venison'  same
+    prices   export {'regular_price': '2.79'}  source price text '$2.79$2.79'  regular_price shown
+    per unit export '$0.21/oz'  source '$0.21/oz'  same
+    also     weight '13 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-true-instinct-high-protein-wet-dog-food-tender-cuts-in-gravy-with-real-turkey-and-venison/0001780017583
+=== 0001780017675  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Purina ONE True Instinct Natural Grain Free Wet Dog Food Chicken Duck Turkey Venison Variety Pack'
+             source 'Purina ONE True Instinct Natural Grain Free Wet Dog Food Chicken Duck Turkey Venison Variety Pack'  same
+    prices   export {'regular_price': '15.99'}  source price text '$15.99$15.99'  regular_price shown
+    per unit export '$0.20/oz'  source '$0.20/oz'  same
+    also     weight '4.88 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-true-instinct-natural-grain-free-wet-dog-food-chicken-duck-turkey-venison-variety-pack/0001780017675
+=== 0001780017828  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Dog Chow Complete Adult Dry Dog Food Kibble Beef Flavor'
+             source 'Dog Chow Complete Adult Dry Dog Food Kibble Beef Flavor'  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$0.97/lb'  source '$0.97/lb'  same
+    also     weight '18.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/dog-chow-complete-adult-dry-dog-food-kibble-beef-flavor/0001780017828
+=== 0001780017859  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Purina ONE True Instinct High Protein Wet Dog Food Tender Cuts in Gravy With Beef and Salmon'
+             source 'Purina ONE True Instinct High Protein Wet Dog Food Tender Cuts in Gravy With Beef and Salmon'  same
+    prices   export {'regular_price': '2.79'}  source price text '$2.79$2.79'  regular_price shown
+    per unit export '$0.21/oz'  source '$0.21/oz'  same
+    also     weight '13 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-true-instinct-high-protein-wet-dog-food-tender-cuts-in-gravy-with-beef-and-salmon/0001780017859
+=== 0001780017966  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Beneful Freshly Prepared Blends Wet Dog Food Variety Pack With Beef, Chicken, or Lamb Dog Food'
+             source 'Beneful Freshly Prepared Blends Wet Dog Food Variety Pack With Beef, Chicken, or Lamb Dog Food'  same
+    prices   export {'regular_price': '33.99'}  source price text '$33.99$33.99'  regular_price shown
+    per unit export '$0.28/oz'  source '$0.28/oz'  same
+    also     weight '7.5 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-freshly-prepared-blends-wet-dog-food-variety-pack-with-beef-chicken-or-lamb-dog-food/0001780017966
+=== 0001780018440  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Beneful Originals With Farm-Raised Beef Natural Dog Food Dry Recipe With Added Vitamins'
+             source 'Beneful Originals With Farm-Raised Beef Natural Dog Food Dry Recipe With Added Vitamins'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$1.43/lb'  source '$1.43/lb'  same
+    also     weight '14 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-originals-with-farm-raised-beef-natural-dog-food-dry-recipe-with-added-vitamins/0001780018440
+=== 0001780018444  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Beneful Chicken Dry Dog Food'
+             source 'Beneful Chicken Dry Dog Food'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$1.43/lb'  source '$1.43/lb'  same
+    also     weight '14 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-chicken-dry-dog-food/0001780018444
+=== 0001780018447  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Beneful Originals With Natural Salmon Natural Dog Food Dry Formula With Added Vitamins'
+             source 'Beneful Originals With Natural Salmon Natural Dog Food Dry Formula With Added Vitamins'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$1.43/lb'  source '$1.43/lb'  same
+    also     weight '14 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-originals-with-natural-salmon-natural-dog-food-dry-formula-with-added-vitamins/0001780018447
+=== 0001780018456  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Beneful Beef Dry Dog Food'
+             source 'Beneful Beef Dry Dog Food'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$1.43/lb'  source '$1.43/lb'  same
+    also     weight '14 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-beef-dry-dog-food/0001780018456
+=== 0001780019024  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Purina ONE True Instinct Wet Dog Food Classic Ground Grain-Free Formula With Real Beef and Bison'
+             source 'Purina ONE True Instinct Wet Dog Food Classic Ground Grain-Free Formula With Real Beef and Bison'  same
+    prices   export {'regular_price': '2.79'}  source price text '$2.79$2.79'  regular_price shown
+    per unit export '$0.21/oz'  source '$0.21/oz'  same
+    also     weight '13 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-true-instinct-wet-dog-food-classic-ground-grain-free-formula-with-real-beef-and-bison/0001780019024
+=== 0001780019026  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Purina ONE True Instinct High Protein Wet Dog Food Tender Cuts in Gravy With Real Beef and Bison'
+             source 'Purina ONE True Instinct High Protein Wet Dog Food Tender Cuts in Gravy With Real Beef and Bison'  same
+    prices   export {'regular_price': '2.79'}  source price text '$2.79$2.79'  regular_price shown
+    per unit export '$0.21/oz'  source '$0.21/oz'  same
+    also     weight '13 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/purina-one-true-instinct-high-protein-wet-dog-food-tender-cuts-in-gravy-with-real-beef-and-bison/0001780019026
+=== 0001780019083  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Beneful Kitchen Creations With Beef, Chicken, or Lamb Wet Dog Food Variety Pack'
+             source 'Beneful Kitchen Creations With Beef, Chicken, or Lamb Wet Dog Food Variety Pack'  same
+    prices   export {'regular_price': '29.99'}  source price text '$29.99$29.99'  regular_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '5.63 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/beneful-kitchen-creations-with-beef-chicken-or-lamb-wet-dog-food-variety-pack/0001780019083
+=== 0001780019084
+    not in this export
+=== 0001780047568  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Natural Dog Food, Chicken and Rice Formula Dry Dog food for Digestive and Gut Health Support'
+             source 'Natural Dog Food, Chicken and Rice Formula Dry Dog food for Digestive and Gut Health Support'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$2.50/lb'  source '$2.50/lb'  same
+    also     weight '8 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/natural-dog-food-chicken-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780047568
+=== 0001780057312  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'ONE Natural Dog Food, Lamb and Rice Formula Dry Dog food for Digestive and Gut Health Support'
+             source 'ONE Natural Dog Food, Lamb and Rice Formula Dry Dog food for Digestive and Gut Health Support'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$2.50/lb'  source '$2.50/lb'  same
+    also     weight '8 lb.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/one-natural-dog-food-lamb-and-rice-formula-dry-dog-food-for-digestive-and-gut-health-support/0001780057312
+=== 0001901401329  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Iams Proactive Health Adult Canned Wet Dog Food Classic Ground with Chicken and Whole Grain Rice'
+             source 'Iams Proactive Health Adult Canned Wet Dog Food Classic Ground with Chicken and Whole Grain Rice'  same
+    prices   export {'regular_price': '2.99', 'sale_price': '2.50'}  source price text '$2.50$2.99Sale: $2.50 discounted from $2.99'  regular_price shown, sale_price shown
+    per unit export '$0.19/oz'  source '$0.19/oz'  same
+    also     weight '13 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-adult-canned-wet-dog-food-classic-ground-with-chicken-and-whole-grain-rice/0001901401329
+=== 0001901401331  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Iams Proactive Health Adult Canned Wet Dog Food Classic Ground with Lamb & Rice'
+             source 'Iams Proactive Health Adult Canned Wet Dog Food Classic Ground with Lamb & Rice'  same
+    prices   export {'regular_price': '2.99', 'sale_price': '2.50'}  source price text '$2.50$2.99Sale: $2.50 discounted from $2.99'  regular_price shown, sale_price shown
+    per unit export '$0.19/oz'  source '$0.19/oz'  same
+    also     weight '13 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-adult-canned-wet-dog-food-classic-ground-with-lamb-rice/0001901401331
+=== 0001901402519  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Iams Proactive Health Healthy Senior Wet Dog Food Aging Classic Ground Slow Cooked Chicken & Rice'
+             source 'Iams Proactive Health Healthy Senior Wet Dog Food Aging Classic Ground Slow Cooked Chicken & Rice'  same
+    prices   export {'regular_price': '2.99', 'sale_price': '2.50'}  source price text '$2.50$2.99Sale: $2.50 discounted from $2.99'  regular_price shown, sale_price shown
+    per unit export '$0.19/oz'  source '$0.19/oz'  same
+    also     weight '13 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-healthy-senior-wet-dog-food-aging-classic-ground-slow-cooked-chicken-rice/0001901402519
+=== 0001901402520  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Iams Proactive Health Adult Canned Wet Dog Food Beef Rice Carrots & Green Beans Chunks in Gravy'
+             source 'Iams Proactive Health Adult Canned Wet Dog Food Beef Rice Carrots & Green Beans Chunks in Gravy'  same
+    prices   export {'regular_price': '2.99', 'sale_price': '2.50'}  source price text '$2.50$2.99Sale: $2.50 discounted from $2.99'  regular_price shown, sale_price shown
+    per unit export '$0.19/oz'  source '$0.19/oz'  same
+    also     weight '13 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-adult-canned-wet-dog-food-beef-rice-carrots-green-beans-chunks-in-gravy/0001901402520
+=== 0001901461090  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Iams Proactive Health Minichunks Adult Small Kibble Dry Dog Food Real Chicken Flavor'
+             source 'Iams Proactive Health Minichunks Adult Small Kibble Dry Dog Food Real Chicken Flavor'  same
+    prices   export {'regular_price': '30.99'}  source price text '$30.99$30.99'  regular_price shown
+    per unit export '$2.07/lb'  source '$2.07/lb'  same
+    also     weight '15 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-minichunks-adult-small-kibble-dry-dog-food-real-chicken-flavor/0001901461090
+=== 0001901461097
+    not in this export
+=== 0001901461206  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Iams Proactive Health Healthy Aging Dry Senior Dog Food Real Chicken Flavor'
+             source 'Iams Proactive Health Healthy Aging Dry Senior Dog Food Real Chicken Flavor'  same
+    prices   export {'regular_price': '30.99'}  source price text '$30.99$30.99'  regular_price shown
+    per unit export '$2.07/lb'  source '$2.07/lb'  same
+    also     weight '15 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-healthy-aging-dry-senior-dog-food-real-chicken-flavor/0001901461206
+=== 0001901470071
+    not in this export
+=== 0001901470705  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'IAMS Proactive Health Adult Wet Dog Food Classic Ground with Chicken and Whole Grain Rice'
+             source 'IAMS Proactive Health Adult Wet Dog Food Classic Ground with Chicken and Whole Grain Rice'  same
+    prices   export {'regular_price': '14.99'}  source price text '$14.99$14.99'  regular_price shown
+    per unit export '$0.19/oz'  source '$0.19/oz'  same
+    also     weight '6 ct / 13 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-adult-wet-dog-food-classic-ground-with-chicken-and-whole-grain-rice/0001901470705
+=== 0001901480331
+    not in this export
+=== 0001901480443  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Iams Proactive Health Healthy Aging Large Breed Dry Senior Dog Food Real Chicken Flavor'
+             source 'Iams Proactive Health Healthy Aging Large Breed Dry Senior Dog Food Real Chicken Flavor'  same
+    prices   export {'regular_price': '30.99'}  source price text '$30.99$30.99'  regular_price shown
+    per unit export '$2.07/lb'  source '$2.07/lb'  same
+    also     weight '15 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-healthy-aging-large-breed-dry-senior-dog-food-real-chicken-flavor/0001901480443
+=== 0001901480816  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'IAMS Proactive Health Adult Dry Dog Food Beef and Rice Recipe'
+             source 'IAMS Proactive Health Adult Dry Dog Food Beef and Rice Recipe'  same
+    prices   export {'regular_price': '30.99'}  source price text '$30.99$30.99'  regular_price shown
+    per unit export '$2.07/lb'  source '$2.07/lb'  same
+    also     weight '15 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-adult-dry-dog-food-beef-and-rice-recipe/0001901480816
+=== 0001901483006  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'IAMS ADVANCED HEALTH Healthy Digestion Adult Dry Dog Food with Real Chicken'
+             source 'IAMS ADVANCED HEALTH Healthy Digestion Adult Dry Dog Food with Real Chicken'  same
+    prices   export {'regular_price': '11.49'}  source price text '$11.49$11.49'  regular_price shown
+    per unit export '$2.55/lb'  source '$2.55/lb'  same
+    also     weight '4.5 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-advanced-health-healthy-digestion-adult-dry-dog-food-with-real-chicken/0001901483006
+=== 0001901483010  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'IAMS Proactive Health Adult Minichunks Dry Dog Food Chicken & Whole Grain Recipe'
+             source 'IAMS Proactive Health Adult Minichunks Dry Dog Food Chicken & Whole Grain Recipe'  same
+    prices   export {'regular_price': '11.49'}  source price text '$11.49$11.49'  regular_price shown
+    per unit export '$2.30/lb'  source '$2.30/lb'  same
+    also     weight '5 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-adult-minichunks-dry-dog-food-chicken-whole-grain-recipe/0001901483010
+=== 0001901483023
+    not in this export
+=== 0001901483036
+    not in this export
+=== 0001901483109  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=10  observed 2026-11-17T04:01:58.309903Z  sha256 649f16c7976292fd75e9c8a2059c8f5b12fe9822d8fb65783e9f0be0e3e5e44b
+    title    export 'IAMS Proactive Health Sensitive Skin & Stomach Adult Dry Dog Food Salmon Recipe, 13.5 lb Bag'
+             source 'IAMS Proactive Health Sensitive Skin & Stomach Adult Dry Dog Food Salmon Recipe, 13.5 lb Bag'  same
+    prices   export {'regular_price': '30.99'}  source price text '$30.99$30.99'  regular_price shown
+    per unit export '$2.30/lb'  source '$2.30/lb'  same
+    also     weight '13.5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/iams-proactive-health-sensitive-skin-stomach-adult-dry-dog-food-salmon-recipe-13-5-lb-bag/0001901483109
+=== 0002310001004  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Beef'
+             source 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Beef'  same
+    prices   export {'regular_price': '2.25'}  source price text '$2.25$2.25'  regular_price shown
+    per unit export '$0.17/oz'  source '$0.17/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-canned-soft-wet-dog-food-beef/0002310001004
+=== 0002310001006  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Beef'
+             source 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Beef'  same
+    prices   export {'regular_price': '3.49'}  source price text '$3.49$3.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '22 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-canned-soft-wet-dog-food-beef/0002310001006
+=== 0002310001017  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Beef Bacon & Cheese'
+             source 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Beef Bacon & Cheese'  same
+    prices   export {'regular_price': '2.25'}  source price text '$2.25$2.25'  regular_price shown
+    per unit export '$0.17/oz'  source '$0.17/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-canned-soft-wet-dog-food-beef-bacon-cheese/0002310001017
+=== 0002310001075  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Chicken'
+             source 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Chicken'  same
+    prices   export {'regular_price': '2.25'}  source price text '$2.25$2.25'  regular_price shown
+    per unit export '$0.17/oz'  source '$0.17/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-canned-soft-wet-dog-food-chicken/0002310001075
+=== 0002310001076  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Chicken'
+             source 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Chicken'  same
+    prices   export {'regular_price': '3.49'}  source price text '$3.49$3.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '22 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-canned-soft-wet-dog-food-chicken/0002310001076
+=== 0002310001077  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=10  observed 2026-11-17T04:01:58.309903Z  sha256 649f16c7976292fd75e9c8a2059c8f5b12fe9822d8fb65783e9f0be0e3e5e44b
+    title    export 'Pedigree® Chopped Ground Dinner Combo with Chicken Liver & Beef Adult Wet Dog Food'
+             source 'Pedigree® Chopped Ground Dinner Combo with Chicken Liver & Beef Adult Wet Dog Food'  same
+    prices   export {'regular_price': '2.49'}  source price text '$2.49$2.49'  regular_price shown
+    per unit export '$0.19/oz'  source '$0.19/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-combo-with-chicken-liver-beef-adult-wet-dog-food/0002310001077
+=== 0002310001401  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Cesar Adult Soft Wet Dog Food Beef Recipe Loaf in Sauce'
+             source 'Cesar Adult Soft Wet Dog Food Beef Recipe Loaf in Sauce'  same
+    prices   export {'regular_price': '1.59'}  source price text '$1.59$1.59'  regular_price shown
+    per unit export '$0.45/oz'  source '$0.45/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-adult-soft-wet-dog-food-beef-recipe-loaf-in-sauce/0002310001401
+=== 0002310001508  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Choice Cuts In Gravy Adult Canned Soft Wet Dog Food Country Stew'
+             source 'Pedigree Choice Cuts In Gravy Adult Canned Soft Wet Dog Food Country Stew'  same
+    prices   export {'regular_price': '2.25'}  source price text '$2.25$2.25'  regular_price shown
+    per unit export '$0.17/oz'  source '$0.17/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-choice-cuts-in-gravy-adult-canned-soft-wet-dog-food-country-stew/0002310001508
+=== 0002310001527  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Pedigree Choice Cuts in Gravy Adult Canned Soft Wet Dog Food Beef'
+             source 'Pedigree Choice Cuts in Gravy Adult Canned Soft Wet Dog Food Beef'  same
+    prices   export {'regular_price': '2.25'}  source price text '$2.25$2.25'  regular_price shown
+    per unit export '$0.17/oz'  source '$0.17/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-choice-cuts-in-gravy-adult-canned-soft-wet-dog-food-beef/0002310001527
+=== 0002310001530  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Pedigree Choice Cuts In Gravy Adult Canned Soft Wet Dog Food Beef'
+             source 'Pedigree Choice Cuts In Gravy Adult Canned Soft Wet Dog Food Beef'  same
+    prices   export {'regular_price': '3.49'}  source price text '$3.49$3.49'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '22 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-choice-cuts-in-gravy-adult-canned-soft-wet-dog-food-beef/0002310001530
+=== 0002310001779  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Cesar Classic Adult Soft Wet Dog Food Filet Mignon Loaf in Sauce'
+             source 'Cesar Classic Adult Soft Wet Dog Food Filet Mignon Loaf in Sauce'  same
+    prices   export {'regular_price': '1.59'}  source price text '$1.59$1.59'  regular_price shown
+    per unit export '$0.45/oz'  source '$0.45/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-classic-adult-soft-wet-dog-food-filet-mignon-loaf-in-sauce/0002310001779
+=== 0002310001907  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Chicken & Rice'
+             source 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Chicken & Rice'  same
+    prices   export {'regular_price': '2.25'}  source price text '$2.25$2.25'  regular_price shown
+    per unit export '$0.17/oz'  source '$0.17/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-canned-soft-wet-dog-food-chicken-rice/0002310001907
+=== 0002310002451  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Cesar Adult Soft Wet Dog Food Porterhouse Steak Classic Loaf in Sauce'
+             source 'Cesar Adult Soft Wet Dog Food Porterhouse Steak Classic Loaf in Sauce'  same
+    prices   export {'regular_price': '1.59'}  source price text '$1.59$1.59'  regular_price shown
+    per unit export '$0.45/oz'  source '$0.45/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-adult-soft-wet-dog-food-porterhouse-steak-classic-loaf-in-sauce/0002310002451
+=== 0002310002452  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Cesar Adult Soft Wet Dog Food Grilled Chicken Classic Loaf in Sauce'
+             source 'Cesar Adult Soft Wet Dog Food Grilled Chicken Classic Loaf in Sauce'  same
+    prices   export {'regular_price': '1.59'}  source price text '$1.59$1.59'  regular_price shown
+    per unit export '$0.45/oz'  source '$0.45/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-adult-soft-wet-dog-food-grilled-chicken-classic-loaf-in-sauce/0002310002452
+=== 0002310002607  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Cesar Soft Wet Puppy Food Chicken & Beef Recipe Classic Loaf in Sauce'
+             source 'Cesar Soft Wet Puppy Food Chicken & Beef Recipe Classic Loaf in Sauce'  same
+    prices   export {'regular_price': '1.59'}  source price text '$1.59$1.59'  regular_price shown
+    per unit export '$0.45/oz'  source '$0.45/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-soft-wet-puppy-food-chicken-beef-recipe-classic-loaf-in-sauce/0002310002607
+=== 0002310003320  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Chicken Liver Beef & Beef Bacon Cheese'
+             source 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Chicken Liver Beef & Beef Bacon Cheese'  same
+    prices   export {'regular_price': '24.99'}  source price text '$24.99$24.99'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '12 ct / 13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-canned-soft-wet-dog-food-chicken-liver-beef-beef-bacon-cheese/0002310003320
+=== 0002310003321  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Pedigree Choice Cuts In Gravy Adult Canned Soft Wet Dog Food Beef & Country Stew Variety Pack'
+             source 'Pedigree Choice Cuts In Gravy Adult Canned Soft Wet Dog Food Beef & Country Stew Variety Pack'  same
+    prices   export {'regular_price': '24.99'}  source price text '$24.99$24.99'  regular_price shown
+    per unit export '$0.16/oz'  source '$0.16/oz'  same
+    also     weight '12 ct / 13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-choice-cuts-in-gravy-adult-canned-soft-wet-dog-food-beef-country-stew-variety-pack/0002310003321
+=== 0002310010257
+    not in this export
+=== 0002310010269  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Cesar Adult Wet Dog Food Rotisserie Chicken with Bacon & Cheese Loaf & Topper in Sauce'
+             source 'Cesar Adult Wet Dog Food Rotisserie Chicken with Bacon & Cheese Loaf & Topper in Sauce'  same
+    prices   export {'regular_price': '1.59'}  source price text '$1.59$1.59'  regular_price shown
+    per unit export '$0.45/oz'  source '$0.45/oz'  same
+    also     weight '3.5 ounce', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-adult-wet-dog-food-rotisserie-chicken-with-bacon-cheese-loaf-topper-in-sauce/0002310010269
+=== 0002310010364  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Pedigree Small Dog Adult Dry Dog Food Chicken Rice and Vegetable Flavor'
+             source 'Pedigree Small Dog Adult Dry Dog Food Chicken Rice and Vegetable Flavor'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$2.28/lb'  source '$2.28/lb'  same
+    also     weight '3.5 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-small-dog-adult-dry-dog-food-chicken-rice-and-vegetable-flavor/0002310010364
+=== 0002310010365  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Pedigree Puppy Dry Puppy Food Chicken and Vegetable Flavor'
+             source 'Pedigree Puppy Dry Puppy Food Chicken and Vegetable Flavor'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$2.28/lb'  source '$2.28/lb'  same
+    also     weight '3.5 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-puppy-dry-puppy-food-chicken-and-vegetable-flavor/0002310010365
+=== 0002310010495  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Cesar Soft Wet Dog Food Rotisserie Chicken Bacon & Cheese Filet Mignon Bacon & Potato Variety Pack'
+             source 'Cesar Soft Wet Dog Food Rotisserie Chicken Bacon & Cheese Filet Mignon Bacon & Potato Variety Pack'  same
+    prices   export {'regular_price': '18.49'}  source price text '$18.49$18.49'  regular_price shown
+    per unit export '$0.44/oz'  source '$0.44/oz'  same
+    also     weight '12 ct / 3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-soft-wet-dog-food-rotisserie-chicken-bacon-cheese-filet-mignon-bacon-potato-variety-pack/0002310010495
+=== 0002310010515  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Cesar Adult Soft Wet Dog Food Angus Beef Bacon & Cheese Loaf & Topper In Sauce'
+             source 'Cesar Adult Soft Wet Dog Food Angus Beef Bacon & Cheese Loaf & Topper In Sauce'  same
+    prices   export {'regular_price': '1.59'}  source price text '$1.59$1.59'  regular_price shown
+    per unit export '$0.45/oz'  source '$0.45/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-adult-soft-wet-dog-food-angus-beef-bacon-cheese-loaf-topper-in-sauce/0002310010515
+=== 0002310010652  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Cesar Adult Soft Wet Dog Food Breakfast and Dinner Mealtime Classic Loaf in Sauce Variety Pack'
+             source 'Cesar Adult Soft Wet Dog Food Breakfast and Dinner Mealtime Classic Loaf in Sauce Variety Pack'  same
+    prices   export {'regular_price': '18.49'}  source price text '$18.49$18.49'  regular_price shown
+    per unit export '$0.44/oz'  source '$0.44/oz'  same
+    also     weight '12 ct / 3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-adult-soft-wet-dog-food-breakfast-and-dinner-mealtime-classic-loaf-in-sauce-variety-pack/0002310010652
+=== 0002310010835  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Cesar Home Delights Adult Soft Wet Dog Food Slow Cooked Chicken & Vegetables'
+             source 'Cesar Home Delights Adult Soft Wet Dog Food Slow Cooked Chicken & Vegetables'  same
+    prices   export {'regular_price': '1.59'}  source price text '$1.59$1.59'  regular_price shown
+    per unit export '$0.45/oz'  source '$0.45/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-home-delights-adult-soft-wet-dog-food-slow-cooked-chicken-vegetables/0002310010835
+=== 0002310010881
+    not in this export
+=== 0002310011034  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Small Dog Adult Dry Dog Food Grilled Steak and Vegetable Flavor'
+             source 'Pedigree Small Dog Adult Dry Dog Food Grilled Steak and Vegetable Flavor'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$2.28/lb'  source '$2.28/lb'  same
+    also     weight '3.5 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-small-dog-adult-dry-dog-food-grilled-steak-and-vegetable-flavor/0002310011034
+=== 0002310011116  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Filet Mignon'
+             source 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Filet Mignon'  same
+    prices   export {'regular_price': '2.25'}  source price text '$2.25$2.25'  regular_price shown
+    per unit export '$0.17/oz'  source '$0.17/oz'  same
+    also     weight '13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-canned-soft-wet-dog-food-filet-mignon/0002310011116
+=== 0002310011437  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Cesar Home Delights Soft Wet Dog Food Beef Stew Chicken Noodle Pot Roast & Turkey Variety Pack'
+             source 'Cesar Home Delights Soft Wet Dog Food Beef Stew Chicken Noodle Pot Roast & Turkey Variety Pack'  same
+    prices   export {'regular_price': '34.99'}  source price text '$34.99$34.99'  regular_price shown
+    per unit export '$0.42/oz'  source '$0.42/oz'  same
+    also     weight '24 ct / 3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-home-delights-soft-wet-dog-food-beef-stew-chicken-noodle-pot-roast-turkey-variety-pack/0002310011437
+=== 0002310011627  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Cesar Small Breed Dry Dog Food Filet Mignon Flavor with Spring Vegetables Garnish'
+             source 'Cesar Small Breed Dry Dog Food Filet Mignon Flavor with Spring Vegetables Garnish'  same
+    prices   export {'regular_price': '14.49'}  source price text '$14.49$14.49'  regular_price shown
+    per unit export '$2.90/lb'  source '$2.90/lb'  same
+    also     weight '5 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-small-breed-dry-dog-food-filet-mignon-flavor-with-spring-vegetables-garnish/0002310011627
+=== 0002310011630  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'CESAR Small Breed Dry Dog Food Filet Mignon Flavor with Spring Vegetables Garnish'
+             source 'CESAR Small Breed Dry Dog Food Filet Mignon Flavor with Spring Vegetables Garnish'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$1.67/lb'  source '$1.67/lb'  same
+    also     weight '12 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-small-breed-dry-dog-food-filet-mignon-flavor-with-spring-vegetables-garnish/0002310011630
+=== 0002310011801  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Chopped Ground Dinner Adult Soft Wet Dog Food Pouch With Hearty Chicken'
+             source 'Pedigree Chopped Ground Dinner Adult Soft Wet Dog Food Pouch With Hearty Chicken'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.34/oz'  source '$0.34/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-soft-wet-dog-food-pouch-with-hearty-chicken/0002310011801
+=== 0002310011802  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Chopped Ground Dinner Adult Soft Wet Dog Food Pouch Beef Bacon & Cheese'
+             source 'Pedigree Chopped Ground Dinner Adult Soft Wet Dog Food Pouch Beef Bacon & Cheese'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.34/oz'  source '$0.34/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-soft-wet-dog-food-pouch-beef-bacon-cheese/0002310011802
+=== 0002310011837  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Pedigree Choice Cuts In Gravy Soft Wet Dog Food Pouches Chicken Beef & Chicken Casserole'
+             source 'Pedigree Choice Cuts In Gravy Soft Wet Dog Food Pouches Chicken Beef & Chicken Casserole'  same
+    prices   export {'regular_price': '20.99', 'sale_price': '19.99'}  source price text '$19.99$20.99Sale: $19.99 discounted from $20.99'  regular_price shown, sale_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '18 ct / 3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-choice-cuts-in-gravy-soft-wet-dog-food-pouches-chicken-beef-chicken-casserole/0002310011837
+=== 0002310011900  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Pedigree Choice Cuts In Gravy Adult Soft Wet Dog Food Pouch Filet Mignon'
+             source 'Pedigree Choice Cuts In Gravy Adult Soft Wet Dog Food Pouch Filet Mignon'  same
+    prices   export {'regular_price': '1.19'}  source price text '$1.19$1.19'  regular_price shown
+    per unit export '$0.34/oz'  source '$0.34/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-choice-cuts-in-gravy-adult-soft-wet-dog-food-pouch-filet-mignon/0002310011900
+=== 0002310012176  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Cesar Soft Wet Dog Food Filet Mignon New York Strip & Prime Rib Filets in Gravy Variety Pack'
+             source 'Cesar Soft Wet Dog Food Filet Mignon New York Strip & Prime Rib Filets in Gravy Variety Pack'  same
+    prices   export {'regular_price': '34.99'}  source price text '$34.99$34.99'  regular_price shown
+    per unit export '$0.42/oz'  source '$0.42/oz'  same
+    also     weight '24 ct / 3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-soft-wet-dog-food-filet-mignon-new-york-strip-prime-rib-filets-in-gravy-variety-pack/0002310012176
+=== 0002310012286  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Cesar Simply Crafted Adult Wet Dog Chicken Carrots & Green Beans Food Meal Topper'
+             source 'Cesar Simply Crafted Adult Wet Dog Chicken Carrots & Green Beans Food Meal Topper'  same
+    prices   export {'regular_price': '2.50'}  source price text '$2.50$2.50'  regular_price shown
+    per unit export '$1.92/oz'  source '$1.92/oz'  same
+    also     weight '1.3 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-simply-crafted-adult-wet-dog-chicken-carrots-green-beans-food-meal-topper/0002310012286
+=== 0002310012287
+    not in this export
+=== 0002310012292  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Cesar Simply Crafted Adult Wet Dog Chicken Food Meal Topper'
+             source 'Cesar Simply Crafted Adult Wet Dog Chicken Food Meal Topper'  same
+    prices   export {'regular_price': '2.50'}  source price text '$2.50$2.50'  regular_price shown
+    per unit export '$1.92/oz'  source '$1.92/oz'  same
+    also     weight '1.3 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-simply-crafted-adult-wet-dog-chicken-food-meal-topper/0002310012292
+=== 0002310012592
+    not in this export
+=== 0002310013509  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Pedigree Choice Cuts In Gravy Soft Wet Dog Food Pouch Chicken Filet Mignon & Beef Variety Pack'
+             source 'Pedigree Choice Cuts In Gravy Soft Wet Dog Food Pouch Chicken Filet Mignon & Beef Variety Pack'  same
+    prices   export {'regular_price': '33.99', 'sale_price': '31.99'}  source price text '$31.99$33.99Sale: $31.99 discounted from $33.99'  regular_price shown, sale_price shown
+    per unit export '$0.30/oz'  source '$0.30/oz'  same
+    also     weight '30 ct / 3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-choice-cuts-in-gravy-soft-wet-dog-food-pouch-chicken-filet-mignon-beef-variety-pack/0002310013509
+=== 0002310013592  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Chicken and Beef Variety Pack'
+             source 'Pedigree Chopped Ground Dinner Adult Canned Soft Wet Dog Food Chicken and Beef Variety Pack'  same
+    prices   export {'regular_price': '44.99'}  source price text '$44.99$44.99'  regular_price shown
+    per unit export '$0.14/oz'  source '$0.14/oz'  same
+    also     weight '24 ct / 13.2 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-chopped-ground-dinner-adult-canned-soft-wet-dog-food-chicken-and-beef-variety-pack/0002310013592
+=== 0002310013777  (fresh, status eligible_unpriced, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Cesar Wholesome Bowls Soft Wet Dog Food Toppers Chicken & Chicken Sweet Potato & Green Beans'
+             source 'Cesar Wholesome Bowls Soft Wet Dog Food Toppers Chicken & Chicken Sweet Potato & Green Beans'  same
+    prices   export {}  source price text ''  
+    per unit export ''  source ''  same
+    also     weight '6 ct / 3 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-wholesome-bowls-soft-wet-dog-food-toppers-chicken-chicken-sweet-potato-green-beans/0002310013777
+=== 0002310014357  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Pedigree Complete Nutrition Adult Dry Dog Food Roasted Chicken & Vegetable Flavor'
+             source 'Pedigree Complete Nutrition Adult Dry Dog Food Roasted Chicken & Vegetable Flavor'  same
+    prices   export {'regular_price': '20.49'}  source price text '$20.49$20.49'  regular_price shown
+    per unit export '$1.14/lb'  source '$1.14/lb'  same
+    also     weight '18 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-complete-nutrition-adult-dry-dog-food-roasted-chicken-vegetable-flavor/0002310014357
+=== 0002310014359  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Pedigree Complete Nutrition Adult Dry Dog Food Grilled Steak & Vegetable Flavor'
+             source 'Pedigree Complete Nutrition Adult Dry Dog Food Grilled Steak & Vegetable Flavor'  same
+    prices   export {'regular_price': '20.49'}  source price text '$20.49$20.49'  regular_price shown
+    per unit export '$1.14/lb'  source '$1.14/lb'  same
+    also     weight '18 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-complete-nutrition-adult-dry-dog-food-grilled-steak-vegetable-flavor/0002310014359
+=== 0002310014366  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Pedigree Small Dog Adult Dry Dog Food Chicken Rice and Vegetable Flavor'
+             source 'Pedigree Small Dog Adult Dry Dog Food Chicken Rice and Vegetable Flavor'  same
+    prices   export {'regular_price': '20.49'}  source price text '$20.49$20.49'  regular_price shown
+    per unit export '$1.46/lb'  source '$1.46/lb'  same
+    also     weight '14 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-small-dog-adult-dry-dog-food-chicken-rice-and-vegetable-flavor/0002310014366
+=== 0002310014367  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Pedigree Small Dog Adult Dry Dog Food Grilled Steak and Vegetable Flavor'
+             source 'Pedigree Small Dog Adult Dry Dog Food Grilled Steak and Vegetable Flavor'  same
+    prices   export {'regular_price': '20.49'}  source price text '$20.49$20.49'  regular_price shown
+    per unit export '$1.46/lb'  source '$1.46/lb'  same
+    also     weight '14 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-small-dog-adult-dry-dog-food-grilled-steak-and-vegetable-flavor/0002310014367
+=== 0002310014561  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Cesar Filets in Gravy Wet Dog Food Mini-Pouch Filet Mignon'
+             source 'Cesar Filets in Gravy Wet Dog Food Mini-Pouch Filet Mignon'  same
+    prices   export {'regular_price': '1.09'}  source price text '$1.09$1.09'  regular_price shown
+    per unit export '$0.62/oz'  source '$0.62/oz'  same
+    also     weight '1.76 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-filets-in-gravy-wet-dog-food-mini-pouch-filet-mignon/0002310014561
+=== 0002310014563  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Cesar Filets in Gravy Wet Dog Food Mini-Pouch Rotisserie Chicken'
+             source 'Cesar Filets in Gravy Wet Dog Food Mini-Pouch Rotisserie Chicken'  same
+    prices   export {'regular_price': '1.09'}  source price text '$1.09$1.09'  regular_price shown
+    per unit export '$0.62/oz'  source '$0.62/oz'  same
+    also     weight '1.76 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-filets-in-gravy-wet-dog-food-mini-pouch-rotisserie-chicken/0002310014563
+=== 0002310014981  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Pedigree Drizzlers Adult Wet Dog Savory Sauce Natural Chicken Flavor'
+             source 'Pedigree Drizzlers Adult Wet Dog Savory Sauce Natural Chicken Flavor'  same
+    prices   export {'regular_price': '0.99'}  source price text '$0.99$0.99'  regular_price shown
+    per unit export '$0.47/oz'  source '$0.47/oz'  same
+    also     weight '2.1 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-drizzlers-adult-wet-dog-savory-sauce-natural-chicken-flavor/0002310014981
+=== 0002310014983  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Pedigree Drizzlers Adult Wet Dog Savory Sauce Natural Beef Flavor'
+             source 'Pedigree Drizzlers Adult Wet Dog Savory Sauce Natural Beef Flavor'  same
+    prices   export {'regular_price': '0.99'}  source price text '$0.99$0.99'  regular_price shown
+    per unit export '$0.47/oz'  source '$0.47/oz'  same
+    also     weight '2.1 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-drizzlers-adult-wet-dog-savory-sauce-natural-beef-flavor/0002310014983
+=== 0002310015126  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Cesar Wholesome Meals Adult Wet Dog Food Beef, Chicken, Carrots, Barley & Green Beans Recipe'
+             source 'Cesar Wholesome Meals Adult Wet Dog Food Beef, Chicken, Carrots, Barley & Green Beans Recipe'  same
+    prices   export {'regular_price': '9.99'}  source price text '$9.99$9.99'  regular_price shown
+    per unit export '$0.57/oz'  source '$0.57/oz'  same
+    also     weight '17.6 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-wholesome-meals-adult-wet-dog-food-beef-chicken-carrots-barley-green-beans-recipe/0002310015126
+=== 0002310015128
+    not in this export
+=== 0002310015130  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Cesar Wholesome Meals Adult Wet Dog Beef, Chicken, Carrots, Green Beans & Red Rice'
+             source 'Cesar Wholesome Meals Adult Wet Dog Beef, Chicken, Carrots, Green Beans & Red Rice'  same
+    prices   export {'regular_price': '9.99'}  source price text '$9.99$9.99'  regular_price shown
+    per unit export '$0.57/oz'  source '$0.57/oz'  same
+    also     weight '17.6 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-wholesome-meals-adult-wet-dog-beef-chicken-carrots-green-beans-red-rice/0002310015130
+=== 0002310015131  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Cesar Simply Crafted Adult Wet Complement Beef, Chicken, Purple Potatoes, Peas & Carrots'
+             source 'Cesar Simply Crafted Adult Wet Complement Beef, Chicken, Purple Potatoes, Peas & Carrots'  same
+    prices   export {'regular_price': '5.99'}  source price text '$5.99$5.99'  regular_price shown
+    per unit export '$0.68/oz'  source '$0.68/oz'  same
+    also     weight '8.82 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-simply-crafted-adult-wet-complement-beef-chicken-purple-potatoes-peas-carrots/0002310015131
+=== 0002310018173  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Pedigree High Protein Adult Dry Dog Food Roasted Chicken & Vegetable Flavor, 38 lb Bag'
+             source 'Pedigree High Protein Adult Dry Dog Food Roasted Chicken & Vegetable Flavor, 38 lb Bag'  same
+    prices   export {'regular_price': '39.99', 'sale_price': '24.99'}  source price text '$24.99$39.99Sale: $24.99 discounted from $39.99'  regular_price shown, sale_price shown
+    per unit export '$0.66/lb'  source '$0.66/lb'  same
+    also     weight '38 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-high-protein-adult-dry-dog-food-roasted-chicken-vegetable-flavor-38-lb-bag/0002310018173
+=== 0002310018495  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Pedigree High Protein Adult Dry Dog Food Roasted Lamb & Vegetable Flavor'
+             source 'Pedigree High Protein Adult Dry Dog Food Roasted Lamb & Vegetable Flavor'  same
+    prices   export {'regular_price': '20.49'}  source price text '$20.49$20.49'  regular_price shown
+    per unit export '$1.14/lb'  source '$1.14/lb'  same
+    also     weight '18 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/pedigree-high-protein-adult-dry-dog-food-roasted-lamb-vegetable-flavor/0002310018495
+=== 0002310023529  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Cesar Filets in Gravy Adult Soft Wet Dog Food Prime Rib'
+             source 'Cesar Filets in Gravy Adult Soft Wet Dog Food Prime Rib'  same
+    prices   export {'regular_price': '1.59'}  source price text '$1.59$1.59'  regular_price shown
+    per unit export '$0.45/oz'  source '$0.45/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-filets-in-gravy-adult-soft-wet-dog-food-prime-rib/0002310023529
+=== 0002310027315
+    not in this export
+=== 0002310033581  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Cesar Adult Soft Wet Dog Food Grilled Steak and Eggs Classic Loaf in Sauce'
+             source 'Cesar Adult Soft Wet Dog Food Grilled Steak and Eggs Classic Loaf in Sauce'  same
+    prices   export {'regular_price': '1.59'}  source price text '$1.59$1.59'  regular_price shown
+    per unit export '$0.45/oz'  source '$0.45/oz'  same
+    also     weight '3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-adult-soft-wet-dog-food-grilled-steak-and-eggs-classic-loaf-in-sauce/0002310033581
+=== 0002310070295  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Cesar Adult Soft Wet Dog Food Filet Mignon & Porterhouse Steak Classic Loaf in Sauce Variety Pack'
+             source 'Cesar Adult Soft Wet Dog Food Filet Mignon & Porterhouse Steak Classic Loaf in Sauce Variety Pack'  same
+    prices   export {'regular_price': '18.49'}  source price text '$18.49$18.49'  regular_price shown
+    per unit export '$0.44/oz'  source '$0.44/oz'  same
+    also     weight '12 ct / 3.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/cesar-adult-soft-wet-dog-food-filet-mignon-porterhouse-steak-classic-loaf-in-sauce-variety-pack/0002310070295
+=== 0003810011912  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Moist and Meaty Steak Flavor Soft Dog Food Pouches'
+             source 'Moist and Meaty Steak Flavor Soft Dog Food Pouches'  same
+    prices   export {'regular_price': '8.49'}  source price text '$8.49$8.49'  regular_price shown
+    per unit export '$0.12/oz'  source '$0.12/oz'  same
+    also     weight '72 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/moist-and-meaty-steak-flavor-soft-dog-food-pouches/0003810011912
+=== 0003810033022  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Moist and Meaty Burger With Cheddar Cheese Flavor Dry Soft Dog Food Pouches'
+             source 'Moist and Meaty Burger With Cheddar Cheese Flavor Dry Soft Dog Food Pouches'  same
+    prices   export {'regular_price': '8.49'}  source price text '$8.49$8.49'  regular_price shown
+    per unit export '$0.12/lb'  source '$0.12/lb'  same
+    also     weight '72 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/moist-and-meaty-burger-with-cheddar-cheese-flavor-dry-soft-dog-food-pouches/0003810033022
+=== 0003810033048  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Moist and Meaty Burger With Cheddar Cheese Flavor Dry Soft Dog Food Pouches'
+             source 'Moist and Meaty Burger With Cheddar Cheese Flavor Dry Soft Dog Food Pouches'  same
+    prices   export {'regular_price': '22.99'}  source price text '$22.99$22.99'  regular_price shown
+    per unit export '$0.11/oz'  source '$0.11/oz'  same
+    also     weight '216 oz.', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/moist-and-meaty-burger-with-cheddar-cheese-flavor-dry-soft-dog-food-pouches/0003810033048
+=== 0007119042371  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Rachael Ray Nutrish Premium Paté Wet Dog Food, Real Beef & Pumpkin Recipe, 13 Oz. Can'
+             source 'Rachael Ray Nutrish Premium Paté Wet Dog Food, Real Beef & Pumpkin Recipe, 13 Oz. Can'  same
+    prices   export {'regular_price': '2.99'}  source price text '$2.99$2.99'  regular_price shown
+    per unit export '$0.23/oz'  source '$0.23/oz'  same
+    also     weight '13 Ounces', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/rachael-ray-nutrish-premium-pat-wet-dog-food-real-beef-pumpkin-recipe-13-oz-can/0007119042371
+=== 0007119047895  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export "Kibbles 'n Bits Original Dry Dog Food, Savory Beef & Chicken Flavors for Adult Dogs, 45 lb Bag"
+             source "Kibbles 'n Bits Original Dry Dog Food, Savory Beef & Chicken Flavors for Adult Dogs, 45 lb Bag"  same
+    prices   export {'regular_price': '34.99'}  source price text '$34.99$34.99'  regular_price shown
+    per unit export '$0.78/lb'  source '$0.78/lb'  same
+    also     weight '45 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/kibbles-n-bits-original-dry-dog-food-savory-beef-chicken-flavors-for-adult-dogs-45-lb-bag/0007119047895
+=== 0007119049328  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Rachael Ray Nutrish Adult Dry Dog Food Real Chicken & Veggies Recipe, 13 lb.'
+             source 'Rachael Ray Nutrish Adult Dry Dog Food Real Chicken & Veggies Recipe, 13 lb.'  same
+    prices   export {'regular_price': '21.99'}  source price text '$21.99$21.99'  regular_price shown
+    per unit export '$1.69/lb'  source '$1.69/lb'  same
+    also     weight '13 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/rachael-ray-nutrish-adult-dry-dog-food-real-chicken-veggies-recipe-13-lb-/0007119049328
+=== 0007119049329  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Rachael Ray Nutrish Adult Dry Dog Food Real Beef, Pea & Brown Rice Recipe, 13lb.'
+             source 'Rachael Ray Nutrish Adult Dry Dog Food Real Beef, Pea & Brown Rice Recipe, 13lb.'  same
+    prices   export {'regular_price': '21.99'}  source price text '$21.99$21.99'  regular_price shown
+    per unit export '$1.69/lb'  source '$1.69/lb'  same
+    also     weight '13 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/rachael-ray-nutrish-adult-dry-dog-food-real-beef-pea-brown-rice-recipe-13lb-/0007119049329
+=== 0007119049342  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Rachael Ray Nutrish Adult Dry Dog Food Real Chicken & Veggies Recipe, 5 lb.'
+             source 'Rachael Ray Nutrish Adult Dry Dog Food Real Chicken & Veggies Recipe, 5 lb.'  same
+    prices   export {'regular_price': '10.99'}  source price text '$10.99$10.99'  regular_price shown
+    per unit export '$2.20/lb'  source '$2.20/lb'  same
+    also     weight '5 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/rachael-ray-nutrish-adult-dry-dog-food-real-chicken-veggies-recipe-5-lb-/0007119049342
+=== 0007119061534
+    not in this export
+=== 0007910511646  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Nutro Natural Choice Adult Dry Dog Food Chicken and Brown Rice Recipe'
+             source 'Nutro Natural Choice Adult Dry Dog Food Chicken and Brown Rice Recipe'  same
+    prices   export {'regular_price': '23.99', 'sale_price': '20.99'}  source price text '$20.99$23.99Sale: $20.99 discounted from $23.99'  regular_price shown, sale_price shown
+    per unit export '$4.20/lb'  source '$4.20/lb'  same
+    also     weight '5 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nutro-natural-choice-adult-dry-dog-food-chicken-and-brown-rice-recipe/0007910511646
+=== 0007910512217  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Nutro Natural Choice Small Breed Adult Dry Dog Food Chicken and Brown Rice'
+             source 'Nutro Natural Choice Small Breed Adult Dry Dog Food Chicken and Brown Rice'  same
+    prices   export {'regular_price': '23.99', 'sale_price': '20.99'}  source price text '$20.99$23.99Sale: $20.99 discounted from $23.99'  regular_price shown, sale_price shown
+    per unit export '$4.20/lb'  source '$4.20/lb'  same
+    also     weight '5 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nutro-natural-choice-small-breed-adult-dry-dog-food-chicken-and-brown-rice/0007910512217
+=== 0007910512959  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Nutro Natural Choice Adult Dry Dog Food Chicken and Brown Rice Recipe'
+             source 'Nutro Natural Choice Adult Dry Dog Food Chicken and Brown Rice Recipe'  same
+    prices   export {'regular_price': '44.99', 'sale_price': '39.99'}  source price text '$39.99$44.99Sale: $39.99 discounted from $44.99'  regular_price shown, sale_price shown
+    per unit export '$2.67/lb'  source '$2.67/lb'  same
+    also     weight '13 lbs', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nutro-natural-choice-adult-dry-dog-food-chicken-and-brown-rice-recipe/0007910512959
+=== 0009109394130  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Good ‘n’ Fun Triple Flavor Wings 12 oz'
+             source 'Good ‘n’ Fun Triple Flavor Wings 12 oz'  same
+    prices   export {'regular_price': '21.49'}  source price text '$21.49$21.49'  regular_price shown
+    per unit export '$1.79/oz'  source '$1.79/oz'  same
+    also     weight '1 ea', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/good-n-fun-triple-flavor-wings-12-oz/0009109394130
+=== 0062797501003  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Freshpet Roasted Meals® Tender Chicken Recipe With Garden Vegetables Fresh Dog Food'
+             source 'Freshpet Roasted Meals® Tender Chicken Recipe With Garden Vegetables Fresh Dog Food'  same
+    prices   export {'regular_price': '9.99'}  source price text '$9.99$9.99'  regular_price shown
+    per unit export '$5.71/lb'  source '$5.71/lb'  same
+    also     weight '1.75 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-roasted-meals-tender-chicken-recipe-with-garden-vegetables-fresh-dog-food/0062797501003
+=== 0062797501004  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Freshpet Multi Protein Complete Meal: Chicken, Beef, Egg And Salmon Recipe Fresh Dog Food'
+             source 'Freshpet Multi Protein Complete Meal: Chicken, Beef, Egg And Salmon Recipe Fresh Dog Food'  same
+    prices   export {'regular_price': '18.99'}  source price text '$18.99$18.99'  regular_price shown
+    per unit export '$0.40/oz'  source '$0.40/oz'  same
+    also     weight '3 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-multi-protein-complete-meal-chicken-beef-egg-and-salmon-recipe-fresh-dog-food/0062797501004
+=== 0062797501056  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Freshpet Roasted Meals® Tender Chicken Recipe With Garden Vegetables Fresh Dog Food'
+             source 'Freshpet Roasted Meals® Tender Chicken Recipe With Garden Vegetables Fresh Dog Food'  same
+    prices   export {'regular_price': '26.99'}  source price text '$26.99$26.99'  regular_price shown
+    per unit export '$4.91/lb'  source '$4.91/lb'  same
+    also     weight '5.5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-roasted-meals-tender-chicken-recipe-with-garden-vegetables-fresh-dog-food/0062797501056
+=== 0062797501091  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Freshpet Grain Free Chicken Recipe With Spinach And Potato Fresh Dog Food Roll'
+             source 'Freshpet Grain Free Chicken Recipe With Spinach And Potato Fresh Dog Food Roll'  same
+    prices   export {'regular_price': '8.79'}  source price text '$8.79$8.79'  regular_price shown
+    per unit export '$0.37/oz'  source '$0.37/oz'  same
+    also     weight '1.5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-grain-free-chicken-recipe-with-spinach-and-potato-fresh-dog-food-roll/0062797501091
+=== 0062797501110  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Freshpet Fresh From The Kitchen: Home Cooked Chicken Recipe Fresh Dog Food'
+             source 'Freshpet Fresh From The Kitchen: Home Cooked Chicken Recipe Fresh Dog Food'  same
+    prices   export {'regular_price': '12.99'}  source price text '$12.99$12.99'  regular_price shown
+    per unit export '$0.46/oz'  source '$0.46/oz'  same
+    also     weight '1.75 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-fresh-from-the-kitchen-home-cooked-chicken-recipe-fresh-dog-food/0062797501110
+=== 0062797501167  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Freshpet Fresh From The Kitchen: Home Cooked Chicken Recipe Fresh Dog Food'
+             source 'Freshpet Fresh From The Kitchen: Home Cooked Chicken Recipe Fresh Dog Food'  same
+    prices   export {'regular_price': '31.99'}  source price text '$31.99$31.99'  regular_price shown
+    per unit export '$0.44/oz'  source '$0.44/oz'  same
+    also     weight '4.5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-fresh-from-the-kitchen-home-cooked-chicken-recipe-fresh-dog-food/0062797501167
+=== 0062797501204  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Freshpet Small Dog Bite Size Chicken Recipe Fresh Dog Food'
+             source 'Freshpet Small Dog Bite Size Chicken Recipe Fresh Dog Food'  same
+    prices   export {'regular_price': '8.49'}  source price text '$8.49$8.49'  regular_price shown
+    per unit export '$0.53/oz'  source '$0.53/oz'  same
+    also     weight '1 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-small-dog-bite-size-chicken-recipe-fresh-dog-food/0062797501204
+=== 0062797501232  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Freshpet Multi Protein Chicken, Beef, Egg And Salmon Recipe Fresh Dog Food Roll'
+             source 'Freshpet Multi Protein Chicken, Beef, Egg And Salmon Recipe Fresh Dog Food Roll'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '1.5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-multi-protein-chicken-beef-egg-and-salmon-recipe-fresh-dog-food-roll/0062797501232
+=== 0062797501275  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Freshpet Small Dog Chicken And Turkey Recipe With Cranberries And Spinach Fresh Dog Food Roll'
+             source 'Freshpet Small Dog Chicken And Turkey Recipe With Cranberries And Spinach Fresh Dog Food Roll'  same
+    prices   export {'regular_price': '7.79'}  source price text '$7.79$7.79'  regular_price shown
+    per unit export '$0.49/oz'  source '$0.49/oz'  same
+    also     weight '1 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-small-dog-chicken-and-turkey-recipe-with-cranberries-and-spinach-fresh-dog-food-roll/0062797501275
+=== 0062797501277  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Freshpet Sensitive Stomach And Skin Chicken Recipe With Pumpkin And Brown Rice Fresh Dog Food Roll'
+             source 'Freshpet Sensitive Stomach And Skin Chicken Recipe With Pumpkin And Brown Rice Fresh Dog Food Roll'  same
+    prices   export {'regular_price': '9.99'}  source price text '$9.99$9.99'  regular_price shown
+    per unit export '$0.42/oz'  source '$0.42/oz'  same
+    also     weight '1.5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-sensitive-stomach-and-skin-chicken-recipe-with-pumpkin-and-brown-rice-fresh-dog-food-roll/0062797501277
+=== 0062797501293  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Freshpet Small Dog Beef And Egg Recipe With Green Beans And Sweet Potatoes Fresh Dog Food'
+             source 'Freshpet Small Dog Beef And Egg Recipe With Green Beans And Sweet Potatoes Fresh Dog Food'  same
+    prices   export {'regular_price': '9.99'}  source price text '$9.99$9.99'  regular_price shown
+    per unit export '$9.99/lb'  source '$9.99/lb'  same
+    also     weight '1 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-small-dog-beef-and-egg-recipe-with-green-beans-and-sweet-potatoes-fresh-dog-food/0062797501293
+=== 0062797501326  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Freshpet Complete Nutrition Chicken Recipe With Wholesome Grains Fresh Dog Food Roll'
+             source 'Freshpet Complete Nutrition Chicken Recipe With Wholesome Grains Fresh Dog Food Roll'  same
+    prices   export {'regular_price': '6.39'}  source price text '$6.39$6.39'  regular_price shown
+    per unit export '$0.27/oz'  source '$0.27/oz'  same
+    also     weight '1.5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-complete-nutrition-chicken-recipe-with-wholesome-grains-fresh-dog-food-roll/0062797501326
+=== 0062797501327  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Freshpet Small Dog Bite Size Chicken Recipe Fresh Dog Food'
+             source 'Freshpet Small Dog Bite Size Chicken Recipe Fresh Dog Food'  same
+    prices   export {'regular_price': '14.99'}  source price text '$14.99$14.99'  regular_price shown
+    per unit export '$0.47/oz'  source '$0.47/oz'  same
+    also     weight '2 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-small-dog-bite-size-chicken-recipe-fresh-dog-food/0062797501327
+=== 0073052150217  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export "Nature's Recipe Grain Free Savory Broth Variety Pack Wet Dog Food, 2.75 oz. Cups (Pack of 12)"
+             source "Nature's Recipe Grain Free Savory Broth Variety Pack Wet Dog Food, 2.75 oz. Cups (Pack of 12)"  same
+    prices   export {'regular_price': '15.99'}  source price text '$15.99$15.99'  regular_price shown
+    per unit export '$0.48/oz'  source '$0.48/oz'  same
+    also     weight '2.06 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nature-s-recipe-grain-free-savory-broth-variety-pack-wet-dog-food-2-75-oz-cups-pack-of-12-/0073052150217
+=== 0073052150611  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=10  observed 2026-11-17T04:01:58.309903Z  sha256 649f16c7976292fd75e9c8a2059c8f5b12fe9822d8fb65783e9f0be0e3e5e44b
+    title    export "Nature's Recipe Grain Free Chicken, Sweet Potato & Pumpkin Recipe Dry Dog Food, 24 lb. Bag"
+             source "Nature's Recipe Grain Free Chicken, Sweet Potato & Pumpkin Recipe Dry Dog Food, 24 lb. Bag"  same
+    prices   export {'regular_price': '59.99'}  source price text '$59.99$59.99'  regular_price shown
+    per unit export '$2.50/lb'  source '$2.50/lb'  same
+    also     weight '24 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nature-s-recipe-grain-free-chicken-sweet-potato-pumpkin-recipe-dry-dog-food-24-lb-bag/0073052150611
+=== 0073052150612  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export "Nature's Recipe Grain Free Salmon, Sweet Potato & Pumpkin Recipe Dry Dog Food, 4 lb. Bag"
+             source "Nature's Recipe Grain Free Salmon, Sweet Potato & Pumpkin Recipe Dry Dog Food, 4 lb. Bag"  same
+    prices   export {'regular_price': '14.99'}  source price text '$14.99$14.99'  regular_price shown
+    per unit export '$3.75/lb'  source '$3.75/lb'  same
+    also     weight '4 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nature-s-recipe-grain-free-salmon-sweet-potato-pumpkin-recipe-dry-dog-food-4-lb-bag/0073052150612
+=== 0073052151390  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export "Nature's Recipe Grain Free Small Breed Dry Dog Food with Chicken, Sweet Potato & Pumpkin, 4 lb. Bag"
+             source "Nature's Recipe Grain Free Small Breed Dry Dog Food with Chicken, Sweet Potato & Pumpkin, 4 lb. Bag"  same
+    prices   export {'regular_price': '14.99'}  source price text '$14.99$14.99'  regular_price shown
+    per unit export '$3.75/lb'  source '$3.75/lb'  same
+    also     weight '4 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nature-s-recipe-grain-free-small-breed-dry-dog-food-with-chicken-sweet-potato-pumpkin-4-lb-bag/0073052151390
+=== 0073052152103  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export "Nature's Recipe Grain Free Salmon, Sweet Potato & Pumpkin Recipe Dry Dog Food, 12 lb. Bag"
+             source "Nature's Recipe Grain Free Salmon, Sweet Potato & Pumpkin Recipe Dry Dog Food, 12 lb. Bag"  same
+    prices   export {'regular_price': '35.49'}  source price text '$35.49$35.49'  regular_price shown
+    per unit export '$2.96/lb'  source '$2.96/lb'  same
+    also     weight '12 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nature-s-recipe-grain-free-salmon-sweet-potato-pumpkin-recipe-dry-dog-food-12-lb-bag/0073052152103
+=== 0073052183436  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export "Nature's Recipe Freeze Dried Blend Chicken, Barley & Brown Rice Dry Dog Food, 3.5 lb. Bag"
+             source "Nature's Recipe Freeze Dried Blend Chicken, Barley & Brown Rice Dry Dog Food, 3.5 lb. Bag"  same
+    prices   export {'regular_price': '17.99'}  source price text '$17.99$17.99'  regular_price shown
+    per unit export '$5.14/lb'  source '$5.14/lb'  same
+    also     weight '3.5 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nature-s-recipe-freeze-dried-blend-chicken-barley-brown-rice-dry-dog-food-3-5-lb-bag/0073052183436
+=== 0073052183437  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=10  observed 2026-11-17T04:01:58.309903Z  sha256 649f16c7976292fd75e9c8a2059c8f5b12fe9822d8fb65783e9f0be0e3e5e44b
+    title    export "Nature's Recipe Freeze Dried Blend Chicken, Barley & Brown Rice Dry Dog Food, 10.5 lb. Bag"
+             source "Nature's Recipe Freeze Dried Blend Chicken, Barley & Brown Rice Dry Dog Food, 10.5 lb. Bag"  same
+    prices   export {'regular_price': '41.99'}  source price text '$41.99$41.99'  regular_price shown
+    per unit export '$4.00/lb'  source '$4.00/lb'  same
+    also     weight '10.5 pounds', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/nature-s-recipe-freeze-dried-blend-chicken-barley-brown-rice-dry-dog-food-10-5-lb-bag/0073052183437
+=== 0081011812003  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Jinx Homemades Chicken Recipe Wet Natural Dog Food, 9 oz. Pouch'
+             source 'Jinx Homemades Chicken Recipe Wet Natural Dog Food, 9 oz. Pouch'  same
+    prices   export {'regular_price': '3.99', 'sale_price': '3.79'}  source price text '$3.79$3.99Sale: $3.79 discounted from $3.99'  regular_price shown, sale_price shown
+    per unit export '$0.42/oz'  source '$0.42/oz'  same
+    also     weight '9oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/jinx-homemades-chicken-recipe-wet-natural-dog-food-9-oz-pouch/0081011812003
+=== 0081011812004  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Jinx Homemades Beef & Chicken Recipe Wet Natural Dog Food, 9 oz. Pouch'
+             source 'Jinx Homemades Beef & Chicken Recipe Wet Natural Dog Food, 9 oz. Pouch'  same
+    prices   export {'regular_price': '3.99', 'sale_price': '3.79'}  source price text '$3.79$3.99Sale: $3.79 discounted from $3.99'  regular_price shown, sale_price shown
+    per unit export '$0.42/oz'  source '$0.42/oz'  same
+    also     weight '9oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/jinx-homemades-beef-chicken-recipe-wet-natural-dog-food-9-oz-pouch/0081011812004
+=== 0081011812050  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Jinx Homemade Chicken Dog Food Topper'
+             source 'Jinx Homemade Chicken Dog Food Topper'  same
+    prices   export {'regular_price': '1.19', 'sale_price': '1.09'}  source price text '$1.09$1.19Sale: $1.09 discounted from $1.19'  regular_price shown, sale_price shown
+    per unit export '$0.36/oz'  source '$0.36/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/jinx-homemade-chicken-dog-food-topper/0081011812050
+=== 0081011812051  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=3  observed 2026-11-17T04:00:34.417126Z  sha256 abe6e536cc93c0db6a4d520c90234537207a15625ddaacd48d204a48042effa3
+    title    export 'Jinx Homemade Chicken & Beef Dog Food Topper'
+             source 'Jinx Homemade Chicken & Beef Dog Food Topper'  same
+    prices   export {'regular_price': '1.19', 'sale_price': '1.09'}  source price text '$1.09$1.19Sale: $1.09 discounted from $1.19'  regular_price shown, sale_price shown
+    per unit export '$0.36/oz'  source '$0.36/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/jinx-homemade-chicken-beef-dog-food-topper/0081011812051
+=== 0084024310017  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Blue Buffalo Homestyle Natural Adult Healthy Weight Wet Dog Food Beef & Garden Vegetables'
+             source 'Blue Buffalo Homestyle Natural Adult Healthy Weight Wet Dog Food Beef & Garden Vegetables'  same
+    prices   export {'regular_price': '3.99'}  source price text '$3.99$3.99'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '12.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-homestyle-natural-adult-healthy-weight-wet-dog-food-beef-garden-vegetables/0084024310017
+=== 0084024310485  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Blue Buffalo™ Wilderness™ Grain Free Adult Wet Dog Food, 35g Protein per Can, Turkey & Chicken Grill'
+             source 'Blue Buffalo™ Wilderness™ Grain Free Adult Wet Dog Food, 35g Protein per Can, Turkey & Chicken Grill'  same
+    prices   export {'regular_price': '3.49'}  source price text '$3.49$3.49'  regular_price shown
+    per unit export '$0.28/oz'  source '$0.28/oz'  same
+    also     weight '0.78125 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-wilderness-grain-free-adult-wet-dog-food-35g-protein-per-can-turkey-chicken-grill/0084024310485
+=== 0084024310493  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Blue Buffalo Homestyle Natural Adult Wet Dog Food Chicken & Garden Vegetables'
+             source 'Blue Buffalo Homestyle Natural Adult Wet Dog Food Chicken & Garden Vegetables'  same
+    prices   export {'regular_price': '3.99'}  source price text '$3.99$3.99'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '12.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-homestyle-natural-adult-wet-dog-food-chicken-garden-vegetables/0084024310493
+=== 0084024310494  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Blue Buffalo Homestyle Natural Adult Wet Dog Food Lamb & Garden Vegetables'
+             source 'Blue Buffalo Homestyle Natural Adult Wet Dog Food Lamb & Garden Vegetables'  same
+    prices   export {'regular_price': '3.99'}  source price text '$3.99$3.99'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '12.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-homestyle-natural-adult-wet-dog-food-lamb-garden-vegetables/0084024310494
+=== 0084024310495  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Blue Buffalo Homestyle Natural Adult Wet Dog Food Beef & Garden Vegetables'
+             source 'Blue Buffalo Homestyle Natural Adult Wet Dog Food Beef & Garden Vegetables'  same
+    prices   export {'regular_price': '3.99'}  source price text '$3.99$3.99'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '12.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-homestyle-natural-adult-wet-dog-food-beef-garden-vegetables/0084024310495
+=== 0084024310496  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Blue Buffalo Homestyle Natural Adult Wet Dog Food Turkey & Garden Vegetables'
+             source 'Blue Buffalo Homestyle Natural Adult Wet Dog Food Turkey & Garden Vegetables'  same
+    prices   export {'regular_price': '3.99'}  source price text '$3.99$3.99'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '12.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-homestyle-natural-adult-wet-dog-food-turkey-garden-vegetables/0084024310496
+=== 0084024310519  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export "Blue Buffalo Blue's Stew Natural Wet Dog Food Country Chicken Stew"
+             source "Blue Buffalo Blue's Stew Natural Wet Dog Food Country Chicken Stew"  same
+    prices   export {'regular_price': '3.99'}  source price text '$3.99$3.99'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '12.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-blue-s-stew-natural-wet-dog-food-country-chicken-stew/0084024310519
+=== 0084024310521  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export "Blue Buffalo Blue's Stews Adult Grain-Free Wet Dog Food Beef"
+             source "Blue Buffalo Blue's Stews Adult Grain-Free Wet Dog Food Beef"  same
+    prices   export {'regular_price': '3.99'}  source price text '$3.99$3.99'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '12.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-blue-s-stews-adult-grain-free-wet-dog-food-beef/0084024310521
+=== 0084024310553  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export "Blue Buffalo Natural Adult Blue's Stew Hunter's Stew Wet Dog Food"
+             source "Blue Buffalo Natural Adult Blue's Stew Hunter's Stew Wet Dog Food"  same
+    prices   export {'regular_price': '3.99'}  source price text '$3.99$3.99'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '12.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-natural-adult-blue-s-stew-hunter-s-stew-wet-dog-food/0084024310553
+=== 0084024311292  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Blue Buffalo™ Wilderness™ Grain Free Adult Wet Dog Food, 35g Protein per Can, Salmon & Chicken Grill'
+             source 'Blue Buffalo™ Wilderness™ Grain Free Adult Wet Dog Food, 35g Protein per Can, Salmon & Chicken Grill'  same
+    prices   export {'regular_price': '3.49'}  source price text '$3.49$3.49'  regular_price shown
+    per unit export '$0.28/oz'  source '$0.28/oz'  same
+    also     weight '0.78125 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-wilderness-grain-free-adult-wet-dog-food-35g-protein-per-can-salmon-chicken-grill/0084024311292
+=== 0084024312258  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Blue Buffalo™ Life Protection Formula™ Natural Adult Dry Dog Food Chicken & Brown Rice'
+             source 'Blue Buffalo™ Life Protection Formula™ Natural Adult Dry Dog Food Chicken & Brown Rice'  same
+    prices   export {'regular_price': '60.99'}  source price text '$60.99$60.99'  regular_price shown
+    per unit export '$2.54/lb'  source '$2.54/lb'  same
+    also     weight '24 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-life-protection-formula-natural-adult-dry-dog-food-chicken-brown-rice/0084024312258
+=== 0084024312260  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Blue Buffalo™ Life Protection Formula™ Large Breed Adult Dry Dog Food Chicken & Brown Rice'
+             source 'Blue Buffalo™ Life Protection Formula™ Large Breed Adult Dry Dog Food Chicken & Brown Rice'  same
+    prices   export {'regular_price': '63.99'}  source price text '$63.99$63.99'  regular_price shown
+    per unit export '$2.67/lb'  source '$2.67/lb'  same
+    also     weight '24 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-life-protection-formula-large-breed-adult-dry-dog-food-chicken-brown-rice/0084024312260
+=== 0084024314407  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Blue Buffalo™ Life Protection Formula™ Adult Dry Dog Food Chicken & Brown Rice'
+             source 'Blue Buffalo™ Life Protection Formula™ Adult Dry Dog Food Chicken & Brown Rice'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$4.00/lb'  source '$4.00/lb'  same
+    also     weight '5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-life-protection-formula-adult-dry-dog-food-chicken-brown-rice/0084024314407
+=== 0084024314409  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=8  observed 2026-11-17T04:01:48.119312Z  sha256 a54c9e71aba9321abd699defe84fe97d26dea0a2144e03eea446ee930f827498
+    title    export 'Blue Buffalo™ Life Protection Formula™ Adult Dry Dog Food Lamb & Brown Rice'
+             source 'Blue Buffalo™ Life Protection Formula™ Adult Dry Dog Food Lamb & Brown Rice'  same
+    prices   export {'regular_price': '22.99', 'sale_price': '19.99'}  source price text '$19.99$22.99Sale: $19.99 discounted from $22.99'  regular_price shown, sale_price shown
+    per unit export '$4.00/lb'  source '$4.00/lb'  same
+    also     weight '5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-life-protection-formula-adult-dry-dog-food-lamb-brown-rice/0084024314409
+=== 0084024314410  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Blue Buffalo™ Life Protection Formula™ Healthy Weight Adult Dry Dog Food'
+             source 'Blue Buffalo™ Life Protection Formula™ Healthy Weight Adult Dry Dog Food'  same
+    prices   export {'regular_price': '20.49'}  source price text '$20.49$20.49'  regular_price shown
+    per unit export '$4.10/lb'  source '$4.10/lb'  same
+    also     weight '5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-life-protection-formula-healthy-weight-adult-dry-dog-food/0084024314410
+=== 0084024314411  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Blue Buffalo™ Life Protection Formula™ Small Breed Dry Dog Food'
+             source 'Blue Buffalo™ Life Protection Formula™ Small Breed Dry Dog Food'  same
+    prices   export {'regular_price': '22.99', 'sale_price': '19.99'}  source price text '$19.99$22.99Sale: $19.99 discounted from $22.99'  regular_price shown, sale_price shown
+    per unit export '$3.33/lb'  source '$3.33/lb'  same
+    also     weight '5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-life-protection-formula-small-breed-dry-dog-food/0084024314411
+=== 0084024314414  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Blue Buffalo™ Life Protection Formula™ Senior Dry Dog Food Chicken & Brown Rice'
+             source 'Blue Buffalo™ Life Protection Formula™ Senior Dry Dog Food Chicken & Brown Rice'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$4.00/lb'  source '$4.00/lb'  same
+    also     weight '5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-life-protection-formula-senior-dry-dog-food-chicken-brown-rice/0084024314414
+=== 0084024314975  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Blue Buffalo Homestyle Natural Adult Wet Dog Food Variety Pack Chicken & Beef Dinner'
+             source 'Blue Buffalo Homestyle Natural Adult Wet Dog Food Variety Pack Chicken & Beef Dinner'  same
+    prices   export {'regular_price': '24.49'}  source price text '$24.49$24.49'  regular_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '4.69 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-homestyle-natural-adult-wet-dog-food-variety-pack-chicken-beef-dinner/0084024314975
+=== 0084024315458
+    not in this export
+=== 0084024315459  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=9  observed 2026-11-17T04:01:53.157835Z  sha256 e50406ebe6338877ffc41ebf17d9060f037537cbf60cbc7dd0f5736228aae6e7
+    title    export 'Blue Buffalo™ Life Protection Formula™ Natural Adult Dry Dog Food Salmon & Brown Rice'
+             source 'Blue Buffalo™ Life Protection Formula™ Natural Adult Dry Dog Food Salmon & Brown Rice'  same
+    prices   export {'regular_price': '52.99', 'sale_price': '49.99'}  source price text '$49.99$52.99Sale: $49.99 discounted from $52.99'  regular_price shown, sale_price shown
+    per unit export '$3.33/lb'  source '$3.33/lb'  same
+    also     weight '15 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-life-protection-formula-natural-adult-dry-dog-food-salmon-brown-rice/0084024315459
+=== 0085189300116  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Freshpet Tender Chicken Recipe with Carrots, Peas and Brown Rice Fresh Dog Food Roll'
+             source 'Freshpet Tender Chicken Recipe with Carrots, Peas and Brown Rice Fresh Dog Food Roll'  same
+    prices   export {'regular_price': '19.99'}  source price text '$19.99$19.99'  regular_price shown
+    per unit export '$0.21/oz'  source '$0.21/oz'  same
+    also     weight '6 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-tender-chicken-recipe-with-carrots-peas-and-brown-rice-fresh-dog-food-roll/0085189300116
+=== 0085189300118  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Freshpet Chunky Beef Recipe with Carrots, Peas and Brown Rice Fresh Dog Food Roll'
+             source 'Freshpet Chunky Beef Recipe with Carrots, Peas and Brown Rice Fresh Dog Food Roll'  same
+    prices   export {'regular_price': '20.49'}  source price text '$20.49$20.49'  regular_price shown
+    per unit export '$0.21/oz'  source '$0.21/oz'  same
+    also     weight '6 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-chunky-beef-recipe-with-carrots-peas-and-brown-rice-fresh-dog-food-roll/0085189300118
+=== 0085189300120  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Freshpet Chunky Beef Recipe With Carrots, Peas And Brown Rice Fresh Dog Food Roll'
+             source 'Freshpet Chunky Beef Recipe With Carrots, Peas And Brown Rice Fresh Dog Food Roll'  same
+    prices   export {'regular_price': '8.79'}  source price text '$8.79$8.79'  regular_price shown
+    per unit export '$5.86/lb'  source '$5.86/lb'  same
+    also     weight '1.5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-chunky-beef-recipe-with-carrots-peas-and-brown-rice-fresh-dog-food-roll/0085189300120
+=== 0085189300129  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=2  observed 2026-11-17T04:00:29.443903Z  sha256 03e2a77bf1a10f33d35086454f34898dcc473460ead21ceff9f33ede1fca7e2d
+    title    export 'Freshpet Chunky Chicken And Turkey Recipe With Carrots And Brown Rice Fresh Dog Food Roll'
+             source 'Freshpet Chunky Chicken And Turkey Recipe With Carrots And Brown Rice Fresh Dog Food Roll'  same
+    prices   export {'regular_price': '7.99'}  source price text '$7.99$7.99'  regular_price shown
+    per unit export '$0.33/oz'  source '$0.33/oz'  same
+    also     weight '1.5 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-chunky-chicken-and-turkey-recipe-with-carrots-and-brown-rice-fresh-dog-food-roll/0085189300129
+=== 0085189300132  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017  observed 2026-11-17T03:00:23.993511Z  sha256 b245fb1d25e6c93e00af13f8605ae691a96aebd35aa10ff13772d9702129b63b
+    title    export 'Freshpet Tender Chicken Recipe With Carrots, Peas And Brown Rice Fresh Dog Food Roll'
+             source 'Freshpet Tender Chicken Recipe With Carrots, Peas And Brown Rice Fresh Dog Food Roll'  same
+    prices   export {'regular_price': '4.49'}  source price text '$4.49$4.49'  regular_price shown
+    per unit export '$0.28/oz'  source '$0.28/oz'  same
+    also     weight '1 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/freshpet-tender-chicken-recipe-with-carrots-peas-and-brown-rice-fresh-dog-food-roll/0085189300132
+=== 0085961000009  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=5  observed 2026-11-17T04:00:44.885608Z  sha256 97d4afc3018caf096da14d14c94963c9ef26ed1ece24d6cd952544e167872bbf
+    title    export 'Blue Buffalo™ Life Protection Formula™ Adult Dry Dog Food Chicken & Brown Rice'
+             source 'Blue Buffalo™ Life Protection Formula™ Adult Dry Dog Food Chicken & Brown Rice'  same
+    prices   export {'regular_price': '45.99'}  source price text '$45.99$45.99'  regular_price shown
+    per unit export '$3.07/lb'  source '$3.07/lb'  same
+    also     weight '15 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-life-protection-formula-adult-dry-dog-food-chicken-brown-rice/0085961000009
+=== 0085961000588  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=6  observed 2026-11-17T04:01:24.986131Z  sha256 7660135b1145238a09396b6f0f85c29284faac3483aa3fc4777914e293a2d696
+    title    export 'Blue Buffalo™ Wilderness™ Grain Free Adult Wet Dog Food, 32g Protein per Can, Beef & Chicken Grill'
+             source 'Blue Buffalo™ Wilderness™ Grain Free Adult Wet Dog Food, 32g Protein per Can, Beef & Chicken Grill'  same
+    prices   export {'regular_price': '3.49'}  source price text '$3.49$3.49'  regular_price shown
+    per unit export '$0.28/oz'  source '$0.28/oz'  same
+    also     weight '0.781 lb', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-wilderness-grain-free-adult-wet-dog-food-32g-protein-per-can-beef-chicken-grill/0085961000588
+=== 0085961000747  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/dog-food/27017?page=4  observed 2026-11-17T04:00:39.989270Z  sha256 527d8301cad56d6617315e92839bd9ad8328fe7a29bdc80060e200dc42a64ce6
+    title    export 'Blue Buffalo Homestyle Natural Senior Wet Dog Food Chicken & Garden Vegetables'
+             source 'Blue Buffalo Homestyle Natural Senior Wet Dog Food Chicken & Garden Vegetables'  same
+    prices   export {'regular_price': '3.99'}  source price text '$3.99$3.99'  regular_price shown
+    per unit export '$0.32/oz'  source '$0.32/oz'  same
+    also     weight '12.5 oz', category 'Pet Supplies' / 'Dog Food', url https://www.marianos.com/p/blue-buffalo-homestyle-natural-senior-wet-dog-food-chicken-garden-vegetables/0085961000747
+differences: 0
+strict: 200 same, 0 with a difference, 24 missing from the export, 0 without an excerpt, 0 documented exclusions
+strict: missing: 0001111012941 0001111012942 0001111013055 0001111013106 0001111013107 0001111013185 0001111013187 0001780010963 0001780014939 0001780014941 0001780019084 0001901461097 0001901470071 0001901480331 0001901483023 0001901483036 0002310010257 0002310010881 0002310012287 0002310012592 0002310015128 0002310027315 0007119061534 0084024315458
+strict: FAIL

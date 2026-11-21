@@ -19,11 +19,13 @@ from typing import Any
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from marianos_headless.collection import pagination, reask
+from marianos_headless.collection import pagination, reask, route_audit
 from marianos_headless.core.findings import RecordFlag
 from marianos_headless.db.models import (
     CategorySource,
     ListingPage,
+    MembershipRow,
+    NodeCoverage,
     ProductObservation,
     RecordRow,
     Run,
@@ -113,6 +115,14 @@ LISTING_FIELDS = (
     "completion_reason",
     "partition_identity",
     "pages_filter_refused",
+    # Release 1.10.0rc7 (route_audit): the products the counted pages list, those the run accounts for (a
+    # record placed under the listing), those it does not, placements no counted page lists, and the
+    # status the listing's own reading reached before the products were accounted for.
+    "expected_identities",
+    "accounted_identities",
+    "missing_identities",
+    "unexpected_identities",
+    "cursor_status",
 )
 ROW_FIELDS = (
     "csv_row",
@@ -131,70 +141,211 @@ ROW_FIELDS = (
 )
 
 
-def node_outcomes(s: Session, run_id: str) -> list[dict[str, Any]]:
-    """Each listing task's outcome. A partitioned listing is DONE only when every child listing finished and
-    the distinct products of the listing and its children reach the total the site reported for it (never a
-    sum of
-    child counts, which overlap); otherwise INCOMPLETE, with the gap."""
+def _pkey(node: dict[str, Any]) -> str:
+    desc = pagination.node_filter(node.get("partition_filter") or "")
+    return pagination.partition_digest(desc) if desc else ""
+
+
+def route_evidence(s: Session, run_id: str) -> tuple[list[Task], list[route_audit.RouteEvidence]]:
+    """What the run holds about each listing of its plan, as :mod:`route_audit` reads it: the task's own
+    outcome, its counted pages, the organic placements of the run under it and whether a page of the store
+    stated 0 results (release 1.10.0rc7)."""
     tasks = list(
         s.scalars(
             select(Task).where(Task.run_id == run_id, Task.kind == "listing_node").order_by(Task.idem_key)
         )
     )
-    own: dict[str, str] = {}
-    children: dict[str, list[Task]] = {}
+    run = s.get(Run, run_id)
+    store = s.get(Store, run.store_id) if run is not None else None
+    rows: dict[tuple[str, str, str], list[ListingPage]] = defaultdict(list)
+    for p in s.scalars(select(ListingPage).where(ListingPage.run_id == run_id)):
+        rows[(p.category_source_id, p.taxonomy_id, p.partition_key or "")].append(p)
+    placed: dict[str, set[tuple[str, str | None]]] = defaultdict(set)
+    paid: dict[str, set[str]] = defaultdict(set)
+    for upc, source, tax, fetch, via in s.execute(
+        select(
+            MembershipRow.upc,
+            MembershipRow.category_source_id,
+            MembershipRow.taxonomy_id,
+            MembershipRow.page_fetch_id,
+            MembershipRow.via,
+        ).where(MembershipRow.run_id == run_id, MembershipRow.coupon_id.is_(None))
+    ).all():
+        if via == "organic":
+            placed[route_key(source, tax)].add((str(upc), str(fetch) if fetch else None))
+        else:
+            paid[route_key(source, tax)].add(str(upc))
+
+    def bound(r: ListingPage) -> bool:
+        """The page names the run's store and fulfillment and its store check passed."""
+        return (
+            r.store_check == "PASS"
+            and store is not None
+            and r.location_id == store.location_id
+            and (r.modality or "").upper() == str(store.modality).upper()
+        )
+
+    routes: list[route_audit.RouteEvidence] = []
     for t in tasks:
         cur = t.cursor or {}
+        node = cur.get("node") or {}
+        source, listing = str(node.get("category_source_id") or ""), str(node.get("taxonomy_id") or "")
+        key = route_key(source, listing)
         status = str(cur.get("status") or "")
         if t.state != "succeeded":
             status = "NOT_COLLECTED"
         elif status not in FINISHED_NODE:
             status = "INCOMPLETE"
-        own[t.id] = status
-        parent = str(((cur.get("node") or {}).get("parent")) or "")
-        if parent:
-            children.setdefault(f"{t.run_id}|{parent}", []).append(t)
+        mine = sorted(
+            rows.get((source, listing, _pkey(node)), []), key=lambda r: (r.requested_page, r.attempt)
+        )
+        stepped = not mine or all(r.route == "search" for r in mine)
+        done = pagination.completed_pages(mine)
+        totals = tuple(sorted({r.total for r in mine if r.total is not None}))
+        total = totals[-1] if totals else cur.get("total")
+        zero = any(r.state == "completed" and r.total == 0 and bound(r) for r in mine)
+        routes.append(
+            route_audit.RouteEvidence(
+                key=key,
+                listing=listing,
+                cursor_status=status,
+                parent=route_key(source, node["parent"]) if node.get("parent") else "",
+                kind=str(node.get("kind") or ""),
+                reason=str(cur.get("reason") or ""),
+                total=total if isinstance(total, int) else None,
+                totals_seen=totals,
+                pages=tuple(
+                    route_audit.PageEvidence(
+                        page=r.requested_page,
+                        identities=tuple(str(u) for u in (r.identities or [])),
+                        sponsored=tuple(str(u) for u in (r.sponsored or [])),
+                        fetch_id=r.page_fetch_id,
+                        sha256=r.response_sha256,
+                        observed_at=r.observed_at.isoformat() if r.observed_at else None,
+                        total=r.total,
+                        location_id=r.location_id,
+                        modality=r.modality,
+                        url=r.url,
+                        attempt=r.attempt,
+                        verdict=r.verdict,
+                        store_bound=bound(r),
+                    )
+                    for r in done
+                ),
+                placements=frozenset(placed.get(key, set())),
+                paid=frozenset(paid.get(key, set())),
+                fetches=frozenset(r.page_fetch_id for r in mine if r.page_fetch_id),
+                zero_result=zero,
+                # Browser steps (Load More) keep no page row, and a search page lists no identity of the
+                # listing: the cursor lists the members the reading kept (such a listing is never DONE
+                # through a search).
+                without_page_rows=stepped,
+                stepped=tuple(str(u) for u in (cur.get("seen") or [])) if stepped else (),
+            )
+        )
+    return tasks, routes
 
-    def kids(t: Task) -> list[Task]:
-        return children.get(f"{t.run_id}|{(t.cursor or {}).get('node', {}).get('taxonomy_id', '')}", [])
 
-    def seen(t: Task) -> set[str]:
-        out = set((t.cursor or {}).get("seen") or [])
-        for k in kids(t):
-            out |= seen(k)
-        return out
+def route_key(category_source_id: Any, taxonomy_id: Any) -> str:
+    """A listing of the run's plan: the same listing can be planned under two CSV rows (category sources)."""
+    return f"{category_source_id or ''}|{taxonomy_id or ''}"
 
-    def status_of(t: Task) -> str:
-        if own[t.id] != "PARTITIONED":
-            return own[t.id]
-        ks = kids(t)
-        total = (t.cursor or {}).get("total")
-        if not ks or any(status_of(k) not in ("DONE", "EMPTY") for k in ks):
-            return "INCOMPLETE"
-        return "DONE" if isinstance(total, int) and len(seen(t)) >= total else "INCOMPLETE"
 
+def node_key(node: dict[str, Any]) -> str:
+    return route_key(node.get("category_source_id"), node.get("taxonomy_id"))
+
+
+def record_facts(s: Session, run_id: str) -> dict[str, route_audit.RecordFact]:
+    nodes: dict[str, str] = {}
+    for upc, prov in s.execute(
+        select(ProductObservation.upc, ProductObservation.provenance).where(
+            ProductObservation.run_id == run_id
+        )
+    ).all():
+        nodes.setdefault(str(upc), str((prov or {}).get("node") or ""))
+    return {
+        str(upc): route_audit.RecordFact(str(status), tuple(reasons or ()), nodes.get(str(upc), ""))
+        for upc, status, reasons in s.execute(
+            select(RecordRow.upc, RecordRow.status, RecordRow.reasons).where(RecordRow.run_id == run_id)
+        ).all()
+    }
+
+
+def audited(s: Session, run_id: str) -> tuple[list[Task], dict[str, route_audit.RouteVerdict]]:
+    tasks, routes = route_evidence(s, run_id)
+    return tasks, route_audit.audit(routes, record_facts(s, run_id))
+
+
+def node_outcomes(s: Session, run_id: str) -> list[dict[str, Any]]:
+    """Each listing task's outcome, from the products the run accounts for (release 1.10.0rc7,
+    :mod:`route_audit`): a listing read to its last page is DONE only when every product its counted pages
+    list has a record of the run placed under it and they reach the source's total; a partitioned listing
+    only when every child listing is finished and the union of what they account for reaches the listing's
+    total (never a sum of child counts, which overlap); otherwise INCOMPLETE, with the gap. ``seen`` is the
+    number of products accounted for (the coverage the gates measure)."""
+    tasks, verdicts = audited(s, run_id)
     out = []
     for t in tasks:
         cur = t.cursor or {}
-        st = status_of(t)
+        node = cur.get("node") or {}
+        v = verdicts[node_key(node)]
         entry: dict[str, Any] = {
-            "node": cur.get("node") or {},
-            "status": st,
-            "seen": len(seen(t)),
+            "node": node,
+            "status": v.status,
+            "seen": len(v.union_accounted or v.accounted),
             "total": cur.get("total"),
             "available": cur.get("available"),
-            "reason": cur.get("reason") or "",
+            "reason": v.reason if v.status != v.cursor_status else (cur.get("reason") or v.reason or ""),
+            "cursor_status": v.cursor_status,
+            "audit": v.as_dict(lists=False),
+            "verdict": v,
         }
-        if own[t.id] == "PARTITIONED":
+        if v.cursor_status == "PARTITIONED":
             entry["partitioned"] = {
-                "children": [(k.cursor or {}).get("node", {}).get("taxonomy_id") for k in kids(t)],
+                "children": [verdicts[k].listing for k in v.children if k in verdicts],
                 "children_status": {
-                    (k.cursor or {}).get("node", {}).get("taxonomy_id"): status_of(k) for k in kids(t)
+                    verdicts[k].listing: verdicts[k].status for k in v.children if k in verdicts
                 },
-                "distinct_products": len(seen(t)),
-                "gap": max(0, (cur.get("total") or 0) - len(seen(t))),
+                "distinct_products": len(v.union_accounted),
+                "gap": max(0, (v.total or 0) - len(v.union_accounted)),
             }
         out.append(entry)
+    return out
+
+
+def sync_node_coverage(s: Session, run_id: str, outcomes: list[dict[str, Any]]) -> int:
+    """The per-listing coverage rows written while collecting (the cursor's view) set to the audited verdict,
+    so that what later reads them (the backlog order of a scheduled run, why a product was not observed by
+    the run) sees what the export reports. Returns how many rows changed."""
+    changed = 0
+    by_key = {node_key(o["node"] or {}): o for o in outcomes}
+    for row in s.scalars(select(NodeCoverage).where(NodeCoverage.run_id == run_id)):
+        o = by_key.get(route_key(row.category_source_id, row.taxonomy_id))
+        if o is None:
+            continue
+        status, seen, total = o["status"], int(o["seen"]), o["total"]
+        if o["cursor_status"] == "PARTITIONED" and status == "DONE":
+            status = "PARTITIONED"  # the collector's own word for a listing read through its subdivisions
+        ratio = 1.0 if total == 0 else (min(1.0, seen / total) if total else None)
+        if (row.status, row.organic_upcs, row.coverage_ratio) != (status, seen, ratio):
+            row.status, row.organic_upcs, row.coverage_ratio = status, seen, ratio
+            row.partition = {**(row.partition or {}), "audit": o["audit"], "audited_reason": o["reason"]}
+            changed += 1
+    return changed
+
+
+def coverage_problems(s: Session, run_id: str) -> list[str]:
+    """Why the run's coverage does not support a full publication (empty: it does): a listing of the plan
+    not DONE or EMPTY under the audit, or any product a counted page lists with nothing accounting for it."""
+    tasks, verdicts = audited(s, run_id)
+    if not tasks:
+        return ["the run's plan has no listing"]
+    out = []
+    for _, v in sorted(verdicts.items()):
+        if not v.finished:
+            out.append(f"{v.listing} {v.status}: {v.reason}"[:300])
+        elif v.missing or v.unexpected:
+            out.append(f"{v.listing}: {len(v.missing)} missing, {len(v.unexpected)} unexpected")
     return out
 
 
@@ -221,7 +372,7 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
     store = s.get(Store, run.store_id)
     pages: dict[str, list[ListingPage]] = defaultdict(list)
     for p in s.scalars(select(ListingPage).where(ListingPage.run_id == run_id)):
-        pages[p.taxonomy_id].append(p)
+        pages[route_key(p.category_source_id, p.taxonomy_id)].append(p)
     records = {r.upc: r for r in s.scalars(select(RecordRow).where(RecordRow.run_id == run_id))}
     placed: dict[str, set[str]] = defaultdict(set)
     variant: dict[str, dict[str, str]] = defaultdict(dict)
@@ -238,10 +389,11 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
 
     lines: list[dict[str, Any]] = []
     by_row: dict[int, list[dict[str, Any]]] = defaultdict(list)
-    for outcome in node_outcomes(s, run_id):
+    outcomes = node_outcomes(s, run_id)
+    for outcome in outcomes:
         node = outcome["node"]
         listing = str(node.get("taxonomy_id") or "")
-        rows = sorted(pages.get(listing, []), key=lambda r: (r.requested_page, r.attempt))
+        rows = sorted(pages.get(node_key(node), []), key=lambda r: (r.requested_page, r.attempt))
         done = pagination.completed_pages(rows)
         unique = len({u for r in done for u in (r.identities or [])})
         totals = sorted({r.total for r in rows if r.total is not None})
@@ -253,9 +405,11 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
         recs = [records[u] for u in members if u in records]
         exclusions = Counter(x for r in recs if r.status == "excluded" for x in (r.reasons or []))
         approx = exclusions.pop(RecordFlag.APPROX_WEIGHT.value, 0)
-        distinct = int((outcome.get("partitioned") or {}).get("distinct_products") or 0) or max(
-            unique, outcome["seen"]
-        )
+        verdict: route_audit.RouteVerdict = outcome["verdict"]
+        # 1.10.0rc7: the products accounted for (a record of the run placed under the listing), never the
+        # larger of the pages' identities and the cursor's count (OR-24: Dog Food 27017 and Cat Treats 27022
+        # were DONE with no gap while 44 products of their counted pages had no record).
+        distinct = len(verdict.union_accounted or verdict.accounted)
         line = {
             "csv_row": node.get("row_index"),
             "category": node.get("category"),
@@ -292,6 +446,16 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
                 for r in rows
                 if r.verdict in (pagination.PageVerdict.WRONG_FILTER, pagination.PageVerdict.UNBOUND)
             ),
+            "expected_identities": len(verdict.union_expected or set(verdict.expected)),
+            "accounted_identities": distinct,
+            "missing_identities": len(verdict.missing),
+            "unexpected_identities": len(verdict.unexpected),
+            "cursor_status": verdict.cursor_status,
+            # JSON only (the CSV keeps the counts): which products, page by page.
+            "missing": dict(sorted(verdict.missing.items())),
+            "missing_by_page": {str(k): list(v) for k, v in sorted(verdict.missing_by_page.items())},
+            "unexpected": list(verdict.unexpected),
+            "excluded_identities": {k: list(v) for k, v in sorted(verdict.excluded.items())},
         }
         lines.append(line)
         if not line["parent_listing"]:
@@ -346,6 +510,7 @@ def reconciliation(s: Session, run_id: str) -> dict[str, Any]:
         "listings_planned": len(lines),
         "complete_rows": sum(1 for r in rows_out if r["status"] == "COMPLETE"),
         "complete_listings": sum(1 for x in lines if x["status"] in ("DONE", "EMPTY")),
+        "route_audit": route_audit.summary({node_key(o["node"]): o["verdict"] for o in outcomes}),
         "identities": identity_sets(s, run_id),
         "rows": rows_out,
         "listings": lines,

@@ -1,0 +1,9 @@
+HEAD d77f3065c757b8b962524dbf8d9961dec212e72b
+src tree at HEAD 589d72383f16779f3fb69b9fdd25b23e1cb240a8
+src changed from HEAD: 0 file(s)
+test files not in HEAD (copied from 8eec040):
+ M tests/c1_site.py
+?? tests/integration/test_route_audit_rc7.py
+?? tests/unit/test_contract_csv_rc7.py
+?? tests/unit/test_route_audit_rc7.py
+version version = "1.10.0rc6"

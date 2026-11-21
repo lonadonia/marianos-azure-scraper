@@ -1,0 +1,106 @@
+{
+ "audit": {
+  "accounted_identities": 13,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 13,
+  "fresh_records": 13,
+  "fresh_valid": 13,
+  "listing_id": "09133",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "13 distinct products of 13 reported, on 1 page(s), each accounted for",
+  "reported_total": 13,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0068245796211",
+  "0069669216337",
+  "0072712819010",
+  "0072712820005",
+  "0072712878404",
+  "0077513940882",
+  "0077513945709",
+  "0077513971420",
+  "0077513971427",
+  "0077513971429",
+  "0077513980741",
+  "0077513996615",
+  "0077513999179"
+ ],
+ "fresh_linked": [
+  "0068245796211",
+  "0069669216337",
+  "0072712819010",
+  "0072712820005",
+  "0072712878404",
+  "0077513940882",
+  "0077513945709",
+  "0077513971420",
+  "0077513971427",
+  "0077513971429",
+  "0077513980741",
+  "0077513996615",
+  "0077513999179"
+ ],
+ "listing": "09133",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 13,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNZAR9F7DGY395PF4EV600",
+   "identities": [
+    "0077513999179",
+    "0069669216337",
+    "0068245796211",
+    "0077513980741",
+    "0077513971427",
+    "0077513996615",
+    "0072712878404",
+    "0077513945709",
+    "0077513971420",
+    "0077513940882",
+    "0077513971429",
+    "0072712819010",
+    "0072712820005"
+   ],
+   "listing": "09133",
+   "observed_at": "2026-11-16 17:20:14.60139+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "09133",
+   "sha256": "ed7cf5c1987dab7e768ce2b02b7a46b69ed8e4fdce20f155ca33b130fcafe903",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 13,
+   "url": "https://www.marianos.com/pl/potted-plants/09133"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

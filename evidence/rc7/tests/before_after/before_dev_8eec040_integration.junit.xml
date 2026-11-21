@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="8" time="45.884" timestamp="2026-11-21T22:18:40.897231+00:00" hostname="[redacted:workstation-host]"><testcase classname="tests.integration.test_route_audit_rc7" name="test_rc7_a_counted_product_without_a_record_is_incomplete_everywhere_and_never_published[one_product_of_61]" time="10.390"><failure message="AssertionError: assert ('DONE', 61, 0) == ('INCOMPLETE', 60, 1)&#10;  &#10;  At index 0 diff: 'DONE' != 'INCOMPLETE'&#10;  Use -v to get more diff">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:54704/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001FEE21BE570&gt;
+loss = 'one_product_of_61'
+
+    @pytest.mark.parametrize("loss", sorted(LOSSES))
+    def test_rc7_a_counted_product_without_a_record_is_incomplete_everywhere_and_never_published(
+        env: dict[str, Any],  # noqa: F811
+        settings: Settings,
+        monkeypatch: pytest.MonkeyPatch,
+        loss: str,
+    ) -&gt; None:
+        ctx = _context(env)
+        first = _complete_run(env, settings)
+        assert _finish(env, ctx, first)["exit_code"] == 0
+        before = published(env)
+        assert before is not None and before["published_run"] == first
+        catalogue = products(61)
+        lost = LOSSES[loss](catalogue)
+        drop_records(monkeypatch, lost)
+        clock = Clock()
+        run_id, status = c1.run(env, settings, C1Site({"03001": catalogue}, clock), clock, max_reasks=None)
+        monkeypatch.undo()
+        whole = line(env, run_id)
+        with env["factory"]() as s:
+            cov = s.scalar(
+                select(NodeCoverage).where(NodeCoverage.run_id == run_id, NodeCoverage.taxonomy_id == "03001")
+            )
+            assert cov is not None
+            g3 = [
+                (f.severity, f.message)
+                for f in s.scalars(select(ValidationFinding).where(ValidationFinding.run_id == run_id))
+                if f.gate == "G3"
+            ]
+            holes = incoherent_pages(s, run_id)
+        out = _finish(env, ctx, run_id)
+        try:
+            operations.publish(ctx, run_id, REASON, "operator")
+            manual = "published"
+        except operations.CommandError as exc:
+            manual = f"refused (exit {int(exc.code)}): {exc}"
+        after = published(env)
+        exported = export_file(env, run_id, "coverage_reconciliation.json")
+        exported_line = next(x for x in exported["listings"] if x["listing_id"] == "03001")
+        evidence(
+            f"rc7_lost_record_{loss}",
+            {
+                "lost": sorted(lost),
+                "run_status": status,
+                "coverage_line": {k: whole.get(k) for k in ("status", "unique_identities", "unresolved_gap")}
+                | {k: whole.get(k) for k in ("accounted_identities", "missing_identities", "missing_by_page")},
+                "node_coverage": (cov.status, cov.organic_upcs, cov.total_count),
+                "g3": g3,
+                "incoherent_pages_oracle": holes,
+                "automatic": out,
+                "manual": manual,
+                "before": before,
+                "after": after,
+            },
+        )
+        assert holes == [("03001", 2, sorted(lost, key=[p.upc for p in catalogue].index))]  # the injected loss
+        # The coverage file, the node coverage, G3 and the export say the same.
+&gt;       assert (whole["status"], whole["unique_identities"], whole["unresolved_gap"]) == (
+            "INCOMPLETE",
+            61 - len(lost),
+            len(lost),
+        )
+E       AssertionError: assert ('DONE', 61, 0) == ('INCOMPLETE', 60, 1)
+E         
+E         At index 0 diff: 'DONE' != 'INCOMPLETE'
+E         Use -v to get more diff
+
+tests\integration\test_route_audit_rc7.py:217: AssertionError</failure></testcase><testcase classname="tests.integration.test_route_audit_rc7" name="test_rc7_a_counted_product_without_a_record_is_incomplete_everywhere_and_never_published[page_2_whole]" time="4.998"><failure message="AssertionError: assert ('DONE', 61, 0) == ('INCOMPLETE', 37, 24)&#10;  &#10;  At index 0 diff: 'DONE' != 'INCOMPLETE'&#10;  Use -v to get more diff">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:54704/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001FEE259A240&gt;
+loss = 'page_2_whole'
+
+    @pytest.mark.parametrize("loss", sorted(LOSSES))
+    def test_rc7_a_counted_product_without_a_record_is_incomplete_everywhere_and_never_published(
+        env: dict[str, Any],  # noqa: F811
+        settings: Settings,
+        monkeypatch: pytest.MonkeyPatch,
+        loss: str,
+    ) -&gt; None:
+        ctx = _context(env)
+        first = _complete_run(env, settings)
+        assert _finish(env, ctx, first)["exit_code"] == 0
+        before = published(env)
+        assert before is not None and before["published_run"] == first
+        catalogue = products(61)
+        lost = LOSSES[loss](catalogue)
+        drop_records(monkeypatch, lost)
+        clock = Clock()
+        run_id, status = c1.run(env, settings, C1Site({"03001": catalogue}, clock), clock, max_reasks=None)
+        monkeypatch.undo()
+        whole = line(env, run_id)
+        with env["factory"]() as s:
+            cov = s.scalar(
+                select(NodeCoverage).where(NodeCoverage.run_id == run_id, NodeCoverage.taxonomy_id == "03001")
+            )
+            assert cov is not None
+            g3 = [
+                (f.severity, f.message)
+                for f in s.scalars(select(ValidationFinding).where(ValidationFinding.run_id == run_id))
+                if f.gate == "G3"
+            ]
+            holes = incoherent_pages(s, run_id)
+        out = _finish(env, ctx, run_id)
+        try:
+            operations.publish(ctx, run_id, REASON, "operator")
+            manual = "published"
+        except operations.CommandError as exc:
+            manual = f"refused (exit {int(exc.code)}): {exc}"
+        after = published(env)
+        exported = export_file(env, run_id, "coverage_reconciliation.json")
+        exported_line = next(x for x in exported["listings"] if x["listing_id"] == "03001")
+        evidence(
+            f"rc7_lost_record_{loss}",
+            {
+                "lost": sorted(lost),
+                "run_status": status,
+                "coverage_line": {k: whole.get(k) for k in ("status", "unique_identities", "unresolved_gap")}
+                | {k: whole.get(k) for k in ("accounted_identities", "missing_identities", "missing_by_page")},
+                "node_coverage": (cov.status, cov.organic_upcs, cov.total_count),
+                "g3": g3,
+                "incoherent_pages_oracle": holes,
+                "automatic": out,
+                "manual": manual,
+                "before": before,
+                "after": after,
+            },
+        )
+        assert holes == [("03001", 2, sorted(lost, key=[p.upc for p in catalogue].index))]  # the injected loss
+        # The coverage file, the node coverage, G3 and the export say the same.
+&gt;       assert (whole["status"], whole["unique_identities"], whole["unresolved_gap"]) == (
+            "INCOMPLETE",
+            61 - len(lost),
+            len(lost),
+        )
+E       AssertionError: assert ('DONE', 61, 0) == ('INCOMPLETE', 37, 24)
+E         
+E         At index 0 diff: 'DONE' != 'INCOMPLETE'
+E         Use -v to get more diff
+
+tests\integration\test_route_audit_rc7.py:217: AssertionError</failure></testcase><testcase classname="tests.integration.test_route_audit_rc7" name="test_rc7_publication_reads_the_coverage_again_whatever_the_recorded_checks_say" time="5.254"><failure message="Failed: DID NOT RAISE PublicationRefused">env = {'engine': Engine(postgresql+psycopg://postgres:***@127.0.0.1:54704/walmart_collector_test), 'factory': sessionmaker(c...contest_store=False, notes='Marianos Vernon Hills, 1720 N Milwaukee Ave, Vernon Hills, IL 60061; Pickup prices.'), ...}
+settings = Settings(acquisition=AcquisitionSettings(mode=&lt;AcquisitionMode.UI_CAPTURE: 'UI_CAPTURE'&gt;, browser_provider=&lt;BrowserPro...gories=3), storage=StorageSettings(backend='local', local_root='./data', azure_account_url=None, azure_container=None))
+
+    def test_rc7_publication_reads_the_coverage_again_whatever_the_recorded_checks_say(
+        env: dict[str, Any],  # noqa: F811
+        settings: Settings,
+    ) -&gt; None:
+        """A validated, complete run whose placement of one product under its listing is gone (removed in this
+        throwaway database after its checks): the recorded gates still pass, and neither the manual nor the
+        automatic publication replaces the last good dataset."""
+        ctx = _context(env)
+        first = _complete_run(env, settings)
+        assert _finish(env, ctx, first)["exit_code"] == 0
+        before = published(env)
+        second = _complete_run(env, settings, n=61)
+        gone = products(61)[30].upc
+        with env["factory"]() as s:
+            n = s.execute(
+                delete(MembershipRow).where(
+                    MembershipRow.run_id == second,
+                    MembershipRow.upc == gone,
+                    MembershipRow.taxonomy_id == "03001",
+                )
+            ).rowcount
+            s.commit()
+            run = s.get(Run, second)
+            assert run is not None and run.status == "validated" and n == 1
+&gt;       with pytest.raises(PublicationRefused) as refused:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PublicationRefused
+
+tests\integration\test_route_audit_rc7.py:257: Failed</failure></testcase><testcase classname="tests.integration.test_route_audit_rc7" name="test_control_a_complete_run_reconciles_and_is_published" time="3.187" /><testcase classname="tests.integration.test_route_audit_rc7" name="test_lanes_two_lanes_in_either_order_keep_what_one_lane_keeps[product_after_other]" time="4.675" /><testcase classname="tests.integration.test_route_audit_rc7" name="test_lanes_two_lanes_in_either_order_keep_what_one_lane_keeps[other_after_product]" time="4.750" /><testcase classname="tests.integration.test_route_audit_rc7" name="test_control_on_the_search_route_the_other_lane_waiting_for_the_product_page_loses_nothing" time="2.701" /><testcase classname="tests.integration.test_route_audit_rc7" name="test_control_a_two_lane_worker_killed_mid_run_leaves_every_counted_page_whole_and_resume_completes_it" time="8.094" /></testsuite></testsuites>

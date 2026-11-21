@@ -1,0 +1,126 @@
+{
+ "case": "rc7_lost_record_one_product_of_61",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the lost record is injected",
+ "lost": [
+  "0003800000031"
+ ],
+ "run_status": "validated",
+ "coverage_line": {
+  "status": "DONE",
+  "unique_identities": 61,
+  "unresolved_gap": 0,
+  "accounted_identities": null,
+  "missing_identities": null,
+  "missing_by_page": null
+ },
+ "node_coverage": [
+  "DONE",
+  60,
+  61
+ ],
+ "g3": [],
+ "incoherent_pages_oracle": [
+  [
+   "03001",
+   2,
+   [
+    "0003800000031"
+   ]
+  ]
+ ],
+ "automatic": {
+  "exit_code": 0,
+  "run_status": "published",
+  "log": [
+   {
+    "level": "INFO",
+    "event": "RUN_PUBLISHED",
+    "exit_code": null,
+    "message": null,
+    "publication": null,
+    "version": 2
+   },
+   {
+    "level": "INFO",
+    "event": "RUN_FINISHED",
+    "exit_code": 0,
+    "message": null,
+    "publication": {
+     "automatic": true,
+     "published": true,
+     "version": 2
+    },
+    "version": null
+   }
+  ],
+  "run_finished": {
+   "ts": "2026-11-21T22:17:10.190Z",
+   "level": "INFO",
+   "event": "RUN_FINISHED",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "exit_code": 0,
+   "run_id": "01M802YHPAWY65DHCEYK0NWP75",
+   "status": "published",
+   "trigger": "console",
+   "dataset": "complete",
+   "pilot": false,
+   "occurrence": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "created_at": "2026-11-21T22:17:08.053460Z",
+   "started_at": "2026-11-21T22:17:08.083721Z",
+   "finished_at": "2026-11-21T22:17:10.057177Z",
+   "outcome": "validated",
+   "records_by_status": {
+    "valid": 60,
+    "historical": 1
+   },
+   "collection_complete": true,
+   "canary": {
+    "at": "2026-11-09T16:00:00Z",
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "page": "01M802YHYXC4G06QJ5GEFFVRQ2",
+    "valid": 24,
+    "status": "passed",
+    "records": 24,
+    "problems": [],
+    "valid_ratio": 1.0,
+    "source_check": {
+     "records": 24,
+     "mismatch": 0,
+     "verified": 24,
+     "unverified": 0
+    }
+   },
+   "historical": {
+    "too_old": 0,
+    "carried_forward": 1
+   },
+   "publication": {
+    "automatic": true,
+    "published": true,
+    "version": 2
+   },
+   "failed_checks": []
+  },
+  "events": []
+ },
+ "manual": "refused (exit 6): run status is 'published', not 'validated'",
+ "before": {
+  "publication_id": "01M802YHN1YQ3SPPVGXTANWCNP",
+  "version": 1,
+  "published_run": "01M802YFA8X6WDQDNGTHFAA3D9",
+  "latest_json_sha256": "4ecb39ecce7ae55a8946537a5fd52696e82a264154c81cfb6849293a1d9ff92d",
+  "manifest_sha256": "4adda8d0147e755b6dc59e95bb43a1b6606cded6dba6175bb05d10ec42de381e",
+  "products_sha256": "95e1f080609f3c98bdbdc2036bbe317ca9fc6e8a8b70627ef200151a87958b1e"
+ },
+ "after": {
+  "publication_id": "01M802YKRXNJPY6M9TJ6H3J1H4",
+  "version": 2,
+  "published_run": "01M802YHPAWY65DHCEYK0NWP75",
+  "latest_json_sha256": "a1c9b7d58fe985bbc78ac881cc27afaf31d4dded72002f11c6b41e3c46e33f6e",
+  "manifest_sha256": "a0b623ebe22e7fd52daedd0c732f62c897133510d86ac4e87a30b81c774ae2cb",
+  "products_sha256": "32daaf56f18c0549cec1c6babb26546749d47a2b38d60fff87b8ba2c91bd073c"
+ }
+}

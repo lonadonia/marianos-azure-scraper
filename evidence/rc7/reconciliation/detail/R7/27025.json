@@ -1,0 +1,85 @@
+{
+ "audit": {
+  "accounted_identities": 6,
+  "children": [],
+  "cross_listed": 2,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 6,
+  "fresh_records": 6,
+  "fresh_valid": 6,
+  "listing_id": "27025",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "6 distinct products of 6 reported, on 1 page(s), each accounted for",
+  "reported_total": 6,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111085034",
+  "0002027999509",
+  "0002969581160",
+  "0002969581264",
+  "0003270094268",
+  "0075597040721"
+ ],
+ "fresh_linked": [
+  "0001111085034",
+  "0002027999509",
+  "0002969581160",
+  "0002969581264",
+  "0003270094268",
+  "0075597040721"
+ ],
+ "listing": "27025",
+ "pages": [
+  {
+   "attempt": 2,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 6,
+    "sha256_matches": true
+   },
+   "fetch": "01M7KQBQDZY8A3E6182H9DJ3H4",
+   "identities": [
+    "0003270094268",
+    "0001111085034",
+    "0075597040721",
+    "0002969581160",
+    "0002027999509",
+    "0002969581264"
+   ],
+   "listing": "27025",
+   "observed_at": "2026-11-17 03:03:43.807458+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "27025",
+   "sha256": "d4d4a42ce5d6eb54f8a7c19d74d1885a17a58895e261b34fade84851aae07192",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 6,
+   "url": "https://www.marianos.com/pl/cat-supplies/27025"
+  }
+ ],
+ "replay_id": "RPL-R7-76c0932dbc0a",
+ "run": "01M7KQ5GZVF5VK1S9FGTG6YFC9",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

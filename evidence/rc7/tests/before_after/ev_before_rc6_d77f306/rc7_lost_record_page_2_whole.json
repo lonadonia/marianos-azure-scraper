@@ -1,0 +1,162 @@
+{
+ "case": "rc7_lost_record_page_2_whole",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the lost record is injected",
+ "lost": [
+  "0003800000025",
+  "0003800000026",
+  "0003800000027",
+  "0003800000028",
+  "0003800000029",
+  "0003800000030",
+  "0003800000031",
+  "0003800000032",
+  "0003800000033",
+  "0003800000034",
+  "0003800000035",
+  "0003800000036",
+  "0003800000037",
+  "0003800000038",
+  "0003800000039",
+  "0003800000040",
+  "0003800000041",
+  "0003800000042",
+  "0003800000043",
+  "0003800000044",
+  "0003800000045",
+  "0003800000046",
+  "0003800000047",
+  "0003800000048"
+ ],
+ "run_status": "rejected",
+ "coverage_line": {
+  "status": "DONE",
+  "unique_identities": 61,
+  "unresolved_gap": 0,
+  "accounted_identities": null,
+  "missing_identities": null,
+  "missing_by_page": null
+ },
+ "node_coverage": [
+  "DONE",
+  37,
+  61
+ ],
+ "g3": [
+  [
+   "FAIL",
+   "coverage 0.607"
+  ]
+ ],
+ "incoherent_pages_oracle": [
+  [
+   "03001",
+   2,
+   [
+    "0003800000025",
+    "0003800000026",
+    "0003800000027",
+    "0003800000028",
+    "0003800000029",
+    "0003800000030",
+    "0003800000031",
+    "0003800000032",
+    "0003800000033",
+    "0003800000034",
+    "0003800000035",
+    "0003800000036",
+    "0003800000037",
+    "0003800000038",
+    "0003800000039",
+    "0003800000040",
+    "0003800000041",
+    "0003800000042",
+    "0003800000043",
+    "0003800000044",
+    "0003800000045",
+    "0003800000046",
+    "0003800000047",
+    "0003800000048"
+   ]
+  ]
+ ],
+ "automatic": {
+  "exit_code": 6,
+  "run_status": "rejected",
+  "log": [
+   {
+    "level": "WARN",
+    "event": "RUN_FINISHED",
+    "exit_code": 6,
+    "message": null,
+    "publication": null,
+    "version": null
+   }
+  ],
+  "run_finished": {
+   "ts": "2026-11-21T22:17:15.995Z",
+   "level": "WARN",
+   "event": "RUN_FINISHED",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "exit_code": 6,
+   "run_id": "01M802YQMRCF1XGKA18FKP2ZX3",
+   "status": "rejected",
+   "trigger": "console",
+   "dataset": "partial",
+   "pilot": false,
+   "occurrence": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "created_at": "2026-11-21T22:17:14.135991Z",
+   "started_at": "2026-11-21T22:17:14.161824Z",
+   "finished_at": "2026-11-21T22:17:15.933554Z",
+   "outcome": "rejected",
+   "records_by_status": {
+    "valid": 37,
+    "historical": 24
+   },
+   "collection_complete": true,
+   "canary": {
+    "at": "2026-11-09T16:00:00Z",
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "page": "01M802YQWD2MQFDR0GQ5NT814J",
+    "valid": 24,
+    "status": "passed",
+    "records": 24,
+    "problems": [],
+    "valid_ratio": 1.0,
+    "source_check": {
+     "records": 24,
+     "mismatch": 0,
+     "verified": 24,
+     "unverified": 0
+    }
+   },
+   "historical": {
+    "too_old": 0,
+    "carried_forward": 24
+   },
+   "failed_checks": [
+    "G3"
+   ]
+  },
+  "events": []
+ },
+ "manual": "refused (exit 6): run 01M802YQMRCF1XGKA18FKP2ZX3 is a partial dataset: only complete runs are published",
+ "before": {
+  "publication_id": "01M802YQK68GCB0MX4YC2R4ZPR",
+  "version": 1,
+  "published_run": "01M802YN97FBZG8QE5XTHHMV6X",
+  "latest_json_sha256": "efeda7be984e506042de44c1015c4f33bdcecd573a54950bdd8818cae6907154",
+  "manifest_sha256": "c958e9b16bf372f5088497ce8b7086269a3ab82b285b996fa5f2cb5438ee7695",
+  "products_sha256": "95e1f080609f3c98bdbdc2036bbe317ca9fc6e8a8b70627ef200151a87958b1e"
+ },
+ "after": {
+  "publication_id": "01M802YQK68GCB0MX4YC2R4ZPR",
+  "version": 1,
+  "published_run": "01M802YN97FBZG8QE5XTHHMV6X",
+  "latest_json_sha256": "efeda7be984e506042de44c1015c4f33bdcecd573a54950bdd8818cae6907154",
+  "manifest_sha256": "c958e9b16bf372f5088497ce8b7086269a3ab82b285b996fa5f2cb5438ee7695",
+  "products_sha256": "95e1f080609f3c98bdbdc2036bbe317ca9fc6e8a8b70627ef200151a87958b1e"
+ }
+}

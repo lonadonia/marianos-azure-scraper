@@ -1,0 +1,58 @@
+{
+ "fault": "wrong_store",
+ "synthetic": true,
+ "first_run": "01M80230QEZPQG8JCRT56YZYWN",
+ "second_run": "01M8023P5BX636SHVHF3D84YW4",
+ "second_run_status": "rejected",
+ "second_run_stop_code": "STORE_NOT_VERIFIED",
+ "second_run_exit_code": 7,
+ "finalize_exit_code": null,
+ "publish_attempt_exit_code": 6,
+ "second_run_carried_forward_rows": 0,
+ "before": {
+  "pointer": {
+   "publication_id": "01M8023NTM3QFWH678NE4CJQD0",
+   "version": 1
+  },
+  "publications": 1,
+  "published_run": "01M80230QEZPQG8JCRT56YZYWN",
+  "latest_json_sha256": "e0515c7315b061d938a99439f57592c5ef73a133e6868864f74d93c39f7a5524",
+  "manifest_sha256": "c134294a6ce99b5fd9780305862855fb18c9668cc6fef10201a1c107edc95091",
+  "products_sha256": "4cfd6b419ee95c0abed9e0c2df618048488a264a1a202b7299efa837c7e3e48e",
+  "published_products": 57,
+  "first_run_observations_sha256": "5f6945ecd525c77781bfe6f464403d578d1cd5eec7c374c89becff9597c6b746",
+  "first_run_records_sha256": "15c5f495433a124b7e726d5c45b1dfecfaf44fa876844e079cce77dc1e7a4896",
+  "first_run_observations": 60
+ },
+ "after": {
+  "pointer": {
+   "publication_id": "01M8023NTM3QFWH678NE4CJQD0",
+   "version": 1
+  },
+  "publications": 1,
+  "published_run": "01M80230QEZPQG8JCRT56YZYWN",
+  "latest_json_sha256": "e0515c7315b061d938a99439f57592c5ef73a133e6868864f74d93c39f7a5524",
+  "manifest_sha256": "c134294a6ce99b5fd9780305862855fb18c9668cc6fef10201a1c107edc95091",
+  "products_sha256": "4cfd6b419ee95c0abed9e0c2df618048488a264a1a202b7299efa837c7e3e48e",
+  "published_products": 57,
+  "first_run_observations_sha256": "5f6945ecd525c77781bfe6f464403d578d1cd5eec7c374c89becff9597c6b746",
+  "first_run_records_sha256": "15c5f495433a124b7e726d5c45b1dfecfaf44fa876844e079cce77dc1e7a4896",
+  "first_run_observations": 60
+ },
+ "after_publish_attempt": {
+  "pointer": {
+   "publication_id": "01M8023NTM3QFWH678NE4CJQD0",
+   "version": 1
+  },
+  "publications": 1,
+  "published_run": "01M80230QEZPQG8JCRT56YZYWN",
+  "latest_json_sha256": "e0515c7315b061d938a99439f57592c5ef73a133e6868864f74d93c39f7a5524",
+  "manifest_sha256": "c134294a6ce99b5fd9780305862855fb18c9668cc6fef10201a1c107edc95091",
+  "products_sha256": "4cfd6b419ee95c0abed9e0c2df618048488a264a1a202b7299efa837c7e3e48e",
+  "published_products": 57,
+  "first_run_observations_sha256": "5f6945ecd525c77781bfe6f464403d578d1cd5eec7c374c89becff9597c6b746",
+  "first_run_records_sha256": "15c5f495433a124b7e726d5c45b1dfecfaf44fa876844e079cce77dc1e7a4896",
+  "first_run_observations": 60
+ },
+ "unchanged": true
+}

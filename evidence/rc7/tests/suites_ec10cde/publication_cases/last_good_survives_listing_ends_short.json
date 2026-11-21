@@ -1,0 +1,37 @@
+{
+ "synthetic": true,
+ "injected_failure": true,
+ "scenario": "listing_ends_short",
+ "first_run": "01M800EXASJVDZMGVS02SMVRSA",
+ "second_run": "01M800F05JZP7A8CKRVP0GPMY3",
+ "second_run_status": "rejected",
+ "second_run_stop_code": "ABNORMAL_RESULT",
+ "refusal": "run status is 'rejected', not 'validated'",
+ "before": {
+  "publication_id": "01M800F036316J79Q52934NJP7",
+  "version": 1,
+  "publications": 1,
+  "published_run": "01M800EXASJVDZMGVS02SMVRSA",
+  "latest_json_sha256": "762d937eb9cc369dacde29b30536e4cec0522655f2c93ec2ff8102eaad56cfe3",
+  "manifest_sha256": "239a88638b137ee0013f4ffb70c720cf1561e17ce3d11b9ed44bef5cf0eed228",
+  "products_sha256": "2faaff561e8bc33104e435706676be342bf79e09f397a5762bf5238ab5aefc10",
+  "published_products": 90,
+  "first_run_observations": 90,
+  "first_run_observations_sha256": "b086dec887a53ca549b92c7d889f52bde3c4e34c9895b328eecb84006d5b0868",
+  "first_run_records_sha256": "e3567aaaf1f276ffa206302651137a7e5d31a6c7980cc2e7f9980dbc7dd9a798"
+ },
+ "after": {
+  "publication_id": "01M800F036316J79Q52934NJP7",
+  "version": 1,
+  "publications": 1,
+  "published_run": "01M800EXASJVDZMGVS02SMVRSA",
+  "latest_json_sha256": "762d937eb9cc369dacde29b30536e4cec0522655f2c93ec2ff8102eaad56cfe3",
+  "manifest_sha256": "239a88638b137ee0013f4ffb70c720cf1561e17ce3d11b9ed44bef5cf0eed228",
+  "products_sha256": "2faaff561e8bc33104e435706676be342bf79e09f397a5762bf5238ab5aefc10",
+  "published_products": 90,
+  "first_run_observations": 90,
+  "first_run_observations_sha256": "b086dec887a53ca549b92c7d889f52bde3c4e34c9895b328eecb84006d5b0868",
+  "first_run_records_sha256": "e3567aaaf1f276ffa206302651137a7e5d31a6c7980cc2e7f9980dbc7dd9a798"
+ },
+ "unchanged": true
+}

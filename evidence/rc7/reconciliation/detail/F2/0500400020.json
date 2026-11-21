@@ -1,0 +1,85 @@
+{
+ "audit": {
+  "accounted_identities": 6,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 6,
+  "fresh_records": 6,
+  "fresh_valid": 6,
+  "listing_id": "0500400020",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "6 distinct products of 6 reported, on 1 page(s), each accounted for",
+  "reported_total": 6,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0002263540003",
+  "0002263540011",
+  "0002263540016",
+  "0003915600048",
+  "0024956140000",
+  "0027946340000"
+ ],
+ "fresh_linked": [
+  "0002263540003",
+  "0002263540011",
+  "0002263540016",
+  "0003915600048",
+  "0024956140000",
+  "0027946340000"
+ ],
+ "listing": "0500400020",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 6,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNQ33DQ5K1VV0EQ292CBD0",
+   "identities": [
+    "0003915600048",
+    "0002263540011",
+    "0002263540003",
+    "0002263540016",
+    "0024956140000",
+    "0027946340000"
+   ],
+   "listing": "0500400020",
+   "observed_at": "2026-11-16 17:15:44.621224+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "0500400020",
+   "sha256": "4a9f1d53085845505e34f8b84efc57913d8f81673b0d9a47c7316059fc117ed5",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 6,
+   "url": "https://www.marianos.com/pl/seafood-salads-dips/0500400020"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

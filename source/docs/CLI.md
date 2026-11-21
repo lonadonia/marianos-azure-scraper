@@ -123,8 +123,9 @@ validation report, the manifest and, when the manifest lists them (release 1.8.0
 `coverage_reconciliation.json` and `.csv`, `coverage_by_csv_row.csv` and `listing_pages.csv`. Each file is
 verified against the SHA-256 the manifest records before it is copied (the coverage files from 1.8.0rc4).
 
-### validate-export (--file products.json | --run ID)
-The 22-field contract of a products file. For a run, also: the manifest and every export file verified
+### validate-export (--file products.json | --file products.csv | --run ID)
+The 22-field contract of a products file (release 1.10.0rc7: the CSV as well, read as text: every value a
+string, the header's order, leading zeros as written). For a run, also: the manifest and every export file verified
 from storage, and every exported record compared with the site's product data the run stored, read
 independently of the parser: each product's data for the store (UPC, the store its price is for, regular
 and sale price), from two evidence classes: the site's product responses, and (release 1.2.1) the product

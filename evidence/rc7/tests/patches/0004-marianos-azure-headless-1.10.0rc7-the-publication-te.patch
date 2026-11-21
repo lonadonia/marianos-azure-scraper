@@ -1,0 +1,265 @@
+From ec10cde09feedf5a5bab04169e6dbadb8592b5ce Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Sat, 21 Nov 2026 21:25:29 +0000
+Subject: [PATCH 4/4] marianos-azure-headless 1.10.0rc7: the publication tests'
+ synthetic runs hold a plan that reconciles
+
+The whole suite on 0073277 failed 7 tests in test_publish.py and test_recovery_and_rollback.py: they publish
+synthetic runs created directly in the database, with exports but no plan, and 1.10.0rc7's publication reads
+the coverage again and refuses a run whose plan has no listing ("the run's plan has no listing"). That
+refusal is intended (such a run carries no evidence of what it covered), so the tests change, not the code:
+tests/integration/helpers.py gains reconciled_plan (one listing read to its last page: a store-bound page
+listing every record's UPC, each observed on that page, placed under the listing and recorded fresh), and
+test_publish.py's prepared_run uses it. A new test checks that a run without a plan, or whose page lists one
+product with no record, is refused with the pointer and latest.json untouched. No source file changes.
+---
+ headless/marianos-azure-headless/README.md    |   6 +-
+ .../tests/integration/helpers.py              | 126 +++++++++++++++++-
+ .../tests/integration/test_publish.py         |  48 ++++++-
+ 3 files changed, 175 insertions(+), 5 deletions(-)
+
+diff --git a/headless/marianos-azure-headless/README.md b/headless/marianos-azure-headless/README.md
+index f37bde6..39ee53c 100644
+--- a/headless/marianos-azure-headless/README.md
++++ b/headless/marianos-azure-headless/README.md
+@@ -106,7 +106,11 @@ G3 and the export read that verdict, and the publication (manual and automatic)
+ run's pages, placements and records: an unexplained gap refuses it with exit 6, the last good dataset
+ untouched. One product of 61 lost on a counted page (a coverage of 0.984, above both G3 thresholds) was
+ validated and published by 1.10.0rc6; here it is INCOMPLETE everywhere and never published
+-(`tests/integration/test_route_audit_rc7.py`, `tests/unit/test_route_audit_rc7.py`). Also:
++(`tests/integration/test_route_audit_rc7.py`, `tests/unit/test_route_audit_rc7.py`). A run whose plan has no
++listing is refused too: the publication protocol's tests (`tests/integration/test_publish.py`, and the
++rollback tests that reuse its runs) give their synthetic runs a plan that reconciles
++(`tests/integration/helpers.py: reconciled_plan`) and check that a run without one, or with one product listed
++and unrecorded, is refused with the pointer untouched. Also:
+ `validate-export --file` reads `products.csv` (until rc6 a CSV was refused as unreadable JSON), and
+ `tools/replay_routes.py` replays a stored run's listings offline against the 1.9 baseline queue. rc7 also
+ carries the four corrections of the 1.10 development line after rc6: OR-21 (both lanes cancelled and
+diff --git a/headless/marianos-azure-headless/tests/integration/helpers.py b/headless/marianos-azure-headless/tests/integration/helpers.py
+index e85bedf..5dac946 100644
+--- a/headless/marianos-azure-headless/tests/integration/helpers.py
++++ b/headless/marianos-azure-headless/tests/integration/helpers.py
+@@ -2,11 +2,27 @@
+ 
+ from __future__ import annotations
+ 
+-from sqlalchemy import Engine
++import hashlib
++import json
++from collections.abc import Sequence
++from datetime import UTC, datetime
++from typing import Any
++
++from sqlalchemy import Engine, select
+ from sqlalchemy.orm import Session, sessionmaker
+ 
+ from marianos_headless.core.settings import Settings, load_stores
+-from marianos_headless.db.models import Run, Store
++from marianos_headless.db.models import (
++    CategorySource,
++    ListingPage,
++    MembershipRow,
++    PageFetch,
++    ProductObservation,
++    RecordRow,
++    Run,
++    Store,
++    Task,
++)
+ from marianos_headless.db.repo import import_category_sources, sync_stores
+ from marianos_headless.sites.marianos.csv_sources import load_category_csv
+ from marianos_headless.worker.runs import create_run
+@@ -33,3 +49,109 @@ def new_run(
+             run.status = status
+         s.commit()
+         return run
++
++
++def reconciled_plan(
++    factory: sessionmaker[Session],
++    run_id: str,
++    records: Sequence[dict[str, Any]],
++    *,
++    unrecorded: Sequence[str] = (),
++) -> None:
++    """A minimal plan whose coverage reconciles, for the publication protocol's tests on SYNTHETIC runs.
++
++    Since 1.10.0rc7 the publication reads the run's coverage again (``coverage_problems``) and refuses a run
++    whose plan has no listing. This writes one listing read to its last page: a page of the run's store
++    (store check PASS) listing every record's UPC, each with an observation of this run on that page, an
++    organic placement under the listing and a fresh record. ``unrecorded`` adds UPCs the page lists with no
++    record, which must make the publication refuse the run."""
++    now = datetime.now(UTC)
++    upcs = [str(r["upc"]) for r in records]
++    listed = [*upcs, *unrecorded]
++    with factory() as s:
++        run = s.get(Run, run_id)
++        assert run is not None
++        store = s.get(Store, run.store_id)
++        assert store is not None
++        source = s.scalars(select(CategorySource).order_by(CategorySource.csv_row_index)).first()
++        assert source is not None
++        tax = "synthetic-1"
++        fetch = PageFetch(
++            run_id=run_id, url="https://www.marianos.com/pl/synthetic", purpose="listing", started_at=now
++        )
++        s.add(fetch)
++        s.flush()
++        node = {"category_source_id": source.id, "taxonomy_id": tax, "kind": "listing"}
++        s.add(
++            Task(
++                run_id=run_id,
++                kind="listing_node",
++                idem_key=f"listing:{run_id}:{tax}",
++                category_source_id=source.id,
++                taxonomy_id=tax,
++                state="succeeded",
++                cursor={"node": node, "status": "DONE", "total": len(listed)},
++            )
++        )
++        s.add(
++            ListingPage(
++                run_id=run_id,
++                category_source_id=source.id,
++                csv_row_index=source.csv_row_index,
++                taxonomy_id=tax,
++                requested_filter={},
++                url=fetch.url,
++                route="listing",
++                requested_page=1,
++                requested_offset=0,
++                page_fetch_id=fetch.id,
++                location_id=store.location_id,
++                modality=store.modality,
++                store_check="PASS",
++                total=len(listed),
++                identities=listed,
++                state="completed",
++                verdict="new",
++                observed_at=now,
++            )
++        )
++        for i, (upc, record) in enumerate(zip(upcs, records, strict=True)):
++            s.add(
++                ProductObservation(
++                    run_id=run_id,
++                    upc=upc,
++                    page_fetch_id=fetch.id,
++                    source="card",
++                    provenance={"node": tax},
++                    parser_version="test",
++                    observed_at=now,
++                    mode=run.mode,
++                )
++            )
++            s.add(
++                MembershipRow(
++                    run_id=run_id,
++                    upc=upc,
++                    category_source_id=source.id,
++                    taxonomy_id=tax,
++                    page_offset=0,
++                    position=i,
++                    via="organic",
++                    placement="organic",
++                    page_fetch_id=fetch.id,
++                    observed_at=now,
++                    mode=run.mode,
++                )
++            )
++            body = json.dumps(record, sort_keys=True, ensure_ascii=False).encode("utf-8")
++            s.add(
++                RecordRow(
++                    run_id=run_id,
++                    upc=upc,
++                    record=dict(record),
++                    record_sha256=hashlib.sha256(body).hexdigest(),
++                    status="valid",
++                    mode=run.mode,
++                )
++            )
++        s.commit()
+diff --git a/headless/marianos-azure-headless/tests/integration/test_publish.py b/headless/marianos-azure-headless/tests/integration/test_publish.py
+index f30e2ff..31757f0 100644
+--- a/headless/marianos-azure-headless/tests/integration/test_publish.py
++++ b/headless/marianos-azure-headless/tests/integration/test_publish.py
+@@ -16,7 +16,7 @@ from marianos_headless.publishing.exports import write_exports
+ from marianos_headless.publishing.publish import PublicationRefused, latest_key, publish_run, sync_latest_json
+ from marianos_headless.storage.local import LocalStorageAdapter
+ from marianos_headless.worker.runs import register_exports
+-from tests.integration.helpers import new_run, seed
++from tests.integration.helpers import new_run, reconciled_plan, seed
+ 
+ pytestmark = pytest.mark.postgres
+ 
+@@ -26,8 +26,17 @@ class Crash(Exception):
+ 
+ 
+ def prepared_run(
+-    factory: sessionmaker[Session], store: Store, storage: LocalStorageAdapter, n: int = 3
++    factory: sessionmaker[Session],
++    store: Store,
++    storage: LocalStorageAdapter,
++    n: int = 3,
++    *,
++    plan: bool = True,
++    unrecorded: tuple[str, ...] = (),
+ ) -> str:
++    """A validated SYNTHETIC run with its exports. Since 1.10.0rc7 it also holds a plan whose coverage
++    reconciles (``reconciled_plan``): the publication reads the coverage again and refuses a run
++    without one."""
+     run = new_run(factory, store, status="validated")
+     records = [
+         build_record(
+@@ -42,6 +51,8 @@ def prepared_run(
+         )
+         for i in range(n)
+     ]
++    if plan:
++        reconciled_plan(factory, run.id, records, unrecorded=unrecorded)
+     ex = write_exports(
+         storage,
+         store_key=store.key,
+@@ -138,6 +149,39 @@ def test_refusals_leave_pointer_untouched(migrated_engine: Engine, tmp_path: Pat
+         assert audit.reason == "0.95 accepted"
+ 
+ 
++def test_rc7_a_run_without_a_plan_or_with_an_unrecorded_product_is_refused_and_the_pointer_stays(
++    migrated_engine: Engine, tmp_path: Path
++) -> None:
++    """1.10.0rc7: the publication reads the coverage again, whatever the recorded gates say. A validated run
++    with no listing in its plan, or whose counted page lists a product with no record, is refused; the
++    pointer and latest.json keep the previous good dataset."""
++    factory, store = seed(migrated_engine)
++    storage = LocalStorageAdapter(tmp_path)
++    good = prepared_run(factory, store, storage)
++    publish_run(factory, storage, good, "tester")
++    before = pointer(factory, store.id)
++    latest_before = storage.get_bytes(latest_key(store.key))
++
++    planless = prepared_run(factory, store, storage, plan=False)
++    with pytest.raises(PublicationRefused, match="the run's plan has no listing"):
++        publish_run(factory, storage, planless, "tester")
++
++    short = prepared_run(factory, store, storage, unrecorded=("000000009999",))
++    with pytest.raises(
++        PublicationRefused, match="1 of the 4 products its counted pages list are not accounted for"
++    ) as refused:
++        publish_run(factory, storage, short, "tester")
++    assert "000000009999" in str(refused.value)
++
++    after = pointer(factory, store.id)
++    assert before is not None and after is not None
++    assert (after.publication_id, after.version) == (before.publication_id, before.version)
++    assert storage.get_bytes(latest_key(store.key)) == latest_before
++    with factory() as s:
++        assert s.get(Run, planless).status == "validated"  # type: ignore[union-attr]
++        assert s.get(Run, short).status == "validated"  # type: ignore[union-attr]
++
++
+ @pytest.mark.parametrize("stage", ["before_commit", "inside_commit"])
+ def test_crash_before_or_during_commit_keeps_last_good(
+     migrated_engine: Engine, tmp_path: Path, stage: str
+-- 
+2.55.0.windows.5
+

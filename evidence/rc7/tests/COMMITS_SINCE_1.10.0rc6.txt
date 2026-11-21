@@ -1,0 +1,13 @@
+a7423c3 2026-11-17 04:30 marianos-azure-headless next: tests for OR-22 (a menu link missing the slash before its ID is asked in its canonical form)
+61c0a0b 2026-11-17 04:31 marianos-azure-headless next: OR-22, a menu link missing the slash before its ID (/pl/hard-cider08194) is asked as /pl/<name>/<ID>, the menu's own link kept on the node
+c147fe5 2026-11-17 04:40 marianos-azure-headless next: tests for OR-21 (a termination signal cancels the lanes and hands their tasks back unfailed)
+ea2e006 2026-11-17 04:40 marianos-azure-headless next: OR-21, a termination signal cancels the lanes with the worker and waits for them; a cancelled task is handed back with its checkpoint, never failed
+cd2af89 2026-11-17 05:27 marianos-azure-headless next: tests for OR-23 (a page the provider still cannot bring after the resume leaves its listing incomplete and the run goes on)
+abc4718 2026-11-17 05:30 marianos-azure-headless next: OR-23, a page that fails again once the run has been resumed at it leaves its listing incomplete and the run goes on (bounded: no run stop at every resume)
+e4f958a 2026-11-17 06:51 marianos-azure-headless next: the lint and format checks pass again, as on 1.10.0rc6 (the OR-21, OR-22 and OR-23 changes wrapped to 110 columns and formatted; no change of behaviour)
+804747f 2026-11-17 06:52 marianos-azure-headless next: tests for OR-24 (with two lanes, a page whose named product pages are being read keeps its products and its record while the other lane reads a page of its own)
+021b23f 2026-11-17 06:52 marianos-azure-headless next: OR-24, a listing page parse and the page being recorded are put back once its product pages are read, so the other lane no longer replaces them before its records are built (R7 kept no product of Dog Food page 7 or Cat Treats page 2)
+8eec040 2026-11-21 20:16 marianos-azure-headless 1.10.0rc7: tests only (a listing's verdict from the products accounted for; the CSV contract)
+92826da 2026-11-21 20:16 marianos-azure-headless 1.10.0rc7: a listing's verdict from the products actually accounted for, read the same by every consumer
+0073277 2026-11-21 20:16 marianos-azure-headless 1.10.0rc7: version, release notes, the CSV option of validate-export, and the offline replay of a stored run
+ec10cde 2026-11-21 21:25 marianos-azure-headless 1.10.0rc7: the publication tests' synthetic runs hold a plan that reconciles

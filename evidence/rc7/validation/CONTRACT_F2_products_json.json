@@ -1,0 +1,77 @@
+{
+ "command": "marianos-collector validate-export --file products.json",
+ "collector": "1.10.0rc7 (ec10cde, clean worktree)",
+ "run": "F2",
+ "file": "evidence/runs/F2d/export/products.json at review-1.10.0rc5-20261116",
+ "file_sha256": "163cc92b5c84afee68c00a2d4b0f5a0845acadb4ebb5882d674fd35780c064a2",
+ "made_at": "2026-11-21T22:22:54Z",
+ "evidence_type": "offline check of a published export file (no request made)",
+ "exit_code": 0,
+ "report": {
+  "ts": "2026-11-21T22:22:56.910Z",
+  "level": "INFO",
+  "event": "RESULT",
+  "collector": "marianos-azure-headless",
+  "command": "validate-export",
+  "exit_code": 0,
+  "result": {
+   "contract": {
+    "file": "products.json",
+    "rows": 8104,
+    "problems": {},
+    "duplicate_upc": 0,
+    "duplicate_url": 0,
+    "leading_zero_upcs": 8104,
+    "populated": {
+     "zipcode": 8104,
+     "store_name": 8104,
+     "store_location": 8104,
+     "store_logo": 8104,
+     "store_brand": 8104,
+     "category": 8104,
+     "sub_category": 8104,
+     "product_title": 8104,
+     "weight": 7742,
+     "regular_price": 7820,
+     "sale_price": 2522,
+     "volume_deals_description": 1075,
+     "volume_deals_price": 473,
+     "digital_deals_description": 0,
+     "digital_deals_price": 0,
+     "image_url": 8104,
+     "url": 8104,
+     "upc": 8104,
+     "gupc": 0,
+     "ppm": 7121,
+     "unit_price": 0,
+     "crawl_date": 8104
+    },
+    "categories": {
+     "Produce": 709,
+     "Meat": 983,
+     "Seafood": 406,
+     "Deli": 419,
+     "Bakery": 304,
+     "Floral": 47,
+     "Grocery": 608,
+     "Dairy": 790,
+     "Frozen": 1410,
+     "Natural Organic": 606,
+     "Beverages": 798,
+     "Breakfast": 305,
+     "Coffee": 337,
+     "Candy": 262,
+     "Beer Wine Liquor": 120
+    },
+    "ppm_units": {
+     "fl oz": 1557,
+     "oz": 4959,
+     "lb": 182,
+     "each": 411,
+     "use": 12
+    },
+    "passed": true
+   }
+  }
+ }
+}

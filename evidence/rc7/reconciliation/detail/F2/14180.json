@@ -1,0 +1,88 @@
+{
+ "audit": {
+  "accounted_identities": 7,
+  "children": [],
+  "cross_listed": 3,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 7,
+  "fresh_records": 7,
+  "fresh_valid": 7,
+  "listing_id": "14180",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "7 distinct products of 7 reported, on 1 page(s), each accounted for",
+  "reported_total": 7,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111067606",
+  "0003498600002",
+  "0003498610199",
+  "0085710100774",
+  "0085710100775",
+  "0085710100776",
+  "0629036120895"
+ ],
+ "fresh_linked": [
+  "0001111067606",
+  "0003498600002",
+  "0003498610199",
+  "0085710100774",
+  "0085710100775",
+  "0085710100776",
+  "0629036120895"
+ ],
+ "listing": "14180",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 7,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNX4JSDJPRJ1PAMABWQZ54",
+   "identities": [
+    "0001111067606",
+    "0003498600002",
+    "0003498610199",
+    "0085710100774",
+    "0085710100776",
+    "0085710100775",
+    "0629036120895"
+   ],
+   "listing": "14180",
+   "observed_at": "2026-11-16 17:19:02.745931+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "14180",
+   "sha256": "2d2d7600e357e2f2cd83aa9910733e2759b336523d1548011a67a1978b410cb1",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 7,
+   "url": "https://www.marianos.com/pl/sweet-goods-snacks/14180"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

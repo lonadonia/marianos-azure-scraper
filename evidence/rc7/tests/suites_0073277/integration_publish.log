@@ -1,0 +1,312 @@
+FFFFF                                                                    [100%]
+================================== FAILURES ===================================
+_________________________ test_publish_and_republish __________________________
+
+migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:64263/walmart_collector_test)
+tmp_path = WindowsPath('[redacted:workstation-path]/[redacted:workstation-path]/[redacted:workstation-path]/pytest-1576/test_publish_and_republish0')
+
+    def test_publish_and_republish(migrated_engine: Engine, tmp_path: Path) -> None:
+        factory, store = seed(migrated_engine)
+        storage = LocalStorageAdapter(tmp_path)
+        r1 = prepared_run(factory, store, storage)
+>       res1 = publish_run(factory, storage, r1, "tester")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_publish.py:74: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+factory = sessionmaker(class_='Session', bind=Engine(postgresql+psycopg://postgres:***@127.0.0.1:64263/walmart_collector_test), autoflush=True, expire_on_commit=False)
+storage = <marianos_headless.storage.local.LocalStorageAdapter object at 0x000001B9C444AC00>
+run_id = '01M7ZYQRS4FQJN0ESEZHMQT55Z', published_by = 'tester'
+warn_override_reason = None, fault = None
+
+    def publish_run(
+        factory: sessionmaker[Session],
+        storage: StorageAdapter,
+        run_id: str,
+        published_by: str,
+        *,
+        warn_override_reason: str | None = None,
+        fault: Callable[[str], None] | None = None,
+    ) -> PublishResult:
+        hook = fault or (lambda _stage: None)
+        with factory() as s:
+            run = s.get(Run, run_id)
+            if run is None:
+                raise PublicationRefused("unknown run")
+            if run.status != "validated":
+                raise PublicationRefused(f"run status is {run.status!r}, not 'validated'")
+            if run.mode != "LIVE":
+                raise PublicationRefused("only LIVE runs are published")
+            findings = list(s.scalars(select(ValidationFinding).where(ValidationFinding.run_id == run_id)))
+            blocking = [f for f in findings if f.severity == "FAIL" and f.gate not in NON_BLOCKING_GATES]
+            if blocking:
+                raise PublicationRefused(f"{len(blocking)} FAIL finding(s); FAIL cannot be overridden")
+            warns = [f for f in findings if f.severity == "WARN"]
+            if warns and not (warn_override_reason and warn_override_reason.strip()):
+                raise PublicationRefused(f"{len(warns)} WARN finding(s) need a recorded override reason")
+            lineage = lineage_problems(s, run)
+            if lineage:
+                raise PublicationRefused("lineage check failed: " + "; ".join(lineage))
+            # 1.10.0rc7: the coverage itself, read again from the run's pages, placements and records, whatever
+            # the recorded gates say: a listing not accounted for, or a product a counted page lists with no
+            # record placed under it, blocks a full publication.
+            coverage = coverage_problems(s, run_id)
+            if coverage:
+>               raise PublicationRefused(
+                    f"coverage reconciliation failed for {len(coverage)} listing(s): " + "; ".join(coverage[:10])
+                )
+E               marianos_headless.publishing.publish.PublicationRefused: coverage reconciliation failed for 1 listing(s): the run's plan has no listing
+
+src\marianos_headless\publishing\publish.py:155: PublicationRefused
+---------------------------- Captured stdout call -----------------------------
+____________________ test_refusals_leave_pointer_untouched ____________________
+
+migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:64263/walmart_collector_test)
+tmp_path = WindowsPath('[redacted:workstation-path]/[redacted:workstation-path]/[redacted:workstation-path]/pytest-1576/test_refusals_leave_pointer_un0')
+
+    def test_refusals_leave_pointer_untouched(migrated_engine: Engine, tmp_path: Path) -> None:
+        factory, store = seed(migrated_engine)
+        storage = LocalStorageAdapter(tmp_path)
+        good = prepared_run(factory, store, storage)
+>       publish_run(factory, storage, good, "tester")
+
+tests\integration\test_publish.py:90: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+factory = sessionmaker(class_='Session', bind=Engine(postgresql+psycopg://postgres:***@127.0.0.1:64263/walmart_collector_test), autoflush=True, expire_on_commit=False)
+storage = <marianos_headless.storage.local.LocalStorageAdapter object at 0x000001B9C4614920>
+run_id = '01M7ZYQT7EJW16FEX998TNFP7W', published_by = 'tester'
+warn_override_reason = None, fault = None
+
+    def publish_run(
+        factory: sessionmaker[Session],
+        storage: StorageAdapter,
+        run_id: str,
+        published_by: str,
+        *,
+        warn_override_reason: str | None = None,
+        fault: Callable[[str], None] | None = None,
+    ) -> PublishResult:
+        hook = fault or (lambda _stage: None)
+        with factory() as s:
+            run = s.get(Run, run_id)
+            if run is None:
+                raise PublicationRefused("unknown run")
+            if run.status != "validated":
+                raise PublicationRefused(f"run status is {run.status!r}, not 'validated'")
+            if run.mode != "LIVE":
+                raise PublicationRefused("only LIVE runs are published")
+            findings = list(s.scalars(select(ValidationFinding).where(ValidationFinding.run_id == run_id)))
+            blocking = [f for f in findings if f.severity == "FAIL" and f.gate not in NON_BLOCKING_GATES]
+            if blocking:
+                raise PublicationRefused(f"{len(blocking)} FAIL finding(s); FAIL cannot be overridden")
+            warns = [f for f in findings if f.severity == "WARN"]
+            if warns and not (warn_override_reason and warn_override_reason.strip()):
+                raise PublicationRefused(f"{len(warns)} WARN finding(s) need a recorded override reason")
+            lineage = lineage_problems(s, run)
+            if lineage:
+                raise PublicationRefused("lineage check failed: " + "; ".join(lineage))
+            # 1.10.0rc7: the coverage itself, read again from the run's pages, placements and records, whatever
+            # the recorded gates say: a listing not accounted for, or a product a counted page lists with no
+            # record placed under it, blocks a full publication.
+            coverage = coverage_problems(s, run_id)
+            if coverage:
+>               raise PublicationRefused(
+                    f"coverage reconciliation failed for {len(coverage)} listing(s): " + "; ".join(coverage[:10])
+                )
+E               marianos_headless.publishing.publish.PublicationRefused: coverage reconciliation failed for 1 listing(s): the run's plan has no listing
+
+src\marianos_headless\publishing\publish.py:155: PublicationRefused
+---------------------------- Captured stdout call -----------------------------
+______ test_crash_before_or_during_commit_keeps_last_good[before_commit] ______
+
+migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:64263/walmart_collector_test)
+tmp_path = WindowsPath('[redacted:workstation-path]/[redacted:workstation-path]/[redacted:workstation-path]/pytest-1576/test_crash_before_or_during_co0')
+stage = 'before_commit'
+
+    @pytest.mark.parametrize("stage", ["before_commit", "inside_commit"])
+    def test_crash_before_or_during_commit_keeps_last_good(
+        migrated_engine: Engine, tmp_path: Path, stage: str
+    ) -> None:
+        factory, store = seed(migrated_engine)
+        storage = LocalStorageAdapter(tmp_path)
+        good = prepared_run(factory, store, storage)
+>       publish_run(factory, storage, good, "tester")
+
+tests\integration\test_publish.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+factory = sessionmaker(class_='Session', bind=Engine(postgresql+psycopg://postgres:***@127.0.0.1:64263/walmart_collector_test), autoflush=True, expire_on_commit=False)
+storage = <marianos_headless.storage.local.LocalStorageAdapter object at 0x000001B9C4800E30>
+run_id = '01M7ZYQV2JC8J4MN8D7V3HFECC', published_by = 'tester'
+warn_override_reason = None, fault = None
+
+    def publish_run(
+        factory: sessionmaker[Session],
+        storage: StorageAdapter,
+        run_id: str,
+        published_by: str,
+        *,
+        warn_override_reason: str | None = None,
+        fault: Callable[[str], None] | None = None,
+    ) -> PublishResult:
+        hook = fault or (lambda _stage: None)
+        with factory() as s:
+            run = s.get(Run, run_id)
+            if run is None:
+                raise PublicationRefused("unknown run")
+            if run.status != "validated":
+                raise PublicationRefused(f"run status is {run.status!r}, not 'validated'")
+            if run.mode != "LIVE":
+                raise PublicationRefused("only LIVE runs are published")
+            findings = list(s.scalars(select(ValidationFinding).where(ValidationFinding.run_id == run_id)))
+            blocking = [f for f in findings if f.severity == "FAIL" and f.gate not in NON_BLOCKING_GATES]
+            if blocking:
+                raise PublicationRefused(f"{len(blocking)} FAIL finding(s); FAIL cannot be overridden")
+            warns = [f for f in findings if f.severity == "WARN"]
+            if warns and not (warn_override_reason and warn_override_reason.strip()):
+                raise PublicationRefused(f"{len(warns)} WARN finding(s) need a recorded override reason")
+            lineage = lineage_problems(s, run)
+            if lineage:
+                raise PublicationRefused("lineage check failed: " + "; ".join(lineage))
+            # 1.10.0rc7: the coverage itself, read again from the run's pages, placements and records, whatever
+            # the recorded gates say: a listing not accounted for, or a product a counted page lists with no
+            # record placed under it, blocks a full publication.
+            coverage = coverage_problems(s, run_id)
+            if coverage:
+>               raise PublicationRefused(
+                    f"coverage reconciliation failed for {len(coverage)} listing(s): " + "; ".join(coverage[:10])
+                )
+E               marianos_headless.publishing.publish.PublicationRefused: coverage reconciliation failed for 1 listing(s): the run's plan has no listing
+
+src\marianos_headless\publishing\publish.py:155: PublicationRefused
+---------------------------- Captured stdout call -----------------------------
+______ test_crash_before_or_during_commit_keeps_last_good[inside_commit] ______
+
+migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:64263/walmart_collector_test)
+tmp_path = WindowsPath('[redacted:workstation-path]/[redacted:workstation-path]/[redacted:workstation-path]/pytest-1576/test_crash_before_or_during_co1')
+stage = 'inside_commit'
+
+    @pytest.mark.parametrize("stage", ["before_commit", "inside_commit"])
+    def test_crash_before_or_during_commit_keeps_last_good(
+        migrated_engine: Engine, tmp_path: Path, stage: str
+    ) -> None:
+        factory, store = seed(migrated_engine)
+        storage = LocalStorageAdapter(tmp_path)
+        good = prepared_run(factory, store, storage)
+>       publish_run(factory, storage, good, "tester")
+
+tests\integration\test_publish.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+factory = sessionmaker(class_='Session', bind=Engine(postgresql+psycopg://postgres:***@127.0.0.1:64263/walmart_collector_test), autoflush=True, expire_on_commit=False)
+storage = <marianos_headless.storage.local.LocalStorageAdapter object at 0x000001B9C46EA9F0>
+run_id = '01M7ZYQVZ5N6B8TRYZZT6CBYG4', published_by = 'tester'
+warn_override_reason = None, fault = None
+
+    def publish_run(
+        factory: sessionmaker[Session],
+        storage: StorageAdapter,
+        run_id: str,
+        published_by: str,
+        *,
+        warn_override_reason: str | None = None,
+        fault: Callable[[str], None] | None = None,
+    ) -> PublishResult:
+        hook = fault or (lambda _stage: None)
+        with factory() as s:
+            run = s.get(Run, run_id)
+            if run is None:
+                raise PublicationRefused("unknown run")
+            if run.status != "validated":
+                raise PublicationRefused(f"run status is {run.status!r}, not 'validated'")
+            if run.mode != "LIVE":
+                raise PublicationRefused("only LIVE runs are published")
+            findings = list(s.scalars(select(ValidationFinding).where(ValidationFinding.run_id == run_id)))
+            blocking = [f for f in findings if f.severity == "FAIL" and f.gate not in NON_BLOCKING_GATES]
+            if blocking:
+                raise PublicationRefused(f"{len(blocking)} FAIL finding(s); FAIL cannot be overridden")
+            warns = [f for f in findings if f.severity == "WARN"]
+            if warns and not (warn_override_reason and warn_override_reason.strip()):
+                raise PublicationRefused(f"{len(warns)} WARN finding(s) need a recorded override reason")
+            lineage = lineage_problems(s, run)
+            if lineage:
+                raise PublicationRefused("lineage check failed: " + "; ".join(lineage))
+            # 1.10.0rc7: the coverage itself, read again from the run's pages, placements and records, whatever
+            # the recorded gates say: a listing not accounted for, or a product a counted page lists with no
+            # record placed under it, blocks a full publication.
+            coverage = coverage_problems(s, run_id)
+            if coverage:
+>               raise PublicationRefused(
+                    f"coverage reconciliation failed for {len(coverage)} listing(s): " + "; ".join(coverage[:10])
+                )
+E               marianos_headless.publishing.publish.PublicationRefused: coverage reconciliation failed for 1 listing(s): the run's plan has no listing
+
+src\marianos_headless\publishing\publish.py:155: PublicationRefused
+---------------------------- Captured stdout call -----------------------------
+_________________ test_crash_after_commit_is_repaired_from_db _________________
+
+migrated_engine = Engine(postgresql+psycopg://postgres:***@127.0.0.1:64263/walmart_collector_test)
+tmp_path = WindowsPath('[redacted:workstation-path]/[redacted:workstation-path]/[redacted:workstation-path]/pytest-1576/test_crash_after_commit_is_rep0')
+
+    def test_crash_after_commit_is_repaired_from_db(migrated_engine: Engine, tmp_path: Path) -> None:
+        factory, store = seed(migrated_engine)
+        storage = LocalStorageAdapter(tmp_path)
+>       publish_run(factory, storage, prepared_run(factory, store, storage), "tester")
+
+tests\integration\test_publish.py:169: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+factory = sessionmaker(class_='Session', bind=Engine(postgresql+psycopg://postgres:***@127.0.0.1:64263/walmart_collector_test), autoflush=True, expire_on_commit=False)
+storage = <marianos_headless.storage.local.LocalStorageAdapter object at 0x000001B9C487C470>
+run_id = '01M7ZYQWRY3V0ZD1PJ4413JCCW', published_by = 'tester'
+warn_override_reason = None, fault = None
+
+    def publish_run(
+        factory: sessionmaker[Session],
+        storage: StorageAdapter,
+        run_id: str,
+        published_by: str,
+        *,
+        warn_override_reason: str | None = None,
+        fault: Callable[[str], None] | None = None,
+    ) -> PublishResult:
+        hook = fault or (lambda _stage: None)
+        with factory() as s:
+            run = s.get(Run, run_id)
+            if run is None:
+                raise PublicationRefused("unknown run")
+            if run.status != "validated":
+                raise PublicationRefused(f"run status is {run.status!r}, not 'validated'")
+            if run.mode != "LIVE":
+                raise PublicationRefused("only LIVE runs are published")
+            findings = list(s.scalars(select(ValidationFinding).where(ValidationFinding.run_id == run_id)))
+            blocking = [f for f in findings if f.severity == "FAIL" and f.gate not in NON_BLOCKING_GATES]
+            if blocking:
+                raise PublicationRefused(f"{len(blocking)} FAIL finding(s); FAIL cannot be overridden")
+            warns = [f for f in findings if f.severity == "WARN"]
+            if warns and not (warn_override_reason and warn_override_reason.strip()):
+                raise PublicationRefused(f"{len(warns)} WARN finding(s) need a recorded override reason")
+            lineage = lineage_problems(s, run)
+            if lineage:
+                raise PublicationRefused("lineage check failed: " + "; ".join(lineage))
+            # 1.10.0rc7: the coverage itself, read again from the run's pages, placements and records, whatever
+            # the recorded gates say: a listing not accounted for, or a product a counted page lists with no
+            # record placed under it, blocks a full publication.
+            coverage = coverage_problems(s, run_id)
+            if coverage:
+>               raise PublicationRefused(
+                    f"coverage reconciliation failed for {len(coverage)} listing(s): " + "; ".join(coverage[:10])
+                )
+E               marianos_headless.publishing.publish.PublicationRefused: coverage reconciliation failed for 1 listing(s): the run's plan has no listing
+
+src\marianos_headless\publishing\publish.py:155: PublicationRefused
+---------------------------- Captured stdout call -----------------------------
+=========================== short test summary info ===========================
+FAILED tests/integration/test_publish.py::test_publish_and_republish - marian...
+FAILED tests/integration/test_publish.py::test_refusals_leave_pointer_untouched
+FAILED tests/integration/test_publish.py::test_crash_before_or_during_commit_keeps_last_good[before_commit]
+FAILED tests/integration/test_publish.py::test_crash_before_or_during_commit_keeps_last_good[inside_commit]
+FAILED tests/integration/test_publish.py::test_crash_after_commit_is_repaired_from_db
+5 failed in 13.10s

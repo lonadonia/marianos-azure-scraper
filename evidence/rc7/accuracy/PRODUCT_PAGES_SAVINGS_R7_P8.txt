@@ -1,0 +1,25 @@
+The four named product pages, read again from their stored Savings documents (kind pdp_savings) and the
+records of R7 (run 01M7KQ5GZVF5VK1S9FGTG6YFC9) and P8. Offline, 2026-11-21; no request made.
+'rendered' is the provider's own statement that it ran the page's scripts; the coupon rows load only then.
+
+R7 0002310014848 2026-11-17T03:02:58Z fetch 01M7KQABGRH5N4Z8N026DQAE5E http 200
+    savings document sha256 38a633f10daad682cddf40da868bde7af2e52fd94100b57ba8e8949f0782794e: requested_run_js True, rendered True, section False, rows 0, loading False
+    => rendered, no savings shown; no record of this run
+R7 0001780014939 2026-11-17T04:01:41Z fetch 01M7KTNVATQ6WTWR3N7PFTDEC9 http 200
+    savings document sha256 bef746d568791a559538888325874ff87b85157f0563d7937ff001a03eee4cf6: requested_run_js True, rendered False, section False, rows 0, loading False
+    => unread: not rendered by the provider; no record of this run
+R7 0001780014941 2026-11-17T04:01:44Z fetch 01M7KTNYD8SBYZG0WMWT0NS816 http 200
+    savings document sha256 62261d2abaea0d1ff0de29cf11401c5253d0fb1511618abdfbe7432364a7179b: requested_run_js True, rendered False, section False, rows 0, loading False
+    => unread: not rendered by the provider; no record of this run
+R7 0003980014995 2026-11-17T04:01:59Z fetch 01M7KTPCZ6FYVZ41NQG4B9SCWC http 200
+    savings document sha256 4a9615c4c8d910d43baf539271661a1836bd5481b7a8e3f3a1f8eb8b6e1be0fd: requested_run_js True, rendered False, section False, rows 0, loading False
+    => unread: not rendered by the provider; record valid; digital deal: not_attempted; flags SIZE_FROM_PRODUCT_DATA,DIGITAL_COUPONS_UNOBSERVED
+P8 0003980014995 2026-11-17T04:21:54Z fetch 01M7KVTVTAX1Y4D0B2CQAX6DEZ http 200
+    savings document sha256 2eb633367fa362eab0a9121dcaff195f6d4a43b1c9ba963e3aaf1a6d3e8450e6: requested_run_js True, rendered True, section False, rows 0, loading False
+    => rendered, no savings shown; record valid; digital deal: not_displayed; flags SIZE_FROM_PRODUCT_DATA
+P8 0001780014939 2026-11-17T04:22:40Z fetch 01M7KVW935M10YM61C9BQK1PP6 http 200
+    savings document sha256 fdcbf4198ea61e5b9b60eec129af655d8c47aabd021524b5407473d8afad6d55: requested_run_js True, rendered False, section False, rows 0, loading False
+    => unread: not rendered by the provider; record valid; digital deal: not_attempted; flags SIZE_FROM_PRODUCT_DATA,DIGITAL_COUPONS_UNOBSERVED
+P8 0001780014941 2026-11-17T04:22:42Z fetch 01M7KVWBDD4X5HQ3254KEY8FJK http 200
+    savings document sha256 27a619c94b967c43b13290430e47878bf0ee8257346cba6766e48159cb4f245e: requested_run_js True, rendered False, section False, rows 0, loading False
+    => unread: not rendered by the provider; record valid; digital deal: not_attempted; flags SIZE_FROM_PRODUCT_DATA,DIGITAL_COUPONS_UNOBSERVED

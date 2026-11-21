@@ -1,0 +1,726 @@
+{
+ "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+ "all_done": true,
+ "steps": [
+  {
+   "label": "git_status",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:17:53Z",
+   "utc_end": "2026-11-21T20:17:53Z",
+   "exit_code": 0,
+   "last_line": "clean=yes",
+   "log_sha256": "392cd31707f1b2a541f01ac77b1d084c87ad1888df6d3b02eb2275c69d3e096a",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0
+  },
+  {
+   "label": "uv_sync",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:17:54Z",
+   "utc_end": "2026-11-21T20:17:54Z",
+   "exit_code": 0,
+   "last_line": "Checked 57 packages in 14ms",
+   "log_sha256": "a986064c94b25dabb20eb635bd3e70793d21e47c3ec0ae586e9bf38771f02a45",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0
+  },
+  {
+   "label": "unit",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:17:54Z",
+   "utc_end": "2026-11-21T20:18:11Z",
+   "exit_code": 0,
+   "last_line": "533 passed in 14.57s",
+   "log_sha256": "b37860d395e9baf2b9637dd73d8cc17862b4c404e29ce8ad8a49b3eccccb9633",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 533,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 14.46
+   }
+  },
+  {
+   "label": "ruff_check",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:18:11Z",
+   "utc_end": "2026-11-21T20:18:12Z",
+   "exit_code": 0,
+   "last_line": "All checks passed!",
+   "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0
+  },
+  {
+   "label": "ruff_format",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:18:12Z",
+   "utc_end": "2026-11-21T20:18:12Z",
+   "exit_code": 0,
+   "last_line": "182 files already formatted",
+   "log_sha256": "c53eecd93fbd42bd2109a3b8cb1ac1f3839c7d0dad32aedf4f8fa8f11477d6de",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0
+  },
+  {
+   "label": "mypy",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:18:13Z",
+   "utc_end": "2026-11-21T20:18:15Z",
+   "exit_code": 0,
+   "last_line": "Success: no issues found in 88 source files",
+   "log_sha256": "2d6b7f9cae097fc3f2c1c10271e54a3a798b57b405db1a0d5dde32a9a17b4ec7",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0
+  },
+  {
+   "label": "c1_cases",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:18:16Z",
+   "utc_end": "2026-11-21T20:20:55Z",
+   "exit_code": 0,
+   "last_line": "30 passed in 155.26s (0:02:35)",
+   "log_sha256": "0cedf9cb008e57c479bd36d2063b0e12cea482f3203a19e6353c6a8a5c2eafe2",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 30,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 153.77
+   }
+  },
+  {
+   "label": "publication_result",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:20:55Z",
+   "utc_end": "2026-11-21T20:21:35Z",
+   "exit_code": 0,
+   "last_line": "6 passed in 36.00s",
+   "log_sha256": "2813e532150aabdee81e46e998b6e5802c64596ae5fdf284a4bc6584a0dca1e8",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 35.05
+   }
+  },
+  {
+   "label": "integration_account_gate",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:21:35Z",
+   "utc_end": "2026-11-21T20:21:57Z",
+   "exit_code": 0,
+   "last_line": "6 passed in 19.00s",
+   "log_sha256": "8786dbb24384c3f2585243db04a1218a80eca3bd457eefbd9ad0297840ca2737",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 18.54
+   }
+  },
+  {
+   "label": "integration_availability_retention",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:21:58Z",
+   "utc_end": "2026-11-21T20:22:08Z",
+   "exit_code": 0,
+   "last_line": "1 passed in 7.56s",
+   "log_sha256": "746319c7218fdcb55cb70032318122b5d0da20ae7d92897d69859e36e0b13077",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 7.22
+   }
+  },
+  {
+   "label": "integration_backlog_policy",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:22:09Z",
+   "utc_end": "2026-11-21T20:22:21Z",
+   "exit_code": 0,
+   "last_line": "2 passed in 9.38s",
+   "log_sha256": "cbaca0bc07762e991475890d3534c9617bee067d936b2482a2ca237b5d88ab3f",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 8.28
+   }
+  },
+  {
+   "label": "integration_coupons_route_or04",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:22:22Z",
+   "utc_end": "2026-11-21T20:23:17Z",
+   "exit_code": 0,
+   "last_line": "5 passed in 52.75s",
+   "log_sha256": "2038b9b17c10ed61373b34009c4eecdcb3723c1ad63e91d4826fa52186337e29",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 52.21
+   }
+  },
+  {
+   "label": "integration_daily_credit_units",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:23:18Z",
+   "utc_end": "2026-11-21T20:23:34Z",
+   "exit_code": 0,
+   "last_line": "3 passed in 12.95s",
+   "log_sha256": "a1f32b15b7d34ce6bd4b6af7d114af3dea1868dd4f8f882910445b7f53394219",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 12.53
+   }
+  },
+  {
+   "label": "integration_lanes_or24",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:23:34Z",
+   "utc_end": "2026-11-21T20:23:50Z",
+   "exit_code": 0,
+   "last_line": "2 passed in 12.98s",
+   "log_sha256": "1b6c41bd57f8b0b3d78d130ddfb1bcac40331a79527d0ff810d3c6691f071599",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 12.63
+   }
+  },
+  {
+   "label": "integration_last_good_survives",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:23:51Z",
+   "utc_end": "2026-11-21T20:27:59Z",
+   "exit_code": 0,
+   "last_line": "25 passed in 244.03s (0:04:04)",
+   "log_sha256": "877981ecf913ec76d2c64a690f4db721887f38355a54efa6d8b724f4d2d2abd9",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 25,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 243.59
+   }
+  },
+  {
+   "label": "integration_listing_pages",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:27:59Z",
+   "utc_end": "2026-11-21T20:32:39Z",
+   "exit_code": 0,
+   "last_line": "39 passed in 275.70s (0:04:35)",
+   "log_sha256": "02d472d5a2fb02d998099190097b33df6c3ef2a102aadbba05e995b5691ff5db",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 39,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 275.29
+   }
+  },
+  {
+   "label": "integration_live_collector",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:32:39Z",
+   "utc_end": "2026-11-21T20:40:08Z",
+   "exit_code": 0,
+   "last_line": "17 passed in 446.10s (0:07:26)",
+   "log_sha256": "c2754aa985c7fbe35307f392967e05d974cbfc845755eb8c039cd4c0a31e6036",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 445.69
+   }
+  },
+  {
+   "label": "integration_migrations",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:40:09Z",
+   "utc_end": "2026-11-21T20:40:23Z",
+   "exit_code": 0,
+   "last_line": "4 passed in 11.29s",
+   "log_sha256": "5b83b8c8aa6b20c5af20dbc14e78192b879e3e0124e2c80820a4013ae8337400",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 10.94
+   }
+  },
+  {
+   "label": "integration_operations",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:40:24Z",
+   "utc_end": "2026-11-21T20:43:49Z",
+   "exit_code": 0,
+   "last_line": "6 passed in 201.87s (0:03:21)",
+   "log_sha256": "8b2fa07e82c73940d619e8d3f36b4a125bd9bc25bbaa4f6c2ba12ebf73eb19dc",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 200.59
+   }
+  },
+  {
+   "label": "integration_oxylabs_cli",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:43:49Z",
+   "utc_end": "2026-11-21T20:44:03Z",
+   "exit_code": 0,
+   "last_line": "2 passed in 10.65s",
+   "log_sha256": "58fd36d00fc2624a0cb4c33260e3f6d87f7c670d8426487d1d93340460b25ea7",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 9.63
+   }
+  },
+  {
+   "label": "integration_oxylabs_collector",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:44:04Z",
+   "utc_end": "2026-11-21T20:45:44Z",
+   "exit_code": 0,
+   "last_line": "12 passed in 96.47s (0:01:36)",
+   "log_sha256": "1ea585a9ba20c317478a467ac8cf074237f6ee43abac715f0233ba4b1a08c098",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 95.39
+   }
+  },
+  {
+   "label": "integration_oxylabs_replay",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:45:45Z",
+   "utc_end": "2026-11-21T20:46:15Z",
+   "exit_code": 0,
+   "last_line": "2 passed in 25.64s",
+   "log_sha256": "988650c51010fd9fefc528e3c3d50bd51aa9807e21a9055e1cda38e7c4a34073",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 24.75
+   }
+  },
+  {
+   "label": "integration_page_regressions",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:46:16Z",
+   "utc_end": "2026-11-21T20:47:21Z",
+   "exit_code": 0,
+   "last_line": "6 passed in 61.50s (0:01:01)",
+   "log_sha256": "854129ac6d52b9d03050b9abcf44da2c121e3c825a467ca72169dd19ff747ff9",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 61.02
+   }
+  },
+  {
+   "label": "integration_partitions_190",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:47:22Z",
+   "utc_end": "2026-11-21T20:49:19Z",
+   "exit_code": 0,
+   "last_line": "13 passed in 113.17s (0:01:53)",
+   "log_sha256": "2de5a624f6e84b5a2063b7c33d0de314cdbc2b32a3cdda5a3da3859c784506aa",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 112.45
+   }
+  },
+  {
+   "label": "integration_product_terms_collector",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:49:20Z",
+   "utc_end": "2026-11-21T20:49:47Z",
+   "exit_code": 0,
+   "last_line": "4 passed in 22.55s",
+   "log_sha256": "2eaf160f56cdfe75118e27d108cf00af4f2babc34c614a0bf484ea7c3503dd62",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 22.03
+   }
+  },
+  {
+   "label": "integration_publication_result",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:49:47Z",
+   "utc_end": "2026-11-21T20:50:35Z",
+   "exit_code": 0,
+   "last_line": "6 passed in 43.51s",
+   "log_sha256": "cdbdd3c4bc03a122b60a3a0c56b7e8acc75f54a9f3c046b8d62da957c281d4ec",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 42.95
+   }
+  },
+  {
+   "label": "integration_publication_safety",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T20:58:48Z",
+   "utc_end": "2026-11-21T21:03:14Z",
+   "exit_code": 0,
+   "last_line": "6 passed in 261.35s (0:04:21)",
+   "log_sha256": "90acadb5143b728704088f44a46caa9ff91629335f5462a3b25a2da65f9f5bae",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 260.54
+   }
+  },
+  {
+   "label": "integration_publish",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:03:22Z",
+   "utc_end": "2026-11-21T21:03:38Z",
+   "exit_code": 1,
+   "last_line": "5 failed in 13.10s",
+   "log_sha256": "900caa46c621ba713fcbd7241bf7d2b61ece387df920a1e8edd03eec4dbe7195",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 5,
+   "junit": {
+    "tests": 5,
+    "failures": 5,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 12.41
+   }
+  },
+  {
+   "label": "integration_queue_locks",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:03:39Z",
+   "utc_end": "2026-11-21T21:03:58Z",
+   "exit_code": 0,
+   "last_line": "10 passed in 16.06s",
+   "log_sha256": "a916ec0ca7c9232c8b0b489d68c8ee03e418f2747435e6b7b99f1736fa17a590",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 15.61
+   }
+  },
+  {
+   "label": "integration_reask_c1",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:07:31Z",
+   "utc_end": "2026-11-21T21:10:26Z",
+   "exit_code": 0,
+   "last_line": "30 passed in 171.63s (0:02:51)",
+   "log_sha256": "bdafcc6db74d305c280877e0b0cb7d7e4ab9e514422505888a63dd381b52a363",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 30,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 171.22
+   }
+  },
+  {
+   "label": "integration_recovery_and_rollback",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:10:27Z",
+   "utc_end": "2026-11-21T21:10:42Z",
+   "exit_code": 1,
+   "last_line": "2 failed, 2 passed in 12.33s",
+   "log_sha256": "31874c5476c4284e499cc470f07e0802911d098d9d090acc29444efcdab17390",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 2,
+   "junit": {
+    "tests": 4,
+    "failures": 2,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 11.51
+   }
+  },
+  {
+   "label": "integration_reprocess",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:10:43Z",
+   "utc_end": "2026-11-21T21:11:03Z",
+   "exit_code": 0,
+   "last_line": "3 passed in 16.36s",
+   "log_sha256": "5819c206e448015b06f5e6260346c7bd80af9e24e60a0d8bf19ea7de5ceea956",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 15.74
+   }
+  },
+  {
+   "label": "integration_route_audit_rc7",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:11:10Z",
+   "utc_end": "2026-11-21T21:12:05Z",
+   "exit_code": 0,
+   "last_line": "8 passed in 51.37s",
+   "log_sha256": "a1f9aafd55044ce08f5f1bd4739399388fc344f7776245b2ba71a37ed0346ae9",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 50.19
+   }
+  },
+  {
+   "label": "integration_run_order_rc6",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:12:05Z",
+   "utc_end": "2026-11-21T21:12:26Z",
+   "exit_code": 0,
+   "last_line": "8 passed in 17.21s",
+   "log_sha256": "b5e1d4babfbad49931feec80e9a2b6c016f1fdb34b5694f4f030d4675e335970",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 16.8
+   }
+  },
+  {
+   "label": "integration_runner",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:12:26Z",
+   "utc_end": "2026-11-21T21:12:47Z",
+   "exit_code": 0,
+   "last_line": "8 passed in 16.99s",
+   "log_sha256": "4bc4ffddd5f6b581b0c31cb856830d86e332e8b20741db9811942f5c03ddc032",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 16.41
+   }
+  },
+  {
+   "label": "integration_segment_end_t06",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:12:52Z",
+   "utc_end": "2026-11-21T21:13:13Z",
+   "exit_code": 0,
+   "last_line": "4 passed in 17.48s",
+   "log_sha256": "42c7c8fe54960b11c7847a2777c894cea9cd88ba829098ca752382550ba4cf7c",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 16.81
+   }
+  },
+  {
+   "label": "integration_tiles_listing",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:13:13Z",
+   "utc_end": "2026-11-21T21:14:18Z",
+   "exit_code": 0,
+   "last_line": "3 passed in 61.09s (0:01:01)",
+   "log_sha256": "70704a1becfa9335dc6ee6306f5efbf762a369e763bcabc4d16e8fc0e36444b7",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 60.64
+   }
+  },
+  {
+   "label": "integration_validate_export_or20",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:14:18Z",
+   "utc_end": "2026-11-21T21:14:43Z",
+   "exit_code": 0,
+   "last_line": "4 passed in 21.45s",
+   "log_sha256": "5e00e34019bc5d7002d50b23f339ac5cf6b63b27332d25c49b17dd9d06d56861",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 21.06
+   }
+  },
+  {
+   "label": "integration_vernon_hills_replay",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:14:43Z",
+   "utc_end": "2026-11-21T21:18:35Z",
+   "exit_code": 0,
+   "last_line": "11 passed in 228.44s (0:03:48)",
+   "log_sha256": "188feafedfbefb9f341feb9ab1c8926b962e847e273897bbd7406540170f0284",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0,
+   "junit": {
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 227.93
+   }
+  },
+  {
+   "label": "build",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:18:55Z",
+   "utc_end": "2026-11-21T21:19:10Z",
+   "exit_code": 2,
+   "last_line": "  cause: No connection could be made because the target machine actively refused it. (os error 10061)",
+   "log_sha256": "71231e8065c63ab61f9b33602a66bed4d0270a8531662eb5d2afefc85bc0ac81",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0
+  },
+  {
+   "label": "cli_version",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:19:11Z",
+   "utc_end": "2026-11-21T21:19:14Z",
+   "exit_code": 0,
+   "last_line": "marianos-azure-headless 1.10.0rc7",
+   "log_sha256": "e6fbd5b91c790c2fd3edde41c944495d2ee8bc652cf995d32aab1e80c6bce45a",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0
+  },
+  {
+   "label": "wheel_metadata",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:19:14Z",
+   "utc_end": "2026-11-21T21:19:14Z",
+   "exit_code": 1,
+   "last_line": "IndexError: list index out of range",
+   "log_sha256": "1099ca9154ec594a5ca5f2095001763802ab1b65c9ab848ad071bc8d368aa49c",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0
+  },
+  {
+   "label": "git_status_after",
+   "head": "0073277c23bb15ccdbe269e1588a794c42f83f08",
+   "utc_start": "2026-11-21T21:19:15Z",
+   "utc_end": "2026-11-21T21:19:15Z",
+   "exit_code": 0,
+   "last_line": "clean=yes",
+   "log_sha256": "d75806b0f1f5643cea981d3f7f4bbe9d479d981e7440c4eb239ac276c0da960c",
+   "log_sha256_matches_driver": true,
+   "event_lines_dropped": 0
+  }
+ ],
+ "integration": {
+  "tests": 259,
+  "failures": 7,
+  "errors": 0,
+  "skipped": 0,
+  "files": 31,
+  "seconds": 2552.6
+ },
+ "note": "last_line: from each log (the driver of 0073277 left it empty); log_sha256 is the raw log's, checked here against the driver's record; the published logs drop the collector's JSON event lines and may carry masks (evidence/rc7/FILE_MAP.csv), so their hashes are in manifests/SHA256SUMS.txt"
+}

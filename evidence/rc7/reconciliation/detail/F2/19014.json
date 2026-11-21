@@ -1,0 +1,91 @@
+{
+ "audit": {
+  "accounted_identities": 8,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 8,
+  "fresh_records": 8,
+  "fresh_valid": 7,
+  "listing_id": "19014",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "8 distinct products of 8 reported, on 1 page(s), each accounted for",
+  "reported_total": 8,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001115000014",
+  "0007330920007",
+  "0007330920020",
+  "0086036100060",
+  "0086036100061",
+  "0086036100062",
+  "0086036100063",
+  "0086036100064"
+ ],
+ "fresh_linked": [
+  "0001115000014",
+  "0007330920007",
+  "0007330920020",
+  "0086036100060",
+  "0086036100061",
+  "0086036100062",
+  "0086036100063",
+  "0086036100064"
+ ],
+ "listing": "19014",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 8,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JQBBSS5VNQM7B7RXNF9JMZ",
+   "identities": [
+    "0007330920007",
+    "0007330920020",
+    "0086036100064",
+    "0086036100062",
+    "0086036100060",
+    "0086036100061",
+    "0086036100063",
+    "0001115000014"
+   ],
+   "listing": "19014",
+   "observed_at": "2026-11-16 17:44:17.465154+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "19014",
+   "sha256": "6adf1f71e904efe2dd14137a11c539da77f04ae47cf366de3d895aa3c2fd3b44",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 8,
+   "url": "https://www.marianos.com/pl/ice/19014"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

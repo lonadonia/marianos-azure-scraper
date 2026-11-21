@@ -1,0 +1,85 @@
+{
+ "audit": {
+  "accounted_identities": 6,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 6,
+  "fresh_records": 6,
+  "fresh_valid": 6,
+  "listing_id": "09130",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "6 distinct products of 6 reported, on 1 page(s), each accounted for",
+  "reported_total": 6,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0081006593514",
+  "0081006593515",
+  "0081006593516",
+  "0081006593518",
+  "0081006593519",
+  "0081006593520"
+ ],
+ "fresh_linked": [
+  "0081006593514",
+  "0081006593515",
+  "0081006593516",
+  "0081006593518",
+  "0081006593519",
+  "0081006593520"
+ ],
+ "listing": "09130",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 6,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNYB9ME5FSXKAWEHPZY66G",
+   "identities": [
+    "0081006593514",
+    "0081006593519",
+    "0081006593515",
+    "0081006593520",
+    "0081006593516",
+    "0081006593518"
+   ],
+   "listing": "09130",
+   "observed_at": "2026-11-16 17:19:42.389005+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "09130",
+   "sha256": "e89657cd7f5c480400a77e9eb22c723516f4f20b58a4cd32b5bf9b7bd2239c5c",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 6,
+   "url": "https://www.marianos.com/pl/fresh-cut-roses/09130"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

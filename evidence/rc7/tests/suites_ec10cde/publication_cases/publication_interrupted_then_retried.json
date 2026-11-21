@@ -1,0 +1,51 @@
+{
+ "synthetic": true,
+ "first_run": "01M80272H279R2HQ41S3TKZD8S",
+ "second_run": "01M8027R0NBE1D5QJ10PJ5E6SB",
+ "before": {
+  "pointer": {
+   "publication_id": "01M8027QNHEHT1Q9203CG90CC5",
+   "version": 1
+  },
+  "publications": 1,
+  "published_run": "01M80272H279R2HQ41S3TKZD8S",
+  "latest_json_sha256": "dcfb6129f6d6ae0c85fa7855581abab49b3bf5f177cba249f5a6594a96419e64",
+  "manifest_sha256": "304a5ceb37ce48c90ce8207d9597575d9099bcf7b79b060f84b9adedd4940480",
+  "products_sha256": "78e33bcbe21545957238445a919b4667dadef9832cfb30005b3632009530523c",
+  "published_products": 57,
+  "first_run_observations_sha256": "bc501e19508aa8632ac7761e97abe74c216674124f9988a3916cf8550295b91a",
+  "first_run_records_sha256": "4581138c04fc5732afb62dc81c0900f445f313251f0046189f94008a9c391f65",
+  "first_run_observations": 60
+ },
+ "after_interruption": {
+  "pointer": {
+   "publication_id": "01M8027QNHEHT1Q9203CG90CC5",
+   "version": 1
+  },
+  "publications": 1,
+  "published_run": "01M80272H279R2HQ41S3TKZD8S",
+  "latest_json_sha256": "dcfb6129f6d6ae0c85fa7855581abab49b3bf5f177cba249f5a6594a96419e64",
+  "manifest_sha256": "304a5ceb37ce48c90ce8207d9597575d9099bcf7b79b060f84b9adedd4940480",
+  "products_sha256": "78e33bcbe21545957238445a919b4667dadef9832cfb30005b3632009530523c",
+  "published_products": 57,
+  "first_run_observations_sha256": "bc501e19508aa8632ac7761e97abe74c216674124f9988a3916cf8550295b91a",
+  "first_run_records_sha256": "4581138c04fc5732afb62dc81c0900f445f313251f0046189f94008a9c391f65",
+  "first_run_observations": 60
+ },
+ "after_retry": {
+  "pointer": {
+   "publication_id": "01M8028DB90W3PQ99MW5ESXKXQ",
+   "version": 2
+  },
+  "publications": 2,
+  "published_run": "01M8027R0NBE1D5QJ10PJ5E6SB",
+  "latest_json_sha256": "181c6be870b60998b9013c69e04603dbdca81f6f7bdacbc7f2276269997ab804",
+  "manifest_sha256": "d2b200d4c57dd4e2b26e2e886a9cb214707c518d9d6959be0738361acab47a2a",
+  "products_sha256": "78e33bcbe21545957238445a919b4667dadef9832cfb30005b3632009530523c",
+  "published_products": 57,
+  "first_run_observations_sha256": "bc501e19508aa8632ac7761e97abe74c216674124f9988a3916cf8550295b91a",
+  "first_run_records_sha256": "4581138c04fc5732afb62dc81c0900f445f313251f0046189f94008a9c391f65",
+  "first_run_observations": 60
+ },
+ "retry_exit_code": 0
+}

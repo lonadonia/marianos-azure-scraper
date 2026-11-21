@@ -9,6 +9,7 @@ counts. Cancellation is cooperative: handlers check ``ctx.cancelled()`` between 
 from __future__ import annotations
 
 import asyncio
+import contextlib
 from collections.abc import Awaitable, Callable, Mapping
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -264,9 +265,26 @@ class Worker:
         """Up to ``lanes`` listing tasks at once (release 1.9.0, M8). A stage task (preflight, assemble,
         validate) is leased only when no lane is busy and runs alone; the queue's stage barrier keeps it
         from starting while a listing task is unfinished. A lane that stops the run (a limit, the provider,
-        the site) halts the others at their next check: they hand their tasks back with their checkpoints."""
-        processed = 0
+        the site) halts the others at their next check: they hand their tasks back with their checkpoints.
+
+        OR-21: a termination signal cancels the worker's own task (``cli.run_async``); the lanes are cancelled
+        with it and waited for, so each hands its task back before the caller closes the provider session and
+        leaves the run resumable. Left running (1.10.0rc6), a lane saw the closing session as a transport
+        failure and could fail its task for good."""
         busy: dict[asyncio.Task[bool], queue.Lease] = {}
+        try:
+            return await self._lanes(max_tasks, busy)
+        except asyncio.CancelledError:
+            for t in busy:
+                t.cancel()
+            if busy:
+                await asyncio.gather(*busy, return_exceptions=True)
+            raise
+
+    async def _lanes(
+        self, max_tasks: int | None, busy: dict[asyncio.Task[bool], queue.Lease]
+    ) -> WorkerResult:
+        processed = 0
         aborted = False
         while True:
             for t in [t for t in busy if t.done()]:
@@ -333,6 +351,14 @@ class Worker:
         )
         try:
             final_cursor = await handler(ctx)
+        except asyncio.CancelledError:
+            # OR-21: the run is being stopped (a termination signal cancels the worker and its lanes). The
+            # stop is never a failure of the task: it is handed back with its checkpoint (attempts kept). A
+            # lease the stop has already taken back leaves nothing to hand back.
+            with contextlib.suppress(queue.LeaseLost), self.factory() as s:
+                queue.release(s, ctx.lease)
+                s.commit()
+            raise
         except queue.LeaseLost:
             with self.factory() as s:
                 event(s, self.run_id, "WARN", "TASK_LEASE_LOST", lease.idem_key)

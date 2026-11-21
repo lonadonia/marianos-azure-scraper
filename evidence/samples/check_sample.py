@@ -4,6 +4,18 @@
     python3 -I check_sample.py DATA_DIR --random N [--seed S] [--fresh-only]
                                                             N records drawn at random (--fresh-only: among the
                                                             records the run observed itself)
+    python3 -I check_sample.py DATA_DIR --strict [--expect FILE] [--exclusions FILE] [UPC ... | --random N ...]
+                                                            the same report, then a verdict and an exit code
+
+Without --strict the script only reports (exit 0 whatever it finds): a person reads the lines. With --strict
+(release 1.10.0rc7) it is a check: exit 0 only when every record asked for is in the export, has its source
+excerpt, and shows no difference; exit 1 for an altered value (a title or price per measure that DIFFERS, a price
+NOT SHOWN in the tile), an expected UPC missing from the export, or a record without its excerpt; exit 2 when the
+check cannot be made (no excerpt file, a list that cannot be read). --expect FILE names the UPCs that must be
+there (one per line, or a CSV with a "upc" column; leading zeros kept): an independently recorded list, such as
+the products a listing's stored pages showed. --exclusions FILE names UPCs left out of the export on purpose,
+each with its documented reason (a CSV with "upc" and "reason" columns): such a UPC is reported as a documented
+exclusion and never counted as missing; an exclusion with no reason is not one.
 
 DATA_DIR holds a run's products.json and source_excerpts.jsonl.gz. Since 1.10.0rc6 each excerpt also states the
 record's kind as the run's provenance gives it (fresh: observed by this run; carried_forward: an earlier run's
@@ -19,6 +31,7 @@ availability change over time; the excerpt is what the page showed at the stated
 
 from __future__ import annotations
 
+import csv
 import gzip
 import json
 import random
@@ -54,17 +67,62 @@ class Tile(HTMLParser):
         return {k: " ".join("".join(v).split()) for k, v in self.found.items()}
 
 
+def upc_list(path: Path, column: str = "upc") -> list[str]:
+    """UPCs as text (never numbers: leading zeros kept), from one per line or a CSV with a ``upc`` column."""
+    text = path.read_text(encoding="utf-8-sig")
+    lines = [x.strip() for x in text.splitlines() if x.strip()]
+    if lines and column in [c.strip() for c in lines[0].split(",")]:
+        return [row[column].strip() for row in csv.DictReader(text.splitlines()) if (row.get(column) or "").strip()]
+    return [x for x in lines if not x.startswith("#")]
+
+
+def exclusion_list(path: Path) -> dict[str, str]:
+    rows = csv.DictReader(path.read_text(encoding="utf-8-sig").splitlines())
+    return {(r.get("upc") or "").strip(): (r.get("reason") or "").strip() for r in rows if (r.get("upc") or "").strip()}
+
+
+def name_of(exc: BaseException) -> str:
+    """The file an error names, without its folder (a report never shows where it was run)."""
+    filename = getattr(exc, "filename", None)
+    return Path(str(filename)).name if filename else str(exc)
+
+
+def option(args: list[str], name: str) -> str | None:
+    if name not in args:
+        return None
+    i = args.index(name)
+    value = args[i + 1]
+    del args[i : i + 2]
+    return value
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8", newline="\n")  # type: ignore[union-attr]  # the same bytes on any system
     args = sys.argv[1:]
+    strict = "--strict" in args
+    if strict:
+        args.remove("--strict")
+    try:
+        expect_file, exclusions_file = option(args, "--expect"), option(args, "--exclusions")
+        expected = upc_list(Path(expect_file)) if expect_file else []
+        documented = exclusion_list(Path(exclusions_file)) if exclusions_file else {}
+    except (OSError, ValueError, KeyError, IndexError) as exc:
+        print(f"REFUSED: the list cannot be read ({type(exc).__name__}: {name_of(exc)})")
+        return 2
     data = Path(args.pop(0))
     products = json.loads((data / "products.json").read_text(encoding="utf-8"))
     records = {r["upc"]: r for r in (products if isinstance(products, list) else products.get("products", []))}
     ex = {}
-    with gzip.open(data / "source_excerpts.jsonl.gz", "rt", encoding="utf-8") as f:
-        for line in f:
-            d = json.loads(line)
-            ex[d["upc"]] = d
+    try:
+        with gzip.open(data / "source_excerpts.jsonl.gz", "rt", encoding="utf-8") as f:
+            for line in f:
+                d = json.loads(line)
+                ex[d["upc"]] = d
+    except OSError as exc:
+        if not strict:
+            raise
+        print(f"REFUSED: no source excerpts to check against ({type(exc).__name__}: {name_of(exc)})")
+        return 2
     if args and args[0] == "--random":
         n = int(args[1])
         seed = int(args[args.index("--seed") + 1]) if "--seed" in args else 20261116
@@ -79,7 +137,11 @@ def main() -> int:
               + (f" fresh records (of {len(records)} exported)" if "--fresh-only" in args else ""))
     else:
         upcs = args
+    if expected:
+        upcs = list(dict.fromkeys([*upcs, *expected]))
+        print(f"{len(expected)} UPCs expected (from {Path(expect_file or '').name})")
     differ = 0
+    verdict: dict[str, list[str]] = {"differs": [], "missing": [], "no_excerpt": [], "excluded": [], "same": []}
     for upc in upcs:
         r, e = records.get(upc), ex.get(upc)
         kind, status = (e or {}).get("observation_kind"), (e or {}).get("record_status")
@@ -89,10 +151,16 @@ def main() -> int:
                                             f"{e.get('page_run_id')})")
         print(f"=== {upc}{tag}")
         if r is None:
+            if strict and documented.get(upc):
+                print(f"    not in this export: a documented exclusion ({documented[upc]})")
+                verdict["excluded"].append(upc)
+                continue
             print("    not in this export")
+            verdict["missing"].append(upc)
             continue
         if e is None or not e.get("excerpt"):
             print(f"    no excerpt: {(e or {}).get('why', 'none')}")
+            verdict["no_excerpt"].append(upc)
             continue
         t = Tile()
         t.feed(e["excerpt"])
@@ -101,7 +169,9 @@ def main() -> int:
         ppm_ok = v["per_measure"] == r["ppm"]
         prices = {k: r[k] for k in ("regular_price", "sale_price") if r.get(k)}
         in_tile = {k: (f"${p}" in v["price"]) for k, p in prices.items()}
-        differ += (not title_ok) + (not ppm_ok) + sum(1 for ok in in_tile.values() if not ok)
+        bad = (not title_ok) + (not ppm_ok) + sum(1 for ok in in_tile.values() if not ok)
+        differ += bad
+        verdict["differs" if bad else "same"].append(upc)
         print(f"    page     {e['page_url']}  observed {e['observed_at']}  sha256 {e['page_sha256']}")
         print(f"    title    export {r['product_title']!r}")
         print(f"             source {v['description']!r}  {'same' if title_ok else 'DIFFERS'}")
@@ -110,7 +180,19 @@ def main() -> int:
         print(f"    per unit export {r['ppm']!r}  source {v['per_measure']!r}  {'same' if ppm_ok else 'DIFFERS'}")
         print(f"    also     weight {r['weight']!r}, category {r['category']!r} / {r['sub_category']!r}, url {r['url']}")
     print(f"differences: {differ}")
-    return 0
+    if not strict:
+        return 0
+    failed = bool(verdict["differs"] or verdict["missing"] or verdict["no_excerpt"])
+    print(
+        f"strict: {len(verdict['same'])} same, {len(verdict['differs'])} with a difference, "
+        f"{len(verdict['missing'])} missing from the export, {len(verdict['no_excerpt'])} without an excerpt, "
+        f"{len(verdict['excluded'])} documented exclusions"
+    )
+    for name in ("differs", "missing", "no_excerpt"):
+        if verdict[name]:
+            print(f"strict: {name}: {' '.join(verdict[name])}")
+    print("strict: FAIL" if failed else ("strict: PASS" if upcs else "strict: FAIL (nothing was checked)"))
+    return 1 if failed or not upcs else 0
 
 
 if __name__ == "__main__":

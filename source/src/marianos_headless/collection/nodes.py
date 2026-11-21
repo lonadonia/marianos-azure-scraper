@@ -46,6 +46,9 @@ class Node:
     # Release 1.9.0 (M1): a filtered reading's full identity, as canonical JSON
     # (``pagination.partition_descriptor``); "" for a listing itself and for readings planned before 1.9.0.
     partition_filter: str = ""
+    # OR-22: the site menu's own link when the listing is asked in another form (``url``): only a link missing
+    # the slash before its ID (``canonical_listing_href``); "" when the menu's link is asked as given.
+    menu_url: str = ""
 
     def as_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -67,6 +70,26 @@ def load_seed(path: Path | None = None) -> dict[str, Any]:
 def listing_url(base: str, href: str) -> str:
     """The site menu's own link on ``base``, unchanged (as the pilot opened it)."""
     return urljoin(base.rstrip("/") + "/", href.lstrip("/"))
+
+
+def canonical_listing_href(href: str, taxonomy_id: str) -> str:
+    """The menu's link to a listing as it is asked: as given, except one form the site does not serve (OR-22):
+    ``/pl/<name><ID>``, the slash before the ID missing (``/pl/hard-cider08194``: asked as given, the provider
+    brought no page in any run), asked as ``/pl/<name>/<ID>`` like every other listing. Only a link whose path
+    is a name ending with the node's own ID is rewritten (a name ending with a digit is left as given: the ID
+    could not be told apart); the query is kept as given."""
+    path, sep, query = href.partition("?")
+    segments = [s for s in path.split("/") if s]
+    if (
+        len(segments) == 2
+        and segments[0] == "pl"
+        and segments[1] != taxonomy_id
+        and segments[1].endswith(taxonomy_id)
+    ):
+        name = segments[1][: -len(taxonomy_id)].rstrip("-")
+        if name and not name[-1].isdigit():
+            return f"/pl/{name}/{taxonomy_id}" + (sep + query if sep else "")
+    return href
 
 
 def plan_nodes(
@@ -134,7 +157,9 @@ def plan_nodes(
             tax = str(n["taxonomy_id"])
             if chosen and tax not in chosen:
                 continue
-            url = listing_url(base, str(n["url"]))
+            href = str(n["url"])
+            asked = canonical_listing_href(href, tax)
+            url = listing_url(base, asked)
             if url in seen_urls:
                 skipped.append(
                     {
@@ -146,7 +171,8 @@ def plan_nodes(
                 )
                 continue
             seen_urls.add(url)
-            nodes.append(Node(row_index, name, source_id, str(n["title"]), tax, url))
+            menu_url = listing_url(base, href) if asked != href else ""
+            nodes.append(Node(row_index, name, source_id, str(n["title"]), tax, url, menu_url=menu_url))
     return nodes, skipped
 
 

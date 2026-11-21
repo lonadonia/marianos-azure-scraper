@@ -100,12 +100,36 @@ MAX_ABNORMAL_LISTINGS_IN_A_ROW = 3
 LISTING_FAILURES = frozenset(
     {"provider_failed_free", "provider_failure", "timeout", "transport", "empty_result", "rate_limit"}
 )
+# What a listing page is parsed into (``_view``) and the page being recorded: kept on the collector, which the
+# listing lanes share (OR-24, see ``read_terms``).
+PAGE_STATE = (
+    "_tax",
+    "_price_loc",
+    "_sponsored",
+    "_ranks",
+    "_query",
+    "_summary",
+    "_children",
+    "_brands",
+    "_reading",
+    "_reasked",
+)
 SEARCH_ROUTE_REASON = (
     "accessible pages exhausted; coverage incomplete: the listing page {url} is read through the first page "
     "of the retailer's search for {query!r} ({cards} cards of {total} search results; the search route's "
     "page 2 repeats page 1), {members} of them in this listing by their own website taxonomy; the listing's "
     "own total is not known"
 )
+
+
+class ListingUnread(Exception):
+    """OR-23: a page of the listing the provider did not bring once more after the run had stopped at it (more
+    failed answers for the page than a task's attempts): the listing stays incomplete, with this reason, and
+    the run goes on instead of stopping there again at every resume."""
+
+    def __init__(self, reason: str) -> None:
+        super().__init__(reason)
+        self.reason = reason
 
 
 @dataclass(frozen=True)
@@ -734,10 +758,25 @@ class OxylabsCollector(LiveCollector):
         first), ``unread_robots``.
         A refusal (challenge) page stops the run as on any page. Off unless
         ``coverage.read_product_terms``, or ``limits.product_term_upcs`` names products (release 1.10.0rc6:
-        then only the named products' pages are read, whatever their cards show)."""
+        then only the named products' pages are read, whatever their cards show).
+
+        OR-24 (run R7, 2026-11-17): while a product page is read the other listing lane goes on, and the page
+        it parses replaced what this page was parsed into (its products' taxonomies and ranks among others,
+        kept on the collector the lanes share): this page's records were then built against the other page,
+        and none of its products was kept (Dog Food 27017 page 7 and Cat Treats 27022 page 2, both counted
+        with 0 products). This page's parse, and the page being recorded, are put back once its product pages
+        are read, before its records are built."""
         named = frozenset(self.cfg.limits.product_term_upcs or ())
         if not self.settings.coverage.read_product_terms and not named:
             return
+        page = {k: getattr(self, k) for k in PAGE_STATE}
+        try:
+            await self._read_product_pages(ctx, view, named)
+        finally:
+            for k, x in page.items():
+                setattr(self, k, x)
+
+    async def _read_product_pages(self, ctx: TaskContext, view: ListingView, named: frozenset[str]) -> None:
         assert self.ox is not None
         limit = self.cfg.limits.max_product_term_reads
         for card in view.cards:
@@ -1005,9 +1044,15 @@ class OxylabsCollector(LiveCollector):
         if not await self.ensure_session(ctx, node):
             state.status, state.reason = "SKIPPED", "robots.txt does not allow this listing's page"
             return self._finish_node(node, state)
-        if self.route == "search":
-            return await self.read_search(ctx, node, state)
-        return await self.read_listing(ctx, node, state)
+        try:
+            if self.route == "search":
+                return await self.read_search(ctx, node, state)
+            return await self.read_listing(ctx, node, state)
+        except ListingUnread as exc:
+            # OR-23: bounded across resumes; the pages read before it stay counted, the listing is not
+            # complete.
+            state.status, state.reason = "INCOMPLETE", exc.reason
+            return self._finish_node(node, state)
 
     # -- the page loop --------------------------------------------------------------------------------------
 
@@ -1237,7 +1282,13 @@ class OxylabsCollector(LiveCollector):
     def _unread(self, ctx: TaskContext, node: Node, page: int, why: str) -> NoReturn:
         """The page stays unread and the listing unfinished. The task waits and comes back (the run's bounded
         retries); once they are spent, or when pages keep failing on any listing, the run stops resumably, and
-        the resume starts at this page."""
+        the resume starts at this page.
+
+        OR-23: bounded across resumes. A page that fails again once the run has been resumed (more failed
+        answers for it in this run than a task's attempts) leaves its listing incomplete, with the reason, and
+        the run goes on: it no longer stops the run at every resume, which made a run holding a page the
+        provider never brings endless (Hard Cider 08194 in R7). Pages failing in a row on any listings still
+        stop the run."""
         self.failed_in_a_row += 1
         text = f"{node.url}: page {page} not read: {why}"[:600]
         if self.failed_in_a_row >= MAX_FAILED_LISTINGS_IN_A_ROW:
@@ -1246,9 +1297,25 @@ class OxylabsCollector(LiveCollector):
                 f"{self.failed_in_a_row} pages in a row not read; last: {text}",
                 resumable=True,
             )
-        if ctx.lease.attempts >= self.settings.retries.max_attempts_per_task:
+        limit = self.settings.retries.max_attempts_per_task
+        failed = self._failed_answers(node, page)
+        if failed > limit:
+            raise ListingUnread(
+                f"{text}; the provider brought no page in {failed} answers, the last after the run had "
+                f"stopped at this page and been resumed: the listing stays incomplete"
+            )
+        if ctx.lease.attempts >= limit:
             raise RunStop(StopCode.PROVIDER_ERROR, text, resumable=True)
         raise TaskFailure(FailureKind.TRANSIENT, text)
+
+    def _failed_answers(self, node: Node, page: int) -> int:
+        """OR-23: the provider's failed answers for this page of the listing in this run (one row per
+        attempt)."""
+        with self.factory() as s:
+            rows = pagination.rows_of(
+                s, self.run_id, node.category_source_id, node.taxonomy_id, self._pkey(node)
+            )
+            return sum(1 for r in rows if r.requested_page == page and r.state == "failed")
 
     # -- requests set aside and asked again (release 1.10.0, C1; collection.reask) -------------------------
 
@@ -2001,9 +2068,19 @@ class OxylabsCollector(LiveCollector):
                     "listing page carries no product tile: asked for again"
                 )
             if j.verdict is PageVerdict.EMPTY and page == 1 and facts.total == 0:
-                self._reading = None
+                # 1.10.0rc7: the page stating 0 results keeps its row (its store check, location, fulfillment
+                # and hash), in the transaction of its step: the only proof that the listing is empty
+                # (``route_audit``). Until 1.10.0rc6 only the listing's cursor said so.
+                with self.factory() as s:
+                    attempt = pagination.next_attempt(
+                        s, self.run_id, node.category_source_id, node.taxonomy_id, page, pkey
+                    )
+                self._reading = PageContext(page, url, facts, j, attempt, check)
                 state.last_offset = -1
-                self._step(ctx, node, fetch, v, view, state, 0, replay=False, first=True)
+                try:
+                    self._step(ctx, node, fetch, v, view, state, 0, replay=False, first=True)
+                finally:
+                    self._reading = None
                 state.total = 0
                 return self._finish_node(node, state)
             if not j.accepted:

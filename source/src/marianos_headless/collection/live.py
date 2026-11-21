@@ -1811,6 +1811,9 @@ class LiveCollector:
                 s.commit()
                 raise AbnormalPage(f"{node.url}: {fatal}")
             if state.status == "EMPTY":
+                # 1.10.0rc7: the page stating 0 results keeps its row (a provider's collector), the proof
+                # that the listing is empty, in the transaction that closes it.
+                self.page_recorded(s, node, fetch, StepResult())
                 self.coverage(s, node, state)
                 s.commit()
                 return
@@ -2116,6 +2119,9 @@ class LiveCollector:
             run = s.get(Run, self.run_id)
             assert run is not None
             nodes = self.node_outcomes(s)
+            # 1.10.0rc7: the coverage rows written while collecting take the audited verdict before anything
+            # reads them (what is carried forward and why, the backlog order of the next run).
+            reconciliation.sync_node_coverage(s, self.run_id, nodes)
             complete = bool(nodes) and all(n["status"] in ("DONE", "EMPTY") for n in nodes)
             # Release 1.10.0rc6 (OR-04): a route the run's plan names (the Coupons page) is part of the
             # collection; the listings alone decide what is carried forward.

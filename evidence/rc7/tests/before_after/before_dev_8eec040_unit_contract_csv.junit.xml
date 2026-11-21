@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.522" timestamp="2026-11-21T22:18:37.037119+00:00" hostname="[redacted:workstation-host]"><testcase classname="tests.unit.test_contract_csv_rc7" name="test_the_csv_and_the_json_of_one_export_pass_the_same_contract" time="0.031"><failure message="json.decoder.JSONDecodeError: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)">tmp_path = WindowsPath('[redacted:workstation-path]/[redacted:workstation-path]/[redacted:workstation-path]/pytest-1624/test_the_csv_and_the_json_of_o0')
+
+    def test_the_csv_and_the_json_of_one_export_pass_the_same_contract(tmp_path: Path) -&gt; None:
+        records = json.loads((RUN / "products.json").read_text("utf-8"))
+&gt;       as_csv = contract.check(_write(tmp_path, products_csv_bytes(records)))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_contract_csv_rc7.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\marianos_headless\checks\contract.py:24: in check
+    rows = json.loads(path.read_text("utf-8"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+s = '\ufeffzipcode,store_name,store_location,store_logo,store_brand,category,sub_category,product_title,weight,regular_pri...ium/front/0000000004061,https://www.marianos.com/p/wrapped-iceberg-lettuce/0000000004061,0000000004061,,,,2026-10-20\n'
+cls = None, object_hook = None, parse_float = None, parse_int = None
+parse_constant = None, object_pairs_hook = None, kw = {}
+
+    def loads(s, *, cls=None, object_hook=None, parse_float=None,
+            parse_int=None, parse_constant=None, object_pairs_hook=None, **kw):
+        """Deserialize ``s`` (a ``str``, ``bytes`` or ``bytearray`` instance
+        containing a JSON document) to a Python object.
+    
+        ``object_hook`` is an optional function that will be called with the
+        result of any object literal decode (a ``dict``). The return value of
+        ``object_hook`` will be used instead of the ``dict``. This feature
+        can be used to implement custom decoders (e.g. JSON-RPC class hinting).
+    
+        ``object_pairs_hook`` is an optional function that will be called with the
+        result of any object literal decoded with an ordered list of pairs.  The
+        return value of ``object_pairs_hook`` will be used instead of the ``dict``.
+        This feature can be used to implement custom decoders.  If ``object_hook``
+        is also defined, the ``object_pairs_hook`` takes priority.
+    
+        ``parse_float``, if specified, will be called with the string
+        of every JSON float to be decoded. By default this is equivalent to
+        float(num_str). This can be used to use another datatype or parser
+        for JSON floats (e.g. decimal.Decimal).
+    
+        ``parse_int``, if specified, will be called with the string
+        of every JSON int to be decoded. By default this is equivalent to
+        int(num_str). This can be used to use another datatype or parser
+        for JSON integers (e.g. float).
+    
+        ``parse_constant``, if specified, will be called with one of the
+        following strings: -Infinity, Infinity, NaN.
+        This can be used to raise an exception if invalid JSON numbers
+        are encountered.
+    
+        To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``
+        kwarg; otherwise ``JSONDecoder`` is used.
+        """
+        if isinstance(s, str):
+            if s.startswith('\ufeff'):
+&gt;               raise JSONDecodeError("Unexpected UTF-8 BOM (decode using utf-8-sig)",
+                                      s, 0)
+E               json.decoder.JSONDecodeError: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+
+[redacted:workstation-path]\[redacted:workstation-path]\python\cpython-3.12-windows-x86_64-none\Lib\json\__init__.py:335: JSONDecodeError</failure></testcase><testcase classname="tests.unit.test_contract_csv_rc7" name="test_a_csv_whose_leading_zeros_were_lost_fails" time="0.011"><failure message="json.decoder.JSONDecodeError: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)">tmp_path = WindowsPath('[redacted:workstation-path]/[redacted:workstation-path]/[redacted:workstation-path]/pytest-1624/test_a_csv_whose_leading_zeros0')
+
+    def test_a_csv_whose_leading_zeros_were_lost_fails(tmp_path: Path) -&gt; None:
+        records = json.loads((RUN / "products.json").read_text("utf-8"))
+        zeros = [r for r in records if r["upc"].startswith("0")]
+        assert zeros
+        damaged = [dict(r, upc=r["upc"].lstrip("0")) if r is zeros[0] else r for r in records]
+&gt;       report = contract.check(_write(tmp_path, products_csv_bytes(damaged)))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_contract_csv_rc7.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\marianos_headless\checks\contract.py:24: in check
+    rows = json.loads(path.read_text("utf-8"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+s = '\ufeffzipcode,store_name,store_location,store_logo,store_brand,category,sub_category,product_title,weight,regular_pri...ium/front/0000000004061,https://www.marianos.com/p/wrapped-iceberg-lettuce/0000000004061,0000000004061,,,,2026-10-20\n'
+cls = None, object_hook = None, parse_float = None, parse_int = None
+parse_constant = None, object_pairs_hook = None, kw = {}
+
+    def loads(s, *, cls=None, object_hook=None, parse_float=None,
+            parse_int=None, parse_constant=None, object_pairs_hook=None, **kw):
+        """Deserialize ``s`` (a ``str``, ``bytes`` or ``bytearray`` instance
+        containing a JSON document) to a Python object.
+    
+        ``object_hook`` is an optional function that will be called with the
+        result of any object literal decode (a ``dict``). The return value of
+        ``object_hook`` will be used instead of the ``dict``. This feature
+        can be used to implement custom decoders (e.g. JSON-RPC class hinting).
+    
+        ``object_pairs_hook`` is an optional function that will be called with the
+        result of any object literal decoded with an ordered list of pairs.  The
+        return value of ``object_pairs_hook`` will be used instead of the ``dict``.
+        This feature can be used to implement custom decoders.  If ``object_hook``
+        is also defined, the ``object_pairs_hook`` takes priority.
+    
+        ``parse_float``, if specified, will be called with the string
+        of every JSON float to be decoded. By default this is equivalent to
+        float(num_str). This can be used to use another datatype or parser
+        for JSON floats (e.g. decimal.Decimal).
+    
+        ``parse_int``, if specified, will be called with the string
+        of every JSON int to be decoded. By default this is equivalent to
+        int(num_str). This can be used to use another datatype or parser
+        for JSON integers (e.g. float).
+    
+        ``parse_constant``, if specified, will be called with one of the
+        following strings: -Infinity, Infinity, NaN.
+        This can be used to raise an exception if invalid JSON numbers
+        are encountered.
+    
+        To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``
+        kwarg; otherwise ``JSONDecoder`` is used.
+        """
+        if isinstance(s, str):
+            if s.startswith('\ufeff'):
+&gt;               raise JSONDecodeError("Unexpected UTF-8 BOM (decode using utf-8-sig)",
+                                      s, 0)
+E               json.decoder.JSONDecodeError: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+
+[redacted:workstation-path]\[redacted:workstation-path]\python\cpython-3.12-windows-x86_64-none\Lib\json\__init__.py:335: JSONDecodeError</failure></testcase><testcase classname="tests.unit.test_contract_csv_rc7" name="test_a_csv_with_another_header_or_a_short_row_fails" time="0.011"><failure message="json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)">tmp_path = WindowsPath('[redacted:workstation-path]/[redacted:workstation-path]/[redacted:workstation-path]/pytest-1624/test_a_csv_with_another_header0')
+
+    def test_a_csv_with_another_header_or_a_short_row_fails(tmp_path: Path) -&gt; None:
+        records = json.loads((RUN / "products.json").read_text("utf-8"))
+        body = products_csv_bytes(records).decode("utf-8-sig").split("\r\n")
+        head = body[0].split(",")
+        head[0], head[1] = head[1], head[0]
+        swapped = "\r\n".join([",".join(head), *body[1:]]).encode("utf-8")
+&gt;       report = contract.check(_write(tmp_path, swapped, "swapped.csv"))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\unit\test_contract_csv_rc7.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\marianos_headless\checks\contract.py:24: in check
+    rows = json.loads(path.read_text("utf-8"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[redacted:workstation-path]\[redacted:workstation-path]\python\cpython-3.12-windows-x86_64-none\Lib\json\__init__.py:346: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[redacted:workstation-path]\[redacted:workstation-path]\python\cpython-3.12-windows-x86_64-none\Lib\json\decoder.py:338: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;json.decoder.JSONDecoder object at 0x00000223B12183E0&gt;
+s = 'store_name,zipcode,store_location,store_logo,store_brand,category,sub_category,product_title,weight,regular_price,sal...ium/front/0000000004061,https://www.marianos.com/p/wrapped-iceberg-lettuce/0000000004061,0000000004061,,,,2026-10-20\n'
+idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+&gt;           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+[redacted:workstation-path]\[redacted:workstation-path]\python\cpython-3.12-windows-x86_64-none\Lib\json\decoder.py:356: JSONDecodeError</failure></testcase></testsuite></testsuites>

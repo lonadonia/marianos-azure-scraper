@@ -1,0 +1,88 @@
+{
+ "audit": {
+  "accounted_identities": 7,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 7,
+  "fresh_records": 7,
+  "fresh_valid": 7,
+  "listing_id": "14186",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "7 distinct products of 7 reported, on 1 page(s), each accounted for",
+  "reported_total": 7,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111012878",
+  "0064154812167",
+  "0064154812171",
+  "0064154812172",
+  "0064154812173",
+  "0064154812182",
+  "0085485800133"
+ ],
+ "fresh_linked": [
+  "0001111012878",
+  "0064154812167",
+  "0064154812171",
+  "0064154812172",
+  "0064154812173",
+  "0064154812182",
+  "0085485800133"
+ ],
+ "listing": "14186",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 7,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNY40B4EFPVP4AQ9FZM47M",
+   "identities": [
+    "0001111012878",
+    "0064154812167",
+    "0064154812171",
+    "0085485800133",
+    "0064154812182",
+    "0064154812172",
+    "0064154812173"
+   ],
+   "listing": "14186",
+   "observed_at": "2026-11-16 17:19:34.923332+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "14186",
+   "sha256": "ac1a3ec5dac4e174e5bad4ba6688b08bb1fef2bec7c4142a6026eb39e71238b9",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 7,
+   "url": "https://www.marianos.com/pl/specialty-butters-and-spreads/14186"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

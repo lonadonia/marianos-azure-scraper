@@ -1,0 +1,94 @@
+{
+ "audit": {
+  "accounted_identities": 9,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 9,
+  "fresh_records": 9,
+  "fresh_valid": 9,
+  "listing_id": "06119",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "9 distinct products of 9 reported, on 1 page(s), each accounted for",
+  "reported_total": 9,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111063788",
+  "0001111091132",
+  "0001111091133",
+  "0001111091134",
+  "0001111091225",
+  "0001111091484",
+  "0022559550000",
+  "0022569550000",
+  "0022771950000"
+ ],
+ "fresh_linked": [
+  "0001111063788",
+  "0001111091132",
+  "0001111091133",
+  "0001111091134",
+  "0001111091225",
+  "0001111091484",
+  "0022559550000",
+  "0022569550000",
+  "0022771950000"
+ ],
+ "listing": "06119",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 9,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNEJH9EPE4PMNGK987E5D0",
+   "identities": [
+    "0001111091133",
+    "0001111091132",
+    "0001111091484",
+    "0001111063788",
+    "0001111091225",
+    "0001111091134",
+    "0022771950000",
+    "0022559550000",
+    "0022569550000"
+   ],
+   "listing": "06119",
+   "observed_at": "2026-11-16 17:11:05.513595+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "06119",
+   "sha256": "43bdff7d82ec21d188a380a9d5c9aeaa0087f09b8e07064b2fdf9f486d9c80ab",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 9,
+   "url": "https://www.marianos.com/pl/party-trays/06119"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

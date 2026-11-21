@@ -102,3 +102,44 @@ client decides otherwise; the ledger's status is read and kept with the session'
 
 [`OUTSTANDING.csv`](OUTSTANDING.csv): one row per open item, with its owner, what blocks it, the evidence that
 would close it and the next action.
+
+## 9. 1.10.0rc7 (added 2026-11-21)
+
+Sections 1 to 8 are kept as written for 1.10.0rc6. For 1.10.0rc7, `source/` is collector 1.10.0rc7 (commit
+`ec10cde`, package tree `fe89f133`). Nothing in this section has been done with the client, and no step of it sends
+a request to the retailer or to a provider.
+
+**Check the package (offline).** As in section 1, at the tag `review-1.10.0rc7-20261121`:
+
+```
+python3 manifests/check_source_tree.py           # source/ is the development tree fe89f133, file by file
+python3 -I manifests/check_links.py              # every repository link resolves; no web address is visited
+cd source && uv sync --frozen
+uv run --frozen marianos-collector --version     # marianos-azure-headless 1.10.0rc7
+uv run --frozen pytest -q tests/unit             # 533 passed
+uv run --frozen pytest -q tests/integration/test_reask_c1.py tests/integration/test_publication_result.py   # 30 and 6 passed
+uv run --frozen pytest -q tests/integration/test_route_audit_rc7.py tests/integration/test_lanes_or24.py
+```
+
+The whole integration suite on 1.10.0rc7: 260 tests (browser tests included), about 43 minutes on
+the workstation.
+
+**Check the coverage verdict (offline).** Each listing's verdict is in the export's coverage files
+(`coverage_reconciliation.csv`: `expected_identities`, `accounted_identities`, `missing_identities`,
+`unexpected_identities`, `cursor_status`, `status`). A listing is DONE only with `missing_identities` and
+`unexpected_identities` at 0; the publication refuses (exit 6) a run with an unexplained gap. To read a stored run
+again against the 1.9 baseline: `source/tools/replay_routes.py` ([`evidence/rc7/README.md`](../evidence/rc7/README.md)).
+
+**Check records strictly (offline).**
+
+```
+python3 -I evidence/samples/selftest_check_sample.py evidence/samples/R7            # selftest: PASS
+python3 -I evidence/samples/check_sample.py evidence/samples/R7 --strict --expect evidence/rc7/accuracy/EXPECTED_27021_R7.txt   # exit 0
+python3 -I evidence/samples/check_sample.py evidence/samples/R7 --strict --expect evidence/rc7/accuracy/EXPECTED_27017_R7.txt   # exit 1: 24 missing
+```
+
+**Live steps (sections 5 and 6) on 1.10.0rc7: held.** They need Darren's separate decision. The proposed first one
+reads only Dog Food 27017 and Cat Treats 27022 with two lanes, the three named product pages included, with at most
+45 submissions, USD 0.07 at the ledger's list rate and 30 minutes, and no publication (the addendum, section 7). It
+passes only when both listings' exact UPC sets are accounted for. Installation, migrations, backup and restore,
+rollback and the container (sections 2 and 3) are unchanged by 1.10.0rc7 and were not run again for it.

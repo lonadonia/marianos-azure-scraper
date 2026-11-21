@@ -1,0 +1,120 @@
+{
+ "case": "rc7_lost_record_one_product_of_61",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the lost record is injected",
+ "lost": [
+  "0003800000031"
+ ],
+ "run_status": "rejected",
+ "coverage_line": {
+  "status": "INCOMPLETE",
+  "unique_identities": 60,
+  "unresolved_gap": 1,
+  "accounted_identities": 60,
+  "missing_identities": 1,
+  "missing_by_page": {
+   "2": [
+    "0003800000031"
+   ]
+  }
+ },
+ "node_coverage": [
+  "INCOMPLETE",
+  60,
+  61
+ ],
+ "g3": [
+  [
+   "FAIL",
+   "status INCOMPLETE"
+  ]
+ ],
+ "incoherent_pages_oracle": [
+  [
+   "03001",
+   2,
+   [
+    "0003800000031"
+   ]
+  ]
+ ],
+ "automatic": {
+  "exit_code": 6,
+  "run_status": "rejected",
+  "log": [
+   {
+    "level": "WARN",
+    "event": "RUN_FINISHED",
+    "exit_code": 6,
+    "message": null,
+    "publication": null,
+    "version": null
+   }
+  ],
+  "run_finished": {
+   "ts": "2026-11-21T22:05:55.850Z",
+   "level": "WARN",
+   "event": "RUN_FINISHED",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "exit_code": 6,
+   "run_id": "01M8029Z5N5QYNBJYA8JAHENKX",
+   "status": "rejected",
+   "trigger": "console",
+   "dataset": "partial",
+   "pilot": false,
+   "occurrence": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "created_at": "2026-11-21T22:05:53.720465Z",
+   "started_at": "2026-11-21T22:05:53.750484Z",
+   "finished_at": "2026-11-21T22:05:55.755677Z",
+   "outcome": "rejected",
+   "records_by_status": {
+    "valid": 60,
+    "historical": 1
+   },
+   "collection_complete": false,
+   "canary": {
+    "at": "2026-11-09T16:00:00Z",
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "page": "01M8029ZDMGCTQ3KPYQXAJ6HAS",
+    "valid": 24,
+    "status": "passed",
+    "records": 24,
+    "problems": [],
+    "valid_ratio": 1.0,
+    "source_check": {
+     "records": 24,
+     "mismatch": 0,
+     "verified": 24,
+     "unverified": 0
+    }
+   },
+   "historical": {
+    "too_old": 0,
+    "carried_forward": 1
+   },
+   "failed_checks": [
+    "G3"
+   ]
+  },
+  "events": []
+ },
+ "manual": "refused (exit 6): run 01M8029Z5N5QYNBJYA8JAHENKX is a partial dataset: only complete runs are published",
+ "before": {
+  "publication_id": "01M8029Z47HDXDAK4CVSPP94FY",
+  "version": 1,
+  "published_run": "01M8029WQ6XQ2WH7BS1NAXBWFK",
+  "latest_json_sha256": "f91e3d0fd6b6d8acf823244b8d7d7d786bd731ae45fc7b7d0ae6b2c06d25f977",
+  "manifest_sha256": "2af28092628362b6747486df7350980286fb5cdca32deaba6f83f63621f961cb",
+  "products_sha256": "95e1f080609f3c98bdbdc2036bbe317ca9fc6e8a8b70627ef200151a87958b1e"
+ },
+ "after": {
+  "publication_id": "01M8029Z47HDXDAK4CVSPP94FY",
+  "version": 1,
+  "published_run": "01M8029WQ6XQ2WH7BS1NAXBWFK",
+  "latest_json_sha256": "f91e3d0fd6b6d8acf823244b8d7d7d786bd731ae45fc7b7d0ae6b2c06d25f977",
+  "manifest_sha256": "2af28092628362b6747486df7350980286fb5cdca32deaba6f83f63621f961cb",
+  "products_sha256": "95e1f080609f3c98bdbdc2036bbe317ca9fc6e8a8b70627ef200151a87958b1e"
+ }
+}

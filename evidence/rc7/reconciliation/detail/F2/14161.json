@@ -1,0 +1,88 @@
+{
+ "audit": {
+  "accounted_identities": 7,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 7,
+  "fresh_records": 7,
+  "fresh_valid": 7,
+  "listing_id": "14161",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "7 distinct products of 7 reported, on 1 page(s), each accounted for",
+  "reported_total": 7,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111006770",
+  "0001111018568",
+  "0001111018569",
+  "0001111018630",
+  "0001111067443",
+  "0001111069351",
+  "0007121405801"
+ ],
+ "fresh_linked": [
+  "0001111006770",
+  "0001111018568",
+  "0001111018569",
+  "0001111018630",
+  "0001111067443",
+  "0001111069351",
+  "0007121405801"
+ ],
+ "listing": "14161",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 7,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNWZ5VZ4XEXXK7E2FTQ774",
+   "identities": [
+    "0001111006770",
+    "0001111018568",
+    "0001111018630",
+    "0001111069351",
+    "0001111018569",
+    "0001111067443",
+    "0007121405801"
+   ],
+   "listing": "14161",
+   "observed_at": "2026-11-16 17:18:57.211552+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "14161",
+   "sha256": "bfaeee5098aa809d2819cfafefc7052c6e6395c4a9e7ee8ad8a8e6776426a55b",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 7,
+   "url": "https://www.marianos.com/pl/angel-food-pound-pudding-cakes/14161"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

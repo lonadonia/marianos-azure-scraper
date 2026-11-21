@@ -1,0 +1,109 @@
+{
+ "audit": {
+  "accounted_identities": 14,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 14,
+  "fresh_records": 14,
+  "fresh_valid": 14,
+  "listing_id": "13002",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "14 distinct products of 14 reported, on 1 page(s), each accounted for",
+  "reported_total": 14,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001115000082",
+  "0021634190000",
+  "0021653090000",
+  "0022615340000",
+  "0022625340000",
+  "0023626350000",
+  "0023630670000",
+  "0024616480000",
+  "0024635290000",
+  "0025623240000",
+  "0025626640000",
+  "0026634190000",
+  "0027630690000",
+  "0028622540000"
+ ],
+ "fresh_linked": [
+  "0001115000082",
+  "0021634190000",
+  "0021653090000",
+  "0022615340000",
+  "0022625340000",
+  "0023626350000",
+  "0023630670000",
+  "0024616480000",
+  "0024635290000",
+  "0025623240000",
+  "0025626640000",
+  "0026634190000",
+  "0027630690000",
+  "0028622540000"
+ ],
+ "listing": "13002",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 14,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNSNMQSZKMGKKZJWEB5RHK",
+   "identities": [
+    "0021634190000",
+    "0023626350000",
+    "0027630690000",
+    "0022625340000",
+    "0021653090000",
+    "0022615340000",
+    "0024635290000",
+    "0023630670000",
+    "0001115000082",
+    "0025626640000",
+    "0025623240000",
+    "0024616480000",
+    "0028622540000",
+    "0026634190000"
+   ],
+   "listing": "13002",
+   "observed_at": "2026-11-16 17:17:09.143883+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "13002",
+   "sha256": "e613dc2ffb49e0c5f87a2f17feedcf256a612b31df4f4bc7f679e0e33de5f860",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 14,
+   "url": "https://www.marianos.com/pl/fresh-deli-cheese/13002"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

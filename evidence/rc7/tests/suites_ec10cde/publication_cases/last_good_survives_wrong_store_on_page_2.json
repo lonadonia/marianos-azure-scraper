@@ -1,0 +1,37 @@
+{
+ "synthetic": true,
+ "injected_failure": true,
+ "scenario": "wrong_store_on_page_2",
+ "first_run": "01M800G09XBNMZXGPRXB670XV9",
+ "second_run": "01M800G38FRDMJD766KWTWR0ET",
+ "second_run_status": "rejected",
+ "second_run_stop_code": "STORE_NOT_VERIFIED",
+ "refusal": "run status is 'rejected', not 'validated'",
+ "before": {
+  "publication_id": "01M800G35P0N81YTE7XR0J56QP",
+  "version": 1,
+  "publications": 1,
+  "published_run": "01M800G09XBNMZXGPRXB670XV9",
+  "latest_json_sha256": "3c0c7fdbb1e9eaa0b456a5ff22da6f2cc032f899ba3143b01181cb2e30d2a3bd",
+  "manifest_sha256": "8fe04b6498a6e55d7c723831421d851dc09dcc9ac14b2df17fdbfb3197c997fa",
+  "products_sha256": "2faaff561e8bc33104e435706676be342bf79e09f397a5762bf5238ab5aefc10",
+  "published_products": 90,
+  "first_run_observations": 90,
+  "first_run_observations_sha256": "11c6b2b590112e3df29fb2b5471dd20bb48a0a405647867f7b06786b356e2e8e",
+  "first_run_records_sha256": "e3567aaaf1f276ffa206302651137a7e5d31a6c7980cc2e7f9980dbc7dd9a798"
+ },
+ "after": {
+  "publication_id": "01M800G35P0N81YTE7XR0J56QP",
+  "version": 1,
+  "publications": 1,
+  "published_run": "01M800G09XBNMZXGPRXB670XV9",
+  "latest_json_sha256": "3c0c7fdbb1e9eaa0b456a5ff22da6f2cc032f899ba3143b01181cb2e30d2a3bd",
+  "manifest_sha256": "8fe04b6498a6e55d7c723831421d851dc09dcc9ac14b2df17fdbfb3197c997fa",
+  "products_sha256": "2faaff561e8bc33104e435706676be342bf79e09f397a5762bf5238ab5aefc10",
+  "published_products": 90,
+  "first_run_observations": 90,
+  "first_run_observations_sha256": "11c6b2b590112e3df29fb2b5471dd20bb48a0a405647867f7b06786b356e2e8e",
+  "first_run_records_sha256": "e3567aaaf1f276ffa206302651137a7e5d31a6c7980cc2e7f9980dbc7dd9a798"
+ },
+ "unchanged": true
+}

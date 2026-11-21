@@ -1,10 +1,15 @@
 """The 22-field contract of an exported products file (offline): field order, string values, no nulls,
 gupc and unit_price empty, UPC 13 digits (leading zeros kept), marianos.com product URLs and kroger.com
 product pictures, price format, PPM with its unit, crawl_date format, duplicates (by UPC and URL),
-approximate-weight wording. ``marianos-collector validate-export`` runs it."""
+approximate-weight wording. ``marianos-collector validate-export`` runs it.
+
+Release 1.10.0rc7: ``products.csv`` too (the client's file: read as text, every value a string, the header's
+order, leading zeros as written); until 1.10.0rc6 a CSV was read as JSON and refused with a decoding error."""
 
 from __future__ import annotations
 
+import csv
+import io
 import json
 import re
 from collections import Counter
@@ -20,9 +25,25 @@ DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 APPROX = re.compile(r"\bapprox(?:imately|\.)?\b|\babout\b|~", re.I)
 
 
+def _rows(path: Path, problems: Counter[str]) -> list[dict[str, Any]]:
+    if path.suffix.lower() != ".csv":
+        rows: list[dict[str, Any]] = json.loads(path.read_text("utf-8"))
+        return rows
+    reader = csv.reader(io.StringIO(path.read_text("utf-8-sig"), newline=""))
+    header = next(reader, [])
+    out = []
+    for values in reader:
+        if len(values) != len(header):
+            problems["row width"] += 1
+        out.append(dict(zip(header, values, strict=False)))
+    if list(header) != list(OUTPUT_FIELDS):
+        problems["csv header"] += 1
+    return out
+
+
 def check(path: Path) -> dict[str, Any]:
-    rows = json.loads(path.read_text("utf-8"))
     problems: Counter[str] = Counter()
+    rows = _rows(path, problems)
     for r in rows:
         if list(r) != list(OUTPUT_FIELDS):
             problems["field order"] += 1
@@ -48,8 +69,8 @@ def check(path: Path) -> dict[str, Any]:
             problems["crawl_date format"] += 1
         if APPROX.search(r.get("weight", "")):
             problems["approximate weight wording"] += 1
-    upcs = Counter(r["upc"] for r in rows if r["upc"])
-    urls = Counter(r["url"] for r in rows)
+    upcs = Counter(r["upc"] for r in rows if r.get("upc"))
+    urls = Counter(r.get("url", "") for r in rows)
     return {
         "file": path.name,
         "rows": len(rows),
@@ -57,7 +78,7 @@ def check(path: Path) -> dict[str, Any]:
         "duplicate_upc": sum(v - 1 for v in upcs.values() if v > 1),
         "duplicate_url": sum(v - 1 for v in urls.values() if v > 1),
         "leading_zero_upcs": sum(1 for u in upcs if u.startswith("0")),
-        "populated": {f: sum(1 for r in rows if r[f]) for f in OUTPUT_FIELDS},
+        "populated": {f: sum(1 for r in rows if r.get(f)) for f in OUTPUT_FIELDS},
         "categories": dict(Counter(r["category"] for r in rows)),
         "ppm_units": dict(Counter(r["ppm"].split("/")[-1].strip() for r in rows if r["ppm"])),
         "passed": not problems and not any(v > 1 for v in upcs.values()),

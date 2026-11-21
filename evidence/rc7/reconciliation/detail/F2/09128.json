@@ -1,0 +1,82 @@
+{
+ "audit": {
+  "accounted_identities": 5,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 5,
+  "fresh_records": 5,
+  "fresh_valid": 5,
+  "listing_id": "09128",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "5 distinct products of 5 reported, on 1 page(s), each accounted for",
+  "reported_total": 5,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111006856",
+  "0077513942167",
+  "0077513945814",
+  "0077513946325",
+  "0077513946366"
+ ],
+ "fresh_linked": [
+  "0001111006856",
+  "0077513942167",
+  "0077513945814",
+  "0077513946325",
+  "0077513946366"
+ ],
+ "listing": "09128",
+ "pages": [
+  {
+   "attempt": 2,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 5,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNZMKRT5PPYTV0DZXB7VX0",
+   "identities": [
+    "0077513945814",
+    "0077513946366",
+    "0077513946325",
+    "0077513942167",
+    "0001111006856"
+   ],
+   "listing": "09128",
+   "observed_at": "2026-11-16 17:20:24.696332+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "09128",
+   "sha256": "be1a57b4d95398188281c906126defed0d6d3978e887d52eda0a33cb330f3c5d",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 5,
+   "url": "https://www.marianos.com/pl/floralarrangements/09128"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

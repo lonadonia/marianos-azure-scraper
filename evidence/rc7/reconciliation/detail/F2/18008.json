@@ -1,0 +1,112 @@
+{
+ "audit": {
+  "accounted_identities": 15,
+  "children": [],
+  "cross_listed": 10,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 15,
+  "fresh_records": 15,
+  "fresh_valid": 15,
+  "listing_id": "18008",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "15 distinct products of 15 reported, on 1 page(s), each accounted for",
+  "reported_total": 15,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111019438",
+  "0001111019439",
+  "0001111091343",
+  "0001111091344",
+  "0004411540301",
+  "0004411540303",
+  "0004411540304",
+  "0004411540318",
+  "0004411540321",
+  "0004450000432",
+  "0006310048195",
+  "0063803161217",
+  "0063803170570",
+  "0073679890360",
+  "0085819500300"
+ ],
+ "fresh_linked": [
+  "0001111019438",
+  "0001111019439",
+  "0001111091343",
+  "0001111091344",
+  "0004411540301",
+  "0004411540303",
+  "0004411540304",
+  "0004411540318",
+  "0004411540321",
+  "0004450000432",
+  "0006310048195",
+  "0063803161217",
+  "0063803170570",
+  "0073679890360",
+  "0085819500300"
+ ],
+ "listing": "18008",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 15,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JQCGMVMVPHBFH5KQ59VR2Q",
+   "identities": [
+    "0001111019439",
+    "0001111019438",
+    "0004411540301",
+    "0073679890360",
+    "0004411540321",
+    "0001111091343",
+    "0004411540304",
+    "0006310048195",
+    "0001111091344",
+    "0085819500300",
+    "0063803161217",
+    "0004450000432",
+    "0063803170570",
+    "0004411540303",
+    "0004411540318"
+   ],
+   "listing": "18008",
+   "observed_at": "2026-11-16 17:44:55.195199+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "18008",
+   "sha256": "c9b3f058c2ab775f7bfcdfecbf0654693d21cc33699775f6a1fbdfe39e7dbf5c",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 15,
+   "url": "https://www.marianos.com/pl/deli/18008"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

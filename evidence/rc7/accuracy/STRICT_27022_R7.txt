@@ -1,0 +1,269 @@
+52 UPCs expected (from EXPECTED_27022_R7.txt)
+=== 0001111008188  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022?page=3  observed 2026-11-17T03:03:19.697651Z  sha256 aaebe9e238a25fbf6d1d913ff86486902e8ce8823f2457e9204b4c8873f1793f
+    title    export 'Pet Pride Combo Liquid Bisque Cat Treat'
+             source 'Pet Pride Combo Liquid Bisque Cat Treat'  same
+    prices   export {'regular_price': '11.99'}  source price text '$11.99$11.99'  regular_price shown
+    per unit export '$0.71/oz'  source '$0.71/oz'  same
+    also     weight '12Ct 16.8oz 476g', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/pet-pride-combo-liquid-bisque-cat-treat/0001111008188
+=== 0001111008196  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022?page=3  observed 2026-11-17T03:03:19.697651Z  sha256 aaebe9e238a25fbf6d1d913ff86486902e8ce8823f2457e9204b4c8873f1793f
+    title    export 'Pet Pride Combo Liquid Stew Cat Treat'
+             source 'Pet Pride Combo Liquid Stew Cat Treat'  same
+    prices   export {'regular_price': '11.99'}  source price text '$11.99$11.99'  regular_price shown
+    per unit export '$0.71/oz'  source '$0.71/oz'  same
+    also     weight '12Ct 16.8oz 476g', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/pet-pride-combo-liquid-stew-cat-treat/0001111008196
+=== 0001111014494  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Pet Pride® Tender Meaty Sticks Chicken and Liver Flavor Cat Treats'
+             source 'Pet Pride® Tender Meaty Sticks Chicken and Liver Flavor Cat Treats'  same
+    prices   export {'regular_price': '1.79'}  source price text '$1.79$1.79'  regular_price shown
+    per unit export '$2.03/oz'  source '$2.03/oz'  same
+    also     weight '5 ct / 0.88 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/pet-pride-tender-meaty-sticks-chicken-and-liver-flavor-cat-treats/0001111014494
+=== 0001111014495  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Pet Pride® Tender Meaty Sticks Salmon and Trout Flavor Cat Treats'
+             source 'Pet Pride® Tender Meaty Sticks Salmon and Trout Flavor Cat Treats'  same
+    prices   export {'regular_price': '1.79'}  source price text '$1.79$1.79'  regular_price shown
+    per unit export '$2.03/oz'  source '$2.03/oz'  same
+    also     weight '5 ct / 0.88 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/pet-pride-tender-meaty-sticks-salmon-and-trout-flavor-cat-treats/0001111014495
+=== 0001780010153  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export "Whisker Lickin's Cat Treats, Crunchy and Yummy Chicken and Seafood Flavors"
+             source "Whisker Lickin's Cat Treats, Crunchy and Yummy Chicken and Seafood Flavors"  same
+    prices   export {'regular_price': '1.49'}  source price text '$1.49$1.49'  regular_price shown
+    per unit export '$0.88/oz'  source '$0.88/oz'  same
+    also     weight '1.7 oz.', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/whisker-lickin-s-cat-treats-crunchy-and-yummy-chicken-and-seafood-flavors/0001780010153
+=== 0001780017260  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export "Whisker Lickin's Cat Treats, Crunchy and Yummy Tuna Flavor"
+             source "Whisker Lickin's Cat Treats, Crunchy and Yummy Tuna Flavor"  same
+    prices   export {'regular_price': '1.49'}  source price text '$1.49$1.49'  regular_price shown
+    per unit export '$0.88/oz'  source '$0.88/oz'  same
+    also     weight '1.7 oz.', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/whisker-lickin-s-cat-treats-crunchy-and-yummy-tuna-flavor/0001780017260
+=== 0002310010517  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations Classic Crunchy and Soft Cat Treats Tempting Tuna Flavor'
+             source 'Temptations Classic Crunchy and Soft Cat Treats Tempting Tuna Flavor'  same
+    prices   export {'regular_price': '4.19'}  source price text '$4.19$4.19'  regular_price shown
+    per unit export '$0.67/oz'  source '$0.67/oz'  same
+    also     weight '6.3 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-classic-crunchy-and-soft-cat-treats-tempting-tuna-flavor/0002310010517
+=== 0002310010648  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations MixUps Crunchy and Soft Cat Treats Catnip Fever Flavor'
+             source 'Temptations MixUps Crunchy and Soft Cat Treats Catnip Fever Flavor'  same
+    prices   export {'regular_price': '4.19'}  source price text '$4.19$4.19'  regular_price shown
+    per unit export '$0.67/oz'  source '$0.67/oz'  same
+    also     weight '6.3 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-mixups-crunchy-and-soft-cat-treats-catnip-fever-flavor/0002310010648
+=== 0002310010755  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations Classic Crunchy and Soft Cat Treats Tasty Chicken Flavor'
+             source 'Temptations Classic Crunchy and Soft Cat Treats Tasty Chicken Flavor'  same
+    prices   export {'regular_price': '9.49', 'sale_price': '7.99'}  source price text '$7.99$9.49Sale: $7.99 discounted from $9.49'  regular_price shown, sale_price shown
+    per unit export '$0.50/oz'  source '$0.50/oz'  same
+    also     weight '16 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-classic-crunchy-and-soft-cat-treats-tasty-chicken-flavor/0002310010755
+=== 0002310010756  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations Classic Crunchy and Soft Cat Treats Seafood Medley Flavor'
+             source 'Temptations Classic Crunchy and Soft Cat Treats Seafood Medley Flavor'  same
+    prices   export {'regular_price': '9.49', 'sale_price': '7.99'}  source price text '$7.99$9.49Sale: $7.99 discounted from $9.49'  regular_price shown, sale_price shown
+    per unit export '$0.50/oz'  source '$0.50/oz'  same
+    also     weight '16 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-classic-crunchy-and-soft-cat-treats-seafood-medley-flavor/0002310010756
+=== 0002310010925  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations MixUps Crunchy and Soft Cat Treats Surfers Delight'
+             source 'Temptations MixUps Crunchy and Soft Cat Treats Surfers Delight'  same
+    prices   export {'regular_price': '9.49', 'sale_price': '7.99'}  source price text '$7.99$9.49Sale: $7.99 discounted from $9.49'  regular_price shown, sale_price shown
+    per unit export '$0.50/oz'  source '$0.50/oz'  same
+    also     weight '16 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-mixups-crunchy-and-soft-cat-treats-surfers-delight/0002310010925
+=== 0002310011081  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations MixUps Crunchy and Soft Cat Treats Catnip Fever'
+             source 'Temptations MixUps Crunchy and Soft Cat Treats Catnip Fever'  same
+    prices   export {'regular_price': '9.49', 'sale_price': '7.99'}  source price text '$7.99$9.49Sale: $7.99 discounted from $9.49'  regular_price shown, sale_price shown
+    per unit export '$0.50/oz'  source '$0.50/oz'  same
+    also     weight '16 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-mixups-crunchy-and-soft-cat-treats-catnip-fever/0002310011081
+=== 0002310011718
+    not in this export
+=== 0002310011719
+    not in this export
+=== 0002310011846
+    not in this export
+=== 0002310012189  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export "Temptations Classic Crunchy and Soft Cat Treats Rockin' Lobster Flavor"
+             source "Temptations Classic Crunchy and Soft Cat Treats Rockin' Lobster Flavor"  same
+    prices   export {'regular_price': '3.29', 'sale_price': '2.99'}  source price text '$2.99$3.29Sale: $2.99 discounted from $3.29'  regular_price shown, sale_price shown
+    per unit export '$1.00/oz'  source '$1.00/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-classic-crunchy-and-soft-cat-treats-rockin-lobster-flavor/0002310012189
+=== 0002310013742  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations Creamy Puree Lickable Squeezable Cat Treats with Chicken'
+             source 'Temptations Creamy Puree Lickable Squeezable Cat Treats with Chicken'  same
+    prices   export {'regular_price': '2.99', 'sale_price': '2.79'}  source price text '$2.79$2.99Sale: $2.79 discounted from $2.99'  regular_price shown, sale_price shown
+    per unit export '$1.64/oz'  source '$1.64/oz'  same
+    also     weight '4 ct', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-creamy-puree-lickable-squeezable-cat-treats-with-chicken/0002310013742
+=== 0002310013743  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations Creamy Puree Lickable Squeezable Cat Treats Salmon'
+             source 'Temptations Creamy Puree Lickable Squeezable Cat Treats Salmon'  same
+    prices   export {'regular_price': '2.99', 'sale_price': '2.79'}  source price text '$2.79$2.99Sale: $2.79 discounted from $2.99'  regular_price shown, sale_price shown
+    per unit export '$1.64/oz'  source '$1.64/oz'  same
+    also     weight '4 ct', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-creamy-puree-lickable-squeezable-cat-treats-salmon/0002310013743
+=== 0002310014143
+    not in this export
+=== 0002310014497
+    not in this export
+=== 0002310014848
+    not in this export
+=== 0002310015084
+    not in this export
+=== 0002310032784  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Tmpt Tn 3 Oz'
+             source 'Tmpt Tn 3 Oz'  same
+    prices   export {'regular_price': '3.29', 'sale_price': '2.99'}  source price text '$2.99$3.29Sale: $2.99 discounted from $3.29'  regular_price shown, sale_price shown
+    per unit export '$1.00/oz'  source '$1.00/oz'  same
+    also     weight '', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/tmpt-tn-3-oz/0002310032784
+=== 0003270012018
+    not in this export
+=== 0003270012019  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022?page=3  observed 2026-11-17T03:03:19.697651Z  sha256 aaebe9e238a25fbf6d1d913ff86486902e8ce8823f2457e9204b4c8873f1793f
+    title    export 'Delectables™ Senior Bisque Flavored Lickable Cat Treat Variety Pack'
+             source 'Delectables™ Senior Bisque Flavored Lickable Cat Treat Variety Pack'  same
+    prices   export {'regular_price': '16.99'}  source price text '$16.99$16.99'  regular_price shown
+    per unit export '$1.01/oz'  source '$1.01/oz'  same
+    also     weight '12 ct / 1.4 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/delectables-senior-bisque-flavored-lickable-cat-treat-variety-pack/0003270012019
+=== 0003270012999
+    not in this export
+=== 0003270015468  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Hartz Delectables Stew Lickable Cat Treats Variety Pack'
+             source 'Hartz Delectables Stew Lickable Cat Treats Variety Pack'  same
+    prices   export {'regular_price': '16.99'}  source price text '$16.99$16.99'  regular_price shown
+    per unit export '$1.01/oz'  source '$1.01/oz'  same
+    also     weight '12 ct / 1.4 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/hartz-delectables-stew-lickable-cat-treats-variety-pack/0003270015468
+=== 0005000016979
+    not in this export
+=== 0005000023891  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Friskies Cat Treats, Party Mix Original Crunch'
+             source 'Friskies Cat Treats, Party Mix Original Crunch'  same
+    prices   export {'regular_price': '2.19'}  source price text '$2.19$2.19'  regular_price shown
+    per unit export '$1.04/oz'  source '$1.04/oz'  same
+    also     weight '2.1 oz.', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/friskies-cat-treats-party-mix-original-crunch/0005000023891
+=== 0005000045153
+    not in this export
+=== 0005000045752
+    not in this export
+=== 0005000050037  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022?page=3  observed 2026-11-17T03:03:19.697651Z  sha256 aaebe9e238a25fbf6d1d913ff86486902e8ce8823f2457e9204b4c8873f1793f
+    title    export 'Friskies Cat Treats, Party Mix Beachside Crunch'
+             source 'Friskies Cat Treats, Party Mix Beachside Crunch'  same
+    prices   export {'regular_price': '14.99'}  source price text '$14.99$14.99'  regular_price shown
+    per unit export '$0.50/oz'  source '$0.50/oz'  same
+    also     weight '30 oz.', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/friskies-cat-treats-party-mix-beachside-crunch/0005000050037
+=== 0005000050041
+    not in this export
+=== 0005000057443  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Friskies Party Mix Beachside Crunch With Ocean Whitefish & Flavors of Shrimp'
+             source 'Friskies Party Mix Beachside Crunch With Ocean Whitefish & Flavors of Shrimp'  same
+    prices   export {'regular_price': '2.19'}  source price text '$2.19$2.19'  regular_price shown
+    per unit export '$1.04/oz'  source '$1.04/oz'  same
+    also     weight '2.1 oz.', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/friskies-party-mix-beachside-crunch-with-ocean-whitefish-flavors-of-shrimp/0005000057443
+=== 0005000057584
+    not in this export
+=== 0005000096310
+    not in this export
+=== 0005849670122  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations Classic Crunchy and Soft Cat Treats Seafood Medley'
+             source 'Temptations Classic Crunchy and Soft Cat Treats Seafood Medley'  same
+    prices   export {'regular_price': '3.29', 'sale_price': '2.99'}  source price text '$2.99$3.29Sale: $2.99 discounted from $3.29'  regular_price shown, sale_price shown
+    per unit export '$1.00/oz'  source '$1.00/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-classic-crunchy-and-soft-cat-treats-seafood-medley/0005849670122
+=== 0005849672300  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations Classic Crunchy and Soft Cat Treats Tasty Chicken Flavor, 6.3 oz. Pouch'
+             source 'Temptations Classic Crunchy and Soft Cat Treats Tasty Chicken Flavor, 6.3 oz. Pouch'  same
+    prices   export {'regular_price': '4.19'}  source price text '$4.19$4.19'  regular_price shown
+    per unit export '$0.67/oz'  source '$0.67/oz'  same
+    also     weight '6.3 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-classic-crunchy-and-soft-cat-treats-tasty-chicken-flavor-6-3-oz-pouch/0005849672300
+=== 0005849672304  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations Classic Crunchy and Soft Cat Treats Savory Salmon Flavor'
+             source 'Temptations Classic Crunchy and Soft Cat Treats Savory Salmon Flavor'  same
+    prices   export {'regular_price': '3.29', 'sale_price': '2.99'}  source price text '$2.99$3.29Sale: $2.99 discounted from $3.29'  regular_price shown, sale_price shown
+    per unit export '$1.00/oz'  source '$1.00/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-classic-crunchy-and-soft-cat-treats-savory-salmon-flavor/0005849672304
+=== 0005849672306  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Temptations Classic Crunchy and Soft Cat Treats Tasty Chicken Flavor'
+             source 'Temptations Classic Crunchy and Soft Cat Treats Tasty Chicken Flavor'  same
+    prices   export {'regular_price': '3.29', 'sale_price': '2.99'}  source price text '$2.99$3.29Sale: $2.99 discounted from $3.29'  regular_price shown, sale_price shown
+    per unit export '$1.00/oz'  source '$1.00/oz'  same
+    also     weight '3 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/temptations-classic-crunchy-and-soft-cat-treats-tasty-chicken-flavor/0005849672306
+=== 0064286310139  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Feline Greenies Smartbites Healthy Indoor Natural Cat Treats Chicken Flavor'
+             source 'Feline Greenies Smartbites Healthy Indoor Natural Cat Treats Chicken Flavor'  same
+    prices   export {'regular_price': '3.79'}  source price text '$3.79$3.79'  regular_price shown
+    per unit export '$1.80/oz'  source '$1.80/oz'  same
+    also     weight '2.1 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/feline-greenies-smartbites-healthy-indoor-natural-cat-treats-chicken-flavor/0064286310139
+=== 0064286310140  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022?page=3  observed 2026-11-17T03:03:19.697651Z  sha256 aaebe9e238a25fbf6d1d913ff86486902e8ce8823f2457e9204b4c8873f1793f
+    title    export 'Feline Greenies Smartbites Healthy Indoor Natural Cat Treats Tuna Flavor'
+             source 'Feline Greenies Smartbites Healthy Indoor Natural Cat Treats Tuna Flavor'  same
+    prices   export {'regular_price': '3.79'}  source price text '$3.79$3.79'  regular_price shown
+    per unit export '$1.80/oz'  source '$1.80/oz'  same
+    also     weight '2.1 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/feline-greenies-smartbites-healthy-indoor-natural-cat-treats-tuna-flavor/0064286310140
+=== 0064286311130
+    not in this export
+=== 0064286311139  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Feline Greenies Flavor Natural Dental Care Cat Treats Savory Salmon'
+             source 'Feline Greenies Flavor Natural Dental Care Cat Treats Savory Salmon'  same
+    prices   export {'regular_price': '3.79'}  source price text '$3.79$3.79'  regular_price shown
+    per unit export '$1.80/oz'  source '$1.80/oz'  same
+    also     weight '2.1 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/feline-greenies-flavor-natural-dental-care-cat-treats-savory-salmon/0064286311139
+=== 0064286311141  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Feline Greenies Dental Cat Treats Savory Salmon Flavor'
+             source 'Feline Greenies Dental Cat Treats Savory Salmon Flavor'  same
+    prices   export {'regular_price': '12.99'}  source price text '$12.99$12.99'  regular_price shown
+    per unit export '$1.33/oz'  source '$1.33/oz'  same
+    also     weight '9.75 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/feline-greenies-dental-cat-treats-savory-salmon-flavor/0064286311141
+=== 0064286314003
+    not in this export
+=== 0064286314005  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022?page=3  observed 2026-11-17T03:03:19.697651Z  sha256 aaebe9e238a25fbf6d1d913ff86486902e8ce8823f2457e9204b4c8873f1793f
+    title    export 'Greenies Feline Smart Purees Healthy Indoor Lickable Cat Treats With Chicken'
+             source 'Greenies Feline Smart Purees Healthy Indoor Lickable Cat Treats With Chicken'  same
+    prices   export {'regular_price': '3.75'}  source price text '$3.75$3.75'  regular_price shown
+    per unit export '$1.90/oz'  source '$1.90/oz'  same
+    also     weight '4 ct', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/greenies-feline-smart-purees-healthy-indoor-lickable-cat-treats-with-chicken/0064286314005
+=== 0084024315578
+    not in this export
+=== 0084024315579
+    not in this export
+=== 0085487100840
+    not in this export
+=== 0085727600792  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Inaba® Churu® Puree Cat Treat Tuna Recipe'
+             source 'Inaba® Churu® Puree Cat Treat Tuna Recipe'  same
+    prices   export {'regular_price': '2.99'}  source price text '$2.99$2.99'  regular_price shown
+    per unit export '$1.50/oz'  source '$1.50/oz'  same
+    also     weight '2 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/inaba-churu-puree-cat-treat-tuna-recipe/0085727600792
+=== 0085727600795  (fresh, read by this run, 01M7KQ5GZVF5VK1S9FGTG6YFC9)
+    page     https://www.marianos.com/pl/cat-treats/27022  observed 2026-11-17T03:02:35.601795Z  sha256 2595c4aafdd6681ae8219b650ee853767bff0a192467ab1058e92213d7b5bf69
+    title    export 'Inaba® Churu® Puree Cat Treat Chicken Recipe'
+             source 'Inaba® Churu® Puree Cat Treat Chicken Recipe'  same
+    prices   export {'regular_price': '2.99'}  source price text '$2.99$2.99'  regular_price shown
+    per unit export '$1.50/oz'  source '$1.50/oz'  same
+    also     weight '2 oz', category 'Pet Supplies' / 'Cat Treats', url https://www.marianos.com/p/inaba-churu-puree-cat-treat-chicken-recipe/0085727600795
+differences: 0
+strict: 32 same, 0 with a difference, 20 missing from the export, 0 without an excerpt, 0 documented exclusions
+strict: missing: 0002310011718 0002310011719 0002310011846 0002310014143 0002310014497 0002310014848 0002310015084 0003270012018 0003270012999 0005000016979 0005000045153 0005000045752 0005000050041 0005000057584 0005000096310 0064286311130 0064286314003 0084024315578 0084024315579 0085487100840
+strict: FAIL

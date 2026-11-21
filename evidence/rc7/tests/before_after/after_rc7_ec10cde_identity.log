@@ -1,0 +1,5 @@
+HEAD ec10cde09feedf5a5bab04169e6dbadb8592b5ce
+src tree at HEAD cbee0f2f6c4a0ef07d23f7662624bca164085739
+src changed from HEAD: 0 file(s)
+test files not in HEAD (copied from 8eec040):
+version version = "1.10.0rc7"

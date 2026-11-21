@@ -1,0 +1,889 @@
+From 8eec04033dba1a19d136c3095f0e64ce7e8c7d20 Mon Sep 17 00:00:00 2001
+From: Hamza <155834495+lonadonia@users.noreply.github.com>
+Date: Sat, 21 Nov 2026 20:16:09 +0000
+Subject: [PATCH 1/4] marianos-azure-headless 1.10.0rc7: tests only (a
+ listing's verdict from the products accounted for; the CSV contract)
+
+Darren's review of R7 (2026-11-20): the coverage file reported Dog Food 27017 and Cat Treats
+27022 DONE with no gap while 44 products of their counted pages had no record. These tests
+are committed before the fix and hold 1.10.0rc6's code with OR-21 to OR-24 (021b23f):
+
+- unit/test_route_audit_rc7.py: the audit of one listing and of a listing read through
+  subdivisions (Cat Food 234/234 control; Dog Food page 7 and Cat Treats page 2 short;
+  223 of 224; equal counts with a substituted UPC; overlapping subdivisions; an unbound
+  brand reading; a page not bound to the store; an empty listing with and without the
+  store's zero-result page; a repeated page; a changed total; carried, cross-listed,
+  excluded and sponsored products kept apart).
+- integration/test_route_audit_rc7.py: a counted product without a record (1 of 61, and a
+  whole page) is INCOMPLETE in the node coverage, the coverage files, G3 and the export, and
+  is never published, manually or automatically, the previous good dataset kept; the
+  publication reads the coverage again whatever the recorded checks say; one lane and two
+  lanes in either completion order keep the same UPC sets, memberships, hashes and export;
+  a two-lane worker killed mid-run leaves every counted page whole and resume completes it;
+  controls that pass before and after.
+- unit/test_contract_csv_rc7.py: validate-export --file reads products.csv.
+- c1_site.py: the kill helper passes the lane count.
+---
+ .../marianos-azure-headless/tests/c1_site.py  |   4 +-
+ .../tests/integration/test_route_audit_rc7.py | 504 ++++++++++++++++++
+ .../tests/unit/test_contract_csv_rc7.py       |  56 ++
+ .../tests/unit/test_route_audit_rc7.py        | 258 +++++++++
+ 4 files changed, 821 insertions(+), 1 deletion(-)
+ create mode 100644 headless/marianos-azure-headless/tests/integration/test_route_audit_rc7.py
+ create mode 100644 headless/marianos-azure-headless/tests/unit/test_contract_csv_rc7.py
+ create mode 100644 headless/marianos-azure-headless/tests/unit/test_route_audit_rc7.py
+
+diff --git a/headless/marianos-azure-headless/tests/c1_site.py b/headless/marianos-azure-headless/tests/c1_site.py
+index f6a3fec..0512bfd 100644
+--- a/headless/marianos-azure-headless/tests/c1_site.py
++++ b/headless/marianos-azure-headless/tests/c1_site.py
+@@ -466,7 +466,9 @@ def _killed(args: dict[str, Any]) -> None:
+ 
+     site.before_answer = before
+     pipe = pipe_of(env, settings)
+-    collector = collector_of(pipe, args["run"], site, clock, max_reasks=args.get("max_reasks", 2))
++    collector = collector_of(
++        pipe, args["run"], site, clock, max_reasks=args.get("max_reasks", 2), lanes=int(args.get("lanes", 1))
++    )
+     asyncio.run(pipe.execute(args["run"], "doomed-worker", resume=True, collector=collector))
+     os._exit(0)  # it was meant to die before this
+ 
+diff --git a/headless/marianos-azure-headless/tests/integration/test_route_audit_rc7.py b/headless/marianos-azure-headless/tests/integration/test_route_audit_rc7.py
+new file mode 100644
+index 0000000..47caf55
+--- /dev/null
++++ b/headless/marianos-azure-headless/tests/integration/test_route_audit_rc7.py
+@@ -0,0 +1,504 @@
++"""Release 1.10.0rc7: a listing is complete only when the products its counted pages list are accounted for.
++
++Darren's review of the full run R7 (2026-11-20): the coverage file reported Dog Food 27017 and Cat Treats
++27022 DONE with no gap while 44 products of their counted pages had no record (OR-24); G3 read the cursor's
++own count (0.893 and 0.615, both below the 0.90 threshold, so R7 was refused). A smaller loss passes every
++threshold: one product of 61 is a coverage of 0.984, above the warning (0.98), and 1.10.0rc6 validated and
++published such a run.
++
++SYNTHETIC pages (``tests/listing_site.py``, the C1 site at Vernon Hills, Pickup) behind a local mock
++transport: no request leaves the process. A lost record is injected (``record_step`` leaves out the named
++cards: a counted page whose products are not kept, the class of OR-24). The publication target is each
++test's own throwaway database and folder. With ``PUBLICATION_EVIDENCE_DIR`` set, each test writes what it
++observed there.
++
++Tests named ``test_rc7_...`` fail on 1.10.0rc6 (``review-1.10.0rc6-20261117``); ``test_control_...`` pass on
++both. ``test_lanes_...`` compares two lanes with one on identical pages: in R7's order (a named product's page
++answered after the other lane's listing) it fails on 1.10.0rc6 (OR-24), in the other order it passes on both.
++The file loads on 1.10.0rc6 (it reads the coverage through what rc6 already has)."""
++
++from __future__ import annotations
++
++import asyncio
++import hashlib
++import json
++import os
++import subprocess
++import sys
++from dataclasses import replace
++from datetime import timedelta
++from typing import Any
++
++import httpx
++import pytest
++from sqlalchemy import Engine, delete, select
++
++from marianos_headless import operations
++from marianos_headless.collection import live, reconciliation
++from marianos_headless.core.settings import PrivateLabelConfig, Settings
++from marianos_headless.db.models import (
++    Artifact,
++    ExportRow,
++    ListingPage,
++    MembershipRow,
++    NodeCoverage,
++    RecordRow,
++    Run,
++    ValidationFinding,
++)
++from marianos_headless.publishing.publish import PublicationRefused, latest_key, publish_run
++from tests import c1_site as c1
++from tests.c1_site import TARGET, C1Site, Clock
++from tests.integration import test_product_terms_collector as terms
++from tests.integration.test_publication_result import _complete_run, _context, _finish, env  # noqa: F401
++from tests.listing_site import products
++
++pytestmark = [pytest.mark.postgres]
++
++vh_env = terms.vh_env
++REASON = "synthetic test"
++
++
++# -- what the tests read -------------------------------------------------------------------------------------
++
++
++def incoherent_pages(s: Any, run_id: str) -> list[tuple[str, int, list[str]]]:
++    """An oracle of its own (not the collector's code): every completed page whose listed products are not
++    each kept by the run as a record placed under the page's listing."""
++    recs = set(s.scalars(select(RecordRow.upc).where(RecordRow.run_id == run_id)))
++    placed = {
++        (u, t)
++        for u, t in s.execute(
++            select(MembershipRow.upc, MembershipRow.taxonomy_id).where(
++                MembershipRow.run_id == run_id, MembershipRow.coupon_id.is_(None)
++            )
++        ).all()
++    }
++    out = []
++    for r in s.scalars(
++        select(ListingPage)
++        .where(ListingPage.run_id == run_id, ListingPage.state == "completed")
++        .order_by(ListingPage.taxonomy_id, ListingPage.requested_page)
++    ):
++        lost = [u for u in (r.identities or []) if u not in recs or (u, r.taxonomy_id) not in placed]
++        if lost:
++            out.append((r.taxonomy_id, r.requested_page, lost))
++    return out
++
++
++def published(e: dict[str, Any]) -> dict[str, Any] | None:
++    """The published dataset, byte for byte: the pointer, ``latest.json``, its manifest and products."""
++    from marianos_headless.db.models import PublicationPointer, Store
++
++    with e["factory"]() as s:
++        store = s.scalar(select(Store).where(Store.key == TARGET))
++        ptr = s.get(PublicationPointer, store.id) if store is not None else None
++        if ptr is None:
++            return None
++        state = {"publication_id": ptr.publication_id, "version": ptr.version}
++    latest = e["storage"].get_bytes(latest_key(TARGET))
++    body = json.loads(latest)
++    manifest = e["storage"].get_bytes(body["manifest_key"])
++    products_file = e["storage"].get_bytes(json.loads(manifest)["files"]["products.json"]["key"])
++    return {
++        **state,
++        "published_run": body["run_id"],
++        "latest_json_sha256": hashlib.sha256(latest).hexdigest(),
++        "manifest_sha256": hashlib.sha256(manifest).hexdigest(),
++        "products_sha256": hashlib.sha256(products_file).hexdigest(),
++    }
++
++
++def export_file(e: dict[str, Any], run_id: str, name: str) -> Any:
++    with e["factory"]() as s:
++        manifest = s.scalar(select(ExportRow).where(ExportRow.run_id == run_id, ExportRow.kind == "manifest"))
++        assert manifest is not None
++        art = s.get(Artifact, manifest.artifact_id)
++        assert art is not None
++        key = str(art.key)
++    files = json.loads(e["storage"].get_bytes(key))["files"]
++    return json.loads(e["storage"].get_bytes(files[name]["key"]))
++
++
++def evidence(name: str, data: dict[str, Any]) -> None:
++    out = os.environ.get("PUBLICATION_EVIDENCE_DIR")
++    if not out:
++        return
++    os.makedirs(out, exist_ok=True)
++    body = {"case": name, "evidence_type": c1.SYNTHETIC + "; the lost record is injected", **data}
++    with open(os.path.join(out, f"{name}.json"), "wb") as f:
++        f.write((json.dumps(body, indent=1, default=str, ensure_ascii=False) + "\n").encode("utf-8"))
++
++
++def drop_records(monkeypatch: pytest.MonkeyPatch, upcs: set[str]) -> None:
++    """The injected fault: the named cards of a page are never recorded while the page counts as read."""
++    original = live.LiveCollector.record_step
++
++    def record_step(self: Any, s: Any, node: Any, fetch: Any, view: Any, state: Any, step: int) -> Any:
++        kept = [c for c in view.cards if c.upc not in upcs]
++        return original(self, s, node, fetch, replace(view, cards=kept), state, step)
++
++    monkeypatch.setattr(live.LiveCollector, "record_step", record_step)
++
++
++def line(e: dict[str, Any], run_id: str, listing: str = "03001") -> dict[str, Any]:
++    with e["factory"]() as s:
++        report = reconciliation.reconciliation(s, run_id)
++    return next(x for x in report["listings"] if x["listing_id"] == listing)
++
++
++# -- a counted page with a product the run did not keep ------------------------------------------------------
++
++LOSSES = {
++    # 60 of 61: a coverage of 0.984, above both thresholds (1.10.0rc6 validated and published it)
++    "one_product_of_61": lambda ps: {ps[30].upc},
++    # page 2 whole (24 products, as Dog Food 27017 page 7 in R7): rc6 refused it (G3) and called it DONE
++    "page_2_whole": lambda ps: {p.upc for p in ps[24:48]},
++}
++
++
++@pytest.mark.parametrize("loss", sorted(LOSSES))
++def test_rc7_a_counted_product_without_a_record_is_incomplete_everywhere_and_never_published(
++    env: dict[str, Any],  # noqa: F811
++    settings: Settings,
++    monkeypatch: pytest.MonkeyPatch,
++    loss: str,
++) -> None:
++    ctx = _context(env)
++    first = _complete_run(env, settings)
++    assert _finish(env, ctx, first)["exit_code"] == 0
++    before = published(env)
++    assert before is not None and before["published_run"] == first
++    catalogue = products(61)
++    lost = LOSSES[loss](catalogue)
++    drop_records(monkeypatch, lost)
++    clock = Clock()
++    run_id, status = c1.run(env, settings, C1Site({"03001": catalogue}, clock), clock, max_reasks=None)
++    monkeypatch.undo()
++    whole = line(env, run_id)
++    with env["factory"]() as s:
++        cov = s.scalar(
++            select(NodeCoverage).where(NodeCoverage.run_id == run_id, NodeCoverage.taxonomy_id == "03001")
++        )
++        assert cov is not None
++        g3 = [
++            (f.severity, f.message)
++            for f in s.scalars(select(ValidationFinding).where(ValidationFinding.run_id == run_id))
++            if f.gate == "G3"
++        ]
++        holes = incoherent_pages(s, run_id)
++    out = _finish(env, ctx, run_id)
++    try:
++        operations.publish(ctx, run_id, REASON, "operator")
++        manual = "published"
++    except operations.CommandError as exc:
++        manual = f"refused (exit {int(exc.code)}): {exc}"
++    after = published(env)
++    exported = export_file(env, run_id, "coverage_reconciliation.json")
++    exported_line = next(x for x in exported["listings"] if x["listing_id"] == "03001")
++    evidence(
++        f"rc7_lost_record_{loss}",
++        {
++            "lost": sorted(lost),
++            "run_status": status,
++            "coverage_line": {k: whole.get(k) for k in ("status", "unique_identities", "unresolved_gap")}
++            | {k: whole.get(k) for k in ("accounted_identities", "missing_identities", "missing_by_page")},
++            "node_coverage": (cov.status, cov.organic_upcs, cov.total_count),
++            "g3": g3,
++            "incoherent_pages_oracle": holes,
++            "automatic": out,
++            "manual": manual,
++            "before": before,
++            "after": after,
++        },
++    )
++    assert holes == [("03001", 2, sorted(lost, key=[p.upc for p in catalogue].index))]  # the injected loss
++    # The coverage file, the node coverage, G3 and the export say the same.
++    assert (whole["status"], whole["unique_identities"], whole["unresolved_gap"]) == (
++        "INCOMPLETE",
++        61 - len(lost),
++        len(lost),
++    )
++    assert whole["missing_identities"] == len(lost) and set(whole["missing_by_page"]["2"]) == lost
++    assert (exported_line["status"], exported_line["missing_identities"]) == ("INCOMPLETE", len(lost))
++    assert (cov.status, cov.organic_upcs) == ("INCOMPLETE", 61 - len(lost))
++    assert ("FAIL", "status INCOMPLETE") in g3
++    assert status == "rejected"
++    # Neither publication path replaces the last good dataset, and both say so with a nonzero exit.
++    assert out["exit_code"] == 6 and out["run_status"] == "rejected"
++    assert manual.startswith("refused (exit 6)")
++    assert after == before
++
++
++def test_rc7_publication_reads_the_coverage_again_whatever_the_recorded_checks_say(
++    env: dict[str, Any],  # noqa: F811
++    settings: Settings,
++) -> None:
++    """A validated, complete run whose placement of one product under its listing is gone (removed in this
++    throwaway database after its checks): the recorded gates still pass, and neither the manual nor the
++    automatic publication replaces the last good dataset."""
++    ctx = _context(env)
++    first = _complete_run(env, settings)
++    assert _finish(env, ctx, first)["exit_code"] == 0
++    before = published(env)
++    second = _complete_run(env, settings, n=61)
++    gone = products(61)[30].upc
++    with env["factory"]() as s:
++        n = s.execute(
++            delete(MembershipRow).where(
++                MembershipRow.run_id == second,
++                MembershipRow.upc == gone,
++                MembershipRow.taxonomy_id == "03001",
++            )
++        ).rowcount
++        s.commit()
++        run = s.get(Run, second)
++        assert run is not None and run.status == "validated" and n == 1
++    with pytest.raises(PublicationRefused) as refused:
++        publish_run(env["factory"], env["storage"], second, "operator", warn_override_reason=REASON)
++    with pytest.raises(operations.CommandError) as cli:
++        operations.publish(ctx, second, REASON, "operator")
++    out = _finish(env, ctx, second)
++    after = published(env)
++    evidence(
++        "rc7_publication_rereads_coverage",
++        {"removed_placement": gone, "refusal": str(refused.value), "cli": str(cli.value), "automatic": out},
++    )
++    assert "coverage reconciliation failed" in str(refused.value) and gone in str(refused.value)
++    assert int(cli.value.code) == 6
++    assert out["exit_code"] == 6 and out["run_finished"]["publication"]["published"] is False
++    assert after == before
++
++
++def test_control_a_complete_run_reconciles_and_is_published(
++    env: dict[str, Any],  # noqa: F811
++    settings: Settings,
++) -> None:
++    ctx = _context(env)
++    run_id = _complete_run(env, settings, n=61)
++    whole = line(env, run_id)
++    assert (whole["status"], whole["unique_identities"], whole["unresolved_gap"]) == ("DONE", 61, 0)
++    with env["factory"]() as s:
++        assert incoherent_pages(s, run_id) == []
++    out = _finish(env, ctx, run_id)
++    assert out["exit_code"] == 0 and out["run_status"] == "published"
++
++
++# -- two lanes, both completion orders, against one lane -----------------------------------------------------
++
++
++class Gate:
++    """A fake Web API ``site`` holding one kind of request until another has been answered (or 10 s passed).
++
++    ``product_after_other``: a named product's own page waits for the other lane's listing (R7's order);
++    ``other_after_product``: the other lane's listing waits for the named product's page."""
++
++    def __init__(self, site: Any, other: str, order: str) -> None:
++        self.site, self.other, self.order = site, other, order
++        self.answered = {"product": asyncio.Event(), "other": asyncio.Event()}
++        self.waited: list[bool] = []
++
++    @property
++    def requests(self) -> list[dict[str, Any]]:
++        return list(self.site.requests)
++
++    def _is_other(self, body: dict[str, Any]) -> bool:
++        return self.other in body.get("url", "") or self.other == body.get("query")
++
++    async def __call__(self, request: httpx.Request) -> httpx.Response:
++        body = json.loads(request.content)
++        product = "/p/" in body.get("url", "")
++        wait_for = (
++            "other"
++            if product and self.order == "product_after_other"
++            else "product"
++            if self._is_other(body) and self.order == "other_after_product"
++            else None
++        )
++        if wait_for is not None:
++            try:
++                await asyncio.wait_for(self.answered[wait_for].wait(), 10)
++                self.waited.append(True)
++            except TimeoutError:
++                self.waited.append(False)
++        response = self.site(request)
++        if product:
++            self.answered["product"].set()
++        if self._is_other(body):
++            self.answered["other"].set()
++        return response
++
++
++class ProductPagesFail:
++    """``site``, with every product page answered as a provider failure (as ``test_lanes_or24``): the named
++    product's page is asked for once and its terms stay unread, for one lane and two alike."""
++
++    def __init__(self, site: Any) -> None:
++        self.site = site
++
++    @property
++    def requests(self) -> list[dict[str, Any]]:
++        return list(self.site.requests)
++
++    def __call__(self, request: httpx.Request) -> httpx.Response:
++        if "/p/" in json.loads(request.content).get("url", ""):
++            return httpx.Response(500, json={"detail": "REQUEST_FAILED_AFTER_TOO_MANY_RETRIES"})
++        return self.site(request)
++
++
++def fingerprint(e: dict[str, Any], run_id: str) -> dict[str, Any]:
++    """What a run kept, without its own identifiers: products, placements, page hashes, exclusions, export."""
++    with e["factory"]() as s:
++        recs = {
++            r.upc: (r.status, sorted(r.reasons or []), json.dumps(r.record, sort_keys=True, default=str))
++            for r in s.scalars(select(RecordRow).where(RecordRow.run_id == run_id))
++        }
++        members = sorted(
++            (m.upc, m.taxonomy_id, m.page_offset, m.position, m.via, m.placement)
++            for m in s.scalars(select(MembershipRow).where(MembershipRow.run_id == run_id))
++        )
++        pages = sorted(
++            (r.taxonomy_id, r.requested_page, r.state, r.response_sha256, tuple(r.identities or []))
++            for r in s.scalars(select(ListingPage).where(ListingPage.run_id == run_id))
++            if r.state == "completed"
++        )
++        holes = incoherent_pages(s, run_id)
++        report = reconciliation.reconciliation(s, run_id)
++    lines = {
++        x["listing_id"]: (x["status"], x["unique_identities"], x["unresolved_gap"])
++        for x in report["listings"]
++    }
++    exported = sorted(json.dumps(x, sort_keys=True) for x in export_file(e, run_id, "products.json"))
++    return {
++        "upcs": sorted(recs),
++        "records": recs,
++        "memberships": members,
++        "pages": pages,
++        "exclusions": {u: v[:2] for u, v in recs.items() if v[0] != "valid"},
++        "coverage": lines,
++        "export_sha256": hashlib.sha256("\n".join(exported).encode()).hexdigest(),
++        "incoherent_pages": holes,
++    }
++
++
++@pytest.mark.parametrize("order", ["product_after_other", "other_after_product"])
++def test_lanes_two_lanes_in_either_order_keep_what_one_lane_keeps(
++    migrated_engine: Engine, tmp_path: Any, private_label: PrivateLabelConfig, settings: Settings, order: str
++) -> None:
++    first, other = products(30, "0003800"), products(10, "0004400")
++    named = first[26].upc  # on the first listing's page 2: its own page is asked before the page's records
++    runs: dict[str, dict[str, Any]] = {}
++    e = c1.make_env(migrated_engine, tmp_path, private_label)
++    for lanes in (1, 2):  # the same store, one run after the other, on identical pages and clocks
++        clock = Clock()
++        site = ProductPagesFail(C1Site({"03001": first, "03002": other}, clock))
++        api: Any = Gate(site, "/03002", order) if lanes == 2 else site
++        run_id, status = c1.run(
++            e, settings, api, clock, listings=("03001", "03002"), lanes=lanes, product_term_upcs=[named]
++        )
++        runs[f"lanes_{lanes}"] = {
++            "run": run_id,
++            "status": status,
++            "waited": getattr(api, "waited", None),
++            **fingerprint(e, run_id),
++        }
++    one, two = runs["lanes_1"], runs["lanes_2"]
++    shown = ("status", "waited", "coverage", "export_sha256", "incoherent_pages", "upcs")
++    evidence(f"rc7_lanes_{order}", {k: {x: v[x] for x in shown} for k, v in runs.items()})
++    assert two["waited"] == [True]  # the lanes interleaved in the order named
++    assert one["incoherent_pages"] == two["incoherent_pages"] == []
++    for key in ("upcs", "records", "memberships", "pages", "exclusions", "coverage", "export_sha256"):
++        assert one[key] == two[key], key
++    assert one["coverage"]["03001"] == ("DONE", 30, 0) and one["coverage"]["03002"] == ("DONE", 10, 0)
++
++
++def test_control_on_the_search_route_the_other_lane_waiting_for_the_product_page_loses_nothing(
++    vh_env: dict[str, Any], settings: Settings
++) -> None:
++    """The order R7 did not see (the other lane's search waits for the named product's page); the order R7 saw
++    is ``test_lanes_or24``."""
++    from marianos_headless.collection.config import Limits
++
++    terms._ceiling(vh_env["factory"], 20)
++    api = Gate(terms.FakeTermsApi(), "Bars & Toaster Pastries", "other_after_product")
++    run_id = terms._run(
++        vh_env,
++        settings,
++        api,  # type: ignore[arg-type]
++        read=False,
++        limits=Limits(max_concurrent_listings=2, product_term_upcs=[terms.PURINA.upc]),
++    )
++    assert api.waited == [True]
++    with vh_env["factory"]() as s:
++        recorded = {r.upc for r in s.scalars(select(RecordRow).where(RecordRow.run_id == run_id))}
++        cereal = {terms.PURINA.upc, terms.LAMB.upc, terms.ENERGIZER.upc, terms.TEMPTATIONS.upc}
++        assert cereal | {terms.PLAIN.upc} <= recorded, sorted(cereal - recorded)
++        pages = sorted(
++            (r.taxonomy_id, r.state, r.new_count)
++            for r in s.scalars(select(ListingPage).where(ListingPage.run_id == run_id))
++        )
++        assert pages == [("03001", "completed", 4), ("03002", "completed", 1)]
++        assert incoherent_pages(s, run_id) == []
++
++
++# -- a worker killed between two lanes' pages, then resumed --------------------------------------------------
++
++
++def test_control_a_two_lane_worker_killed_mid_run_leaves_every_counted_page_whole_and_resume_completes_it(
++    migrated_engine: Engine, tmp_path: Any, private_label: PrivateLabelConfig, settings: Settings
++) -> None:
++    listings = {"03001": [60], "03002": [30, "0003805"]}
++    e = c1.make_env(migrated_engine, tmp_path, private_label)
++    clock = Clock()
++    pipe = c1.pipe_of(e, settings)
++    run_id = c1.plan(e, pipe, c1.nodes_of(e, tuple(listings)))
++    args = {
++        "db": migrated_engine.url.render_as_string(hide_password=False),
++        "data": str(tmp_path / "data"),
++        "run": run_id,
++        "now": clock.now().isoformat(),
++        "listings": listings,
++        "listing": "03002",
++        "page": 2,
++        "nth": 1,
++        "lanes": 2,
++        "max_reasks": None,
++    }
++    p = subprocess.run(
++        [sys.executable, "-m", "tests.c1_site", json.dumps(args)],
++        cwd=c1.ROOT,
++        env=dict(os.environ),
++        capture_output=True,
++        encoding="utf-8",
++        errors="replace",
++        timeout=300,
++        check=False,
++    )
++    assert p.returncode == 137, (p.returncode, p.stdout[-1500:], p.stderr[-1500:])
++    with e["factory"]() as s:
++        killed = incoherent_pages(s, run_id)
++        counted = sorted(
++            (r.taxonomy_id, r.requested_page)
++            for r in s.scalars(
++                select(ListingPage).where(ListingPage.run_id == run_id, ListingPage.state == "completed")
++            )
++        )
++    clock.t += timedelta(seconds=1)
++    site = C1Site({k: products(*v) for k, v in listings.items()}, clock)
++    _, status = c1.run(e, settings, site, clock, run_id=run_id, lanes=2, max_reasks=None)
++    resumed = fingerprint(e, run_id)
++    evidence(
++        "rc7_two_lane_kill_then_resume",
++        {
++            "counted_at_kill": counted,
++            "incoherent_at_kill": killed,
++            "status": status,
++            "coverage": resumed["coverage"],
++        },
++    )
++    assert killed == []  # every page counted when the worker died has its products, all of them
++    assert ("03002", 2) not in counted and ("03001", 1) in counted
++    assert all(site.times(k, n) == 0 for k, n in counted)  # a counted page is never asked for again
++    assert resumed["incoherent_pages"] == []
++    assert resumed["coverage"]["03001"] == ("DONE", 60, 0) and resumed["coverage"]["03002"] == ("DONE", 30, 0)
++    assert len(resumed["upcs"]) == 90
+diff --git a/headless/marianos-azure-headless/tests/unit/test_contract_csv_rc7.py b/headless/marianos-azure-headless/tests/unit/test_contract_csv_rc7.py
+new file mode 100644
+index 0000000..b6ae715
+--- /dev/null
++++ b/headless/marianos-azure-headless/tests/unit/test_contract_csv_rc7.py
+@@ -0,0 +1,56 @@
++"""Release 1.10.0rc7: ``validate-export --file`` reads the client's ``products.csv`` as well as
++``products.json``.
++
++Until 1.10.0rc6 a CSV was read as JSON and refused with a decoding error (exit 2), so the file the client
++receives could not be checked offline by itself. The CSV here is written by the export's own writer
++(``products_csv_bytes``: UTF-8 with a byte order mark, CRLF) from REAL records of a stored run."""
++
++from __future__ import annotations
++
++import json
++from pathlib import Path
++
++from marianos_headless.checks import contract
++from marianos_headless.core.schema import OUTPUT_FIELDS
++from marianos_headless.publishing.exports import products_csv_bytes
++from tests.conftest import CAPTURES
++
++RUN = CAPTURES / "run_01M5CSS9_20261020"
++
++
++def _write(tmp: Path, data: bytes, name: str = "products.csv") -> Path:
++    p = tmp / name
++    p.write_bytes(data)
++    return p
++
++
++def test_the_csv_and_the_json_of_one_export_pass_the_same_contract(tmp_path: Path) -> None:
++    records = json.loads((RUN / "products.json").read_text("utf-8"))
++    as_csv = contract.check(_write(tmp_path, products_csv_bytes(records)))
++    as_json = contract.check(RUN / "products.json")
++    assert as_csv["passed"] and as_json["passed"]
++    for k in ("rows", "problems", "duplicate_upc", "duplicate_url", "leading_zero_upcs", "populated"):
++        assert as_csv[k] == as_json[k], k
++
++
++def test_a_csv_whose_leading_zeros_were_lost_fails(tmp_path: Path) -> None:
++    records = json.loads((RUN / "products.json").read_text("utf-8"))
++    zeros = [r for r in records if r["upc"].startswith("0")]
++    assert zeros
++    damaged = [dict(r, upc=r["upc"].lstrip("0")) if r is zeros[0] else r for r in records]
++    report = contract.check(_write(tmp_path, products_csv_bytes(damaged)))
++    assert not report["passed"] and report["problems"]["upc not 13 digits"] == 1
++
++
++def test_a_csv_with_another_header_or_a_short_row_fails(tmp_path: Path) -> None:
++    records = json.loads((RUN / "products.json").read_text("utf-8"))
++    body = products_csv_bytes(records).decode("utf-8-sig").split("\r\n")
++    head = body[0].split(",")
++    head[0], head[1] = head[1], head[0]
++    swapped = "\r\n".join([",".join(head), *body[1:]]).encode("utf-8")
++    report = contract.check(_write(tmp_path, swapped, "swapped.csv"))
++    assert not report["passed"] and report["problems"]["csv header"] == 1
++    short = "\r\n".join([body[0], body[1].rsplit(",", 1)[0], *body[2:]]).encode("utf-8")
++    report = contract.check(_write(tmp_path, short, "short.csv"))
++    assert not report["passed"] and report["problems"]["row width"] == 1
++    assert next(iter(OUTPUT_FIELDS)) == "zipcode"
+diff --git a/headless/marianos-azure-headless/tests/unit/test_route_audit_rc7.py b/headless/marianos-azure-headless/tests/unit/test_route_audit_rc7.py
+new file mode 100644
+index 0000000..298fb23
+--- /dev/null
++++ b/headless/marianos-azure-headless/tests/unit/test_route_audit_rc7.py
+@@ -0,0 +1,258 @@
++"""Release 1.10.0rc7: a listing's verdict from the products actually accounted for (``route_audit``).
++
++SYNTHETIC evidence shaped like the full run R7 (2026-11-17): Cat Food 27021 (234 of 234, the positive
++control), Dog Food 27017 (224 reported, page 7's 24 products without a record) and Cat Treats 27022 (52
++reported, page 2's 20 products without a record). Until 1.10.0rc6 the coverage file reported both short
++listings DONE with no gap (the larger of the pages' identities and the cursor's count); here they are
++INCOMPLETE with the products named.
++"""
++
++from __future__ import annotations
++
++from collections.abc import Iterable, Sequence
++
++from marianos_headless.collection import route_audit as ra
++from marianos_headless.collection.route_audit import PageEvidence, RecordFact, RouteEvidence
++
++
++def upcs(prefix: str, n: int) -> list[str]:
++    # 13 digits with leading zeros, as the source writes them (never cast to a number).
++    return [f"00{prefix[:5]}{i:06d}" for i in range(n)]
++
++
++def pages_of(ids: Sequence[str], size: int = 24, prefix: str = "f") -> tuple[PageEvidence, ...]:
++    out = []
++    for k in range(0, len(ids), size):
++        n = k // size + 1
++        out.append(
++            PageEvidence(
++                page=n, identities=tuple(ids[k : k + size]), fetch_id=f"{prefix}{n}", store_bound=True
++            )
++        )
++    return tuple(out)
++
++
++def placed(ids: Iterable[str], fetch: str | None = None) -> frozenset[tuple[str, str | None]]:
++    return frozenset((u, fetch) for u in ids)
++
++
++def route(
++    key: str,
++    ids: Sequence[str],
++    *,
++    total: int | None,
++    status: str = "DONE",
++    recorded: Iterable[str] | None = None,
++    **kw: object,
++) -> RouteEvidence:
++    pages = pages_of(ids, prefix=key + "-")
++    rec = list(ids if recorded is None else recorded)
++    by_upc = {u: p.fetch_id for p in pages for u in p.identities}
++    placements = frozenset((u, by_upc.get(u)) for u in rec)
++    args: dict[str, object] = {"pages": pages, "placements": placements, "total": total}
++    args.update(kw)
++    return RouteEvidence(key=key, cursor_status=status, **args)  # type: ignore[arg-type]
++
++
++def valid(ids: Iterable[str], node: str = "") -> dict[str, RecordFact]:
++    return {u: RecordFact("valid", (), node) for u in ids}
++
++
++def test_the_positive_control_cat_food_reconciles() -> None:
++    ids = upcs("27021", 234)
++    v = ra.audit([route("27021", ids, total=234)], valid(ids, "27021"))["27021"]
++    assert (v.status, len(v.accounted), v.missing, v.unexpected, v.pages_counted) == ("DONE", 234, {}, (), 10)
++    assert v.fresh_valid == 234 and v.cross_listed == 0
++    assert all(u.startswith("00") and len(u) == 13 for u in v.accounted)
++
++
++def test_dog_food_page_7_without_records_is_incomplete_with_its_products_named() -> None:
++    ids = upcs("27017", 224)
++    lost = ids[6 * 24 : 7 * 24]
++    kept = [u for u in ids if u not in lost]
++    v = ra.audit([route("27017", ids, total=224, recorded=kept)], valid(kept))["27017"]
++    assert v.status == "INCOMPLETE" and v.cursor_status == "DONE"
++    assert (len(v.accounted), len(v.missing), list(v.missing_by_page)) == (200, 24, [7])
++    assert set(v.missing_by_page[7]) == set(lost) and set(v.missing.values()) == {ra.MISSING_NO_RECORD}
++    assert "24 of the 224 products" in v.reason and "page 7: 24" in v.reason
++
++
++def test_cat_treats_page_2_short_by_20_is_incomplete() -> None:
++    ids = upcs("27022", 52)
++    lost = ids[24 + 4 : 48]  # 20 of page 2's 24 (4 recorded: placed under the listing from that page)
++    kept = [u for u in ids if u not in lost]
++    v = ra.audit([route("27022", ids, total=52, recorded=kept)], valid(kept))["27022"]
++    assert (v.status, len(v.accounted), len(v.missing), list(v.missing_by_page)) == (
++        "INCOMPLETE",
++        32,
++        20,
++        [2],
++    )
++
++
++def test_one_product_short_223_of_224_is_never_done() -> None:
++    # rc6: a ratio of 0.9955 is above both thresholds (0.98 warn, 0.90 fail): G3 passed and the run published.
++    ids = upcs("27017", 224)
++    kept = ids[:-1]
++    v = ra.audit([route("27017", ids, total=224, recorded=kept)], valid(kept))["27017"]
++    assert (v.status, len(v.accounted), list(v.missing)) == ("INCOMPLETE", 223, [ids[-1]])
++
++
++def test_equal_counts_with_a_substituted_upc_are_not_a_match() -> None:
++    ids = upcs("27017", 224)
++    other = "0099999999999"
++    kept = [*ids[:-1], other]  # 224 records placed under the listing, one of them a product no page lists
++    r = route("27017", ids, total=224, recorded=ids[:-1])
++    r = RouteEvidence(**{**r.__dict__, "placements": r.placements | {(other, "27017-10")}})
++    v = ra.audit([r], valid(kept))["27017"]
++    assert v.status == "INCOMPLETE"
++    assert (list(v.missing), v.unexpected) == ([ids[-1]], (other,))
++    assert "placement(s) under the listing for products none of its counted pages lists" in v.reason
++
++
++def test_overlapping_subdivisions_complete_only_by_their_union() -> None:
++    a, b = upcs("10001", 200), upcs("10002", 150)
++    shared = a[:50]
++    b = [*shared, *b[50:]]  # 50 products in both subdivisions
++    parent_total = 300
++    records = valid({*a, *b})
++    kids = [
++        route("1000101", a, total=200, parent="10001"),
++        route("1000102", b, total=150, parent="10001"),
++    ]
++    parent = RouteEvidence(key="10001", cursor_status="PARTITIONED", total=parent_total)
++    v = ra.audit([parent, *kids], records)["10001"]
++    assert (v.status, len(v.union_accounted)) == ("DONE", 300)
++    # The same subdivisions sum to 350 >= 310, but their union is 300: never complete by a sum.
++    parent = RouteEvidence(key="10001", cursor_status="PARTITIONED", total=310)
++    v = ra.audit([parent, *kids], records)["10001"]
++    assert v.status == "INCOMPLETE" and "300 distinct products (their union) of the 310" in v.reason
++
++
++def test_a_subdivision_short_of_its_products_keeps_the_parent_incomplete() -> None:
++    a, b = upcs("10001", 200), upcs("10002", 100)
++    kept_b = b[:-1]
++    kids = [
++        route("1000101", a, total=200, parent="10001"),
++        route("1000102", b, total=100, parent="10001", recorded=kept_b),
++    ]
++    out = ra.audit(
++        [RouteEvidence(key="10001", cursor_status="PARTITIONED", total=300), *kids], valid([*a, *kept_b])
++    )
++    assert out["1000102"].status == "INCOMPLETE"
++    assert out["10001"].status == "INCOMPLETE" and "1000102 INCOMPLETE" in out["10001"].reason
++
++
++def test_a_brand_reading_whose_filter_the_page_did_not_bind_counts_nothing() -> None:
++    # Its pages were refused (verdict unbound, never counted): the reading has no counted page.
++    brand = RouteEvidence(
++        key="08120~0123456789abcdef01234567", cursor_status="DONE", parent="08120", total=40
++    )
++    whole = upcs("08120", 260)
++    parent = route("08120", whole[:250], total=260, status="PARTITIONED")
++    out = ra.audit([parent, brand], valid(whole[:250]))
++    assert out[brand.key].status == "INCOMPLETE" and "0 distinct products are accounted for of the 40" in (
++        out[brand.key].reason
++    )
++    assert out["08120"].status == "INCOMPLETE"
++
++
++def test_a_page_not_shown_for_the_store_is_not_counted_evidence() -> None:
++    ids = upcs("27017", 48)
++    r = route("27017", ids, total=48)
++    wrong = (r.pages[0], PageEvidence(**{**r.pages[1].__dict__, "store_bound": False}))
++    v = ra.audit([RouteEvidence(**{**r.__dict__, "pages": wrong})], valid(ids))["27017"]
++    assert v.status == "INCOMPLETE" and "page(s) 2 were not shown for the run's store" in v.reason
++
++
++def test_an_empty_listing_needs_a_page_of_the_store_stating_zero() -> None:
++    without = RouteEvidence(key="27029", cursor_status="EMPTY", total=0)
++    with_page = RouteEvidence(key="27027", cursor_status="EMPTY", total=0, zero_result=True)
++    out = ra.audit([without, with_page], {})
++    assert (
++        out["27029"].status == "INCOMPLETE" and "without a page of the store stating 0" in out["27029"].reason
++    )
++    assert out["27027"].status == "EMPTY"
++
++
++def test_a_repeated_page_counted_twice_does_not_make_up_the_total() -> None:
++    ids = upcs("27017", 48)
++    first = PageEvidence(page=1, identities=tuple(ids[:24]), fetch_id="a", store_bound=True)
++    again = PageEvidence(page=2, identities=tuple(ids[:24]), fetch_id="b", store_bound=True)
++    r = RouteEvidence(
++        key="27017", cursor_status="DONE", total=48, pages=(first, again), placements=placed(ids[:24], "a")
++    )
++    v = ra.audit([r], valid(ids[:24]))["27017"]
++    assert (v.status, v.duplicates, len(v.accounted)) == ("INCOMPLETE", 24, 24)
++    assert "24 distinct products are accounted for of the 48" in v.reason
++
++
++def test_a_total_that_changed_while_reading_is_named() -> None:
++    ids = upcs("27017", 224)
++    r = route("27017", ids, total=226, totals_seen=(224, 226))
++    v = ra.audit([r], valid(ids))["27017"]
++    assert v.status == "INCOMPLETE" and "the source's total changed while reading: 224, 226" in v.reason
++
++
++def test_carried_cross_listed_excluded_and_sponsored_stay_distinct() -> None:
++    ids = upcs("27017", 24)
++    sponsored = ("0001111111111",)
++    pages = (
++        PageEvidence(page=1, identities=tuple(ids), sponsored=sponsored, fetch_id="p1", store_bound=True),
++    )
++    records: dict[str, RecordFact] = {
++        **valid(ids[:20], "27017"),
++        ids[20]: RecordFact("valid", (), "27018"),  # recorded under another listing, placed here too
++        ids[21]: RecordFact("excluded", ("APPROXIMATE_WEIGHT",), "27017"),
++        ids[22]: RecordFact("historical", ("CARRIED_FORWARD",), "27017"),  # carried: not this run's
++        ids[23]: RecordFact("excluded", (), "27017"),  # excluded with no reason: never an exclusion
++    }
++    r = RouteEvidence(key="27017", cursor_status="DONE", total=24, pages=pages, placements=placed(ids, "p1"))
++    v = ra.audit([r], records)["27017"]
++    assert v.status == "INCOMPLETE"
++    assert (v.fresh_valid, v.cross_listed, list(v.excluded), v.sponsored) == (21, 1, [ids[21]], sponsored)
++    assert v.missing == {ids[22]: ra.MISSING_CARRIED, ids[23]: ra.MISSING_UNEXPLAINED}
++
++
++def test_a_record_with_no_placement_under_the_listing_does_not_count_here() -> None:
++    # Seen elsewhere in the run: counts here only with this run's placement under this listing.
++    ids = upcs("27017", 24)
++    r = RouteEvidence(
++        key="27017",
++        cursor_status="DONE",
++        total=24,
++        pages=pages_of(ids, prefix="p"),
++        placements=placed(ids[:23], "p1"),
++    )
++    v = ra.audit([r], valid(ids, "27018"))["27017"]
++    assert v.status == "INCOMPLETE" and v.missing == {ids[23]: ra.MISSING_NO_PLACEMENT}
++
++
++def test_a_placement_made_from_another_listings_page_is_not_unexpected() -> None:
++    ids = upcs("27017", 24)
++    foreign = "0005555555555"
++    r = RouteEvidence(
++        key="27017",
++        cursor_status="DONE",
++        total=24,
++        pages=pages_of(ids, prefix="p"),
++        placements=placed(ids, "p1") | {(foreign, "other-listing-fetch")},
++        fetches=frozenset({"p1"}),
++    )
++    v = ra.audit([r], valid([*ids, foreign]))["27017"]
++    assert (v.status, v.unexpected, v.from_other_listings) == ("DONE", (), 1)
++
++
++def test_an_incomplete_listing_stays_incomplete_and_the_summary_names_the_downgrades() -> None:
++    ids = upcs("27017", 224)
++    kept = ids[:200]
++    out = ra.audit(
++        [
++            route("27017", ids, total=224, recorded=kept),
++            route("27021", upcs("27021", 24), total=234, status="INCOMPLETE", reason="search route"),
++        ],
++        valid([*kept, *upcs("27021", 24)]),
++    )
++    assert out["27021"].status == "INCOMPLETE" and out["27021"].reason == "search route"
++    s = ra.summary(out)
++    assert s["read_to_end_but_not_accounted"] == ["27017"] and s["missing_identities"] == 24
+-- 
+2.55.0.windows.5
+

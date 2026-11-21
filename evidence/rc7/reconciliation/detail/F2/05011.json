@@ -1,0 +1,88 @@
+{
+ "audit": {
+  "accounted_identities": 7,
+  "children": [],
+  "cross_listed": 3,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 7,
+  "fresh_records": 7,
+  "fresh_valid": 6,
+  "listing_id": "05011",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "7 distinct products of 7 reported, on 1 page(s), each accounted for",
+  "reported_total": 7,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0029977650000",
+  "0061458362408",
+  "0061458362441",
+  "0065525431045",
+  "0082969600053",
+  "0082969600054",
+  "0082969600070"
+ ],
+ "fresh_linked": [
+  "0029977650000",
+  "0061458362408",
+  "0061458362441",
+  "0065525431045",
+  "0082969600053",
+  "0082969600054",
+  "0082969600070"
+ ],
+ "listing": "05011",
+ "pages": [
+  {
+   "attempt": 2,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 7,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNMJKV6ET58YAHAD84G795",
+   "identities": [
+    "0082969600053",
+    "0082969600054",
+    "0082969600070",
+    "0029977650000",
+    "0065525431045",
+    "0061458362441",
+    "0061458362408"
+   ],
+   "listing": "05011",
+   "observed_at": "2026-11-16 17:14:22.203326+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "05011",
+   "sha256": "6b096d83100da34df0418457de52930e5b0a570d0d18bd1810dc9c37dfcc1cbb",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 7,
+   "url": "https://www.marianos.com/pl/specialty-meat/05011"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

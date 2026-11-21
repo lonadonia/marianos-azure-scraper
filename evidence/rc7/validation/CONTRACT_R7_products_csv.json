@@ -1,0 +1,83 @@
+{
+ "command": "marianos-collector validate-export --file products.csv",
+ "collector": "1.10.0rc7 (ec10cde, clean worktree)",
+ "run": "R7",
+ "file": "evidence/runs/R7fin_copy/export/products.csv",
+ "file_sha256": "8f0bf0a364746aa506d190442ada2bfe6a84d1d3971b7cbcefa2a87e446bcb2b",
+ "made_at": "2026-11-21T22:22:40Z",
+ "evidence_type": "offline check of a published export file (no request made)",
+ "exit_code": 0,
+ "report": {
+  "ts": "2026-11-21T22:22:43.255Z",
+  "level": "INFO",
+  "event": "RESULT",
+  "collector": "marianos-azure-headless",
+  "command": "validate-export",
+  "exit_code": 0,
+  "result": {
+   "contract": {
+    "file": "products.csv",
+    "rows": 10536,
+    "problems": {},
+    "duplicate_upc": 0,
+    "duplicate_url": 0,
+    "leading_zero_upcs": 10536,
+    "populated": {
+     "zipcode": 10536,
+     "store_name": 10536,
+     "store_location": 10536,
+     "store_logo": 10536,
+     "store_brand": 10536,
+     "category": 10536,
+     "sub_category": 10163,
+     "product_title": 10536,
+     "weight": 10154,
+     "regular_price": 10244,
+     "sale_price": 3141,
+     "volume_deals_description": 2165,
+     "volume_deals_price": 535,
+     "digital_deals_description": 0,
+     "digital_deals_price": 0,
+     "image_url": 10536,
+     "url": 10536,
+     "upc": 10536,
+     "gupc": 0,
+     "ppm": 9524,
+     "unit_price": 0,
+     "crawl_date": 10536
+    },
+    "categories": {
+     "Produce": 709,
+     "Meat": 983,
+     "Seafood": 406,
+     "Deli": 419,
+     "Bakery": 304,
+     "Floral": 47,
+     "Grocery": 608,
+     "Dairy": 790,
+     "Frozen": 1410,
+     "Natural Organic": 606,
+     "Beverages": 798,
+     "Breakfast": 305,
+     "Coffee": 337,
+     "Candy": 262,
+     "Beer Wine Liquor": 1561,
+     "Pet Supplies": 618,
+     "Candles Home Fragrances": 55,
+     "Batteries": 80,
+     "Light Bulbs": 72,
+     "School Office": 102,
+     "Hardware Home Improvement": 64
+    },
+    "ppm_units": {
+     "fl oz": 2975,
+     "oz": 5362,
+     "lb": 395,
+     "each": 780,
+     "use": 12
+    },
+    "passed": true
+   }
+  }
+ }
+}

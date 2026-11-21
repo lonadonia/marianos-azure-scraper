@@ -1,0 +1,103 @@
+{
+ "audit": {
+  "accounted_identities": 12,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 12,
+  "fresh_records": 12,
+  "fresh_valid": 10,
+  "listing_id": "05014",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "12 distinct products of 12 reported, on 1 page(s), each accounted for",
+  "reported_total": 12,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111060427",
+  "0001111060429",
+  "0001111060430",
+  "0001111060587",
+  "0001111069040",
+  "0021295540000",
+  "0029502750000",
+  "0029503750000",
+  "0070015901952",
+  "0070015909698",
+  "0070015909725",
+  "0070015909957"
+ ],
+ "fresh_linked": [
+  "0001111060427",
+  "0001111060429",
+  "0001111060430",
+  "0001111060587",
+  "0001111069040",
+  "0021295540000",
+  "0029502750000",
+  "0029503750000",
+  "0070015901952",
+  "0070015909698",
+  "0070015909725",
+  "0070015909957"
+ ],
+ "listing": "05014",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 12,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNHP3KAZNKX3P4FG17YR52",
+   "identities": [
+    "0001111060587",
+    "0001111069040",
+    "0001111060429",
+    "0001111060430",
+    "0001111060427",
+    "0021295540000",
+    "0070015909698",
+    "0070015909957",
+    "0070015901952",
+    "0070015909725",
+    "0029503750000",
+    "0029502750000"
+   ],
+   "listing": "05014",
+   "observed_at": "2026-11-16 17:12:47.475838+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "05014",
+   "sha256": "d1c27e2786e3e7769d6072cd575ea15a42d02f56867c3daf4577c7ba9b66c8a3",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 12,
+   "url": "https://www.marianos.com/pl/lamb-veal-bison/05014"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

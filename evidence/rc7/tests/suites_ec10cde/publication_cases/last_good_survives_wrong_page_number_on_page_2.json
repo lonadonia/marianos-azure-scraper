@@ -1,0 +1,37 @@
+{
+ "synthetic": true,
+ "injected_failure": true,
+ "scenario": "wrong_page_number_on_page_2",
+ "first_run": "01M800GFKF8BHY4PJ1074BB3GQ",
+ "second_run": "01M800GJDBM2GV6AP6T7BSJKYJ",
+ "second_run_status": "rejected",
+ "second_run_stop_code": null,
+ "refusal": "run status is 'rejected', not 'validated'",
+ "before": {
+  "publication_id": "01M800GJAQJVK7R9RN6G6WJVKV",
+  "version": 1,
+  "publications": 1,
+  "published_run": "01M800GFKF8BHY4PJ1074BB3GQ",
+  "latest_json_sha256": "c764c6e0c347642ea94785c8360962127e3486c3bae3a25111f422f3640256ac",
+  "manifest_sha256": "5085b40ab5409f385bf5b6b4d07524f48228569aa46c264b07228ded0449cb27",
+  "products_sha256": "2faaff561e8bc33104e435706676be342bf79e09f397a5762bf5238ab5aefc10",
+  "published_products": 90,
+  "first_run_observations": 90,
+  "first_run_observations_sha256": "528f470f1157e13f554ab5a318f9dd00ec267b5edef063d350f683304e335ca8",
+  "first_run_records_sha256": "e3567aaaf1f276ffa206302651137a7e5d31a6c7980cc2e7f9980dbc7dd9a798"
+ },
+ "after": {
+  "publication_id": "01M800GJAQJVK7R9RN6G6WJVKV",
+  "version": 1,
+  "publications": 1,
+  "published_run": "01M800GFKF8BHY4PJ1074BB3GQ",
+  "latest_json_sha256": "c764c6e0c347642ea94785c8360962127e3486c3bae3a25111f422f3640256ac",
+  "manifest_sha256": "5085b40ab5409f385bf5b6b4d07524f48228569aa46c264b07228ded0449cb27",
+  "products_sha256": "2faaff561e8bc33104e435706676be342bf79e09f397a5762bf5238ab5aefc10",
+  "published_products": 90,
+  "first_run_observations": 90,
+  "first_run_observations_sha256": "528f470f1157e13f554ab5a318f9dd00ec267b5edef063d350f683304e335ca8",
+  "first_run_records_sha256": "e3567aaaf1f276ffa206302651137a7e5d31a6c7980cc2e7f9980dbc7dd9a798"
+ },
+ "unchanged": true
+}

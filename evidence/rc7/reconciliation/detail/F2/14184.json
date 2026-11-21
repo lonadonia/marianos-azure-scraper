@@ -1,0 +1,100 @@
+{
+ "audit": {
+  "accounted_identities": 11,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 11,
+  "fresh_records": 11,
+  "fresh_valid": 11,
+  "listing_id": "14184",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "11 distinct products of 11 reported, on 1 page(s), each accounted for",
+  "reported_total": 11,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111060965",
+  "0002412601886",
+  "0003997811377",
+  "0007022750002",
+  "0007222001018",
+  "0007294576615",
+  "0069899780916",
+  "0081075701030",
+  "0081075701323",
+  "0081075701324",
+  "0081075701325"
+ ],
+ "fresh_linked": [
+  "0001111060965",
+  "0002412601886",
+  "0003997811377",
+  "0007022750002",
+  "0007222001018",
+  "0007294576615",
+  "0069899780916",
+  "0081075701030",
+  "0081075701323",
+  "0081075701324",
+  "0081075701325"
+ ],
+ "listing": "14184",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 11,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNXY6EAE22477R00HY08KE",
+   "identities": [
+    "0007294576615",
+    "0007222001018",
+    "0001111060965",
+    "0081075701323",
+    "0003997811377",
+    "0081075701324",
+    "0002412601886",
+    "0081075701325",
+    "0007022750002",
+    "0069899780916",
+    "0081075701030"
+   ],
+   "listing": "14184",
+   "observed_at": "2026-11-16 17:19:28.974852+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "14184",
+   "sha256": "7b669b74e3fd5186d0e9e794ec1a917718fde09ac8c2c0632cacc3a56ccbebf4",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 11,
+   "url": "https://www.marianos.com/pl/bread-by-lifestyle/14184"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

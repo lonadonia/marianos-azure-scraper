@@ -1,11 +1,11 @@
-"""Checks source/ file for file against manifests/MARIANOS_SOURCE_1.10.0rc6.SHA256SUMS.txt and, in a Git checkout,
+"""Checks source/ file for file against manifests/MARIANOS_SOURCE_1.10.0rc7.SHA256SUMS.txt and, in a Git checkout,
 compares the Git tree ID of source/ with that of the collector's development commit (manifests/PUBLICATION.json).
 Standard library only, offline. Run from the repository root:
 
     python3 manifests/check_source_tree.py
 
 Exit 0 when every listed file is present with its SHA-256, no other file is in source/, and, where Git is available,
-the tree ID matches 73607661dae6e205155f58c230a3e11d1ad4c546: the development tree b6b5f1d395d444f808423cfcb01a17cb149b29b7 of collector 1.10.0rc6 (commit d77f3065c757b8b962524dbf8d9961dec212e72b) with
+the tree ID matches e370b31320fdf825749ecc8a5da2c7544137cc25: the development tree fe89f133cf7551b6cb7a26633c445508fe0c66fd of collector 1.10.0rc7 (commit ec10cde09feedf5a5bab04169e6dbadb8592b5ce) with
 one change, the test VM's host masked in source/docs/AZURE_VM.md (manifests/REDACTIONS.csv).
 """
 
@@ -15,8 +15,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SUMS = ROOT / "manifests" / "MARIANOS_SOURCE_1.10.0rc6.SHA256SUMS.txt"
-TREE = "73607661dae6e205155f58c230a3e11d1ad4c546"
+SUMS = ROOT / "manifests" / "MARIANOS_SOURCE_1.10.0rc7.SHA256SUMS.txt"
+TREE = "e370b31320fdf825749ecc8a5da2c7544137cc25"
 
 
 def main() -> int:

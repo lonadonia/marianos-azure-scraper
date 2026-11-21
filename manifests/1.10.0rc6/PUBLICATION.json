@@ -1,0 +1,35 @@
+{
+ "repository": "https://github.com/lonadonia/marianos-azure-scraper",
+ "review_tag": "review-1.10.0rc6-20261117",
+ "packaging_commit": "the commit named by the review tag (a file cannot hold the id of the commit that adds it)",
+ "parent_commit": "58b1fdf8f728402f4b6fb6d06ec17d527d5b18a6 (the latest-only cleanup), child of 76e72ab4e410e79eff35b10061c2e1a1d7137d42 (review-1.10.0rc5-20261116)",
+ "status": "NOT FINAL: a checkpoint for the client's review, not an accepted delivery. 1.10.0rc6 corrects the three defects found in 1.10.0rc5's review (OR-19, OR-20, OR-04), each with tests committed before the fix that fail before it and pass after, and is qualified on Hamza's VM; its full run R7 (01M7KQ5GZVF5VK1S9FGTG6YFC9) holds 2,518 distinct fresh valid UPCs in 8 categories but cannot complete on 1.10.0rc6: a listing the site links with a malformed address stopped six of its ten executions, each about 5 minutes in, and stops every resume (OR-22, OR-23), so R7 was not resumed after its fifth slice, with USD 4.4200 of the credit left. It stays interrupted and resumable; its gates, evaluated on an isolated copy finalized offline, give G3, G4 FAIL (coverage, and yield: the 19 categories R7 did not reach have no record) and G13 PASS, G14 PASS. The four defects R7 found (OR-21 to OR-24, among them two counted pages whose records the two lanes lost) are corrected on the branch marianos-1.10-next with tests that fail before and pass after, not released. No full-scope run exists to publish; the schedule, the two-week observation, the client's VM, the client's acceptance and the other items under What remains stay open",
+ "prepared_by": "Hamza",
+ "prepared_on": "2026-11-17",
+ "authorization": "Hamza's brief of 16 November 2026 (the closeout after 1.10.0rc5): USD 5 of free credit authorized for Mariano's on the Oxylabs Web API credential he supplied (fingerprint masked …022e50), on his own infrastructure; no top-up, no paid overage, no Oxylabs Classic, no other provider, not the client's VM, no client billing. His update of the same day, after speaking with the client, authorizes live Mariano's collection with his credit, tests on his VM and scheduling on it. Written into the ledger oxylabs-marianos-20261116 (authority in evidence/ledger/META.csv); every stage record names it as its approval.",
+ "collector": {
+  "name": "marianos-azure-headless",
+  "version": "1.10.0rc6",
+  "development_commit": "d77f3065c757b8b962524dbf8d9961dec212e72b",
+  "development_tree": "b6b5f1d395d444f808423cfcb01a17cb149b29b7",
+  "development_branch": "marianos-1.10 (local; its history is not published; the commits since 1.10.0rc5 are listed in evidence/tests/COMMITS_SINCE_1.10.0rc5.txt)",
+  "published_at": "source/ (git rev-parse review-1.10.0rc6-20261117:source prints 73607661dae6e205155f58c230a3e11d1ad4c546: the development tree with the test VM's host masked in docs/AZURE_VM.md, see manifests/REDACTIONS.csv)",
+  "published_tree": "73607661dae6e205155f58c230a3e11d1ad4c546",
+  "change_since_1.10.0rc5": "git diff review-1.10.0rc5-20261116 review-1.10.0rc6-20261117 -- source (1.10.0rc6: OR-19, a page for the store whose product data has not loaded counts nothing and is asked again instead of being taken for another store; OR-20, validate-export reads each stored page once with bounded memory and checks every record; OR-04, the Coupons row is read only when its list loaded and its verdict holds through the run, and is the coverage file's row 0 only when the run's plan names it; the run order, a listing's subdivisions read right after it, --rows-first to read named rows first, --term-upc to read only named product pages; each with tests that fail on 1.10.0rc5)",
+  "parser_version": "1.10.0"
+ },
+ "where_it_ran": "Hamza's own Azure test VM (Ubuntu 24.04, PostgreSQL 16, Docker), not the client's VM; store Mariano's Vernon Hills 53100502, PICKUP; provider Oxylabs Web API (the new credential's USD 5 of free credit, through the shared trial ledger)",
+ "live_runs": "P7 (2026-11-16 23:20Z, a one-lane pilot of rows 0 and 27, never published); R6 (23:40Z, one slice at the site's busiest repeat hour, finalized offline: rejected, never published); R7, run 01M7KQ5GZVF5VK1S9FGTG6YFC9 (2026-11-17 03:00Z to 05:35Z), the full-scope run, five slices with two lanes, 256 submissions: it cannot complete on 1.10.0rc6 (OR-22, OR-23), was finalized in an isolated copy offline (rejected: G3 and G4 FAIL, G13 and G14 PASS; 2,518 distinct fresh valid UPCs in 8 categories) and its publication was refused on the copy and on its target (exit 6); P8 (04:20Z, a one-lane pilot on an isolated target of its own, reading three named product pages again). All stages: 349 submissions, USD 0.4800 committed of the USD 4.90 envelope",
+ "checks_before_commit": "source/ equal to the development tree of 1.10.0rc6 (commit d77f306, Git tree b6b5f1d3 checked); on Hamza's VM unit 506 passed, ruff and mypy clean, the C1 cases 30 passed, the publication cases 6 passed and the whole integration suite 247 passed; on the workstation the integration suite without its 29 browser tests, 218 passed; each correction's tests failing before and passing after; every staged file scanned for credentials and private identifiers, archive members included; SHA256SUMS.txt over every file",
+ "not_done": [
+"full coverage of the configured scope (G3): R7 cannot complete on 1.10.0rc6 (OR-22, OR-23) and stays interrupted and resumable; a full run of a corrected candidate needs USD 6.4680 to 7.6980 at R7's rate, USD 2.0490 to 3.2790 more than the envelope holds",
+"a complete run whose gates all pass: on R7's copy finalized offline G13 and G14 pass, G3 and G4 fail (coverage), so it is rejected; the four defects R7 found (OR-21 to OR-24) are corrected on a branch, not released",
+"a protected full-scope publication, and so the schedule and two weeks of observations (scheduled occurrences, disappearances, stock transitions, retention, an unavailable coupon kept as historical)",
+"the re-ask limit for a repeated page (two re-asks, at least 300 s apart): kept, as the brief requires; whether it may change is Hamza's decision",
+"rendered pages for 0001780014939 and 0001780014941 (not rendered in R7 or P8), and records of them and of 0002310014848 in a run without OR-24; Nutrl and the dip, on no page R7 counted",
+"anything on the client's VM (install, suites, release, walkthrough, acceptance): outside the authorization",
+"the client's review of the records and sign-off; support and IP terms",
+"any Oxylabs Classic request: outside the authorization"
+],
+ "earlier_deliveries": "EARLIER_DELIVERIES.md (each at its own review tag, unchanged)"
+}

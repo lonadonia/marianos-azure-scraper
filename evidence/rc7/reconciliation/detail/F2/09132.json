@@ -1,0 +1,70 @@
+{
+ "audit": {
+  "accounted_identities": 1,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 1,
+  "fresh_records": 1,
+  "fresh_valid": 1,
+  "listing_id": "09132",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "1 distinct products of 1 reported, on 1 page(s), each accounted for",
+  "reported_total": 1,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0085088100119"
+ ],
+ "fresh_linked": [
+  "0085088100119"
+ ],
+ "listing": "09132",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 1,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNYQSAVMSC39591ZBXEFZ5",
+   "identities": [
+    "0085088100119"
+   ],
+   "listing": "09132",
+   "observed_at": "2026-11-16 17:19:55.178438+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "09132",
+   "sha256": "389f1c05717034f7f1d4a8d5cfc12a921723344bab06a6a8a9f04bbb3f6c160b",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 1,
+   "url": "https://www.marianos.com/pl/orchids/09132"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

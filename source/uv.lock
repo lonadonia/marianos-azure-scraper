@@ -440,7 +440,7 @@ wheels = [
 
 [[package]]
 name = "marianos-azure-headless"
-version = "1.10.0rc6"
+version = "1.10.0rc7"
 source = { editable = "." }
 dependencies = [
     { name = "alembic" },

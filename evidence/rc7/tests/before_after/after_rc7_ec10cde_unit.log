@@ -1,0 +1,23 @@
+...................                                                      [100%]
+=================================== PASSES ====================================
+=========================== short test summary info ===========================
+PASSED tests/unit/test_route_audit_rc7.py::test_the_positive_control_cat_food_reconciles
+PASSED tests/unit/test_route_audit_rc7.py::test_dog_food_page_7_without_records_is_incomplete_with_its_products_named
+PASSED tests/unit/test_route_audit_rc7.py::test_cat_treats_page_2_short_by_20_is_incomplete
+PASSED tests/unit/test_route_audit_rc7.py::test_one_product_short_223_of_224_is_never_done
+PASSED tests/unit/test_route_audit_rc7.py::test_equal_counts_with_a_substituted_upc_are_not_a_match
+PASSED tests/unit/test_route_audit_rc7.py::test_overlapping_subdivisions_complete_only_by_their_union
+PASSED tests/unit/test_route_audit_rc7.py::test_a_subdivision_short_of_its_products_keeps_the_parent_incomplete
+PASSED tests/unit/test_route_audit_rc7.py::test_a_brand_reading_whose_filter_the_page_did_not_bind_counts_nothing
+PASSED tests/unit/test_route_audit_rc7.py::test_a_page_not_shown_for_the_store_is_not_counted_evidence
+PASSED tests/unit/test_route_audit_rc7.py::test_an_empty_listing_needs_a_page_of_the_store_stating_zero
+PASSED tests/unit/test_route_audit_rc7.py::test_a_repeated_page_counted_twice_does_not_make_up_the_total
+PASSED tests/unit/test_route_audit_rc7.py::test_a_total_that_changed_while_reading_is_named
+PASSED tests/unit/test_route_audit_rc7.py::test_carried_cross_listed_excluded_and_sponsored_stay_distinct
+PASSED tests/unit/test_route_audit_rc7.py::test_a_record_with_no_placement_under_the_listing_does_not_count_here
+PASSED tests/unit/test_route_audit_rc7.py::test_a_placement_made_from_another_listings_page_is_not_unexpected
+PASSED tests/unit/test_route_audit_rc7.py::test_an_incomplete_listing_stays_incomplete_and_the_summary_names_the_downgrades
+PASSED tests/unit/test_contract_csv_rc7.py::test_the_csv_and_the_json_of_one_export_pass_the_same_contract
+PASSED tests/unit/test_contract_csv_rc7.py::test_a_csv_whose_leading_zeros_were_lost_fails
+PASSED tests/unit/test_contract_csv_rc7.py::test_a_csv_with_another_header_or_a_short_row_fails
+19 passed in 0.75s

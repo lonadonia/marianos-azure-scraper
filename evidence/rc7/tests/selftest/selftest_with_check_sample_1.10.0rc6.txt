@@ -1,0 +1,12 @@
+ok   exit 0 (must be 0)  interactive use: a difference is reported, exit 0  [differences: 1]
+ok   exit 0 (must be 0)  strict: a genuine match  [differences: 0]
+ok   exit 0 (must be 0)  strict: a genuine match against an expected list (CSV, leading zeros)  [differences: 0]
+BAD  exit 0 (must be 1)  strict: an altered price per measure  [differences: 1]
+BAD  exit 0 (must be 1)  strict: an exported price the tile does not show  [differences: 1]
+BAD  exit 0 (must be 1)  strict: an expected UPC missing from the export  [differences: 0]
+ok   exit 0 (must be 0)  strict: the same UPC as a documented exclusion  [differences: 0]
+BAD  exit 0 (must be 1)  strict: an exclusion without a reason is not one  [differences: 0]
+BAD  exit 0 (must be 1)  strict: a record without its excerpt  [differences: 0]
+BAD  exit 1 (must be 2)  strict: no excerpt file at all  []
+BAD  exit 0 (must be 1)  strict: nothing asked for  [differences: 0]
+selftest: FAIL

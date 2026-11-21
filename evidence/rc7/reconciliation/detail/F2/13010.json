@@ -1,0 +1,97 @@
+{
+ "audit": {
+  "accounted_identities": 10,
+  "children": [],
+  "cross_listed": 5,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 10,
+  "fresh_records": 10,
+  "fresh_valid": 9,
+  "listing_id": "13010",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "10 distinct products of 10 reported, on 1 page(s), each accounted for",
+  "reported_total": 10,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111009641",
+  "0001111063216",
+  "0001111065054",
+  "0001111069742",
+  "0001115059030",
+  "0003760038800",
+  "0004157308523",
+  "0007300786761",
+  "0021643610000",
+  "0085073200634"
+ ],
+ "fresh_linked": [
+  "0001111009641",
+  "0001111063216",
+  "0001111065054",
+  "0001111069742",
+  "0001115059030",
+  "0003760038800",
+  "0004157308523",
+  "0007300786761",
+  "0021643610000",
+  "0085073200634"
+ ],
+ "listing": "13010",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 10,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNVD2YGGQPXMC51ZT02PVM",
+   "identities": [
+    "0001111063216",
+    "0001111009641",
+    "0001111069742",
+    "0007300786761",
+    "0021643610000",
+    "0001111065054",
+    "0003760038800",
+    "0001115059030",
+    "0085073200634",
+    "0004157308523"
+   ],
+   "listing": "13010",
+   "observed_at": "2026-11-16 17:18:05.918217+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "13010",
+   "sha256": "f1917d987d2ee8a95e3316c674dfadf7a5982026792ba5dfe5aebc854078c130",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 10,
+   "url": "https://www.marianos.com/pl/party-platters/13010"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

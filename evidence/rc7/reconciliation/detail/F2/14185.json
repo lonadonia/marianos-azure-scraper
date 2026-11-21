@@ -1,0 +1,112 @@
+{
+ "audit": {
+  "accounted_identities": 15,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 15,
+  "fresh_records": 15,
+  "fresh_valid": 13,
+  "listing_id": "14185",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "15 distinct products of 15 reported, on 1 page(s), each accounted for",
+  "reported_total": 15,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0004588580006",
+  "0007312400206",
+  "0007343500097",
+  "0007371125010",
+  "0007371125015",
+  "0007373100123",
+  "0007373107197",
+  "0067331603651",
+  "0067331603653",
+  "0067331609606",
+  "0087668100750",
+  "0087668100751",
+  "0087668100800",
+  "0087668101325",
+  "0087668101362"
+ ],
+ "fresh_linked": [
+  "0004588580006",
+  "0007312400206",
+  "0007343500097",
+  "0007371125010",
+  "0007371125015",
+  "0007373100123",
+  "0007373107197",
+  "0067331603651",
+  "0067331603653",
+  "0067331609606",
+  "0087668100750",
+  "0087668100751",
+  "0087668100800",
+  "0087668101325",
+  "0087668101362"
+ ],
+ "listing": "14185",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 15,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNY2YGDCX0D673HY9BB3JY",
+   "identities": [
+    "0087668101362",
+    "0007373100123",
+    "0007343500097",
+    "0087668100751",
+    "0087668100750",
+    "0087668100800",
+    "0087668101325",
+    "0007312400206",
+    "0007373107197",
+    "0004588580006",
+    "0007371125010",
+    "0067331603653",
+    "0007371125015",
+    "0067331603651",
+    "0067331609606"
+   ],
+   "listing": "14185",
+   "observed_at": "2026-11-16 17:19:33.84043+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "14185",
+   "sha256": "76bda5f839ec5c25790536a24b3b9df09ba9ec2aa320baa47be1b94377d1fb57",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 15,
+   "url": "https://www.marianos.com/pl/specialty-breads-and-rolls/14185"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

@@ -92,7 +92,33 @@ validated run is also published:
   Azure), with the results, for the releases up to 1.2.1; the verification of each later release is in that
   release's delivery (TECHNICAL_REPORT).
 
-## Release 1.10.0 (candidate 1.10.0rc6, not a final release): a request set aside and asked again (C1)
+## Release 1.10.0 (candidate 1.10.0rc7, not a final release): a request set aside and asked again (C1)
+
+**1.10.0rc7: a listing's verdict from the products actually accounted for, the same for every reader
+(`collection/route_audit.py`).** Darren's review of the full run R7 (2026-11-20): its coverage file reported
+Dog Food 27017 and Cat Treats 27022 DONE with no gap while 44 products of their counted pages had no record
+(the coverage file took the larger of the pages' identities and the listing's own count; G3 took the count).
+From rc7 a listing is DONE only when every product its counted pages list has a record of the run placed
+under the listing (fresh, or excluded with its stated reasons) and those products reach the highest total
+the source reported; EMPTY only with a page of the store stating 0 results (that page now keeps its row); a
+listing read through subdivisions only by their union. The collector's node coverage, the coverage files,
+G3 and the export read that verdict, and the publication (manual and automatic) reads it again from the
+run's pages, placements and records: an unexplained gap refuses it with exit 6, the last good dataset
+untouched. One product of 61 lost on a counted page (a coverage of 0.984, above both G3 thresholds) was
+validated and published by 1.10.0rc6; here it is INCOMPLETE everywhere and never published
+(`tests/integration/test_route_audit_rc7.py`, `tests/unit/test_route_audit_rc7.py`). A run whose plan has no
+listing is refused too: the publication protocol's tests (`tests/integration/test_publish.py`, and the
+rollback tests that reuse its runs) give their synthetic runs a plan that reconciles
+(`tests/integration/helpers.py: reconciled_plan`) and check that a run without one, or with one product listed
+and unrecorded, is refused with the pointer untouched. Also:
+`validate-export --file` reads `products.csv` (until rc6 a CSV was refused as unreadable JSON), and
+`tools/replay_routes.py` replays a stored run's listings offline against the 1.9 baseline queue. rc7 also
+carries the four corrections of the 1.10 development line after rc6: OR-21 (both lanes cancelled and
+awaited before the session closes), OR-22 (the Hard Cider link 08194 asked in the site's form, the menu's own
+link kept), OR-23 (a page that keeps failing leaves its listing incomplete with its reason and no longer
+stops every resume) and OR-24 (each lane keeps its own page and records while a product page is read).
+
+### 1.10.0rc6 (not a final release): a request set aside and asked again (C1)
 
 **1.10.0rc6: three defects found by the full run F2 (1.10.0rc5, 2026-11-16) corrected, and the run's order
 and product pages chosen from F2's traces.** Each defect has a focused test that fails on 1.10.0rc5 and

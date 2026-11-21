@@ -1,0 +1,193 @@
+{
+ "case": "rc7_lost_record_page_2_whole",
+ "evidence_type": "SYNTHETIC pages (tests/listing_site.py, tests/c1_site.py) behind a local mock transport; the lost record is injected",
+ "lost": [
+  "0003800000025",
+  "0003800000026",
+  "0003800000027",
+  "0003800000028",
+  "0003800000029",
+  "0003800000030",
+  "0003800000031",
+  "0003800000032",
+  "0003800000033",
+  "0003800000034",
+  "0003800000035",
+  "0003800000036",
+  "0003800000037",
+  "0003800000038",
+  "0003800000039",
+  "0003800000040",
+  "0003800000041",
+  "0003800000042",
+  "0003800000043",
+  "0003800000044",
+  "0003800000045",
+  "0003800000046",
+  "0003800000047",
+  "0003800000048"
+ ],
+ "run_status": "rejected",
+ "coverage_line": {
+  "status": "INCOMPLETE",
+  "unique_identities": 37,
+  "unresolved_gap": 24,
+  "accounted_identities": 37,
+  "missing_identities": 24,
+  "missing_by_page": {
+   "2": [
+    "0003800000025",
+    "0003800000026",
+    "0003800000027",
+    "0003800000028",
+    "0003800000029",
+    "0003800000030",
+    "0003800000031",
+    "0003800000032",
+    "0003800000033",
+    "0003800000034",
+    "0003800000035",
+    "0003800000036",
+    "0003800000037",
+    "0003800000038",
+    "0003800000039",
+    "0003800000040",
+    "0003800000041",
+    "0003800000042",
+    "0003800000043",
+    "0003800000044",
+    "0003800000045",
+    "0003800000046",
+    "0003800000047",
+    "0003800000048"
+   ]
+  }
+ },
+ "node_coverage": [
+  "INCOMPLETE",
+  37,
+  61
+ ],
+ "g3": [
+  [
+   "FAIL",
+   "status INCOMPLETE"
+  ],
+  [
+   "FAIL",
+   "coverage 0.607"
+  ]
+ ],
+ "incoherent_pages_oracle": [
+  [
+   "03001",
+   2,
+   [
+    "0003800000025",
+    "0003800000026",
+    "0003800000027",
+    "0003800000028",
+    "0003800000029",
+    "0003800000030",
+    "0003800000031",
+    "0003800000032",
+    "0003800000033",
+    "0003800000034",
+    "0003800000035",
+    "0003800000036",
+    "0003800000037",
+    "0003800000038",
+    "0003800000039",
+    "0003800000040",
+    "0003800000041",
+    "0003800000042",
+    "0003800000043",
+    "0003800000044",
+    "0003800000045",
+    "0003800000046",
+    "0003800000047",
+    "0003800000048"
+   ]
+  ]
+ ],
+ "automatic": {
+  "exit_code": 6,
+  "run_status": "rejected",
+  "log": [
+   {
+    "level": "WARN",
+    "event": "RUN_FINISHED",
+    "exit_code": 6,
+    "message": null,
+    "publication": null,
+    "version": null
+   }
+  ],
+  "run_finished": {
+   "ts": "2026-11-21T22:20:01.834Z",
+   "level": "WARN",
+   "event": "RUN_FINISHED",
+   "collector": "marianos-azure-headless",
+   "store": "marianos-53100502-pickup",
+   "exit_code": 6,
+   "run_id": "01M8033SGNG066CZZG4X3ERHX3",
+   "status": "rejected",
+   "trigger": "console",
+   "dataset": "partial",
+   "pilot": false,
+   "occurrence": null,
+   "stop_code": null,
+   "stop_detail": null,
+   "created_at": "2026-11-21T22:19:59.891970Z",
+   "started_at": "2026-11-21T22:19:59.911874Z",
+   "finished_at": "2026-11-21T22:20:01.740180Z",
+   "outcome": "rejected",
+   "records_by_status": {
+    "valid": 37,
+    "historical": 24
+   },
+   "collection_complete": false,
+   "canary": {
+    "at": "2026-11-09T16:00:00Z",
+    "url": "https://www.marianos.com/pl/listing-03001/03001",
+    "page": "01M8033SRH9SB14WK4B24E3G50",
+    "valid": 24,
+    "status": "passed",
+    "records": 24,
+    "problems": [],
+    "valid_ratio": 1.0,
+    "source_check": {
+     "records": 24,
+     "mismatch": 0,
+     "verified": 24,
+     "unverified": 0
+    }
+   },
+   "historical": {
+    "too_old": 0,
+    "carried_forward": 24
+   },
+   "failed_checks": [
+    "G3"
+   ]
+  },
+  "events": []
+ },
+ "manual": "refused (exit 6): run 01M8033SGNG066CZZG4X3ERHX3 is a partial dataset: only complete runs are published",
+ "before": {
+  "publication_id": "01M8033SF6NPBVVK48AMZ5MK2J",
+  "version": 1,
+  "published_run": "01M8033Q34AJKC0KW2P4ZJSYY0",
+  "latest_json_sha256": "279fed0f98b22befcf517d0afc28d672b47b50e28f0ab0c86ea33e2dac30f04e",
+  "manifest_sha256": "91b4b72eb7fff2f7630b420a7556b9e6d089f097ba0f1329e82e696b24fdf6d0",
+  "products_sha256": "95e1f080609f3c98bdbdc2036bbe317ca9fc6e8a8b70627ef200151a87958b1e"
+ },
+ "after": {
+  "publication_id": "01M8033SF6NPBVVK48AMZ5MK2J",
+  "version": 1,
+  "published_run": "01M8033Q34AJKC0KW2P4ZJSYY0",
+  "latest_json_sha256": "279fed0f98b22befcf517d0afc28d672b47b50e28f0ab0c86ea33e2dac30f04e",
+  "manifest_sha256": "91b4b72eb7fff2f7630b420a7556b9e6d089f097ba0f1329e82e696b24fdf6d0",
+  "products_sha256": "95e1f080609f3c98bdbdc2036bbe317ca9fc6e8a8b70627ef200151a87958b1e"
+ }
+}

@@ -1,0 +1,14 @@
+........                                                                 [100%]
+=================================== PASSES ====================================
+_ test_rc7_a_counted_product_without_a_record_is_incomplete_everywhere_and_never_published[one_product_of_61] _
+---------------------------- Captured stdout call -----------------------------
+=========================== short test summary info ===========================
+PASSED tests/integration/test_route_audit_rc7.py::test_rc7_a_counted_product_without_a_record_is_incomplete_everywhere_and_never_published[one_product_of_61]
+PASSED tests/integration/test_route_audit_rc7.py::test_rc7_a_counted_product_without_a_record_is_incomplete_everywhere_and_never_published[page_2_whole]
+PASSED tests/integration/test_route_audit_rc7.py::test_rc7_publication_reads_the_coverage_again_whatever_the_recorded_checks_say
+PASSED tests/integration/test_route_audit_rc7.py::test_control_a_complete_run_reconciles_and_is_published
+PASSED tests/integration/test_route_audit_rc7.py::test_lanes_two_lanes_in_either_order_keep_what_one_lane_keeps[product_after_other]
+PASSED tests/integration/test_route_audit_rc7.py::test_lanes_two_lanes_in_either_order_keep_what_one_lane_keeps[other_after_product]
+PASSED tests/integration/test_route_audit_rc7.py::test_control_on_the_search_route_the_other_lane_waiting_for_the_product_page_loses_nothing
+PASSED tests/integration/test_route_audit_rc7.py::test_control_a_two_lane_worker_killed_mid_run_leaves_every_counted_page_whole_and_resume_completes_it
+8 passed in 46.91s

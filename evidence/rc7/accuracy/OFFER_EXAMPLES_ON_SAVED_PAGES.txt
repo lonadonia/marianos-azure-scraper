@@ -1,0 +1,14 @@
+The client's four offer and size examples, searched on every listing page row of every saved run (organic and
+sponsored identities), offline, 2026-11-21. Runs searched (25): F1a, F2a, F2b, F2c, F2d, L1, L2, P1, P2, P3, P4, P5, P6, P7, P8, R6a, R6fin, R7a, R7a2, R7b, R7c, R7fin_copy, R7w, S6, S6b
+A page counts only when its state is 'completed'; a refused or stopped page is not counted.
+
+0081675102373 Cutwater Espresso Martini: 2 page row(s)
+    R7c: listing 08193 page 1 attempt 1 completed at 2026-11-17 05:26:07Z, page sha256 1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f
+    R7fin_copy: listing 08193 page 1 attempt 1 completed at 2026-11-17 05:26:07Z, page sha256 1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f
+0086001079386 The Finnish Long Drink: 2 page row(s)
+    R7c: listing 08193 page 1 attempt 1 completed at 2026-11-17 05:26:07Z, page sha256 1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f
+    R7fin_copy: listing 08193 page 1 attempt 1 completed at 2026-11-17 05:26:07Z, page sha256 1a225ce412cff71b88e93bfb7d994dacaf20db68d17af557f4c9cb6ea0571a9f
+0001820020352 Nutrl: 2 page row(s)
+    R7c: listing 08183 page 2 attempt 2 refused at 2026-11-17 05:25:07Z, page sha256 cbf4728328d787827ff75c4203d11df0796293c9fddb00b2a48ad766687a1bd3
+    R7fin_copy: listing 08183 page 2 attempt 2 refused at 2026-11-17 05:25:07Z, page sha256 cbf4728328d787827ff75c4203d11df0796293c9fddb00b2a48ad766687a1bd3
+0073679800140 the dip: on no saved page

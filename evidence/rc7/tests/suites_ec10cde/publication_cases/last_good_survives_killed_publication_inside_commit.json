@@ -1,0 +1,45 @@
+{
+ "synthetic": true,
+ "injected_failure": true,
+ "stage": "inside_commit",
+ "before": {
+  "publication_id": "01M800MKX5E8J2R7BNKT3Q89YN",
+  "version": 1,
+  "publications": 1,
+  "published_run": "01M800MHA2CYJT79MB97TMTZFX",
+  "latest_json_sha256": "a81c5d9b17059807258aeb5eb5a3778a662d5edb188641459890fa39594e089d",
+  "manifest_sha256": "c6a82c14e8413a5427f213dfd3efe915b8ee3e6e7454e07b15dfebe3a18035cf",
+  "products_sha256": "2faaff561e8bc33104e435706676be342bf79e09f397a5762bf5238ab5aefc10",
+  "published_products": 90,
+  "first_run_observations": 90,
+  "first_run_observations_sha256": "3427053c0fa890ecd3843e7bec9679b2b62690a9e524522f947c61ba527bf0a9",
+  "first_run_records_sha256": "e3567aaaf1f276ffa206302651137a7e5d31a6c7980cc2e7f9980dbc7dd9a798"
+ },
+ "after_kill": {
+  "publication_id": "01M800MKX5E8J2R7BNKT3Q89YN",
+  "version": 1,
+  "publications": 1,
+  "published_run": "01M800MHA2CYJT79MB97TMTZFX",
+  "latest_json_sha256": "a81c5d9b17059807258aeb5eb5a3778a662d5edb188641459890fa39594e089d",
+  "manifest_sha256": "c6a82c14e8413a5427f213dfd3efe915b8ee3e6e7454e07b15dfebe3a18035cf",
+  "products_sha256": "2faaff561e8bc33104e435706676be342bf79e09f397a5762bf5238ab5aefc10",
+  "published_products": 90,
+  "first_run_observations": 90,
+  "first_run_observations_sha256": "3427053c0fa890ecd3843e7bec9679b2b62690a9e524522f947c61ba527bf0a9",
+  "first_run_records_sha256": "e3567aaaf1f276ffa206302651137a7e5d31a6c7980cc2e7f9980dbc7dd9a798"
+ },
+ "after_retry": {
+  "publication_id": "01M800MSM17V2CJM44TD1QD8YZ",
+  "version": 2,
+  "publications": 2,
+  "published_run": "01M800MKZGGQ3PNCBYAQ911PQ2",
+  "latest_json_sha256": "2600d02adfd687d7b4967e2fc7c7d21dc8c444652506d10d765bbd02e0356316",
+  "manifest_sha256": "f683ca3d7ad1bea0e2bbe08b5b4cb9b4dc42faeb06513dc6c536baed68419f1c",
+  "products_sha256": "2faaff561e8bc33104e435706676be342bf79e09f397a5762bf5238ab5aefc10",
+  "published_products": 90,
+  "first_run_observations": 90,
+  "first_run_observations_sha256": "3427053c0fa890ecd3843e7bec9679b2b62690a9e524522f947c61ba527bf0a9",
+  "first_run_records_sha256": "e3567aaaf1f276ffa206302651137a7e5d31a6c7980cc2e7f9980dbc7dd9a798"
+ },
+ "real_process_kill": true
+}

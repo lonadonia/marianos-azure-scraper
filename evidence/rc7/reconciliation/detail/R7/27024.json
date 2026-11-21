@@ -1,0 +1,85 @@
+{
+ "audit": {
+  "accounted_identities": 6,
+  "children": [],
+  "cross_listed": 0,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 6,
+  "fresh_records": 6,
+  "fresh_valid": 5,
+  "listing_id": "27024",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "6 distinct products of 6 reported, on 1 page(s), each accounted for",
+  "reported_total": 6,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111086798",
+  "0007723405617",
+  "0007723440050",
+  "0078436920234",
+  "0078436920775",
+  "0078630639384"
+ ],
+ "fresh_linked": [
+  "0001111086798",
+  "0007723405617",
+  "0007723440050",
+  "0078436920234",
+  "0078436920775",
+  "0078630639384"
+ ],
+ "listing": "27024",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 6,
+    "sha256_matches": true
+   },
+   "fetch": "01M7KQB47DCGZWAP78349SAA2Y",
+   "identities": [
+    "0078630639384",
+    "0001111086798",
+    "0078436920234",
+    "0007723440050",
+    "0007723405617",
+    "0078436920775"
+   ],
+   "listing": "27024",
+   "observed_at": "2026-11-17 03:03:24.141166+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "27024",
+   "sha256": "6ff5b9c7342a79bb869c8d9b0ccc990a56769c75dc11af4088084997913033d9",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 6,
+   "url": "https://www.marianos.com/pl/cat-toys/27024"
+  }
+ ],
+ "replay_id": "RPL-R7-76c0932dbc0a",
+ "run": "01M7KQ5GZVF5VK1S9FGTG6YFC9",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

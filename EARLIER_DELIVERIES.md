@@ -3,8 +3,11 @@
 The default branch holds only the latest delivery. Every earlier delivery stays complete, unchanged, at its own
 review tag (an annotated tag; none was moved or replaced):
 
+**1.10.0rc7 is an exception: it removes nothing.** Its review asked that 1.10.0rc6's reports, exports, source hashes, coverage tables and publication refusals stay byte for byte, so 1.10.0rc6's `evidence/`, `review/` and the versioned `manifests/MARIANOS_SOURCE_1.10.0rc6.SHA256SUMS.txt` stay on the default branch unchanged, with 1.10.0rc7's additions beside them (`evidence/rc7/`, `review/ADDENDUM_20261121.md`, new columns at the right of the review tables). Three things moved, byte for byte: 1.10.0rc6's entry page, now [`README_1.10.0rc6_20261117.md`](README_1.10.0rc6_20261117.md), and its generic manifests (`SHA256SUMS.txt`, `FILE_MAP.csv`, `PUBLICATION.json`, `check_source_tree.py`), now in [`manifests/1.10.0rc6/`](manifests/1.10.0rc6/). `source/` is collector 1.10.0rc7; 1.10.0rc6's source is complete at its tag.
+
 | Tag | Commit | Date | What it delivered |
 |---|---|---|---|
+| [`review-1.10.0rc6-20261117`](https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.10.0rc6-20261117) | `6906408` | 2026-11-17 | collector 1.10.0rc6: OR-19, OR-20 and OR-04 corrected; the full run R7 incomplete (it could not complete on 1.10.0rc6: OR-22, OR-23), G3 and G4 FAIL, G13 and G14 PASS, its publication refused; OR-21 to OR-24 corrected on a branch; not final |
 | [`review-1.10.0rc5-20261116`](https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.10.0rc5-20261116) | `76e72ab` | 2026-11-16 | collector 1.10.0rc5: the live full run F2 (stopped by a store-check defect, OR-19), its export validation killed for lack of memory (OR-20), the live publication tests P4 to P6, the pilots L1 and L2, F1 on 1.10.0rc4; not final |
 | [`review-1.10.0rc3-20261112`](https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.10.0rc3-20261112) | `e43cce2` | 2026-11-12 | collector 1.10.0rc3: change C1 implemented and proved offline; no live result |
 | [`review-1.9.0rc4-20261109`](https://github.com/lonadonia/marianos-azure-scraper/tree/review-1.9.0rc4-20261109) | `039fb14` | 2026-11-09 | collector 1.9.0rc4: corrections verified live on 2026-11-09 (stages S1 to S5b2) |

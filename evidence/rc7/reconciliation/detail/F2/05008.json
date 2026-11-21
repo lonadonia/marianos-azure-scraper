@@ -1,0 +1,103 @@
+{
+ "audit": {
+  "accounted_identities": 12,
+  "children": [],
+  "cross_listed": 2,
+  "cursor_status": "DONE",
+  "duplicates": 0,
+  "excluded": {},
+  "expected_identities": 12,
+  "fresh_records": 12,
+  "fresh_valid": 12,
+  "listing_id": "05008",
+  "missing": {},
+  "missing_by_page": {},
+  "missing_identities": 0,
+  "pages_counted": 1,
+  "placed_from_other_listings": 0,
+  "reason": "12 distinct products of 12 reported, on 1 page(s), each accounted for",
+  "reported_total": 12,
+  "sponsored_placements": 0,
+  "status": "DONE",
+  "supported_exclusions": 0,
+  "unexpected": [],
+  "unexpected_identities": 0
+ },
+ "expected": [
+  "0001111097759",
+  "0004470009192",
+  "0004470009200",
+  "0004470009205",
+  "0004470009219",
+  "0004470009240",
+  "0007432912305",
+  "0007432912325",
+  "0007432912336",
+  "0007432912339",
+  "0085899600500",
+  "0085899600504"
+ ],
+ "fresh_linked": [
+  "0001111097759",
+  "0004470009192",
+  "0004470009200",
+  "0004470009205",
+  "0004470009219",
+  "0004470009240",
+  "0007432912305",
+  "0007432912325",
+  "0007432912336",
+  "0007432912339",
+  "0085899600500",
+  "0085899600504"
+ ],
+ "listing": "05008",
+ "pages": [
+  {
+   "attempt": 1,
+   "capture_check": {
+    "capture": "present",
+    "products_match": true,
+    "reread_store": [
+     "53100502",
+     "PICKUP"
+    ],
+    "reread_total": 12,
+    "sha256_matches": true
+   },
+   "fetch": "01M7JNNS1WAPRKCJ2V68CCXV5G",
+   "identities": [
+    "0004470009240",
+    "0004470009219",
+    "0085899600504",
+    "0004470009192",
+    "0085899600500",
+    "0007432912325",
+    "0007432912339",
+    "0001111097759",
+    "0007432912305",
+    "0004470009205",
+    "0007432912336",
+    "0004470009200"
+   ],
+   "listing": "05008",
+   "observed_at": "2026-11-16 17:15:01.564276+00",
+   "page": 1,
+   "requested_filter": {},
+   "returned_listing": "05008",
+   "sha256": "4acb7407b9655f8de5995bdbaa37f84fc1d224774bd0ce80a0fed919a392ea47",
+   "sponsored": [],
+   "store": [
+    "53100502",
+    "PICKUP",
+    "PASS"
+   ],
+   "total": 12,
+   "url": "https://www.marianos.com/pl/refrigerated-pickles-sauerkraut/05008"
+  }
+ ],
+ "replay_id": "RPL-F2-c0f33426c40e",
+ "run": "01M7JNB2HDFCNR3GHQVX8FYXX6",
+ "subdivisions": {},
+ "zero_result_evidence": ""
+}

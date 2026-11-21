@@ -16,7 +16,7 @@ from marianos_headless.publishing.exports import write_exports
 from marianos_headless.publishing.publish import PublicationRefused, latest_key, publish_run, sync_latest_json
 from marianos_headless.storage.local import LocalStorageAdapter
 from marianos_headless.worker.runs import register_exports
-from tests.integration.helpers import new_run, seed
+from tests.integration.helpers import new_run, reconciled_plan, seed
 
 pytestmark = pytest.mark.postgres
 
@@ -26,8 +26,17 @@ class Crash(Exception):
 
 
 def prepared_run(
-    factory: sessionmaker[Session], store: Store, storage: LocalStorageAdapter, n: int = 3
+    factory: sessionmaker[Session],
+    store: Store,
+    storage: LocalStorageAdapter,
+    n: int = 3,
+    *,
+    plan: bool = True,
+    unrecorded: tuple[str, ...] = (),
 ) -> str:
+    """A validated SYNTHETIC run with its exports. Since 1.10.0rc7 it also holds a plan whose coverage
+    reconciles (``reconciled_plan``): the publication reads the coverage again and refuses a run
+    without one."""
     run = new_run(factory, store, status="validated")
     records = [
         build_record(
@@ -42,6 +51,8 @@ def prepared_run(
         )
         for i in range(n)
     ]
+    if plan:
+        reconciled_plan(factory, run.id, records, unrecorded=unrecorded)
     ex = write_exports(
         storage,
         store_key=store.key,
@@ -136,6 +147,39 @@ def test_refusals_leave_pointer_untouched(migrated_engine: Engine, tmp_path: Pat
     with factory() as s:
         audit = s.scalars(select(AuditLog).where(AuditLog.target == warned)).one()
         assert audit.reason == "0.95 accepted"
+
+
+def test_rc7_a_run_without_a_plan_or_with_an_unrecorded_product_is_refused_and_the_pointer_stays(
+    migrated_engine: Engine, tmp_path: Path
+) -> None:
+    """1.10.0rc7: the publication reads the coverage again, whatever the recorded gates say. A validated run
+    with no listing in its plan, or whose counted page lists a product with no record, is refused; the
+    pointer and latest.json keep the previous good dataset."""
+    factory, store = seed(migrated_engine)
+    storage = LocalStorageAdapter(tmp_path)
+    good = prepared_run(factory, store, storage)
+    publish_run(factory, storage, good, "tester")
+    before = pointer(factory, store.id)
+    latest_before = storage.get_bytes(latest_key(store.key))
+
+    planless = prepared_run(factory, store, storage, plan=False)
+    with pytest.raises(PublicationRefused, match="the run's plan has no listing"):
+        publish_run(factory, storage, planless, "tester")
+
+    short = prepared_run(factory, store, storage, unrecorded=("000000009999",))
+    with pytest.raises(
+        PublicationRefused, match="1 of the 4 products its counted pages list are not accounted for"
+    ) as refused:
+        publish_run(factory, storage, short, "tester")
+    assert "000000009999" in str(refused.value)
+
+    after = pointer(factory, store.id)
+    assert before is not None and after is not None
+    assert (after.publication_id, after.version) == (before.publication_id, before.version)
+    assert storage.get_bytes(latest_key(store.key)) == latest_before
+    with factory() as s:
+        assert s.get(Run, planless).status == "validated"  # type: ignore[union-attr]
+        assert s.get(Run, short).status == "validated"  # type: ignore[union-attr]
 
 
 @pytest.mark.parametrize("stage", ["before_commit", "inside_commit"])
